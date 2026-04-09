@@ -41,7 +41,7 @@ import com.squareup.moshi.JsonClass
  * @param facebookImage 
  * @param facebookTitle 
  * @param facebookDescription 
- * @param featuredImageURL 
+ * @param featuredImageUrl 
  * @param content 
  * @param code 
  * @param namespace 
@@ -49,6 +49,7 @@ import com.squareup.moshi.JsonClass
  * @param generatedCode 
  * @param compilationPath 
  * @param htmlContent 
+ * @param codeType 
  * @param cSharpContent 
  * @param razorContent 
  * @param cssContent 
@@ -137,8 +138,8 @@ data class EmailSignatureUpdateDto (
     @Json(name = "facebookDescription")
     val facebookDescription: kotlin.String? = null,
 
-    @Json(name = "featuredImageURL")
-    val featuredImageURL: kotlin.String? = null,
+    @Json(name = "featuredImageUrl")
+    val featuredImageUrl: kotlin.String? = null,
 
     @Json(name = "content")
     val content: kotlin.String? = null,
@@ -160,6 +161,9 @@ data class EmailSignatureUpdateDto (
 
     @Json(name = "htmlContent")
     val htmlContent: kotlin.String? = null,
+
+    @Json(name = "codeType")
+    val codeType: EmailSignatureUpdateDto.CodeType? = null,
 
     @Json(name = "cSharpContent")
     val cSharpContent: kotlin.String? = null,
@@ -241,6 +245,20 @@ data class EmailSignatureUpdateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     */
+    @JsonClass(generateAdapter = false)
+    enum class CodeType(val value: kotlin.String) {
+        @Json(name = "Razor") Razor("Razor"),
+        @Json(name = "CSharp") CSharp("CSharp"),
+        @Json(name = "CSHtml") CSHtml("CSHtml"),
+        @Json(name = "Liquid") Liquid("Liquid"),
+        @Json(name = "Html5") Html5("Html5"),
+        @Json(name = "Markdown") Markdown("Markdown");
+    }
 
 }
 

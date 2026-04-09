@@ -64,6 +64,7 @@ import com.squareup.moshi.JsonClass
  * @param stackExchangeUrl 
  * @param stackOverflowUrl 
  * @param parentContactId 
+ * @param faxNumber 
  */
 
 
@@ -181,31 +182,34 @@ data class ContactCreateDto (
     val githubUsername: kotlin.String? = null,
 
     @Json(name = "instagramUsername")
-    val instagramUsername: kotlin.Any? = null,
+    val instagramUsername: kotlin.String? = null,
 
     @Json(name = "tikTokUsername")
-    val tikTokUsername: kotlin.Any? = null,
+    val tikTokUsername: kotlin.String? = null,
 
     @Json(name = "stackExchangeUrl")
-    val stackExchangeUrl: kotlin.Any? = null,
+    val stackExchangeUrl: kotlin.String? = null,
 
     @Json(name = "stackOverflowUrl")
-    val stackOverflowUrl: kotlin.Any? = null,
+    val stackOverflowUrl: kotlin.String? = null,
 
     @Json(name = "parentContactId")
-    val parentContactId: kotlin.Any? = null
+    val parentContactId: kotlin.String? = null,
+
+    @Json(name = "faxNumber")
+    val faxNumber: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Individual,Organization
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Organization") Organization("Organization");
     }
 
 }

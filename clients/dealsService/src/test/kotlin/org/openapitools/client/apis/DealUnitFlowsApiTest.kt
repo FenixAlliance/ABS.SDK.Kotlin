@@ -36,139 +36,115 @@ class DealUnitFlowsApiTest : ShouldSpec() {
         // uncomment below to create an instance of DealUnitFlowsApi
         //val apiInstance = DealUnitFlowsApi()
 
-        // to test apiV2DealsServiceDealUnitFlowsCountGet
-        should("test apiV2DealsServiceDealUnitFlowsCountGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsCountGet
+        // to test createDealUnitFlowAsync
+        should("test createDealUnitFlowAsync") {
+            // uncomment below to test createDealUnitFlowAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitFlowsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DealUnitFlowDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val dealUnitFlowUpdateDto : DealUnitFlowUpdateDto =  // DealUnitFlowUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DealUnitFlowStageDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val dealUnitFlowStageUpdateDto : DealUnitFlowStageUpdateDto =  // DealUnitFlowStageUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DealUnitFlowStageDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost
-        should("test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost
-            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val dealUnitFlowStageCreateDto : DealUnitFlowStageCreateDto =  // DealUnitFlowStageCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsGet
-        should("test apiV2DealsServiceDealUnitFlowsGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DealUnitFlowDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitFlowsPost
-        should("test apiV2DealsServiceDealUnitFlowsPost") {
-            // uncomment below to test apiV2DealsServiceDealUnitFlowsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val dealUnitFlowCreateDto : DealUnitFlowCreateDto =  // DealUnitFlowCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsPost(tenantId, apiVersion, xApiVersion, dealUnitFlowCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createDealUnitFlowAsync(tenantId, dealUnitFlowCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createDealUnitFlowStageAsync
+        should("test createDealUnitFlowStageAsync") {
+            // uncomment below to test createDealUnitFlowStageAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowStageCreateDto : DealUnitFlowStageCreateDto =  // DealUnitFlowStageCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createDealUnitFlowStageAsync(dealUnitFlowId, tenantId, dealUnitFlowStageCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteDealUnitFlowAsync
+        should("test deleteDealUnitFlowAsync") {
+            // uncomment below to test deleteDealUnitFlowAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteDealUnitFlowAsync(dealUnitFlowId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteDealUnitFlowStageAsync
+        should("test deleteDealUnitFlowStageAsync") {
+            // uncomment below to test deleteDealUnitFlowStageAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowAsync
+        should("test getDealUnitFlowAsync") {
+            // uncomment below to test getDealUnitFlowAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitFlowDtoEnvelope = apiInstance.getDealUnitFlowAsync(dealUnitFlowId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowStageAsync
+        should("test getDealUnitFlowStageAsync") {
+            // uncomment below to test getDealUnitFlowStageAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitFlowStageDtoEnvelope = apiInstance.getDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowStagesAsync
+        should("test getDealUnitFlowStagesAsync") {
+            // uncomment below to test getDealUnitFlowStagesAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitFlowStageDtoListEnvelope = apiInstance.getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowStagesCountAsync
+        should("test getDealUnitFlowStagesCountAsync") {
+            // uncomment below to test getDealUnitFlowStagesCountAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowsAsync
+        should("test getDealUnitFlowsAsync") {
+            // uncomment below to test getDealUnitFlowsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitFlowDtoListEnvelope = apiInstance.getDealUnitFlowsAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitFlowsCountAsync
+        should("test getDealUnitFlowsCountAsync") {
+            // uncomment below to test getDealUnitFlowsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDealUnitFlowsCountAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDealUnitFlowAsync
+        should("test updateDealUnitFlowAsync") {
+            // uncomment below to test updateDealUnitFlowAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowUpdateDto : DealUnitFlowUpdateDto =  // DealUnitFlowUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDealUnitFlowAsync(dealUnitFlowId, tenantId, dealUnitFlowUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDealUnitFlowStageAsync
+        should("test updateDealUnitFlowStageAsync") {
+            // uncomment below to test updateDealUnitFlowStageAsync
+            //val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitFlowStageUpdateDto : DealUnitFlowStageUpdateDto =  // DealUnitFlowStageUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, dealUnitFlowStageUpdateDto)
             //result shouldBe ("TODO")
         }
 

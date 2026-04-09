@@ -19,9 +19,11 @@
 | **jobTitle** | **kotlin.String** |  |  [optional] |
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **parentContactId** | **kotlin.String** |  |  [optional] |
+| **addressLine1** | **kotlin.String** |  |  [optional] |
+| **addressLine2** | **kotlin.String** |  |  [optional] |
+| **postalCode** | **kotlin.String** |  |  [optional] |
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
-| **postalCode** | **kotlin.String** |  |  [optional] |
 | **streetLine1** | **kotlin.String** |  |  [optional] |
 | **streetLine2** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
@@ -30,27 +32,27 @@
 | **coverUrl** | **kotlin.String** |  |  [optional] |
 | **githubUsername** | **kotlin.String** |  |  [optional] |
 | **instagramUsername** | **kotlin.String** |  |  [optional] |
+| **webUrl** | **kotlin.String** |  |  [optional] |
 | **twitchUrl** | **kotlin.String** |  |  [optional] |
 | **redditUrl** | **kotlin.String** |  |  [optional] |
 | **gitHubUrl** | **kotlin.String** |  |  [optional] |
-| **githubUrl** | **kotlin.String** |  |  [optional] |
 | **tikTokUrl** | **kotlin.String** |  |  [optional] |
 | **twitterUrl** | **kotlin.String** |  |  [optional] |
 | **youTubeUrl** | **kotlin.String** |  |  [optional] |
-| **websiteUrl** | **kotlin.String** |  |  [optional] |
 | **facebookUrl** | **kotlin.String** |  |  [optional] |
 | **linkedInUrl** | **kotlin.String** |  |  [optional] |
 | **instagramUrl** | **kotlin.String** |  |  [optional] |
 | **tikTokUsername** | **kotlin.String** |  |  [optional] |
 | **stackExchangeUrl** | **kotlin.String** |  |  [optional] |
 | **stackOverflowUrl** | **kotlin.String** |  |  [optional] |
+| **faxNumber** | **kotlin.String** |  |  [optional] |
 
 
 <a id="Type"></a>
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1 |
+| type | Individual, Organization |
 
 
 

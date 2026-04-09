@@ -26,6 +26,7 @@ import org.openapitools.client.models.ContactDtoEnvelope
 import org.openapitools.client.models.ContactDtoListEnvelope
 import org.openapitools.client.models.ContactProfileDtoListEnvelope
 import org.openapitools.client.models.ContactUpdateDto
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedContactDtoEnvelope
@@ -61,7 +62,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Create a new contact
      * Create a new contact
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param contactCreateDto  (optional)
@@ -74,7 +75,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createContactAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactCreateDto: ContactCreateDto? = null) : EmptyEnvelope {
+    fun createContactAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactCreateDto: ContactCreateDto? = null) : EmptyEnvelope {
         val localVarResponse = createContactAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactCreateDto = contactCreateDto)
 
         return when (localVarResponse.responseType) {
@@ -95,7 +96,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Create a new contact
      * Create a new contact
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param contactCreateDto  (optional)
@@ -105,7 +106,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createContactAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactCreateDto: ContactCreateDto?) : ApiResponse<EmptyEnvelope?> {
+    fun createContactAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactCreateDto: ContactCreateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = createContactAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactCreateDto = contactCreateDto)
 
         return request<ContactCreateDto, EmptyEnvelope>(
@@ -116,17 +117,19 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation createContactAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param contactCreateDto  (optional)
      * @return RequestConfig
      */
-    fun createContactAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactCreateDto: ContactCreateDto?) : RequestConfig<ContactCreateDto> {
+    fun createContactAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactCreateDto: ContactCreateDto?) : RequestConfig<ContactCreateDto> {
         val localVariableBody = contactCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -141,7 +144,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -228,7 +231,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -315,7 +318,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -399,7 +402,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -483,7 +486,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -570,7 +573,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -654,7 +657,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -738,7 +741,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -825,7 +828,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -912,7 +915,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Avatar".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -999,7 +1002,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Cart".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1086,7 +1089,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Profiles".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1173,7 +1176,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/SocialProfile".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1260,7 +1263,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Wallet".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1344,7 +1347,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1428,7 +1431,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1512,7 +1515,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1596,7 +1599,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1683,7 +1686,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Extended".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1767,7 +1770,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1854,7 +1857,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/{contactId}/Individuals".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1941,7 +1944,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2028,7 +2031,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2115,7 +2118,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2206,7 +2209,175 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Preview the rendered email for a contact.
+     * This action is only available for global administrators (business_owner role).
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun previewContactEmailTemplate(contactId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = previewContactEmailTemplateWithHttpInfo(contactId = contactId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Preview the rendered email for a contact.
+     * This action is only available for global administrators (business_owner role).
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun previewContactEmailTemplateWithHttpInfo(contactId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = previewContactEmailTemplateRequestConfig(contactId = contactId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation previewContactEmailTemplate
+     *
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun previewContactEmailTemplateRequestConfig(contactId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/CrmService/Contacts/{contactId}/Emails/Preview".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Send an email to a contact.
+     * This action is only available for global administrators (business_owner role).
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun sendContactEmail(contactId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = sendContactEmailWithHttpInfo(contactId = contactId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Send an email to a contact.
+     * This action is only available for global administrators (business_owner role).
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun sendContactEmailWithHttpInfo(contactId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = sendContactEmailRequestConfig(contactId = contactId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation sendContactEmail
+     *
+     * @param contactId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun sendContactEmailRequestConfig(contactId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/CrmService/Contacts/{contactId}/Emails/Send".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2297,7 +2468,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2390,7 +2561,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/{contactId}/Avatar".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2478,7 +2649,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Organizations/Upsert",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2566,7 +2737,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/CrmService/Contacts/Individuals/Upsert",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

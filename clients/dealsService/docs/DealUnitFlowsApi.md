@@ -4,25 +4,27 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2DealsServiceDealUnitFlowsCountGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsCountGet) | **GET** /api/v2/DealsService/DealUnitFlows/Count |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost) | **POST** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages |  |
-| [**apiV2DealsServiceDealUnitFlowsGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsGet) | **GET** /api/v2/DealsService/DealUnitFlows |  |
-| [**apiV2DealsServiceDealUnitFlowsPost**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsPost) | **POST** /api/v2/DealsService/DealUnitFlows |  |
+| [**createDealUnitFlowAsync**](DealUnitFlowsApi.md#createDealUnitFlowAsync) | **POST** /api/v2/DealsService/DealUnitFlows | Create a deal unit flow |
+| [**createDealUnitFlowStageAsync**](DealUnitFlowsApi.md#createDealUnitFlowStageAsync) | **POST** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Create a deal unit flow stage |
+| [**deleteDealUnitFlowAsync**](DealUnitFlowsApi.md#deleteDealUnitFlowAsync) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Delete a deal unit flow |
+| [**deleteDealUnitFlowStageAsync**](DealUnitFlowsApi.md#deleteDealUnitFlowStageAsync) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Delete a deal unit flow stage |
+| [**getDealUnitFlowAsync**](DealUnitFlowsApi.md#getDealUnitFlowAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Get deal unit flow by ID |
+| [**getDealUnitFlowStageAsync**](DealUnitFlowsApi.md#getDealUnitFlowStageAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Get a deal unit flow stage by ID |
+| [**getDealUnitFlowStagesAsync**](DealUnitFlowsApi.md#getDealUnitFlowStagesAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Get stages for a deal unit flow |
+| [**getDealUnitFlowStagesCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowStagesCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow |
+| [**getDealUnitFlowsAsync**](DealUnitFlowsApi.md#getDealUnitFlowsAsync) | **GET** /api/v2/DealsService/DealUnitFlows | Get deal unit flows |
+| [**getDealUnitFlowsCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowsCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count |
+| [**updateDealUnitFlowAsync**](DealUnitFlowsApi.md#updateDealUnitFlowAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow |
+| [**updateDealUnitFlowStageAsync**](DealUnitFlowsApi.md#updateDealUnitFlowStageAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage |
 
 
-<a id="apiV2DealsServiceDealUnitFlowsCountGet"></a>
-# **apiV2DealsServiceDealUnitFlowsCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitFlowsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createDealUnitFlowAsync"></a>
+# **createDealUnitFlowAsync**
+> EmptyEnvelope createDealUnitFlowAsync(tenantId, dealUnitFlowCreateDto)
 
+Create a deal unit flow
 
+Creates a new deal unit flow for the specified tenant.
 
 ### Example
 ```kotlin
@@ -32,616 +34,21 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = DealUnitFlowsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitFlowsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet**
-> DealUnitFlowDtoEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : DealUnitFlowDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowUpdateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val dealUnitFlowUpdateDto : DealUnitFlowUpdateDto =  // DealUnitFlowUpdateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowUpdateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **dealUnitFlowStageId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet**
-> DealUnitFlowStageDtoEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : DealUnitFlowStageDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **dealUnitFlowStageId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageUpdateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val dealUnitFlowStageUpdateDto : DealUnitFlowStageUpdateDto =  // DealUnitFlowStageUpdateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(dealUnitFlowId, dealUnitFlowStageId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageUpdateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **dealUnitFlowStageId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet**
-> DealUnitFlowStageDtoListEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : DealUnitFlowStageDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(dealUnitFlowId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageCreateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val dealUnitFlowStageCreateDto : DealUnitFlowStageCreateDto =  // DealUnitFlowStageCreateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(dealUnitFlowId, tenantId, apiVersion, xApiVersion, dealUnitFlowStageCreateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitFlowId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsGet"></a>
-# **apiV2DealsServiceDealUnitFlowsGet**
-> DealUnitFlowDtoListEnvelope apiV2DealsServiceDealUnitFlowsGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : DealUnitFlowDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitFlowsPost"></a>
-# **apiV2DealsServiceDealUnitFlowsPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsPost(tenantId, apiVersion, xApiVersion, dealUnitFlowCreateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitFlowsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val dealUnitFlowCreateDto : DealUnitFlowCreateDto =  // DealUnitFlowCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitFlowsPost(tenantId, apiVersion, xApiVersion, dealUnitFlowCreateDto)
+    val result : EmptyEnvelope = apiInstance.createDealUnitFlowAsync(tenantId, dealUnitFlowCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsPost")
+    println("4xx response calling DealUnitFlowsApi#createDealUnitFlowAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsPost")
+    println("5xx response calling DealUnitFlowsApi#createDealUnitFlowAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **dealUnitFlowCreateDto** | [**DealUnitFlowCreateDto**](DealUnitFlowCreateDto.md)|  | [optional] |
@@ -652,10 +59,543 @@ try {
 
 ### Authorization
 
+No authorization required
 
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="createDealUnitFlowStageAsync"></a>
+# **createDealUnitFlowStageAsync**
+> EmptyEnvelope createDealUnitFlowStageAsync(dealUnitFlowId, tenantId, dealUnitFlowStageCreateDto)
+
+Create a deal unit flow stage
+
+Creates a new stage within a specific deal unit flow.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageCreateDto : DealUnitFlowStageCreateDto =  // DealUnitFlowStageCreateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.createDealUnitFlowStageAsync(dealUnitFlowId, tenantId, dealUnitFlowStageCreateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#createDealUnitFlowStageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#createDealUnitFlowStageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="deleteDealUnitFlowAsync"></a>
+# **deleteDealUnitFlowAsync**
+> EmptyEnvelope deleteDealUnitFlowAsync(dealUnitFlowId, tenantId)
+
+Delete a deal unit flow
+
+Deletes an existing deal unit flow by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteDealUnitFlowAsync(dealUnitFlowId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#deleteDealUnitFlowAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#deleteDealUnitFlowAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="deleteDealUnitFlowStageAsync"></a>
+# **deleteDealUnitFlowStageAsync**
+> EmptyEnvelope deleteDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+
+Delete a deal unit flow stage
+
+Deletes an existing stage from a specific deal unit flow.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#deleteDealUnitFlowStageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#deleteDealUnitFlowStageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowAsync"></a>
+# **getDealUnitFlowAsync**
+> DealUnitFlowDtoEnvelope getDealUnitFlowAsync(dealUnitFlowId, tenantId)
+
+Get deal unit flow by ID
+
+Retrieves a single deal unit flow by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitFlowDtoEnvelope = apiInstance.getDealUnitFlowAsync(dealUnitFlowId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowStageAsync"></a>
+# **getDealUnitFlowStageAsync**
+> DealUnitFlowStageDtoEnvelope getDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+
+Get a deal unit flow stage by ID
+
+Retrieves a single stage for a specific deal unit flow by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitFlowStageDtoEnvelope = apiInstance.getDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowStageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowStageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowStagesAsync"></a>
+# **getDealUnitFlowStagesAsync**
+> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId)
+
+Get stages for a deal unit flow
+
+Retrieves a list of stages for a specific deal unit flow with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitFlowStageDtoListEnvelope = apiInstance.getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowStagesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowStagesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowStagesCountAsync"></a>
+# **getDealUnitFlowStagesCountAsync**
+> Int32Envelope getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId)
+
+Get stages count for a deal unit flow
+
+Returns the total count of stages for a specific deal unit flow with OData filter support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowStagesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowStagesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowsAsync"></a>
+# **getDealUnitFlowsAsync**
+> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId)
+
+Get deal unit flows
+
+Retrieves a list of deal unit flows for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitFlowDtoListEnvelope = apiInstance.getDealUnitFlowsAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitFlowsCountAsync"></a>
+# **getDealUnitFlowsCountAsync**
+> Int32Envelope getDealUnitFlowsCountAsync(tenantId)
+
+Get deal unit flows count
+
+Returns the total count of deal unit flows for the specified tenant with OData filter support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getDealUnitFlowsCountAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#getDealUnitFlowsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#getDealUnitFlowsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateDealUnitFlowAsync"></a>
+# **updateDealUnitFlowAsync**
+> EmptyEnvelope updateDealUnitFlowAsync(dealUnitFlowId, tenantId, dealUnitFlowUpdateDto)
+
+Update a deal unit flow
+
+Updates an existing deal unit flow by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowUpdateDto : DealUnitFlowUpdateDto =  // DealUnitFlowUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateDealUnitFlowAsync(dealUnitFlowId, tenantId, dealUnitFlowUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#updateDealUnitFlowAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#updateDealUnitFlowAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateDealUnitFlowStageAsync"></a>
+# **updateDealUnitFlowStageAsync**
+> EmptyEnvelope updateDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, dealUnitFlowStageUpdateDto)
+
+Update a deal unit flow stage
+
+Updates an existing stage within a specific deal unit flow.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageUpdateDto : DealUnitFlowStageUpdateDto =  // DealUnitFlowStageUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, dealUnitFlowStageUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#updateDealUnitFlowStageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#updateDealUnitFlowStageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

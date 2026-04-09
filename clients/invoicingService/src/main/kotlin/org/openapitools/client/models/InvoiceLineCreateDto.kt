@@ -24,10 +24,56 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param invoiceId 
+ * @param closed 
+ * @param title 
+ * @param priceListId 
+ * @param description 
+ * @param individualId 
+ * @param paymentTermId 
+ * @param organizationId 
+ * @param receiverTenantId 
+ * @param firstName 
+ * @param lastName 
+ * @param companyName 
+ * @param billingEmail 
+ * @param addressLine1 
+ * @param addressLine2 
+ * @param postalCode 
+ * @param countryId 
+ * @param stateId 
+ * @param cityId 
+ * @param forexRate 
  * @param currencyId 
- * @param itemId 
+ * @param totalDetail 
+ * @param totalDetailCurrencyId 
+ * @param totalProfit 
+ * @param totalProfitCurrencyId 
+ * @param totalDiscounts 
+ * @param totalDiscountsCurrencyId 
+ * @param totalSurcharges 
+ * @param totalSurchargesCurrencyId 
+ * @param totalShippingCost 
+ * @param totalShippingCostCurrencyId 
+ * @param totalShippingTax 
+ * @param totalShippingTaxCurrencyId 
+ * @param totalWithheldTax 
+ * @param totalWithheldTaxCurrencyId 
+ * @param totalTaxBase 
+ * @param totalTaxBaseCurrencyId 
+ * @param totalTaxes 
+ * @param totalTaxesCurrencyId 
+ * @param totalGlobalSurcharges 
+ * @param totalGlobalSurchargesCurrencyId 
+ * @param totalGlobalDiscounts 
+ * @param totalGlobalDiscountsCurrencyId 
+ * @param total 
+ * @param totalCurrencyId 
+ * @param costCalculationMethod 
+ * @param taxCalculationMethod 
  * @param quantity 
+ * @param itemId 
+ * @param invoiceId 
+ * @param itemPriceId 
  */
 
 
@@ -39,20 +85,178 @@ data class InvoiceLineCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "invoiceId")
-    val invoiceId: kotlin.String? = null,
+    @Json(name = "closed")
+    val closed: kotlin.Boolean? = null,
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "priceListId")
+    val priceListId: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
+
+    @Json(name = "paymentTermId")
+    val paymentTermId: kotlin.String? = null,
+
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
+
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
+
+    @Json(name = "firstName")
+    val firstName: kotlin.String? = null,
+
+    @Json(name = "lastName")
+    val lastName: kotlin.String? = null,
+
+    @Json(name = "companyName")
+    val companyName: kotlin.String? = null,
+
+    @Json(name = "billingEmail")
+    val billingEmail: kotlin.String? = null,
+
+    @Json(name = "addressLine1")
+    val addressLine1: kotlin.String? = null,
+
+    @Json(name = "addressLine2")
+    val addressLine2: kotlin.String? = null,
+
+    @Json(name = "postalCode")
+    val postalCode: kotlin.String? = null,
+
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
+
+    @Json(name = "stateId")
+    val stateId: kotlin.String? = null,
+
+    @Json(name = "cityId")
+    val cityId: kotlin.String? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
 
+    @Json(name = "totalDetail")
+    val totalDetail: kotlin.Double? = null,
+
+    @Json(name = "totalDetailCurrencyId")
+    val totalDetailCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalProfit")
+    val totalProfit: kotlin.Double? = null,
+
+    @Json(name = "totalProfitCurrencyId")
+    val totalProfitCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalDiscounts")
+    val totalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalDiscountsCurrencyId")
+    val totalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalSurcharges")
+    val totalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalSurchargesCurrencyId")
+    val totalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingCost")
+    val totalShippingCost: kotlin.Double? = null,
+
+    @Json(name = "totalShippingCostCurrencyId")
+    val totalShippingCostCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingTax")
+    val totalShippingTax: kotlin.Double? = null,
+
+    @Json(name = "totalShippingTaxCurrencyId")
+    val totalShippingTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalWithheldTax")
+    val totalWithheldTax: kotlin.Double? = null,
+
+    @Json(name = "totalWithheldTaxCurrencyId")
+    val totalWithheldTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxBase")
+    val totalTaxBase: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseCurrencyId")
+    val totalTaxBaseCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxes")
+    val totalTaxes: kotlin.Double? = null,
+
+    @Json(name = "totalTaxesCurrencyId")
+    val totalTaxesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalSurcharges")
+    val totalGlobalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesCurrencyId")
+    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalDiscounts")
+    val totalGlobalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsCurrencyId")
+    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "total")
+    val total: kotlin.Double? = null,
+
+    @Json(name = "totalCurrencyId")
+    val totalCurrencyId: kotlin.String? = null,
+
+    @Json(name = "costCalculationMethod")
+    val costCalculationMethod: InvoiceLineCreateDto.CostCalculationMethod? = null,
+
+    @Json(name = "taxCalculationMethod")
+    val taxCalculationMethod: InvoiceLineCreateDto.TaxCalculationMethod? = null,
+
+    @Json(name = "quantity")
+    val quantity: kotlin.Int? = null,
+
     @Json(name = "itemId")
     val itemId: kotlin.String? = null,
 
-    @Json(name = "quantity")
-    val quantity: kotlin.Int? = null
+    @Json(name = "invoiceId")
+    val invoiceId: kotlin.String? = null,
+
+    @Json(name = "itemPriceId")
+    val itemPriceId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Automatic,Custom
+     */
+    @JsonClass(generateAdapter = false)
+    enum class CostCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Automatic") Automatic("Automatic"),
+        @Json(name = "Custom") Custom("Custom");
+    }
+    /**
+     * 
+     *
+     * Values: Included,Excluded
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TaxCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Included") Included("Included"),
+        @Json(name = "Excluded") Excluded("Excluded");
+    }
 
 }
 

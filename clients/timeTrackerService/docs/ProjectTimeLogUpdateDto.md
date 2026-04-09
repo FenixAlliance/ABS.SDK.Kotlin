@@ -16,7 +16,7 @@
 ## Enum: projectTimeLogRecordType
 | Name | Value |
 | ---- | ----- |
-| projectTimeLogRecordType | 0, 1, 2 |
+| projectTimeLogRecordType | RegularHours, OvertimeToPay, OvertimeToCompensate |
 
 
 

@@ -50,387 +50,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
-     * @param tenantId 
-     * @return PaymentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PaymentsServicePaymentsGet(tenantId: java.util.UUID) : PaymentDtoListEnvelope {
-        val localVarResponse = apiV2PaymentsServicePaymentsGetWithHttpInfo(tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ApiResponse<PaymentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PaymentsServicePaymentsGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = apiV2PaymentsServicePaymentsGetRequestConfig(tenantId = tenantId)
-
-        return request<Unit, PaymentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsGet
-     *
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2PaymentsServicePaymentsGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PaymentsService/Payments",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdDelete(paymentId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2PaymentsServicePaymentsPaymentIdDeleteWithHttpInfo(paymentId = paymentId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdDeleteWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PaymentsServicePaymentsPaymentIdDeleteRequestConfig(paymentId = paymentId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsPaymentIdDelete
-     *
-     * @param paymentId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2PaymentsServicePaymentsPaymentIdDeleteRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @return PaymentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    @Deprecated(message = "This operation is deprecated.")
-    fun apiV2PaymentsServicePaymentsPaymentIdDetailsGet(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
-        @Suppress("DEPRECATION")
-        val localVarResponse = apiV2PaymentsServicePaymentsPaymentIdDetailsGetWithHttpInfo(paymentId = paymentId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @return ApiResponse<PaymentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    @Deprecated(message = "This operation is deprecated.")
-    fun apiV2PaymentsServicePaymentsPaymentIdDetailsGetWithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
-        @Suppress("DEPRECATION")
-        val localVariableConfig = apiV2PaymentsServicePaymentsPaymentIdDetailsGetRequestConfig(paymentId = paymentId)
-
-        return request<Unit, PaymentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsPaymentIdDetailsGet
-     *
-     * @param paymentId 
-     * @return RequestConfig
-     */
-    @Deprecated(message = "This operation is deprecated.")
-    fun apiV2PaymentsServicePaymentsPaymentIdDetailsGetRequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PaymentsService/Payments/{paymentId}/Details".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @return PaymentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdGet(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
-        val localVarResponse = apiV2PaymentsServicePaymentsPaymentIdGetWithHttpInfo(paymentId = paymentId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @return ApiResponse<PaymentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdGetWithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = apiV2PaymentsServicePaymentsPaymentIdGetRequestConfig(paymentId = paymentId)
-
-        return request<Unit, PaymentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsPaymentIdGet
-     *
-     * @param paymentId 
-     * @return RequestConfig
-     */
-    fun apiV2PaymentsServicePaymentsPaymentIdGetRequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @param tenantId 
-     * @param paymentUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdPut(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PaymentsServicePaymentsPaymentIdPutWithHttpInfo(paymentId = paymentId, tenantId = tenantId, paymentUpdateDto = paymentUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param paymentId 
-     * @param tenantId 
-     * @param paymentUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PaymentsServicePaymentsPaymentIdPutWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PaymentsServicePaymentsPaymentIdPutRequestConfig(paymentId = paymentId, tenantId = tenantId, paymentUpdateDto = paymentUpdateDto)
-
-        return request<PaymentUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsPaymentIdPut
-     *
-     * @param paymentId 
-     * @param tenantId 
-     * @param paymentUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PaymentsServicePaymentsPaymentIdPutRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto?) : RequestConfig<PaymentUpdateDto> {
-        val localVariableBody = paymentUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Creates a new payment
+     * Creates a new payment for the current tenant.
      * @param tenantId 
      * @param paymentCreateDto  (optional)
      * @return EmptyEnvelope
@@ -442,8 +63,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PaymentsServicePaymentsPost(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PaymentsServicePaymentsPostWithHttpInfo(tenantId = tenantId, paymentCreateDto = paymentCreateDto)
+    fun createPaymentAsync(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createPaymentAsyncWithHttpInfo(tenantId = tenantId, paymentCreateDto = paymentCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -461,8 +82,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Creates a new payment
+     * Creates a new payment for the current tenant.
      * @param tenantId 
      * @param paymentCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -471,8 +92,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PaymentsServicePaymentsPostWithHttpInfo(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PaymentsServicePaymentsPostRequestConfig(tenantId = tenantId, paymentCreateDto = paymentCreateDto)
+    fun createPaymentAsyncWithHttpInfo(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createPaymentAsyncRequestConfig(tenantId = tenantId, paymentCreateDto = paymentCreateDto)
 
         return request<PaymentCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -480,13 +101,13 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2PaymentsServicePaymentsPost
+     * To obtain the request config of the operation createPaymentAsync
      *
      * @param tenantId 
      * @param paymentCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PaymentsServicePaymentsPostRequestConfig(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto?) : RequestConfig<PaymentCreateDto> {
+    fun createPaymentAsyncRequestConfig(tenantId: java.util.UUID, paymentCreateDto: PaymentCreateDto?) : RequestConfig<PaymentCreateDto> {
         val localVariableBody = paymentCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -501,7 +122,386 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/PaymentsService/Payments",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes a payment
+     * Deletes the specified payment.
+     * @param paymentId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deletePaymentAsync(paymentId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deletePaymentAsyncWithHttpInfo(paymentId = paymentId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a payment
+     * Deletes the specified payment.
+     * @param paymentId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deletePaymentAsyncWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deletePaymentAsyncRequestConfig(paymentId = paymentId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deletePaymentAsync
+     *
+     * @param paymentId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deletePaymentAsyncRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets a payment by ID (deprecated)
+     * Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
+     * @param paymentId 
+     * @return PaymentDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
+    fun getPaymentAsync(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
+        @Suppress("DEPRECATION")
+        val localVarResponse = getPaymentAsyncWithHttpInfo(paymentId = paymentId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Gets a payment by ID (deprecated)
+     * Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
+     * @param paymentId 
+     * @return ApiResponse<PaymentDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
+    fun getPaymentAsyncWithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
+        @Suppress("DEPRECATION")
+        val localVariableConfig = getPaymentAsyncRequestConfig(paymentId = paymentId)
+
+        return request<Unit, PaymentDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPaymentAsync
+     *
+     * @param paymentId 
+     * @return RequestConfig
+     */
+    @Deprecated(message = "This operation is deprecated.")
+    fun getPaymentAsyncRequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PaymentsService/Payments/{paymentId}/Details".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets a payment by ID
+     * Retrieves the details of a payment using its unique identifier.
+     * @param paymentId 
+     * @return PaymentDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPaymentAsyncV2(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
+        val localVarResponse = getPaymentAsyncV2WithHttpInfo(paymentId = paymentId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Gets a payment by ID
+     * Retrieves the details of a payment using its unique identifier.
+     * @param paymentId 
+     * @return ApiResponse<PaymentDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPaymentAsyncV2WithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getPaymentAsyncV2RequestConfig(paymentId = paymentId)
+
+        return request<Unit, PaymentDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPaymentAsyncV2
+     *
+     * @param paymentId 
+     * @return RequestConfig
+     */
+    fun getPaymentAsyncV2RequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieves all payments
+     * Gets all payments for the current tenant with OData support.
+     * @param tenantId 
+     * @return PaymentDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPaymentsAsync(tenantId: java.util.UUID) : PaymentDtoListEnvelope {
+        val localVarResponse = getPaymentsAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieves all payments
+     * Gets all payments for the current tenant with OData support.
+     * @param tenantId 
+     * @return ApiResponse<PaymentDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPaymentsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getPaymentsAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, PaymentDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPaymentsAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getPaymentsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PaymentsService/Payments",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a payment
+     * Updates the specified payment.
+     * @param paymentId 
+     * @param tenantId 
+     * @param paymentUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updatePaymentAsync(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updatePaymentAsyncWithHttpInfo(paymentId = paymentId, tenantId = tenantId, paymentUpdateDto = paymentUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a payment
+     * Updates the specified payment.
+     * @param paymentId 
+     * @param tenantId 
+     * @param paymentUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updatePaymentAsyncWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updatePaymentAsyncRequestConfig(paymentId = paymentId, tenantId = tenantId, paymentUpdateDto = paymentUpdateDto)
+
+        return request<PaymentUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updatePaymentAsync
+     *
+     * @param paymentId 
+     * @param tenantId 
+     * @param paymentUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updatePaymentAsyncRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID, paymentUpdateDto: PaymentUpdateDto?) : RequestConfig<PaymentUpdateDto> {
+        val localVariableBody = paymentUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/PaymentsService/Payments/{paymentId}".replace("{"+"paymentId"+"}", encodeURIComponent(paymentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -47,8 +47,8 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Retrieve a list of shipments
+     * Retrieves a list of shipments for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -61,8 +61,8 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ShipmentsServiceShipmentsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShipmentDtoListEnvelope {
-        val localVarResponse = apiV2ShipmentsServiceShipmentsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShipmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShipmentDtoListEnvelope {
+        val localVarResponse = getShipmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShipmentDtoListEnvelope
@@ -80,8 +80,8 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Retrieve a list of shipments
+     * Retrieves a list of shipments for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -91,8 +91,8 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ShipmentsServiceShipmentsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShipmentDtoListEnvelope?> {
-        val localVariableConfig = apiV2ShipmentsServiceShipmentsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShipmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShipmentDtoListEnvelope?> {
+        val localVariableConfig = getShipmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ShipmentDtoListEnvelope>(
             localVariableConfig
@@ -100,14 +100,14 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2ShipmentsServiceShipmentsGet
+     * To obtain the request config of the operation getShipmentsAsync
      *
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ShipmentsServiceShipmentsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getShipmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -125,7 +125,7 @@ class ShipmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/ShipmentsService/Shipments",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

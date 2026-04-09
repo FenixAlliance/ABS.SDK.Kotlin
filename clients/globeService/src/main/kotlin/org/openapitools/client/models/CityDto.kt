@@ -26,8 +26,8 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param name 
  * @param imageUrl 
- * @param stateID 
- * @param countryID 
+ * @param stateId 
+ * @param countryId 
  * @param latitude 
  * @param longitude 
  */
@@ -47,11 +47,11 @@ data class CityDto (
     @Json(name = "imageUrl")
     val imageUrl: kotlin.String? = null,
 
-    @Json(name = "stateID")
-    val stateID: kotlin.String? = null,
+    @Json(name = "stateId")
+    val stateId: kotlin.String? = null,
 
-    @Json(name = "countryID")
-    val countryID: kotlin.String? = null,
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
 
     @Json(name = "latitude")
     val latitude: kotlin.String? = null,

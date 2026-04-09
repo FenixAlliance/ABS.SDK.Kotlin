@@ -136,13 +136,13 @@ data class SocialProfileDto (
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: User,Tenant,Contact
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "User") User("User"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Contact") Contact("Contact");
     }
 
 }

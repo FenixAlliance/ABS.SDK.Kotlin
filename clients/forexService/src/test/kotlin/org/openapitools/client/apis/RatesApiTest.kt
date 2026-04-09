@@ -28,43 +28,43 @@ class RatesApiTest : ShouldSpec() {
         // uncomment below to create an instance of RatesApi
         //val apiInstance = RatesApi()
 
-        // to test apiV2ForexServiceRatesHistoryCurrencyIdGet
-        should("test apiV2ForexServiceRatesHistoryCurrencyIdGet") {
-            // uncomment below to test apiV2ForexServiceRatesHistoryCurrencyIdGet
+        // to test getHistoricalCurrencyRateAsync
+        should("test getHistoricalCurrencyRateAsync") {
+            // uncomment below to test getHistoricalCurrencyRateAsync
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val date : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.OffsetDateTime | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ExchangeRateEnvelope = apiInstance.apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId, date, apiVersion, xApiVersion)
+            //val result : ExchangeRateEnvelope = apiInstance.getHistoricalCurrencyRateAsync(currencyId, date, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ForexServiceRatesHistoryGet
-        should("test apiV2ForexServiceRatesHistoryGet") {
-            // uncomment below to test apiV2ForexServiceRatesHistoryGet
+        // to test getHistoricalCurrencyRatesAsync
+        should("test getHistoricalCurrencyRatesAsync") {
+            // uncomment below to test getHistoricalCurrencyRatesAsync
             //val date : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.OffsetDateTime | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ForexRatesDtoEnvelope = apiInstance.apiV2ForexServiceRatesHistoryGet(date, apiVersion, xApiVersion)
+            //val result : ForexRatesDtoEnvelope = apiInstance.getHistoricalCurrencyRatesAsync(date, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ForexServiceRatesLatestCurrencyIdGet
-        should("test apiV2ForexServiceRatesLatestCurrencyIdGet") {
-            // uncomment below to test apiV2ForexServiceRatesLatestCurrencyIdGet
+        // to test getLatestCurrencyRateAsync
+        should("test getLatestCurrencyRateAsync") {
+            // uncomment below to test getLatestCurrencyRateAsync
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ExchangeRateEnvelope = apiInstance.apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId, apiVersion, xApiVersion)
+            //val result : ExchangeRateEnvelope = apiInstance.getLatestCurrencyRateAsync(currencyId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ForexServiceRatesLatestGet
-        should("test apiV2ForexServiceRatesLatestGet") {
-            // uncomment below to test apiV2ForexServiceRatesLatestGet
+        // to test getLatestCurrencyRatesModelAsync
+        should("test getLatestCurrencyRatesModelAsync") {
+            // uncomment below to test getLatestCurrencyRatesModelAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ForexRatesDtoEnvelope = apiInstance.apiV2ForexServiceRatesLatestGet(apiVersion, xApiVersion)
+            //val result : ForexRatesDtoEnvelope = apiInstance.getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

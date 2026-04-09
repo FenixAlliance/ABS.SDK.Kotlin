@@ -22,30 +22,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param timestamp 
  * @param id 
+ * @param timestamp 
  * @param name 
- * @param displayName 
  * @param utcOffset 
+ * @param displayName 
  */
 
 
 data class TimezoneDto (
 
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
-
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
 
-    @Json(name = "displayName")
-    val displayName: kotlin.String? = null,
-
     @Json(name = "utcOffset")
-    val utcOffset: kotlin.String? = null
+    val utcOffset: kotlin.String? = null,
+
+    @Json(name = "displayName")
+    val displayName: kotlin.String? = null
 
 ) {
 

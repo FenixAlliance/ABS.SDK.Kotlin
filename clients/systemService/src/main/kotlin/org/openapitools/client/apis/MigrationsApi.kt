@@ -47,9 +47,8 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
-     * @param pending  (optional)
+     * Apply pending database migrations
+     * Applies all pending database migrations and returns the list of migrations that were applied.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return StringListEnvelope
@@ -61,8 +60,8 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceMigrationsGet(pending: kotlin.Boolean? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : StringListEnvelope {
-        val localVarResponse = apiV2SystemServiceMigrationsGetWithHttpInfo(pending = pending, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun migrate(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : StringListEnvelope {
+        val localVarResponse = migrateWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as StringListEnvelope
@@ -80,8 +79,89 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Apply pending database migrations
+     * Applies all pending database migrations and returns the list of migrations that were applied.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<StringListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun migrateWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<StringListEnvelope?> {
+        val localVariableConfig = migrateRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, StringListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation migrate
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun migrateRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SystemService/Migrations/Migrate",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve database migrations
+     * Retrieves the list of applied or pending database migrations.
+     * @param pending  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return StringListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun migrations(pending: kotlin.Boolean? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : StringListEnvelope {
+        val localVarResponse = migrationsWithHttpInfo(pending = pending, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as StringListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve database migrations
+     * Retrieves the list of applied or pending database migrations.
      * @param pending  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -91,8 +171,8 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceMigrationsGetWithHttpInfo(pending: kotlin.Boolean?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<StringListEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceMigrationsGetRequestConfig(pending = pending, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun migrationsWithHttpInfo(pending: kotlin.Boolean?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<StringListEnvelope?> {
+        val localVariableConfig = migrationsRequestConfig(pending = pending, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, StringListEnvelope>(
             localVariableConfig
@@ -100,14 +180,14 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceMigrationsGet
+     * To obtain the request config of the operation migrations
      *
      * @param pending  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceMigrationsGetRequestConfig(pending: kotlin.Boolean?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun migrationsRequestConfig(pending: kotlin.Boolean?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -127,87 +207,7 @@ class MigrationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/SystemService/Migrations",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return StringListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceMigrationsMigratePost(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : StringListEnvelope {
-        val localVarResponse = apiV2SystemServiceMigrationsMigratePostWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as StringListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<StringListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceMigrationsMigratePostWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<StringListEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceMigrationsMigratePostRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, StringListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SystemServiceMigrationsMigratePost
-     *
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SystemServiceMigrationsMigratePostRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SystemService/Migrations/Migrate",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

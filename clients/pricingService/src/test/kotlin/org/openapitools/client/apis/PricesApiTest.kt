@@ -20,57 +20,58 @@ import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.PricesApi
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ItemPriceCalculationEnvelope
 import org.openapitools.client.models.MoneyEnvelope
-import org.openapitools.client.models.PriceCalculationDtoEnvelope
 
 class PricesApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of PricesApi
         //val apiInstance = PricesApi()
 
-        // to test apiV2PricingServicePricesItemIdFinalPriceGet
-        should("test apiV2PricingServicePricesItemIdFinalPriceGet") {
-            // uncomment below to test apiV2PricingServicePricesItemIdFinalPriceGet
+        // to test getFinalPrice
+        should("test getFinalPrice") {
+            // uncomment below to test getFinalPrice
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : MoneyEnvelope = apiInstance.apiV2PricingServicePricesItemIdFinalPriceGet(itemId, currencyId, apiVersion, xApiVersion)
+            //val result : MoneyEnvelope = apiInstance.getFinalPrice(itemId, currencyId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PricingServicePricesItemIdPriceGet
-        should("test apiV2PricingServicePricesItemIdPriceGet") {
-            // uncomment below to test apiV2PricingServicePricesItemIdPriceGet
+        // to test getPrice
+        should("test getPrice") {
+            // uncomment below to test getPrice
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val discountsListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val quantity : kotlin.Double = 1.2 // kotlin.Double | 
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : PriceCalculationDtoEnvelope = apiInstance.apiV2PricingServicePricesItemIdPriceGet(itemId, priceListId, discountsListId, currencyId, apiVersion, xApiVersion)
+            //val result : ItemPriceCalculationEnvelope = apiInstance.getPrice(itemId, priceListId, discountsListId, quantity, currencyId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PricingServicePricesItemIdTotalSavingsGet
-        should("test apiV2PricingServicePricesItemIdTotalSavingsGet") {
-            // uncomment below to test apiV2PricingServicePricesItemIdTotalSavingsGet
+        // to test getTotalSavingsInUsd
+        should("test getTotalSavingsInUsd") {
+            // uncomment below to test getTotalSavingsInUsd
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : MoneyEnvelope = apiInstance.apiV2PricingServicePricesItemIdTotalSavingsGet(itemId, currencyId, apiVersion, xApiVersion)
+            //val result : MoneyEnvelope = apiInstance.getTotalSavingsInUsd(itemId, currencyId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PricingServicePricesItemIdTotalTaxesGet
-        should("test apiV2PricingServicePricesItemIdTotalTaxesGet") {
-            // uncomment below to test apiV2PricingServicePricesItemIdTotalTaxesGet
+        // to test getTotalTaxesInUsd
+        should("test getTotalTaxesInUsd") {
+            // uncomment below to test getTotalTaxesInUsd
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : MoneyEnvelope = apiInstance.apiV2PricingServicePricesItemIdTotalTaxesGet(itemId, currencyId, apiVersion, xApiVersion)
+            //val result : MoneyEnvelope = apiInstance.getTotalTaxesInUsd(itemId, currencyId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

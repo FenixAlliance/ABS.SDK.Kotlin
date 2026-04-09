@@ -4,19 +4,22 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ProjectsServiceTaskCategoriesGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesGet) | **GET** /api/v2/ProjectsService/TaskCategories |  |
-| [**apiV2ProjectsServiceTaskCategoriesPost**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesPost) | **POST** /api/v2/ProjectsService/TaskCategories |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types |  |
+| [**countTenantTaskCategoriesAsync**](TaskCategoriesApi.md#countTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/Count | Counts task categories |
+| [**createTaskCategoryAsync**](TaskCategoriesApi.md#createTaskCategoryAsync) | **POST** /api/v2/ProjectsService/TaskCategories | Creates a new task category |
+| [**deleteTaskCategoryAsync**](TaskCategoriesApi.md#deleteTaskCategoryAsync) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Deletes a task category |
+| [**getTaskCategoryByIdAsync**](TaskCategoriesApi.md#getTaskCategoryByIdAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID |
+| [**getTaskCategoryTaskTypesAsync**](TaskCategoriesApi.md#getTaskCategoryTaskTypesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category |
+| [**getTenantTaskCategoriesAsync**](TaskCategoriesApi.md#getTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories |
+| [**updateTaskCategoryAsync**](TaskCategoriesApi.md#updateTaskCategoryAsync) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category |
 
 
-<a id="apiV2ProjectsServiceTaskCategoriesGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesGet**
-> TaskCategoryDtoListEnvelope apiV2ProjectsServiceTaskCategoriesGet(tenantId, apiVersion, xApiVersion)
+<a id="countTenantTaskCategoriesAsync"></a>
+# **countTenantTaskCategoriesAsync**
+> Int32Envelope countTenantTaskCategoriesAsync(tenantId)
 
+Counts task categories
 
+Gets the count of task categories for the current tenant.
 
 ### Example
 ```kotlin
@@ -26,48 +29,43 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = TaskCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TaskCategoryDtoListEnvelope = apiInstance.apiV2ProjectsServiceTaskCategoriesGet(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countTenantTaskCategoriesAsync(tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesGet")
+    println("4xx response calling TaskCategoriesApi#countTenantTaskCategoriesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesGet")
+    println("5xx response calling TaskCategoriesApi#countTenantTaskCategoriesAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
-[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskCategoriesPost"></a>
-# **apiV2ProjectsServiceTaskCategoriesPost**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesPost(tenantId, apiVersion, xApiVersion, taskCategoryCreateDto)
+<a id="createTaskCategoryAsync"></a>
+# **createTaskCategoryAsync**
+> TaskCategoryDto createTaskCategoryAsync(tenantId, taskCategoryCreateDto)
 
+Creates a new task category
 
+Creates a new task category for the current tenant.
 
 ### Example
 ```kotlin
@@ -77,25 +75,21 @@ Configure Bearer:
 
 val apiInstance = TaskCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val taskCategoryCreateDto : TaskCategoryCreateDto =  // TaskCategoryCreateDto | 
 try {
-    val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesPost(tenantId, apiVersion, xApiVersion, taskCategoryCreateDto)
+    val result : TaskCategoryDto = apiInstance.createTaskCategoryAsync(tenantId, taskCategoryCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesPost")
+    println("4xx response calling TaskCategoriesApi#createTaskCategoryAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesPost")
+    println("5xx response calling TaskCategoriesApi#createTaskCategoryAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **taskCategoryCreateDto** | [**TaskCategoryCreateDto**](TaskCategoryCreateDto.md)|  | [optional] |
@@ -106,21 +100,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(taskCategoryId, tenantId, apiVersion, xApiVersion)
+<a id="deleteTaskCategoryAsync"></a>
+# **deleteTaskCategoryAsync**
+> TaskCategoryDto deleteTaskCategoryAsync(taskCategoryId, tenantId)
 
+Deletes a task category
 
+Deletes the specified task category.
 
 ### Example
 ```kotlin
@@ -131,27 +124,23 @@ Configure Bearer:
 val apiInstance = TaskCategoriesApi()
 val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(taskCategoryId, tenantId, apiVersion, xApiVersion)
+    val result : TaskCategoryDto = apiInstance.deleteTaskCategoryAsync(taskCategoryId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete")
+    println("4xx response calling TaskCategoriesApi#deleteTaskCategoryAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete")
+    println("5xx response calling TaskCategoriesApi#deleteTaskCategoryAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **taskCategoryId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -159,21 +148,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
+<a id="getTaskCategoryByIdAsync"></a>
+# **getTaskCategoryByIdAsync**
+> TaskCategoryDto getTaskCategoryByIdAsync(taskCategoryId, tenantId)
 
+Gets a task category by ID
 
+Retrieves the details of a task category using its unique identifier.
 
 ### Example
 ```kotlin
@@ -184,27 +172,23 @@ Configure Bearer:
 val apiInstance = TaskCategoriesApi()
 val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
+    val result : TaskCategoryDto = apiInstance.getTaskCategoryByIdAsync(taskCategoryId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet")
+    println("4xx response calling TaskCategoriesApi#getTaskCategoryByIdAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet")
+    println("5xx response calling TaskCategoriesApi#getTaskCategoryByIdAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **taskCategoryId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -212,21 +196,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(taskCategoryId, tenantId, apiVersion, xApiVersion, taskCategoryUpdateDto)
+<a id="getTaskCategoryTaskTypesAsync"></a>
+# **getTaskCategoryTaskTypesAsync**
+> TaskCategoryDto getTaskCategoryTaskTypesAsync(taskCategoryId, tenantId)
 
+Retrieves task types for a category
 
+Gets all task types belonging to the specified task category.
 
 ### Example
 ```kotlin
@@ -237,17 +220,109 @@ Configure Bearer:
 val apiInstance = TaskCategoriesApi()
 val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : TaskCategoryDto = apiInstance.getTaskCategoryTaskTypesAsync(taskCategoryId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TaskCategoriesApi#getTaskCategoryTaskTypesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TaskCategoriesApi#getTaskCategoryTaskTypesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **taskCategoryId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**TaskCategoryDto**](TaskCategoryDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getTenantTaskCategoriesAsync"></a>
+# **getTenantTaskCategoriesAsync**
+> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId)
+
+Retrieves all task categories
+
+Gets all task categories for the current tenant with OData support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TaskCategoriesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : TaskCategoryDtoListEnvelope = apiInstance.getTenantTaskCategoriesAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TaskCategoriesApi#getTenantTaskCategoriesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TaskCategoriesApi#getTenantTaskCategoriesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateTaskCategoryAsync"></a>
+# **updateTaskCategoryAsync**
+> TaskCategoryDto updateTaskCategoryAsync(taskCategoryId, tenantId, taskCategoryUpdateDto)
+
+Updates a task category
+
+Updates the specified task category.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TaskCategoriesApi()
+val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val taskCategoryUpdateDto : TaskCategoryUpdateDto =  // TaskCategoryUpdateDto | 
 try {
-    val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(taskCategoryId, tenantId, apiVersion, xApiVersion, taskCategoryUpdateDto)
+    val result : TaskCategoryDto = apiInstance.updateTaskCategoryAsync(taskCategoryId, tenantId, taskCategoryUpdateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut")
+    println("4xx response calling TaskCategoriesApi#updateTaskCategoryAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut")
+    println("5xx response calling TaskCategoriesApi#updateTaskCategoryAsync")
     e.printStackTrace()
 }
 ```
@@ -255,8 +330,6 @@ try {
 ### Parameters
 | **taskCategoryId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **taskCategoryUpdateDto** | [**TaskCategoryUpdateDto**](TaskCategoryUpdateDto.md)|  | [optional] |
@@ -267,66 +340,10 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = TaskCategoriesApi()
-val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **taskCategoryId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**TaskCategoryDto**](TaskCategoryDto.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 

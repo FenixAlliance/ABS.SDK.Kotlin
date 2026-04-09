@@ -4,15 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SystemServiceAntiforgeryGetAndStoreTokensGet**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens |  |
-| [**apiV2SystemServiceAntiforgeryIsRequestValidGet**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryIsRequestValidGet) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid |  |
+| [**getAndStoreTokens**](AntiforgeryApi.md#getAndStoreTokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens |
+| [**isRequestValidAsync**](AntiforgeryApi.md#isRequestValidAsync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request |
 
 
-<a id="apiV2SystemServiceAntiforgeryGetAndStoreTokensGet"></a>
-# **apiV2SystemServiceAntiforgeryGetAndStoreTokensGet**
-> apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion, xApiVersion)
+<a id="getAndStoreTokens"></a>
+# **getAndStoreTokens**
+> getAndStoreTokens(apiVersion, xApiVersion)
 
+Get and store antiforgery tokens
 
+Generates antiforgery tokens and stores them in the current HTTP context.
 
 ### Example
 ```kotlin
@@ -24,12 +26,12 @@ val apiInstance = AntiforgeryApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion, xApiVersion)
+    apiInstance.getAndStoreTokens(apiVersion, xApiVersion)
 } catch (e: ClientException) {
-    println("4xx response calling AntiforgeryApi#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet")
+    println("4xx response calling AntiforgeryApi#getAndStoreTokens")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling AntiforgeryApi#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet")
+    println("5xx response calling AntiforgeryApi#getAndStoreTokens")
     e.printStackTrace()
 }
 ```
@@ -46,21 +48,20 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a id="apiV2SystemServiceAntiforgeryIsRequestValidGet"></a>
-# **apiV2SystemServiceAntiforgeryIsRequestValidGet**
-> apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion, xApiVersion)
+<a id="isRequestValidAsync"></a>
+# **isRequestValidAsync**
+> isRequestValidAsync(apiVersion, xApiVersion)
 
+Validate antiforgery request
 
+Validates whether the current HTTP request contains a valid antiforgery token.
 
 ### Example
 ```kotlin
@@ -72,12 +73,12 @@ val apiInstance = AntiforgeryApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion, xApiVersion)
+    apiInstance.isRequestValidAsync(apiVersion, xApiVersion)
 } catch (e: ClientException) {
-    println("4xx response calling AntiforgeryApi#apiV2SystemServiceAntiforgeryIsRequestValidGet")
+    println("4xx response calling AntiforgeryApi#isRequestValidAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling AntiforgeryApi#apiV2SystemServiceAntiforgeryIsRequestValidGet")
+    println("5xx response calling AntiforgeryApi#isRequestValidAsync")
     e.printStackTrace()
 }
 ```
@@ -94,10 +95,7 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

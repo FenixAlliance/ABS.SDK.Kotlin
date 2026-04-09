@@ -37,12 +37,6 @@ class PaymentDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
-        // to test the property `timeStamp`
-        should("test timeStamp") {
-            // uncomment below to test the property
-            //modelInstance.timeStamp shouldBe ("TODO")
-        }
-
         // to test the property `test`
         should("test test") {
             // uncomment below to test the property
@@ -367,10 +361,10 @@ class PaymentDtoTest : ShouldSpec() {
             //modelInstance.bankAccountId shouldBe ("TODO")
         }
 
-        // to test the property `enrolmentId`
-        should("test enrolmentId") {
+        // to test the property `enrollmentId`
+        should("test enrollmentId") {
             // uncomment below to test the property
-            //modelInstance.enrolmentId shouldBe ("TODO")
+            //modelInstance.enrollmentId shouldBe ("TODO")
         }
 
         // to test the property `bankId`

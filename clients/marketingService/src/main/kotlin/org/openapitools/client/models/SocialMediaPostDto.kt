@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param featuredImageUrl 
  * @param tenantId 
  * @param socialPostBucketId 
- * @param enrolmentId 
+ * @param enrollmentId 
  */
 
 
@@ -56,8 +56,8 @@ data class SocialMediaPostDto (
     @Json(name = "socialPostBucketId")
     val socialPostBucketId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

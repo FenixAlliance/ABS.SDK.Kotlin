@@ -22,8 +22,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
  * @param timestamp 
+ * @param id 
  * @param name 
  * @param code 
  * @param countryID 
@@ -32,11 +32,11 @@ import com.squareup.moshi.JsonClass
 
 data class CountryStateDto (
 
-    @Json(name = "id")
-    val id: kotlin.String? = null,
-
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "id")
+    val id: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,

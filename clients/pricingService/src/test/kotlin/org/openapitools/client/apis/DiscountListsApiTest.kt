@@ -36,127 +36,68 @@ class DiscountListsApiTest : ShouldSpec() {
         // uncomment below to create an instance of DiscountListsApi
         //val apiInstance = DiscountListsApi()
 
-        // to test apiV2PricingServiceDiscountListsCountGet
-        should("test apiV2PricingServiceDiscountListsCountGet") {
-            // uncomment below to test apiV2PricingServiceDiscountListsCountGet
+        // to test createDiscountList
+        should("test createDiscountList") {
+            // uncomment below to test createDiscountList
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2PricingServiceDiscountListsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDelete
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDelete") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDelete
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDelete(discountListId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet(discountListId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete(discountListId, discountListEntryId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val discountUpdateDto : DiscountUpdateDto =  // DiscountUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut(discountListId, discountListEntryId, tenantId, apiVersion, xApiVersion, discountUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DiscountDtoListEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet(discountListId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost
-        should("test apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val discountCreateDto : DiscountCreateDto =  // DiscountCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost(discountListId, tenantId, apiVersion, xApiVersion, discountCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdGet
-        should("test apiV2PricingServiceDiscountListsDiscountListIdGet") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdGet
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DiscountListDtoEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdGet(discountListId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsDiscountListIdPut
-        should("test apiV2PricingServiceDiscountListsDiscountListIdPut") {
-            // uncomment below to test apiV2PricingServiceDiscountListsDiscountListIdPut
-            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val discountListUpdateDto : DiscountListUpdateDto =  // DiscountListUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsDiscountListIdPut(discountListId, tenantId, apiVersion, xApiVersion, discountListUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsGet
-        should("test apiV2PricingServiceDiscountListsGet") {
-            // uncomment below to test apiV2PricingServiceDiscountListsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DiscountListDtoListEnvelope = apiInstance.apiV2PricingServiceDiscountListsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServiceDiscountListsPost
-        should("test apiV2PricingServiceDiscountListsPost") {
-            // uncomment below to test apiV2PricingServiceDiscountListsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val discountListCreateDto : DiscountListCreateDto =  // DiscountListCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServiceDiscountListsPost(tenantId, apiVersion, xApiVersion, discountListCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createDiscountList(tenantId, discountListCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createDiscountListEntry
+        should("test createDiscountListEntry") {
+            // uncomment below to test createDiscountListEntry
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val discountCreateDto : DiscountCreateDto =  // DiscountCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createDiscountListEntry(discountListId, tenantId, discountCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteDiscountList
+        should("test deleteDiscountList") {
+            // uncomment below to test deleteDiscountList
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteDiscountList(discountListId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteDiscountListEntry
+        should("test deleteDiscountListEntry") {
+            // uncomment below to test deleteDiscountListEntry
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteDiscountListEntry(discountListId, discountListEntryId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDiscountList
+        should("test getDiscountList") {
+            // uncomment below to test getDiscountList
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DiscountListDtoEnvelope = apiInstance.getDiscountList(discountListId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDiscountListEntries
+        should("test getDiscountListEntries") {
+            // uncomment below to test getDiscountListEntries
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DiscountDtoListEnvelope = apiInstance.getDiscountListEntries(discountListId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDiscountListEntriesCount
+        should("test getDiscountListEntriesCount") {
+            // uncomment below to test getDiscountListEntriesCount
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDiscountListEntriesCount(discountListId, tenantId)
             //result shouldBe ("TODO")
         }
 
@@ -166,9 +107,44 @@ class DiscountListsApiTest : ShouldSpec() {
             //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : DiscountDtoEnvelope = apiInstance.getDiscountListEntry(discountListId, discountListEntryId, tenantId, apiVersion, xApiVersion)
+            //val result : DiscountDtoEnvelope = apiInstance.getDiscountListEntry(discountListId, discountListEntryId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDiscountLists
+        should("test getDiscountLists") {
+            // uncomment below to test getDiscountLists
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DiscountListDtoListEnvelope = apiInstance.getDiscountLists(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDiscountListsCount
+        should("test getDiscountListsCount") {
+            // uncomment below to test getDiscountListsCount
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDiscountListsCount(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDiscountList
+        should("test updateDiscountList") {
+            // uncomment below to test updateDiscountList
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val discountListUpdateDto : DiscountListUpdateDto =  // DiscountListUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDiscountList(discountListId, tenantId, discountListUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDiscountListEntry
+        should("test updateDiscountListEntry") {
+            // uncomment below to test updateDiscountListEntry
+            //val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val discountUpdateDto : DiscountUpdateDto =  // DiscountUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDiscountListEntry(discountListId, discountListEntryId, tenantId, discountUpdateDto)
             //result shouldBe ("TODO")
         }
 

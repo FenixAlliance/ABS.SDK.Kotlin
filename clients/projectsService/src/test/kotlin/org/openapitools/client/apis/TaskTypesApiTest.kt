@@ -29,48 +29,40 @@ class TaskTypesApiTest : ShouldSpec() {
         // uncomment below to create an instance of TaskTypesApi
         //val apiInstance = TaskTypesApi()
 
-        // to test apiV2ProjectsServiceTaskTypesPost
-        should("test apiV2ProjectsServiceTaskTypesPost") {
-            // uncomment below to test apiV2ProjectsServiceTaskTypesPost
+        // to test createTaskTypeAsync
+        should("test createTaskTypeAsync") {
+            // uncomment below to test createTaskTypeAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val taskTypeCreateDto : TaskTypeCreateDto =  // TaskTypeCreateDto | 
-            //val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesPost(tenantId, apiVersion, xApiVersion, taskTypeCreateDto)
+            //val result : TaskTypeDto = apiInstance.createTaskTypeAsync(tenantId, taskTypeCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskTypesTaskTypeIdDelete
-        should("test apiV2ProjectsServiceTaskTypesTaskTypeIdDelete") {
-            // uncomment below to test apiV2ProjectsServiceTaskTypesTaskTypeIdDelete
+        // to test deleteTaskTypeAsync
+        should("test deleteTaskTypeAsync") {
+            // uncomment below to test deleteTaskTypeAsync
             //val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId, tenantId, apiVersion, xApiVersion)
+            //val result : TaskTypeDto = apiInstance.deleteTaskTypeAsync(taskTypeId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskTypesTaskTypeIdGet
-        should("test apiV2ProjectsServiceTaskTypesTaskTypeIdGet") {
-            // uncomment below to test apiV2ProjectsServiceTaskTypesTaskTypeIdGet
+        // to test getTaskTypeByIdAsync
+        should("test getTaskTypeByIdAsync") {
+            // uncomment below to test getTaskTypeByIdAsync
             //val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId, tenantId, apiVersion, xApiVersion)
+            //val result : TaskTypeDto = apiInstance.getTaskTypeByIdAsync(taskTypeId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskTypesTaskTypeIdPut
-        should("test apiV2ProjectsServiceTaskTypesTaskTypeIdPut") {
-            // uncomment below to test apiV2ProjectsServiceTaskTypesTaskTypeIdPut
+        // to test updateTaskTypeAsync
+        should("test updateTaskTypeAsync") {
+            // uncomment below to test updateTaskTypeAsync
             //val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val taskTypeUpdateDto : TaskTypeUpdateDto =  // TaskTypeUpdateDto | 
-            //val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId, tenantId, apiVersion, xApiVersion, taskTypeUpdateDto)
+            //val result : TaskTypeDto = apiInstance.updateTaskTypeAsync(taskTypeId, tenantId, taskTypeUpdateDto)
             //result shouldBe ("TODO")
         }
 

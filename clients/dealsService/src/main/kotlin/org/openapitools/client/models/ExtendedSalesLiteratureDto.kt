@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param modifiedDate 
  * @param expirationDate 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param salesLiteratureTypeId 
  * @param salesLiteratureType 
  * @param tenant 
@@ -65,8 +65,8 @@ data class ExtendedSalesLiteratureDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "salesLiteratureTypeId")
     val salesLiteratureTypeId: kotlin.String? = null,

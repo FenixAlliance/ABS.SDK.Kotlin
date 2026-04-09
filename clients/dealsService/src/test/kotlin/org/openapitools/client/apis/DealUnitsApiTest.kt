@@ -38,143 +38,60 @@ class DealUnitsApiTest : ShouldSpec() {
         // uncomment below to create an instance of DealUnitsApi
         //val apiInstance = DealUnitsApi()
 
-        // to test apiV2DealsServiceDealUnitsCountGet
-        should("test apiV2DealsServiceDealUnitsCountGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsCountGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitsCountGet(tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdCalculatePut
-        should("test apiV2DealsServiceDealUnitsDealUnitIdCalculatePut") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdCalculatePut
+        // to test calculateDealUnitAsync
+        should("test calculateDealUnitAsync") {
+            // uncomment below to test calculateDealUnitAsync
             //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdCalculatePut(dealUnitId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.calculateDealUnitAsync(dealUnitId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceDealUnitsDealUnitIdDelete
-        should("test apiV2DealsServiceDealUnitsDealUnitIdDelete") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdDelete
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdDelete(dealUnitId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdExtendedGet
-        should("test apiV2DealsServiceDealUnitsDealUnitIdExtendedGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdExtendedGet
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : ExtendedDealUnitDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdExtendedGet(dealUnitId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet(dealUnitId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut
+        // to test calculateDealUnitLineAsync
+        should("test calculateDealUnitLineAsync") {
+            // uncomment below to test calculateDealUnitLineAsync
             //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut(dealUnitId, dealUnitLineId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.calculateDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+        // to test createDealUnitAsync
+        should("test createDealUnitAsync") {
+            // uncomment below to test createDealUnitAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete(dealUnitId, dealUnitLineId, tenantId)
+            //val dealUnitCreateDto : DealUnitCreateDto =  // DealUnitCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createDealUnitAsync(tenantId, dealUnitCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : DealUnitLineDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet(dealUnitId, dealUnitLineId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitLineUpdateDto : DealUnitLineUpdateDto =  // DealUnitLineUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesGet
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesGet
-            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : DealUnitLineDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesGet(dealUnitId, tenantId, itemId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsDealUnitIdLinesPost
-        should("test apiV2DealsServiceDealUnitsDealUnitIdLinesPost") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdLinesPost
+        // to test createGetDealUnitLinesAsync
+        should("test createGetDealUnitLinesAsync") {
+            // uncomment below to test createGetDealUnitLinesAsync
             //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val dealUnitLineCreateDto : DealUnitLineCreateDto =  // DealUnitLineCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesPost(dealUnitId, tenantId, dealUnitLineCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createGetDealUnitLinesAsync(dealUnitId, tenantId, dealUnitLineCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceDealUnitsDealUnitIdPut
-        should("test apiV2DealsServiceDealUnitsDealUnitIdPut") {
-            // uncomment below to test apiV2DealsServiceDealUnitsDealUnitIdPut
+        // to test deleteDealUnitAsync
+        should("test deleteDealUnitAsync") {
+            // uncomment below to test deleteDealUnitAsync
             //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitUpdateDto : DealUnitUpdateDto =  // DealUnitUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdPut(dealUnitId, tenantId, dealUnitUpdateDto)
+            //val result : EmptyEnvelope = apiInstance.deleteDealUnitAsync(dealUnitId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceDealUnitsExtendedGet
-        should("test apiV2DealsServiceDealUnitsExtendedGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsExtendedGet
+        // to test deleteDealUnitPriceAsync
+        should("test deleteDealUnitPriceAsync") {
+            // uncomment below to test deleteDealUnitPriceAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : ExtendedDealUnitDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsExtendedGet(tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsGet
-        should("test apiV2DealsServiceDealUnitsGet") {
-            // uncomment below to test apiV2DealsServiceDealUnitsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : DealUnitDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsGet(tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceDealUnitsPost
-        should("test apiV2DealsServiceDealUnitsPost") {
-            // uncomment below to test apiV2DealsServiceDealUnitsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val dealUnitCreateDto : DealUnitCreateDto =  // DealUnitCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsPost(tenantId, dealUnitCreateDto)
+            //val result : EmptyEnvelope = apiInstance.deleteDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
             //result shouldBe ("TODO")
         }
 
@@ -184,6 +101,89 @@ class DealUnitsApiTest : ShouldSpec() {
             //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val result : DealUnitDtoEnvelope = apiInstance.getDealUnitAsync(dealUnitId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitLinesAsync
+        should("test getDealUnitLinesAsync") {
+            // uncomment below to test getDealUnitLinesAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitLineDtoListEnvelope = apiInstance.getDealUnitLinesAsync(dealUnitId, tenantId, itemId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitLinesCountAsync
+        should("test getDealUnitLinesCountAsync") {
+            // uncomment below to test getDealUnitLinesCountAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDealUnitLinesCountAsync(dealUnitId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitPriceAsync
+        should("test getDealUnitPriceAsync") {
+            // uncomment below to test getDealUnitPriceAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitLineDtoEnvelope = apiInstance.getDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitsAsync
+        should("test getDealUnitsAsync") {
+            // uncomment below to test getDealUnitsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : DealUnitDtoListEnvelope = apiInstance.getDealUnitsAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getDealUnitsCountAsync
+        should("test getDealUnitsCountAsync") {
+            // uncomment below to test getDealUnitsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getDealUnitsCountAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getExtendedDealUnitAsync
+        should("test getExtendedDealUnitAsync") {
+            // uncomment below to test getExtendedDealUnitAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ExtendedDealUnitDtoEnvelope = apiInstance.getExtendedDealUnitAsync(dealUnitId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getExtendedDealUnitsAsync
+        should("test getExtendedDealUnitsAsync") {
+            // uncomment below to test getExtendedDealUnitsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ExtendedDealUnitDtoListEnvelope = apiInstance.getExtendedDealUnitsAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDealUnitAsync
+        should("test updateDealUnitAsync") {
+            // uncomment below to test updateDealUnitAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitUpdateDto : DealUnitUpdateDto =  // DealUnitUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDealUnitAsync(dealUnitId, tenantId, dealUnitUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateDealUnitPriceAsync
+        should("test updateDealUnitPriceAsync") {
+            // uncomment below to test updateDealUnitPriceAsync
+            //val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val dealUnitLineUpdateDto : DealUnitLineUpdateDto =  // DealUnitLineUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
             //result shouldBe ("TODO")
         }
 

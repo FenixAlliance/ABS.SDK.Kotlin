@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param codeType 
  * @param order 
  * @param slug 
  * @param name 
@@ -33,6 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param highlightImage 
  * @param canonicalUrl 
+ * @param emitResult 
  * @param seoTitle 
  * @param seoKeyWords 
  * @param seoKeyPhrases 
@@ -92,6 +94,9 @@ data class EmailTemplateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "codeType")
+    val codeType: EmailTemplateDto.CodeType? = null,
+
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
@@ -118,6 +123,9 @@ data class EmailTemplateDto (
 
     @Json(name = "canonicalUrl")
     val canonicalUrl: kotlin.String? = null,
+
+    @Json(name = "emitResult")
+    val emitResult: kotlin.Any? = null,
 
     @Json(name = "seoTitle")
     val seoTitle: kotlin.String? = null,
@@ -265,6 +273,20 @@ data class EmailTemplateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     */
+    @JsonClass(generateAdapter = false)
+    enum class CodeType(val value: kotlin.String) {
+        @Json(name = "Razor") Razor("Razor"),
+        @Json(name = "CSharp") CSharp("CSharp"),
+        @Json(name = "CSHtml") CSHtml("CSHtml"),
+        @Json(name = "Liquid") Liquid("Liquid"),
+        @Json(name = "Html5") Html5("Html5"),
+        @Json(name = "Markdown") Markdown("Markdown");
+    }
 
 }
 

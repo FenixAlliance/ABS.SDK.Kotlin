@@ -27,6 +27,8 @@ import com.squareup.moshi.JsonClass
  * @param qualifiedName 
  * @param tenantId 
  * @param type 
+ * @param email 
+ * @param phone 
  * @param publicName 
  * @param firstName 
  * @param lastName 
@@ -69,6 +71,12 @@ data class SimpleContactDto (
     @Json(name = "type")
     val type: SimpleContactDto.Type? = null,
 
+    @Json(name = "email")
+    val email: kotlin.String? = null,
+
+    @Json(name = "phone")
+    val phone: kotlin.String? = null,
+
     @Json(name = "publicName")
     val publicName: kotlin.String? = null,
 
@@ -100,37 +108,37 @@ data class SimpleContactDto (
     val socialProfileId: kotlin.String? = null,
 
     @Json(name = "webUrl")
-    val webUrl: kotlin.String? = null,
+    val webUrl: java.net.URI? = null,
 
     @Json(name = "gitHubUrl")
-    val gitHubUrl: kotlin.String? = null,
+    val gitHubUrl: java.net.URI? = null,
 
     @Json(name = "twitchUrl")
-    val twitchUrl: kotlin.String? = null,
+    val twitchUrl: java.net.URI? = null,
 
     @Json(name = "redditUrl")
-    val redditUrl: kotlin.String? = null,
+    val redditUrl: java.net.URI? = null,
 
     @Json(name = "tikTokUrl")
-    val tikTokUrl: kotlin.String? = null,
+    val tikTokUrl: java.net.URI? = null,
 
     @Json(name = "websiteUrl")
-    val websiteUrl: kotlin.String? = null,
+    val websiteUrl: java.net.URI? = null,
 
     @Json(name = "twitterUrl")
-    val twitterUrl: kotlin.String? = null,
+    val twitterUrl: java.net.URI? = null,
 
     @Json(name = "facebookUrl")
-    val facebookUrl: kotlin.String? = null,
+    val facebookUrl: java.net.URI? = null,
 
     @Json(name = "youTubeUrl")
-    val youTubeUrl: kotlin.String? = null,
+    val youTubeUrl: java.net.URI? = null,
 
     @Json(name = "linkedInUrl")
-    val linkedInUrl: kotlin.String? = null,
+    val linkedInUrl: java.net.URI? = null,
 
     @Json(name = "instagramUrl")
-    val instagramUrl: kotlin.String? = null,
+    val instagramUrl: java.net.URI? = null,
 
     @Json(name = "githubUsername")
     val githubUsername: kotlin.String? = null
@@ -140,12 +148,12 @@ data class SimpleContactDto (
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Individual,Organization
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Organization") Organization("Organization");
     }
 
 }

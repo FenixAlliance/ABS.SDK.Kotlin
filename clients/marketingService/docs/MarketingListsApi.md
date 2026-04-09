@@ -4,70 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceMarketingListsCountGet**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsCountGet) | **GET** /api/v2/MarketingService/MarketingLists/Count |  |
-| [**apiV2MarketingServiceMarketingListsGet**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsGet) | **GET** /api/v2/MarketingService/MarketingLists |  |
-| [**apiV2MarketingServiceMarketingListsMarketinglistIdDelete**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsMarketinglistIdDelete) | **DELETE** /api/v2/MarketingService/MarketingLists/{marketinglistId} |  |
-| [**apiV2MarketingServiceMarketingListsMarketinglistIdGet**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsMarketinglistIdGet) | **GET** /api/v2/MarketingService/MarketingLists/{marketinglistId} |  |
-| [**apiV2MarketingServiceMarketingListsMarketinglistIdPut**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsMarketinglistIdPut) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} |  |
-| [**apiV2MarketingServiceMarketingListsPost**](MarketingListsApi.md#apiV2MarketingServiceMarketingListsPost) | **POST** /api/v2/MarketingService/MarketingLists |  |
+| [**createMarketingListAsync**](MarketingListsApi.md#createMarketingListAsync) | **POST** /api/v2/MarketingService/MarketingLists | Create a marketing list |
+| [**deleteMarketingListAsync**](MarketingListsApi.md#deleteMarketingListAsync) | **DELETE** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Delete a marketing list |
+| [**getMarketingListDetailsAsync**](MarketingListsApi.md#getMarketingListDetailsAsync) | **GET** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Get marketing list by ID |
+| [**getMarketingListODataAsync**](MarketingListsApi.md#getMarketingListODataAsync) | **GET** /api/v2/MarketingService/MarketingLists | Get marketing lists |
+| [**getMarketingListsCountAsync**](MarketingListsApi.md#getMarketingListsCountAsync) | **GET** /api/v2/MarketingService/MarketingLists/Count | Get marketing lists count |
+| [**updateMarketingListAsync**](MarketingListsApi.md#updateMarketingListAsync) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Update a marketing list |
 
 
-<a id="apiV2MarketingServiceMarketingListsCountGet"></a>
-# **apiV2MarketingServiceMarketingListsCountGet**
-> Int32Envelope apiV2MarketingServiceMarketingListsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createMarketingListAsync"></a>
+# **createMarketingListAsync**
+> EmptyEnvelope createMarketingListAsync(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
 
+Create a marketing list
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = MarketingListsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2MarketingServiceMarketingListsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceMarketingListsGet"></a>
-# **apiV2MarketingServiceMarketingListsGet**
-> MarketingListDtoListEnvelope apiV2MarketingServiceMarketingListsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new marketing list for the specified tenant.
 
 ### Example
 ```kotlin
@@ -77,22 +28,24 @@ Configure Bearer:
 
 val apiInstance = MarketingListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val marketingListCreateDto : MarketingListCreateDto =  // MarketingListCreateDto | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : MarketingListDtoListEnvelope = apiInstance.apiV2MarketingServiceMarketingListsGet(tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createMarketingListAsync(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsGet")
+    println("4xx response calling MarketingListsApi#createMarketingListAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsGet")
+    println("5xx response calling MarketingListsApi#createMarketingListAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
+| **marketingListCreateDto** | [**MarketingListCreateDto**](MarketingListCreateDto.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -100,25 +53,24 @@ try {
 
 ### Return type
 
-[**MarketingListDtoListEnvelope**](MarketingListDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceMarketingListsMarketinglistIdDelete"></a>
-# **apiV2MarketingServiceMarketingListsMarketinglistIdDelete**
-> EmptyEnvelope apiV2MarketingServiceMarketingListsMarketinglistIdDelete(marketinglistId, tenantId, apiVersion, xApiVersion)
+<a id="deleteMarketingListAsync"></a>
+# **deleteMarketingListAsync**
+> EmptyEnvelope deleteMarketingListAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
 
+Delete a marketing list
 
+Deletes a marketing list by its ID.
 
 ### Example
 ```kotlin
@@ -132,13 +84,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdDelete(marketinglistId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteMarketingListAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdDelete")
+    println("4xx response calling MarketingListsApi#deleteMarketingListAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdDelete")
+    println("5xx response calling MarketingListsApi#deleteMarketingListAsync")
     e.printStackTrace()
 }
 ```
@@ -157,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceMarketingListsMarketinglistIdGet"></a>
-# **apiV2MarketingServiceMarketingListsMarketinglistIdGet**
-> MarketingListDtoEnvelope apiV2MarketingServiceMarketingListsMarketinglistIdGet(marketinglistId, tenantId, apiVersion, xApiVersion)
+<a id="getMarketingListDetailsAsync"></a>
+# **getMarketingListDetailsAsync**
+> MarketingListDtoEnvelope getMarketingListDetailsAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
 
+Get marketing list by ID
 
+Retrieves the details of a specific marketing list by its ID.
 
 ### Example
 ```kotlin
@@ -185,13 +136,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : MarketingListDtoEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdGet(marketinglistId, tenantId, apiVersion, xApiVersion)
+    val result : MarketingListDtoEnvelope = apiInstance.getMarketingListDetailsAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdGet")
+    println("4xx response calling MarketingListsApi#getMarketingListDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdGet")
+    println("5xx response calling MarketingListsApi#getMarketingListDetailsAsync")
     e.printStackTrace()
 }
 ```
@@ -210,21 +161,120 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceMarketingListsMarketinglistIdPut"></a>
-# **apiV2MarketingServiceMarketingListsMarketinglistIdPut**
-> EmptyEnvelope apiV2MarketingServiceMarketingListsMarketinglistIdPut(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
+<a id="getMarketingListODataAsync"></a>
+# **getMarketingListODataAsync**
+> MarketingListDtoListEnvelope getMarketingListODataAsync(tenantId, apiVersion, xApiVersion)
 
+Get marketing lists
 
+Retrieves a collection of marketing lists for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = MarketingListsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : MarketingListDtoListEnvelope = apiInstance.getMarketingListODataAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling MarketingListsApi#getMarketingListODataAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MarketingListsApi#getMarketingListODataAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**MarketingListDtoListEnvelope**](MarketingListDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getMarketingListsCountAsync"></a>
+# **getMarketingListsCountAsync**
+> Int32Envelope getMarketingListsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get marketing lists count
+
+Returns the count of marketing lists for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = MarketingListsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getMarketingListsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling MarketingListsApi#getMarketingListsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MarketingListsApi#getMarketingListsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateMarketingListAsync"></a>
+# **updateMarketingListAsync**
+> EmptyEnvelope updateMarketingListAsync(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
+
+Update a marketing list
+
+Updates an existing marketing list by its ID.
 
 ### Example
 ```kotlin
@@ -239,13 +289,13 @@ val marketingListUpdateDto : MarketingListUpdateDto =  // MarketingListUpdateDto
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdPut(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateMarketingListAsync(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdPut")
+    println("4xx response calling MarketingListsApi#updateMarketingListAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsMarketinglistIdPut")
+    println("5xx response calling MarketingListsApi#updateMarketingListAsync")
     e.printStackTrace()
 }
 ```
@@ -265,63 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceMarketingListsPost"></a>
-# **apiV2MarketingServiceMarketingListsPost**
-> EmptyEnvelope apiV2MarketingServiceMarketingListsPost(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = MarketingListsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val marketingListCreateDto : MarketingListCreateDto =  // MarketingListCreateDto | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsPost(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling MarketingListsApi#apiV2MarketingServiceMarketingListsPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **marketingListCreateDto** | [**MarketingListCreateDto**](MarketingListCreateDto.md)|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

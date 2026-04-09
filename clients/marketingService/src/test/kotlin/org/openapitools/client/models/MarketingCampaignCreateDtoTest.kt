@@ -127,10 +127,10 @@ class MarketingCampaignCreateDtoTest : ShouldSpec() {
             //modelInstance.tenantId shouldBe ("TODO")
         }
 
-        // to test the property `enrolmentId`
-        should("test enrolmentId") {
+        // to test the property `enrollmentId`
+        should("test enrollmentId") {
             // uncomment below to test the property
-            //modelInstance.enrolmentId shouldBe ("TODO")
+            //modelInstance.enrollmentId shouldBe ("TODO")
         }
 
     }

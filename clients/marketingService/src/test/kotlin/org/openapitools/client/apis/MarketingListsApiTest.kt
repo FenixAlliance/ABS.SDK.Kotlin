@@ -32,68 +32,68 @@ class MarketingListsApiTest : ShouldSpec() {
         // uncomment below to create an instance of MarketingListsApi
         //val apiInstance = MarketingListsApi()
 
-        // to test apiV2MarketingServiceMarketingListsCountGet
-        should("test apiV2MarketingServiceMarketingListsCountGet") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsCountGet
+        // to test createMarketingListAsync
+        should("test createMarketingListAsync") {
+            // uncomment below to test createMarketingListAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val marketingListCreateDto : MarketingListCreateDto =  // MarketingListCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceMarketingListsCountGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createMarketingListAsync(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceMarketingListsGet
-        should("test apiV2MarketingServiceMarketingListsGet") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : MarketingListDtoListEnvelope = apiInstance.apiV2MarketingServiceMarketingListsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceMarketingListsMarketinglistIdDelete
-        should("test apiV2MarketingServiceMarketingListsMarketinglistIdDelete") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsMarketinglistIdDelete
+        // to test deleteMarketingListAsync
+        should("test deleteMarketingListAsync") {
+            // uncomment below to test deleteMarketingListAsync
             //val marketinglistId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdDelete(marketinglistId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteMarketingListAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceMarketingListsMarketinglistIdGet
-        should("test apiV2MarketingServiceMarketingListsMarketinglistIdGet") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsMarketinglistIdGet
+        // to test getMarketingListDetailsAsync
+        should("test getMarketingListDetailsAsync") {
+            // uncomment below to test getMarketingListDetailsAsync
             //val marketinglistId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : MarketingListDtoEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdGet(marketinglistId, tenantId, apiVersion, xApiVersion)
+            //val result : MarketingListDtoEnvelope = apiInstance.getMarketingListDetailsAsync(marketinglistId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceMarketingListsMarketinglistIdPut
-        should("test apiV2MarketingServiceMarketingListsMarketinglistIdPut") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsMarketinglistIdPut
+        // to test getMarketingListODataAsync
+        should("test getMarketingListODataAsync") {
+            // uncomment below to test getMarketingListODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : MarketingListDtoListEnvelope = apiInstance.getMarketingListODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getMarketingListsCountAsync
+        should("test getMarketingListsCountAsync") {
+            // uncomment below to test getMarketingListsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getMarketingListsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateMarketingListAsync
+        should("test updateMarketingListAsync") {
+            // uncomment below to test updateMarketingListAsync
             //val marketinglistId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val marketingListUpdateDto : MarketingListUpdateDto =  // MarketingListUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsMarketinglistIdPut(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceMarketingListsPost
-        should("test apiV2MarketingServiceMarketingListsPost") {
-            // uncomment below to test apiV2MarketingServiceMarketingListsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val marketingListCreateDto : MarketingListCreateDto =  // MarketingListCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceMarketingListsPost(tenantId, marketingListCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateMarketingListAsync(marketinglistId, tenantId, marketingListUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

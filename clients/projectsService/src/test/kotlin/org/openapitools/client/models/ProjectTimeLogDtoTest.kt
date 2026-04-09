@@ -79,12 +79,6 @@ class ProjectTimeLogDtoTest : ShouldSpec() {
             //modelInstance.recordType shouldBe ("TODO")
         }
 
-        // to test the property `timeStamp`
-        should("test timeStamp") {
-            // uncomment below to test the property
-            //modelInstance.timeStamp shouldBe ("TODO")
-        }
-
         // to test the property `timeSpan`
         should("test timeSpan") {
             // uncomment below to test the property

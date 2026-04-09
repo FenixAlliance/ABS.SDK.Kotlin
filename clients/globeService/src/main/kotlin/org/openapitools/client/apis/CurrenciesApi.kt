@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.CurrencyDtoEnvelope
 import org.openapitools.client.models.CurrencyDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 
 import com.squareup.moshi.Json
 
@@ -48,8 +49,88 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Count currencies
+     * Returns the total number of enabled currencies, with optional OData filtering.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun countCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Count currencies
+     * Returns the total number of enabled currencies, with optional OData filtering.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun countCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation countCurrenciesAsync
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun countCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/GlobeService/Currencies/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get currency by ID
+     * Retrieves a single currency by its unique identifier.
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -62,8 +143,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2GlobeServiceCurrenciesCurrencyIdGet(currencyId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoEnvelope {
-        val localVarResponse = apiV2GlobeServiceCurrenciesCurrencyIdGetWithHttpInfo(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrencyByIdAsync(currencyId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoEnvelope {
+        val localVarResponse = getCurrencyByIdAsyncWithHttpInfo(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CurrencyDtoEnvelope
@@ -81,8 +162,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Get currency by ID
+     * Retrieves a single currency by its unique identifier.
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -92,8 +173,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2GlobeServiceCurrenciesCurrencyIdGetWithHttpInfo(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoEnvelope?> {
-        val localVariableConfig = apiV2GlobeServiceCurrenciesCurrencyIdGetRequestConfig(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrencyByIdAsyncWithHttpInfo(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoEnvelope?> {
+        val localVariableConfig = getCurrencyByIdAsyncRequestConfig(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, CurrencyDtoEnvelope>(
             localVariableConfig
@@ -101,14 +182,14 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2GlobeServiceCurrenciesCurrencyIdGet
+     * To obtain the request config of the operation getCurrencyByIdAsync
      *
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2GlobeServiceCurrenciesCurrencyIdGetRequestConfig(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getCurrencyByIdAsyncRequestConfig(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -125,14 +206,14 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/GlobeService/Currencies/{currencyId}".replace("{"+"currencyId"+"}", encodeURIComponent(currencyId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get all currencies
+     * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return CurrencyDtoListEnvelope
@@ -144,8 +225,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2GlobeServiceCurrenciesGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoListEnvelope {
-        val localVarResponse = apiV2GlobeServiceCurrenciesGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoListEnvelope {
+        val localVarResponse = getEnabledCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CurrencyDtoListEnvelope
@@ -163,8 +244,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Get all currencies
+     * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<CurrencyDtoListEnvelope?>
@@ -173,8 +254,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2GlobeServiceCurrenciesGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoListEnvelope?> {
-        val localVariableConfig = apiV2GlobeServiceCurrenciesGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoListEnvelope?> {
+        val localVariableConfig = getEnabledCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, CurrencyDtoListEnvelope>(
             localVariableConfig
@@ -182,13 +263,13 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2GlobeServiceCurrenciesGet
+     * To obtain the request config of the operation getEnabledCurrenciesAsync
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2GlobeServiceCurrenciesGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getEnabledCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -205,7 +286,7 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/GlobeService/Currencies",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

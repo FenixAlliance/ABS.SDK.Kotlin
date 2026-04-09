@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2InventoryServiceInventoryStockItemIdDetailsGet**](InventoryApi.md#apiV2InventoryServiceInventoryStockItemIdDetailsGet) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details |  |
+| [**getInventoryDetailsAsync**](InventoryApi.md#getInventoryDetailsAsync) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details | Get inventory details for a stock item |
 
 
-<a id="apiV2InventoryServiceInventoryStockItemIdDetailsGet"></a>
-# **apiV2InventoryServiceInventoryStockItemIdDetailsGet**
-> apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId, apiVersion, xApiVersion)
+<a id="getInventoryDetailsAsync"></a>
+# **getInventoryDetailsAsync**
+> getInventoryDetailsAsync(stockItemId, apiVersion, xApiVersion)
 
+Get inventory details for a stock item
 
+Retrieves the inventory details for a specific stock item by its ID.
 
 ### Example
 ```kotlin
@@ -24,12 +26,12 @@ val stockItemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId, apiVersion, xApiVersion)
+    apiInstance.getInventoryDetailsAsync(stockItemId, apiVersion, xApiVersion)
 } catch (e: ClientException) {
-    println("4xx response calling InventoryApi#apiV2InventoryServiceInventoryStockItemIdDetailsGet")
+    println("4xx response calling InventoryApi#getInventoryDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling InventoryApi#apiV2InventoryServiceInventoryStockItemIdDetailsGet")
+    println("5xx response calling InventoryApi#getInventoryDetailsAsync")
     e.printStackTrace()
 }
 ```
@@ -47,10 +49,7 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

@@ -77,7 +77,7 @@ import com.squareup.moshi.JsonClass
  * @param accountingEntryId 
  * @param paymentGatewayId 
  * @param bankAccountId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param bankId 
  * @param paymentTokenId 
  * @param emisorWalletAccountId 
@@ -252,8 +252,8 @@ data class PaymentCreateDto (
     @Json(name = "bankAccountId")
     val bankAccountId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "bankId")
     val bankId: kotlin.String? = null,
@@ -272,45 +272,45 @@ data class PaymentCreateDto (
     /**
      * 
      *
-     * Values: _0,_1,_2,_3
+     * Values: Self,Tenant,Individual,Organization
      */
     @JsonClass(generateAdapter = false)
-    enum class OnBehalfOf(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3);
+    enum class OnBehalfOf(val value: kotlin.String) {
+        @Json(name = "Self") Self("Self"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Organization") Organization("Organization");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: Paid,Received,Internal
      */
     @JsonClass(generateAdapter = false)
-    enum class PaymentType(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class PaymentType(val value: kotlin.String) {
+        @Json(name = "Paid") Paid("Paid"),
+        @Json(name = "Received") Received("Received"),
+        @Json(name = "Internal") Internal("Internal");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11
+     * Values: Unset,Accepted,Rejected,OnHold,Failed,Reversed,Retained,Initialized,Expired,Abandoned,Cancelled,AcceptedRetained
      */
     @JsonClass(generateAdapter = false)
-    enum class PaymentStatus(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3),
-        @Json(name = "4") _4(4),
-        @Json(name = "5") _5(5),
-        @Json(name = "6") _6(6),
-        @Json(name = "7") _7(7),
-        @Json(name = "8") _8(8),
-        @Json(name = "9") _9(9),
-        @Json(name = "10") _10(10),
-        @Json(name = "11") _11(11);
+    enum class PaymentStatus(val value: kotlin.String) {
+        @Json(name = "Unset") Unset("Unset"),
+        @Json(name = "Accepted") Accepted("Accepted"),
+        @Json(name = "Rejected") Rejected("Rejected"),
+        @Json(name = "OnHold") OnHold("OnHold"),
+        @Json(name = "Failed") Failed("Failed"),
+        @Json(name = "Reversed") Reversed("Reversed"),
+        @Json(name = "Retained") Retained("Retained"),
+        @Json(name = "Initialized") Initialized("Initialized"),
+        @Json(name = "Expired") Expired("Expired"),
+        @Json(name = "Abandoned") Abandoned("Abandoned"),
+        @Json(name = "Cancelled") Cancelled("Cancelled"),
+        @Json(name = "AcceptedRetained") AcceptedRetained("AcceptedRetained");
     }
 
 }

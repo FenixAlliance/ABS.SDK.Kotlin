@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.models.Money
-import org.openapitools.client.models.Currency
+import org.openapitools.client.models.CurrencyId
 
 class MoneyTest : ShouldSpec() {
     init {

@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createJobOfferAsync**](JobOffersApi.md#createJobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers |  |
-| [**deleteJobOfferAsync**](JobOffersApi.md#deleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
-| [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
-| [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers |  |
-| [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count |  |
-| [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
+| [**createJobOfferAsync**](JobOffersApi.md#createJobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer |
+| [**deleteJobOfferAsync**](JobOffersApi.md#deleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer |
+| [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID |
+| [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers |
+| [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers |
+| [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer |
 
 
 <a id="createJobOfferAsync"></a>
 # **createJobOfferAsync**
-> createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+> EmptyEnvelope createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
 
+Create a job offer
 
+Creates a new job offer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -30,7 +32,8 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val jobOfferCreateDto : JobOfferCreateDto =  // JobOfferCreateDto | 
 try {
-    apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+    val result : EmptyEnvelope = apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobOffersApi#createJobOfferAsync")
     e.printStackTrace()
@@ -50,14 +53,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -66,9 +66,11 @@ Configure Bearer:
 
 <a id="deleteJobOfferAsync"></a>
 # **deleteJobOfferAsync**
-> deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
 
+Delete a job offer
 
+Deletes a job offer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -82,7 +84,8 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobOffersApi#deleteJobOfferAsync")
     e.printStackTrace()
@@ -102,14 +105,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -120,7 +120,9 @@ Configure Bearer:
 # **getJobOfferByIdAsync**
 > JobOfferDtoEnvelope getJobOfferByIdAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
 
+Get job offer by ID
 
+Retrieves a specific job offer by its identifier.
 
 ### Example
 ```kotlin
@@ -159,10 +161,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -173,7 +172,9 @@ Configure Bearer:
 # **getJobOffersAsync**
 > JobOfferDtoListEnvelope getJobOffersAsync(tenantId, apiVersion, xApiVersion)
 
+Get job offers
 
+Retrieves job offers for the specified tenant.
 
 ### Example
 ```kotlin
@@ -210,10 +211,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -224,7 +222,9 @@ Configure Bearer:
 # **getJobOffersCountAsync**
 > Int32Envelope getJobOffersCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count job offers
 
+Counts job offers for the specified tenant.
 
 ### Example
 ```kotlin
@@ -261,10 +261,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -273,9 +270,11 @@ Configure Bearer:
 
 <a id="updateJobOfferAsync"></a>
 # **updateJobOfferAsync**
-> updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
 
+Update a job offer
 
+Updates an existing job offer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -290,7 +289,8 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val body : kotlin.Any = Object // kotlin.Any | 
 try {
-    apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+    val result : EmptyEnvelope = apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobOffersApi#updateJobOfferAsync")
     e.printStackTrace()
@@ -311,14 +311,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param lastUsedOn 
  * @param currencyId 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param marketingListType 
  * @param marketingListTarget 
  */
@@ -70,8 +70,8 @@ data class MarketingListUpdateDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "marketingListType")
     val marketingListType: MarketingListUpdateDto.MarketingListType? = null,
@@ -84,23 +84,23 @@ data class MarketingListUpdateDto (
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Static,Dynamic
      */
     @JsonClass(generateAdapter = false)
-    enum class MarketingListType(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class MarketingListType(val value: kotlin.String) {
+        @Json(name = "Static") Static("Static"),
+        @Json(name = "Dynamic") Dynamic("Dynamic");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: Individual,Organization,Lead
      */
     @JsonClass(generateAdapter = false)
-    enum class MarketingListTarget(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class MarketingListTarget(val value: kotlin.String) {
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Organization") Organization("Organization"),
+        @Json(name = "Lead") Lead("Lead");
     }
 
 }

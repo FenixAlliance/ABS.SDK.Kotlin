@@ -36,7 +36,7 @@
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1, 2 |
+| type | User, Tenant, Contact |
 
 
 

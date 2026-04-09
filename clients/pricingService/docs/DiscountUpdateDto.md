@@ -10,7 +10,7 @@
 | **percent** | **kotlin.Double** |  |  [optional] |
 | **&#x60;value&#x60;** | **kotlin.Double** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **discountListId** | **kotlin.String** |  |  [optional] |
 
 

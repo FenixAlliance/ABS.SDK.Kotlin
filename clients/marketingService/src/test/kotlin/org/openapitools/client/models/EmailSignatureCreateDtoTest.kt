@@ -43,10 +43,10 @@ class EmailSignatureCreateDtoTest : ShouldSpec() {
             //modelInstance.tenantId shouldBe ("TODO")
         }
 
-        // to test the property `enrolmentId`
-        should("test enrolmentId") {
+        // to test the property `enrollmentId`
+        should("test enrollmentId") {
             // uncomment below to test the property
-            //modelInstance.enrolmentId shouldBe ("TODO")
+            //modelInstance.enrollmentId shouldBe ("TODO")
         }
 
         // to test the property `title`
@@ -55,10 +55,16 @@ class EmailSignatureCreateDtoTest : ShouldSpec() {
             //modelInstance.title shouldBe ("TODO")
         }
 
-        // to test the property `authorId`
-        should("test authorId") {
+        // to test the property `code`
+        should("test code") {
             // uncomment below to test the property
-            //modelInstance.authorId shouldBe ("TODO")
+            //modelInstance.code shouldBe ("TODO")
+        }
+
+        // to test the property `published`
+        should("test published") {
+            // uncomment below to test the property
+            //modelInstance.published shouldBe ("TODO")
         }
 
         // to test the property `description`
@@ -77,6 +83,12 @@ class EmailSignatureCreateDtoTest : ShouldSpec() {
         should("test featuredImageUrl") {
             // uncomment below to test the property
             //modelInstance.featuredImageUrl shouldBe ("TODO")
+        }
+
+        // to test the property `codeType`
+        should("test codeType") {
+            // uncomment below to test the property
+            //modelInstance.codeType shouldBe ("TODO")
         }
 
     }

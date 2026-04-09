@@ -20,6 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.TaskCategoriesApi
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.TaskCategoryCreateDto
 import org.openapitools.client.models.TaskCategoryDto
 import org.openapitools.client.models.TaskCategoryDtoListEnvelope
@@ -30,69 +31,65 @@ class TaskCategoriesApiTest : ShouldSpec() {
         // uncomment below to create an instance of TaskCategoriesApi
         //val apiInstance = TaskCategoriesApi()
 
-        // to test apiV2ProjectsServiceTaskCategoriesGet
-        should("test apiV2ProjectsServiceTaskCategoriesGet") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesGet
+        // to test countTenantTaskCategoriesAsync
+        should("test countTenantTaskCategoriesAsync") {
+            // uncomment below to test countTenantTaskCategoriesAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskCategoryDtoListEnvelope = apiInstance.apiV2ProjectsServiceTaskCategoriesGet(tenantId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countTenantTaskCategoriesAsync(tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskCategoriesPost
-        should("test apiV2ProjectsServiceTaskCategoriesPost") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesPost
+        // to test createTaskCategoryAsync
+        should("test createTaskCategoryAsync") {
+            // uncomment below to test createTaskCategoryAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val taskCategoryCreateDto : TaskCategoryCreateDto =  // TaskCategoryCreateDto | 
-            //val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesPost(tenantId, apiVersion, xApiVersion, taskCategoryCreateDto)
+            //val result : TaskCategoryDto = apiInstance.createTaskCategoryAsync(tenantId, taskCategoryCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete
-        should("test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete
+        // to test deleteTaskCategoryAsync
+        should("test deleteTaskCategoryAsync") {
+            // uncomment below to test deleteTaskCategoryAsync
             //val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(taskCategoryId, tenantId, apiVersion, xApiVersion)
+            //val result : TaskCategoryDto = apiInstance.deleteTaskCategoryAsync(taskCategoryId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet
-        should("test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet
+        // to test getTaskCategoryByIdAsync
+        should("test getTaskCategoryByIdAsync") {
+            // uncomment below to test getTaskCategoryByIdAsync
             //val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
+            //val result : TaskCategoryDto = apiInstance.getTaskCategoryByIdAsync(taskCategoryId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut
-        should("test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut
+        // to test getTaskCategoryTaskTypesAsync
+        should("test getTaskCategoryTaskTypesAsync") {
+            // uncomment below to test getTaskCategoryTaskTypesAsync
             //val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : TaskCategoryDto = apiInstance.getTaskCategoryTaskTypesAsync(taskCategoryId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getTenantTaskCategoriesAsync
+        should("test getTenantTaskCategoriesAsync") {
+            // uncomment below to test getTenantTaskCategoriesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : TaskCategoryDtoListEnvelope = apiInstance.getTenantTaskCategoriesAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateTaskCategoryAsync
+        should("test updateTaskCategoryAsync") {
+            // uncomment below to test updateTaskCategoryAsync
+            //val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val taskCategoryUpdateDto : TaskCategoryUpdateDto =  // TaskCategoryUpdateDto | 
-            //val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(taskCategoryId, tenantId, apiVersion, xApiVersion, taskCategoryUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet
-        should("test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet") {
-            // uncomment below to test apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet
-            //val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskCategoryDto = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
+            //val result : TaskCategoryDto = apiInstance.updateTaskCategoryAsync(taskCategoryId, tenantId, taskCategoryUpdateDto)
             //result shouldBe ("TODO")
         }
 

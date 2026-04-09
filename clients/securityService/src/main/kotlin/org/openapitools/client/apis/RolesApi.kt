@@ -19,13 +19,16 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BusinessApplicationSimpleDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleCreateDto
+import org.openapitools.client.models.SecurityRoleDtoEnvelope
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleUpdateDto
-import org.openapitools.client.models.TenantEnrolmentDtoListEnvelope
+import org.openapitools.client.models.TenantEnrollmentDtoListEnvelope
 
 import com.squareup.moshi.Json
 
@@ -52,96 +55,13 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Assign a permission to a role
+     * Assigns a security permission to a security role.
+     * @param securityRoleId 
+     * @param securityPermissionId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return SecurityRoleDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SecurityRoleDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServiceRolesGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SecurityService/Roles",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param securityRoleCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -151,8 +71,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityRoleCreateDto: SecurityRoleCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleCreateDto = securityRoleCreateDto)
+    fun assignPermissionToRoleAsync(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignPermissionToRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -170,20 +90,289 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Assign a permission to a role
+     * Assigns a security permission to a security role.
+     * @param securityRoleId 
+     * @param securityPermissionId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param securityRoleCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleCreateDto: SecurityRoleCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleCreateDto = securityRoleCreateDto)
+    fun assignPermissionToRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignPermissionToRoleAsyncRequestConfig(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignPermissionToRoleAsync
+     *
+     * @param securityRoleId 
+     * @param securityPermissionId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignPermissionToRoleAsyncRequestConfig(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Assign a role to a business application
+     * Assigns a security role to a business application.
+     * @param securityRoleId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assignRoleToBusinessApplicationAsync(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignRoleToBusinessApplicationAsyncWithHttpInfo(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Assign a role to a business application
+     * Assigns a security role to a business application.
+     * @param securityRoleId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignRoleToBusinessApplicationAsyncWithHttpInfo(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignRoleToBusinessApplicationAsyncRequestConfig(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignRoleToBusinessApplicationAsync
+     *
+     * @param securityRoleId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignRoleToBusinessApplicationAsyncRequestConfig(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Assign a role to an enrollment
+     * Assigns a security role to a tenant enrollment.
+     * @param securityRoleId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assignRoleToEnrollmentAsync(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignRoleToEnrollmentAsyncWithHttpInfo(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Assign a role to an enrollment
+     * Assigns a security role to a tenant enrollment.
+     * @param securityRoleId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignRoleToEnrollmentAsyncWithHttpInfo(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignRoleToEnrollmentAsyncRequestConfig(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignRoleToEnrollmentAsync
+     *
+     * @param securityRoleId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignRoleToEnrollmentAsyncRequestConfig(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create a new role
+     * Creates a new security role for the specified tenant.
+     * @param tenantId 
+     * @param securityRoleCreateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createRoleAsync(tenantId: java.util.UUID, securityRoleCreateDto: SecurityRoleCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = createRoleAsyncWithHttpInfo(tenantId = tenantId, securityRoleCreateDto = securityRoleCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a new role
+     * Creates a new security role for the specified tenant.
+     * @param tenantId 
+     * @param securityRoleCreateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createRoleAsyncWithHttpInfo(tenantId: java.util.UUID, securityRoleCreateDto: SecurityRoleCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createRoleAsyncRequestConfig(tenantId = tenantId, securityRoleCreateDto = securityRoleCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SecurityRoleCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -191,15 +380,15 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesPost
+     * To obtain the request config of the operation createRoleAsync
      *
      * @param tenantId 
+     * @param securityRoleCreateDto 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param securityRoleCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleCreateDto: SecurityRoleCreateDto?) : RequestConfig<SecurityRoleCreateDto> {
+    fun createRoleAsyncRequestConfig(tenantId: java.util.UUID, securityRoleCreateDto: SecurityRoleCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityRoleCreateDto> {
         val localVariableBody = securityRoleCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -218,16 +407,15 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete an existing role
+     * Deletes an existing security role for the specified tenant.
      * @param securityRoleId 
-     * @param applicationId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -240,8 +428,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDeleteWithHttpInfo(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -259,187 +447,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDeleteWithHttpInfo(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDeleteRequestConfig(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete
-     *
-     * @param securityRoleId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDeleteRequestConfig(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPostWithHttpInfo(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPostWithHttpInfo(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPostRequestConfig(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost
-     *
-     * @param securityRoleId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPostRequestConfig(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdDelete(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdDeleteWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
+     * Delete an existing role
+     * Deletes an existing security role for the specified tenant.
      * @param securityRoleId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -450,8 +459,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdDeleteWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdDeleteRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -459,7 +468,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdDelete
+     * To obtain the request config of the operation deleteRoleAsync
      *
      * @param securityRoleId 
      * @param tenantId 
@@ -467,7 +476,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdDeleteRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -485,20 +494,19 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get applications by role
+     * Retrieves all business applications that have a specific role granted.
      * @param securityRoleId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return BusinessApplicationSimpleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -507,11 +515,11 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDeleteWithHttpInfo(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getApplicationsByRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessApplicationSimpleDtoListEnvelope {
+        val localVarResponse = getApplicationsByRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessApplicationSimpleDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -526,38 +534,36 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get applications by role
+     * Retrieves all business applications that have a specific role granted.
      * @param securityRoleId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<BusinessApplicationSimpleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDeleteWithHttpInfo(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDeleteRequestConfig(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getApplicationsByRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessApplicationSimpleDtoListEnvelope?> {
+        val localVariableConfig = getApplicationsByRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, BusinessApplicationSimpleDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete
+     * To obtain the request config of the operation getApplicationsByRoleAsync
      *
      * @param securityRoleId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDeleteRequestConfig(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getApplicationsByRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -571,24 +577,23 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Applications".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get enrollments by role
+     * Retrieves all tenant enrollments that have a specific role.
      * @param securityRoleId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return TenantEnrollmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -597,11 +602,11 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPostWithHttpInfo(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsByRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrollmentDtoListEnvelope {
+        val localVarResponse = getEnrollmentsByRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrollmentDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -616,117 +621,28 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get enrollments by role
+     * Retrieves all tenant enrollments that have a specific role.
      * @param securityRoleId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<TenantEnrollmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPostWithHttpInfo(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPostRequestConfig(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsByRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
+        val localVariableConfig = getEnrollmentsByRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, TenantEnrollmentDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost
-     *
-     * @param securityRoleId 
-     * @param enrollmentId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPostRequestConfig(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return TenantEnrolmentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrolmentDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGetWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrolmentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<TenantEnrolmentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGetWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrolmentDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGetRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, TenantEnrolmentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet
+     * To obtain the request config of the operation getEnrollmentsByRoleAsync
      *
      * @param securityRoleId 
      * @param tenantId 
@@ -734,7 +650,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGetRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getEnrollmentsByRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -752,19 +668,19 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}/Enrollments".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get role by ID
+     * Retrieves a specific security role by its ID.
      * @param securityRoleId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return SecurityRoleDtoListEnvelope
+     * @return SecurityRoleDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -773,11 +689,11 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdGet(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdGetWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoEnvelope {
+        val localVarResponse = getRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -792,28 +708,28 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get role by ID
+     * Retrieves a specific security role by its ID.
      * @param securityRoleId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
+     * @return ApiResponse<SecurityRoleDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdGetWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdGetRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoEnvelope?> {
+        val localVariableConfig = getRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, SecurityRoleDtoListEnvelope>(
+        return request<Unit, SecurityRoleDtoEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdGet
+     * To obtain the request config of the operation getRoleAsync
      *
      * @param securityRoleId 
      * @param tenantId 
@@ -821,7 +737,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdGetRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -839,14 +755,14 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get permissions by role
+     * Retrieves all security permissions assigned to a specific role.
      * @param securityRoleId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -860,8 +776,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityPermissionDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdPermissionsGetWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolePermissionsAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityPermissionDtoListEnvelope {
+        val localVarResponse = getRolePermissionsAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityPermissionDtoListEnvelope
@@ -879,8 +795,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get permissions by role
+     * Retrieves all security permissions assigned to a specific role.
      * @param securityRoleId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -891,8 +807,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsGetWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityPermissionDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdPermissionsGetRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolePermissionsAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityPermissionDtoListEnvelope?> {
+        val localVariableConfig = getRolePermissionsAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SecurityPermissionDtoListEnvelope>(
             localVariableConfig
@@ -900,7 +816,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet
+     * To obtain the request config of the operation getRolePermissionsAsync
      *
      * @param securityRoleId 
      * @param tenantId 
@@ -908,7 +824,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsGetRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getRolePermissionsAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -926,14 +842,269 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}/Permissions".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get all roles
+     * Retrieves all security roles for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SecurityRoleDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getRolesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
+        val localVarResponse = getRolesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get all roles
+     * Retrieves all security roles for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getRolesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
+        val localVariableConfig = getRolesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SecurityRoleDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getRolesAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getRolesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Roles",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get roles by enrollment
+     * Retrieves all security roles granted to a specific enrollment.
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SecurityRoleDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getRolesByEnrollmentAsync(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
+        val localVarResponse = getRolesByEnrollmentAsyncWithHttpInfo(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get roles by enrollment
+     * Retrieves all security roles granted to a specific enrollment.
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getRolesByEnrollmentAsyncWithHttpInfo(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
+        val localVariableConfig = getRolesByEnrollmentAsyncRequestConfig(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SecurityRoleDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getRolesByEnrollmentAsync
+     *
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getRolesByEnrollmentAsyncRequestConfig(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId}".replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get roles count
+     * Retrieves the count of security roles for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getRolesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getRolesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get roles count
+     * Retrieves the count of security roles for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getRolesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getRolesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getRolesCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getRolesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Roles/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Revoke a permission from a role
+     * Revokes a security permission from a security role.
      * @param securityRoleId 
      * @param securityPermissionId 
      * @param tenantId 
@@ -948,8 +1119,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDeleteWithHttpInfo(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun revokePermissionFromRoleAsync(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokePermissionFromRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -967,8 +1138,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Revoke a permission from a role
+     * Revokes a security permission from a security role.
      * @param securityRoleId 
      * @param securityPermissionId 
      * @param tenantId 
@@ -980,8 +1151,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDeleteWithHttpInfo(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDeleteRequestConfig(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun revokePermissionFromRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokePermissionFromRoleAsyncRequestConfig(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -989,7 +1160,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete
+     * To obtain the request config of the operation revokePermissionFromRoleAsync
      *
      * @param securityRoleId 
      * @param securityPermissionId 
@@ -998,7 +1169,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDeleteRequestConfig(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun revokePermissionFromRoleAsyncRequestConfig(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1016,16 +1187,16 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Revoke a role from a business application
+     * Revokes a security role from a business application.
      * @param securityRoleId 
-     * @param securityPermissionId 
+     * @param applicationId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -1038,8 +1209,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPostWithHttpInfo(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun revokeRoleFromBusinessApplicationAsync(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokeRoleFromBusinessApplicationAsyncWithHttpInfo(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1057,10 +1228,10 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Revoke a role from a business application
+     * Revokes a security role from a business application.
      * @param securityRoleId 
-     * @param securityPermissionId 
+     * @param applicationId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -1070,8 +1241,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPostWithHttpInfo(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPostRequestConfig(securityRoleId = securityRoleId, securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun revokeRoleFromBusinessApplicationAsyncWithHttpInfo(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokeRoleFromBusinessApplicationAsyncRequestConfig(securityRoleId = securityRoleId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -1079,16 +1250,16 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost
+     * To obtain the request config of the operation revokeRoleFromBusinessApplicationAsync
      *
      * @param securityRoleId 
-     * @param securityPermissionId 
+     * @param applicationId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPostRequestConfig(securityRoleId: kotlin.String, securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun revokeRoleFromBusinessApplicationAsyncRequestConfig(securityRoleId: kotlin.String, applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1102,23 +1273,23 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Revoke a role from an enrollment
+     * Revokes a security role from a tenant enrollment.
      * @param securityRoleId 
+     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param securityRoleUpdateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1128,8 +1299,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPut(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityRoleUpdateDto: SecurityRoleUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServiceRolesSecurityRoleIdPutWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleUpdateDto = securityRoleUpdateDto)
+    fun revokeRoleFromEnrollmentAsync(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokeRoleFromEnrollmentAsyncWithHttpInfo(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1147,21 +1318,111 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Revoke a role from an enrollment
+     * Revokes a security role from a tenant enrollment.
      * @param securityRoleId 
+     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param securityRoleUpdateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServiceRolesSecurityRoleIdPutWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleUpdateDto: SecurityRoleUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServiceRolesSecurityRoleIdPutRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleUpdateDto = securityRoleUpdateDto)
+    fun revokeRoleFromEnrollmentAsyncWithHttpInfo(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokeRoleFromEnrollmentAsyncRequestConfig(securityRoleId = securityRoleId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation revokeRoleFromEnrollmentAsync
+     *
+     * @param securityRoleId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun revokeRoleFromEnrollmentAsyncRequestConfig(securityRoleId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update an existing role
+     * Updates an existing security role for the specified tenant.
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param securityRoleUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, securityRoleUpdateDto: SecurityRoleUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = updateRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, securityRoleUpdateDto = securityRoleUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update an existing role
+     * Updates an existing security role for the specified tenant.
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param securityRoleUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, securityRoleUpdateDto: SecurityRoleUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, securityRoleUpdateDto = securityRoleUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SecurityRoleUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -1169,16 +1430,16 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServiceRolesSecurityRoleIdPut
+     * To obtain the request config of the operation updateRoleAsync
      *
      * @param securityRoleId 
      * @param tenantId 
+     * @param securityRoleUpdateDto 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param securityRoleUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServiceRolesSecurityRoleIdPutRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleUpdateDto: SecurityRoleUpdateDto?) : RequestConfig<SecurityRoleUpdateDto> {
+    fun updateRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, securityRoleUpdateDto: SecurityRoleUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityRoleUpdateDto> {
         val localVariableBody = securityRoleUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1197,7 +1458,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SecurityService/Roles/{securityRoleId}".replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

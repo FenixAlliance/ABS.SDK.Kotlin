@@ -19,14 +19,16 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.AccountHolderCreateDto
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedUserDtoEnvelope
 import org.openapitools.client.models.ExtendedUserDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.UserCreateDto
 import org.openapitools.client.models.UserDtoEnvelope
 import org.openapitools.client.models.UserDtoListEnvelope
+import org.openapitools.client.models.UserUpdateDto
 
 import com.squareup.moshi.Json
 
@@ -53,24 +55,25 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Preview the rendered email for a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
+     * @param emailDispatchRequest  (optional)
+     * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
-    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersCountGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SystemServiceUsersCountGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun adminPreviewUserEmailTemplate(userId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = adminPreviewUserEmailTemplateWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Success -> Unit
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -85,33 +88,36 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Preview the rendered email for a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
-    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersCountGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersCountGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun adminPreviewUserEmailTemplateWithHttpInfo(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = adminPreviewUserEmailTemplateRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
 
-        return request<Unit, Int32Envelope>(
+        return request<EmailDispatchRequest, Unit>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersCountGet
+     * To obtain the request config of the operation adminPreviewUserEmailTemplate
      *
+     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceUsersCountGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun adminPreviewUserEmailTemplateRequestConfig(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -120,264 +126,26 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SystemService/Users/Count",
+            method = RequestMethod.POST,
+            path = "/api/v2/SystemService/Users/{userId}/Emails/Preview".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Send an email to a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersExtendedCountGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SystemServiceUsersExtendedCountGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersExtendedCountGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersExtendedCountGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersExtendedCountGet
-     *
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SystemServiceUsersExtendedCountGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SystemService/Users/Extended/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ExtendedUserDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersExtendedGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedUserDtoListEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersExtendedGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedUserDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ExtendedUserDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersExtendedGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedUserDtoListEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersExtendedGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ExtendedUserDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersExtendedGet
-     *
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SystemServiceUsersExtendedGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SystemService/Users/Extended",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return UserDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : UserDtoListEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as UserDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<UserDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<UserDtoListEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, UserDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersGet
-     *
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SystemServiceUsersGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SystemService/Users",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param accountHolderCreateDto  (optional)
+     * @param emailDispatchRequest  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -387,8 +155,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersPost(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountHolderCreateDto: AccountHolderCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersPostWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, accountHolderCreateDto = accountHolderCreateDto)
+    fun adminSendUserEmail(userId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : EmptyEnvelope {
+        val localVarResponse = adminSendUserEmailWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -406,35 +174,121 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Send an email to a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param accountHolderCreateDto  (optional)
+     * @param emailDispatchRequest  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersPostWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountHolderCreateDto: AccountHolderCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersPostRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, accountHolderCreateDto = accountHolderCreateDto)
+    fun adminSendUserEmailWithHttpInfo(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = adminSendUserEmailRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
 
-        return request<AccountHolderCreateDto, EmptyEnvelope>(
+        return request<EmailDispatchRequest, EmptyEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersPost
+     * To obtain the request config of the operation adminSendUserEmail
+     *
+     * @param userId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun adminSendUserEmailRequestConfig(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SystemService/Users/{userId}/Emails/Send".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create a new user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createAccountHolderAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, userCreateDto: UserCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createAccountHolderAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, userCreateDto = userCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a new user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createAccountHolderAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, userCreateDto: UserCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createAccountHolderAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, userCreateDto = userCreateDto)
+
+        return request<UserCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createAccountHolderAsync
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param accountHolderCreateDto  (optional)
+     * @param userCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceUsersPostRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountHolderCreateDto: AccountHolderCreateDto?) : RequestConfig<AccountHolderCreateDto> {
-        val localVariableBody = accountHolderCreateDto
+    fun createAccountHolderAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, userCreateDto: UserCreateDto?) : RequestConfig<UserCreateDto> {
+        val localVariableBody = userCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -451,14 +305,14 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SystemService/Users",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -471,8 +325,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersUserIdDelete(userId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersUserIdDeleteWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteAccountHolderAsync(userId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteAccountHolderAsyncWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -490,8 +344,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Delete a user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -501,8 +355,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersUserIdDeleteWithHttpInfo(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersUserIdDeleteRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteAccountHolderAsyncWithHttpInfo(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteAccountHolderAsyncRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -510,14 +364,14 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersUserIdDelete
+     * To obtain the request config of the operation deleteAccountHolderAsync
      *
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceUsersUserIdDeleteRequestConfig(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteAccountHolderAsyncRequestConfig(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -534,14 +388,14 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SystemService/Users/{userId}".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve an extended user by ID
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -554,8 +408,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersUserIdExtendedGet(userId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedUserDtoEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersUserIdExtendedGetWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedAccountHolderAsync(userId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedUserDtoEnvelope {
+        val localVarResponse = getExtendedAccountHolderAsyncWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedUserDtoEnvelope
@@ -573,8 +427,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Retrieve an extended user by ID
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -584,8 +438,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersUserIdExtendedGetWithHttpInfo(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedUserDtoEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersUserIdExtendedGetRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedAccountHolderAsyncWithHttpInfo(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedUserDtoEnvelope?> {
+        val localVariableConfig = getExtendedAccountHolderAsyncRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ExtendedUserDtoEnvelope>(
             localVariableConfig
@@ -593,14 +447,14 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersUserIdExtendedGet
+     * To obtain the request config of the operation getExtendedAccountHolderAsync
      *
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceUsersUserIdExtendedGetRequestConfig(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getExtendedAccountHolderAsyncRequestConfig(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -617,19 +471,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SystemService/Users/{userId}/Extended".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param userId 
+     * Retrieve a list of extended users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
-     * @return EmptyEnvelope
+     * @return ExtendedUserDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -638,11 +490,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceUsersUserIdPut(userId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SystemServiceUsersUserIdPutWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun getExtendedUsersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedUserDtoListEnvelope {
+        val localVarResponse = getExtendedUsersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedUserDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -657,37 +509,33 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
-     * @param userId 
+     * Retrieve a list of extended users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<ExtendedUserDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceUsersUserIdPutWithHttpInfo(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SystemServiceUsersUserIdPutRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun getExtendedUsersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedUserDtoListEnvelope?> {
+        val localVariableConfig = getExtendedUsersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<kotlin.Any, EmptyEnvelope>(
+        return request<Unit, ExtendedUserDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceUsersUserIdPut
+     * To obtain the request config of the operation getExtendedUsersAsync
      *
-     * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceUsersUserIdPutRequestConfig(userId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : RequestConfig<kotlin.Any> {
-        val localVariableBody = body
+    fun getExtendedUsersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -696,22 +544,101 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/SystemService/Users/{userId}".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Users/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get the count of extended users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getExtendedUsersCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getExtendedUsersCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of extended users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getExtendedUsersCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getExtendedUsersCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getExtendedUsersCountAsync
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getExtendedUsersCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Users/Extended/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve a user by ID
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -743,8 +670,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Retrieve a user by ID
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -787,7 +714,254 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/SystemService/Users/{userId}".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve a list of users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return UserDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getUsersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : UserDtoListEnvelope {
+        val localVarResponse = getUsersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as UserDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve a list of users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<UserDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getUsersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<UserDtoListEnvelope?> {
+        val localVariableConfig = getUsersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, UserDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getUsersAsync
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getUsersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Users",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getUsersCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getUsersCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of users
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getUsersCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getUsersCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getUsersCountAsync
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getUsersCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Users/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateAccountHolderAsync(userId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, userUpdateDto: UserUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateAccountHolderAsyncWithHttpInfo(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, userUpdateDto = userUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a user
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param userId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateAccountHolderAsyncWithHttpInfo(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, userUpdateDto: UserUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateAccountHolderAsyncRequestConfig(userId = userId, apiVersion = apiVersion, xApiVersion = xApiVersion, userUpdateDto = userUpdateDto)
+
+        return request<UserUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateAccountHolderAsync
+     *
+     * @param userId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateAccountHolderAsyncRequestConfig(userId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, userUpdateDto: UserUpdateDto?) : RequestConfig<UserUpdateDto> {
+        val localVariableBody = userUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/SystemService/Users/{userId}".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

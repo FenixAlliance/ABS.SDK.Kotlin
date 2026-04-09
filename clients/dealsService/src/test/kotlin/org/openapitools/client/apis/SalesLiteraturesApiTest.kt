@@ -22,6 +22,7 @@ import org.openapitools.client.apis.SalesLiteraturesApi
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedSalesLiteratureDtoListEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SalesLiteratureCreateDto
 import org.openapitools.client.models.SalesLiteratureDtoEnvelope
 import org.openapitools.client.models.SalesLiteratureDtoListEnvelope
@@ -32,67 +33,64 @@ class SalesLiteraturesApiTest : ShouldSpec() {
         // uncomment below to create an instance of SalesLiteraturesApi
         //val apiInstance = SalesLiteraturesApi()
 
-        // to test apiV2DealsServiceSalesLiteraturesExtendedGet
-        should("test apiV2DealsServiceSalesLiteraturesExtendedGet") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesExtendedGet
+        // to test countSalesLiteraturesAsync
+        should("test countSalesLiteraturesAsync") {
+            // uncomment below to test countSalesLiteraturesAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ExtendedSalesLiteratureDtoListEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesExtendedGet(tenantId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countSalesLiteraturesAsync(tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceSalesLiteraturesGet
-        should("test apiV2DealsServiceSalesLiteraturesGet") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesGet
+        // to test createSalesLiteratureAsync
+        should("test createSalesLiteratureAsync") {
+            // uncomment below to test createSalesLiteratureAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SalesLiteratureDtoListEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2DealsServiceSalesLiteraturesPost
-        should("test apiV2DealsServiceSalesLiteraturesPost") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val salesLiteratureCreateDto : SalesLiteratureCreateDto =  // SalesLiteratureCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesPost(tenantId, apiVersion, xApiVersion, salesLiteratureCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createSalesLiteratureAsync(tenantId, salesLiteratureCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete
-        should("test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete
+        // to test deleteSalesLiteratureAsync
+        should("test deleteSalesLiteratureAsync") {
+            // uncomment below to test deleteSalesLiteratureAsync
             //val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete(salesLiteratureId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSalesLiteratureAsync(salesLiteratureId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet
-        should("test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet
-            //val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SalesLiteratureDtoEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet(salesLiteratureId, apiVersion, xApiVersion)
+        // to test getExtendedSalesLiteraturesAsync
+        should("test getExtendedSalesLiteraturesAsync") {
+            // uncomment below to test getExtendedSalesLiteraturesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ExtendedSalesLiteratureDtoListEnvelope = apiInstance.getExtendedSalesLiteraturesAsync(tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut
-        should("test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut") {
-            // uncomment below to test apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut
+        // to test getSalesLiteratureAsync
+        should("test getSalesLiteratureAsync") {
+            // uncomment below to test getSalesLiteratureAsync
             //val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SalesLiteratureDtoEnvelope = apiInstance.getSalesLiteratureAsync(salesLiteratureId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSalesLiteraturesAsync
+        should("test getSalesLiteraturesAsync") {
+            // uncomment below to test getSalesLiteraturesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : SalesLiteratureDtoListEnvelope = apiInstance.getSalesLiteraturesAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSalesLiteratureAsync
+        should("test updateSalesLiteratureAsync") {
+            // uncomment below to test updateSalesLiteratureAsync
+            //val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val salesLiteratureUpdateDto : SalesLiteratureUpdateDto =  // SalesLiteratureUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut(salesLiteratureId, tenantId, apiVersion, xApiVersion, salesLiteratureUpdateDto)
+            //val result : EmptyEnvelope = apiInstance.updateSalesLiteratureAsync(salesLiteratureId, tenantId, salesLiteratureUpdateDto)
             //result shouldBe ("TODO")
         }
 

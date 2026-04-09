@@ -24,6 +24,13 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param title 
+ * @param description 
+ * @param startDate 
+ * @param endDate 
+ * @param budget 
+ * @param location 
+ * @param skillsRequired 
  */
 
 
@@ -33,7 +40,28 @@ data class GigCreateDto (
     val id: java.util.UUID? = null,
 
     @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null
+    val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "startDate")
+    val startDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "endDate")
+    val endDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "budget")
+    val budget: kotlin.Double? = null,
+
+    @Json(name = "location")
+    val location: kotlin.String? = null,
+
+    @Json(name = "skillsRequired")
+    val skillsRequired: kotlin.String? = null
 
 ) {
 

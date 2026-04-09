@@ -51,439 +51,8 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsCountGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsCountGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsCountGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceMarketingCampaignsCountGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/MarketingService/MarketingCampaigns/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Unit>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceMarketingCampaignsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/MarketingService/MarketingCampaigns",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDeleteWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDeleteWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDeleteRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDelete
-     *
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdDeleteRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return MarketingCampaignDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MarketingCampaignDtoEnvelope {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGetWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as MarketingCampaignDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<MarketingCampaignDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGetWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MarketingCampaignDtoEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGetRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, MarketingCampaignDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGet
-     *
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdGetRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param marketingCampaignUpdateDto 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPutWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, marketingCampaignUpdateDto = marketingCampaignUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param marketingCampaignUpdateDto 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPutWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPutRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, marketingCampaignUpdateDto = marketingCampaignUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<MarketingCampaignUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPut
-     *
-     * @param marketingcampaignId 
-     * @param tenantId 
-     * @param marketingCampaignUpdateDto 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceMarketingCampaignsMarketingcampaignIdPutRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<MarketingCampaignUpdateDto> {
-        val localVariableBody = marketingCampaignUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Create a marketing campaign
+     * Creates a new marketing campaign for the specified tenant.
      * @param tenantId 
      * @param marketingCampaignCreateDto 
      * @param apiVersion  (optional)
@@ -497,8 +66,8 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceMarketingCampaignsPost(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceMarketingCampaignsPostWithHttpInfo(tenantId = tenantId, marketingCampaignCreateDto = marketingCampaignCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createMarketingCampaignAsync(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = createMarketingCampaignAsyncWithHttpInfo(tenantId = tenantId, marketingCampaignCreateDto = marketingCampaignCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -516,8 +85,8 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * 
-     * 
+     * Create a marketing campaign
+     * Creates a new marketing campaign for the specified tenant.
      * @param tenantId 
      * @param marketingCampaignCreateDto 
      * @param apiVersion  (optional)
@@ -528,8 +97,8 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceMarketingCampaignsPostWithHttpInfo(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceMarketingCampaignsPostRequestConfig(tenantId = tenantId, marketingCampaignCreateDto = marketingCampaignCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createMarketingCampaignAsyncWithHttpInfo(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createMarketingCampaignAsyncRequestConfig(tenantId = tenantId, marketingCampaignCreateDto = marketingCampaignCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<MarketingCampaignCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -537,7 +106,7 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceMarketingCampaignsPost
+     * To obtain the request config of the operation createMarketingCampaignAsync
      *
      * @param tenantId 
      * @param marketingCampaignCreateDto 
@@ -545,7 +114,7 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceMarketingCampaignsPostRequestConfig(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<MarketingCampaignCreateDto> {
+    fun createMarketingCampaignAsyncRequestConfig(tenantId: java.util.UUID, marketingCampaignCreateDto: MarketingCampaignCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<MarketingCampaignCreateDto> {
         val localVariableBody = marketingCampaignCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -564,7 +133,438 @@ class MarketingCampaignsApi(basePath: kotlin.String = defaultBasePath, client: C
             path = "/api/v2/MarketingService/MarketingCampaigns",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a marketing campaign
+     * Deletes a marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteMarketingCampaignAsync(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteMarketingCampaignAsyncWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a marketing campaign
+     * Deletes a marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteMarketingCampaignAsyncWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteMarketingCampaignAsyncRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteMarketingCampaignAsync
+     *
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun deleteMarketingCampaignAsyncRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get marketing campaign by ID
+     * Retrieves the details of a specific marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return MarketingCampaignDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getMarketingCampaignDetailsAsync(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MarketingCampaignDtoEnvelope {
+        val localVarResponse = getMarketingCampaignDetailsAsyncWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MarketingCampaignDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get marketing campaign by ID
+     * Retrieves the details of a specific marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<MarketingCampaignDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getMarketingCampaignDetailsAsyncWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MarketingCampaignDtoEnvelope?> {
+        val localVariableConfig = getMarketingCampaignDetailsAsyncRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, MarketingCampaignDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getMarketingCampaignDetailsAsync
+     *
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getMarketingCampaignDetailsAsyncRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get marketing campaigns
+     * Retrieves a collection of marketing campaigns for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getMarketingCampaignODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = getMarketingCampaignODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get marketing campaigns
+     * Retrieves a collection of marketing campaigns for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getMarketingCampaignODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = getMarketingCampaignODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getMarketingCampaignODataAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getMarketingCampaignODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/MarketingService/MarketingCampaigns",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get marketing campaigns count
+     * Returns the count of marketing campaigns for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getMarketingCampaignsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getMarketingCampaignsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get marketing campaigns count
+     * Returns the count of marketing campaigns for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getMarketingCampaignsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getMarketingCampaignsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getMarketingCampaignsCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getMarketingCampaignsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/MarketingService/MarketingCampaigns/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a marketing campaign
+     * Updates an existing marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param marketingCampaignUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateMarketingCampaignAsync(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = updateMarketingCampaignAsyncWithHttpInfo(marketingcampaignId = marketingcampaignId, tenantId = tenantId, marketingCampaignUpdateDto = marketingCampaignUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a marketing campaign
+     * Updates an existing marketing campaign by its ID.
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param marketingCampaignUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateMarketingCampaignAsyncWithHttpInfo(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateMarketingCampaignAsyncRequestConfig(marketingcampaignId = marketingcampaignId, tenantId = tenantId, marketingCampaignUpdateDto = marketingCampaignUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<MarketingCampaignUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateMarketingCampaignAsync
+     *
+     * @param marketingcampaignId 
+     * @param tenantId 
+     * @param marketingCampaignUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun updateMarketingCampaignAsyncRequestConfig(marketingcampaignId: java.util.UUID, tenantId: java.util.UUID, marketingCampaignUpdateDto: MarketingCampaignUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<MarketingCampaignUpdateDto> {
+        val localVariableBody = marketingCampaignUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}".replace("{"+"marketingcampaignId"+"}", encodeURIComponent(marketingcampaignId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

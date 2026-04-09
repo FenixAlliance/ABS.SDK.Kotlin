@@ -180,7 +180,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -269,7 +269,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files/{fileId}".replace("{"+"fileId"+"}", encodeURIComponent(fileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -358,7 +358,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files/{fileId}/Raw".replace("{"+"fileId"+"}", encodeURIComponent(fileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -447,7 +447,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files/{fileId}".replace("{"+"fileId"+"}", encodeURIComponent(fileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -533,7 +533,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -670,7 +670,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Files/{fileId}".replace("{"+"fileId"+"}", encodeURIComponent(fileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

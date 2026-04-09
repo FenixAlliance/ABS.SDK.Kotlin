@@ -61,10 +61,10 @@ class DealUnitFlowCreateDtoTest : ShouldSpec() {
             //modelInstance.tenantId shouldBe ("TODO")
         }
 
-        // to test the property `tenantEnrolmentId`
-        should("test tenantEnrolmentId") {
+        // to test the property `tenantEnrollmentId`
+        should("test tenantEnrollmentId") {
             // uncomment below to test the property
-            //modelInstance.tenantEnrolmentId shouldBe ("TODO")
+            //modelInstance.tenantEnrollmentId shouldBe ("TODO")
         }
 
     }

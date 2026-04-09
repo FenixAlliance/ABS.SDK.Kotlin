@@ -24,9 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param tenantId 
- * @param enrollmentId 
- * @param referralInvoiceId 
  * @param referencedInvoiceId 
  */
 
@@ -38,15 +35,6 @@ data class InvoiceReferenceCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
-
-    @Json(name = "referralInvoiceId")
-    val referralInvoiceId: kotlin.String? = null,
 
     @Json(name = "referencedInvoiceId")
     val referencedInvoiceId: kotlin.String? = null

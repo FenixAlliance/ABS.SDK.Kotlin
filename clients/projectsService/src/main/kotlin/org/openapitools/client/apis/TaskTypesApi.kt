@@ -49,11 +49,9 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Creates a new task type
+     * Creates a new task type for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeCreateDto  (optional)
      * @return TaskTypeDto
      * @throws IllegalStateException If the request is not correctly configured
@@ -64,8 +62,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceTaskTypesPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, taskTypeCreateDto: TaskTypeCreateDto? = null) : TaskTypeDto {
-        val localVarResponse = apiV2ProjectsServiceTaskTypesPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taskTypeCreateDto = taskTypeCreateDto)
+    fun createTaskTypeAsync(tenantId: java.util.UUID, taskTypeCreateDto: TaskTypeCreateDto? = null) : TaskTypeDto {
+        val localVarResponse = createTaskTypeAsyncWithHttpInfo(tenantId = tenantId, taskTypeCreateDto = taskTypeCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskTypeDto
@@ -83,11 +81,9 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Creates a new task type
+     * Creates a new task type for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeCreateDto  (optional)
      * @return ApiResponse<TaskTypeDto?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -95,8 +91,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceTaskTypesPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taskTypeCreateDto: TaskTypeCreateDto?) : ApiResponse<TaskTypeDto?> {
-        val localVariableConfig = apiV2ProjectsServiceTaskTypesPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taskTypeCreateDto = taskTypeCreateDto)
+    fun createTaskTypeAsyncWithHttpInfo(tenantId: java.util.UUID, taskTypeCreateDto: TaskTypeCreateDto?) : ApiResponse<TaskTypeDto?> {
+        val localVariableConfig = createTaskTypeAsyncRequestConfig(tenantId = tenantId, taskTypeCreateDto = taskTypeCreateDto)
 
         return request<TaskTypeCreateDto, TaskTypeDto>(
             localVariableConfig
@@ -104,25 +100,19 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceTaskTypesPost
+     * To obtain the request config of the operation createTaskTypeAsync
      *
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceTaskTypesPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taskTypeCreateDto: TaskTypeCreateDto?) : RequestConfig<TaskTypeCreateDto> {
+    fun createTaskTypeAsyncRequestConfig(tenantId: java.util.UUID, taskTypeCreateDto: TaskTypeCreateDto?) : RequestConfig<TaskTypeCreateDto> {
         val localVariableBody = taskTypeCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -131,18 +121,16 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/ProjectsService/TaskTypes",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Deletes a task type
+     * Deletes the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return TaskTypeDto
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -152,8 +140,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TaskTypeDto {
-        val localVarResponse = apiV2ProjectsServiceTaskTypesTaskTypeIdDeleteWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteTaskTypeAsync(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : TaskTypeDto {
+        val localVarResponse = deleteTaskTypeAsyncWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskTypeDto
@@ -171,20 +159,18 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Deletes a task type
+     * Deletes the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<TaskTypeDto?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdDeleteWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TaskTypeDto?> {
-        val localVariableConfig = apiV2ProjectsServiceTaskTypesTaskTypeIdDeleteRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteTaskTypeAsyncWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<TaskTypeDto?> {
+        val localVariableConfig = deleteTaskTypeAsyncRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId)
 
         return request<Unit, TaskTypeDto>(
             localVariableConfig
@@ -192,25 +178,19 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceTaskTypesTaskTypeIdDelete
+     * To obtain the request config of the operation deleteTaskTypeAsync
      *
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdDeleteRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteTaskTypeAsyncRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -218,18 +198,16 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/ProjectsService/TaskTypes/{taskTypeId}".replace("{"+"taskTypeId"+"}", encodeURIComponent(taskTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets a task type by ID
+     * Retrieves the details of a task type using its unique identifier.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return TaskTypeDto
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -239,8 +217,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TaskTypeDto {
-        val localVarResponse = apiV2ProjectsServiceTaskTypesTaskTypeIdGetWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaskTypeByIdAsync(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : TaskTypeDto {
+        val localVarResponse = getTaskTypeByIdAsyncWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskTypeDto
@@ -258,20 +236,18 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Gets a task type by ID
+     * Retrieves the details of a task type using its unique identifier.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<TaskTypeDto?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdGetWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TaskTypeDto?> {
-        val localVariableConfig = apiV2ProjectsServiceTaskTypesTaskTypeIdGetRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaskTypeByIdAsyncWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<TaskTypeDto?> {
+        val localVariableConfig = getTaskTypeByIdAsyncRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId)
 
         return request<Unit, TaskTypeDto>(
             localVariableConfig
@@ -279,25 +255,19 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceTaskTypesTaskTypeIdGet
+     * To obtain the request config of the operation getTaskTypeByIdAsync
      *
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdGetRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getTaskTypeByIdAsyncRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -305,18 +275,16 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/ProjectsService/TaskTypes/{taskTypeId}".replace("{"+"taskTypeId"+"}", encodeURIComponent(taskTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Updates a task type
+     * Updates the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeUpdateDto  (optional)
      * @return TaskTypeDto
      * @throws IllegalStateException If the request is not correctly configured
@@ -327,8 +295,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, taskTypeUpdateDto: TaskTypeUpdateDto? = null) : TaskTypeDto {
-        val localVarResponse = apiV2ProjectsServiceTaskTypesTaskTypeIdPutWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taskTypeUpdateDto = taskTypeUpdateDto)
+    fun updateTaskTypeAsync(taskTypeId: java.util.UUID, tenantId: java.util.UUID, taskTypeUpdateDto: TaskTypeUpdateDto? = null) : TaskTypeDto {
+        val localVarResponse = updateTaskTypeAsyncWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, taskTypeUpdateDto = taskTypeUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskTypeDto
@@ -346,12 +314,10 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Updates a task type
+     * Updates the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeUpdateDto  (optional)
      * @return ApiResponse<TaskTypeDto?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -359,8 +325,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdPutWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taskTypeUpdateDto: TaskTypeUpdateDto?) : ApiResponse<TaskTypeDto?> {
-        val localVariableConfig = apiV2ProjectsServiceTaskTypesTaskTypeIdPutRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taskTypeUpdateDto = taskTypeUpdateDto)
+    fun updateTaskTypeAsyncWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, taskTypeUpdateDto: TaskTypeUpdateDto?) : ApiResponse<TaskTypeDto?> {
+        val localVariableConfig = updateTaskTypeAsyncRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, taskTypeUpdateDto = taskTypeUpdateDto)
 
         return request<TaskTypeUpdateDto, TaskTypeDto>(
             localVariableConfig
@@ -368,26 +334,20 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceTaskTypesTaskTypeIdPut
+     * To obtain the request config of the operation updateTaskTypeAsync
      *
      * @param taskTypeId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param taskTypeUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceTaskTypesTaskTypeIdPutRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taskTypeUpdateDto: TaskTypeUpdateDto?) : RequestConfig<TaskTypeUpdateDto> {
+    fun updateTaskTypeAsyncRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, taskTypeUpdateDto: TaskTypeUpdateDto?) : RequestConfig<TaskTypeUpdateDto> {
         val localVariableBody = taskTypeUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -396,7 +356,7 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/ProjectsService/TaskTypes/{taskTypeId}".replace("{"+"taskTypeId"+"}", encodeURIComponent(taskTypeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

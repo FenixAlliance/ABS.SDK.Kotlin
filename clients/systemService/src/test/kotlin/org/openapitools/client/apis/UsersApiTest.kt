@@ -19,94 +19,88 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.UsersApi
-import org.openapitools.client.models.AccountHolderCreateDto
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedUserDtoEnvelope
 import org.openapitools.client.models.ExtendedUserDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.UserCreateDto
 import org.openapitools.client.models.UserDtoEnvelope
 import org.openapitools.client.models.UserDtoListEnvelope
+import org.openapitools.client.models.UserUpdateDto
 
 class UsersApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of UsersApi
         //val apiInstance = UsersApi()
 
-        // to test apiV2SystemServiceUsersCountGet
-        should("test apiV2SystemServiceUsersCountGet") {
-            // uncomment below to test apiV2SystemServiceUsersCountGet
+        // to test adminPreviewUserEmailTemplate
+        should("test adminPreviewUserEmailTemplate") {
+            // uncomment below to test adminPreviewUserEmailTemplate
+            //val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SystemServiceUsersCountGet(apiVersion, xApiVersion)
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.adminPreviewUserEmailTemplate(userId, apiVersion, xApiVersion, emailDispatchRequest)
+        }
+
+        // to test adminSendUserEmail
+        should("test adminSendUserEmail") {
+            // uncomment below to test adminSendUserEmail
+            //val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //val result : EmptyEnvelope = apiInstance.adminSendUserEmail(userId, apiVersion, xApiVersion, emailDispatchRequest)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceUsersExtendedCountGet
-        should("test apiV2SystemServiceUsersExtendedCountGet") {
-            // uncomment below to test apiV2SystemServiceUsersExtendedCountGet
+        // to test createAccountHolderAsync
+        should("test createAccountHolderAsync") {
+            // uncomment below to test createAccountHolderAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SystemServiceUsersExtendedCountGet(apiVersion, xApiVersion)
+            //val userCreateDto : UserCreateDto =  // UserCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createAccountHolderAsync(apiVersion, xApiVersion, userCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceUsersExtendedGet
-        should("test apiV2SystemServiceUsersExtendedGet") {
-            // uncomment below to test apiV2SystemServiceUsersExtendedGet
+        // to test deleteAccountHolderAsync
+        should("test deleteAccountHolderAsync") {
+            // uncomment below to test deleteAccountHolderAsync
+            //val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ExtendedUserDtoListEnvelope = apiInstance.apiV2SystemServiceUsersExtendedGet(apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteAccountHolderAsync(userId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceUsersGet
-        should("test apiV2SystemServiceUsersGet") {
-            // uncomment below to test apiV2SystemServiceUsersGet
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : UserDtoListEnvelope = apiInstance.apiV2SystemServiceUsersGet(apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SystemServiceUsersPost
-        should("test apiV2SystemServiceUsersPost") {
-            // uncomment below to test apiV2SystemServiceUsersPost
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val accountHolderCreateDto : AccountHolderCreateDto =  // AccountHolderCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersPost(apiVersion, xApiVersion, accountHolderCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SystemServiceUsersUserIdDelete
-        should("test apiV2SystemServiceUsersUserIdDelete") {
-            // uncomment below to test apiV2SystemServiceUsersUserIdDelete
+        // to test getExtendedAccountHolderAsync
+        should("test getExtendedAccountHolderAsync") {
+            // uncomment below to test getExtendedAccountHolderAsync
             //val userId : kotlin.String = userId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersUserIdDelete(userId, apiVersion, xApiVersion)
+            //val result : ExtendedUserDtoEnvelope = apiInstance.getExtendedAccountHolderAsync(userId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceUsersUserIdExtendedGet
-        should("test apiV2SystemServiceUsersUserIdExtendedGet") {
-            // uncomment below to test apiV2SystemServiceUsersUserIdExtendedGet
-            //val userId : kotlin.String = userId_example // kotlin.String | 
+        // to test getExtendedUsersAsync
+        should("test getExtendedUsersAsync") {
+            // uncomment below to test getExtendedUsersAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ExtendedUserDtoEnvelope = apiInstance.apiV2SystemServiceUsersUserIdExtendedGet(userId, apiVersion, xApiVersion)
+            //val result : ExtendedUserDtoListEnvelope = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceUsersUserIdPut
-        should("test apiV2SystemServiceUsersUserIdPut") {
-            // uncomment below to test apiV2SystemServiceUsersUserIdPut
-            //val userId : kotlin.String = userId_example // kotlin.String | 
+        // to test getExtendedUsersCountAsync
+        should("test getExtendedUsersCountAsync") {
+            // uncomment below to test getExtendedUsersCountAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val body : kotlin.Any = Object // kotlin.Any | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersUserIdPut(userId, apiVersion, xApiVersion, body)
+            //val result : Int32Envelope = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
@@ -117,6 +111,35 @@ class UsersApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val result : UserDtoEnvelope = apiInstance.getUserAsync(userId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getUsersAsync
+        should("test getUsersAsync") {
+            // uncomment below to test getUsersAsync
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : UserDtoListEnvelope = apiInstance.getUsersAsync(apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getUsersCountAsync
+        should("test getUsersCountAsync") {
+            // uncomment below to test getUsersCountAsync
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getUsersCountAsync(apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateAccountHolderAsync
+        should("test updateAccountHolderAsync") {
+            // uncomment below to test updateAccountHolderAsync
+            //val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val userUpdateDto : UserUpdateDto =  // UserUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateAccountHolderAsync(userId, apiVersion, xApiVersion, userUpdateDto)
             //result shouldBe ("TODO")
         }
 

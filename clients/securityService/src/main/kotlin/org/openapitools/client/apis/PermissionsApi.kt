@@ -19,12 +19,16 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BusinessApplicationSimpleDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SecurityPermissionCreateDto
+import org.openapitools.client.models.SecurityPermissionDtoEnvelope
+import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityPermissionUpdateDto
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
-import org.openapitools.client.models.TenantEnrolmentDtoListEnvelope
+import org.openapitools.client.models.TenantEnrollmentDtoListEnvelope
 
 import com.squareup.moshi.Json
 
@@ -51,94 +55,11 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Assign a permission to a business application
+     * Assigns a security permission to a business application.
+     * @param securityPermissionId 
+     * @param applicationId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SecurityRoleDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SecurityRoleDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SecurityService/Permissions",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param securityPermissionCreateDto 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -150,8 +71,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsPost(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsPostWithHttpInfo(tenantId = tenantId, securityPermissionCreateDto = securityPermissionCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun assignPermissionToBusinessApplicationAsync(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignPermissionToBusinessApplicationAsyncWithHttpInfo(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -169,8 +90,277 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Assign a permission to a business application
+     * Assigns a security permission to a business application.
+     * @param securityPermissionId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignPermissionToBusinessApplicationAsyncWithHttpInfo(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignPermissionToBusinessApplicationAsyncRequestConfig(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignPermissionToBusinessApplicationAsync
+     *
+     * @param securityPermissionId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignPermissionToBusinessApplicationAsyncRequestConfig(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Assign a permission to an enrollment
+     * Assigns a security permission to a tenant enrollment.
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assignPermissionToEnrollmentAsync(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignPermissionToEnrollmentAsyncWithHttpInfo(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Assign a permission to an enrollment
+     * Assigns a security permission to a tenant enrollment.
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignPermissionToEnrollmentAsyncWithHttpInfo(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignPermissionToEnrollmentAsyncRequestConfig(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignPermissionToEnrollmentAsync
+     *
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignPermissionToEnrollmentAsyncRequestConfig(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Assign a role to a permission
+     * Assigns a security role to a security permission.
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assignRoleToPermissionAsync(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = assignRoleToPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Assign a role to a permission
+     * Assigns a security role to a security permission.
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignRoleToPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignRoleToPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignRoleToPermissionAsync
+     *
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun assignRoleToPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create a new permission
+     * Creates a new security permission for the specified tenant.
+     * @param tenantId 
+     * @param securityPermissionCreateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createPermissionAsync(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = createPermissionAsyncWithHttpInfo(tenantId = tenantId, securityPermissionCreateDto = securityPermissionCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a new permission
+     * Creates a new security permission for the specified tenant.
      * @param tenantId 
      * @param securityPermissionCreateDto 
      * @param apiVersion  (optional)
@@ -181,8 +371,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsPostWithHttpInfo(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsPostRequestConfig(tenantId = tenantId, securityPermissionCreateDto = securityPermissionCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createPermissionAsyncWithHttpInfo(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createPermissionAsyncRequestConfig(tenantId = tenantId, securityPermissionCreateDto = securityPermissionCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SecurityPermissionCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -190,7 +380,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsPost
+     * To obtain the request config of the operation createPermissionAsync
      *
      * @param tenantId 
      * @param securityPermissionCreateDto 
@@ -198,7 +388,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsPostRequestConfig(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityPermissionCreateDto> {
+    fun createPermissionAsyncRequestConfig(tenantId: java.util.UUID, securityPermissionCreateDto: SecurityPermissionCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityPermissionCreateDto> {
         val localVariableBody = securityPermissionCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -217,16 +407,15 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SecurityService/Permissions",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete an existing permission
+     * Deletes an existing security permission for the specified tenant.
      * @param securityPermissionId 
-     * @param applicationId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -239,8 +428,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDeleteWithHttpInfo(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deletePermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deletePermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -258,187 +447,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDeleteWithHttpInfo(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDeleteRequestConfig(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete
-     *
-     * @param securityPermissionId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDeleteRequestConfig(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPostWithHttpInfo(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPostWithHttpInfo(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPostRequestConfig(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost
-     *
-     * @param securityPermissionId 
-     * @param applicationId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPostRequestConfig(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdDelete(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdDeleteWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
+     * Delete an existing permission
+     * Deletes an existing security permission for the specified tenant.
      * @param securityPermissionId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -449,8 +459,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdDeleteWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdDeleteRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deletePermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deletePermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -458,7 +468,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdDelete
+     * To obtain the request config of the operation deletePermissionAsync
      *
      * @param securityPermissionId 
      * @param tenantId 
@@ -466,7 +476,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdDeleteRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deletePermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -484,20 +494,19 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SecurityService/Permissions/{securityPermissionId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get applications by permission
+     * Retrieves all business applications that have a specific permission granted.
      * @param securityPermissionId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return BusinessApplicationSimpleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -506,11 +515,11 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDeleteWithHttpInfo(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getApplicationsByPermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessApplicationSimpleDtoListEnvelope {
+        val localVarResponse = getApplicationsByPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessApplicationSimpleDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -525,38 +534,36 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Get applications by permission
+     * Retrieves all business applications that have a specific permission granted.
      * @param securityPermissionId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<BusinessApplicationSimpleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDeleteWithHttpInfo(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDeleteRequestConfig(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getApplicationsByPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessApplicationSimpleDtoListEnvelope?> {
+        val localVariableConfig = getApplicationsByPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, BusinessApplicationSimpleDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete
+     * To obtain the request config of the operation getApplicationsByPermissionAsync
      *
      * @param securityPermissionId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDeleteRequestConfig(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getApplicationsByPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -570,24 +577,23 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Applications".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get enrollments by permission
+     * Retrieves all tenant enrollments that have a specific permission.
      * @param securityPermissionId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return TenantEnrollmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -596,11 +602,11 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPostWithHttpInfo(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsByPermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrollmentDtoListEnvelope {
+        val localVarResponse = getEnrollmentsByPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrollmentDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -615,117 +621,28 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Get enrollments by permission
+     * Retrieves all tenant enrollments that have a specific permission.
      * @param securityPermissionId 
-     * @param enrollmentId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<TenantEnrollmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPostWithHttpInfo(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPostRequestConfig(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsByPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
+        val localVariableConfig = getEnrollmentsByPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, TenantEnrollmentDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost
-     *
-     * @param securityPermissionId 
-     * @param enrollmentId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPostRequestConfig(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return TenantEnrolmentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrolmentDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGetWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrolmentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<TenantEnrolmentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGetWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrolmentDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGetRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, TenantEnrolmentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet
+     * To obtain the request config of the operation getEnrollmentsByPermissionAsync
      *
      * @param securityPermissionId 
      * @param tenantId 
@@ -733,7 +650,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGetRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getEnrollmentsByPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -751,19 +668,19 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get permission by ID
+     * Retrieves a specific security permission by its ID.
      * @param securityPermissionId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return SecurityRoleDtoListEnvelope
+     * @return SecurityPermissionDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -772,11 +689,11 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdGet(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdGetWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityPermissionDtoEnvelope {
+        val localVarResponse = getPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityPermissionDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -791,28 +708,28 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Get permission by ID
+     * Retrieves a specific security permission by its ID.
      * @param securityPermissionId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
+     * @return ApiResponse<SecurityPermissionDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdGetWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdGetRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityPermissionDtoEnvelope?> {
+        val localVariableConfig = getPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, SecurityRoleDtoListEnvelope>(
+        return request<Unit, SecurityPermissionDtoEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdGet
+     * To obtain the request config of the operation getPermissionAsync
      *
      * @param securityPermissionId 
      * @param tenantId 
@@ -820,7 +737,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdGetRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -838,17 +755,359 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SecurityService/Permissions/{securityPermissionId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get all permissions
+     * Retrieves all security permissions for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SecurityPermissionDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPermissionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityPermissionDtoListEnvelope {
+        val localVarResponse = getPermissionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityPermissionDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get all permissions
+     * Retrieves all security permissions for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SecurityPermissionDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPermissionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityPermissionDtoListEnvelope?> {
+        val localVariableConfig = getPermissionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SecurityPermissionDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPermissionsAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getPermissionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Permissions",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get permissions by enrollment
+     * Retrieves all security permissions granted to a specific enrollment.
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SecurityPermissionDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPermissionsByEnrollmentAsync(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityPermissionDtoListEnvelope {
+        val localVarResponse = getPermissionsByEnrollmentAsyncWithHttpInfo(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityPermissionDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get permissions by enrollment
+     * Retrieves all security permissions granted to a specific enrollment.
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SecurityPermissionDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPermissionsByEnrollmentAsyncWithHttpInfo(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityPermissionDtoListEnvelope?> {
+        val localVariableConfig = getPermissionsByEnrollmentAsyncRequestConfig(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SecurityPermissionDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPermissionsByEnrollmentAsync
+     *
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getPermissionsByEnrollmentAsyncRequestConfig(enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId}".replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get permissions count
+     * Retrieves the count of security permissions for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPermissionsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getPermissionsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get permissions count
+     * Retrieves the count of security permissions for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPermissionsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPermissionsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPermissionsCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getPermissionsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Permissions/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get roles by permission
+     * Retrieves all security roles that have a specific permission granted.
      * @param securityPermissionId 
      * @param tenantId 
-     * @param securityPermissionUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SecurityRoleDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getRolesByPermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
+        val localVarResponse = getRolesByPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get roles by permission
+     * Retrieves all security roles that have a specific permission granted.
+     * @param securityPermissionId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SecurityRoleDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getRolesByPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
+        val localVariableConfig = getRolesByPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SecurityRoleDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getRolesByPermissionAsync
+     *
+     * @param securityPermissionId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getRolesByPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Roles".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Revoke a permission from a business application
+     * Revokes a security permission from a business application.
+     * @param securityPermissionId 
+     * @param applicationId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -860,8 +1119,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdPut(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdPutWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, securityPermissionUpdateDto = securityPermissionUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun revokePermissionFromBusinessApplicationAsync(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokePermissionFromBusinessApplicationAsyncWithHttpInfo(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -879,8 +1138,278 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Revoke a permission from a business application
+     * Revokes a security permission from a business application.
+     * @param securityPermissionId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun revokePermissionFromBusinessApplicationAsyncWithHttpInfo(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokePermissionFromBusinessApplicationAsyncRequestConfig(securityPermissionId = securityPermissionId, applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation revokePermissionFromBusinessApplicationAsync
+     *
+     * @param securityPermissionId 
+     * @param applicationId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun revokePermissionFromBusinessApplicationAsyncRequestConfig(securityPermissionId: kotlin.String, applicationId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Revoke a permission from an enrollment
+     * Revokes a security permission from a tenant enrollment.
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun revokePermissionFromEnrollmentAsync(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokePermissionFromEnrollmentAsyncWithHttpInfo(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Revoke a permission from an enrollment
+     * Revokes a security permission from a tenant enrollment.
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun revokePermissionFromEnrollmentAsyncWithHttpInfo(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokePermissionFromEnrollmentAsyncRequestConfig(securityPermissionId = securityPermissionId, enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation revokePermissionFromEnrollmentAsync
+     *
+     * @param securityPermissionId 
+     * @param enrollmentId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun revokePermissionFromEnrollmentAsyncRequestConfig(securityPermissionId: kotlin.String, enrollmentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"enrollmentId"+"}", encodeURIComponent(enrollmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Revoke a role from a permission
+     * Revokes a security role from a security permission.
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun revokeRoleFromPermissionAsync(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = revokeRoleFromPermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Revoke a role from a permission
+     * Revokes a security role from a security permission.
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun revokeRoleFromPermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = revokeRoleFromPermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation revokeRoleFromPermissionAsync
+     *
+     * @param securityPermissionId 
+     * @param securityRoleId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun revokeRoleFromPermissionAsyncRequestConfig(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update an existing permission
+     * Updates an existing security permission for the specified tenant.
+     * @param securityPermissionId 
+     * @param tenantId 
+     * @param securityPermissionUpdateDto 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updatePermissionAsync(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = updatePermissionAsyncWithHttpInfo(securityPermissionId = securityPermissionId, tenantId = tenantId, securityPermissionUpdateDto = securityPermissionUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update an existing permission
+     * Updates an existing security permission for the specified tenant.
      * @param securityPermissionId 
      * @param tenantId 
      * @param securityPermissionUpdateDto 
@@ -892,8 +1421,8 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdPutWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdPutRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, securityPermissionUpdateDto = securityPermissionUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updatePermissionAsyncWithHttpInfo(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updatePermissionAsyncRequestConfig(securityPermissionId = securityPermissionId, tenantId = tenantId, securityPermissionUpdateDto = securityPermissionUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SecurityPermissionUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -901,7 +1430,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdPut
+     * To obtain the request config of the operation updatePermissionAsync
      *
      * @param securityPermissionId 
      * @param tenantId 
@@ -910,7 +1439,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdPutRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityPermissionUpdateDto> {
+    fun updatePermissionAsyncRequestConfig(securityPermissionId: kotlin.String, tenantId: java.util.UUID, securityPermissionUpdateDto: SecurityPermissionUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SecurityPermissionUpdateDto> {
         val localVariableBody = securityPermissionUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -929,187 +1458,7 @@ class PermissionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SecurityService/Permissions/{securityPermissionId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDeleteWithHttpInfo(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDeleteWithHttpInfo(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDeleteRequestConfig(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete
-     *
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDeleteRequestConfig(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPostWithHttpInfo(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPostWithHttpInfo(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPostRequestConfig(securityPermissionId = securityPermissionId, securityRoleId = securityRoleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost
-     *
-     * @param securityPermissionId 
-     * @param securityRoleId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPostRequestConfig(securityPermissionId: kotlin.String, securityRoleId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId}".replace("{"+"securityPermissionId"+"}", encodeURIComponent(securityPermissionId.toString())).replace("{"+"securityRoleId"+"}", encodeURIComponent(securityRoleId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

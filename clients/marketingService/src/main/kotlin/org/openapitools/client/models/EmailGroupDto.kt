@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param name 
  * @param description 
  * @param enabled 
@@ -43,8 +43,8 @@ data class EmailGroupDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,

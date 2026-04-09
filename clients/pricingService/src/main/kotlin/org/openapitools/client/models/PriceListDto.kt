@@ -34,7 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param unitGroupId 
  * @param partnerVisible 
  * @param unitOfMeasureDependant 
- * @param enrolmentId 
+ * @param enrollmentId 
  */
 
 
@@ -76,8 +76,8 @@ data class PriceListDto (
     @Json(name = "unitOfMeasureDependant")
     val unitOfMeasureDependant: kotlin.Boolean? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

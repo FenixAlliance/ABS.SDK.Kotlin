@@ -36,94 +36,41 @@ class PriceListsApiTest : ShouldSpec() {
         // uncomment below to create an instance of PriceListsApi
         //val apiInstance = PriceListsApi()
 
-        // to test apiV2PricingServicePriceListsCountGet
-        should("test apiV2PricingServicePriceListsCountGet") {
-            // uncomment below to test apiV2PricingServicePriceListsCountGet
+        // to test createPriceListAsync
+        should("test createPriceListAsync") {
+            // uncomment below to test createPriceListAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2PricingServicePriceListsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServicePriceListsGet
-        should("test apiV2PricingServicePriceListsGet") {
-            // uncomment below to test apiV2PricingServicePriceListsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : PriceListDtoListEnvelope = apiInstance.apiV2PricingServicePriceListsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServicePriceListsPost
-        should("test apiV2PricingServicePriceListsPost") {
-            // uncomment below to test apiV2PricingServicePriceListsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val priceListCreateDto : PriceListCreateDto =  // PriceListCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPost(tenantId, apiVersion, xApiVersion, priceListCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createPriceListAsync(tenantId, priceListCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PricingServicePriceListsPriceListIdDelete
-        should("test apiV2PricingServicePriceListsPriceListIdDelete") {
-            // uncomment below to test apiV2PricingServicePriceListsPriceListIdDelete
+        // to test createPriceListPricesAsync
+        should("test createPriceListPricesAsync") {
+            // uncomment below to test createPriceListPricesAsync
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdDelete(priceListId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServicePriceListsPriceListIdPricesPost
-        should("test apiV2PricingServicePriceListsPriceListIdPricesPost") {
-            // uncomment below to test apiV2PricingServicePriceListsPriceListIdPricesPost
-            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val itemPriceCreateDto : ItemPriceCreateDto =  // ItemPriceCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPost(priceListId, tenantId, apiVersion, xApiVersion, itemPriceCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createPriceListPricesAsync(priceListId, tenantId, itemPriceCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete
-        should("test apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete") {
-            // uncomment below to test apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete
+        // to test deletePriceListAsync
+        should("test deletePriceListAsync") {
+            // uncomment below to test deletePriceListAsync
+            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deletePriceListAsync(priceListId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deletePriceListPriceAsync
+        should("test deletePriceListPriceAsync") {
+            // uncomment below to test deletePriceListPriceAsync
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(priceListId, priceId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut
-        should("test apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut") {
-            // uncomment below to test apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut
-            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val itemPriceUpdateDto : ItemPriceUpdateDto =  // ItemPriceUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(priceListId, priceId, tenantId, apiVersion, xApiVersion, itemPriceUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PricingServicePriceListsPriceListIdPut
-        should("test apiV2PricingServicePriceListsPriceListIdPut") {
-            // uncomment below to test apiV2PricingServicePriceListsPriceListIdPut
-            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val priceListUpdateDto : PriceListUpdateDto =  // PriceListUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPut(priceListId, tenantId, apiVersion, xApiVersion, priceListUpdateDto)
+            //val result : EmptyEnvelope = apiInstance.deletePriceListPriceAsync(priceListId, priceId, tenantId)
             //result shouldBe ("TODO")
         }
 
@@ -132,9 +79,7 @@ class PriceListsApiTest : ShouldSpec() {
             // uncomment below to test getPriceListAsync
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : PriceListDtoEnvelope = apiInstance.getPriceListAsync(priceListId, tenantId, apiVersion, xApiVersion)
+            //val result : PriceListDtoEnvelope = apiInstance.getPriceListAsync(priceListId, tenantId)
             //result shouldBe ("TODO")
         }
 
@@ -144,9 +89,7 @@ class PriceListsApiTest : ShouldSpec() {
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ItemPriceDtoEnvelope = apiInstance.getPriceListPriceAsync(priceListId, priceId, tenantId, apiVersion, xApiVersion)
+            //val result : ItemPriceDtoEnvelope = apiInstance.getPriceListPriceAsync(priceListId, priceId, tenantId)
             //result shouldBe ("TODO")
         }
 
@@ -156,9 +99,44 @@ class PriceListsApiTest : ShouldSpec() {
             //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId, apiVersion, xApiVersion)
+            //val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getPriceListsAsync
+        should("test getPriceListsAsync") {
+            // uncomment below to test getPriceListsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : PriceListDtoListEnvelope = apiInstance.getPriceListsAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getPriceListsCountAsync
+        should("test getPriceListsCountAsync") {
+            // uncomment below to test getPriceListsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getPriceListsCountAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updatePriceListAsync
+        should("test updatePriceListAsync") {
+            // uncomment below to test updatePriceListAsync
+            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val priceListUpdateDto : PriceListUpdateDto =  // PriceListUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updatePriceListAsync(priceListId, tenantId, priceListUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updatePriceListPriceAsync
+        should("test updatePriceListPriceAsync") {
+            // uncomment below to test updatePriceListPriceAsync
+            //val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val itemPriceUpdateDto : ItemPriceUpdateDto =  // ItemPriceUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updatePriceListPriceAsync(priceListId, priceId, tenantId, itemPriceUpdateDto)
             //result shouldBe ("TODO")
         }
 

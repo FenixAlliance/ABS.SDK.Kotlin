@@ -1,0 +1,38 @@
+
+# TaxPolicyCreateDto
+
+## Properties
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
+| **title** | **kotlin.String** |  |  [optional] |
+| **description** | **kotlin.String** |  |  [optional] |
+| **isFree** | **kotlin.Boolean** |  |  [optional] |
+| **reduce** | **kotlin.Boolean** |  |  [optional] |
+| **isEnabled** | **kotlin.Boolean** |  |  [optional] |
+| **isDefault** | **kotlin.Boolean** |  |  [optional] |
+| **allowInternational** | **kotlin.Boolean** |  |  [optional] |
+| **hours** | **kotlin.Int** |  |  [optional] |
+| **days** | **kotlin.Int** |  |  [optional] |
+| **weeks** | **kotlin.Int** |  |  [optional] |
+| **months** | **kotlin.Int** |  |  [optional] |
+| **years** | **kotlin.Int** |  |  [optional] |
+| **&#x60;value&#x60;** | **kotlin.Double** |  |  [optional] |
+| **percentage** | **kotlin.Double** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **countryId** | **kotlin.String** |  |  [optional] |
+| **countryStateId** | **kotlin.String** |  |  [optional] |
+| **customState** | **kotlin.String** |  |  [optional] |
+| **customCity** | **kotlin.String** |  |  [optional] |
+| **cityId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **zero** | **kotlin.Boolean** |  |  [optional] |
+| **reduced** | **kotlin.Boolean** |  |  [optional] |
+| **withholding** | **kotlin.Boolean** |  |  [optional] |
+| **fiscalAuthorityId** | **kotlin.String** |  |  [optional] |
+
+
+

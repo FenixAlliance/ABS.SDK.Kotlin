@@ -133,7 +133,7 @@ class BlobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Blobs/Single",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -255,7 +255,7 @@ class BlobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/StorageService/Blobs",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

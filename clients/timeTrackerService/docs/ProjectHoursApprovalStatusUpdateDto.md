@@ -12,7 +12,7 @@
 ## Enum: approvalStatus
 | Name | Value |
 | ---- | ----- |
-| approvalStatus | 0, 1, 2 |
+| approvalStatus | Pending, Approved, Rejected |
 
 
 

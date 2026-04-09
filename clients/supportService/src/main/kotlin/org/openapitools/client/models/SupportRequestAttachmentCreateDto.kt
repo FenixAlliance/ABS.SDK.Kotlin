@@ -34,7 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param validResponse 
  * @param parentFileUploadId 
  * @param filePath 
- * @param file 
  * @param businessID 
  * @param businessProfileRecordID 
  * @param metadata 
@@ -79,9 +78,6 @@ data class SupportRequestAttachmentCreateDto (
 
     @Json(name = "filePath")
     val filePath: kotlin.String? = null,
-
-    @Json(name = "file")
-    val file: java.io.File? = null,
 
     @Json(name = "businessID")
     val businessID: kotlin.String? = null,

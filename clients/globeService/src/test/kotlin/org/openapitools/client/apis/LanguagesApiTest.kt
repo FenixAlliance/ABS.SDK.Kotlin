@@ -22,28 +22,38 @@ import org.openapitools.client.apis.LanguagesApi
 import org.openapitools.client.models.CountryLanguageDtoEnvelope
 import org.openapitools.client.models.CountryLanguageDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 
 class LanguagesApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of LanguagesApi
         //val apiInstance = LanguagesApi()
 
-        // to test apiV2GlobeServiceLanguagesGet
-        should("test apiV2GlobeServiceLanguagesGet") {
-            // uncomment below to test apiV2GlobeServiceLanguagesGet
+        // to test countLanguagesAsync
+        should("test countLanguagesAsync") {
+            // uncomment below to test countLanguagesAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryLanguageDtoListEnvelope = apiInstance.apiV2GlobeServiceLanguagesGet(apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countLanguagesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceLanguagesLanguageIdGet
-        should("test apiV2GlobeServiceLanguagesLanguageIdGet") {
-            // uncomment below to test apiV2GlobeServiceLanguagesLanguageIdGet
+        // to test getLanguageByIdAsync
+        should("test getLanguageByIdAsync") {
+            // uncomment below to test getLanguageByIdAsync
             //val languageId : kotlin.String = languageId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryLanguageDtoEnvelope = apiInstance.apiV2GlobeServiceLanguagesLanguageIdGet(languageId, apiVersion, xApiVersion)
+            //val result : CountryLanguageDtoEnvelope = apiInstance.getLanguageByIdAsync(languageId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getLanguagesAsync
+        should("test getLanguagesAsync") {
+            // uncomment below to test getLanguagesAsync
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : CountryLanguageDtoListEnvelope = apiInstance.getLanguagesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

@@ -46,8 +46,8 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * 
-     * 
+     * Get a tracking pixel
+     * Retrieves a tracking pixel by its ID.
      * @param pixelId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -60,8 +60,8 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceTrackingPixelsPixelIdGet(pixelId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : OrderDtoEnvelope {
-        val localVarResponse = apiV2MarketingServiceTrackingPixelsPixelIdGetWithHttpInfo(pixelId = pixelId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrackingPixelAsync(pixelId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : OrderDtoEnvelope {
+        val localVarResponse = getTrackingPixelAsyncWithHttpInfo(pixelId = pixelId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoEnvelope
@@ -79,8 +79,8 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * 
-     * 
+     * Get a tracking pixel
+     * Retrieves a tracking pixel by its ID.
      * @param pixelId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -90,8 +90,8 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceTrackingPixelsPixelIdGetWithHttpInfo(pixelId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<OrderDtoEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceTrackingPixelsPixelIdGetRequestConfig(pixelId = pixelId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrackingPixelAsyncWithHttpInfo(pixelId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<OrderDtoEnvelope?> {
+        val localVariableConfig = getTrackingPixelAsyncRequestConfig(pixelId = pixelId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, OrderDtoEnvelope>(
             localVariableConfig
@@ -99,14 +99,14 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceTrackingPixelsPixelIdGet
+     * To obtain the request config of the operation getTrackingPixelAsync
      *
      * @param pixelId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceTrackingPixelsPixelIdGetRequestConfig(pixelId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getTrackingPixelAsyncRequestConfig(pixelId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -123,7 +123,7 @@ class TrackingPixelsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             path = "/api/v2/MarketingService/TrackingPixels/{pixelId}".replace("{"+"pixelId"+"}", encodeURIComponent(pixelId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param percent 
  * @param itemId 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param discountListId 
  * @param endQuantity 
  * @param beginQuantity 
@@ -59,8 +59,8 @@ data class DiscountDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "discountListId")
     val discountListId: kotlin.String? = null,

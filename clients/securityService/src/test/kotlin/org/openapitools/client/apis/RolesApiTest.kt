@@ -19,165 +19,200 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.RolesApi
+import org.openapitools.client.models.BusinessApplicationSimpleDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleCreateDto
+import org.openapitools.client.models.SecurityRoleDtoEnvelope
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleUpdateDto
-import org.openapitools.client.models.TenantEnrolmentDtoListEnvelope
+import org.openapitools.client.models.TenantEnrollmentDtoListEnvelope
 
 class RolesApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of RolesApi
         //val apiInstance = RolesApi()
 
-        // to test apiV2SecurityServiceRolesGet
-        should("test apiV2SecurityServiceRolesGet") {
-            // uncomment below to test apiV2SecurityServiceRolesGet
+        // to test assignPermissionToRoleAsync
+        should("test assignPermissionToRoleAsync") {
+            // uncomment below to test assignPermissionToRoleAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SecurityRoleDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.assignPermissionToRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesPost
-        should("test apiV2SecurityServiceRolesPost") {
-            // uncomment below to test apiV2SecurityServiceRolesPost
+        // to test assignRoleToBusinessApplicationAsync
+        should("test assignRoleToBusinessApplicationAsync") {
+            // uncomment below to test assignRoleToBusinessApplicationAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.assignRoleToBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test assignRoleToEnrollmentAsync
+        should("test assignRoleToEnrollmentAsync") {
+            // uncomment below to test assignRoleToEnrollmentAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.assignRoleToEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createRoleAsync
+        should("test createRoleAsync") {
+            // uncomment below to test createRoleAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val securityRoleCreateDto : SecurityRoleCreateDto =  // SecurityRoleCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesPost(tenantId, apiVersion, xApiVersion, securityRoleCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete
-        should("test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createRoleAsync(tenantId, securityRoleCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost
-        should("test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SecurityServiceRolesSecurityRoleIdDelete
-        should("test apiV2SecurityServiceRolesSecurityRoleIdDelete") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdDelete
+        // to test deleteRoleAsync
+        should("test deleteRoleAsync") {
+            // uncomment below to test deleteRoleAsync
             //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdDelete(securityRoleId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete
-        should("test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete
+        // to test getApplicationsByRoleAsync
+        should("test getApplicationsByRoleAsync") {
+            // uncomment below to test getApplicationsByRoleAsync
             //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : BusinessApplicationSimpleDtoListEnvelope = apiInstance.getApplicationsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getEnrollmentsByRoleAsync
+        should("test getEnrollmentsByRoleAsync") {
+            // uncomment below to test getEnrollmentsByRoleAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : TenantEnrollmentDtoListEnvelope = apiInstance.getEnrollmentsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getRoleAsync
+        should("test getRoleAsync") {
+            // uncomment below to test getRoleAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SecurityRoleDtoEnvelope = apiInstance.getRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getRolePermissionsAsync
+        should("test getRolePermissionsAsync") {
+            // uncomment below to test getRolePermissionsAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SecurityPermissionDtoListEnvelope = apiInstance.getRolePermissionsAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getRolesAsync
+        should("test getRolesAsync") {
+            // uncomment below to test getRolesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getRolesByEnrollmentAsync
+        should("test getRolesByEnrollmentAsync") {
+            // uncomment below to test getRolesByEnrollmentAsync
             //val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+            //val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesByEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost
-        should("test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
+        // to test getRolesCountAsync
+        should("test getRolesCountAsync") {
+            // uncomment below to test getRolesCountAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet
-        should("test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TenantEnrolmentDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SecurityServiceRolesSecurityRoleIdGet
-        should("test apiV2SecurityServiceRolesSecurityRoleIdGet") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdGet
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SecurityRoleDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdGet(securityRoleId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet
-        should("test apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet
-            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SecurityPermissionDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete
-        should("test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete
+        // to test revokePermissionFromRoleAsync
+        should("test revokePermissionFromRoleAsync") {
+            // uncomment below to test revokePermissionFromRoleAsync
             //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
             //val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.revokePermissionFromRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost
-        should("test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost
+        // to test revokeRoleFromBusinessApplicationAsync
+        should("test revokeRoleFromBusinessApplicationAsync") {
+            // uncomment below to test revokeRoleFromBusinessApplicationAsync
             //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-            //val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
+            //val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.revokeRoleFromBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SecurityServiceRolesSecurityRoleIdPut
-        should("test apiV2SecurityServiceRolesSecurityRoleIdPut") {
-            // uncomment below to test apiV2SecurityServiceRolesSecurityRoleIdPut
+        // to test revokeRoleFromEnrollmentAsync
+        should("test revokeRoleFromEnrollmentAsync") {
+            // uncomment below to test revokeRoleFromEnrollmentAsync
             //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.revokeRoleFromEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateRoleAsync
+        should("test updateRoleAsync") {
+            // uncomment below to test updateRoleAsync
+            //val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val securityRoleUpdateDto : SecurityRoleUpdateDto =  // SecurityRoleUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPut(securityRoleId, tenantId, apiVersion, xApiVersion, securityRoleUpdateDto)
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.updateRoleAsync(securityRoleId, tenantId, securityRoleUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

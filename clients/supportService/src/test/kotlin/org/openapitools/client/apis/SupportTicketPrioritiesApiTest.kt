@@ -32,67 +32,68 @@ class SupportTicketPrioritiesApiTest : ShouldSpec() {
         // uncomment below to create an instance of SupportTicketPrioritiesApi
         //val apiInstance = SupportTicketPrioritiesApi()
 
-        // to test apiV2SupportServiceSupportTicketPrioritiesCountGet
-        should("test apiV2SupportServiceSupportTicketPrioritiesCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesCountGet
+        // to test createSupportTicketPriorityAsync
+        should("test createSupportTicketPriorityAsync") {
+            // uncomment below to test createSupportTicketPriorityAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketPrioritiesGet
-        should("test apiV2SupportServiceSupportTicketPrioritiesGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketPriorityDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketPrioritiesPost
-        should("test apiV2SupportServiceSupportTicketPrioritiesPost") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesPost
             //val supportTicketPriorityCreateDto : SupportTicketPriorityCreateDto =  // SupportTicketPriorityCreateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesPost(supportTicketPriorityCreateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSupportTicketPriorityAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete
-        should("test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete
+        // to test deleteSupportTicketPriorityAsync
+        should("test deleteSupportTicketPriorityAsync") {
+            // uncomment below to test deleteSupportTicketPriorityAsync
             //val supportTicketPriorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete(supportTicketPriorityId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSupportTicketPriorityAsync(supportTicketPriorityId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet
-        should("test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet
-            //val supportTicketPriorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+        // to test getSupportTicketPrioritiesAsync
+        should("test getSupportTicketPrioritiesAsync") {
+            // uncomment below to test getSupportTicketPrioritiesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketPriorityDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet(supportTicketPriorityId, apiVersion, xApiVersion)
+            //val result : SupportTicketPriorityDtoListEnvelope = apiInstance.getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut
-        should("test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut") {
-            // uncomment below to test apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut
+        // to test getSupportTicketPrioritiesCountAsync
+        should("test getSupportTicketPrioritiesCountAsync") {
+            // uncomment below to test getSupportTicketPrioritiesCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportTicketPriorityAsync
+        should("test getSupportTicketPriorityAsync") {
+            // uncomment below to test getSupportTicketPriorityAsync
             //val supportTicketPriorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportTicketPriorityDtoEnvelope = apiInstance.getSupportTicketPriorityAsync(supportTicketPriorityId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSupportTicketPriorityAsync
+        should("test updateSupportTicketPriorityAsync") {
+            // uncomment below to test updateSupportTicketPriorityAsync
+            //val supportTicketPriorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val supportTicketPriorityUpdateDto : SupportTicketPriorityUpdateDto =  // SupportTicketPriorityUpdateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut(supportTicketPriorityId, supportTicketPriorityUpdateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSupportTicketPriorityAsync(supportTicketPriorityId, tenantId, apiVersion, xApiVersion, supportTicketPriorityUpdateDto)
             //result shouldBe ("TODO")
         }
 

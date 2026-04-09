@@ -32,68 +32,68 @@ class EmailGroupsApiTest : ShouldSpec() {
         // uncomment below to create an instance of EmailGroupsApi
         //val apiInstance = EmailGroupsApi()
 
-        // to test apiV2MarketingServiceEmailGroupsCountGet
-        should("test apiV2MarketingServiceEmailGroupsCountGet") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsCountGet
+        // to test createEmailGroupAsync
+        should("test createEmailGroupAsync") {
+            // uncomment below to test createEmailGroupAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val emailGroupCreateDto : EmailGroupCreateDto =  // EmailGroupCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceEmailGroupsCountGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createEmailGroupAsync(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailGroupsEmailgroupIdDelete
-        should("test apiV2MarketingServiceEmailGroupsEmailgroupIdDelete") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsEmailgroupIdDelete
+        // to test deleteEmailGroupAsync
+        should("test deleteEmailGroupAsync") {
+            // uncomment below to test deleteEmailGroupAsync
             //val emailgroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdDelete(emailgroupId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteEmailGroupAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailGroupsEmailgroupIdGet
-        should("test apiV2MarketingServiceEmailGroupsEmailgroupIdGet") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsEmailgroupIdGet
+        // to test getEmailGroupDetailsAsync
+        should("test getEmailGroupDetailsAsync") {
+            // uncomment below to test getEmailGroupDetailsAsync
             //val emailgroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailGroupDtoEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdGet(emailgroupId, tenantId, apiVersion, xApiVersion)
+            //val result : EmailGroupDtoEnvelope = apiInstance.getEmailGroupDetailsAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailGroupsEmailgroupIdPut
-        should("test apiV2MarketingServiceEmailGroupsEmailgroupIdPut") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsEmailgroupIdPut
+        // to test getEmailGroupsCountAsync
+        should("test getEmailGroupsCountAsync") {
+            // uncomment below to test getEmailGroupsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getEmailGroupsODataAsync
+        should("test getEmailGroupsODataAsync") {
+            // uncomment below to test getEmailGroupsODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmailGroupDtoListEnvelope = apiInstance.getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateEmailGroupAsync
+        should("test updateEmailGroupAsync") {
+            // uncomment below to test updateEmailGroupAsync
             //val emailgroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val emailGroupUpdateDto : EmailGroupUpdateDto =  // EmailGroupUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdPut(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailGroupsGet
-        should("test apiV2MarketingServiceEmailGroupsGet") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailGroupDtoListEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailGroupsPost
-        should("test apiV2MarketingServiceEmailGroupsPost") {
-            // uncomment below to test apiV2MarketingServiceEmailGroupsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val emailGroupCreateDto : EmailGroupCreateDto =  // EmailGroupCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsPost(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateEmailGroupAsync(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **projectTaskID** | **kotlin.String** |  |  |
 | **projectPeriodID** | **kotlin.String** |  |  |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] [readonly] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **timeSpan** | **kotlin.String** |  |  [optional] |
 | **logDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **comments** | **kotlin.String** |  |  [optional] |
@@ -19,7 +19,7 @@
 ## Enum: projectTimeLogRecordType
 | Name | Value |
 | ---- | ----- |
-| projectTimeLogRecordType | 0, 1, 2 |
+| projectTimeLogRecordType | RegularHours, OvertimeToPay, OvertimeToCompensate |
 
 
 

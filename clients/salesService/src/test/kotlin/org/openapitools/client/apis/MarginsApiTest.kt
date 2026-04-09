@@ -25,13 +25,13 @@ class MarginsApiTest : ShouldSpec() {
         // uncomment below to create an instance of MarginsApi
         //val apiInstance = MarginsApi()
 
-        // to test apiV2SalesServiceMarginsMarginIdDetailsGet
-        should("test apiV2SalesServiceMarginsMarginIdDetailsGet") {
-            // uncomment below to test apiV2SalesServiceMarginsMarginIdDetailsGet
+        // to test getQuoteAsync
+        should("test getQuoteAsync") {
+            // uncomment below to test getQuoteAsync
             //val marginId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2SalesServiceMarginsMarginIdDetailsGet(marginId, apiVersion, xApiVersion)
+            //apiInstance.getQuoteAsync(marginId, apiVersion, xApiVersion)
         }
 
     }

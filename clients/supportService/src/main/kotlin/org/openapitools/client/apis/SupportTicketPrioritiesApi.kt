@@ -52,12 +52,13 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Create a new support ticket priority
+     * Creates a new support ticket priority for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
+     * @param supportTicketPriorityCreateDto  (optional)
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -66,11 +67,11 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesCountGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportTicketPriorityAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createSupportTicketPriorityAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketPriorityCreateDto = supportTicketPriorityCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -85,40 +86,128 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Create a new support ticket priority
+     * Creates a new support ticket priority for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
+     * @param supportTicketPriorityCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesCountGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportTicketPriorityAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createSupportTicketPriorityAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketPriorityCreateDto = supportTicketPriorityCreateDto)
 
-        return request<Unit, Int32Envelope>(
+        return request<SupportTicketPriorityCreateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesCountGet
+     * To obtain the request config of the operation createSupportTicketPriorityAsync
      *
-     * @param tenantId  (optional)
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportTicketPriorityCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createSupportTicketPriorityAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto?) : RequestConfig<SupportTicketPriorityCreateDto> {
+        val localVariableBody = supportTicketPriorityCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SupportService/SupportTicketPriorities",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a support ticket priority
+     * Deletes a support ticket priority by its unique identifier.
+     * @param supportTicketPriorityId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteSupportTicketPriorityAsync(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a support ticket priority
+     * Deletes a support ticket priority by its unique identifier.
+     * @param supportTicketPriorityId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteSupportTicketPriorityAsync
+     *
+     * @param supportTicketPriorityId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportTicketPrioritiesCountGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -128,19 +217,19 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportTicketPriorities/Count",
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId}".replace("{"+"supportTicketPriorityId"+"}", encodeURIComponent(supportTicketPriorityId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Retrieve a list of support ticket priorities
+     * Retrieves a list of support ticket priorities for the specified tenant with OData query support.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SupportTicketPriorityDtoListEnvelope
@@ -152,8 +241,8 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketPriorityDtoListEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPrioritiesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketPriorityDtoListEnvelope {
+        val localVarResponse = getSupportTicketPrioritiesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportTicketPriorityDtoListEnvelope
@@ -171,9 +260,9 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Retrieve a list of support ticket priorities
+     * Retrieves a list of support ticket priorities for the specified tenant with OData query support.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SupportTicketPriorityDtoListEnvelope?>
@@ -182,8 +271,8 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketPriorityDtoListEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPrioritiesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketPriorityDtoListEnvelope?> {
+        val localVariableConfig = getSupportTicketPrioritiesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SupportTicketPriorityDtoListEnvelope>(
             localVariableConfig
@@ -191,20 +280,18 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesGet
+     * To obtain the request config of the operation getSupportTicketPrioritiesAsync
      *
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportTicketPrioritiesGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportTicketPrioritiesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -218,19 +305,18 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
             path = "/api/v2/SupportService/SupportTicketPriorities",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param supportTicketPriorityCreateDto 
-     * @param tenantId  (optional)
+     * Get the count of support ticket priorities
+     * Returns the total count of support ticket priorities for the specified tenant with OData query support.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -239,11 +325,11 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesPost(supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesPostWithHttpInfo(supportTicketPriorityCreateDto = supportTicketPriorityCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPrioritiesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getSupportTicketPrioritiesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -258,132 +344,38 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
-     * @param supportTicketPriorityCreateDto 
-     * @param tenantId  (optional)
+     * Get the count of support ticket priorities
+     * Returns the total count of support ticket priorities for the specified tenant with OData query support.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesPostWithHttpInfo(supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesPostRequestConfig(supportTicketPriorityCreateDto = supportTicketPriorityCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPrioritiesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSupportTicketPrioritiesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<SupportTicketPriorityCreateDto, EmptyEnvelope>(
+        return request<Unit, Int32Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesPost
+     * To obtain the request config of the operation getSupportTicketPrioritiesCountAsync
      *
-     * @param supportTicketPriorityCreateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportTicketPrioritiesPostRequestConfig(supportTicketPriorityCreateDto: SupportTicketPriorityCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportTicketPriorityCreateDto> {
-        val localVariableBody = supportTicketPriorityCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SupportService/SupportTicketPriorities",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportTicketPriorityId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDeleteWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param supportTicketPriorityId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDeleteWithHttpInfo(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDeleteRequestConfig(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete
-     *
-     * @param supportTicketPriorityId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDeleteRequestConfig(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportTicketPrioritiesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -393,19 +385,20 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId}".replace("{"+"supportTicketPriorityId"+"}", encodeURIComponent(supportTicketPriorityId.toString())),
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportTicketPriorities/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support ticket priority by ID
+     * Retrieves a single support ticket priority by its unique identifier.
      * @param supportTicketPriorityId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SupportTicketPriorityDtoEnvelope
@@ -417,8 +410,8 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet(supportTicketPriorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketPriorityDtoEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGetWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPriorityAsync(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketPriorityDtoEnvelope {
+        val localVarResponse = getSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportTicketPriorityDtoEnvelope
@@ -436,9 +429,10 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support ticket priority by ID
+     * Retrieves a single support ticket priority by its unique identifier.
      * @param supportTicketPriorityId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SupportTicketPriorityDtoEnvelope?>
@@ -447,8 +441,8 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGetWithHttpInfo(supportTicketPriorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketPriorityDtoEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGetRequestConfig(supportTicketPriorityId = supportTicketPriorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketPriorityDtoEnvelope?> {
+        val localVariableConfig = getSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SupportTicketPriorityDtoEnvelope>(
             localVariableConfig
@@ -456,17 +450,19 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet
+     * To obtain the request config of the operation getSupportTicketPriorityAsync
      *
      * @param supportTicketPriorityId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGetRequestConfig(supportTicketPriorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -480,19 +476,19 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
             path = "/api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId}".replace("{"+"supportTicketPriorityId"+"}", encodeURIComponent(supportTicketPriorityId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Update a support ticket priority
+     * Updates an existing support ticket priority by its unique identifier.
      * @param supportTicketPriorityId 
-     * @param supportTicketPriorityUpdateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketPriorityUpdateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -502,8 +498,8 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut(supportTicketPriorityId: java.util.UUID, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPutWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, supportTicketPriorityUpdateDto = supportTicketPriorityUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSupportTicketPriorityAsync(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketPriorityUpdateDto = supportTicketPriorityUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -521,21 +517,21 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * 
-     * 
+     * Update a support ticket priority
+     * Updates an existing support ticket priority by its unique identifier.
      * @param supportTicketPriorityId 
-     * @param supportTicketPriorityUpdateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketPriorityUpdateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPutWithHttpInfo(supportTicketPriorityId: java.util.UUID, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPutRequestConfig(supportTicketPriorityId = supportTicketPriorityId, supportTicketPriorityUpdateDto = supportTicketPriorityUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSupportTicketPriorityAsyncWithHttpInfo(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId = supportTicketPriorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketPriorityUpdateDto = supportTicketPriorityUpdateDto)
 
         return request<SupportTicketPriorityUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -543,22 +539,20 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut
+     * To obtain the request config of the operation updateSupportTicketPriorityAsync
      *
      * @param supportTicketPriorityId 
-     * @param supportTicketPriorityUpdateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketPriorityUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPutRequestConfig(supportTicketPriorityId: java.util.UUID, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportTicketPriorityUpdateDto> {
+    fun updateSupportTicketPriorityAsyncRequestConfig(supportTicketPriorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketPriorityUpdateDto: SupportTicketPriorityUpdateDto?) : RequestConfig<SupportTicketPriorityUpdateDto> {
         val localVariableBody = supportTicketPriorityUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -573,7 +567,7 @@ class SupportTicketPrioritiesApi(basePath: kotlin.String = defaultBasePath, clie
             path = "/api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId}".replace("{"+"supportTicketPriorityId"+"}", encodeURIComponent(supportTicketPriorityId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -20,6 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.ProjectTimeLogsApi
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ProjectTimeLogCreateDto
 import org.openapitools.client.models.ProjectTimeLogDtoEnvelope
 import org.openapitools.client.models.ProjectTimeLogDtoListEnvelope
@@ -30,90 +31,101 @@ class ProjectTimeLogsApiTest : ShouldSpec() {
         // uncomment below to create an instance of ProjectTimeLogsApi
         //val apiInstance = ProjectTimeLogsApi()
 
-        // to test apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet
-        should("test apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet
-            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet(contactId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet
-        should("test apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet
-            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet(contactId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet
-        should("test apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2TimeTrackerServiceProjectTimeLogsGet
-        should("test apiV2TimeTrackerServiceProjectTimeLogsGet") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsGet
+        // to test countProjectPeriodTimeLogsAsync
+        should("test countProjectPeriodTimeLogsAsync") {
+            // uncomment below to test countProjectPeriodTimeLogsAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsGet(tenantId, projectPeriodId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2TimeTrackerServiceProjectTimeLogsPost
-        should("test apiV2TimeTrackerServiceProjectTimeLogsPost") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsPost
+        // to test createProjectTimeLogAsync
+        should("test createProjectTimeLogAsync") {
+            // uncomment below to test createProjectTimeLogAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectTimeLogCreateDto : ProjectTimeLogCreateDto =  // ProjectTimeLogCreateDto | 
-            //apiInstance.apiV2TimeTrackerServiceProjectTimeLogsPost(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
+            //apiInstance.createProjectTimeLogAsync(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
         }
 
-        // to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete
-        should("test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete
+        // to test deleteProjectTimeLogAsync
+        should("test deleteProjectTimeLogAsync") {
+            // uncomment below to test deleteProjectTimeLogAsync
             //val timeLogId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete(timeLogId, tenantId, apiVersion, xApiVersion)
+            //apiInstance.deleteProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion)
         }
 
-        // to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet
-        should("test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet
-            //val timeLogId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+        // to test getProjectPeriodTimeLogsAsync
+        should("test getProjectPeriodTimeLogsAsync") {
+            // uncomment below to test getProjectPeriodTimeLogsAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet(timeLogId, tenantId, apiVersion, xApiVersion)
+            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut
-        should("test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut") {
-            // uncomment below to test apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut
+        // to test getProjectTimeLogByIdAsync
+        should("test getProjectTimeLogByIdAsync") {
+            // uncomment below to test getProjectTimeLogByIdAsync
+            //val timeLogId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : ProjectTimeLogDtoEnvelope = apiInstance.getProjectTimeLogByIdAsync(timeLogId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTimeLogsAsync
+        should("test getProjectTimeLogsAsync") {
+            // uncomment below to test getProjectTimeLogsAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsAsync(projectId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTimeLogsByResponsibleContactAsync
+        should("test getProjectTimeLogsByResponsibleContactAsync") {
+            // uncomment below to test getProjectTimeLogsByResponsibleContactAsync
+            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsByResponsibleContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTimeLogsCreatedByContactAsync
+        should("test getProjectTimeLogsCreatedByContactAsync") {
+            // uncomment below to test getProjectTimeLogsCreatedByContactAsync
+            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsCreatedByContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateProjectTimeLogAsync
+        should("test updateProjectTimeLogAsync") {
+            // uncomment below to test updateProjectTimeLogAsync
             //val timeLogId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectTimeLogUpdateDto : ProjectTimeLogUpdateDto =  // ProjectTimeLogUpdateDto | 
-            //apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
+            //apiInstance.updateProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
         }
 
     }

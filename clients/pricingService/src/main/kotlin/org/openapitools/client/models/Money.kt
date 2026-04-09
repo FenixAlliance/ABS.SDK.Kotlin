@@ -15,7 +15,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.Currency
+import org.openapitools.client.models.CurrencyId
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ data class Money (
     val amount: kotlin.Double? = null,
 
     @Json(name = "currency")
-    val currency: Currency? = null
+    val currency: CurrencyId? = null
 
 ) {
 

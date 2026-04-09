@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedTenantDtoListEnvelope
@@ -50,6 +51,174 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
+    }
+
+    /**
+     * Preview the rendered email for a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun adminPreviewTenantEmail(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = adminPreviewTenantEmailWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Preview the rendered email for a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun adminPreviewTenantEmailWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = adminPreviewTenantEmailRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation adminPreviewTenantEmail
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun adminPreviewTenantEmailRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SystemService/Tenants/{tenantId}/Emails/Preview".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Send an email to a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun adminSendTenantEmail(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = adminSendTenantEmailWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Send an email to a user.
+     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun adminSendTenantEmailWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = adminSendTenantEmailRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation adminSendTenantEmail
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun adminSendTenantEmailRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SystemService/Tenants/{tenantId}/Emails/Send".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**
@@ -131,7 +300,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -214,7 +383,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -294,7 +463,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -374,7 +543,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -454,7 +623,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/Extended/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -537,7 +706,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -617,7 +786,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -704,7 +873,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SystemService/Tenants/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -8,8 +8,8 @@
 | **type** | [**inline**](#Type) |  |  |
 | **firstName** | **kotlin.String** |  |  |
 | **email** | **kotlin.String** |  |  |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] [readonly] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **taxId** | **kotlin.String** |  |  [optional] |
 | **primaryContactId** | **kotlin.String** |  |  [optional] |
@@ -41,18 +41,19 @@
 | **linkedInUrl** | **kotlin.String** |  |  [optional] |
 | **instagramUrl** | **kotlin.String** |  |  [optional] |
 | **githubUsername** | **kotlin.String** |  |  [optional] |
-| **instagramUsername** | [**kotlin.Any**](.md) |  |  [optional] |
-| **tikTokUsername** | [**kotlin.Any**](.md) |  |  [optional] |
-| **stackExchangeUrl** | [**kotlin.Any**](.md) |  |  [optional] |
-| **stackOverflowUrl** | [**kotlin.Any**](.md) |  |  [optional] |
-| **parentContactId** | [**kotlin.Any**](.md) |  |  [optional] |
+| **instagramUsername** | **kotlin.String** |  |  [optional] |
+| **tikTokUsername** | **kotlin.String** |  |  [optional] |
+| **stackExchangeUrl** | **kotlin.String** |  |  [optional] |
+| **stackOverflowUrl** | **kotlin.String** |  |  [optional] |
+| **parentContactId** | **kotlin.String** |  |  [optional] |
+| **faxNumber** | **kotlin.String** |  |  [optional] |
 
 
 <a id="Type"></a>
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1 |
+| type | Individual, Organization |
 
 
 

@@ -4,121 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceSocialPostBucketsCountGet**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsCountGet) | **GET** /api/v2/MarketingService/SocialPostBuckets/Count |  |
-| [**apiV2MarketingServiceSocialPostBucketsGet**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsGet) | **GET** /api/v2/MarketingService/SocialPostBuckets |  |
-| [**apiV2MarketingServiceSocialPostBucketsPost**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsPost) | **POST** /api/v2/MarketingService/SocialPostBuckets |  |
-| [**apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete) | **DELETE** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} |  |
-| [**apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet) | **GET** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} |  |
-| [**apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut**](SocialPostBucketsApi.md#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut) | **PUT** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} |  |
+| [**createSocialPostBucketAsync**](SocialPostBucketsApi.md#createSocialPostBucketAsync) | **POST** /api/v2/MarketingService/SocialPostBuckets | Create a social post bucket |
+| [**deleteSocialPostBucketAsync**](SocialPostBucketsApi.md#deleteSocialPostBucketAsync) | **DELETE** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} | Delete a social post bucket |
+| [**getSocialPostBucketDetailsAsync**](SocialPostBucketsApi.md#getSocialPostBucketDetailsAsync) | **GET** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} | Get social post bucket by ID |
+| [**getSocialPostBucketsCountAsync**](SocialPostBucketsApi.md#getSocialPostBucketsCountAsync) | **GET** /api/v2/MarketingService/SocialPostBuckets/Count | Get social post buckets count |
+| [**getSocialPostBucketsODataAsync**](SocialPostBucketsApi.md#getSocialPostBucketsODataAsync) | **GET** /api/v2/MarketingService/SocialPostBuckets | Get social post buckets |
+| [**updateSocialPostBucketAsync**](SocialPostBucketsApi.md#updateSocialPostBucketAsync) | **PUT** /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId} | Update a social post bucket |
 
 
-<a id="apiV2MarketingServiceSocialPostBucketsCountGet"></a>
-# **apiV2MarketingServiceSocialPostBucketsCountGet**
-> Int32Envelope apiV2MarketingServiceSocialPostBucketsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSocialPostBucketAsync"></a>
+# **createSocialPostBucketAsync**
+> EmptyEnvelope createSocialPostBucketAsync(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
 
+Create a social post bucket
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SocialPostBucketsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2MarketingServiceSocialPostBucketsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceSocialPostBucketsGet"></a>
-# **apiV2MarketingServiceSocialPostBucketsGet**
-> SocialPostBucketDtoListEnvelope apiV2MarketingServiceSocialPostBucketsGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SocialPostBucketsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SocialPostBucketDtoListEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SocialPostBucketDtoListEnvelope**](SocialPostBucketDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceSocialPostBucketsPost"></a>
-# **apiV2MarketingServiceSocialPostBucketsPost**
-> EmptyEnvelope apiV2MarketingServiceSocialPostBucketsPost(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
-
-
+Creates a new social post bucket for the specified tenant.
 
 ### Example
 ```kotlin
@@ -132,13 +32,13 @@ val socialPostBucketCreateDto : SocialPostBucketCreateDto =  // SocialPostBucket
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsPost(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createSocialPostBucketAsync(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsPost")
+    println("4xx response calling SocialPostBucketsApi#createSocialPostBucketAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsPost")
+    println("5xx response calling SocialPostBucketsApi#createSocialPostBucketAsync")
     e.printStackTrace()
 }
 ```
@@ -157,21 +57,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete"></a>
-# **apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete**
-> EmptyEnvelope apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+<a id="deleteSocialPostBucketAsync"></a>
+# **deleteSocialPostBucketAsync**
+> EmptyEnvelope deleteSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
 
+Delete a social post bucket
 
+Deletes a social post bucket by its ID.
 
 ### Example
 ```kotlin
@@ -185,13 +84,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete")
+    println("4xx response calling SocialPostBucketsApi#deleteSocialPostBucketAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete")
+    println("5xx response calling SocialPostBucketsApi#deleteSocialPostBucketAsync")
     e.printStackTrace()
 }
 ```
@@ -210,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet"></a>
-# **apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet**
-> SocialPostBucketDtoEnvelope apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+<a id="getSocialPostBucketDetailsAsync"></a>
+# **getSocialPostBucketDetailsAsync**
+> SocialPostBucketDtoEnvelope getSocialPostBucketDetailsAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
 
+Get social post bucket by ID
 
+Retrieves the details of a specific social post bucket by its ID.
 
 ### Example
 ```kotlin
@@ -238,13 +136,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : SocialPostBucketDtoEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+    val result : SocialPostBucketDtoEnvelope = apiInstance.getSocialPostBucketDetailsAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet")
+    println("4xx response calling SocialPostBucketsApi#getSocialPostBucketDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet")
+    println("5xx response calling SocialPostBucketsApi#getSocialPostBucketDetailsAsync")
     e.printStackTrace()
 }
 ```
@@ -263,21 +161,120 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut"></a>
-# **apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut**
-> EmptyEnvelope apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
+<a id="getSocialPostBucketsCountAsync"></a>
+# **getSocialPostBucketsCountAsync**
+> Int32Envelope getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
 
+Get social post buckets count
 
+Returns the count of social post buckets for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostBucketsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostBucketsApi#getSocialPostBucketsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostBucketsApi#getSocialPostBucketsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSocialPostBucketsODataAsync"></a>
+# **getSocialPostBucketsODataAsync**
+> SocialPostBucketDtoListEnvelope getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+
+Get social post buckets
+
+Retrieves a collection of social post buckets for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostBucketsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SocialPostBucketDtoListEnvelope = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostBucketsApi#getSocialPostBucketsODataAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostBucketsApi#getSocialPostBucketsODataAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SocialPostBucketDtoListEnvelope**](SocialPostBucketDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateSocialPostBucketAsync"></a>
+# **updateSocialPostBucketAsync**
+> EmptyEnvelope updateSocialPostBucketAsync(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
+
+Update a social post bucket
+
+Updates an existing social post bucket by its ID.
 
 ### Example
 ```kotlin
@@ -292,13 +289,13 @@ val socialPostBucketUpdateDto : SocialPostBucketUpdateDto =  // SocialPostBucket
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateSocialPostBucketAsync(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut")
+    println("4xx response calling SocialPostBucketsApi#updateSocialPostBucketAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SocialPostBucketsApi#apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut")
+    println("5xx response calling SocialPostBucketsApi#updateSocialPostBucketAsync")
     e.printStackTrace()
 }
 ```
@@ -318,10 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

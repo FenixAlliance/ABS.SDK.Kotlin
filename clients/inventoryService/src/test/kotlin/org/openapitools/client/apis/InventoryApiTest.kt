@@ -25,13 +25,13 @@ class InventoryApiTest : ShouldSpec() {
         // uncomment below to create an instance of InventoryApi
         //val apiInstance = InventoryApi()
 
-        // to test apiV2InventoryServiceInventoryStockItemIdDetailsGet
-        should("test apiV2InventoryServiceInventoryStockItemIdDetailsGet") {
-            // uncomment below to test apiV2InventoryServiceInventoryStockItemIdDetailsGet
+        // to test getInventoryDetailsAsync
+        should("test getInventoryDetailsAsync") {
+            // uncomment below to test getInventoryDetailsAsync
             //val stockItemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId, apiVersion, xApiVersion)
+            //apiInstance.getInventoryDetailsAsync(stockItemId, apiVersion, xApiVersion)
         }
 
     }

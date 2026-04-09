@@ -277,5 +277,11 @@ class ContactCreateDtoTest : ShouldSpec() {
             //modelInstance.parentContactId shouldBe ("TODO")
         }
 
+        // to test the property `faxNumber`
+        should("test faxNumber") {
+            // uncomment below to test the property
+            //modelInstance.faxNumber shouldBe ("TODO")
+        }
+
     }
 }

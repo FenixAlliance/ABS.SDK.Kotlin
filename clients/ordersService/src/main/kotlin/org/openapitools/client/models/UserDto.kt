@@ -27,6 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param fullName 
  * @param qualifiedName 
  * @param publicName 
+ * @param handler 
  * @param lastName 
  * @param firstName 
  * @param coverUrl 
@@ -87,6 +88,9 @@ data class UserDto (
 
     @Json(name = "publicName")
     val publicName: kotlin.String? = null,
+
+    @Json(name = "handler")
+    val handler: kotlin.String? = null,
 
     @Json(name = "lastName")
     val lastName: kotlin.String? = null,
@@ -216,37 +220,38 @@ data class UserDto (
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: Unknown,Male,Female,PreferNotToSay
      */
     @JsonClass(generateAdapter = false)
-    enum class Gender(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class Gender(val value: kotlin.String) {
+        @Json(name = "Unknown") Unknown("Unknown"),
+        @Json(name = "Male") Male("Male"),
+        @Json(name = "Female") Female("Female"),
+        @Json(name = "PreferNotToSay") PreferNotToSay("PreferNotToSay");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2,_3,_4
+     * Values: DND,Busy,Away,Offline,Available
      */
     @JsonClass(generateAdapter = false)
-    enum class Availability(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3),
-        @Json(name = "4") _4(4);
+    enum class Availability(val value: kotlin.String) {
+        @Json(name = "DND") DND("DND"),
+        @Json(name = "Busy") Busy("Busy"),
+        @Json(name = "Away") Away("Away"),
+        @Json(name = "Offline") Offline("Offline"),
+        @Json(name = "Available") Available("Available");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: System,Light,Dark
      */
     @JsonClass(generateAdapter = false)
-    enum class SiteTheme(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class SiteTheme(val value: kotlin.String) {
+        @Json(name = "System") System("System"),
+        @Json(name = "Light") Light("Light"),
+        @Json(name = "Dark") Dark("Dark");
     }
 
 }

@@ -138,7 +138,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -224,7 +224,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -307,7 +307,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -390,7 +390,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -473,7 +473,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -556,7 +556,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -639,7 +639,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -722,7 +722,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -805,7 +805,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -888,7 +888,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -971,7 +971,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1054,7 +1054,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Orders/Extended".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1137,7 +1137,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1220,7 +1220,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1306,7 +1306,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1389,7 +1389,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1472,7 +1472,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1555,7 +1555,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Orders".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1638,7 +1638,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Orders/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1721,7 +1721,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1804,7 +1804,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1894,7 +1894,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

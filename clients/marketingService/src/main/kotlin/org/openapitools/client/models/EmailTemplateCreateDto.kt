@@ -25,12 +25,14 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  * @param title 
- * @param authorId 
+ * @param code 
+ * @param published 
  * @param description 
  * @param htmlContent 
  * @param featuredImageUrl 
+ * @param codeType 
  * @param marketingCampaignId 
  */
 
@@ -46,14 +48,17 @@ data class EmailTemplateCreateDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,
 
-    @Json(name = "authorId")
-    val authorId: kotlin.String? = null,
+    @Json(name = "code")
+    val code: kotlin.String? = null,
+
+    @Json(name = "published")
+    val published: kotlin.Boolean? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
@@ -64,11 +69,28 @@ data class EmailTemplateCreateDto (
     @Json(name = "featuredImageUrl")
     val featuredImageUrl: kotlin.String? = null,
 
+    @Json(name = "codeType")
+    val codeType: EmailTemplateCreateDto.CodeType? = null,
+
     @Json(name = "marketingCampaignId")
     val marketingCampaignId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     */
+    @JsonClass(generateAdapter = false)
+    enum class CodeType(val value: kotlin.String) {
+        @Json(name = "Razor") Razor("Razor"),
+        @Json(name = "CSharp") CSharp("CSharp"),
+        @Json(name = "CSHtml") CSHtml("CSHtml"),
+        @Json(name = "Liquid") Liquid("Liquid"),
+        @Json(name = "Html5") Html5("Html5"),
+        @Json(name = "Markdown") Markdown("Markdown");
+    }
 
 }
 

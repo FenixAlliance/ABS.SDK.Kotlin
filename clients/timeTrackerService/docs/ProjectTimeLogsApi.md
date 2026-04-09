@@ -4,180 +4,24 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId} |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsGet**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsGet) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsPost**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsPost) | **POST** /api/v2/TimeTrackerService/ProjectTimeLogs |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete) | **DELETE** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} |  |
-| [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut**](ProjectTimeLogsApi.md#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut) | **PUT** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} |  |
+| [**countProjectPeriodTimeLogsAsync**](ProjectTimeLogsApi.md#countProjectPeriodTimeLogsAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/Count | Get the count of project period time logs |
+| [**createProjectTimeLogAsync**](ProjectTimeLogsApi.md#createProjectTimeLogAsync) | **POST** /api/v2/TimeTrackerService/ProjectTimeLogs | Create a new project time log |
+| [**deleteProjectTimeLogAsync**](ProjectTimeLogsApi.md#deleteProjectTimeLogAsync) | **DELETE** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Delete a project time log |
+| [**getProjectPeriodTimeLogsAsync**](ProjectTimeLogsApi.md#getProjectPeriodTimeLogsAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs | Retrieve project period time logs |
+| [**getProjectTimeLogByIdAsync**](ProjectTimeLogsApi.md#getProjectTimeLogByIdAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Retrieve a project time log by ID |
+| [**getProjectTimeLogsAsync**](ProjectTimeLogsApi.md#getProjectTimeLogsAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId} | Retrieve time logs for a project |
+| [**getProjectTimeLogsByResponsibleContactAsync**](ProjectTimeLogsApi.md#getProjectTimeLogsByResponsibleContactAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact | Retrieve time logs by responsible contact |
+| [**getProjectTimeLogsCreatedByContactAsync**](ProjectTimeLogsApi.md#getProjectTimeLogsCreatedByContactAsync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact | Retrieve time logs created by a contact |
+| [**updateProjectTimeLogAsync**](ProjectTimeLogsApi.md#updateProjectTimeLogAsync) | **PUT** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Update a project time log |
 
 
-<a id="apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet**
-> ProjectTimeLogDtoListEnvelope apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet(contactId, tenantId, apiVersion, xApiVersion)
+<a id="countProjectPeriodTimeLogsAsync"></a>
+# **countProjectPeriodTimeLogsAsync**
+> Int32Envelope countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
 
+Get the count of project period time logs
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = ProjectTimeLogsApi()
-val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet(contactId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **contactId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet**
-> ProjectTimeLogDtoListEnvelope apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet(contactId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = ProjectTimeLogsApi()
-val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet(contactId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **contactId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet**
-> ProjectTimeLogDtoListEnvelope apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet(projectId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = ProjectTimeLogsApi()
-val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet(projectId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **projectId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2TimeTrackerServiceProjectTimeLogsGet"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsGet**
-> ProjectTimeLogDtoListEnvelope apiV2TimeTrackerServiceProjectTimeLogsGet(tenantId, projectPeriodId, apiVersion, xApiVersion)
-
-
+Returns the total count of time logs for a specific project period with OData query support.
 
 ### Example
 ```kotlin
@@ -191,13 +35,13 @@ val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // j
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsGet(tenantId, projectPeriodId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsGet")
+    println("4xx response calling ProjectTimeLogsApi#countProjectPeriodTimeLogsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsGet")
+    println("5xx response calling ProjectTimeLogsApi#countProjectPeriodTimeLogsAsync")
     e.printStackTrace()
 }
 ```
@@ -212,25 +56,24 @@ try {
 
 ### Return type
 
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2TimeTrackerServiceProjectTimeLogsPost"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsPost**
-> apiV2TimeTrackerServiceProjectTimeLogsPost(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
+<a id="createProjectTimeLogAsync"></a>
+# **createProjectTimeLogAsync**
+> createProjectTimeLogAsync(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
 
+Create a new project time log
 
+Creates a new project time log entry.
 
 ### Example
 ```kotlin
@@ -244,12 +87,12 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val projectTimeLogCreateDto : ProjectTimeLogCreateDto =  // ProjectTimeLogCreateDto | 
 try {
-    apiInstance.apiV2TimeTrackerServiceProjectTimeLogsPost(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
+    apiInstance.createProjectTimeLogAsync(tenantId, apiVersion, xApiVersion, projectTimeLogCreateDto)
 } catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsPost")
+    println("4xx response calling ProjectTimeLogsApi#createProjectTimeLogAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsPost")
+    println("5xx response calling ProjectTimeLogsApi#createProjectTimeLogAsync")
     e.printStackTrace()
 }
 ```
@@ -268,21 +111,20 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete**
-> apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete(timeLogId, tenantId, apiVersion, xApiVersion)
+<a id="deleteProjectTimeLogAsync"></a>
+# **deleteProjectTimeLogAsync**
+> deleteProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion)
 
+Delete a project time log
 
+Deletes a project time log entry.
 
 ### Example
 ```kotlin
@@ -296,12 +138,12 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete(timeLogId, tenantId, apiVersion, xApiVersion)
+    apiInstance.deleteProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion)
 } catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete")
+    println("4xx response calling ProjectTimeLogsApi#deleteProjectTimeLogAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete")
+    println("5xx response calling ProjectTimeLogsApi#deleteProjectTimeLogAsync")
     e.printStackTrace()
 }
 ```
@@ -320,21 +162,72 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet**
-> ProjectTimeLogDtoEnvelope apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet(timeLogId, tenantId, apiVersion, xApiVersion)
+<a id="getProjectPeriodTimeLogsAsync"></a>
+# **getProjectPeriodTimeLogsAsync**
+> ProjectTimeLogDtoListEnvelope getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
 
+Retrieve project period time logs
 
+Retrieves a list of time logs for a specific project period with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ProjectTimeLogsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProjectTimeLogsApi#getProjectPeriodTimeLogsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProjectTimeLogsApi#getProjectPeriodTimeLogsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **projectPeriodId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getProjectTimeLogByIdAsync"></a>
+# **getProjectTimeLogByIdAsync**
+> ProjectTimeLogDtoEnvelope getProjectTimeLogByIdAsync(timeLogId, tenantId, apiVersion, xApiVersion)
+
+Retrieve a project time log by ID
+
+Retrieves a single project time log by its unique identifier.
 
 ### Example
 ```kotlin
@@ -348,13 +241,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ProjectTimeLogDtoEnvelope = apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet(timeLogId, tenantId, apiVersion, xApiVersion)
+    val result : ProjectTimeLogDtoEnvelope = apiInstance.getProjectTimeLogByIdAsync(timeLogId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet")
+    println("4xx response calling ProjectTimeLogsApi#getProjectTimeLogByIdAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet")
+    println("5xx response calling ProjectTimeLogsApi#getProjectTimeLogByIdAsync")
     e.printStackTrace()
 }
 ```
@@ -373,21 +266,176 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut"></a>
-# **apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut**
-> apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
+<a id="getProjectTimeLogsAsync"></a>
+# **getProjectTimeLogsAsync**
+> ProjectTimeLogDtoListEnvelope getProjectTimeLogsAsync(projectId, tenantId, apiVersion, xApiVersion)
 
+Retrieve time logs for a project
 
+Retrieves all time logs associated with the specified project.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ProjectTimeLogsApi()
+val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsAsync(projectId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProjectTimeLogsApi#getProjectTimeLogsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProjectTimeLogsApi#getProjectTimeLogsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getProjectTimeLogsByResponsibleContactAsync"></a>
+# **getProjectTimeLogsByResponsibleContactAsync**
+> ProjectTimeLogDtoListEnvelope getProjectTimeLogsByResponsibleContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+
+Retrieve time logs by responsible contact
+
+Retrieves time logs where the specified contact is the responsible party.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ProjectTimeLogsApi()
+val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsByResponsibleContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProjectTimeLogsApi#getProjectTimeLogsByResponsibleContactAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProjectTimeLogsApi#getProjectTimeLogsByResponsibleContactAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **contactId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getProjectTimeLogsCreatedByContactAsync"></a>
+# **getProjectTimeLogsCreatedByContactAsync**
+> ProjectTimeLogDtoListEnvelope getProjectTimeLogsCreatedByContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+
+Retrieve time logs created by a contact
+
+Retrieves time logs that were created by the specified contact.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ProjectTimeLogsApi()
+val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsCreatedByContactAsync(contactId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProjectTimeLogsApi#getProjectTimeLogsCreatedByContactAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProjectTimeLogsApi#getProjectTimeLogsCreatedByContactAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **contactId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateProjectTimeLogAsync"></a>
+# **updateProjectTimeLogAsync**
+> updateProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
+
+Update a project time log
+
+Updates an existing project time log entry.
 
 ### Example
 ```kotlin
@@ -402,12 +450,12 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val projectTimeLogUpdateDto : ProjectTimeLogUpdateDto =  // ProjectTimeLogUpdateDto | 
 try {
-    apiInstance.apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
+    apiInstance.updateProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, projectTimeLogUpdateDto)
 } catch (e: ClientException) {
-    println("4xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut")
+    println("4xx response calling ProjectTimeLogsApi#updateProjectTimeLogAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ProjectTimeLogsApi#apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut")
+    println("5xx response calling ProjectTimeLogsApi#updateProjectTimeLogAsync")
     e.printStackTrace()
 }
 ```
@@ -427,10 +475,7 @@ null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

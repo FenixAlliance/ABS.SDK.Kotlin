@@ -26,6 +26,7 @@ import org.openapitools.client.models.ProjectCreateDto
 import org.openapitools.client.models.ProjectDtoEnvelope
 import org.openapitools.client.models.ProjectDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodCreateDto
+import org.openapitools.client.models.ProjectPeriodDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodUpdateDto
 import org.openapitools.client.models.ProjectTaskCreateDto
 import org.openapitools.client.models.ProjectTaskDtoListEnvelope
@@ -39,208 +40,181 @@ class ProjectsApiTest : ShouldSpec() {
         // uncomment below to create an instance of ProjectsApi
         //val apiInstance = ProjectsApi()
 
-        // to test apiV2ProjectsServiceProjectsCountGet
-        should("test apiV2ProjectsServiceProjectsCountGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsCountGet
+        // to test createProjectAsync
+        should("test createProjectAsync") {
+            // uncomment below to test createProjectAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2ProjectsServiceProjectsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsGet
-        should("test apiV2ProjectsServiceProjectsGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectDtoListEnvelope = apiInstance.apiV2ProjectsServiceProjectsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsPost
-        should("test apiV2ProjectsServiceProjectsPost") {
-            // uncomment below to test apiV2ProjectsServiceProjectsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectCreateDto : ProjectCreateDto =  // ProjectCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsPost(tenantId, apiVersion, xApiVersion, projectCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createProjectAsync(tenantId, projectCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceProjectsProjectIdDelete
-        should("test apiV2ProjectsServiceProjectsProjectIdDelete") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdDelete
+        // to test createProjectPeriodAsync
+        should("test createProjectPeriodAsync") {
+            // uncomment below to test createProjectPeriodAsync
             //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdDelete(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdGet
-        should("test apiV2ProjectsServiceProjectsProjectIdGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectDtoEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdPeriodsGet
-        should("test apiV2ProjectsServiceProjectsProjectIdPeriodsGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdPeriodsGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectPeriodCreateDto : ProjectPeriodCreateDto =  // ProjectPeriodCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdPeriodsGet(projectId, tenantId, apiVersion, xApiVersion, projectPeriodCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createProjectPeriodAsync(projectId, tenantId, projectPeriodCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete
-        should("test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete(projectId, projectPeriodId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut
-        should("test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val projectPeriodUpdateDto : ProjectPeriodUpdateDto =  // ProjectPeriodUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut(projectId, projectPeriodId, tenantId, apiVersion, xApiVersion, projectPeriodUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdPut
-        should("test apiV2ProjectsServiceProjectsProjectIdPut") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdPut
+        // to test createProjectTaskAsync
+        should("test createProjectTaskAsync") {
+            // uncomment below to test createProjectTaskAsync
             //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val projectUpdateDto : ProjectUpdateDto =  // ProjectUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdPut(projectId, tenantId, apiVersion, xApiVersion, projectUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TaskCategoryDtoListEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTasksCountGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTasksCountGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTasksCountGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTasksCountGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTasksGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTasksGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTasksGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTaskDtoListEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTasksGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTasksPost
-        should("test apiV2ProjectsServiceProjectsProjectIdTasksPost") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTasksPost
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectTaskCreateDto : ProjectTaskCreateDto =  // ProjectTaskCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTasksPost(projectId, tenantId, apiVersion, xApiVersion, projectTaskCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createProjectTaskAsync(projectId, tenantId, projectTaskCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete
-        should("test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete
+        // to test deleteProjectAsync
+        should("test deleteProjectAsync") {
+            // uncomment below to test deleteProjectAsync
             //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val projectTaskId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete(projectId, projectTaskId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteProjectAsync(projectId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut
-        should("test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut
+        // to test deleteProjectPeriodAsync
+        should("test deleteProjectPeriodAsync") {
+            // uncomment below to test deleteProjectPeriodAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteProjectPeriodAsync(projectId, projectPeriodId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteProjectTaskAsync
+        should("test deleteProjectTaskAsync") {
+            // uncomment below to test deleteProjectTaskAsync
             //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val projectTaskId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.deleteProjectTaskAsync(projectId, projectTaskId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectByIdAsync
+        should("test getProjectByIdAsync") {
+            // uncomment below to test getProjectByIdAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ProjectDtoEnvelope = apiInstance.getProjectByIdAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectPeriodsAsync
+        should("test getProjectPeriodsAsync") {
+            // uncomment below to test getProjectPeriodsAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ProjectPeriodDtoListEnvelope = apiInstance.getProjectPeriodsAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTaskCategoriesAsync
+        should("test getProjectTaskCategoriesAsync") {
+            // uncomment below to test getProjectTaskCategoriesAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : TaskCategoryDtoListEnvelope = apiInstance.getProjectTaskCategoriesAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTaskCategoriesCountAsync
+        should("test getProjectTaskCategoriesCountAsync") {
+            // uncomment below to test getProjectTaskCategoriesCountAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getProjectTaskCategoriesCountAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTasksAsync
+        should("test getProjectTasksAsync") {
+            // uncomment below to test getProjectTasksAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ProjectTaskDtoListEnvelope = apiInstance.getProjectTasksAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTasksCountAsync
+        should("test getProjectTasksCountAsync") {
+            // uncomment below to test getProjectTasksCountAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getProjectTasksCountAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTimeLogsAsync
+        should("test getProjectTimeLogsAsync") {
+            // uncomment below to test getProjectTimeLogsAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectTimeLogsAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectTimeLogsCountAsync
+        should("test getProjectTimeLogsCountAsync") {
+            // uncomment below to test getProjectTimeLogsCountAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getProjectTimeLogsCountAsync(projectId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectsByTenantIdAsync
+        should("test getProjectsByTenantIdAsync") {
+            // uncomment below to test getProjectsByTenantIdAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ProjectDtoListEnvelope = apiInstance.getProjectsByTenantIdAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getProjectsCountByTenantIdAsync
+        should("test getProjectsCountByTenantIdAsync") {
+            // uncomment below to test getProjectsCountByTenantIdAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getProjectsCountByTenantIdAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateProjectAsync
+        should("test updateProjectAsync") {
+            // uncomment below to test updateProjectAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectUpdateDto : ProjectUpdateDto =  // ProjectUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateProjectAsync(projectId, tenantId, projectUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateProjectPeriodAsync
+        should("test updateProjectPeriodAsync") {
+            // uncomment below to test updateProjectPeriodAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectPeriodUpdateDto : ProjectPeriodUpdateDto =  // ProjectPeriodUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateProjectPeriodAsync(projectId, projectPeriodId, tenantId, projectPeriodUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateProjectTaskAsync
+        should("test updateProjectTaskAsync") {
+            // uncomment below to test updateProjectTaskAsync
+            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val projectTaskId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val projectTaskUpdateDto : ProjectTaskUpdateDto =  // ProjectTaskUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut(projectId, projectTaskId, tenantId, apiVersion, xApiVersion, projectTaskUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet(projectId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ProjectsServiceProjectsProjectIdTimeLogsGet
-        should("test apiV2ProjectsServiceProjectsProjectIdTimeLogsGet") {
-            // uncomment below to test apiV2ProjectsServiceProjectsProjectIdTimeLogsGet
-            //val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ProjectTimeLogDtoListEnvelope = apiInstance.apiV2ProjectsServiceProjectsProjectIdTimeLogsGet(projectId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateProjectTaskAsync(projectId, projectTaskId, tenantId, projectTaskUpdateDto)
             //result shouldBe ("TODO")
         }
 

@@ -58,82 +58,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
-     * @param tenantId 
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsCountGet(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsCountGetWithHttpInfo(tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsCountGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsCountGetRequestConfig(tenantId = tenantId)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsCountGet
-     *
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsCountGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Calculate a deal unit
+     * Triggers recalculation of totals and derived values for a specific deal unit.
      * @param dealUnitId 
      * @param tenantId 
      * @return EmptyEnvelope
@@ -145,8 +71,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdCalculatePut(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdCalculatePutWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+    fun calculateDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -164,8 +90,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Calculate a deal unit
+     * Triggers recalculation of totals and derived values for a specific deal unit.
      * @param dealUnitId 
      * @param tenantId 
      * @return ApiResponse<EmptyEnvelope?>
@@ -174,8 +100,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdCalculatePutWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdCalculatePutRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
+    fun calculateDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -183,13 +109,13 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdCalculatePut
+     * To obtain the request config of the operation calculateDealUnitAsync
      *
      * @param dealUnitId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2DealsServiceDealUnitsDealUnitIdCalculatePutRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun calculateDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -203,15 +129,16 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Calculate".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Calculate a deal unit line
+     * Triggers recalculation of totals and derived values for a specific deal unit line.
      * @param dealUnitId 
+     * @param dealUnitLineId 
      * @param tenantId 
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -222,8 +149,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdDelete(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdDeleteWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+    fun calculateDealUnitLineAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateDealUnitLineAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -241,240 +168,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdDeleteWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdDeleteRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdDelete
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdDeleteRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return ExtendedDealUnitDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdExtendedGet(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ExtendedDealUnitDtoEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdExtendedGetWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedDealUnitDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return ApiResponse<ExtendedDealUnitDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdExtendedGetWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ExtendedDealUnitDtoEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdExtendedGetRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
-
-        return request<Unit, ExtendedDealUnitDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdExtendedGet
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdExtendedGetRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Extended".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesCountGetWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesCountGetWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesCountGetRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesCountGetRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePutWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
+     * Calculate a deal unit line
+     * Triggers recalculation of totals and derived values for a specific deal unit line.
      * @param dealUnitId 
      * @param dealUnitLineId 
      * @param tenantId 
@@ -484,8 +179,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePutWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePutRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
+    fun calculateDealUnitLineAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateDealUnitLineAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -493,14 +188,14 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut
+     * To obtain the request config of the operation calculateDealUnitLineAsync
      *
      * @param dealUnitId 
      * @param dealUnitLineId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePutRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun calculateDealUnitLineAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -514,651 +209,14 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}/Calculate".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDeleteWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDeleteWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDeleteRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete
-     *
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDeleteRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return DealUnitLineDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : DealUnitLineDtoEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGetWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitLineDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return ApiResponse<DealUnitLineDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGetWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DealUnitLineDtoEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGetRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
-
-        return request<Unit, DealUnitLineDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet
-     *
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGetRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @param dealUnitLineUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPutWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, dealUnitLineUpdateDto = dealUnitLineUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @param dealUnitLineUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPutWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPutRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, dealUnitLineUpdateDto = dealUnitLineUpdateDto)
-
-        return request<DealUnitLineUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut
-     *
-     * @param dealUnitId 
-     * @param dealUnitLineId 
-     * @param tenantId 
-     * @param dealUnitLineUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPutRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto?) : RequestConfig<DealUnitLineUpdateDto> {
-        val localVariableBody = dealUnitLineUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return DealUnitLineDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesGet(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : DealUnitLineDtoListEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesGetWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitLineDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return ApiResponse<DealUnitLineDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesGetWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<DealUnitLineDtoListEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesGetRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
-
-        return request<Unit, DealUnitLineDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesGet
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesGetRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (itemId != null) {
-                    put("itemId", listOf(itemId.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitLineCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesPost(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdLinesPostWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineCreateDto = dealUnitLineCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitLineCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesPostWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdLinesPostRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineCreateDto = dealUnitLineCreateDto)
-
-        return request<DealUnitLineCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdLinesPost
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitLineCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdLinesPostRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto?) : RequestConfig<DealUnitLineCreateDto> {
-        val localVariableBody = dealUnitLineCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdPut(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsDealUnitIdPutWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitUpdateDto = dealUnitUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsDealUnitIdPutWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsDealUnitIdPutRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitUpdateDto = dealUnitUpdateDto)
-
-        return request<DealUnitUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsDealUnitIdPut
-     *
-     * @param dealUnitId 
-     * @param tenantId 
-     * @param dealUnitUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsDealUnitIdPutRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto?) : RequestConfig<DealUnitUpdateDto> {
-        val localVariableBody = dealUnitUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/DealsService/DealUnits/{dealUnitId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ExtendedDealUnitDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsExtendedGet(tenantId: java.util.UUID) : ExtendedDealUnitDtoListEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsExtendedGetWithHttpInfo(tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedDealUnitDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ApiResponse<ExtendedDealUnitDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsExtendedGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedDealUnitDtoListEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsExtendedGetRequestConfig(tenantId = tenantId)
-
-        return request<Unit, ExtendedDealUnitDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsExtendedGet
-     *
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsExtendedGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits/Extended",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return DealUnitDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsGet(tenantId: java.util.UUID) : DealUnitDtoListEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsGetWithHttpInfo(tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ApiResponse<DealUnitDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DealUnitDtoListEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsGetRequestConfig(tenantId = tenantId)
-
-        return request<Unit, DealUnitDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsGet
-     *
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2DealsServiceDealUnitsGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/DealsService/DealUnits",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Create a deal unit
+     * Creates a new deal unit for the specified tenant.
      * @param tenantId 
      * @param dealUnitCreateDto  (optional)
      * @return EmptyEnvelope
@@ -1170,8 +228,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2DealsServiceDealUnitsPost(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2DealsServiceDealUnitsPostWithHttpInfo(tenantId = tenantId, dealUnitCreateDto = dealUnitCreateDto)
+    fun createDealUnitAsync(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createDealUnitAsyncWithHttpInfo(tenantId = tenantId, dealUnitCreateDto = dealUnitCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1189,8 +247,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create a deal unit
+     * Creates a new deal unit for the specified tenant.
      * @param tenantId 
      * @param dealUnitCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -1199,8 +257,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2DealsServiceDealUnitsPostWithHttpInfo(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2DealsServiceDealUnitsPostRequestConfig(tenantId = tenantId, dealUnitCreateDto = dealUnitCreateDto)
+    fun createDealUnitAsyncWithHttpInfo(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createDealUnitAsyncRequestConfig(tenantId = tenantId, dealUnitCreateDto = dealUnitCreateDto)
 
         return request<DealUnitCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -1208,13 +266,13 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2DealsServiceDealUnitsPost
+     * To obtain the request config of the operation createDealUnitAsync
      *
      * @param tenantId 
      * @param dealUnitCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2DealsServiceDealUnitsPostRequestConfig(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto?) : RequestConfig<DealUnitCreateDto> {
+    fun createDealUnitAsyncRequestConfig(tenantId: java.util.UUID, dealUnitCreateDto: DealUnitCreateDto?) : RequestConfig<DealUnitCreateDto> {
         val localVariableBody = dealUnitCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1229,14 +287,252 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/DealsService/DealUnits",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Create a deal unit line
+     * Creates a new line within a specific deal unit.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitLineCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createGetDealUnitLinesAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createGetDealUnitLinesAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineCreateDto = dealUnitLineCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a deal unit line
+     * Creates a new line within a specific deal unit.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitLineCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createGetDealUnitLinesAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createGetDealUnitLinesAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineCreateDto = dealUnitLineCreateDto)
+
+        return request<DealUnitLineCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createGetDealUnitLinesAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitLineCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createGetDealUnitLinesAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineCreateDto: DealUnitLineCreateDto?) : RequestConfig<DealUnitLineCreateDto> {
+        val localVariableBody = dealUnitLineCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a deal unit
+     * Deletes an existing deal unit by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a deal unit
+     * Deletes an existing deal unit by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteDealUnitAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a deal unit line
+     * Deletes an existing line from a specific deal unit.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteDealUnitPriceAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteDealUnitPriceAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a deal unit line
+     * Deletes an existing line from a specific deal unit.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteDealUnitPriceAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteDealUnitPriceAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteDealUnitPriceAsync
+     *
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteDealUnitPriceAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get deal unit by ID
+     * Retrieves a single deal unit by its unique identifier.
      * @param dealUnitId 
      * @param tenantId 
      * @return DealUnitDtoEnvelope
@@ -1267,8 +563,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get deal unit by ID
+     * Retrieves a single deal unit by its unique identifier.
      * @param dealUnitId 
      * @param tenantId 
      * @return ApiResponse<DealUnitDtoEnvelope?>
@@ -1306,7 +602,711 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/DealsService/DealUnits/{dealUnitId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get deal unit lines
+     * Retrieves a list of lines for a specific deal unit with OData query support.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return DealUnitLineDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDealUnitLinesAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : DealUnitLineDtoListEnvelope {
+        val localVarResponse = getDealUnitLinesAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitLineDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get deal unit lines
+     * Retrieves a list of lines for a specific deal unit with OData query support.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return ApiResponse<DealUnitLineDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDealUnitLinesAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<DealUnitLineDtoListEnvelope?> {
+        val localVariableConfig = getDealUnitLinesAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
+
+        return request<Unit, DealUnitLineDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDealUnitLinesAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return RequestConfig
+     */
+    fun getDealUnitLinesAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (itemId != null) {
+                    put("itemId", listOf(itemId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get deal unit lines count
+     * Returns the total count of lines for a specific deal unit with OData filter support.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDealUnitLinesCountAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get deal unit lines count
+     * Returns the total count of lines for a specific deal unit with OData filter support.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDealUnitLinesCountAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDealUnitLinesCountAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDealUnitLinesCountAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get a deal unit line by ID
+     * Retrieves a single deal unit line by its unique identifier.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return DealUnitLineDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDealUnitPriceAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : DealUnitLineDtoEnvelope {
+        val localVarResponse = getDealUnitPriceAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitLineDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get a deal unit line by ID
+     * Retrieves a single deal unit line by its unique identifier.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return ApiResponse<DealUnitLineDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDealUnitPriceAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DealUnitLineDtoEnvelope?> {
+        val localVariableConfig = getDealUnitPriceAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId)
+
+        return request<Unit, DealUnitLineDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDealUnitPriceAsync
+     *
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDealUnitPriceAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get deal units
+     * Retrieves a list of deal units for the specified tenant with OData query support.
+     * @param tenantId 
+     * @return DealUnitDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDealUnitsAsync(tenantId: java.util.UUID) : DealUnitDtoListEnvelope {
+        val localVarResponse = getDealUnitsAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get deal units
+     * Retrieves a list of deal units for the specified tenant with OData query support.
+     * @param tenantId 
+     * @return ApiResponse<DealUnitDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DealUnitDtoListEnvelope?> {
+        val localVariableConfig = getDealUnitsAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, DealUnitDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDealUnitsAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDealUnitsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get deal units count
+     * Returns the total count of deal units for the specified tenant with OData filter support.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDealUnitsCountAsync(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getDealUnitsCountAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get deal units count
+     * Returns the total count of deal units for the specified tenant with OData filter support.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDealUnitsCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDealUnitsCountAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDealUnitsCountAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDealUnitsCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get extended deal unit by ID
+     * Retrieves a single deal unit with extended details by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return ExtendedDealUnitDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getExtendedDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ExtendedDealUnitDtoEnvelope {
+        val localVarResponse = getExtendedDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedDealUnitDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get extended deal unit by ID
+     * Retrieves a single deal unit with extended details by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return ApiResponse<ExtendedDealUnitDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getExtendedDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ExtendedDealUnitDtoEnvelope?> {
+        val localVariableConfig = getExtendedDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
+
+        return request<Unit, ExtendedDealUnitDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getExtendedDealUnitAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getExtendedDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Extended".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get extended deal units
+     * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
+     * @param tenantId 
+     * @return ExtendedDealUnitDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getExtendedDealUnitsAsync(tenantId: java.util.UUID) : ExtendedDealUnitDtoListEnvelope {
+        val localVarResponse = getExtendedDealUnitsAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedDealUnitDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get extended deal units
+     * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
+     * @param tenantId 
+     * @return ApiResponse<ExtendedDealUnitDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getExtendedDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedDealUnitDtoListEnvelope?> {
+        val localVariableConfig = getExtendedDealUnitsAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, ExtendedDealUnitDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getExtendedDealUnitsAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getExtendedDealUnitsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/DealsService/DealUnits/Extended",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a deal unit
+     * Updates an existing deal unit by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitUpdateDto = dealUnitUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a deal unit
+     * Updates an existing deal unit by its unique identifier.
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitUpdateDto = dealUnitUpdateDto)
+
+        return request<DealUnitUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateDealUnitAsync
+     *
+     * @param dealUnitId 
+     * @param tenantId 
+     * @param dealUnitUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitUpdateDto: DealUnitUpdateDto?) : RequestConfig<DealUnitUpdateDto> {
+        val localVariableBody = dealUnitUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a deal unit line
+     * Updates an existing line within a specific deal unit.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @param dealUnitLineUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateDealUnitPriceAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateDealUnitPriceAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, dealUnitLineUpdateDto = dealUnitLineUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a deal unit line
+     * Updates an existing line within a specific deal unit.
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @param dealUnitLineUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateDealUnitPriceAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateDealUnitPriceAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, dealUnitLineUpdateDto = dealUnitLineUpdateDto)
+
+        return request<DealUnitLineUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateDealUnitPriceAsync
+     *
+     * @param dealUnitId 
+     * @param dealUnitLineId 
+     * @param tenantId 
+     * @param dealUnitLineUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateDealUnitPriceAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineUpdateDto: DealUnitLineUpdateDto?) : RequestConfig<DealUnitLineUpdateDto> {
+        val localVariableBody = dealUnitLineUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}".replace("{"+"dealUnitId"+"}", encodeURIComponent(dealUnitId.toString())).replace("{"+"dealUnitLineId"+"}", encodeURIComponent(dealUnitLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

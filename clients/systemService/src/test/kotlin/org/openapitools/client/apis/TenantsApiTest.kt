@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.TenantsApi
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedTenantDtoListEnvelope
@@ -32,6 +33,26 @@ class TenantsApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of TenantsApi
         //val apiInstance = TenantsApi()
+
+        // to test adminPreviewTenantEmail
+        should("test adminPreviewTenantEmail") {
+            // uncomment below to test adminPreviewTenantEmail
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.adminPreviewTenantEmail(tenantId, apiVersion, xApiVersion, emailDispatchRequest)
+        }
+
+        // to test adminSendTenantEmail
+        should("test adminSendTenantEmail") {
+            // uncomment below to test adminSendTenantEmail
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.adminSendTenantEmail(tenantId, apiVersion, xApiVersion, emailDispatchRequest)
+        }
 
         // to test createTenant
         should("test createTenant") {

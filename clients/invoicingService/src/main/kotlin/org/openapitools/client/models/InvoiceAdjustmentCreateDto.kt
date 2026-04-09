@@ -24,10 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param tenantId 
- * @param invoiceId 
  * @param currencyId 
- * @param enrollmentId 
  * @param description 
  * @param surchargePercent 
  * @param surchargeAmount 
@@ -47,17 +44,8 @@ data class InvoiceAdjustmentCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "invoiceId")
-    val invoiceId: kotlin.String? = null,
-
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
@@ -88,12 +76,12 @@ data class InvoiceAdjustmentCreateDto (
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Discount,Surcharge
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Discount") Discount("Discount"),
+        @Json(name = "Surcharge") Surcharge("Surcharge");
     }
 
 }

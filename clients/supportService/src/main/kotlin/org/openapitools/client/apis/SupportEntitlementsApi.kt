@@ -52,184 +52,12 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Create a new support entitlement
+     * Creates a new support entitlement for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsCountGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsCountGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsCountGet
-     *
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportEntitlementsCountGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportEntitlements/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SupportEntitlementDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportEntitlementDtoListEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportEntitlementDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SupportEntitlementDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportEntitlementDtoListEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SupportEntitlementDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsGet
-     *
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportEntitlementsGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportEntitlements",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportEntitlementCreateDto 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param supportEntitlementCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -239,8 +67,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsPost(supportEntitlementCreateDto: SupportEntitlementCreateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsPostWithHttpInfo(supportEntitlementCreateDto = supportEntitlementCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportEntitlementAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportEntitlementCreateDto: SupportEntitlementCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createSupportEntitlementAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportEntitlementCreateDto = supportEntitlementCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -258,20 +86,20 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * 
-     * 
-     * @param supportEntitlementCreateDto 
-     * @param tenantId  (optional)
+     * Create a new support entitlement
+     * Creates a new support entitlement for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportEntitlementCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsPostWithHttpInfo(supportEntitlementCreateDto: SupportEntitlementCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsPostRequestConfig(supportEntitlementCreateDto = supportEntitlementCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportEntitlementAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportEntitlementCreateDto: SupportEntitlementCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createSupportEntitlementAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportEntitlementCreateDto = supportEntitlementCreateDto)
 
         return request<SupportEntitlementCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -279,21 +107,19 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsPost
+     * To obtain the request config of the operation createSupportEntitlementAsync
      *
-     * @param supportEntitlementCreateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportEntitlementCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportEntitlementsPostRequestConfig(supportEntitlementCreateDto: SupportEntitlementCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportEntitlementCreateDto> {
+    fun createSupportEntitlementAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportEntitlementCreateDto: SupportEntitlementCreateDto?) : RequestConfig<SupportEntitlementCreateDto> {
         val localVariableBody = supportEntitlementCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -308,16 +134,16 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
             path = "/api/v2/SupportService/SupportEntitlements",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a support entitlement
+     * Deletes a support entitlement by its unique identifier.
      * @param supportEntitlementId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -329,8 +155,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDeleteWithHttpInfo(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSupportEntitlementAsync(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSupportEntitlementAsyncWithHttpInfo(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -348,10 +174,10 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * 
-     * 
+     * Delete a support entitlement
+     * Deletes a support entitlement by its unique identifier.
      * @param supportEntitlementId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -360,8 +186,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDeleteWithHttpInfo(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDeleteRequestConfig(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSupportEntitlementAsyncWithHttpInfo(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSupportEntitlementAsyncRequestConfig(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -369,21 +195,19 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete
+     * To obtain the request config of the operation deleteSupportEntitlementAsync
      *
      * @param supportEntitlementId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDeleteRequestConfig(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteSupportEntitlementAsyncRequestConfig(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -397,15 +221,16 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
             path = "/api/v2/SupportService/SupportEntitlements/{supportEntitlementId}".replace("{"+"supportEntitlementId"+"}", encodeURIComponent(supportEntitlementId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support entitlement by ID
+     * Retrieves a single support entitlement by its unique identifier.
      * @param supportEntitlementId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SupportEntitlementDtoEnvelope
@@ -417,8 +242,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet(supportEntitlementId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportEntitlementDtoEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGetWithHttpInfo(supportEntitlementId = supportEntitlementId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportEntitlementAsync(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportEntitlementDtoEnvelope {
+        val localVarResponse = getSupportEntitlementAsyncWithHttpInfo(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportEntitlementDtoEnvelope
@@ -436,9 +261,10 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support entitlement by ID
+     * Retrieves a single support entitlement by its unique identifier.
      * @param supportEntitlementId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SupportEntitlementDtoEnvelope?>
@@ -447,8 +273,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGetWithHttpInfo(supportEntitlementId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportEntitlementDtoEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGetRequestConfig(supportEntitlementId = supportEntitlementId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportEntitlementAsyncWithHttpInfo(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportEntitlementDtoEnvelope?> {
+        val localVariableConfig = getSupportEntitlementAsyncRequestConfig(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SupportEntitlementDtoEnvelope>(
             localVariableConfig
@@ -456,17 +282,19 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet
+     * To obtain the request config of the operation getSupportEntitlementAsync
      *
      * @param supportEntitlementId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGetRequestConfig(supportEntitlementId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportEntitlementAsyncRequestConfig(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -480,19 +308,187 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
             path = "/api/v2/SupportService/SupportEntitlements/{supportEntitlementId}".replace("{"+"supportEntitlementId"+"}", encodeURIComponent(supportEntitlementId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param supportEntitlementId 
-     * @param supportEntitlementUpdateDto 
-     * @param tenantId  (optional)
+     * Retrieve a list of support entitlements
+     * Retrieves a list of support entitlements for the specified tenant with OData query support.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @return SupportEntitlementDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportEntitlementsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportEntitlementDtoListEnvelope {
+        val localVarResponse = getSupportEntitlementsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportEntitlementDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve a list of support entitlements
+     * Retrieves a list of support entitlements for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SupportEntitlementDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportEntitlementsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportEntitlementDtoListEnvelope?> {
+        val localVariableConfig = getSupportEntitlementsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SupportEntitlementDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportEntitlementsAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportEntitlementsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportEntitlements",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of support entitlements
+     * Returns the total count of support entitlements for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportEntitlementsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getSupportEntitlementsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of support entitlements
+     * Returns the total count of support entitlements for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportEntitlementsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSupportEntitlementsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportEntitlementsCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportEntitlementsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportEntitlements/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a support entitlement
+     * Updates an existing support entitlement by its unique identifier.
+     * @param supportEntitlementId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportEntitlementUpdateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -502,8 +498,8 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut(supportEntitlementId: java.util.UUID, supportEntitlementUpdateDto: SupportEntitlementUpdateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPutWithHttpInfo(supportEntitlementId = supportEntitlementId, supportEntitlementUpdateDto = supportEntitlementUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSupportEntitlementAsync(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportEntitlementUpdateDto: SupportEntitlementUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateSupportEntitlementAsyncWithHttpInfo(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportEntitlementUpdateDto = supportEntitlementUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -521,21 +517,21 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * 
-     * 
+     * Update a support entitlement
+     * Updates an existing support entitlement by its unique identifier.
      * @param supportEntitlementId 
-     * @param supportEntitlementUpdateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportEntitlementUpdateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPutWithHttpInfo(supportEntitlementId: java.util.UUID, supportEntitlementUpdateDto: SupportEntitlementUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPutRequestConfig(supportEntitlementId = supportEntitlementId, supportEntitlementUpdateDto = supportEntitlementUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSupportEntitlementAsyncWithHttpInfo(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportEntitlementUpdateDto: SupportEntitlementUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateSupportEntitlementAsyncRequestConfig(supportEntitlementId = supportEntitlementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportEntitlementUpdateDto = supportEntitlementUpdateDto)
 
         return request<SupportEntitlementUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -543,22 +539,20 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut
+     * To obtain the request config of the operation updateSupportEntitlementAsync
      *
      * @param supportEntitlementId 
-     * @param supportEntitlementUpdateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportEntitlementUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPutRequestConfig(supportEntitlementId: java.util.UUID, supportEntitlementUpdateDto: SupportEntitlementUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportEntitlementUpdateDto> {
+    fun updateSupportEntitlementAsyncRequestConfig(supportEntitlementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportEntitlementUpdateDto: SupportEntitlementUpdateDto?) : RequestConfig<SupportEntitlementUpdateDto> {
         val localVariableBody = supportEntitlementUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -573,7 +567,7 @@ class SupportEntitlementsApi(basePath: kotlin.String = defaultBasePath, client: 
             path = "/api/v2/SupportService/SupportEntitlements/{supportEntitlementId}".replace("{"+"supportEntitlementId"+"}", encodeURIComponent(supportEntitlementId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

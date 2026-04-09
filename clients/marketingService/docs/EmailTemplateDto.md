@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **codeType** | [**inline**](#CodeType) |  |  [optional] |
 | **order** | **kotlin.Int** |  |  [optional] |
 | **slug** | **kotlin.String** |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
@@ -15,6 +16,7 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **highlightImage** | **kotlin.String** |  |  [optional] |
 | **canonicalUrl** | **kotlin.String** |  |  [optional] |
+| **emitResult** | [**kotlin.Any**](.md) |  |  [optional] |
 | **seoTitle** | **kotlin.String** |  |  [optional] |
 | **seoKeyWords** | **kotlin.String** |  |  [optional] |
 | **seoKeyPhrases** | **kotlin.String** |  |  [optional] |
@@ -63,6 +65,13 @@
 | **parentWebContentVersionId** | **kotlin.String** |  |  [optional] |
 | **marketingCampaignId** | **kotlin.String** |  |  [optional] |
 | **marketingCampaignName** | **kotlin.String** |  |  [optional] |
+
+
+<a id="CodeType"></a>
+## Enum: codeType
+| Name | Value |
+| ---- | ----- |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
 
 
 

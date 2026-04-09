@@ -19,8 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.SyncApi
-import org.openapitools.client.models.ContactDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
+import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 
 class SyncApiTest : ShouldSpec() {
@@ -28,45 +28,45 @@ class SyncApiTest : ShouldSpec() {
         // uncomment below to create an instance of SyncApi
         //val apiInstance = SyncApi()
 
-        // to test apiV2CrmServiceSyncMePost
-        should("test apiV2CrmServiceSyncMePost") {
-            // uncomment below to test apiV2CrmServiceSyncMePost
+        // to test syncCurrentHolderToCurrentTenantCrm
+        should("test syncCurrentHolderToCurrentTenantCrm") {
+            // uncomment below to test syncCurrentHolderToCurrentTenantCrm
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ContactDtoListEnvelope = apiInstance.apiV2CrmServiceSyncMePost(tenantId, apiVersion, xApiVersion)
+            //val result : Envelope = apiInstance.syncCurrentHolderToCurrentTenantCrm(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2CrmServiceSyncPost
-        should("test apiV2CrmServiceSyncPost") {
-            // uncomment below to test apiV2CrmServiceSyncPost
+        // to test syncCurrentHolderToTenantCrm
+        should("test syncCurrentHolderToTenantCrm") {
+            // uncomment below to test syncCurrentHolderToTenantCrm
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ContactDtoListEnvelope = apiInstance.apiV2CrmServiceSyncPost(tenantId, apiVersion, xApiVersion)
+            //val result : Envelope = apiInstance.syncCurrentHolderToTenantCrm(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2CrmServiceSyncTenantPost
-        should("test apiV2CrmServiceSyncTenantPost") {
-            // uncomment below to test apiV2CrmServiceSyncTenantPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val relatedTenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2CrmServiceSyncTenantPost(tenantId, relatedTenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2CrmServiceSyncUserPost
-        should("test apiV2CrmServiceSyncUserPost") {
-            // uncomment below to test apiV2CrmServiceSyncUserPost
+        // to test syncHolderToTenantCrmAsync
+        should("test syncHolderToTenantCrmAsync") {
+            // uncomment below to test syncHolderToTenantCrmAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val relatedUserId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ContactDtoListEnvelope = apiInstance.apiV2CrmServiceSyncUserPost(tenantId, relatedUserId, apiVersion, xApiVersion)
+            //val result : Envelope = apiInstance.syncHolderToTenantCrmAsync(tenantId, relatedUserId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test syncTenantToTenantCrm
+        should("test syncTenantToTenantCrm") {
+            // uncomment below to test syncTenantToTenantCrm
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val relatedTenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.syncTenantToTenantCrm(tenantId, relatedTenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

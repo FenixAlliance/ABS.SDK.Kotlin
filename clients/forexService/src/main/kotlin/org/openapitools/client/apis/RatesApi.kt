@@ -48,8 +48,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get historical rate for a currency
+     * Retrieves the exchange rate for a specific currency as of a specific historical date.
      * @param currencyId 
      * @param date  (optional)
      * @param apiVersion  (optional)
@@ -63,8 +63,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId: kotlin.String, date: java.time.OffsetDateTime? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExchangeRateEnvelope {
-        val localVarResponse = apiV2ForexServiceRatesHistoryCurrencyIdGetWithHttpInfo(currencyId = currencyId, date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getHistoricalCurrencyRateAsync(currencyId: kotlin.String, date: java.time.OffsetDateTime? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExchangeRateEnvelope {
+        val localVarResponse = getHistoricalCurrencyRateAsyncWithHttpInfo(currencyId = currencyId, date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExchangeRateEnvelope
@@ -82,8 +82,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get historical rate for a currency
+     * Retrieves the exchange rate for a specific currency as of a specific historical date.
      * @param currencyId 
      * @param date  (optional)
      * @param apiVersion  (optional)
@@ -94,8 +94,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceRatesHistoryCurrencyIdGetWithHttpInfo(currencyId: kotlin.String, date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExchangeRateEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceRatesHistoryCurrencyIdGetRequestConfig(currencyId = currencyId, date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getHistoricalCurrencyRateAsyncWithHttpInfo(currencyId: kotlin.String, date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExchangeRateEnvelope?> {
+        val localVariableConfig = getHistoricalCurrencyRateAsyncRequestConfig(currencyId = currencyId, date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ExchangeRateEnvelope>(
             localVariableConfig
@@ -103,7 +103,7 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2ForexServiceRatesHistoryCurrencyIdGet
+     * To obtain the request config of the operation getHistoricalCurrencyRateAsync
      *
      * @param currencyId 
      * @param date  (optional)
@@ -111,7 +111,7 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ForexServiceRatesHistoryCurrencyIdGetRequestConfig(currencyId: kotlin.String, date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getHistoricalCurrencyRateAsyncRequestConfig(currencyId: kotlin.String, date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -131,14 +131,14 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/ForexService/Rates/History/{currencyId}".replace("{"+"currencyId"+"}", encodeURIComponent(currencyId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get historical currency rates
+     * Retrieves exchange rates for all supported currencies as of a specific historical date.
      * @param date  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -151,8 +151,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceRatesHistoryGet(date: java.time.OffsetDateTime? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ForexRatesDtoEnvelope {
-        val localVarResponse = apiV2ForexServiceRatesHistoryGetWithHttpInfo(date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getHistoricalCurrencyRatesAsync(date: java.time.OffsetDateTime? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ForexRatesDtoEnvelope {
+        val localVarResponse = getHistoricalCurrencyRatesAsyncWithHttpInfo(date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ForexRatesDtoEnvelope
@@ -170,8 +170,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get historical currency rates
+     * Retrieves exchange rates for all supported currencies as of a specific historical date.
      * @param date  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -181,8 +181,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceRatesHistoryGetWithHttpInfo(date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ForexRatesDtoEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceRatesHistoryGetRequestConfig(date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getHistoricalCurrencyRatesAsyncWithHttpInfo(date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ForexRatesDtoEnvelope?> {
+        val localVariableConfig = getHistoricalCurrencyRatesAsyncRequestConfig(date = date, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ForexRatesDtoEnvelope>(
             localVariableConfig
@@ -190,14 +190,14 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2ForexServiceRatesHistoryGet
+     * To obtain the request config of the operation getHistoricalCurrencyRatesAsync
      *
      * @param date  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ForexServiceRatesHistoryGetRequestConfig(date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getHistoricalCurrencyRatesAsyncRequestConfig(date: java.time.OffsetDateTime?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -217,14 +217,14 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/ForexService/Rates/History",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get latest rate for a currency
+     * Retrieves the latest exchange rate for a specific currency by its identifier.
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -237,8 +237,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExchangeRateEnvelope {
-        val localVarResponse = apiV2ForexServiceRatesLatestCurrencyIdGetWithHttpInfo(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLatestCurrencyRateAsync(currencyId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExchangeRateEnvelope {
+        val localVarResponse = getLatestCurrencyRateAsyncWithHttpInfo(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExchangeRateEnvelope
@@ -256,8 +256,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get latest rate for a currency
+     * Retrieves the latest exchange rate for a specific currency by its identifier.
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -267,8 +267,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceRatesLatestCurrencyIdGetWithHttpInfo(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExchangeRateEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceRatesLatestCurrencyIdGetRequestConfig(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLatestCurrencyRateAsyncWithHttpInfo(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExchangeRateEnvelope?> {
+        val localVariableConfig = getLatestCurrencyRateAsyncRequestConfig(currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ExchangeRateEnvelope>(
             localVariableConfig
@@ -276,14 +276,14 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2ForexServiceRatesLatestCurrencyIdGet
+     * To obtain the request config of the operation getLatestCurrencyRateAsync
      *
      * @param currencyId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ForexServiceRatesLatestCurrencyIdGetRequestConfig(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getLatestCurrencyRateAsyncRequestConfig(currencyId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -300,14 +300,14 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/ForexService/Rates/Latest/{currencyId}".replace("{"+"currencyId"+"}", encodeURIComponent(currencyId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get latest currency rates
+     * Retrieves the latest exchange rates for all supported currencies.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ForexRatesDtoEnvelope
@@ -319,8 +319,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceRatesLatestGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ForexRatesDtoEnvelope {
-        val localVarResponse = apiV2ForexServiceRatesLatestGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLatestCurrencyRatesModelAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ForexRatesDtoEnvelope {
+        val localVarResponse = getLatestCurrencyRatesModelAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ForexRatesDtoEnvelope
@@ -338,8 +338,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * 
-     * 
+     * Get latest currency rates
+     * Retrieves the latest exchange rates for all supported currencies.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ForexRatesDtoEnvelope?>
@@ -348,8 +348,8 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceRatesLatestGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ForexRatesDtoEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceRatesLatestGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLatestCurrencyRatesModelAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ForexRatesDtoEnvelope?> {
+        val localVariableConfig = getLatestCurrencyRatesModelAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ForexRatesDtoEnvelope>(
             localVariableConfig
@@ -357,13 +357,13 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     }
 
     /**
-     * To obtain the request config of the operation apiV2ForexServiceRatesLatestGet
+     * To obtain the request config of the operation getLatestCurrencyRatesModelAsync
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ForexServiceRatesLatestGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getLatestCurrencyRatesModelAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -380,7 +380,7 @@ class RatesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             path = "/api/v2/ForexService/Rates/Latest",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

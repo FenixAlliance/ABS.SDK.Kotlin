@@ -26,8 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param userId 
  * @param tenantId 
- * @param forexRate 
- * @param currencyId 
  * @param priceListId 
  * @param description 
  * @param enrollmentId 
@@ -48,6 +46,34 @@ import com.squareup.moshi.JsonClass
  * @param billingLocationId 
  * @param shippingLocationId 
  * @param shippingMethodId 
+ * @param forexRate 
+ * @param currencyId 
+ * @param totalDetail 
+ * @param totalDetailCurrencyId 
+ * @param totalProfit 
+ * @param totalProfitCurrencyId 
+ * @param totalDiscounts 
+ * @param totalDiscountsCurrencyId 
+ * @param totalSurcharges 
+ * @param totalSurchargesCurrencyId 
+ * @param totalShippingTax 
+ * @param totalShippingTaxCurrencyId 
+ * @param totalShippingCost 
+ * @param totalShippingCostCurrencyId 
+ * @param totalGlobalDiscounts 
+ * @param totalGlobalDiscountsCurrencyId 
+ * @param totalGlobalSurcharges 
+ * @param totalGlobalSurchargesCurrencyId 
+ * @param totalWithheldTax 
+ * @param totalWithheldTaxCurrencyId 
+ * @param totalTaxBase 
+ * @param totalTaxBaseCurrencyId 
+ * @param totalTaxes 
+ * @param totalTaxesCurrencyId 
+ * @param total 
+ * @param totalCurrencyId 
+ * @param costCalculationMethod 
+ * @param taxCalculationMethod 
  * @param ordered 
  * @param cartId 
  * @param dealUnitFeedId 
@@ -84,12 +110,6 @@ data class DealUnitUpdateDto (
 
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
-
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
 
     @Json(name = "priceListId")
     val priceListId: kotlin.String? = null,
@@ -150,6 +170,90 @@ data class DealUnitUpdateDto (
 
     @Json(name = "shippingMethodId")
     val shippingMethodId: kotlin.String? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
+
+    @Json(name = "totalDetail")
+    val totalDetail: kotlin.Double? = null,
+
+    @Json(name = "totalDetailCurrencyId")
+    val totalDetailCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalProfit")
+    val totalProfit: kotlin.Double? = null,
+
+    @Json(name = "totalProfitCurrencyId")
+    val totalProfitCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalDiscounts")
+    val totalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalDiscountsCurrencyId")
+    val totalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalSurcharges")
+    val totalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalSurchargesCurrencyId")
+    val totalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingTax")
+    val totalShippingTax: kotlin.Double? = null,
+
+    @Json(name = "totalShippingTaxCurrencyId")
+    val totalShippingTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingCost")
+    val totalShippingCost: kotlin.Double? = null,
+
+    @Json(name = "totalShippingCostCurrencyId")
+    val totalShippingCostCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalDiscounts")
+    val totalGlobalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsCurrencyId")
+    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalSurcharges")
+    val totalGlobalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesCurrencyId")
+    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalWithheldTax")
+    val totalWithheldTax: kotlin.Double? = null,
+
+    @Json(name = "totalWithheldTaxCurrencyId")
+    val totalWithheldTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxBase")
+    val totalTaxBase: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseCurrencyId")
+    val totalTaxBaseCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxes")
+    val totalTaxes: kotlin.Double? = null,
+
+    @Json(name = "totalTaxesCurrencyId")
+    val totalTaxesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "total")
+    val total: kotlin.Double? = null,
+
+    @Json(name = "totalCurrencyId")
+    val totalCurrencyId: kotlin.String? = null,
+
+    @Json(name = "costCalculationMethod")
+    val costCalculationMethod: DealUnitUpdateDto.CostCalculationMethod? = null,
+
+    @Json(name = "taxCalculationMethod")
+    val taxCalculationMethod: DealUnitUpdateDto.TaxCalculationMethod? = null,
 
     @Json(name = "ordered")
     val ordered: kotlin.Boolean? = null,
@@ -216,51 +320,71 @@ data class DealUnitUpdateDto (
     /**
      * 
      *
-     * Values: _0,_1,_2,_3
+     * Values: Automatic,Custom
      */
     @JsonClass(generateAdapter = false)
-    enum class DealUnitStatus(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3);
+    enum class CostCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Automatic") Automatic("Automatic"),
+        @Json(name = "Custom") Custom("Custom");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2,_3
+     * Values: Included,Excluded
      */
     @JsonClass(generateAdapter = false)
-    enum class DealUnitPurchaseProcess(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3);
+    enum class TaxCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Included") Included("Included"),
+        @Json(name = "Excluded") Excluded("Excluded");
     }
     /**
      * 
      *
-     * Values: _0,_1,_2,_3,_4,_5,_6
+     * Values: Open,Won,Lost,Frozen
      */
     @JsonClass(generateAdapter = false)
-    enum class DealUnitForecastCategory(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3),
-        @Json(name = "4") _4(4),
-        @Json(name = "5") _5(5),
-        @Json(name = "6") _6(6);
+    enum class DealUnitStatus(val value: kotlin.String) {
+        @Json(name = "Open") Open("Open"),
+        @Json(name = "Won") Won("Won"),
+        @Json(name = "Lost") Lost("Lost"),
+        @Json(name = "Frozen") Frozen("Frozen");
     }
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: None,Individual,Commitee,Unknown
      */
     @JsonClass(generateAdapter = false)
-    enum class DealUnitAmountsCalculation(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class DealUnitPurchaseProcess(val value: kotlin.String) {
+        @Json(name = "None") None("None"),
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Commitee") Commitee("Commitee"),
+        @Json(name = "Unknown") Unknown("Unknown");
+    }
+    /**
+     * 
+     *
+     * Values: None,Pipeline,BestCase,Commited,Ommited,Won,Lost
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DealUnitForecastCategory(val value: kotlin.String) {
+        @Json(name = "None") None("None"),
+        @Json(name = "Pipeline") Pipeline("Pipeline"),
+        @Json(name = "BestCase") BestCase("BestCase"),
+        @Json(name = "Commited") Commited("Commited"),
+        @Json(name = "Ommited") Ommited("Ommited"),
+        @Json(name = "Won") Won("Won"),
+        @Json(name = "Lost") Lost("Lost");
+    }
+    /**
+     * 
+     *
+     * Values: UserProvided,SystemCalculated
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DealUnitAmountsCalculation(val value: kotlin.String) {
+        @Json(name = "UserProvided") UserProvided("UserProvided"),
+        @Json(name = "SystemCalculated") SystemCalculated("SystemCalculated");
     }
 
 }

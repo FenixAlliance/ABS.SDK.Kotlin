@@ -32,68 +32,68 @@ class SocialPostBucketsApiTest : ShouldSpec() {
         // uncomment below to create an instance of SocialPostBucketsApi
         //val apiInstance = SocialPostBucketsApi()
 
-        // to test apiV2MarketingServiceSocialPostBucketsCountGet
-        should("test apiV2MarketingServiceSocialPostBucketsCountGet") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsCountGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceSocialPostBucketsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceSocialPostBucketsGet
-        should("test apiV2MarketingServiceSocialPostBucketsGet") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SocialPostBucketDtoListEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceSocialPostBucketsPost
-        should("test apiV2MarketingServiceSocialPostBucketsPost") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsPost
+        // to test createSocialPostBucketAsync
+        should("test createSocialPostBucketAsync") {
+            // uncomment below to test createSocialPostBucketAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val socialPostBucketCreateDto : SocialPostBucketCreateDto =  // SocialPostBucketCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsPost(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSocialPostBucketAsync(tenantId, socialPostBucketCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete
-        should("test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete
+        // to test deleteSocialPostBucketAsync
+        should("test deleteSocialPostBucketAsync") {
+            // uncomment below to test deleteSocialPostBucketAsync
             //val socialpostbucketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet
-        should("test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet
+        // to test getSocialPostBucketDetailsAsync
+        should("test getSocialPostBucketDetailsAsync") {
+            // uncomment below to test getSocialPostBucketDetailsAsync
             //val socialpostbucketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SocialPostBucketDtoEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet(socialpostbucketId, tenantId, apiVersion, xApiVersion)
+            //val result : SocialPostBucketDtoEnvelope = apiInstance.getSocialPostBucketDetailsAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut
-        should("test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut") {
-            // uncomment below to test apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut
+        // to test getSocialPostBucketsCountAsync
+        should("test getSocialPostBucketsCountAsync") {
+            // uncomment below to test getSocialPostBucketsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSocialPostBucketsODataAsync
+        should("test getSocialPostBucketsODataAsync") {
+            // uncomment below to test getSocialPostBucketsODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SocialPostBucketDtoListEnvelope = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSocialPostBucketAsync
+        should("test updateSocialPostBucketAsync") {
+            // uncomment below to test updateSocialPostBucketAsync
             //val socialpostbucketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val socialPostBucketUpdateDto : SocialPostBucketUpdateDto =  // SocialPostBucketUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSocialPostBucketAsync(socialpostbucketId, tenantId, socialPostBucketUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

@@ -21,7 +21,7 @@ import io.kotlintest.specs.ShouldSpec
 import org.openapitools.client.apis.LicensingApi
 import org.openapitools.client.models.BooleanEnvelope
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.GeneralValidationFailureListEnvelope
+import org.openapitools.client.models.IValidationFailureListEnvelope
 import org.openapitools.client.models.LicenseValidationRequest
 import org.openapitools.client.models.SuiteLicenseAssignmentDtoListEnvelope
 import org.openapitools.client.models.SuiteLicenseDtoEnvelope
@@ -32,88 +32,88 @@ class LicensingApiTest : ShouldSpec() {
         // uncomment below to create an instance of LicensingApi
         //val apiInstance = LicensingApi()
 
-        // to test apiV2SystemServiceLicensingLicensesGet
-        should("test apiV2SystemServiceLicensingLicensesGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseDtoListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet
-        should("test apiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet
+        // to test getLicenseAssignmentsAsync
+        should("test getLicenseAssignmentsAsync") {
+            // uncomment below to test getLicenseAssignmentsAsync
             //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet(licenseId, tenantId, apiVersion, xApiVersion)
+            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.getLicenseAssignmentsAsync(licenseId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceLicensingLicensesLicenseIdAttributesGet
-        should("test apiV2SystemServiceLicensingLicensesLicenseIdAttributesGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesLicenseIdAttributesGet
+        // to test getLicenseAttributesAsync
+        should("test getLicenseAttributesAsync") {
+            // uncomment below to test getLicenseAttributesAsync
             //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesLicenseIdAttributesGet(licenseId, tenantId, apiVersion, xApiVersion)
+            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.getLicenseAttributesAsync(licenseId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet
-        should("test apiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet
+        // to test getLicenseByIdAsync
+        should("test getLicenseByIdAsync") {
+            // uncomment below to test getLicenseByIdAsync
+            //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SuiteLicenseDtoEnvelope = apiInstance.getLicenseByIdAsync(licenseId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getLicenseFeaturesAsync
+        should("test getLicenseFeaturesAsync") {
+            // uncomment below to test getLicenseFeaturesAsync
             //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet(licenseId, tenantId, apiVersion, xApiVersion)
+            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.getLicenseFeaturesAsync(licenseId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceLicensingLicensesLicenseIdGet
-        should("test apiV2SystemServiceLicensingLicensesLicenseIdGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesLicenseIdGet
-            //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseDtoEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesLicenseIdGet(licenseId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SystemServiceLicensingLicensesLicenseIdQuotaGet
-        should("test apiV2SystemServiceLicensingLicensesLicenseIdQuotaGet") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesLicenseIdQuotaGet
+        // to test getLicenseRecordsQuotaAsync
+        should("test getLicenseRecordsQuotaAsync") {
+            // uncomment below to test getLicenseRecordsQuotaAsync
             //val licenseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesLicenseIdQuotaGet(licenseId, tenantId, apiVersion, xApiVersion)
+            //val result : SuiteLicenseAssignmentDtoListEnvelope = apiInstance.getLicenseRecordsQuotaAsync(licenseId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceLicensingLicensesRedeemPost
-        should("test apiV2SystemServiceLicensingLicensesRedeemPost") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesRedeemPost
+        // to test getLicensesAsync
+        should("test getLicensesAsync") {
+            // uncomment below to test getLicensesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SuiteLicenseDtoListEnvelope = apiInstance.getLicensesAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test redeemLicenseAsync
+        should("test redeemLicenseAsync") {
+            // uncomment below to test redeemLicenseAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val licenseValidationRequest : LicenseValidationRequest =  // LicenseValidationRequest | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : BooleanEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesRedeemPost(tenantId, licenseValidationRequest, apiVersion, xApiVersion)
+            //val result : BooleanEnvelope = apiInstance.redeemLicenseAsync(tenantId, licenseValidationRequest, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceLicensingLicensesValidatePost
-        should("test apiV2SystemServiceLicensingLicensesValidatePost") {
-            // uncomment below to test apiV2SystemServiceLicensingLicensesValidatePost
+        // to test validateLicenseAsync
+        should("test validateLicenseAsync") {
+            // uncomment below to test validateLicenseAsync
             //val licenseValidationRequest : LicenseValidationRequest =  // LicenseValidationRequest | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : GeneralValidationFailureListEnvelope = apiInstance.apiV2SystemServiceLicensingLicensesValidatePost(licenseValidationRequest, apiVersion, xApiVersion)
+            //val result : IValidationFailureListEnvelope = apiInstance.validateLicenseAsync(licenseValidationRequest, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

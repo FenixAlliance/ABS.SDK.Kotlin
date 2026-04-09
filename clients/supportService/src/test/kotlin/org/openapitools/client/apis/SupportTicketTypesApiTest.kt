@@ -32,67 +32,68 @@ class SupportTicketTypesApiTest : ShouldSpec() {
         // uncomment below to create an instance of SupportTicketTypesApi
         //val apiInstance = SupportTicketTypesApi()
 
-        // to test apiV2SupportServiceSupportTicketTypesCountGet
-        should("test apiV2SupportServiceSupportTicketTypesCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesCountGet
+        // to test createSupportTicketTypeAsync
+        should("test createSupportTicketTypeAsync") {
+            // uncomment below to test createSupportTicketTypeAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportTicketTypesCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketTypesGet
-        should("test apiV2SupportServiceSupportTicketTypesGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketTypeDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketTypesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketTypesPost
-        should("test apiV2SupportServiceSupportTicketTypesPost") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesPost
             //val supportTicketTypeCreateDto : SupportTicketTypeCreateDto =  // SupportTicketTypeCreateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketTypesPost(supportTicketTypeCreateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSupportTicketTypeAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete
-        should("test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete
+        // to test deleteSupportTicketTypeAsync
+        should("test deleteSupportTicketTypeAsync") {
+            // uncomment below to test deleteSupportTicketTypeAsync
             //val supportTicketTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete(supportTicketTypeId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSupportTicketTypeAsync(supportTicketTypeId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet
-        should("test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet
+        // to test getSupportTicketTypeAsync
+        should("test getSupportTicketTypeAsync") {
+            // uncomment below to test getSupportTicketTypeAsync
             //val supportTicketTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketTypeDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet(supportTicketTypeId, apiVersion, xApiVersion)
+            //val result : SupportTicketTypeDtoEnvelope = apiInstance.getSupportTicketTypeAsync(supportTicketTypeId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut
-        should("test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut") {
-            // uncomment below to test apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut
+        // to test getSupportTicketTypesAsync
+        should("test getSupportTicketTypesAsync") {
+            // uncomment below to test getSupportTicketTypesAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportTicketTypeDtoListEnvelope = apiInstance.getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportTicketTypesCountAsync
+        should("test getSupportTicketTypesCountAsync") {
+            // uncomment below to test getSupportTicketTypesCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSupportTicketTypeAsync
+        should("test updateSupportTicketTypeAsync") {
+            // uncomment below to test updateSupportTicketTypeAsync
             //val supportTicketTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val supportTicketTypeUpdateDto : SupportTicketTypeUpdateDto =  // SupportTicketTypeUpdateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut(supportTicketTypeId, supportTicketTypeUpdateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSupportTicketTypeAsync(supportTicketTypeId, tenantId, apiVersion, xApiVersion, supportTicketTypeUpdateDto)
             //result shouldBe ("TODO")
         }
 

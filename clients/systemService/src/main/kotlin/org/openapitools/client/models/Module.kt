@@ -145,14 +145,14 @@ data class Module (
     /**
      * 
      *
-     * Values: _0,_1,_2,_3
+     * Values: Module,Integration,StudioModule,StudioIntegration
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Module") Module("Module"),
+        @Json(name = "Integration") Integration("Integration"),
+        @Json(name = "StudioModule") StudioModule("StudioModule"),
+        @Json(name = "StudioIntegration") StudioIntegration("StudioIntegration");
     }
 
 }

@@ -9,6 +9,7 @@
 | **fullName** | **kotlin.String** |  |  [optional] [readonly] |
 | **qualifiedName** | **kotlin.String** |  |  [optional] |
 | **publicName** | **kotlin.String** |  |  [optional] |
+| **handler** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **coverUrl** | **kotlin.String** |  |  [optional] |

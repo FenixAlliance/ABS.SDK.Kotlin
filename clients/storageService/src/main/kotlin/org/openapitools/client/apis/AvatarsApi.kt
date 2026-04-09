@@ -124,7 +124,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/{socialProfileId}".replace("{"+"socialProfileId"+"}", encodeURIComponent(socialProfileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -207,7 +207,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/Contact/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -287,7 +287,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/User",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -370,7 +370,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/Tenant/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -453,7 +453,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/User/{userId}".replace("{"+"userId"+"}", encodeURIComponent(userId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -546,7 +546,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/Contacts/{contactId}".replace("{"+"contactId"+"}", encodeURIComponent(contactId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -633,7 +633,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/Tenant/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -717,7 +717,7 @@ class AvatarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Avatars/User",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

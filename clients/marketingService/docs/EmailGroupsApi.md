@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceEmailGroupsCountGet**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsCountGet) | **GET** /api/v2/MarketingService/EmailGroups/Count |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdDelete**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdDelete) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdGet**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdGet) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdPut**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdPut) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsGet**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsGet) | **GET** /api/v2/MarketingService/EmailGroups |  |
-| [**apiV2MarketingServiceEmailGroupsPost**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsPost) | **POST** /api/v2/MarketingService/EmailGroups |  |
+| [**createEmailGroupAsync**](EmailGroupsApi.md#createEmailGroupAsync) | **POST** /api/v2/MarketingService/EmailGroups | Create an email group |
+| [**deleteEmailGroupAsync**](EmailGroupsApi.md#deleteEmailGroupAsync) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Delete an email group |
+| [**getEmailGroupDetailsAsync**](EmailGroupsApi.md#getEmailGroupDetailsAsync) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Get email group by ID |
+| [**getEmailGroupsCountAsync**](EmailGroupsApi.md#getEmailGroupsCountAsync) | **GET** /api/v2/MarketingService/EmailGroups/Count | Get email groups count |
+| [**getEmailGroupsODataAsync**](EmailGroupsApi.md#getEmailGroupsODataAsync) | **GET** /api/v2/MarketingService/EmailGroups | Get email groups |
+| [**updateEmailGroupAsync**](EmailGroupsApi.md#updateEmailGroupAsync) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Update an email group |
 
 
-<a id="apiV2MarketingServiceEmailGroupsCountGet"></a>
-# **apiV2MarketingServiceEmailGroupsCountGet**
-> Int32Envelope apiV2MarketingServiceEmailGroupsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createEmailGroupAsync"></a>
+# **createEmailGroupAsync**
+> EmptyEnvelope createEmailGroupAsync(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
 
+Create an email group
 
+Creates a new email group for the specified tenant.
 
 ### Example
 ```kotlin
@@ -26,22 +28,24 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = EmailGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val emailGroupCreateDto : EmailGroupCreateDto =  // EmailGroupCreateDto | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.apiV2MarketingServiceEmailGroupsCountGet(tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createEmailGroupAsync(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsCountGet")
+    println("4xx response calling EmailGroupsApi#createEmailGroupAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsCountGet")
+    println("5xx response calling EmailGroupsApi#createEmailGroupAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
+| **emailGroupCreateDto** | [**EmailGroupCreateDto**](EmailGroupCreateDto.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -49,25 +53,24 @@ try {
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailGroupsEmailgroupIdDelete"></a>
-# **apiV2MarketingServiceEmailGroupsEmailgroupIdDelete**
-> EmptyEnvelope apiV2MarketingServiceEmailGroupsEmailgroupIdDelete(emailgroupId, tenantId, apiVersion, xApiVersion)
+<a id="deleteEmailGroupAsync"></a>
+# **deleteEmailGroupAsync**
+> EmptyEnvelope deleteEmailGroupAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
 
+Delete an email group
 
+Deletes an email group by its ID.
 
 ### Example
 ```kotlin
@@ -81,13 +84,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdDelete(emailgroupId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteEmailGroupAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdDelete")
+    println("4xx response calling EmailGroupsApi#deleteEmailGroupAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdDelete")
+    println("5xx response calling EmailGroupsApi#deleteEmailGroupAsync")
     e.printStackTrace()
 }
 ```
@@ -106,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailGroupsEmailgroupIdGet"></a>
-# **apiV2MarketingServiceEmailGroupsEmailgroupIdGet**
-> EmailGroupDtoEnvelope apiV2MarketingServiceEmailGroupsEmailgroupIdGet(emailgroupId, tenantId, apiVersion, xApiVersion)
+<a id="getEmailGroupDetailsAsync"></a>
+# **getEmailGroupDetailsAsync**
+> EmailGroupDtoEnvelope getEmailGroupDetailsAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
 
+Get email group by ID
 
+Retrieves the details of a specific email group by its ID.
 
 ### Example
 ```kotlin
@@ -134,13 +136,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmailGroupDtoEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdGet(emailgroupId, tenantId, apiVersion, xApiVersion)
+    val result : EmailGroupDtoEnvelope = apiInstance.getEmailGroupDetailsAsync(emailgroupId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdGet")
+    println("4xx response calling EmailGroupsApi#getEmailGroupDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdGet")
+    println("5xx response calling EmailGroupsApi#getEmailGroupDetailsAsync")
     e.printStackTrace()
 }
 ```
@@ -159,21 +161,120 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailGroupsEmailgroupIdPut"></a>
-# **apiV2MarketingServiceEmailGroupsEmailgroupIdPut**
-> EmptyEnvelope apiV2MarketingServiceEmailGroupsEmailgroupIdPut(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
+<a id="getEmailGroupsCountAsync"></a>
+# **getEmailGroupsCountAsync**
+> Int32Envelope getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion)
 
+Get email groups count
 
+Returns the count of email groups for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EmailGroupsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EmailGroupsApi#getEmailGroupsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EmailGroupsApi#getEmailGroupsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getEmailGroupsODataAsync"></a>
+# **getEmailGroupsODataAsync**
+> EmailGroupDtoListEnvelope getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion)
+
+Get email groups
+
+Retrieves a collection of email groups for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EmailGroupsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmailGroupDtoListEnvelope = apiInstance.getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EmailGroupsApi#getEmailGroupsODataAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EmailGroupsApi#getEmailGroupsODataAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmailGroupDtoListEnvelope**](EmailGroupDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateEmailGroupAsync"></a>
+# **updateEmailGroupAsync**
+> EmptyEnvelope updateEmailGroupAsync(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
+
+Update an email group
+
+Updates an existing email group by its ID.
 
 ### Example
 ```kotlin
@@ -188,13 +289,13 @@ val emailGroupUpdateDto : EmailGroupUpdateDto =  // EmailGroupUpdateDto |
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsEmailgroupIdPut(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateEmailGroupAsync(emailgroupId, tenantId, emailGroupUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdPut")
+    println("4xx response calling EmailGroupsApi#updateEmailGroupAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsEmailgroupIdPut")
+    println("5xx response calling EmailGroupsApi#updateEmailGroupAsync")
     e.printStackTrace()
 }
 ```
@@ -214,114 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceEmailGroupsGet"></a>
-# **apiV2MarketingServiceEmailGroupsGet**
-> EmailGroupDtoListEnvelope apiV2MarketingServiceEmailGroupsGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = EmailGroupsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmailGroupDtoListEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmailGroupDtoListEnvelope**](EmailGroupDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceEmailGroupsPost"></a>
-# **apiV2MarketingServiceEmailGroupsPost**
-> EmptyEnvelope apiV2MarketingServiceEmailGroupsPost(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = EmailGroupsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val emailGroupCreateDto : EmailGroupCreateDto =  // EmailGroupCreateDto | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailGroupsPost(tenantId, emailGroupCreateDto, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling EmailGroupsApi#apiV2MarketingServiceEmailGroupsPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **emailGroupCreateDto** | [**EmailGroupCreateDto**](EmailGroupCreateDto.md)|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

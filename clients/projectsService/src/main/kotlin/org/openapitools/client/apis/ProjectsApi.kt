@@ -26,6 +26,7 @@ import org.openapitools.client.models.ProjectCreateDto
 import org.openapitools.client.models.ProjectDtoEnvelope
 import org.openapitools.client.models.ProjectDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodCreateDto
+import org.openapitools.client.models.ProjectPeriodDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodUpdateDto
 import org.openapitools.client.models.ProjectTaskCreateDto
 import org.openapitools.client.models.ProjectTaskDtoListEnvelope
@@ -59,179 +60,9 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Creates a new project
+     * Creates a new project for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsCountGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsCountGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsCountGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsCountGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/ProjectsService/Projects/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ProjectDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectDtoListEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ProjectDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectDtoListEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ProjectDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/ProjectsService/Projects",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param projectCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -242,8 +73,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectCreateDto: ProjectCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectCreateDto = projectCreateDto)
+    fun createProjectAsync(tenantId: java.util.UUID, projectCreateDto: ProjectCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createProjectAsyncWithHttpInfo(tenantId = tenantId, projectCreateDto = projectCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -261,11 +92,9 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Creates a new project
+     * Creates a new project for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param projectCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -273,8 +102,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectCreateDto: ProjectCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectCreateDto = projectCreateDto)
+    fun createProjectAsyncWithHttpInfo(tenantId: java.util.UUID, projectCreateDto: ProjectCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createProjectAsyncRequestConfig(tenantId = tenantId, projectCreateDto = projectCreateDto)
 
         return request<ProjectCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -282,25 +111,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsPost
+     * To obtain the request config of the operation createProjectAsync
      *
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param projectCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectCreateDto: ProjectCreateDto?) : RequestConfig<ProjectCreateDto> {
+    fun createProjectAsyncRequestConfig(tenantId: java.util.UUID, projectCreateDto: ProjectCreateDto?) : RequestConfig<ProjectCreateDto> {
         val localVariableBody = projectCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -309,18 +132,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Creates a project period
+     * Creates a new period for the specified project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param projectPeriodCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -330,8 +152,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdDelete(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdDeleteWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createProjectPeriodAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectPeriodCreateDto: ProjectPeriodCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createProjectPeriodAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectPeriodCreateDto = projectPeriodCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -349,20 +171,179 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Creates a project period
+     * Creates a new period for the specified project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param projectPeriodCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdDeleteWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdDeleteRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createProjectPeriodAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectPeriodCreateDto: ProjectPeriodCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createProjectPeriodAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectPeriodCreateDto = projectPeriodCreateDto)
+
+        return request<ProjectPeriodCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createProjectPeriodAsync
+     *
+     * @param projectId 
+     * @param tenantId 
+     * @param projectPeriodCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createProjectPeriodAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectPeriodCreateDto: ProjectPeriodCreateDto?) : RequestConfig<ProjectPeriodCreateDto> {
+        val localVariableBody = projectPeriodCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Periods".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Creates a project task
+     * Creates a new task for the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param projectTaskCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createProjectTaskAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskCreateDto: ProjectTaskCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createProjectTaskAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectTaskCreateDto = projectTaskCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Creates a project task
+     * Creates a new task for the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param projectTaskCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createProjectTaskAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskCreateDto: ProjectTaskCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createProjectTaskAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectTaskCreateDto = projectTaskCreateDto)
+
+        return request<ProjectTaskCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createProjectTaskAsync
+     *
+     * @param projectId 
+     * @param tenantId 
+     * @param projectTaskCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createProjectTaskAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskCreateDto: ProjectTaskCreateDto?) : RequestConfig<ProjectTaskCreateDto> {
+        val localVariableBody = projectTaskCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes a project
+     * Deletes the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a project
+     * Deletes the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -370,25 +351,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdDelete
+     * To obtain the request config of the operation deleteProjectAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdDeleteRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -396,18 +371,176 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Deletes a project period
+     * Deletes the specified period from a project.
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteProjectPeriodAsync(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteProjectPeriodAsyncWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a project period
+     * Deletes the specified period from a project.
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteProjectPeriodAsyncWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteProjectPeriodAsyncRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteProjectPeriodAsync
+     *
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteProjectPeriodAsyncRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectPeriodId"+"}", encodeURIComponent(projectPeriodId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes a project task
+     * Deletes the specified task from a project.
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteProjectTaskAsync(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteProjectTaskAsyncWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a project task
+     * Deletes the specified task from a project.
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteProjectTaskAsyncWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteProjectTaskAsyncRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteProjectTaskAsync
+     *
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteProjectTaskAsyncRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectTaskId"+"}", encodeURIComponent(projectTaskId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets a project by ID
+     * Retrieves the details of a project using its unique identifier.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ProjectDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -417,8 +550,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectDtoEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectByIdAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectDtoEnvelope {
+        val localVarResponse = getProjectByIdAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectDtoEnvelope
@@ -436,20 +569,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Gets a project by ID
+     * Retrieves the details of a project using its unique identifier.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<ProjectDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectDtoEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectByIdAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectDtoEnvelope?> {
+        val localVariableConfig = getProjectByIdAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, ProjectDtoEnvelope>(
             localVariableConfig
@@ -457,25 +588,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdGet
+     * To obtain the request config of the operation getProjectByIdAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectByIdAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -483,20 +608,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieves project periods
+     * Gets all periods for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodCreateDto  (optional)
-     * @return EmptyEnvelope
+     * @return ProjectPeriodDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -505,11 +627,11 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectPeriodCreateDto: ProjectPeriodCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdPeriodsGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectPeriodCreateDto = projectPeriodCreateDto)
+    fun getProjectPeriodsAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectPeriodDtoListEnvelope {
+        val localVarResponse = getProjectPeriodsAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectPeriodDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -524,49 +646,38 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Retrieves project periods
+     * Gets all periods for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<ProjectPeriodDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectPeriodCreateDto: ProjectPeriodCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdPeriodsGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectPeriodCreateDto = projectPeriodCreateDto)
+    fun getProjectPeriodsAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectPeriodDtoListEnvelope?> {
+        val localVariableConfig = getProjectPeriodsAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
-        return request<ProjectPeriodCreateDto, EmptyEnvelope>(
+        return request<Unit, ProjectPeriodDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdPeriodsGet
+     * To obtain the request config of the operation getProjectPeriodsAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectPeriodCreateDto: ProjectPeriodCreateDto?) : RequestConfig<ProjectPeriodCreateDto> {
-        val localVariableBody = projectPeriodCreateDto
+    fun getProjectPeriodsAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -574,380 +685,16 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}/Periods".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDeleteWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDeleteWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDeleteRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete
-     *
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDeleteRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectPeriodId"+"}", encodeURIComponent(projectPeriodId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectPeriodUpdateDto: ProjectPeriodUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPutWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectPeriodUpdateDto = projectPeriodUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPutWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectPeriodUpdateDto: ProjectPeriodUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPutRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectPeriodUpdateDto = projectPeriodUpdateDto)
-
-        return request<ProjectPeriodUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut
-     *
-     * @param projectId 
-     * @param projectPeriodId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectPeriodUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPutRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectPeriodUpdateDto: ProjectPeriodUpdateDto?) : RequestConfig<ProjectPeriodUpdateDto> {
-        val localVariableBody = projectPeriodUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectPeriodId"+"}", encodeURIComponent(projectPeriodId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Retrieves project task categories
+     * Gets all task categories for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPut(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectUpdateDto: ProjectUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdPutWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectUpdateDto = projectUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdPutWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectUpdateDto: ProjectUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdPutRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectUpdateDto = projectUpdateDto)
-
-        return request<ProjectUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdPut
-     *
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdPutRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectUpdateDto: ProjectUpdateDto?) : RequestConfig<ProjectUpdateDto> {
-        val localVariableBody = projectUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/ProjectsService/Projects/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet
-     *
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return TaskCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -957,8 +704,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TaskCategoryDtoListEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTaskCategoriesAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : TaskCategoryDtoListEnvelope {
+        val localVarResponse = getProjectTaskCategoriesAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskCategoryDtoListEnvelope
@@ -976,20 +723,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Retrieves project task categories
+     * Gets all task categories for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<TaskCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TaskCategoryDtoListEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTaskCategoriesAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<TaskCategoryDtoListEnvelope?> {
+        val localVariableConfig = getProjectTaskCategoriesAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, TaskCategoryDtoListEnvelope>(
             localVariableConfig
@@ -997,25 +742,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet
+     * To obtain the request config of the operation getProjectTaskCategoriesAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTaskCategoriesAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1023,18 +762,16 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}/TaskCategories".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Counts project task categories
+     * Gets the count of task categories for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1044,8 +781,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksCountGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTasksCountGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTaskCategoriesCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1063,20 +800,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Counts project task categories
+     * Gets the count of task categories for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksCountGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTasksCountGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectTaskCategoriesCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -1084,44 +819,36 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTasksCountGet
+     * To obtain the request config of the operation getProjectTaskCategoriesCountAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdTasksCountGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTaskCategoriesCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            path = "/api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieves project tasks
+     * Gets all tasks for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ProjectTaskDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1131,8 +858,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTaskDtoListEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTasksGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTasksAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectTaskDtoListEnvelope {
+        val localVarResponse = getProjectTasksAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTaskDtoListEnvelope
@@ -1150,20 +877,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Retrieves project tasks
+     * Gets all tasks for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<ProjectTaskDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTaskDtoListEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTasksGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTasksAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectTaskDtoListEnvelope?> {
+        val localVariableConfig = getProjectTasksAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, ProjectTaskDtoListEnvelope>(
             localVariableConfig
@@ -1171,25 +896,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTasksGet
+     * To obtain the request config of the operation getProjectTasksAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdTasksGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTasksAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1197,293 +916,16 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Counts project tasks
+     * Gets the count of tasks for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksPost(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTaskCreateDto: ProjectTaskCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTasksPostWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTaskCreateDto = projectTaskCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksPostWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTaskCreateDto: ProjectTaskCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTasksPostRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTaskCreateDto = projectTaskCreateDto)
-
-        return request<ProjectTaskCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTasksPost
-     *
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdTasksPostRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTaskCreateDto: ProjectTaskCreateDto?) : RequestConfig<ProjectTaskCreateDto> {
-        val localVariableBody = projectTaskCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDeleteWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDeleteWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDeleteRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete
-     *
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDeleteRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectTaskId"+"}", encodeURIComponent(projectTaskId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTaskUpdateDto: ProjectTaskUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPutWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTaskUpdateDto = projectTaskUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPutWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTaskUpdateDto: ProjectTaskUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPutRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTaskUpdateDto = projectTaskUpdateDto)
-
-        return request<ProjectTaskUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut
-     *
-     * @param projectId 
-     * @param projectTaskId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectTaskUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPutRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTaskUpdateDto: ProjectTaskUpdateDto?) : RequestConfig<ProjectTaskUpdateDto> {
-        val localVariableBody = projectTaskUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectTaskId"+"}", encodeURIComponent(projectTaskId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1493,8 +935,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTasksCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getProjectTasksCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1512,20 +954,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Counts project tasks
+     * Gets the count of tasks for a specific project.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTasksCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectTasksCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -1533,44 +973,36 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet
+     * To obtain the request config of the operation getProjectTasksCountAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTasksCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieves project time logs
+     * Gets all time log entries for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ProjectTimeLogDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1580,8 +1012,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = apiV2ProjectsServiceProjectsProjectIdTimeLogsGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTimeLogsAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectTimeLogsAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
@@ -1599,20 +1031,18 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Retrieves project time logs
+     * Gets all time log entries for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = apiV2ProjectsServiceProjectsProjectIdTimeLogsGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTimeLogsAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectTimeLogsAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
 
         return request<Unit, ProjectTimeLogDtoListEnvelope>(
             localVariableConfig
@@ -1620,25 +1050,19 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ProjectsServiceProjectsProjectIdTimeLogsGet
+     * To obtain the request config of the operation getProjectTimeLogsAsync
      *
      * @param projectId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2ProjectsServiceProjectsProjectIdTimeLogsGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTimeLogsAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1646,7 +1070,481 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Counts project time logs
+     * Gets the count of time log entries for a specific project.
+     * @param projectId 
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectTimeLogsCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getProjectTimeLogsCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Counts project time logs
+     * Gets the count of time log entries for a specific project.
+     * @param projectId 
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectTimeLogsCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectTimeLogsCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectTimeLogsCountAsync
+     *
+     * @param projectId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getProjectTimeLogsCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieves all projects
+     * Gets all projects for the current tenant with OData support.
+     * @param tenantId 
+     * @return ProjectDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectsByTenantIdAsync(tenantId: java.util.UUID) : ProjectDtoListEnvelope {
+        val localVarResponse = getProjectsByTenantIdAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieves all projects
+     * Gets all projects for the current tenant with OData support.
+     * @param tenantId 
+     * @return ApiResponse<ProjectDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectsByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ProjectDtoListEnvelope?> {
+        val localVariableConfig = getProjectsByTenantIdAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, ProjectDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectsByTenantIdAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getProjectsByTenantIdAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/ProjectsService/Projects",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Counts projects
+     * Gets the count of projects for the current tenant.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectsCountByTenantIdAsync(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Counts projects
+     * Gets the count of projects for the current tenant.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectsCountByTenantIdAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectsCountByTenantIdAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getProjectsCountByTenantIdAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/ProjectsService/Projects/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a project
+     * Updates the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param projectUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectUpdateDto: ProjectUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectUpdateDto = projectUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a project
+     * Updates the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param projectUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectUpdateDto: ProjectUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectUpdateDto = projectUpdateDto)
+
+        return request<ProjectUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateProjectAsync
+     *
+     * @param projectId 
+     * @param tenantId 
+     * @param projectUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectUpdateDto: ProjectUpdateDto?) : RequestConfig<ProjectUpdateDto> {
+        val localVariableBody = projectUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/ProjectsService/Projects/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a project period
+     * Updates the specified period for a project.
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @param projectPeriodUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateProjectPeriodAsync(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, projectPeriodUpdateDto: ProjectPeriodUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateProjectPeriodAsyncWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, projectPeriodUpdateDto = projectPeriodUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a project period
+     * Updates the specified period for a project.
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @param projectPeriodUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateProjectPeriodAsyncWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, projectPeriodUpdateDto: ProjectPeriodUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateProjectPeriodAsyncRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, projectPeriodUpdateDto = projectPeriodUpdateDto)
+
+        return request<ProjectPeriodUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateProjectPeriodAsync
+     *
+     * @param projectId 
+     * @param projectPeriodId 
+     * @param tenantId 
+     * @param projectPeriodUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateProjectPeriodAsyncRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, projectPeriodUpdateDto: ProjectPeriodUpdateDto?) : RequestConfig<ProjectPeriodUpdateDto> {
+        val localVariableBody = projectPeriodUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectPeriodId"+"}", encodeURIComponent(projectPeriodId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a project task
+     * Updates the specified task in a project.
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @param projectTaskUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateProjectTaskAsync(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, projectTaskUpdateDto: ProjectTaskUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateProjectTaskAsyncWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, projectTaskUpdateDto = projectTaskUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a project task
+     * Updates the specified task in a project.
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @param projectTaskUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateProjectTaskAsyncWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, projectTaskUpdateDto: ProjectTaskUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateProjectTaskAsyncRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, projectTaskUpdateDto = projectTaskUpdateDto)
+
+        return request<ProjectTaskUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateProjectTaskAsync
+     *
+     * @param projectId 
+     * @param projectTaskId 
+     * @param tenantId 
+     * @param projectTaskUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateProjectTaskAsyncRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, projectTaskUpdateDto: ProjectTaskUpdateDto?) : RequestConfig<ProjectTaskUpdateDto> {
+        val localVariableBody = projectTaskUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())).replace("{"+"projectTaskId"+"}", encodeURIComponent(projectTaskId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

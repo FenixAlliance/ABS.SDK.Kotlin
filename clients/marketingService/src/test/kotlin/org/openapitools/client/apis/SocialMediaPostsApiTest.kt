@@ -32,68 +32,68 @@ class SocialMediaPostsApiTest : ShouldSpec() {
         // uncomment below to create an instance of SocialMediaPostsApi
         //val apiInstance = SocialMediaPostsApi()
 
-        // to test apiV2MarketingServiceSocialMediaPostsCountGet
-        should("test apiV2MarketingServiceSocialMediaPostsCountGet") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsCountGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceSocialMediaPostsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceSocialMediaPostsGet
-        should("test apiV2MarketingServiceSocialMediaPostsGet") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SocialMediaPostDtoListEnvelope = apiInstance.apiV2MarketingServiceSocialMediaPostsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceSocialMediaPostsPost
-        should("test apiV2MarketingServiceSocialMediaPostsPost") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsPost
+        // to test createSocialMediaPostAsync
+        should("test createSocialMediaPostAsync") {
+            // uncomment below to test createSocialMediaPostAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val socialMediaPostCreateDto : SocialMediaPostCreateDto =  // SocialMediaPostCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialMediaPostsPost(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSocialMediaPostAsync(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete
-        should("test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete
+        // to test deleteSocialMediaPostAsync
+        should("test deleteSocialMediaPostAsync") {
+            // uncomment below to test deleteSocialMediaPostAsync
             //val socialmediapostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete(socialmediapostId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSocialMediaPostAsync(socialmediapostId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet
-        should("test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet
+        // to test getSocialMediaPostDetailsAsync
+        should("test getSocialMediaPostDetailsAsync") {
+            // uncomment below to test getSocialMediaPostDetailsAsync
             //val socialmediapostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SocialMediaPostDtoEnvelope = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet(socialmediapostId, tenantId, apiVersion, xApiVersion)
+            //val result : SocialMediaPostDtoEnvelope = apiInstance.getSocialMediaPostDetailsAsync(socialmediapostId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut
-        should("test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut") {
-            // uncomment below to test apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut
+        // to test getSocialMediaPostsCountAsync
+        should("test getSocialMediaPostsCountAsync") {
+            // uncomment below to test getSocialMediaPostsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSocialMediaPostsODataAsync
+        should("test getSocialMediaPostsODataAsync") {
+            // uncomment below to test getSocialMediaPostsODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SocialMediaPostDtoListEnvelope = apiInstance.getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSocialMediaPostAsync
+        should("test updateSocialMediaPostAsync") {
+            // uncomment below to test updateSocialMediaPostAsync
             //val socialmediapostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val socialMediaPostUpdateDto : SocialMediaPostUpdateDto =  // SocialMediaPostUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut(socialmediapostId, tenantId, socialMediaPostUpdateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSocialMediaPostAsync(socialmediapostId, tenantId, socialMediaPostUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

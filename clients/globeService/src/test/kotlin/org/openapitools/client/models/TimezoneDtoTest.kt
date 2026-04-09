@@ -25,16 +25,16 @@ class TimezoneDtoTest : ShouldSpec() {
         // uncomment below to create an instance of TimezoneDto
         //val modelInstance = TimezoneDto()
 
-        // to test the property `timestamp`
-        should("test timestamp") {
-            // uncomment below to test the property
-            //modelInstance.timestamp shouldBe ("TODO")
-        }
-
         // to test the property `id`
         should("test id") {
             // uncomment below to test the property
             //modelInstance.id shouldBe ("TODO")
+        }
+
+        // to test the property `timestamp`
+        should("test timestamp") {
+            // uncomment below to test the property
+            //modelInstance.timestamp shouldBe ("TODO")
         }
 
         // to test the property `name`
@@ -43,16 +43,16 @@ class TimezoneDtoTest : ShouldSpec() {
             //modelInstance.name shouldBe ("TODO")
         }
 
-        // to test the property `displayName`
-        should("test displayName") {
-            // uncomment below to test the property
-            //modelInstance.displayName shouldBe ("TODO")
-        }
-
         // to test the property `utcOffset`
         should("test utcOffset") {
             // uncomment below to test the property
             //modelInstance.utcOffset shouldBe ("TODO")
+        }
+
+        // to test the property `displayName`
+        should("test displayName") {
+            // uncomment below to test the property
+            //modelInstance.displayName shouldBe ("TODO")
         }
 
     }

@@ -139,10 +139,10 @@ class EmailSignatureUpdateDtoTest : ShouldSpec() {
             //modelInstance.facebookDescription shouldBe ("TODO")
         }
 
-        // to test the property `featuredImageURL`
-        should("test featuredImageURL") {
+        // to test the property `featuredImageUrl`
+        should("test featuredImageUrl") {
             // uncomment below to test the property
-            //modelInstance.featuredImageURL shouldBe ("TODO")
+            //modelInstance.featuredImageUrl shouldBe ("TODO")
         }
 
         // to test the property `content`
@@ -185,6 +185,12 @@ class EmailSignatureUpdateDtoTest : ShouldSpec() {
         should("test htmlContent") {
             // uncomment below to test the property
             //modelInstance.htmlContent shouldBe ("TODO")
+        }
+
+        // to test the property `codeType`
+        should("test codeType") {
+            // uncomment below to test the property
+            //modelInstance.codeType shouldBe ("TODO")
         }
 
         // to test the property `cSharpContent`

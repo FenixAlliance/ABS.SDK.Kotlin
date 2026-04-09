@@ -11,7 +11,7 @@
 | **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **socialPostBucketId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

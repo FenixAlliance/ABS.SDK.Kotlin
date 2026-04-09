@@ -56,184 +56,12 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
-     * @param tenantId  (optional)
+     * Create a new support request
+     * Creates a new support request for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsCountGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsCountGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsCountGet
-     *
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsCountGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportRequests/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SupportRequestDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsGet(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestDtoListEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SupportRequestDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsGetWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestDtoListEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SupportRequestDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsGet
-     *
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsGetRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportRequests",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestCreateDto 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param supportRequestCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -243,8 +71,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsPost(supportRequestCreateDto: SupportRequestCreateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsPostWithHttpInfo(supportRequestCreateDto = supportRequestCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportRequestAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportRequestCreateDto: SupportRequestCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createSupportRequestAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestCreateDto = supportRequestCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -262,20 +90,20 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
-     * @param supportRequestCreateDto 
-     * @param tenantId  (optional)
+     * Create a new support request
+     * Creates a new support request for the specified tenant.
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsPostWithHttpInfo(supportRequestCreateDto: SupportRequestCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsPostRequestConfig(supportRequestCreateDto = supportRequestCreateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSupportRequestAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestCreateDto: SupportRequestCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createSupportRequestAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestCreateDto = supportRequestCreateDto)
 
         return request<SupportRequestCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -283,21 +111,19 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsPost
+     * To obtain the request config of the operation createSupportRequestAsync
      *
-     * @param supportRequestCreateDto 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportRequestsPostRequestConfig(supportRequestCreateDto: SupportRequestCreateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportRequestCreateDto> {
+    fun createSupportRequestAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestCreateDto: SupportRequestCreateDto?) : RequestConfig<SupportRequestCreateDto> {
         val localVariableBody = supportRequestCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -312,280 +138,16 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/SupportService/SupportRequests",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a support request
+     * Deletes a support request by its unique identifier.
      * @param supportRequestId 
-     * @param attachmentId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SupportRequestAttachmentDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestAttachmentDtoEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGetWithHttpInfo(supportRequestId = supportRequestId, attachmentId = attachmentId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestAttachmentDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param attachmentId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SupportRequestAttachmentDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGetWithHttpInfo(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestAttachmentDtoEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGetRequestConfig(supportRequestId = supportRequestId, attachmentId = attachmentId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SupportRequestAttachmentDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet
-     *
-     * @param supportRequestId 
-     * @param attachmentId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGetRequestConfig(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())).replace("{"+"attachmentId"+"}", encodeURIComponent(attachmentId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(supportRequestId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGetWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGetWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGetRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet
-     *
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGetRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SupportRequestAttachmentDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(supportRequestId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestAttachmentDtoListEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGetWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestAttachmentDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SupportRequestAttachmentDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGetWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestAttachmentDtoListEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGetRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SupportRequestAttachmentDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet
-     *
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGetRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param supportRequestAttachmentCreateDto 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -597,8 +159,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(supportRequestId: java.util.UUID, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPostWithHttpInfo(supportRequestId = supportRequestId, supportRequestAttachmentCreateDto = supportRequestAttachmentCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSupportRequestAsync(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSupportRequestAsyncWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -616,10 +178,10 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Delete a support request
+     * Deletes a support request by its unique identifier.
      * @param supportRequestId 
-     * @param supportRequestAttachmentCreateDto 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -628,95 +190,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPostWithHttpInfo(supportRequestId: java.util.UUID, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPostRequestConfig(supportRequestId = supportRequestId, supportRequestAttachmentCreateDto = supportRequestAttachmentCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<SupportRequestAttachmentCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost
-     *
-     * @param supportRequestId 
-     * @param supportRequestAttachmentCreateDto 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPostRequestConfig(supportRequestId: java.util.UUID, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportRequestAttachmentCreateDto> {
-        val localVariableBody = supportRequestAttachmentCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdDelete(supportRequestId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdDeleteWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param supportRequestId 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdDeleteWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdDeleteRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSupportRequestAsyncWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSupportRequestAsyncRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -724,21 +199,19 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdDelete
+     * To obtain the request config of the operation deleteSupportRequestAsync
      *
      * @param supportRequestId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdDeleteRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteSupportRequestAsyncRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -752,15 +225,16 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/SupportService/SupportRequests/{supportRequestId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support request by ID
+     * Retrieves a single support request by its unique identifier.
      * @param supportRequestId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SupportRequestDtoEnvelope
@@ -772,8 +246,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdGet(supportRequestId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestDtoEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdGetWithHttpInfo(supportRequestId = supportRequestId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestAsync(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestDtoEnvelope {
+        val localVarResponse = getSupportRequestAsyncWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestDtoEnvelope
@@ -791,9 +265,10 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Retrieve a support request by ID
+     * Retrieves a single support request by its unique identifier.
      * @param supportRequestId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SupportRequestDtoEnvelope?>
@@ -802,8 +277,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdGetWithHttpInfo(supportRequestId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestDtoEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdGetRequestConfig(supportRequestId = supportRequestId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestAsyncWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestDtoEnvelope?> {
+        val localVariableConfig = getSupportRequestAsyncRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SupportRequestDtoEnvelope>(
             localVariableConfig
@@ -811,17 +286,19 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdGet
+     * To obtain the request config of the operation getSupportRequestAsync
      *
      * @param supportRequestId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdGetRequestConfig(supportRequestId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportRequestAsyncRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -835,20 +312,20 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/SupportService/SupportRequests/{supportRequestId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve a specific attachment for a support request
+     * Retrieves a single attachment by its ID for a specific support request.
      * @param supportRequestId 
-     * @param supportRequestUpdateDto 
-     * @param tenantId  (optional)
+     * @param attachmentId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return SupportRequestAttachmentDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -857,11 +334,11 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdPut(supportRequestId: java.util.UUID, supportRequestUpdateDto: SupportRequestUpdateDto, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdPutWithHttpInfo(supportRequestId = supportRequestId, supportRequestUpdateDto = supportRequestUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestAttachmentByRequest(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestAttachmentDtoEnvelope {
+        val localVarResponse = getSupportRequestAttachmentByRequestWithHttpInfo(supportRequestId = supportRequestId, attachmentId = attachmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestAttachmentDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -876,68 +353,239 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Retrieve a specific attachment for a support request
+     * Retrieves a single attachment by its ID for a specific support request.
      * @param supportRequestId 
-     * @param supportRequestUpdateDto 
-     * @param tenantId  (optional)
+     * @param attachmentId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<SupportRequestAttachmentDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdPutWithHttpInfo(supportRequestId: java.util.UUID, supportRequestUpdateDto: SupportRequestUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdPutRequestConfig(supportRequestId = supportRequestId, supportRequestUpdateDto = supportRequestUpdateDto, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestAttachmentByRequestWithHttpInfo(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestAttachmentDtoEnvelope?> {
+        val localVariableConfig = getSupportRequestAttachmentByRequestRequestConfig(supportRequestId = supportRequestId, attachmentId = attachmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<SupportRequestUpdateDto, EmptyEnvelope>(
+        return request<Unit, SupportRequestAttachmentDtoEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdPut
+     * To obtain the request config of the operation getSupportRequestAttachmentByRequest
      *
      * @param supportRequestId 
-     * @param supportRequestUpdateDto 
-     * @param tenantId  (optional)
+     * @param attachmentId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdPutRequestConfig(supportRequestId: java.util.UUID, supportRequestUpdateDto: SupportRequestUpdateDto, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SupportRequestUpdateDto> {
-        val localVariableBody = supportRequestUpdateDto
+    fun getSupportRequestAttachmentByRequestRequestConfig(supportRequestId: java.util.UUID, attachmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())).replace("{"+"attachmentId"+"}", encodeURIComponent(attachmentId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve attachments for a support request
+     * Retrieves the list of attachments associated with a specific support request.
      * @param supportRequestId 
-     * @param tenantId  (optional)
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SupportRequestAttachmentDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportRequestAttachmentsByRequest(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestAttachmentDtoListEnvelope {
+        val localVarResponse = getSupportRequestAttachmentsByRequestWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestAttachmentDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve attachments for a support request
+     * Retrieves the list of attachments associated with a specific support request.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SupportRequestAttachmentDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportRequestAttachmentsByRequestWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestAttachmentDtoListEnvelope?> {
+        val localVariableConfig = getSupportRequestAttachmentsByRequestRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SupportRequestAttachmentDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportRequestAttachmentsByRequest
+     *
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportRequestAttachmentsByRequestRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of attachments for a support request
+     * Returns the total count of attachments for a specific support request.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportRequestAttachmentsCountByRequest(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getSupportRequestAttachmentsCountByRequestWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of attachments for a support request
+     * Returns the total count of attachments for a specific support request.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportRequestAttachmentsCountByRequestWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSupportRequestAttachmentsCountByRequestRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportRequestAttachmentsCountByRequest
+     *
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportRequestAttachmentsCountByRequestRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve tickets for a support request
+     * Retrieves the list of support tickets associated with a specific support request.
+     * @param supportRequestId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SupportTicketDtoListEnvelope
@@ -949,8 +597,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(supportRequestId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketDtoListEnvelope {
-        val localVarResponse = apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGetWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestTicketsAsync(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketDtoListEnvelope {
+        val localVarResponse = getSupportRequestTicketsAsyncWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportTicketDtoListEnvelope
@@ -968,10 +616,10 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Retrieve tickets for a support request
+     * Retrieves the list of support tickets associated with a specific support request.
      * @param supportRequestId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SupportTicketDtoListEnvelope?>
@@ -980,8 +628,8 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGetWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketDtoListEnvelope?> {
-        val localVariableConfig = apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGetRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportRequestTicketsAsyncWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketDtoListEnvelope?> {
+        val localVariableConfig = getSupportRequestTicketsAsyncRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SupportTicketDtoListEnvelope>(
             localVariableConfig
@@ -989,21 +637,19 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet
+     * To obtain the request config of the operation getSupportRequestTicketsAsync
      *
      * @param supportRequestId 
-     * @param tenantId  (optional)
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGetRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSupportRequestTicketsAsyncRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -1017,7 +663,357 @@ class SupportRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve a list of support requests
+     * Retrieves a list of support requests for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SupportRequestDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportRequestsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportRequestDtoListEnvelope {
+        val localVarResponse = getSupportRequestsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SupportRequestDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve a list of support requests
+     * Retrieves a list of support requests for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SupportRequestDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportRequestsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportRequestDtoListEnvelope?> {
+        val localVariableConfig = getSupportRequestsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SupportRequestDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportRequestsAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportRequestsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportRequests",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of support requests
+     * Returns the total count of support requests for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSupportRequestsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getSupportRequestsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of support requests
+     * Returns the total count of support requests for the specified tenant with OData query support.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSupportRequestsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSupportRequestsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSupportRequestsCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSupportRequestsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SupportService/SupportRequests/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Add an attachment to a support request
+     * Creates a new attachment and associates it with the specified support request.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun relateSupportRequestToAttachmentAsync(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = relateSupportRequestToAttachmentAsyncWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestAttachmentCreateDto = supportRequestAttachmentCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Add an attachment to a support request
+     * Creates a new attachment and associates it with the specified support request.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun relateSupportRequestToAttachmentAsyncWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = relateSupportRequestToAttachmentAsyncRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestAttachmentCreateDto = supportRequestAttachmentCreateDto)
+
+        return request<SupportRequestAttachmentCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation relateSupportRequestToAttachmentAsync
+     *
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun relateSupportRequestToAttachmentAsyncRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestAttachmentCreateDto: SupportRequestAttachmentCreateDto?) : RequestConfig<SupportRequestAttachmentCreateDto> {
+        val localVariableBody = supportRequestAttachmentCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a support request
+     * Updates an existing support request by its unique identifier.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateSupportRequestAsync(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportRequestUpdateDto: SupportRequestUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateSupportRequestAsyncWithHttpInfo(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestUpdateDto = supportRequestUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a support request
+     * Updates an existing support request by its unique identifier.
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateSupportRequestAsyncWithHttpInfo(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestUpdateDto: SupportRequestUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateSupportRequestAsyncRequestConfig(supportRequestId = supportRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportRequestUpdateDto = supportRequestUpdateDto)
+
+        return request<SupportRequestUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateSupportRequestAsync
+     *
+     * @param supportRequestId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param supportRequestUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateSupportRequestAsyncRequestConfig(supportRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportRequestUpdateDto: SupportRequestUpdateDto?) : RequestConfig<SupportRequestUpdateDto> {
+        val localVariableBody = supportRequestUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/SupportService/SupportRequests/{supportRequestId}".replace("{"+"supportRequestId"+"}", encodeURIComponent(supportRequestId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

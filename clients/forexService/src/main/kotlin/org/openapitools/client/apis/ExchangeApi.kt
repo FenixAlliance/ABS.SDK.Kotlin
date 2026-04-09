@@ -47,12 +47,11 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at latest rates
+     * Exchange an amount of money from one currency to another using the latest available exchange rates.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
-     * @param date 
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +61,8 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceExchangeHistoryGet(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : MoneyEnvelope {
-        val localVarResponse = apiV2ForexServiceExchangeHistoryGetWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
+    fun exchangeAmountAsync(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : MoneyEnvelope {
+        val localVarResponse = exchangeAmountAsyncWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -81,8 +80,91 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at latest rates
+     * Exchange an amount of money from one currency to another using the latest available exchange rates.
+     * @param amount 
+     * @param sourceCurrencyId 
+     * @param targetCurrencyId 
+     * @return ApiResponse<MoneyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun exchangeAmountAsyncWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = exchangeAmountAsyncRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
+
+        return request<Unit, MoneyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation exchangeAmountAsync
+     *
+     * @param amount 
+     * @param sourceCurrencyId 
+     * @param targetCurrencyId 
+     * @return RequestConfig
+     */
+    fun exchangeAmountAsyncRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("amount", listOf(amount.toString()))
+                put("sourceCurrencyId", listOf(sourceCurrencyId.toString()))
+                put("targetCurrencyId", listOf(targetCurrencyId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/ForexService/Exchange/Latest",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Exchange currency at historical rates
+     * Exchange an amount of money from one currency to another using exchange rates from a specific historical date.
+     * @param amount 
+     * @param sourceCurrencyId 
+     * @param targetCurrencyId 
+     * @param date 
+     * @return MoneyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun exchangeAmountHistoricalAsync(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : MoneyEnvelope {
+        val localVarResponse = exchangeAmountHistoricalAsyncWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Exchange currency at historical rates
+     * Exchange an amount of money from one currency to another using exchange rates from a specific historical date.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
@@ -93,8 +175,8 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceExchangeHistoryGetWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceExchangeHistoryGetRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
+    fun exchangeAmountHistoricalAsyncWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = exchangeAmountHistoricalAsyncRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
 
         return request<Unit, MoneyEnvelope>(
             localVariableConfig
@@ -102,7 +184,7 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
-     * To obtain the request config of the operation apiV2ForexServiceExchangeHistoryGet
+     * To obtain the request config of the operation exchangeAmountHistoricalAsync
      *
      * @param amount 
      * @param sourceCurrencyId 
@@ -110,7 +192,7 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param date 
      * @return RequestConfig
      */
-    fun apiV2ForexServiceExchangeHistoryGetRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : RequestConfig<Unit> {
+    fun exchangeAmountHistoricalAsyncRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -127,89 +209,7 @@ class ExchangeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             path = "/api/v2/ForexService/Exchange/History",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param amount 
-     * @param sourceCurrencyId 
-     * @param targetCurrencyId 
-     * @return MoneyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2ForexServiceExchangeLatestGet(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : MoneyEnvelope {
-        val localVarResponse = apiV2ForexServiceExchangeLatestGetWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param amount 
-     * @param sourceCurrencyId 
-     * @param targetCurrencyId 
-     * @return ApiResponse<MoneyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2ForexServiceExchangeLatestGetWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = apiV2ForexServiceExchangeLatestGetRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
-
-        return request<Unit, MoneyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2ForexServiceExchangeLatestGet
-     *
-     * @param amount 
-     * @param sourceCurrencyId 
-     * @param targetCurrencyId 
-     * @return RequestConfig
-     */
-    fun apiV2ForexServiceExchangeLatestGetRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("amount", listOf(amount.toString()))
-                put("sourceCurrencyId", listOf(sourceCurrencyId.toString()))
-                put("targetCurrencyId", listOf(targetCurrencyId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/ForexService/Exchange/Latest",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

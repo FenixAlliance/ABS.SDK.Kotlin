@@ -115,6 +115,24 @@ class ContactUpdateDtoTest : ShouldSpec() {
             //modelInstance.parentContactId shouldBe ("TODO")
         }
 
+        // to test the property `addressLine1`
+        should("test addressLine1") {
+            // uncomment below to test the property
+            //modelInstance.addressLine1 shouldBe ("TODO")
+        }
+
+        // to test the property `addressLine2`
+        should("test addressLine2") {
+            // uncomment below to test the property
+            //modelInstance.addressLine2 shouldBe ("TODO")
+        }
+
+        // to test the property `postalCode`
+        should("test postalCode") {
+            // uncomment below to test the property
+            //modelInstance.postalCode shouldBe ("TODO")
+        }
+
         // to test the property `stateId`
         should("test stateId") {
             // uncomment below to test the property
@@ -125,12 +143,6 @@ class ContactUpdateDtoTest : ShouldSpec() {
         should("test cityId") {
             // uncomment below to test the property
             //modelInstance.cityId shouldBe ("TODO")
-        }
-
-        // to test the property `postalCode`
-        should("test postalCode") {
-            // uncomment below to test the property
-            //modelInstance.postalCode shouldBe ("TODO")
         }
 
         // to test the property `streetLine1`
@@ -181,6 +193,12 @@ class ContactUpdateDtoTest : ShouldSpec() {
             //modelInstance.instagramUsername shouldBe ("TODO")
         }
 
+        // to test the property `webUrl`
+        should("test webUrl") {
+            // uncomment below to test the property
+            //modelInstance.webUrl shouldBe ("TODO")
+        }
+
         // to test the property `twitchUrl`
         should("test twitchUrl") {
             // uncomment below to test the property
@@ -199,12 +217,6 @@ class ContactUpdateDtoTest : ShouldSpec() {
             //modelInstance.gitHubUrl shouldBe ("TODO")
         }
 
-        // to test the property `githubUrl`
-        should("test githubUrl") {
-            // uncomment below to test the property
-            //modelInstance.githubUrl shouldBe ("TODO")
-        }
-
         // to test the property `tikTokUrl`
         should("test tikTokUrl") {
             // uncomment below to test the property
@@ -221,12 +233,6 @@ class ContactUpdateDtoTest : ShouldSpec() {
         should("test youTubeUrl") {
             // uncomment below to test the property
             //modelInstance.youTubeUrl shouldBe ("TODO")
-        }
-
-        // to test the property `websiteUrl`
-        should("test websiteUrl") {
-            // uncomment below to test the property
-            //modelInstance.websiteUrl shouldBe ("TODO")
         }
 
         // to test the property `facebookUrl`
@@ -263,6 +269,12 @@ class ContactUpdateDtoTest : ShouldSpec() {
         should("test stackOverflowUrl") {
             // uncomment below to test the property
             //modelInstance.stackOverflowUrl shouldBe ("TODO")
+        }
+
+        // to test the property `faxNumber`
+        should("test faxNumber") {
+            // uncomment below to test the property
+            //modelInstance.faxNumber shouldBe ("TODO")
         }
 
     }

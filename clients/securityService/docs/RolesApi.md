@@ -4,77 +4,31 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SecurityServiceRolesGet**](RolesApi.md#apiV2SecurityServiceRolesGet) | **GET** /api/v2/SecurityService/Roles |  |
-| [**apiV2SecurityServiceRolesPost**](RolesApi.md#apiV2SecurityServiceRolesPost) | **POST** /api/v2/SecurityService/Roles |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPut**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPut) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} |  |
+| [**assignPermissionToRoleAsync**](RolesApi.md#assignPermissionToRoleAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Assign a permission to a role |
+| [**assignRoleToBusinessApplicationAsync**](RolesApi.md#assignRoleToBusinessApplicationAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Assign a role to a business application |
+| [**assignRoleToEnrollmentAsync**](RolesApi.md#assignRoleToEnrollmentAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Assign a role to an enrollment |
+| [**createRoleAsync**](RolesApi.md#createRoleAsync) | **POST** /api/v2/SecurityService/Roles | Create a new role |
+| [**deleteRoleAsync**](RolesApi.md#deleteRoleAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} | Delete an existing role |
+| [**getApplicationsByRoleAsync**](RolesApi.md#getApplicationsByRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Applications | Get applications by role |
+| [**getEnrollmentsByRoleAsync**](RolesApi.md#getEnrollmentsByRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | Get enrollments by role |
+| [**getRoleAsync**](RolesApi.md#getRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} | Get role by ID |
+| [**getRolePermissionsAsync**](RolesApi.md#getRolePermissionsAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | Get permissions by role |
+| [**getRolesAsync**](RolesApi.md#getRolesAsync) | **GET** /api/v2/SecurityService/Roles | Get all roles |
+| [**getRolesByEnrollmentAsync**](RolesApi.md#getRolesByEnrollmentAsync) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment |
+| [**getRolesCountAsync**](RolesApi.md#getRolesCountAsync) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count |
+| [**revokePermissionFromRoleAsync**](RolesApi.md#revokePermissionFromRoleAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role |
+| [**revokeRoleFromBusinessApplicationAsync**](RolesApi.md#revokeRoleFromBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application |
+| [**revokeRoleFromEnrollmentAsync**](RolesApi.md#revokeRoleFromEnrollmentAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment |
+| [**updateRoleAsync**](RolesApi.md#updateRoleAsync) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} | Update an existing role |
 
 
-<a id="apiV2SecurityServiceRolesGet"></a>
-# **apiV2SecurityServiceRolesGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServiceRolesGet(tenantId, apiVersion, xApiVersion)
+<a id="assignPermissionToRoleAsync"></a>
+# **assignPermissionToRoleAsync**
+> EmptyEnvelope assignPermissionToRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
 
+Assign a permission to a role
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = RolesApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SecurityRoleDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SecurityServiceRolesPost"></a>
-# **apiV2SecurityServiceRolesPost**
-> EmptyEnvelope apiV2SecurityServiceRolesPost(tenantId, apiVersion, xApiVersion, securityRoleCreateDto)
-
-
+Assigns a security permission to a security role.
 
 ### Example
 ```kotlin
@@ -83,29 +37,31 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val securityRoleCreateDto : SecurityRoleCreateDto =  // SecurityRoleCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesPost(tenantId, apiVersion, xApiVersion, securityRoleCreateDto)
+    val result : EmptyEnvelope = apiInstance.assignPermissionToRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesPost")
+    println("4xx response calling RolesApi#assignPermissionToRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesPost")
+    println("5xx response calling RolesApi#assignPermissionToRoleAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **securityPermissionId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md)|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 
 ### Return type
 
@@ -113,131 +69,180 @@ try {
 
 ### Authorization
 
+No authorization required
 
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="assignRoleToBusinessApplicationAsync"></a>
+# **assignRoleToBusinessApplicationAsync**
+> EmptyEnvelope assignRoleToBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
+
+Assign a role to a business application
+
+Assigns a security role to a business application.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.assignRoleToBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#assignRoleToBusinessApplicationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#assignRoleToBusinessApplicationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **applicationId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="assignRoleToEnrollmentAsync"></a>
+# **assignRoleToEnrollmentAsync**
+> EmptyEnvelope assignRoleToEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+
+Assign a role to an enrollment
+
+Assigns a security role to a tenant enrollment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.assignRoleToEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#assignRoleToEnrollmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#assignRoleToEnrollmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **enrollmentId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="createRoleAsync"></a>
+# **createRoleAsync**
+> EmptyEnvelope createRoleAsync(tenantId, securityRoleCreateDto, apiVersion, xApiVersion)
+
+Create a new role
+
+Creates a new security role for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val securityRoleCreateDto : SecurityRoleCreateDto =  // SecurityRoleCreateDto | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.createRoleAsync(tenantId, securityRoleCreateDto, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#createRoleAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#createRoleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md)|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
+<a id="deleteRoleAsync"></a>
+# **deleteRoleAsync**
+> EmptyEnvelope deleteRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
 
+Delete an existing role
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = RolesApi()
-val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **securityRoleId** | **kotlin.String**|  | |
-| **applicationId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = RolesApi()
-val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **securityRoleId** | **kotlin.String**|  | |
-| **applicationId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdDelete(securityRoleId, tenantId, apiVersion, xApiVersion)
-
-
+Deletes an existing security role for the specified tenant.
 
 ### Example
 ```kotlin
@@ -251,13 +256,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdDelete(securityRoleId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdDelete")
+    println("4xx response calling RolesApi#deleteRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdDelete")
+    println("5xx response calling RolesApi#deleteRoleAsync")
     e.printStackTrace()
 }
 ```
@@ -276,131 +281,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+<a id="getApplicationsByRoleAsync"></a>
+# **getApplicationsByRoleAsync**
+> BusinessApplicationSimpleDtoListEnvelope getApplicationsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
 
+Get applications by role
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = RolesApi()
-val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **securityRoleId** | **kotlin.String**|  | |
-| **enrollmentId** | **kotlin.String**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = RolesApi()
-val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **securityRoleId** | **kotlin.String**|  | |
-| **enrollmentId** | **kotlin.String**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**
-> TenantEnrolmentDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
-
-
+Retrieves all business applications that have a specific role granted.
 
 ### Example
 ```kotlin
@@ -414,13 +308,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TenantEnrolmentDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
+    val result : BusinessApplicationSimpleDtoListEnvelope = apiInstance.getApplicationsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet")
+    println("4xx response calling RolesApi#getApplicationsByRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet")
+    println("5xx response calling RolesApi#getApplicationsByRoleAsync")
     e.printStackTrace()
 }
 ```
@@ -435,25 +329,24 @@ try {
 
 ### Return type
 
-[**TenantEnrolmentDtoListEnvelope**](TenantEnrolmentDtoListEnvelope.md)
+[**BusinessApplicationSimpleDtoListEnvelope**](BusinessApplicationSimpleDtoListEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdGet(securityRoleId, tenantId, apiVersion, xApiVersion)
+<a id="getEnrollmentsByRoleAsync"></a>
+# **getEnrollmentsByRoleAsync**
+> TenantEnrollmentDtoListEnvelope getEnrollmentsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
 
+Get enrollments by role
 
+Retrieves all tenant enrollments that have a specific role.
 
 ### Example
 ```kotlin
@@ -467,13 +360,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : SecurityRoleDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdGet(securityRoleId, tenantId, apiVersion, xApiVersion)
+    val result : TenantEnrollmentDtoListEnvelope = apiInstance.getEnrollmentsByRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdGet")
+    println("4xx response calling RolesApi#getEnrollmentsByRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdGet")
+    println("5xx response calling RolesApi#getEnrollmentsByRoleAsync")
     e.printStackTrace()
 }
 ```
@@ -488,25 +381,24 @@ try {
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**TenantEnrollmentDtoListEnvelope**](TenantEnrollmentDtoListEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**
-> SecurityPermissionDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
+<a id="getRoleAsync"></a>
+# **getRoleAsync**
+> SecurityRoleDtoEnvelope getRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
 
+Get role by ID
 
+Retrieves a specific security role by its ID.
 
 ### Example
 ```kotlin
@@ -520,13 +412,65 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : SecurityPermissionDtoListEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(securityRoleId, tenantId, apiVersion, xApiVersion)
+    val result : SecurityRoleDtoEnvelope = apiInstance.getRoleAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet")
+    println("4xx response calling RolesApi#getRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet")
+    println("5xx response calling RolesApi#getRoleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoEnvelope**](SecurityRoleDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getRolePermissionsAsync"></a>
+# **getRolePermissionsAsync**
+> SecurityPermissionDtoListEnvelope getRolePermissionsAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+
+Get permissions by role
+
+Retrieves all security permissions assigned to a specific role.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SecurityPermissionDtoListEnvelope = apiInstance.getRolePermissionsAsync(securityRoleId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#getRolePermissionsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#getRolePermissionsAsync")
     e.printStackTrace()
 }
 ```
@@ -545,21 +489,172 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+<a id="getRolesAsync"></a>
+# **getRolesAsync**
+> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion)
 
+Get all roles
 
+Retrieves all security roles for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#getRolesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#getRolesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getRolesByEnrollmentAsync"></a>
+# **getRolesByEnrollmentAsync**
+> SecurityRoleDtoListEnvelope getRolesByEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion)
+
+Get roles by enrollment
+
+Retrieves all security roles granted to a specific enrollment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesByEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#getRolesByEnrollmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#getRolesByEnrollmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **enrollmentId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getRolesCountAsync"></a>
+# **getRolesCountAsync**
+> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get roles count
+
+Retrieves the count of security roles for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#getRolesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#getRolesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="revokePermissionFromRoleAsync"></a>
+# **revokePermissionFromRoleAsync**
+> EmptyEnvelope revokePermissionFromRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+
+Revoke a permission from a role
+
+Revokes a security permission from a security role.
 
 ### Example
 ```kotlin
@@ -574,13 +669,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.revokePermissionFromRoleAsync(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete")
+    println("4xx response calling RolesApi#revokePermissionFromRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete")
+    println("5xx response calling RolesApi#revokePermissionFromRoleAsync")
     e.printStackTrace()
 }
 ```
@@ -600,21 +695,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+<a id="revokeRoleFromBusinessApplicationAsync"></a>
+# **revokeRoleFromBusinessApplicationAsync**
+> EmptyEnvelope revokeRoleFromBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
 
+Revoke a role from a business application
 
+Revokes a security role from a business application.
 
 ### Example
 ```kotlin
@@ -624,25 +718,25 @@ Configure Bearer:
 
 val apiInstance = RolesApi()
 val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
-val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
+val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(securityRoleId, securityPermissionId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.revokeRoleFromBusinessApplicationAsync(securityRoleId, applicationId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost")
+    println("4xx response calling RolesApi#revokeRoleFromBusinessApplicationAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost")
+    println("5xx response calling RolesApi#revokeRoleFromBusinessApplicationAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **securityRoleId** | **kotlin.String**|  | |
-| **securityPermissionId** | **kotlin.String**|  | |
+| **applicationId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -655,21 +749,74 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPut"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPut**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPut(securityRoleId, tenantId, apiVersion, xApiVersion, securityRoleUpdateDto)
+<a id="revokeRoleFromEnrollmentAsync"></a>
+# **revokeRoleFromEnrollmentAsync**
+> EmptyEnvelope revokeRoleFromEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
 
+Revoke a role from an enrollment
 
+Revokes a security role from a tenant enrollment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val enrollmentId : kotlin.String = enrollmentId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.revokeRoleFromEnrollmentAsync(securityRoleId, enrollmentId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#revokeRoleFromEnrollmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#revokeRoleFromEnrollmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **enrollmentId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateRoleAsync"></a>
+# **updateRoleAsync**
+> EmptyEnvelope updateRoleAsync(securityRoleId, tenantId, securityRoleUpdateDto, apiVersion, xApiVersion)
+
+Update an existing role
+
+Updates an existing security role for the specified tenant.
 
 ### Example
 ```kotlin
@@ -680,17 +827,17 @@ Configure Bearer:
 val apiInstance = RolesApi()
 val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val securityRoleUpdateDto : SecurityRoleUpdateDto =  // SecurityRoleUpdateDto | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPut(securityRoleId, tenantId, apiVersion, xApiVersion, securityRoleUpdateDto)
+    val result : EmptyEnvelope = apiInstance.updateRoleAsync(securityRoleId, tenantId, securityRoleUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPut")
+    println("4xx response calling RolesApi#updateRoleAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPut")
+    println("5xx response calling RolesApi#updateRoleAsync")
     e.printStackTrace()
 }
 ```
@@ -698,11 +845,11 @@ try {
 ### Parameters
 | **securityRoleId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **securityRoleUpdateDto** | [**SecurityRoleUpdateDto**](SecurityRoleUpdateDto.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **securityRoleUpdateDto** | [**SecurityRoleUpdateDto**](SecurityRoleUpdateDto.md)|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 
 ### Return type
 
@@ -710,10 +857,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

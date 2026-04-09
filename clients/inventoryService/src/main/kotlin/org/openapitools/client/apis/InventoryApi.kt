@@ -45,8 +45,8 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get inventory details for a stock item
+     * Retrieves the inventory details for a specific stock item by its ID.
      * @param stockItemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -58,8 +58,8 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2InventoryServiceInventoryStockItemIdDetailsGetWithHttpInfo(stockItemId = stockItemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInventoryDetailsAsync(stockItemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = getInventoryDetailsAsyncWithHttpInfo(stockItemId = stockItemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -77,8 +77,8 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get inventory details for a stock item
+     * Retrieves the inventory details for a specific stock item by its ID.
      * @param stockItemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -87,8 +87,8 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2InventoryServiceInventoryStockItemIdDetailsGetWithHttpInfo(stockItemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2InventoryServiceInventoryStockItemIdDetailsGetRequestConfig(stockItemId = stockItemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInventoryDetailsAsyncWithHttpInfo(stockItemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = getInventoryDetailsAsyncRequestConfig(stockItemId = stockItemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -96,14 +96,14 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV2InventoryServiceInventoryStockItemIdDetailsGet
+     * To obtain the request config of the operation getInventoryDetailsAsync
      *
      * @param stockItemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2InventoryServiceInventoryStockItemIdDetailsGetRequestConfig(stockItemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getInventoryDetailsAsyncRequestConfig(stockItemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -119,7 +119,7 @@ class InventoryApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/InventoryService/Inventory/{stockItemId}/Details".replace("{"+"stockItemId"+"}", encodeURIComponent(stockItemId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

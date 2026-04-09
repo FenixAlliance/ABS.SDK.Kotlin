@@ -4,75 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2PricingServicePriceListsCountGet**](PriceListsApi.md#apiV2PricingServicePriceListsCountGet) | **GET** /api/v2/PricingService/PriceLists/Count |  |
-| [**apiV2PricingServicePriceListsGet**](PriceListsApi.md#apiV2PricingServicePriceListsGet) | **GET** /api/v2/PricingService/PriceLists |  |
-| [**apiV2PricingServicePriceListsPost**](PriceListsApi.md#apiV2PricingServicePriceListsPost) | **POST** /api/v2/PricingService/PriceLists |  |
-| [**apiV2PricingServicePriceListsPriceListIdDelete**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPost**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPost) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPut**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices |  |
+| [**createPriceListAsync**](PriceListsApi.md#createPriceListAsync) | **POST** /api/v2/PricingService/PriceLists | Creates a new price list |
+| [**createPriceListPricesAsync**](PriceListsApi.md#createPriceListPricesAsync) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry |
+| [**deletePriceListAsync**](PriceListsApi.md#deletePriceListAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list |
+| [**deletePriceListPriceAsync**](PriceListsApi.md#deletePriceListPriceAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Deletes a price list entry |
+| [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID |
+| [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID |
+| [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
+| [**getPriceListsAsync**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
+| [**getPriceListsCountAsync**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
+| [**updatePriceListAsync**](PriceListsApi.md#updatePriceListAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list |
+| [**updatePriceListPriceAsync**](PriceListsApi.md#updatePriceListPriceAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry |
 
 
-<a id="apiV2PricingServicePriceListsCountGet"></a>
-# **apiV2PricingServicePriceListsCountGet**
-> Int32Envelope apiV2PricingServicePriceListsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createPriceListAsync"></a>
+# **createPriceListAsync**
+> EmptyEnvelope createPriceListAsync(tenantId, priceListCreateDto)
 
+Creates a new price list
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = PriceListsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2PricingServicePriceListsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2PricingServicePriceListsGet"></a>
-# **apiV2PricingServicePriceListsGet**
-> PriceListDtoListEnvelope apiV2PricingServicePriceListsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new price list for the current tenant.
 
 ### Example
 ```kotlin
@@ -82,76 +33,21 @@ Configure Bearer:
 
 val apiInstance = PriceListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : PriceListDtoListEnvelope = apiInstance.apiV2PricingServicePriceListsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2PricingServicePriceListsPost"></a>
-# **apiV2PricingServicePriceListsPost**
-> EmptyEnvelope apiV2PricingServicePriceListsPost(tenantId, apiVersion, xApiVersion, priceListCreateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = PriceListsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val priceListCreateDto : PriceListCreateDto =  // PriceListCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPost(tenantId, apiVersion, xApiVersion, priceListCreateDto)
+    val result : EmptyEnvelope = apiInstance.createPriceListAsync(tenantId, priceListCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPost")
+    println("4xx response calling PriceListsApi#createPriceListAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPost")
+    println("5xx response calling PriceListsApi#createPriceListAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **priceListCreateDto** | [**PriceListCreateDto**](PriceListCreateDto.md)|  | [optional] |
@@ -162,74 +58,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2PricingServicePriceListsPriceListIdDelete"></a>
-# **apiV2PricingServicePriceListsPriceListIdDelete**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdDelete(priceListId, tenantId, apiVersion, xApiVersion)
+<a id="createPriceListPricesAsync"></a>
+# **createPriceListPricesAsync**
+> EmptyEnvelope createPriceListPricesAsync(priceListId, tenantId, itemPriceCreateDto)
 
+Creates a price list entry
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = PriceListsApi()
-val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdDelete(priceListId, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **priceListId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPost"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPost**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPost(priceListId, tenantId, apiVersion, xApiVersion, itemPriceCreateDto)
-
-
+Creates a new price entry in the specified price list.
 
 ### Example
 ```kotlin
@@ -240,17 +82,15 @@ Configure Bearer:
 val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val itemPriceCreateDto : ItemPriceCreateDto =  // ItemPriceCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPost(priceListId, tenantId, apiVersion, xApiVersion, itemPriceCreateDto)
+    val result : EmptyEnvelope = apiInstance.createPriceListPricesAsync(priceListId, tenantId, itemPriceCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPost")
+    println("4xx response calling PriceListsApi#createPriceListPricesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPost")
+    println("5xx response calling PriceListsApi#createPriceListPricesAsync")
     e.printStackTrace()
 }
 ```
@@ -258,8 +98,6 @@ try {
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **itemPriceCreateDto** | [**ItemPriceCreateDto**](ItemPriceCreateDto.md)|  | [optional] |
@@ -270,21 +108,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(priceListId, priceId, tenantId, apiVersion, xApiVersion)
+<a id="deletePriceListAsync"></a>
+# **deletePriceListAsync**
+> EmptyEnvelope deletePriceListAsync(priceListId, tenantId)
 
+Deletes a price list
 
+Deletes the specified price list.
 
 ### Example
 ```kotlin
@@ -294,30 +131,24 @@ Configure Bearer:
 
 val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(priceListId, priceId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deletePriceListAsync(priceListId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete")
+    println("4xx response calling PriceListsApi#deletePriceListAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete")
+    println("5xx response calling PriceListsApi#deletePriceListAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
-| **priceId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -325,21 +156,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(priceListId, priceId, tenantId, apiVersion, xApiVersion, itemPriceUpdateDto)
+<a id="deletePriceListPriceAsync"></a>
+# **deletePriceListPriceAsync**
+> EmptyEnvelope deletePriceListPriceAsync(priceListId, priceId, tenantId)
 
+Deletes a price list entry
 
+Deletes the specified price entry from a price list.
 
 ### Example
 ```kotlin
@@ -351,17 +181,14 @@ val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val itemPriceUpdateDto : ItemPriceUpdateDto =  // ItemPriceUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(priceListId, priceId, tenantId, apiVersion, xApiVersion, itemPriceUpdateDto)
+    val result : EmptyEnvelope = apiInstance.deletePriceListPriceAsync(priceListId, priceId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut")
+    println("4xx response calling PriceListsApi#deletePriceListPriceAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut")
+    println("5xx response calling PriceListsApi#deletePriceListPriceAsync")
     e.printStackTrace()
 }
 ```
@@ -369,12 +196,9 @@ try {
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
 | **priceId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -382,76 +206,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2PricingServicePriceListsPriceListIdPut"></a>
-# **apiV2PricingServicePriceListsPriceListIdPut**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPut(priceListId, tenantId, apiVersion, xApiVersion, priceListUpdateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = PriceListsApi()
-val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val priceListUpdateDto : PriceListUpdateDto =  // PriceListUpdateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2PricingServicePriceListsPriceListIdPut(priceListId, tenantId, apiVersion, xApiVersion, priceListUpdateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPut")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPut")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **priceListId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="getPriceListAsync"></a>
 # **getPriceListAsync**
-> PriceListDtoEnvelope getPriceListAsync(priceListId, tenantId, apiVersion, xApiVersion)
+> PriceListDtoEnvelope getPriceListAsync(priceListId, tenantId)
 
+Gets a price list by ID
 
+Retrieves the details of a price list using its unique identifier.
 
 ### Example
 ```kotlin
@@ -462,10 +230,8 @@ Configure Bearer:
 val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : PriceListDtoEnvelope = apiInstance.getPriceListAsync(priceListId, tenantId, apiVersion, xApiVersion)
+    val result : PriceListDtoEnvelope = apiInstance.getPriceListAsync(priceListId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListAsync")
@@ -478,11 +244,9 @@ try {
 
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -490,10 +254,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -502,9 +263,11 @@ Configure Bearer:
 
 <a id="getPriceListPriceAsync"></a>
 # **getPriceListPriceAsync**
-> ItemPriceDtoEnvelope getPriceListPriceAsync(priceListId, priceId, tenantId, apiVersion, xApiVersion)
+> ItemPriceDtoEnvelope getPriceListPriceAsync(priceListId, priceId, tenantId)
 
+Gets a price list entry by ID
 
+Retrieves a specific price entry from a price list.
 
 ### Example
 ```kotlin
@@ -516,10 +279,8 @@ val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemPriceDtoEnvelope = apiInstance.getPriceListPriceAsync(priceListId, priceId, tenantId, apiVersion, xApiVersion)
+    val result : ItemPriceDtoEnvelope = apiInstance.getPriceListPriceAsync(priceListId, priceId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListPriceAsync")
@@ -533,11 +294,9 @@ try {
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
 | **priceId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -545,10 +304,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -557,9 +313,11 @@ Configure Bearer:
 
 <a id="getPriceListPricesAsync"></a>
 # **getPriceListPricesAsync**
-> ItemPriceDtoListEnvelope getPriceListPricesAsync(priceListId, tenantId, itemId, apiVersion, xApiVersion)
+> ItemPriceDtoListEnvelope getPriceListPricesAsync(priceListId, tenantId, itemId)
 
+Retrieves prices in a price list
 
+Gets all price entries for a specific price list with OData support.
 
 ### Example
 ```kotlin
@@ -571,10 +329,8 @@ val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId, apiVersion, xApiVersion)
+    val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListPricesAsync")
@@ -588,11 +344,9 @@ try {
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **itemId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemId** | **java.util.UUID**|  | [optional] |
 
 ### Return type
 
@@ -600,13 +354,204 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getPriceListsAsync"></a>
+# **getPriceListsAsync**
+> PriceListDtoListEnvelope getPriceListsAsync(tenantId)
+
+Retrieves all price lists
+
+Gets all price lists for the current tenant with OData support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : PriceListDtoListEnvelope = apiInstance.getPriceListsAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#getPriceListsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#getPriceListsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getPriceListsCountAsync"></a>
+# **getPriceListsCountAsync**
+> Int32Envelope getPriceListsCountAsync(tenantId)
+
+Counts price lists
+
+Gets the count of price lists for the current tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getPriceListsCountAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#getPriceListsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#getPriceListsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updatePriceListAsync"></a>
+# **updatePriceListAsync**
+> EmptyEnvelope updatePriceListAsync(priceListId, tenantId, priceListUpdateDto)
+
+Updates a price list
+
+Updates the specified price list.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val priceListUpdateDto : PriceListUpdateDto =  // PriceListUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updatePriceListAsync(priceListId, tenantId, priceListUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#updatePriceListAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#updatePriceListAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **priceListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updatePriceListPriceAsync"></a>
+# **updatePriceListPriceAsync**
+> EmptyEnvelope updatePriceListPriceAsync(priceListId, priceId, tenantId, itemPriceUpdateDto)
+
+Updates a price list entry
+
+Updates the specified price entry in a price list.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val itemPriceUpdateDto : ItemPriceUpdateDto =  // ItemPriceUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updatePriceListPriceAsync(priceListId, priceId, tenantId, itemPriceUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#updatePriceListPriceAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#updatePriceListPriceAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **priceListId** | **java.util.UUID**|  | |
+| **priceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

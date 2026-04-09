@@ -13,7 +13,6 @@
 | **responsibleContactId** | **kotlin.String** |  |  [optional] |
 | **creatorContactId** | **kotlin.String** |  |  [optional] |
 | **recordType** | [**inline**](#RecordType) |  |  [optional] |
-| **timeStamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **timeSpan** | **kotlin.String** |  |  [optional] |
 | **logDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **comments** | **kotlin.String** |  |  [optional] |
@@ -24,7 +23,7 @@
 ## Enum: recordType
 | Name | Value |
 | ---- | ----- |
-| recordType | 0, 1, 2 |
+| recordType | RegularHours, OvertimeToPay, OvertimeToCompensate |
 
 
 

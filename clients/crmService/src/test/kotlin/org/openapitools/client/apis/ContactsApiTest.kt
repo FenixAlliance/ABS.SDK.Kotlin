@@ -26,6 +26,7 @@ import org.openapitools.client.models.ContactDtoEnvelope
 import org.openapitools.client.models.ContactDtoListEnvelope
 import org.openapitools.client.models.ContactProfileDtoListEnvelope
 import org.openapitools.client.models.ContactUpdateDto
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedContactDtoEnvelope
@@ -304,6 +305,26 @@ class ContactsApiTest : ShouldSpec() {
             //val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
             //val result : EmptyEnvelope = apiInstance.patchContactAsync(contactId, tenantId, apiVersion, xApiVersion, operation)
             //result shouldBe ("TODO")
+        }
+
+        // to test previewContactEmailTemplate
+        should("test previewContactEmailTemplate") {
+            // uncomment below to test previewContactEmailTemplate
+            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.previewContactEmailTemplate(contactId, apiVersion, xApiVersion, emailDispatchRequest)
+        }
+
+        // to test sendContactEmail
+        should("test sendContactEmail") {
+            // uncomment below to test sendContactEmail
+            //val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.sendContactEmail(contactId, apiVersion, xApiVersion, emailDispatchRequest)
         }
 
         // to test updateContactAsync

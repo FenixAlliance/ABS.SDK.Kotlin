@@ -20,8 +20,8 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ItemPriceCalculationEnvelope
 import org.openapitools.client.models.MoneyEnvelope
-import org.openapitools.client.models.PriceCalculationDtoEnvelope
 
 import com.squareup.moshi.Json
 
@@ -48,8 +48,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets the final price for an item
+     * Gets the final price for an item after all discounts and taxes in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -63,8 +63,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePricesItemIdFinalPriceGet(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = apiV2PricingServicePricesItemIdFinalPriceGetWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFinalPrice(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = getFinalPriceWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -82,8 +82,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets the final price for an item
+     * Gets the final price for an item after all discounts and taxes in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -94,8 +94,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePricesItemIdFinalPriceGetWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePricesItemIdFinalPriceGetRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFinalPriceWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getFinalPriceRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, MoneyEnvelope>(
             localVariableConfig
@@ -103,7 +103,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePricesItemIdFinalPriceGet
+     * To obtain the request config of the operation getFinalPrice
      *
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
@@ -111,7 +111,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePricesItemIdFinalPriceGetRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getFinalPriceRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -131,21 +131,22 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/PricingService/Prices/{itemId}/FinalPrice".replace("{"+"itemId"+"}", encodeURIComponent(itemId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets the calculated price for an item
+     * Calculates the price for an item considering price list, discount list, quantity, and currency.
      * @param itemId 
      * @param priceListId  (optional)
      * @param discountsListId  (optional)
+     * @param quantity  (optional, default to 1.0)
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return PriceCalculationDtoEnvelope
+     * @return ItemPriceCalculationEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -154,11 +155,11 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePricesItemIdPriceGet(itemId: java.util.UUID, priceListId: java.util.UUID? = null, discountsListId: java.util.UUID? = null, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PriceCalculationDtoEnvelope {
-        val localVarResponse = apiV2PricingServicePricesItemIdPriceGetWithHttpInfo(itemId = itemId, priceListId = priceListId, discountsListId = discountsListId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPrice(itemId: java.util.UUID, priceListId: java.util.UUID? = null, discountsListId: java.util.UUID? = null, quantity: kotlin.Double? = 1.0, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPriceCalculationEnvelope {
+        val localVarResponse = getPriceWithHttpInfo(itemId = itemId, priceListId = priceListId, discountsListId = discountsListId, quantity = quantity, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PriceCalculationDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPriceCalculationEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -173,40 +174,42 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets the calculated price for an item
+     * Calculates the price for an item considering price list, discount list, quantity, and currency.
      * @param itemId 
      * @param priceListId  (optional)
      * @param discountsListId  (optional)
+     * @param quantity  (optional, default to 1.0)
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<PriceCalculationDtoEnvelope?>
+     * @return ApiResponse<ItemPriceCalculationEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePricesItemIdPriceGetWithHttpInfo(itemId: java.util.UUID, priceListId: java.util.UUID?, discountsListId: java.util.UUID?, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PriceCalculationDtoEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePricesItemIdPriceGetRequestConfig(itemId = itemId, priceListId = priceListId, discountsListId = discountsListId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceWithHttpInfo(itemId: java.util.UUID, priceListId: java.util.UUID?, discountsListId: java.util.UUID?, quantity: kotlin.Double?, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPriceCalculationEnvelope?> {
+        val localVariableConfig = getPriceRequestConfig(itemId = itemId, priceListId = priceListId, discountsListId = discountsListId, quantity = quantity, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, PriceCalculationDtoEnvelope>(
+        return request<Unit, ItemPriceCalculationEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePricesItemIdPriceGet
+     * To obtain the request config of the operation getPrice
      *
      * @param itemId 
      * @param priceListId  (optional)
      * @param discountsListId  (optional)
+     * @param quantity  (optional, default to 1.0)
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePricesItemIdPriceGetRequestConfig(itemId: java.util.UUID, priceListId: java.util.UUID?, discountsListId: java.util.UUID?, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getPriceRequestConfig(itemId: java.util.UUID, priceListId: java.util.UUID?, discountsListId: java.util.UUID?, quantity: kotlin.Double?, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -215,6 +218,9 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
                 }
                 if (discountsListId != null) {
                     put("discountsListId", listOf(discountsListId.toString()))
+                }
+                if (quantity != null) {
+                    put("quantity", listOf(quantity.toString()))
                 }
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
@@ -232,14 +238,14 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/PricingService/Prices/{itemId}/Price".replace("{"+"itemId"+"}", encodeURIComponent(itemId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets total savings for an item
+     * Gets the total savings amount for an item in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -253,8 +259,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePricesItemIdTotalSavingsGet(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = apiV2PricingServicePricesItemIdTotalSavingsGetWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTotalSavingsInUsd(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = getTotalSavingsInUsdWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -272,8 +278,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets total savings for an item
+     * Gets the total savings amount for an item in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -284,8 +290,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePricesItemIdTotalSavingsGetWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePricesItemIdTotalSavingsGetRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTotalSavingsInUsdWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getTotalSavingsInUsdRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, MoneyEnvelope>(
             localVariableConfig
@@ -293,7 +299,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePricesItemIdTotalSavingsGet
+     * To obtain the request config of the operation getTotalSavingsInUsd
      *
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
@@ -301,7 +307,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePricesItemIdTotalSavingsGetRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getTotalSavingsInUsdRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -321,14 +327,14 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/PricingService/Prices/{itemId}/TotalSavings".replace("{"+"itemId"+"}", encodeURIComponent(itemId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets total taxes for an item
+     * Gets the total tax amount for an item in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -342,8 +348,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePricesItemIdTotalTaxesGet(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = apiV2PricingServicePricesItemIdTotalTaxesGetWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTotalTaxesInUsd(itemId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = getTotalTaxesInUsdWithHttpInfo(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -361,8 +367,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets total taxes for an item
+     * Gets the total tax amount for an item in the specified currency.
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
@@ -373,8 +379,8 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePricesItemIdTotalTaxesGetWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePricesItemIdTotalTaxesGetRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTotalTaxesInUsdWithHttpInfo(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getTotalTaxesInUsdRequestConfig(itemId = itemId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, MoneyEnvelope>(
             localVariableConfig
@@ -382,7 +388,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePricesItemIdTotalTaxesGet
+     * To obtain the request config of the operation getTotalTaxesInUsd
      *
      * @param itemId 
      * @param currencyId  (optional, default to "USD.USA")
@@ -390,7 +396,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePricesItemIdTotalTaxesGetRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getTotalTaxesInUsdRequestConfig(itemId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -410,7 +416,7 @@ class PricesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/PricingService/Prices/{itemId}/TotalTaxes".replace("{"+"itemId"+"}", encodeURIComponent(itemId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

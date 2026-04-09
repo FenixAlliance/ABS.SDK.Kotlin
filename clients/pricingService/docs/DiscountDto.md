@@ -11,7 +11,7 @@
 | **percent** | **kotlin.Double** |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **discountListId** | **kotlin.String** |  |  [optional] |
 | **endQuantity** | **kotlin.Double** |  |  [optional] |
 | **beginQuantity** | **kotlin.Double** |  |  [optional] |

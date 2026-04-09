@@ -25,20 +25,20 @@ class AntiforgeryApiTest : ShouldSpec() {
         // uncomment below to create an instance of AntiforgeryApi
         //val apiInstance = AntiforgeryApi()
 
-        // to test apiV2SystemServiceAntiforgeryGetAndStoreTokensGet
-        should("test apiV2SystemServiceAntiforgeryGetAndStoreTokensGet") {
-            // uncomment below to test apiV2SystemServiceAntiforgeryGetAndStoreTokensGet
+        // to test getAndStoreTokens
+        should("test getAndStoreTokens") {
+            // uncomment below to test getAndStoreTokens
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion, xApiVersion)
+            //apiInstance.getAndStoreTokens(apiVersion, xApiVersion)
         }
 
-        // to test apiV2SystemServiceAntiforgeryIsRequestValidGet
-        should("test apiV2SystemServiceAntiforgeryIsRequestValidGet") {
-            // uncomment below to test apiV2SystemServiceAntiforgeryIsRequestValidGet
+        // to test isRequestValidAsync
+        should("test isRequestValidAsync") {
+            // uncomment below to test isRequestValidAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion, xApiVersion)
+            //apiInstance.isRequestValidAsync(apiVersion, xApiVersion)
         }
 
     }

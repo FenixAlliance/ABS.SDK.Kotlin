@@ -4,71 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SystemServiceUsersCountGet**](UsersApi.md#apiV2SystemServiceUsersCountGet) | **GET** /api/v2/SystemService/Users/Count |  |
-| [**apiV2SystemServiceUsersExtendedCountGet**](UsersApi.md#apiV2SystemServiceUsersExtendedCountGet) | **GET** /api/v2/SystemService/Users/Extended/Count |  |
-| [**apiV2SystemServiceUsersExtendedGet**](UsersApi.md#apiV2SystemServiceUsersExtendedGet) | **GET** /api/v2/SystemService/Users/Extended |  |
-| [**apiV2SystemServiceUsersGet**](UsersApi.md#apiV2SystemServiceUsersGet) | **GET** /api/v2/SystemService/Users |  |
-| [**apiV2SystemServiceUsersPost**](UsersApi.md#apiV2SystemServiceUsersPost) | **POST** /api/v2/SystemService/Users |  |
-| [**apiV2SystemServiceUsersUserIdDelete**](UsersApi.md#apiV2SystemServiceUsersUserIdDelete) | **DELETE** /api/v2/SystemService/Users/{userId} |  |
-| [**apiV2SystemServiceUsersUserIdExtendedGet**](UsersApi.md#apiV2SystemServiceUsersUserIdExtendedGet) | **GET** /api/v2/SystemService/Users/{userId}/Extended |  |
-| [**apiV2SystemServiceUsersUserIdPut**](UsersApi.md#apiV2SystemServiceUsersUserIdPut) | **PUT** /api/v2/SystemService/Users/{userId} |  |
-| [**getUserAsync**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} |  |
+| [**adminPreviewUserEmailTemplate**](UsersApi.md#adminPreviewUserEmailTemplate) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Preview | Preview the rendered email for a user. |
+| [**adminSendUserEmail**](UsersApi.md#adminSendUserEmail) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Send | Send an email to a user. |
+| [**createAccountHolderAsync**](UsersApi.md#createAccountHolderAsync) | **POST** /api/v2/SystemService/Users | Create a new user |
+| [**deleteAccountHolderAsync**](UsersApi.md#deleteAccountHolderAsync) | **DELETE** /api/v2/SystemService/Users/{userId} | Delete a user |
+| [**getExtendedAccountHolderAsync**](UsersApi.md#getExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
+| [**getExtendedUsersAsync**](UsersApi.md#getExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
+| [**getExtendedUsersCountAsync**](UsersApi.md#getExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| [**getUserAsync**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
+| [**getUsersAsync**](UsersApi.md#getUsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
+| [**getUsersCountAsync**](UsersApi.md#getUsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
+| [**updateAccountHolderAsync**](UsersApi.md#updateAccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
-<a id="apiV2SystemServiceUsersCountGet"></a>
-# **apiV2SystemServiceUsersCountGet**
-> Int32Envelope apiV2SystemServiceUsersCountGet(apiVersion, xApiVersion)
+<a id="adminPreviewUserEmailTemplate"></a>
+# **adminPreviewUserEmailTemplate**
+> adminPreviewUserEmailTemplate(userId, apiVersion, xApiVersion, emailDispatchRequest)
 
+Preview the rendered email for a user.
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = UsersApi()
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2SystemServiceUsersCountGet(apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SystemServiceUsersExtendedCountGet"></a>
-# **apiV2SystemServiceUsersExtendedCountGet**
-> Int32Envelope apiV2SystemServiceUsersExtendedCountGet(apiVersion, xApiVersion)
-
-
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
 
 ### Example
 ```kotlin
@@ -77,196 +32,49 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = UsersApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
 try {
-    val result : Int32Envelope = apiInstance.apiV2SystemServiceUsersExtendedCountGet(apiVersion, xApiVersion)
-    println(result)
+    apiInstance.adminPreviewUserEmailTemplate(userId, apiVersion, xApiVersion, emailDispatchRequest)
 } catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersExtendedCountGet")
+    println("4xx response calling UsersApi#adminPreviewUserEmailTemplate")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersExtendedCountGet")
+    println("5xx response calling UsersApi#adminPreviewUserEmailTemplate")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SystemServiceUsersExtendedGet"></a>
-# **apiV2SystemServiceUsersExtendedGet**
-> ExtendedUserDtoListEnvelope apiV2SystemServiceUsersExtendedGet(apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = UsersApi()
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : ExtendedUserDtoListEnvelope = apiInstance.apiV2SystemServiceUsersExtendedGet(apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersExtendedGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersExtendedGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**ExtendedUserDtoListEnvelope**](ExtendedUserDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SystemServiceUsersGet"></a>
-# **apiV2SystemServiceUsersGet**
-> UserDtoListEnvelope apiV2SystemServiceUsersGet(apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = UsersApi()
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : UserDtoListEnvelope = apiInstance.apiV2SystemServiceUsersGet(apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**UserDtoListEnvelope**](UserDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SystemServiceUsersPost"></a>
-# **apiV2SystemServiceUsersPost**
-> EmptyEnvelope apiV2SystemServiceUsersPost(apiVersion, xApiVersion, accountHolderCreateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = UsersApi()
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val accountHolderCreateDto : AccountHolderCreateDto =  // AccountHolderCreateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersPost(apiVersion, xApiVersion, accountHolderCreateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
+| **userId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountHolderCreateDto** | [**AccountHolderCreateDto**](AccountHolderCreateDto.md)|  | [optional] |
+| **emailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] |
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+null (empty response body)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2SystemServiceUsersUserIdDelete"></a>
-# **apiV2SystemServiceUsersUserIdDelete**
-> EmptyEnvelope apiV2SystemServiceUsersUserIdDelete(userId, apiVersion, xApiVersion)
+<a id="adminSendUserEmail"></a>
+# **adminSendUserEmail**
+> EmptyEnvelope adminSendUserEmail(userId, apiVersion, xApiVersion, emailDispatchRequest)
 
+Send an email to a user.
 
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
 
 ### Example
 ```kotlin
@@ -275,23 +83,125 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = UsersApi()
-val userId : kotlin.String = userId_example // kotlin.String | 
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersUserIdDelete(userId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.adminSendUserEmail(userId, apiVersion, xApiVersion, emailDispatchRequest)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersUserIdDelete")
+    println("4xx response calling UsersApi#adminSendUserEmail")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersUserIdDelete")
+    println("5xx response calling UsersApi#adminSendUserEmail")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **userId** | **kotlin.String**|  | |
+| **userId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **emailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="createAccountHolderAsync"></a>
+# **createAccountHolderAsync**
+> EmptyEnvelope createAccountHolderAsync(apiVersion, xApiVersion, userCreateDto)
+
+Create a new user
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val userCreateDto : UserCreateDto =  // UserCreateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.createAccountHolderAsync(apiVersion, xApiVersion, userCreateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#createAccountHolderAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#createAccountHolderAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **userCreateDto** | [**UserCreateDto**](UserCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="deleteAccountHolderAsync"></a>
+# **deleteAccountHolderAsync**
+> EmptyEnvelope deleteAccountHolderAsync(userId, apiVersion, xApiVersion)
+
+Delete a user
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteAccountHolderAsync(userId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#deleteAccountHolderAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#deleteAccountHolderAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -303,21 +213,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SystemServiceUsersUserIdExtendedGet"></a>
-# **apiV2SystemServiceUsersUserIdExtendedGet**
-> ExtendedUserDtoEnvelope apiV2SystemServiceUsersUserIdExtendedGet(userId, apiVersion, xApiVersion)
+<a id="getExtendedAccountHolderAsync"></a>
+# **getExtendedAccountHolderAsync**
+> ExtendedUserDtoEnvelope getExtendedAccountHolderAsync(userId, apiVersion, xApiVersion)
 
+Retrieve an extended user by ID
 
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
 
 ### Example
 ```kotlin
@@ -330,13 +239,13 @@ val userId : kotlin.String = userId_example // kotlin.String |
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ExtendedUserDtoEnvelope = apiInstance.apiV2SystemServiceUsersUserIdExtendedGet(userId, apiVersion, xApiVersion)
+    val result : ExtendedUserDtoEnvelope = apiInstance.getExtendedAccountHolderAsync(userId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersUserIdExtendedGet")
+    println("4xx response calling UsersApi#getExtendedAccountHolderAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersUserIdExtendedGet")
+    println("5xx response calling UsersApi#getExtendedAccountHolderAsync")
     e.printStackTrace()
 }
 ```
@@ -354,21 +263,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SystemServiceUsersUserIdPut"></a>
-# **apiV2SystemServiceUsersUserIdPut**
-> EmptyEnvelope apiV2SystemServiceUsersUserIdPut(userId, apiVersion, xApiVersion, body)
+<a id="getExtendedUsersAsync"></a>
+# **getExtendedUsersAsync**
+> ExtendedUserDtoListEnvelope getExtendedUsersAsync(apiVersion, xApiVersion)
 
+Retrieve a list of extended users
 
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
 
 ### Example
 ```kotlin
@@ -377,51 +285,94 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = UsersApi()
-val userId : kotlin.String = userId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val body : kotlin.Any = Object // kotlin.Any | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SystemServiceUsersUserIdPut(userId, apiVersion, xApiVersion, body)
+    val result : ExtendedUserDtoListEnvelope = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling UsersApi#apiV2SystemServiceUsersUserIdPut")
+    println("4xx response calling UsersApi#getExtendedUsersAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling UsersApi#apiV2SystemServiceUsersUserIdPut")
+    println("5xx response calling UsersApi#getExtendedUsersAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **userId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **kotlin.Any**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**ExtendedUserDtoListEnvelope**](ExtendedUserDtoListEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getExtendedUsersCountAsync"></a>
+# **getExtendedUsersCountAsync**
+> Int32Envelope getExtendedUsersCountAsync(apiVersion, xApiVersion)
+
+Get the count of extended users
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#getExtendedUsersCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#getExtendedUsersCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="getUserAsync"></a>
 # **getUserAsync**
 > UserDtoEnvelope getUserAsync(userId, apiVersion, xApiVersion)
 
+Retrieve a user by ID
 
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
 
 ### Example
 ```kotlin
@@ -458,13 +409,158 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getUsersAsync"></a>
+# **getUsersAsync**
+> UserDtoListEnvelope getUsersAsync(apiVersion, xApiVersion)
+
+Retrieve a list of users
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : UserDtoListEnvelope = apiInstance.getUsersAsync(apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#getUsersAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#getUsersAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**UserDtoListEnvelope**](UserDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getUsersCountAsync"></a>
+# **getUsersCountAsync**
+> Int32Envelope getUsersCountAsync(apiVersion, xApiVersion)
+
+Get the count of users
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getUsersCountAsync(apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#getUsersCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#getUsersCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateAccountHolderAsync"></a>
+# **updateAccountHolderAsync**
+> EmptyEnvelope updateAccountHolderAsync(userId, apiVersion, xApiVersion, userUpdateDto)
+
+Update a user
+
+This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val userUpdateDto : UserUpdateDto =  // UserUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateAccountHolderAsync(userId, apiVersion, xApiVersion, userUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#updateAccountHolderAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#updateAccountHolderAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **userUpdateDto** | [**UserUpdateDto**](UserUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

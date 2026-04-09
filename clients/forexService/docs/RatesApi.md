@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ForexServiceRatesHistoryCurrencyIdGet**](RatesApi.md#apiV2ForexServiceRatesHistoryCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/History/{currencyId} |  |
-| [**apiV2ForexServiceRatesHistoryGet**](RatesApi.md#apiV2ForexServiceRatesHistoryGet) | **GET** /api/v2/ForexService/Rates/History |  |
-| [**apiV2ForexServiceRatesLatestCurrencyIdGet**](RatesApi.md#apiV2ForexServiceRatesLatestCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} |  |
-| [**apiV2ForexServiceRatesLatestGet**](RatesApi.md#apiV2ForexServiceRatesLatestGet) | **GET** /api/v2/ForexService/Rates/Latest |  |
+| [**getHistoricalCurrencyRateAsync**](RatesApi.md#getHistoricalCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | Get historical rate for a currency |
+| [**getHistoricalCurrencyRatesAsync**](RatesApi.md#getHistoricalCurrencyRatesAsync) | **GET** /api/v2/ForexService/Rates/History | Get historical currency rates |
+| [**getLatestCurrencyRateAsync**](RatesApi.md#getLatestCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | Get latest rate for a currency |
+| [**getLatestCurrencyRatesModelAsync**](RatesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ForexService/Rates/Latest | Get latest currency rates |
 
 
-<a id="apiV2ForexServiceRatesHistoryCurrencyIdGet"></a>
-# **apiV2ForexServiceRatesHistoryCurrencyIdGet**
-> ExchangeRateEnvelope apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId, date, apiVersion, xApiVersion)
+<a id="getHistoricalCurrencyRateAsync"></a>
+# **getHistoricalCurrencyRateAsync**
+> ExchangeRateEnvelope getHistoricalCurrencyRateAsync(currencyId, date, apiVersion, xApiVersion)
 
+Get historical rate for a currency
 
+Retrieves the exchange rate for a specific currency as of a specific historical date.
 
 ### Example
 ```kotlin
@@ -28,13 +30,13 @@ val date : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.Off
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ExchangeRateEnvelope = apiInstance.apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId, date, apiVersion, xApiVersion)
+    val result : ExchangeRateEnvelope = apiInstance.getHistoricalCurrencyRateAsync(currencyId, date, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RatesApi#apiV2ForexServiceRatesHistoryCurrencyIdGet")
+    println("4xx response calling RatesApi#getHistoricalCurrencyRateAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RatesApi#apiV2ForexServiceRatesHistoryCurrencyIdGet")
+    println("5xx response calling RatesApi#getHistoricalCurrencyRateAsync")
     e.printStackTrace()
 }
 ```
@@ -53,21 +55,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ForexServiceRatesHistoryGet"></a>
-# **apiV2ForexServiceRatesHistoryGet**
-> ForexRatesDtoEnvelope apiV2ForexServiceRatesHistoryGet(date, apiVersion, xApiVersion)
+<a id="getHistoricalCurrencyRatesAsync"></a>
+# **getHistoricalCurrencyRatesAsync**
+> ForexRatesDtoEnvelope getHistoricalCurrencyRatesAsync(date, apiVersion, xApiVersion)
 
+Get historical currency rates
 
+Retrieves exchange rates for all supported currencies as of a specific historical date.
 
 ### Example
 ```kotlin
@@ -80,13 +81,13 @@ val date : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.Off
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ForexRatesDtoEnvelope = apiInstance.apiV2ForexServiceRatesHistoryGet(date, apiVersion, xApiVersion)
+    val result : ForexRatesDtoEnvelope = apiInstance.getHistoricalCurrencyRatesAsync(date, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RatesApi#apiV2ForexServiceRatesHistoryGet")
+    println("4xx response calling RatesApi#getHistoricalCurrencyRatesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RatesApi#apiV2ForexServiceRatesHistoryGet")
+    println("5xx response calling RatesApi#getHistoricalCurrencyRatesAsync")
     e.printStackTrace()
 }
 ```
@@ -104,21 +105,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ForexServiceRatesLatestCurrencyIdGet"></a>
-# **apiV2ForexServiceRatesLatestCurrencyIdGet**
-> ExchangeRateEnvelope apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId, apiVersion, xApiVersion)
+<a id="getLatestCurrencyRateAsync"></a>
+# **getLatestCurrencyRateAsync**
+> ExchangeRateEnvelope getLatestCurrencyRateAsync(currencyId, apiVersion, xApiVersion)
 
+Get latest rate for a currency
 
+Retrieves the latest exchange rate for a specific currency by its identifier.
 
 ### Example
 ```kotlin
@@ -131,13 +131,13 @@ val currencyId : kotlin.String = currencyId_example // kotlin.String |
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ExchangeRateEnvelope = apiInstance.apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId, apiVersion, xApiVersion)
+    val result : ExchangeRateEnvelope = apiInstance.getLatestCurrencyRateAsync(currencyId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RatesApi#apiV2ForexServiceRatesLatestCurrencyIdGet")
+    println("4xx response calling RatesApi#getLatestCurrencyRateAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RatesApi#apiV2ForexServiceRatesLatestCurrencyIdGet")
+    println("5xx response calling RatesApi#getLatestCurrencyRateAsync")
     e.printStackTrace()
 }
 ```
@@ -155,21 +155,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ForexServiceRatesLatestGet"></a>
-# **apiV2ForexServiceRatesLatestGet**
-> ForexRatesDtoEnvelope apiV2ForexServiceRatesLatestGet(apiVersion, xApiVersion)
+<a id="getLatestCurrencyRatesModelAsync"></a>
+# **getLatestCurrencyRatesModelAsync**
+> ForexRatesDtoEnvelope getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
 
+Get latest currency rates
 
+Retrieves the latest exchange rates for all supported currencies.
 
 ### Example
 ```kotlin
@@ -181,13 +180,13 @@ val apiInstance = RatesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ForexRatesDtoEnvelope = apiInstance.apiV2ForexServiceRatesLatestGet(apiVersion, xApiVersion)
+    val result : ForexRatesDtoEnvelope = apiInstance.getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling RatesApi#apiV2ForexServiceRatesLatestGet")
+    println("4xx response calling RatesApi#getLatestCurrencyRatesModelAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling RatesApi#apiV2ForexServiceRatesLatestGet")
+    println("5xx response calling RatesApi#getLatestCurrencyRatesModelAsync")
     e.printStackTrace()
 }
 ```
@@ -204,10 +203,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

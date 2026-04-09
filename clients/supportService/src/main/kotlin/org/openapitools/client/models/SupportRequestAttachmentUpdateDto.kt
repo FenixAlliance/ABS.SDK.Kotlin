@@ -33,7 +33,6 @@ import com.squareup.moshi.JsonClass
  * @param validResponse 
  * @param parentFileUploadID 
  * @param filePath 
- * @param file 
  * @param contentType 
  * @param fileLength 
  */
@@ -73,9 +72,6 @@ data class SupportRequestAttachmentUpdateDto (
 
     @Json(name = "filePath")
     val filePath: kotlin.String? = null,
-
-    @Json(name = "file")
-    val file: java.io.File? = null,
 
     @Json(name = "contentType")
     val contentType: kotlin.String? = null,

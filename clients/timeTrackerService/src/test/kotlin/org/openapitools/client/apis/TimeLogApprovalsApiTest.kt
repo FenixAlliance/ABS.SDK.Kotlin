@@ -29,36 +29,36 @@ class TimeLogApprovalsApiTest : ShouldSpec() {
         // uncomment below to create an instance of TimeLogApprovalsApi
         //val apiInstance = TimeLogApprovalsApi()
 
-        // to test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut
-        should("test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut") {
-            // uncomment below to test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut
+        // to test requestProjectHoursApprovalAsync
+        should("test requestProjectHoursApprovalAsync") {
+            // uncomment below to test requestProjectHoursApprovalAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val projectHoursApprovalCreateDto : ProjectHoursApprovalCreateDto =  // ProjectHoursApprovalCreateDto | 
+            //apiInstance.requestProjectHoursApprovalAsync(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto)
+        }
+
+        // to test updateProjectHoursApprovalApproverAsync
+        should("test updateProjectHoursApprovalApproverAsync") {
+            // uncomment below to test updateProjectHoursApprovalApproverAsync
             //val approvalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectHoursApprovalApproverUpdateDto : ProjectHoursApprovalApproverUpdateDto =  // ProjectHoursApprovalApproverUpdateDto | 
-            //apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto)
+            //apiInstance.updateProjectHoursApprovalApproverAsync(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto)
         }
 
-        // to test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut
-        should("test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut") {
-            // uncomment below to test apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut
+        // to test updateProjectHoursApprovalStatusAsync
+        should("test updateProjectHoursApprovalStatusAsync") {
+            // uncomment below to test updateProjectHoursApprovalStatusAsync
             //val approvalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val projectHoursApprovalStatusUpdateDto : ProjectHoursApprovalStatusUpdateDto =  // ProjectHoursApprovalStatusUpdateDto | 
-            //apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto)
-        }
-
-        // to test apiV2TimeTrackerServiceTimeLogApprovalsPost
-        should("test apiV2TimeTrackerServiceTimeLogApprovalsPost") {
-            // uncomment below to test apiV2TimeTrackerServiceTimeLogApprovalsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val projectHoursApprovalCreateDto : ProjectHoursApprovalCreateDto =  // ProjectHoursApprovalCreateDto | 
-            //apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsPost(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto)
+            //apiInstance.updateProjectHoursApprovalStatusAsync(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto)
         }
 
     }

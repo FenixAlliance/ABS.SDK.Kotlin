@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceNewslettersCountGet**](NewslettersApi.md#apiV2MarketingServiceNewslettersCountGet) | **GET** /api/v2/MarketingService/Newsletters/Count |  |
-| [**apiV2MarketingServiceNewslettersGet**](NewslettersApi.md#apiV2MarketingServiceNewslettersGet) | **GET** /api/v2/MarketingService/Newsletters |  |
-| [**apiV2MarketingServiceNewslettersNewsletterIdDelete**](NewslettersApi.md#apiV2MarketingServiceNewslettersNewsletterIdDelete) | **DELETE** /api/v2/MarketingService/Newsletters/{newsletterId} |  |
-| [**apiV2MarketingServiceNewslettersNewsletterIdGet**](NewslettersApi.md#apiV2MarketingServiceNewslettersNewsletterIdGet) | **GET** /api/v2/MarketingService/Newsletters/{newsletterId} |  |
-| [**apiV2MarketingServiceNewslettersNewsletterIdPut**](NewslettersApi.md#apiV2MarketingServiceNewslettersNewsletterIdPut) | **PUT** /api/v2/MarketingService/Newsletters/{newsletterId} |  |
-| [**apiV2MarketingServiceNewslettersPost**](NewslettersApi.md#apiV2MarketingServiceNewslettersPost) | **POST** /api/v2/MarketingService/Newsletters |  |
+| [**createNewsletterAsync**](NewslettersApi.md#createNewsletterAsync) | **POST** /api/v2/MarketingService/Newsletters | Create a newsletter |
+| [**deleteNewsletterAsync**](NewslettersApi.md#deleteNewsletterAsync) | **DELETE** /api/v2/MarketingService/Newsletters/{newsletterId} | Delete a newsletter |
+| [**getNewsletterDetailsAsync**](NewslettersApi.md#getNewsletterDetailsAsync) | **GET** /api/v2/MarketingService/Newsletters/{newsletterId} | Get newsletter by ID |
+| [**getNewsletterODataAsync**](NewslettersApi.md#getNewsletterODataAsync) | **GET** /api/v2/MarketingService/Newsletters | Get newsletters |
+| [**getNewslettersCountAsync**](NewslettersApi.md#getNewslettersCountAsync) | **GET** /api/v2/MarketingService/Newsletters/Count | Get newsletters count |
+| [**updateNewsletterAsync**](NewslettersApi.md#updateNewsletterAsync) | **PUT** /api/v2/MarketingService/Newsletters/{newsletterId} | Update a newsletter |
 
 
-<a id="apiV2MarketingServiceNewslettersCountGet"></a>
-# **apiV2MarketingServiceNewslettersCountGet**
-> Int32Envelope apiV2MarketingServiceNewslettersCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createNewsletterAsync"></a>
+# **createNewsletterAsync**
+> EmptyEnvelope createNewsletterAsync(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
 
+Create a newsletter
 
+Creates a new newsletter for the specified tenant.
 
 ### Example
 ```kotlin
@@ -26,22 +28,24 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = NewslettersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val newsletterCreateDto : NewsletterCreateDto =  // NewsletterCreateDto | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.apiV2MarketingServiceNewslettersCountGet(tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createNewsletterAsync(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersCountGet")
+    println("4xx response calling NewslettersApi#createNewsletterAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersCountGet")
+    println("5xx response calling NewslettersApi#createNewsletterAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
+| **newsletterCreateDto** | [**NewsletterCreateDto**](NewsletterCreateDto.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -49,75 +53,24 @@ try {
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceNewslettersGet"></a>
-# **apiV2MarketingServiceNewslettersGet**
-> apiV2MarketingServiceNewslettersGet(tenantId, apiVersion, xApiVersion)
+<a id="deleteNewsletterAsync"></a>
+# **deleteNewsletterAsync**
+> EmptyEnvelope deleteNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion)
 
+Delete a newsletter
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = NewslettersApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    apiInstance.apiV2MarketingServiceNewslettersGet(tenantId, apiVersion, xApiVersion)
-} catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceNewslettersNewsletterIdDelete"></a>
-# **apiV2MarketingServiceNewslettersNewsletterIdDelete**
-> EmptyEnvelope apiV2MarketingServiceNewslettersNewsletterIdDelete(newsletterId, tenantId, apiVersion, xApiVersion)
-
-
+Deletes a newsletter by its ID.
 
 ### Example
 ```kotlin
@@ -131,13 +84,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdDelete(newsletterId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdDelete")
+    println("4xx response calling NewslettersApi#deleteNewsletterAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdDelete")
+    println("5xx response calling NewslettersApi#deleteNewsletterAsync")
     e.printStackTrace()
 }
 ```
@@ -156,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceNewslettersNewsletterIdGet"></a>
-# **apiV2MarketingServiceNewslettersNewsletterIdGet**
-> NewsletterDtoEnvelope apiV2MarketingServiceNewslettersNewsletterIdGet(newsletterId, tenantId, apiVersion, xApiVersion)
+<a id="getNewsletterDetailsAsync"></a>
+# **getNewsletterDetailsAsync**
+> NewsletterDtoEnvelope getNewsletterDetailsAsync(newsletterId, tenantId, apiVersion, xApiVersion)
 
+Get newsletter by ID
 
+Retrieves the details of a specific newsletter by its ID.
 
 ### Example
 ```kotlin
@@ -184,13 +136,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : NewsletterDtoEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdGet(newsletterId, tenantId, apiVersion, xApiVersion)
+    val result : NewsletterDtoEnvelope = apiInstance.getNewsletterDetailsAsync(newsletterId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdGet")
+    println("4xx response calling NewslettersApi#getNewsletterDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdGet")
+    println("5xx response calling NewslettersApi#getNewsletterDetailsAsync")
     e.printStackTrace()
 }
 ```
@@ -209,21 +161,119 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceNewslettersNewsletterIdPut"></a>
-# **apiV2MarketingServiceNewslettersNewsletterIdPut**
-> EmptyEnvelope apiV2MarketingServiceNewslettersNewsletterIdPut(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
+<a id="getNewsletterODataAsync"></a>
+# **getNewsletterODataAsync**
+> getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
 
+Get newsletters
 
+Retrieves a collection of newsletters for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = NewslettersApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
+} catch (e: ClientException) {
+    println("4xx response calling NewslettersApi#getNewsletterODataAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling NewslettersApi#getNewsletterODataAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getNewslettersCountAsync"></a>
+# **getNewslettersCountAsync**
+> Int32Envelope getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get newsletters count
+
+Returns the count of newsletters for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = NewslettersApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling NewslettersApi#getNewslettersCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling NewslettersApi#getNewslettersCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateNewsletterAsync"></a>
+# **updateNewsletterAsync**
+> EmptyEnvelope updateNewsletterAsync(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
+
+Update a newsletter
+
+Updates an existing newsletter by its ID.
 
 ### Example
 ```kotlin
@@ -238,13 +288,13 @@ val newsletterUpdateDto : NewsletterUpdateDto =  // NewsletterUpdateDto |
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdPut(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateNewsletterAsync(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdPut")
+    println("4xx response calling NewslettersApi#updateNewsletterAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersNewsletterIdPut")
+    println("5xx response calling NewslettersApi#updateNewsletterAsync")
     e.printStackTrace()
 }
 ```
@@ -264,63 +314,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceNewslettersPost"></a>
-# **apiV2MarketingServiceNewslettersPost**
-> EmptyEnvelope apiV2MarketingServiceNewslettersPost(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = NewslettersApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val newsletterCreateDto : NewsletterCreateDto =  // NewsletterCreateDto | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersPost(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling NewslettersApi#apiV2MarketingServiceNewslettersPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling NewslettersApi#apiV2MarketingServiceNewslettersPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **newsletterCreateDto** | [**NewsletterCreateDto**](NewsletterCreateDto.md)|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

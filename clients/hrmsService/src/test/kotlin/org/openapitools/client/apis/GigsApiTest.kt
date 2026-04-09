@@ -19,10 +19,12 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.GigsApi
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.GigCreateDto
 import org.openapitools.client.models.GigDtoEnvelope
 import org.openapitools.client.models.GigDtoListEnvelope
+import org.openapitools.client.models.GigUpdateDto
 import org.openapitools.client.models.Int32Envelope
 
 class GigsApiTest : ShouldSpec() {
@@ -37,7 +39,8 @@ class GigsApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val gigCreateDto : GigCreateDto =  // GigCreateDto | 
-            //apiInstance.createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
+            //result shouldBe ("TODO")
         }
 
         // to test deleteGigAsync
@@ -47,7 +50,8 @@ class GigsApiTest : ShouldSpec() {
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
         }
 
         // to test getGigByIdAsync
@@ -88,8 +92,9 @@ class GigsApiTest : ShouldSpec() {
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val body : kotlin.Any = Object // kotlin.Any | 
-            //apiInstance.updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, body)
+            //val gigUpdateDto : GigUpdateDto =  // GigUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, gigUpdateDto)
+            //result shouldBe ("TODO")
         }
 
     }

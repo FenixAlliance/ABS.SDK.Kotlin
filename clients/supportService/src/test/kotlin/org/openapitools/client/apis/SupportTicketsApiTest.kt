@@ -36,125 +36,129 @@ class SupportTicketsApiTest : ShouldSpec() {
         // uncomment below to create an instance of SupportTicketsApi
         //val apiInstance = SupportTicketsApi()
 
-        // to test apiV2SupportServiceSupportTicketsCountGet
-        should("test apiV2SupportServiceSupportTicketsCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsCountGet
+        // to test createSupportTicketAsync
+        should("test createSupportTicketAsync") {
+            // uncomment below to test createSupportTicketAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportTicketsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketsGet
-        should("test apiV2SupportServiceSupportTicketsGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketsPost
-        should("test apiV2SupportServiceSupportTicketsPost") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsPost
             //val supportTicketCreateDto : SupportTicketCreateDto =  // SupportTicketCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createSupportTicketAsync(tenantId, apiVersion, xApiVersion, supportTicketCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteSupportTicketAsync
+        should("test deleteSupportTicketAsync") {
+            // uncomment below to test deleteSupportTicketAsync
+            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsPost(supportTicketCreateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet
-            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketConversationDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet(supportTicketId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost
-            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val supportTicketConversationCreateDto : SupportTicketConversationCreateDto =  // SupportTicketConversationCreateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost(supportTicketId, supportTicketConversationCreateDto, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete
+        // to test deleteSupportTicketConversationAsync
+        should("test deleteSupportTicketConversationAsync") {
+            // uncomment below to test deleteSupportTicketConversationAsync
             //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet
+        // to test getSupportTicketAsync
+        should("test getSupportTicketAsync") {
+            // uncomment below to test getSupportTicketAsync
             //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketConversationDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet(supportTicketId, supportTicketConversationId, apiVersion, xApiVersion)
+            //val result : SupportTicketDtoEnvelope = apiInstance.getSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet
+        // to test getSupportTicketConversationAsync
+        should("test getSupportTicketConversationAsync") {
+            // uncomment below to test getSupportTicketConversationAsync
+            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val supportTicketId : kotlin.String = supportTicketId_example // kotlin.String | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportTicketConversationDtoEnvelope = apiInstance.getSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportTicketConversationMessagesAsync
+        should("test getSupportTicketConversationMessagesAsync") {
+            // uncomment below to test getSupportTicketConversationMessagesAsync
+            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val pageNumber : kotlin.Int = 56 // kotlin.Int | 
             //val pageSize : kotlin.Int = 56 // kotlin.Int | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : PrivateMessageDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet(supportTicketConversationId, supportTicketId, pageNumber, pageSize, apiVersion, xApiVersion)
+            //val result : PrivateMessageDtoListEnvelope = apiInstance.getSupportTicketConversationMessagesAsync(supportTicketId, supportTicketConversationId, tenantId, pageNumber, pageSize, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdDelete
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdDelete
+        // to test getSupportTicketConversationsAsync
+        should("test getSupportTicketConversationsAsync") {
+            // uncomment below to test getSupportTicketConversationsAsync
             //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdDelete(supportTicketId, tenantId, apiVersion, xApiVersion)
+            //val result : SupportTicketConversationDtoListEnvelope = apiInstance.getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdGet
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdGet
-            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+        // to test getSupportTicketsAsync
+        should("test getSupportTicketsAsync") {
+            // uncomment below to test getSupportTicketsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdGet(supportTicketId, apiVersion, xApiVersion)
+            //val result : SupportTicketDtoListEnvelope = apiInstance.getSupportTicketsAsync(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportTicketsSupportTicketIdPut
-        should("test apiV2SupportServiceSupportTicketsSupportTicketIdPut") {
-            // uncomment below to test apiV2SupportServiceSupportTicketsSupportTicketIdPut
+        // to test getSupportTicketsCountAsync
+        should("test getSupportTicketsCountAsync") {
+            // uncomment below to test getSupportTicketsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test relateSupportTicketToConversationAsync
+        should("test relateSupportTicketToConversationAsync") {
+            // uncomment below to test relateSupportTicketToConversationAsync
             //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val supportTicketConversationCreateDto : SupportTicketConversationCreateDto =  // SupportTicketConversationCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.relateSupportTicketToConversationAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketConversationCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSupportTicketAsync
+        should("test updateSupportTicketAsync") {
+            // uncomment below to test updateSupportTicketAsync
+            //val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val supportTicketUpdateDto : SupportTicketUpdateDto =  // SupportTicketUpdateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdPut(supportTicketId, supportTicketUpdateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketUpdateDto)
             //result shouldBe ("TODO")
         }
 

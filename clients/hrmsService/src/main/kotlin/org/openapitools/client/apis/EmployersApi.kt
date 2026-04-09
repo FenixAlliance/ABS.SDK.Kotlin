@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmployerProfileCreateDto
 import org.openapitools.client.models.EmployerProfileDtoEnvelope
 import org.openapitools.client.models.EmployerProfileDtoListEnvelope
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 
@@ -50,25 +51,26 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create an employer
+     * Creates a new employer for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param employerProfileCreateDto  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createEmployerAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, employerProfileCreateDto: EmployerProfileCreateDto? = null) : Unit {
+    fun createEmployerAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, employerProfileCreateDto: EmployerProfileCreateDto? = null) : EmptyEnvelope {
         val localVarResponse = createEmployerAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employerProfileCreateDto = employerProfileCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -83,21 +85,22 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create an employer
+     * Creates a new employer for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param employerProfileCreateDto  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createEmployerAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employerProfileCreateDto: EmployerProfileCreateDto?) : ApiResponse<Unit?> {
+    fun createEmployerAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employerProfileCreateDto: EmployerProfileCreateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = createEmployerAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employerProfileCreateDto = employerProfileCreateDto)
 
-        return request<EmployerProfileCreateDto, Unit>(
+        return request<EmployerProfileCreateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -130,31 +133,32 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete an employer
+     * Deletes an employer for the specified tenant.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteEmployerAsync(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+    fun deleteEmployerAsync(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
         val localVarResponse = deleteEmployerAsyncWithHttpInfo(employerId = employerId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -169,21 +173,22 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Delete an employer
+     * Deletes an employer for the specified tenant.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteEmployerAsyncWithHttpInfo(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+    fun deleteEmployerAsyncWithHttpInfo(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = deleteEmployerAsyncRequestConfig(employerId = employerId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, Unit>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -215,14 +220,14 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers/{employerId}".replace("{"+"employerId"+"}", encodeURIComponent(employerId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get employer by ID
+     * Retrieves a specific employer by its identifier.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -255,8 +260,8 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get employer by ID
+     * Retrieves a specific employer by its identifier.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -302,14 +307,14 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers/{employerId}".replace("{"+"employerId"+"}", encodeURIComponent(employerId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get employers
+     * Retrieves employers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -341,8 +346,8 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get employers
+     * Retrieves employers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -386,14 +391,14 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Count employers
+     * Counts employers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -425,8 +430,8 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Count employers
+     * Counts employers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -470,32 +475,33 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Update an employer
+     * Updates an existing employer for the specified tenant.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param body  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateEmployerAsync(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : Unit {
+    fun updateEmployerAsync(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : EmptyEnvelope {
         val localVarResponse = updateEmployerAsyncWithHttpInfo(employerId = employerId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -510,22 +516,23 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Update an employer
+     * Updates an existing employer for the specified tenant.
      * @param employerId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param body  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateEmployerAsyncWithHttpInfo(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<Unit?> {
+    fun updateEmployerAsyncWithHttpInfo(employerId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = updateEmployerAsyncRequestConfig(employerId = employerId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
-        return request<kotlin.Any, Unit>(
+        return request<kotlin.Any, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -559,7 +566,7 @@ class EmployersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employers/{employerId}".replace("{"+"employerId"+"}", encodeURIComponent(employerId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

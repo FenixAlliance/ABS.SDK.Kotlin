@@ -11,7 +11,6 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **userId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **priceListId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
@@ -29,41 +28,45 @@
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
 | **customerNotes** | **kotlin.String** |  |  [optional] |
+| **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
-| **total** | **kotlin.Double** |  |  [optional] |
-| **totalTaxes** | **kotlin.Double** |  |  [optional] |
-| **totalTaxBase** | **kotlin.Double** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **totalDetail** | **kotlin.Double** |  |  [optional] |
+| **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalProfit** | **kotlin.Double** |  |  [optional] |
+| **totalProfitCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalSurcharges** | **kotlin.Double** |  |  [optional] |
+| **totalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxBase** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxes** | **kotlin.Double** |  |  [optional] |
+| **totalTaxesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingCost** | **kotlin.Double** |  |  [optional] |
+| **totalShippingCostCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingTax** | **kotlin.Double** |  |  [optional] |
+| **totalShippingTaxCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalWithheldTax** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalGlobalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalGlobalSurcharges** | **kotlin.Double** |  |  [optional] |
-| **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalAmountInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **total** | **kotlin.Double** |  |  [optional] |
+| **totalCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalDetailInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalProfitInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalDetailAmountInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalGlobalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalGlobalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalWithholdingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxesInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingCostInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **currency** | [**Currency**](Currency.md) |  |  [optional] |
-| **totalInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxBaseAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalGlobalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalInUsd** | **kotlin.Double** |  |  [optional] |
 | **orderLinesCount** | **kotlin.Int** |  |  [optional] |
 | **quoteId** | **kotlin.String** |  |  [optional] |
 | **walletId** | **kotlin.String** |  |  [optional] |
@@ -91,28 +94,35 @@
 | **individual** | [**ContactDto**](ContactDto.md) |  |  [optional] |
 | **organization** | [**ContactDto**](ContactDto.md) |  |  [optional] |
 | **receiverTenant** | [**TenantDto**](TenantDto.md) |  |  [optional] |
-| **enrollment** | [**TenantEnrolmentDto**](TenantEnrolmentDto.md) |  |  [optional] |
+| **enrollment** | [**TenantEnrollmentDto**](TenantEnrollmentDto.md) |  |  [optional] |
+
+
+<a id="TaxCalculationMethod"></a>
+## Enum: taxCalculationMethod
+| Name | Value |
+| ---- | ----- |
+| taxCalculationMethod | Included, Excluded |
 
 
 <a id="CostCalculationMethod"></a>
 ## Enum: costCalculationMethod
 | Name | Value |
 | ---- | ----- |
-| costCalculationMethod | 0, 1 |
+| costCalculationMethod | Automatic, Custom |
 
 
 <a id="FreightTerms"></a>
 ## Enum: freightTerms
 | Name | Value |
 | ---- | ----- |
-| freightTerms | 0, 1 |
+| freightTerms | FOB, NoCharge |
 
 
 <a id="OrderStatus"></a>
 ## Enum: orderStatus
 | Name | Value |
 | ---- | ----- |
-| orderStatus | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 |
+| orderStatus | New, Processing, Accepted, Declined, Shipped, Delivered, OnHold, Failed, Fulfilled, Cancelled |
 
 
 

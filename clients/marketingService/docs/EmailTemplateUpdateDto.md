@@ -23,7 +23,7 @@
 | **facebookImage** | **kotlin.String** |  |  [optional] |
 | **facebookTitle** | **kotlin.String** |  |  [optional] |
 | **facebookDescription** | **kotlin.String** |  |  [optional] |
-| **featuredImageURL** | **kotlin.String** |  |  [optional] |
+| **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **content** | **kotlin.String** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **namespace** | **kotlin.String** |  |  [optional] |
@@ -31,6 +31,7 @@
 | **generatedCode** | **kotlin.String** |  |  [optional] |
 | **compilationPath** | **kotlin.String** |  |  [optional] |
 | **htmlContent** | **kotlin.String** |  |  [optional] |
+| **codeType** | [**inline**](#CodeType) |  |  [optional] |
 | **cSharpContent** | **kotlin.String** |  |  [optional] |
 | **razorContent** | **kotlin.String** |  |  [optional] |
 | **cssContent** | **kotlin.String** |  |  [optional] |
@@ -58,6 +59,13 @@
 | **isEssentialContent** | **kotlin.Boolean** |  |  [optional] |
 | **allowSearchEngineIndexing** | **kotlin.Boolean** |  |  [optional] |
 | **marketingCampaignId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="CodeType"></a>
+## Enum: codeType
+| Name | Value |
+| ---- | ----- |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
 
 
 

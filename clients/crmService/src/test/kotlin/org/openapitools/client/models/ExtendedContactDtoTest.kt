@@ -59,6 +59,18 @@ class ExtendedContactDtoTest : ShouldSpec() {
             //modelInstance.type shouldBe ("TODO")
         }
 
+        // to test the property `email`
+        should("test email") {
+            // uncomment below to test the property
+            //modelInstance.email shouldBe ("TODO")
+        }
+
+        // to test the property `phone`
+        should("test phone") {
+            // uncomment below to test the property
+            //modelInstance.phone shouldBe ("TODO")
+        }
+
         // to test the property `publicName`
         should("test publicName") {
             // uncomment below to test the property
@@ -201,12 +213,6 @@ class ExtendedContactDtoTest : ShouldSpec() {
         should("test taxId") {
             // uncomment below to test the property
             //modelInstance.taxId shouldBe ("TODO")
-        }
-
-        // to test the property `email`
-        should("test email") {
-            // uncomment below to test the property
-            //modelInstance.email shouldBe ("TODO")
         }
 
         // to test the property `about`

@@ -28,6 +28,7 @@ import org.openapitools.client.models.CountryStateDtoListEnvelope
 import org.openapitools.client.models.CountryTopLevelDomainDtoListEnvelope
 import org.openapitools.client.models.CurrencyDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.TimezoneDtoListEnvelope
 
 class CountriesApiTest : ShouldSpec() {
@@ -35,104 +36,113 @@ class CountriesApiTest : ShouldSpec() {
         // uncomment below to create an instance of CountriesApi
         //val apiInstance = CountriesApi()
 
-        // to test apiV2GlobeServiceCountriesCountryIdCallingCodesGet
-        should("test apiV2GlobeServiceCountriesCountryIdCallingCodesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdCallingCodesGet
-            //val countryId : kotlin.String = countryId_example // kotlin.String | 
+        // to test countCountries
+        should("test countCountries") {
+            // uncomment below to test countCountries
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryCallingCodeDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdCallingCodesGet(countryId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countCountries(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdCurrenciesGet
-        should("test apiV2GlobeServiceCountriesCountryIdCurrenciesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdCurrenciesGet
-            //val countryId : kotlin.String = countryId_example // kotlin.String | 
+        // to test getAllCountries
+        should("test getAllCountries") {
+            // uncomment below to test getAllCountries
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CurrencyDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdCurrenciesGet(countryId, apiVersion, xApiVersion)
+            //val result : CountryDtoListEnvelope = apiInstance.getAllCountries(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdGet
-        should("test apiV2GlobeServiceCountriesCountryIdGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdGet
+        // to test getCallingCodesByCountryIdAsync
+        should("test getCallingCodesByCountryIdAsync") {
+            // uncomment below to test getCallingCodesByCountryIdAsync
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryDtoEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdGet(countryId, apiVersion, xApiVersion)
+            //val result : CountryCallingCodeDtoListEnvelope = apiInstance.getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet
-        should("test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet
+        // to test getCitiesByCountryStateIdAsync
+        should("test getCitiesByCountryStateIdAsync") {
+            // uncomment below to test getCitiesByCountryStateIdAsync
             //val countryStateId : kotlin.String = countryStateId_example // kotlin.String | 
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CityDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet(countryStateId, countryId, apiVersion, xApiVersion)
+            //val result : CityDtoListEnvelope = apiInstance.getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet
-        should("test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet
+        // to test getCountryById
+        should("test getCountryById") {
+            // uncomment below to test getCountryById
+            //val countryId : kotlin.String = countryId_example // kotlin.String | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : CountryDtoEnvelope = apiInstance.getCountryById(countryId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getCountryStateByIdAsync
+        should("test getCountryStateByIdAsync") {
+            // uncomment below to test getCountryStateByIdAsync
             //val countryStateId : kotlin.String = countryStateId_example // kotlin.String | 
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryStateDtoEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet(countryStateId, countryId, apiVersion, xApiVersion)
+            //val result : CountryStateDtoEnvelope = apiInstance.getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdStatesGet
-        should("test apiV2GlobeServiceCountriesCountryIdStatesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdStatesGet
+        // to test getCountryStatesAsync
+        should("test getCountryStatesAsync") {
+            // uncomment below to test getCountryStatesAsync
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryStateDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdStatesGet(countryId, apiVersion, xApiVersion)
+            //val result : CountryStateDtoListEnvelope = apiInstance.getCountryStatesAsync(countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdTimezonesGet
-        should("test apiV2GlobeServiceCountriesCountryIdTimezonesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdTimezonesGet
+        // to test getEnabledCurrenciesByCountryIdAsync
+        should("test getEnabledCurrenciesByCountryIdAsync") {
+            // uncomment below to test getEnabledCurrenciesByCountryIdAsync
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TimezoneDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdTimezonesGet(countryId, apiVersion, xApiVersion)
+            //val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet
-        should("test apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet
+        // to test getTimeZonesByCountryIdAsync
+        should("test getTimeZonesByCountryIdAsync") {
+            // uncomment below to test getTimeZonesByCountryIdAsync
             //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryTopLevelDomainDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet(countryId, apiVersion, xApiVersion)
+            //val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesGet
-        should("test apiV2GlobeServiceCountriesGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesGet
+        // to test getTopLevelDomainsByCountryIdAsync
+        should("test getTopLevelDomainsByCountryIdAsync") {
+            // uncomment below to test getTopLevelDomainsByCountryIdAsync
+            //val countryId : kotlin.String = countryId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesGet(apiVersion, xApiVersion)
+            //val result : CountryTopLevelDomainDtoListEnvelope = apiInstance.getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCountriesSearchGet
-        should("test apiV2GlobeServiceCountriesSearchGet") {
-            // uncomment below to test apiV2GlobeServiceCountriesSearchGet
+        // to test searchCountriesByNameAsync
+        should("test searchCountriesByNameAsync") {
+            // uncomment below to test searchCountriesByNameAsync
             //val countryName : kotlin.String = countryName_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CountryDtoListEnvelope = apiInstance.apiV2GlobeServiceCountriesSearchGet(countryName, apiVersion, xApiVersion)
+            //val result : CountryDtoListEnvelope = apiInstance.searchCountriesByNameAsync(countryName, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

@@ -91,12 +91,6 @@ class SupportRequestAttachmentUpdateDtoTest : ShouldSpec() {
             //modelInstance.filePath shouldBe ("TODO")
         }
 
-        // to test the property `file`
-        should("test file") {
-            // uncomment below to test the property
-            //modelInstance.file shouldBe ("TODO")
-        }
-
         // to test the property `contentType`
         should("test contentType") {
             // uncomment below to test the property

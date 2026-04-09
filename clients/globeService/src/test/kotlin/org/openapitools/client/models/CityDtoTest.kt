@@ -49,16 +49,16 @@ class CityDtoTest : ShouldSpec() {
             //modelInstance.imageUrl shouldBe ("TODO")
         }
 
-        // to test the property `stateID`
-        should("test stateID") {
+        // to test the property `stateId`
+        should("test stateId") {
             // uncomment below to test the property
-            //modelInstance.stateID shouldBe ("TODO")
+            //modelInstance.stateId shouldBe ("TODO")
         }
 
-        // to test the property `countryID`
-        should("test countryID") {
+        // to test the property `countryId`
+        should("test countryId") {
             // uncomment below to test the property
-            //modelInstance.countryID shouldBe ("TODO")
+            //modelInstance.countryId shouldBe ("TODO")
         }
 
         // to test the property `latitude`

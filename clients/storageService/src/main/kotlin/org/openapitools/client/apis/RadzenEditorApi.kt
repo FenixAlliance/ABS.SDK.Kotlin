@@ -45,13 +45,12 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * 
-     * 
-     * @param id 
+     * Upload an image file
+     * Uploads an image file and returns its URL for editor embedding.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param files  (optional)
+     * @param file  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -60,8 +59,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsIdPost(id: kotlin.Int, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, files: kotlin.collections.List<java.io.File>? = null) : Unit {
-        val localVarResponse = apiV2StorageServiceRadzenEditorUploadsIdPostWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
+    fun image(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
+        val localVarResponse = imageWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -79,97 +78,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * 
-     * 
-     * @param id 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param files  (optional)
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsIdPostWithHttpInfo(id: kotlin.Int, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2StorageServiceRadzenEditorUploadsIdPostRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
-
-        return request<Map<String, PartConfig<*>>, Unit>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2StorageServiceRadzenEditorUploadsIdPost
-     *
-     * @param id 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param files  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2StorageServiceRadzenEditorUploadsIdPostRequestConfig(id: kotlin.Int, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : RequestConfig<Map<String, PartConfig<*>>> {
-        val localVariableBody = mapOf(
-            "files" to PartConfig(body = files, headers = mutableMapOf()),)
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (tenantId != null) {
-                    put("tenantId", listOf(tenantId.toString()))
-                }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/StorageService/RadzenEditor/Uploads/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param file  (optional)
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsImagePost(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
-        val localVarResponse = apiV2StorageServiceRadzenEditorUploadsImagePostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
+     * Upload an image file
+     * Uploads an image file and returns its URL for editor embedding.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -179,8 +89,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsImagePostWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2StorageServiceRadzenEditorUploadsImagePostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+    fun imageWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
+        val localVariableConfig = imageRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
 
         return request<Map<String, PartConfig<*>>, Unit>(
             localVariableConfig
@@ -188,7 +98,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * To obtain the request config of the operation apiV2StorageServiceRadzenEditorUploadsImagePost
+     * To obtain the request config of the operation image
      *
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
@@ -196,7 +106,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param file  (optional)
      * @return RequestConfig
      */
-    fun apiV2StorageServiceRadzenEditorUploadsImagePostRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun imageRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "file" to PartConfig(body = file, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -216,14 +126,14 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/StorageService/RadzenEditor/Uploads/Image",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Upload multiple files
+     * Uploads multiple files to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -236,8 +146,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsMultiplePost(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, files: kotlin.collections.List<java.io.File>? = null) : Unit {
-        val localVarResponse = apiV2StorageServiceRadzenEditorUploadsMultiplePostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
+    fun multiple(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, files: kotlin.collections.List<java.io.File>? = null) : Unit {
+        val localVarResponse = multipleWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -255,8 +165,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * 
-     * 
+     * Upload multiple files
+     * Uploads multiple files to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -266,8 +176,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsMultiplePostWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2StorageServiceRadzenEditorUploadsMultiplePostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
+    fun multipleWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : ApiResponse<Unit?> {
+        val localVariableConfig = multipleRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
 
         return request<Map<String, PartConfig<*>>, Unit>(
             localVariableConfig
@@ -275,7 +185,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * To obtain the request config of the operation apiV2StorageServiceRadzenEditorUploadsMultiplePost
+     * To obtain the request config of the operation multiple
      *
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
@@ -283,7 +193,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param files  (optional)
      * @return RequestConfig
      */
-    fun apiV2StorageServiceRadzenEditorUploadsMultiplePostRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun multipleRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "files" to PartConfig(body = files, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -303,18 +213,19 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/StorageService/RadzenEditor/Uploads/Multiple",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Upload files by ID
+     * Uploads files associated with a specific resource ID.
+     * @param id 
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param file  (optional)
+     * @param files  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -323,8 +234,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsSinglePost(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
-        val localVarResponse = apiV2StorageServiceRadzenEditorUploadsSinglePostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+    fun post(id: kotlin.Int, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, files: kotlin.collections.List<java.io.File>? = null) : Unit {
+        val localVarResponse = postWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -342,8 +253,97 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * 
-     * 
+     * Upload files by ID
+     * Uploads files associated with a specific resource ID.
+     * @param id 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param files  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun postWithHttpInfo(id: kotlin.Int, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : ApiResponse<Unit?> {
+        val localVariableConfig = postRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, files = files)
+
+        return request<Map<String, PartConfig<*>>, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation post
+     *
+     * @param id 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param files  (optional)
+     * @return RequestConfig
+     */
+    fun postRequestConfig(id: kotlin.Int, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, files: kotlin.collections.List<java.io.File>?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "files" to PartConfig(body = files, headers = mutableMapOf()),)
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/StorageService/RadzenEditor/Uploads/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Upload a single file
+     * Uploads a single file to tenant or user storage.
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param file  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun single(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
+        val localVarResponse = singleWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Upload a single file
+     * Uploads a single file to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -353,8 +353,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsSinglePostWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2StorageServiceRadzenEditorUploadsSinglePostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+    fun singleWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
+        val localVariableConfig = singleRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
 
         return request<Map<String, PartConfig<*>>, Unit>(
             localVariableConfig
@@ -362,7 +362,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * To obtain the request config of the operation apiV2StorageServiceRadzenEditorUploadsSinglePost
+     * To obtain the request config of the operation single
      *
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
@@ -370,7 +370,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param file  (optional)
      * @return RequestConfig
      */
-    fun apiV2StorageServiceRadzenEditorUploadsSinglePostRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun singleRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "file" to PartConfig(body = file, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -390,14 +390,14 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/StorageService/RadzenEditor/Uploads/Single",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Upload a specific file
+     * Uploads a specific file to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -410,8 +410,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsSpecificPost(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
-        val localVarResponse = apiV2StorageServiceRadzenEditorUploadsSpecificPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+    fun specific(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : Unit {
+        val localVarResponse = specificWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -429,8 +429,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * 
-     * 
+     * Upload a specific file
+     * Uploads a specific file to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -440,8 +440,8 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceRadzenEditorUploadsSpecificPostWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2StorageServiceRadzenEditorUploadsSpecificPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+    fun specificWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<Unit?> {
+        val localVariableConfig = specificRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
 
         return request<Map<String, PartConfig<*>>, Unit>(
             localVariableConfig
@@ -449,7 +449,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * To obtain the request config of the operation apiV2StorageServiceRadzenEditorUploadsSpecificPost
+     * To obtain the request config of the operation specific
      *
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
@@ -457,7 +457,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param file  (optional)
      * @return RequestConfig
      */
-    fun apiV2StorageServiceRadzenEditorUploadsSpecificPostRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun specificRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "file" to PartConfig(body = file, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -477,7 +477,7 @@ class RadzenEditorApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/StorageService/RadzenEditor/Uploads/Specific",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -20,6 +20,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.TimezonesApi
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.TimezoneDtoEnvelope
 import org.openapitools.client.models.TimezoneDtoListEnvelope
 
@@ -28,22 +29,31 @@ class TimezonesApiTest : ShouldSpec() {
         // uncomment below to create an instance of TimezonesApi
         //val apiInstance = TimezonesApi()
 
-        // to test apiV2GlobeServiceTimezonesGet
-        should("test apiV2GlobeServiceTimezonesGet") {
-            // uncomment below to test apiV2GlobeServiceTimezonesGet
+        // to test countTimezonesAsync
+        should("test countTimezonesAsync") {
+            // uncomment below to test countTimezonesAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TimezoneDtoListEnvelope = apiInstance.apiV2GlobeServiceTimezonesGet(apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countTimezonesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceTimezonesTimeZoneIdGet
-        should("test apiV2GlobeServiceTimezonesTimeZoneIdGet") {
-            // uncomment below to test apiV2GlobeServiceTimezonesTimeZoneIdGet
+        // to test getTimeZoneByIdAsync
+        should("test getTimeZoneByIdAsync") {
+            // uncomment below to test getTimeZoneByIdAsync
             //val timeZoneId : kotlin.String = timeZoneId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : TimezoneDtoEnvelope = apiInstance.apiV2GlobeServiceTimezonesTimeZoneIdGet(timeZoneId, apiVersion, xApiVersion)
+            //val result : TimezoneDtoEnvelope = apiInstance.getTimeZoneByIdAsync(timeZoneId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getTimeZonesAsync
+        should("test getTimeZonesAsync") {
+            // uncomment below to test getTimeZonesAsync
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

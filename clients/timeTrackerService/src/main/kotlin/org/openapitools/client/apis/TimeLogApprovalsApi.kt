@@ -49,186 +49,8 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * 
-     * 
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalApproverUpdateDto  (optional)
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPutWithHttpInfo(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalApproverUpdateDto = projectHoursApprovalApproverUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalApproverUpdateDto  (optional)
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPutWithHttpInfo(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPutRequestConfig(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalApproverUpdateDto = projectHoursApprovalApproverUpdateDto)
-
-        return request<ProjectHoursApprovalApproverUpdateDto, Unit>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut
-     *
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalApproverUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPutRequestConfig(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto?) : RequestConfig<ProjectHoursApprovalApproverUpdateDto> {
-        val localVariableBody = projectHoursApprovalApproverUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver".replace("{"+"approvalId"+"}", encodeURIComponent(approvalId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalStatusUpdateDto  (optional)
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPutWithHttpInfo(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalStatusUpdateDto = projectHoursApprovalStatusUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalStatusUpdateDto  (optional)
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPutWithHttpInfo(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPutRequestConfig(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalStatusUpdateDto = projectHoursApprovalStatusUpdateDto)
-
-        return request<ProjectHoursApprovalStatusUpdateDto, Unit>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut
-     *
-     * @param approvalId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param projectHoursApprovalStatusUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPutRequestConfig(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto?) : RequestConfig<ProjectHoursApprovalStatusUpdateDto> {
-        val localVariableBody = projectHoursApprovalStatusUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status".replace("{"+"approvalId"+"}", encodeURIComponent(approvalId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Request project hours approval
+     * Creates a new project hours approval request.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -241,8 +63,8 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceTimeLogApprovalsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalCreateDto = projectHoursApprovalCreateDto)
+    fun requestProjectHoursApprovalAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto? = null) : Unit {
+        val localVarResponse = requestProjectHoursApprovalAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalCreateDto = projectHoursApprovalCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -260,8 +82,8 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * 
-     * 
+     * Request project hours approval
+     * Creates a new project hours approval request.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -271,8 +93,8 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceTimeLogApprovalsPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceTimeLogApprovalsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalCreateDto = projectHoursApprovalCreateDto)
+    fun requestProjectHoursApprovalAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = requestProjectHoursApprovalAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalCreateDto = projectHoursApprovalCreateDto)
 
         return request<ProjectHoursApprovalCreateDto, Unit>(
             localVariableConfig
@@ -280,7 +102,7 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceTimeLogApprovalsPost
+     * To obtain the request config of the operation requestProjectHoursApprovalAsync
      *
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -288,7 +110,7 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param projectHoursApprovalCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceTimeLogApprovalsPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto?) : RequestConfig<ProjectHoursApprovalCreateDto> {
+    fun requestProjectHoursApprovalAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalCreateDto: ProjectHoursApprovalCreateDto?) : RequestConfig<ProjectHoursApprovalCreateDto> {
         val localVariableBody = projectHoursApprovalCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -307,7 +129,185 @@ class TimeLogApprovalsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             path = "/api/v2/TimeTrackerService/TimeLogApprovals",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update approval approver
+     * Updates the approver of an existing project hours approval.
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalApproverUpdateDto  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateProjectHoursApprovalApproverAsync(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto? = null) : Unit {
+        val localVarResponse = updateProjectHoursApprovalApproverAsyncWithHttpInfo(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalApproverUpdateDto = projectHoursApprovalApproverUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update approval approver
+     * Updates the approver of an existing project hours approval.
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalApproverUpdateDto  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateProjectHoursApprovalApproverAsyncWithHttpInfo(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateProjectHoursApprovalApproverAsyncRequestConfig(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalApproverUpdateDto = projectHoursApprovalApproverUpdateDto)
+
+        return request<ProjectHoursApprovalApproverUpdateDto, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateProjectHoursApprovalApproverAsync
+     *
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalApproverUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateProjectHoursApprovalApproverAsyncRequestConfig(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalApproverUpdateDto: ProjectHoursApprovalApproverUpdateDto?) : RequestConfig<ProjectHoursApprovalApproverUpdateDto> {
+        val localVariableBody = projectHoursApprovalApproverUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver".replace("{"+"approvalId"+"}", encodeURIComponent(approvalId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update approval status
+     * Updates the status of an existing project hours approval.
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalStatusUpdateDto  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateProjectHoursApprovalStatusAsync(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto? = null) : Unit {
+        val localVarResponse = updateProjectHoursApprovalStatusAsyncWithHttpInfo(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalStatusUpdateDto = projectHoursApprovalStatusUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update approval status
+     * Updates the status of an existing project hours approval.
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalStatusUpdateDto  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateProjectHoursApprovalStatusAsyncWithHttpInfo(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateProjectHoursApprovalStatusAsyncRequestConfig(approvalId = approvalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectHoursApprovalStatusUpdateDto = projectHoursApprovalStatusUpdateDto)
+
+        return request<ProjectHoursApprovalStatusUpdateDto, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateProjectHoursApprovalStatusAsync
+     *
+     * @param approvalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param projectHoursApprovalStatusUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateProjectHoursApprovalStatusAsyncRequestConfig(approvalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectHoursApprovalStatusUpdateDto: ProjectHoursApprovalStatusUpdateDto?) : RequestConfig<ProjectHoursApprovalStatusUpdateDto> {
+        val localVariableBody = projectHoursApprovalStatusUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status".replace("{"+"approvalId"+"}", encodeURIComponent(approvalId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

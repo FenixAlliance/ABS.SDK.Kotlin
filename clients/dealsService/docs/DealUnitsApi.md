@@ -4,76 +4,31 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2DealsServiceDealUnitsCountGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsCountGet) | **GET** /api/v2/DealsService/DealUnits/Count |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdCalculatePut**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdCalculatePut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Calculate |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdDelete**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdDelete) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId} |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdExtendedGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdExtendedGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}/Calculate |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesGet) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdLinesPost**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdLinesPost) | **POST** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines |  |
-| [**apiV2DealsServiceDealUnitsDealUnitIdPut**](DealUnitsApi.md#apiV2DealsServiceDealUnitsDealUnitIdPut) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} |  |
-| [**apiV2DealsServiceDealUnitsExtendedGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsExtendedGet) | **GET** /api/v2/DealsService/DealUnits/Extended |  |
-| [**apiV2DealsServiceDealUnitsGet**](DealUnitsApi.md#apiV2DealsServiceDealUnitsGet) | **GET** /api/v2/DealsService/DealUnits |  |
-| [**apiV2DealsServiceDealUnitsPost**](DealUnitsApi.md#apiV2DealsServiceDealUnitsPost) | **POST** /api/v2/DealsService/DealUnits |  |
-| [**getDealUnitAsync**](DealUnitsApi.md#getDealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId} |  |
+| [**calculateDealUnitAsync**](DealUnitsApi.md#calculateDealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Calculate | Calculate a deal unit |
+| [**calculateDealUnitLineAsync**](DealUnitsApi.md#calculateDealUnitLineAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}/Calculate | Calculate a deal unit line |
+| [**createDealUnitAsync**](DealUnitsApi.md#createDealUnitAsync) | **POST** /api/v2/DealsService/DealUnits | Create a deal unit |
+| [**createGetDealUnitLinesAsync**](DealUnitsApi.md#createGetDealUnitLinesAsync) | **POST** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | Create a deal unit line |
+| [**deleteDealUnitAsync**](DealUnitsApi.md#deleteDealUnitAsync) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId} | Delete a deal unit |
+| [**deleteDealUnitPriceAsync**](DealUnitsApi.md#deleteDealUnitPriceAsync) | **DELETE** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Delete a deal unit line |
+| [**getDealUnitAsync**](DealUnitsApi.md#getDealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId} | Get deal unit by ID |
+| [**getDealUnitLinesAsync**](DealUnitsApi.md#getDealUnitLinesAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines | Get deal unit lines |
+| [**getDealUnitLinesCountAsync**](DealUnitsApi.md#getDealUnitLinesCountAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count | Get deal unit lines count |
+| [**getDealUnitPriceAsync**](DealUnitsApi.md#getDealUnitPriceAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Get a deal unit line by ID |
+| [**getDealUnitsAsync**](DealUnitsApi.md#getDealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits | Get deal units |
+| [**getDealUnitsCountAsync**](DealUnitsApi.md#getDealUnitsCountAsync) | **GET** /api/v2/DealsService/DealUnits/Count | Get deal units count |
+| [**getExtendedDealUnitAsync**](DealUnitsApi.md#getExtendedDealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended | Get extended deal unit by ID |
+| [**getExtendedDealUnitsAsync**](DealUnitsApi.md#getExtendedDealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits/Extended | Get extended deal units |
+| [**updateDealUnitAsync**](DealUnitsApi.md#updateDealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit |
+| [**updateDealUnitPriceAsync**](DealUnitsApi.md#updateDealUnitPriceAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line |
 
 
-<a id="apiV2DealsServiceDealUnitsCountGet"></a>
-# **apiV2DealsServiceDealUnitsCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitsCountGet(tenantId)
+<a id="calculateDealUnitAsync"></a>
+# **calculateDealUnitAsync**
+> EmptyEnvelope calculateDealUnitAsync(dealUnitId, tenantId)
 
+Calculate a deal unit
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitsCountGet(tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdCalculatePut"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdCalculatePut**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdCalculatePut(dealUnitId, tenantId)
-
-
+Triggers recalculation of totals and derived values for a specific deal unit.
 
 ### Example
 ```kotlin
@@ -85,13 +40,13 @@ val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdCalculatePut(dealUnitId, tenantId)
+    val result : EmptyEnvelope = apiInstance.calculateDealUnitAsync(dealUnitId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdCalculatePut")
+    println("4xx response calling DealUnitsApi#calculateDealUnitAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdCalculatePut")
+    println("5xx response calling DealUnitsApi#calculateDealUnitAsync")
     e.printStackTrace()
 }
 ```
@@ -108,168 +63,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2DealsServiceDealUnitsDealUnitIdDelete"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdDelete(dealUnitId, tenantId)
+<a id="calculateDealUnitLineAsync"></a>
+# **calculateDealUnitLineAsync**
+> EmptyEnvelope calculateDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId)
 
+Calculate a deal unit line
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdDelete(dealUnitId, tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdDelete")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdDelete")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdExtendedGet"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdExtendedGet**
-> ExtendedDealUnitDtoEnvelope apiV2DealsServiceDealUnitsDealUnitIdExtendedGet(dealUnitId, tenantId)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : ExtendedDealUnitDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdExtendedGet(dealUnitId, tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdExtendedGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdExtendedGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**ExtendedDealUnitDtoEnvelope**](ExtendedDealUnitDtoEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet(dealUnitId, tenantId)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet(dealUnitId, tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut(dealUnitId, dealUnitLineId, tenantId)
-
-
+Triggers recalculation of totals and derived values for a specific deal unit line.
 
 ### Example
 ```kotlin
@@ -282,13 +89,13 @@ val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut(dealUnitId, dealUnitLineId, tenantId)
+    val result : EmptyEnvelope = apiInstance.calculateDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut")
+    println("4xx response calling DealUnitsApi#calculateDealUnitLineAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdCalculatePut")
+    println("5xx response calling DealUnitsApi#calculateDealUnitLineAsync")
     e.printStackTrace()
 }
 ```
@@ -306,21 +113,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete(dealUnitId, dealUnitLineId, tenantId)
+<a id="createDealUnitAsync"></a>
+# **createDealUnitAsync**
+> EmptyEnvelope createDealUnitAsync(tenantId, dealUnitCreateDto)
 
+Create a deal unit
 
+Creates a new deal unit for the specified tenant.
 
 ### Example
 ```kotlin
@@ -329,27 +135,25 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitCreateDto : DealUnitCreateDto =  // DealUnitCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete(dealUnitId, dealUnitLineId, tenantId)
+    val result : EmptyEnvelope = apiInstance.createDealUnitAsync(tenantId, dealUnitCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete")
+    println("4xx response calling DealUnitsApi#createDealUnitAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdDelete")
+    println("5xx response calling DealUnitsApi#createDealUnitAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| **dealUnitLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitCreateDto** | [**DealUnitCreateDto**](DealUnitCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -357,176 +161,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet**
-> DealUnitLineDtoEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet(dealUnitId, dealUnitLineId, tenantId)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : DealUnitLineDtoEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet(dealUnitId, dealUnitLineId, tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| **dealUnitLineId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**DealUnitLineDtoEnvelope**](DealUnitLineDtoEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitLineUpdateDto : DealUnitLineUpdateDto =  // DealUnitLineUpdateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesDealUnitLineIdPut")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| **dealUnitLineId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **dealUnitLineUpdateDto** | [**DealUnitLineUpdateDto**](DealUnitLineUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesGet"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesGet**
-> DealUnitLineDtoListEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesGet(dealUnitId, tenantId, itemId)
+<a id="createGetDealUnitLinesAsync"></a>
+# **createGetDealUnitLinesAsync**
+> EmptyEnvelope createGetDealUnitLinesAsync(dealUnitId, tenantId, dealUnitLineCreateDto)
 
+Create a deal unit line
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : DealUnitLineDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesGet(dealUnitId, tenantId, itemId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **dealUnitId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
-
-### Return type
-
-[**DealUnitLineDtoListEnvelope**](DealUnitLineDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsDealUnitIdLinesPost"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdLinesPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdLinesPost(dealUnitId, tenantId, dealUnitLineCreateDto)
-
-
+Creates a new line within a specific deal unit.
 
 ### Example
 ```kotlin
@@ -539,13 +187,13 @@ val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val dealUnitLineCreateDto : DealUnitLineCreateDto =  // DealUnitLineCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdLinesPost(dealUnitId, tenantId, dealUnitLineCreateDto)
+    val result : EmptyEnvelope = apiInstance.createGetDealUnitLinesAsync(dealUnitId, tenantId, dealUnitLineCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesPost")
+    println("4xx response calling DealUnitsApi#createGetDealUnitLinesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdLinesPost")
+    println("5xx response calling DealUnitsApi#createGetDealUnitLinesAsync")
     e.printStackTrace()
 }
 ```
@@ -563,21 +211,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2DealsServiceDealUnitsDealUnitIdPut"></a>
-# **apiV2DealsServiceDealUnitsDealUnitIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitsDealUnitIdPut(dealUnitId, tenantId, dealUnitUpdateDto)
+<a id="deleteDealUnitAsync"></a>
+# **deleteDealUnitAsync**
+> EmptyEnvelope deleteDealUnitAsync(dealUnitId, tenantId)
 
+Delete a deal unit
 
+Deletes an existing deal unit by its unique identifier.
 
 ### Example
 ```kotlin
@@ -588,25 +235,23 @@ Configure Bearer:
 val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitUpdateDto : DealUnitUpdateDto =  // DealUnitUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsDealUnitIdPut(dealUnitId, tenantId, dealUnitUpdateDto)
+    val result : EmptyEnvelope = apiInstance.deleteDealUnitAsync(dealUnitId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdPut")
+    println("4xx response calling DealUnitsApi#deleteDealUnitAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsDealUnitIdPut")
+    println("5xx response calling DealUnitsApi#deleteDealUnitAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **dealUnitId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dealUnitUpdateDto** | [**DealUnitUpdateDto**](DealUnitUpdateDto.md)|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -614,115 +259,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsExtendedGet"></a>
-# **apiV2DealsServiceDealUnitsExtendedGet**
-> ExtendedDealUnitDtoListEnvelope apiV2DealsServiceDealUnitsExtendedGet(tenantId)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : ExtendedDealUnitDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsExtendedGet(tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsExtendedGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsExtendedGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**ExtendedDealUnitDtoListEnvelope**](ExtendedDealUnitDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2DealsServiceDealUnitsGet"></a>
-# **apiV2DealsServiceDealUnitsGet**
-> DealUnitDtoListEnvelope apiV2DealsServiceDealUnitsGet(tenantId)
+<a id="deleteDealUnitPriceAsync"></a>
+# **deleteDealUnitPriceAsync**
+> EmptyEnvelope deleteDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
 
+Delete a deal unit line
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = DealUnitsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : DealUnitDtoListEnvelope = apiInstance.apiV2DealsServiceDealUnitsGet(tenantId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
-
-### Return type
-
-[**DealUnitDtoListEnvelope**](DealUnitDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2DealsServiceDealUnitsPost"></a>
-# **apiV2DealsServiceDealUnitsPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitsPost(tenantId, dealUnitCreateDto)
-
-
+Deletes an existing line from a specific deal unit.
 
 ### Example
 ```kotlin
@@ -731,25 +281,27 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val dealUnitCreateDto : DealUnitCreateDto =  // DealUnitCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2DealsServiceDealUnitsPost(tenantId, dealUnitCreateDto)
+    val result : EmptyEnvelope = apiInstance.deleteDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsPost")
+    println("4xx response calling DealUnitsApi#deleteDealUnitPriceAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling DealUnitsApi#apiV2DealsServiceDealUnitsPost")
+    println("5xx response calling DealUnitsApi#deleteDealUnitPriceAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitId** | **java.util.UUID**|  | |
+| **dealUnitLineId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dealUnitCreateDto** | [**DealUnitCreateDto**](DealUnitCreateDto.md)|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -757,21 +309,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="getDealUnitAsync"></a>
 # **getDealUnitAsync**
 > DealUnitDtoEnvelope getDealUnitAsync(dealUnitId, tenantId)
 
+Get deal unit by ID
 
+Retrieves a single deal unit by its unique identifier.
 
 ### Example
 ```kotlin
@@ -806,13 +357,446 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitLinesAsync"></a>
+# **getDealUnitLinesAsync**
+> DealUnitLineDtoListEnvelope getDealUnitLinesAsync(dealUnitId, tenantId, itemId)
+
+Get deal unit lines
+
+Retrieves a list of lines for a specific deal unit with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitLineDtoListEnvelope = apiInstance.getDealUnitLinesAsync(dealUnitId, tenantId, itemId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getDealUnitLinesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getDealUnitLinesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **itemId** | **java.util.UUID**|  | [optional] |
+
+### Return type
+
+[**DealUnitLineDtoListEnvelope**](DealUnitLineDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitLinesCountAsync"></a>
+# **getDealUnitLinesCountAsync**
+> Int32Envelope getDealUnitLinesCountAsync(dealUnitId, tenantId)
+
+Get deal unit lines count
+
+Returns the total count of lines for a specific deal unit with OData filter support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getDealUnitLinesCountAsync(dealUnitId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getDealUnitLinesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getDealUnitLinesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitPriceAsync"></a>
+# **getDealUnitPriceAsync**
+> DealUnitLineDtoEnvelope getDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
+
+Get a deal unit line by ID
+
+Retrieves a single deal unit line by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitLineDtoEnvelope = apiInstance.getDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getDealUnitPriceAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getDealUnitPriceAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **dealUnitLineId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitLineDtoEnvelope**](DealUnitLineDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitsAsync"></a>
+# **getDealUnitsAsync**
+> DealUnitDtoListEnvelope getDealUnitsAsync(tenantId)
+
+Get deal units
+
+Retrieves a list of deal units for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DealUnitDtoListEnvelope = apiInstance.getDealUnitsAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getDealUnitsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getDealUnitsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DealUnitDtoListEnvelope**](DealUnitDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getDealUnitsCountAsync"></a>
+# **getDealUnitsCountAsync**
+> Int32Envelope getDealUnitsCountAsync(tenantId)
+
+Get deal units count
+
+Returns the total count of deal units for the specified tenant with OData filter support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getDealUnitsCountAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getDealUnitsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getDealUnitsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getExtendedDealUnitAsync"></a>
+# **getExtendedDealUnitAsync**
+> ExtendedDealUnitDtoEnvelope getExtendedDealUnitAsync(dealUnitId, tenantId)
+
+Get extended deal unit by ID
+
+Retrieves a single deal unit with extended details by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : ExtendedDealUnitDtoEnvelope = apiInstance.getExtendedDealUnitAsync(dealUnitId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getExtendedDealUnitAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getExtendedDealUnitAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**ExtendedDealUnitDtoEnvelope**](ExtendedDealUnitDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getExtendedDealUnitsAsync"></a>
+# **getExtendedDealUnitsAsync**
+> ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(tenantId)
+
+Get extended deal units
+
+Retrieves a list of deal units with extended details for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : ExtendedDealUnitDtoListEnvelope = apiInstance.getExtendedDealUnitsAsync(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#getExtendedDealUnitsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#getExtendedDealUnitsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**ExtendedDealUnitDtoListEnvelope**](ExtendedDealUnitDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateDealUnitAsync"></a>
+# **updateDealUnitAsync**
+> EmptyEnvelope updateDealUnitAsync(dealUnitId, tenantId, dealUnitUpdateDto)
+
+Update a deal unit
+
+Updates an existing deal unit by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitUpdateDto : DealUnitUpdateDto =  // DealUnitUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateDealUnitAsync(dealUnitId, tenantId, dealUnitUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#updateDealUnitAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#updateDealUnitAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dealUnitUpdateDto** | [**DealUnitUpdateDto**](DealUnitUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateDealUnitPriceAsync"></a>
+# **updateDealUnitPriceAsync**
+> EmptyEnvelope updateDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
+
+Update a deal unit line
+
+Updates an existing line within a specific deal unit.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineUpdateDto : DealUnitLineUpdateDto =  // DealUnitLineUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateDealUnitPriceAsync(dealUnitId, dealUnitLineId, tenantId, dealUnitLineUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#updateDealUnitPriceAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#updateDealUnitPriceAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **dealUnitLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dealUnitLineUpdateDto** | [**DealUnitLineUpdateDto**](DealUnitLineUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

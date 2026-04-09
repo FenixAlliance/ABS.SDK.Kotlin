@@ -52,176 +52,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsCountGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsCountGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsCountGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceSocialPostBucketsCountGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/MarketingService/SocialPostBuckets/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SocialPostBucketDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostBucketDtoListEnvelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostBucketDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<SocialPostBucketDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostBucketDtoListEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, SocialPostBucketDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2MarketingServiceSocialPostBucketsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/MarketingService/SocialPostBuckets",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Create a social post bucket
+     * Creates a new social post bucket for the specified tenant.
      * @param tenantId 
      * @param socialPostBucketCreateDto 
      * @param apiVersion  (optional)
@@ -235,8 +67,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsPost(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsPostWithHttpInfo(tenantId = tenantId, socialPostBucketCreateDto = socialPostBucketCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSocialPostBucketAsync(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = createSocialPostBucketAsyncWithHttpInfo(tenantId = tenantId, socialPostBucketCreateDto = socialPostBucketCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -254,8 +86,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * 
-     * 
+     * Create a social post bucket
+     * Creates a new social post bucket for the specified tenant.
      * @param tenantId 
      * @param socialPostBucketCreateDto 
      * @param apiVersion  (optional)
@@ -266,8 +98,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsPostWithHttpInfo(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsPostRequestConfig(tenantId = tenantId, socialPostBucketCreateDto = socialPostBucketCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createSocialPostBucketAsyncWithHttpInfo(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createSocialPostBucketAsyncRequestConfig(tenantId = tenantId, socialPostBucketCreateDto = socialPostBucketCreateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SocialPostBucketCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -275,7 +107,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsPost
+     * To obtain the request config of the operation createSocialPostBucketAsync
      *
      * @param tenantId 
      * @param socialPostBucketCreateDto 
@@ -283,7 +115,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceSocialPostBucketsPostRequestConfig(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SocialPostBucketCreateDto> {
+    fun createSocialPostBucketAsyncRequestConfig(tenantId: java.util.UUID, socialPostBucketCreateDto: SocialPostBucketCreateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SocialPostBucketCreateDto> {
         val localVariableBody = socialPostBucketCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -302,14 +134,14 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             path = "/api/v2/MarketingService/SocialPostBuckets",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a social post bucket
+     * Deletes a social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -323,8 +155,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDeleteWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSocialPostBucketAsync(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSocialPostBucketAsyncWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -342,8 +174,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * 
-     * 
+     * Delete a social post bucket
+     * Deletes a social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -354,8 +186,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDeleteWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDeleteRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSocialPostBucketAsyncWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSocialPostBucketAsyncRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -363,7 +195,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDelete
+     * To obtain the request config of the operation deleteSocialPostBucketAsync
      *
      * @param socialpostbucketId 
      * @param tenantId 
@@ -371,7 +203,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdDeleteRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteSocialPostBucketAsyncRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -389,14 +221,14 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             path = "/api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId}".replace("{"+"socialpostbucketId"+"}", encodeURIComponent(socialpostbucketId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get social post bucket by ID
+     * Retrieves the details of a specific social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -410,8 +242,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostBucketDtoEnvelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGetWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostBucketDetailsAsync(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostBucketDtoEnvelope {
+        val localVarResponse = getSocialPostBucketDetailsAsyncWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostBucketDtoEnvelope
@@ -429,8 +261,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * 
-     * 
+     * Get social post bucket by ID
+     * Retrieves the details of a specific social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -441,8 +273,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGetWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostBucketDtoEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGetRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostBucketDetailsAsyncWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostBucketDtoEnvelope?> {
+        val localVariableConfig = getSocialPostBucketDetailsAsyncRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SocialPostBucketDtoEnvelope>(
             localVariableConfig
@@ -450,7 +282,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGet
+     * To obtain the request config of the operation getSocialPostBucketDetailsAsync
      *
      * @param socialpostbucketId 
      * @param tenantId 
@@ -458,7 +290,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdGetRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSocialPostBucketDetailsAsyncRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -476,14 +308,182 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             path = "/api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId}".replace("{"+"socialpostbucketId"+"}", encodeURIComponent(socialpostbucketId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get social post buckets count
+     * Returns the count of social post buckets for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSocialPostBucketsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getSocialPostBucketsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get social post buckets count
+     * Returns the count of social post buckets for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSocialPostBucketsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialPostBucketsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSocialPostBucketsCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSocialPostBucketsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/MarketingService/SocialPostBuckets/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get social post buckets
+     * Retrieves a collection of social post buckets for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SocialPostBucketDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSocialPostBucketsODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostBucketDtoListEnvelope {
+        val localVarResponse = getSocialPostBucketsODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostBucketDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get social post buckets
+     * Retrieves a collection of social post buckets for the specified tenant using OData query options.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SocialPostBucketDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSocialPostBucketsODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostBucketDtoListEnvelope?> {
+        val localVariableConfig = getSocialPostBucketsODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SocialPostBucketDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSocialPostBucketsODataAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSocialPostBucketsODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/MarketingService/SocialPostBuckets",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a social post bucket
+     * Updates an existing social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param socialPostBucketUpdateDto 
@@ -498,8 +498,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPutWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, socialPostBucketUpdateDto = socialPostBucketUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSocialPostBucketAsync(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = updateSocialPostBucketAsyncWithHttpInfo(socialpostbucketId = socialpostbucketId, tenantId = tenantId, socialPostBucketUpdateDto = socialPostBucketUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -517,8 +517,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * 
-     * 
+     * Update a social post bucket
+     * Updates an existing social post bucket by its ID.
      * @param socialpostbucketId 
      * @param tenantId 
      * @param socialPostBucketUpdateDto 
@@ -530,8 +530,8 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPutWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPutRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, socialPostBucketUpdateDto = socialPostBucketUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateSocialPostBucketAsyncWithHttpInfo(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateSocialPostBucketAsyncRequestConfig(socialpostbucketId = socialpostbucketId, tenantId = tenantId, socialPostBucketUpdateDto = socialPostBucketUpdateDto, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<SocialPostBucketUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -539,7 +539,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
-     * To obtain the request config of the operation apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPut
+     * To obtain the request config of the operation updateSocialPostBucketAsync
      *
      * @param socialpostbucketId 
      * @param tenantId 
@@ -548,7 +548,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2MarketingServiceSocialPostBucketsSocialpostbucketIdPutRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SocialPostBucketUpdateDto> {
+    fun updateSocialPostBucketAsyncRequestConfig(socialpostbucketId: java.util.UUID, tenantId: java.util.UUID, socialPostBucketUpdateDto: SocialPostBucketUpdateDto, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<SocialPostBucketUpdateDto> {
         val localVariableBody = socialPostBucketUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -567,7 +567,7 @@ class SocialPostBucketsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             path = "/api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId}".replace("{"+"socialpostbucketId"+"}", encodeURIComponent(socialpostbucketId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

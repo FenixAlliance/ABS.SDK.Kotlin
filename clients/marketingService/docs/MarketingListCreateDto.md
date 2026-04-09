@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] [readonly] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **locked** | **kotlin.Boolean** |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
 | **purpose** | **kotlin.String** |  |  [optional] |
@@ -16,7 +16,7 @@
 | **lastUsedOn** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **marketingListType** | [**inline**](#MarketingListType) |  |  [optional] |
 | **marketingListTarget** | [**inline**](#MarketingListTarget) |  |  [optional] |
 
@@ -25,14 +25,14 @@
 ## Enum: marketingListType
 | Name | Value |
 | ---- | ----- |
-| marketingListType | 0, 1 |
+| marketingListType | Static, Dynamic |
 
 
 <a id="MarketingListTarget"></a>
 ## Enum: marketingListTarget
 | Name | Value |
 | ---- | ----- |
-| marketingListTarget | 0, 1, 2 |
+| marketingListTarget | Individual, Organization, Lead |
 
 
 

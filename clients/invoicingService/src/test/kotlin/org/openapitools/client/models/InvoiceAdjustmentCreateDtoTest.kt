@@ -37,28 +37,10 @@ class InvoiceAdjustmentCreateDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
-        // to test the property `tenantId`
-        should("test tenantId") {
-            // uncomment below to test the property
-            //modelInstance.tenantId shouldBe ("TODO")
-        }
-
-        // to test the property `invoiceId`
-        should("test invoiceId") {
-            // uncomment below to test the property
-            //modelInstance.invoiceId shouldBe ("TODO")
-        }
-
         // to test the property `currencyId`
         should("test currencyId") {
             // uncomment below to test the property
             //modelInstance.currencyId shouldBe ("TODO")
-        }
-
-        // to test the property `enrollmentId`
-        should("test enrollmentId") {
-            // uncomment below to test the property
-            //modelInstance.enrollmentId shouldBe ("TODO")
         }
 
         // to test the property `description`

@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ProjectTimeLogCreateDto
 import org.openapitools.client.models.ProjectTimeLogDtoEnvelope
 import org.openapitools.client.models.ProjectTimeLogDtoListEnvelope
@@ -50,276 +51,13 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ProjectTimeLogDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGetWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGetWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGetRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet
-     *
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGetRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("contactId", listOf(contactId.toString()))
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ProjectTimeLogDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGetWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGetWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGetRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet
-     *
-     * @param contactId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGetRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("contactId", listOf(contactId.toString()))
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ProjectTimeLogDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGetWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGetWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGetRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet
-     *
-     * @param projectId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGetRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Get the count of project period time logs
+     * Returns the total count of time logs for a specific project period with OData query support.
      * @param tenantId 
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ProjectTimeLogDtoListEnvelope
+     * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -328,11 +66,11 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsGet(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsGetWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -347,28 +85,28 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Get the count of project period time logs
+     * Returns the total count of time logs for a specific project period with OData query support.
      * @param tenantId 
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
+     * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsGetWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsGetRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+        return request<Unit, Int32Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsGet
+     * To obtain the request config of the operation countProjectPeriodTimeLogsAsync
      *
      * @param tenantId 
      * @param projectPeriodId 
@@ -376,7 +114,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceProjectTimeLogsGetRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -392,17 +130,17 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/TimeTrackerService/ProjectTimeLogs",
+            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Create a new project time log
+     * Creates a new project time log entry.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -415,8 +153,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogCreateDto: ProjectTimeLogCreateDto? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogCreateDto = projectTimeLogCreateDto)
+    fun createProjectTimeLogAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogCreateDto: ProjectTimeLogCreateDto? = null) : Unit {
+        val localVarResponse = createProjectTimeLogAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogCreateDto = projectTimeLogCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -434,8 +172,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Create a new project time log
+     * Creates a new project time log entry.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -445,8 +183,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogCreateDto: ProjectTimeLogCreateDto?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogCreateDto = projectTimeLogCreateDto)
+    fun createProjectTimeLogAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogCreateDto: ProjectTimeLogCreateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = createProjectTimeLogAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogCreateDto = projectTimeLogCreateDto)
 
         return request<ProjectTimeLogCreateDto, Unit>(
             localVariableConfig
@@ -454,7 +192,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsPost
+     * To obtain the request config of the operation createProjectTimeLogAsync
      *
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -462,7 +200,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param projectTimeLogCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceProjectTimeLogsPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogCreateDto: ProjectTimeLogCreateDto?) : RequestConfig<ProjectTimeLogCreateDto> {
+    fun createProjectTimeLogAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogCreateDto: ProjectTimeLogCreateDto?) : RequestConfig<ProjectTimeLogCreateDto> {
         val localVariableBody = projectTimeLogCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -481,14 +219,14 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/TimeTrackerService/ProjectTimeLogs",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a project time log
+     * Deletes a project time log entry.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -501,8 +239,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDeleteWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteProjectTimeLogAsync(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = deleteProjectTimeLogAsyncWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -520,8 +258,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Delete a project time log
+     * Deletes a project time log entry.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -531,8 +269,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDeleteWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDeleteRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteProjectTimeLogAsyncWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = deleteProjectTimeLogAsyncRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -540,7 +278,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete
+     * To obtain the request config of the operation deleteProjectTimeLogAsync
      *
      * @param timeLogId 
      * @param tenantId 
@@ -548,7 +286,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDeleteRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteProjectTimeLogAsyncRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -566,14 +304,102 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId}".replace("{"+"timeLogId"+"}", encodeURIComponent(timeLogId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve project period time logs
+     * Retrieves a list of time logs for a specific project period with OData query support.
+     * @param tenantId 
+     * @param projectPeriodId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ProjectTimeLogDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve project period time logs
+     * Retrieves a list of time logs for a specific project period with OData query support.
+     * @param tenantId 
+     * @param projectPeriodId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectPeriodTimeLogsAsync
+     *
+     * @param tenantId 
+     * @param projectPeriodId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                put("projectPeriodId", listOf(projectPeriodId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/TimeTrackerService/ProjectTimeLogs",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve a project time log by ID
+     * Retrieves a single project time log by its unique identifier.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -587,8 +413,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoEnvelope {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGetWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTimeLogByIdAsync(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoEnvelope {
+        val localVarResponse = getProjectTimeLogByIdAsyncWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoEnvelope
@@ -606,8 +432,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Retrieve a project time log by ID
+     * Retrieves a single project time log by its unique identifier.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -618,8 +444,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGetWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoEnvelope?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGetRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectTimeLogByIdAsyncWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoEnvelope?> {
+        val localVariableConfig = getProjectTimeLogByIdAsyncRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ProjectTimeLogDtoEnvelope>(
             localVariableConfig
@@ -627,7 +453,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet
+     * To obtain the request config of the operation getProjectTimeLogByIdAsync
      *
      * @param timeLogId 
      * @param tenantId 
@@ -635,7 +461,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGetRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getProjectTimeLogByIdAsyncRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -653,14 +479,277 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId}".replace("{"+"timeLogId"+"}", encodeURIComponent(timeLogId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieve time logs for a project
+     * Retrieves all time logs associated with the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ProjectTimeLogDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectTimeLogsAsync(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectTimeLogsAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve time logs for a project
+     * Retrieves all time logs associated with the specified project.
+     * @param projectId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectTimeLogsAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectTimeLogsAsyncRequestConfig(projectId = projectId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectTimeLogsAsync
+     *
+     * @param projectId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getProjectTimeLogsAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId}".replace("{"+"projectId"+"}", encodeURIComponent(projectId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve time logs by responsible contact
+     * Retrieves time logs where the specified contact is the responsible party.
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ProjectTimeLogDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectTimeLogsByResponsibleContactAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectTimeLogsByResponsibleContactAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve time logs by responsible contact
+     * Retrieves time logs where the specified contact is the responsible party.
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectTimeLogsByResponsibleContactAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectTimeLogsByResponsibleContactAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectTimeLogsByResponsibleContactAsync
+     *
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getProjectTimeLogsByResponsibleContactAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("contactId", listOf(contactId.toString()))
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieve time logs created by a contact
+     * Retrieves time logs that were created by the specified contact.
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ProjectTimeLogDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getProjectTimeLogsCreatedByContactAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectTimeLogsCreatedByContactAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieve time logs created by a contact
+     * Retrieves time logs that were created by the specified contact.
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getProjectTimeLogsCreatedByContactAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectTimeLogsCreatedByContactAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getProjectTimeLogsCreatedByContactAsync
+     *
+     * @param contactId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getProjectTimeLogsCreatedByContactAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("contactId", listOf(contactId.toString()))
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a project time log
+     * Updates an existing project time log entry.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -674,8 +763,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto? = null) : Unit {
-        val localVarResponse = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPutWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogUpdateDto = projectTimeLogUpdateDto)
+    fun updateProjectTimeLogAsync(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto? = null) : Unit {
+        val localVarResponse = updateProjectTimeLogAsyncWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogUpdateDto = projectTimeLogUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -693,8 +782,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * 
-     * 
+     * Update a project time log
+     * Updates an existing project time log entry.
      * @param timeLogId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -705,8 +794,8 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPutWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPutRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogUpdateDto = projectTimeLogUpdateDto)
+    fun updateProjectTimeLogAsyncWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateProjectTimeLogAsyncRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogUpdateDto = projectTimeLogUpdateDto)
 
         return request<ProjectTimeLogUpdateDto, Unit>(
             localVariableConfig
@@ -714,7 +803,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
     }
 
     /**
-     * To obtain the request config of the operation apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut
+     * To obtain the request config of the operation updateProjectTimeLogAsync
      *
      * @param timeLogId 
      * @param tenantId 
@@ -723,7 +812,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param projectTimeLogUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPutRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto?) : RequestConfig<ProjectTimeLogUpdateDto> {
+    fun updateProjectTimeLogAsyncRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogUpdateDto: ProjectTimeLogUpdateDto?) : RequestConfig<ProjectTimeLogUpdateDto> {
         val localVariableBody = projectTimeLogUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -742,7 +831,7 @@ class ProjectTimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId}".replace("{"+"timeLogId"+"}", encodeURIComponent(timeLogId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

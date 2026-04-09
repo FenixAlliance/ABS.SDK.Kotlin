@@ -9,6 +9,8 @@
 | **qualifiedName** | **kotlin.String** |  |  [optional] [readonly] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **type** | [**inline**](#Type) |  |  [optional] |
+| **email** | **kotlin.String** |  |  [optional] |
+| **phone** | **kotlin.String** |  |  [optional] |
 | **publicName** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
@@ -19,17 +21,17 @@
 | **timezoneId** | **kotlin.String** |  |  [optional] |
 | **languageId** | **kotlin.String** |  |  [optional] |
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
-| **webUrl** | **kotlin.String** |  |  [optional] |
-| **gitHubUrl** | **kotlin.String** |  |  [optional] |
-| **twitchUrl** | **kotlin.String** |  |  [optional] |
-| **redditUrl** | **kotlin.String** |  |  [optional] |
-| **tikTokUrl** | **kotlin.String** |  |  [optional] |
-| **websiteUrl** | **kotlin.String** |  |  [optional] |
-| **twitterUrl** | **kotlin.String** |  |  [optional] |
-| **facebookUrl** | **kotlin.String** |  |  [optional] |
-| **youTubeUrl** | **kotlin.String** |  |  [optional] |
-| **linkedInUrl** | **kotlin.String** |  |  [optional] |
-| **instagramUrl** | **kotlin.String** |  |  [optional] |
+| **webUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **gitHubUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **twitchUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **redditUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **tikTokUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **websiteUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **twitterUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **facebookUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **youTubeUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **linkedInUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
+| **instagramUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
 | **githubUsername** | **kotlin.String** |  |  [optional] |
 
 
@@ -37,7 +39,7 @@
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1 |
+| type | Individual, Organization |
 
 
 

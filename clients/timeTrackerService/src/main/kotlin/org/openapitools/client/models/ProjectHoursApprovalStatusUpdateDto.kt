@@ -40,13 +40,13 @@ data class ProjectHoursApprovalStatusUpdateDto (
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: Pending,Approved,Rejected
      */
     @JsonClass(generateAdapter = false)
-    enum class ApprovalStatus(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class ApprovalStatus(val value: kotlin.String) {
+        @Json(name = "Pending") Pending("Pending"),
+        @Json(name = "Approved") Approved("Approved"),
+        @Json(name = "Rejected") Rejected("Rejected");
     }
 
 }

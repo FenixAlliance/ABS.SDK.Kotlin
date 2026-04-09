@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedOrderDtoListEnvelope
@@ -57,10 +58,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Calculates totals for an order.
+     * Performs calculation of totals and taxes for the specified order.
+     * @param orderId 
      * @param tenantId 
-     * @return Int32Envelope
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -69,11 +71,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersCountGet(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2OrdersServiceOrdersCountGetWithHttpInfo(tenantId = tenantId)
+    fun calculateOrder(orderId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateOrderWithHttpInfo(orderId = orderId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -88,30 +90,32 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Calculates totals for an order.
+     * Performs calculation of totals and taxes for the specified order.
+     * @param orderId 
      * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersCountGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersCountGetRequestConfig(tenantId = tenantId)
+    fun calculateOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateOrderRequestConfig(orderId = orderId, tenantId = tenantId)
 
-        return request<Unit, Int32Envelope>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersCountGet
+     * To obtain the request config of the operation calculateOrder
      *
+     * @param orderId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2OrdersServiceOrdersCountGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun calculateOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -121,18 +125,414 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/OrdersService/Orders/Count",
+            method = RequestMethod.PUT,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Calculate".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Calculates totals for an order line.
+     * Performs calculation of totals and taxes for the specified order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun calculateOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Calculates totals for an order line.
+     * Performs calculation of totals and taxes for the specified order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun calculateOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation calculateOrderLine
+     *
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun calculateOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}/Calculate".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Creates a new order.
+     * Creates a new order for the specified tenant.
+     * @param tenantId 
+     * @param orderCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createOrder(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createOrderWithHttpInfo(tenantId = tenantId, orderCreateDto = orderCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Creates a new order.
+     * Creates a new order for the specified tenant.
+     * @param tenantId 
+     * @param orderCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createOrderWithHttpInfo(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createOrderRequestConfig(tenantId = tenantId, orderCreateDto = orderCreateDto)
+
+        return request<OrderCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createOrder
+     *
+     * @param tenantId 
+     * @param orderCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createOrderRequestConfig(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto?) : RequestConfig<OrderCreateDto> {
+        val localVariableBody = orderCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/OrdersService/Orders",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Creates a new order line.
+     * Creates a new line (item) for the specified order.
+     * @param orderId 
+     * @param tenantId 
+     * @param orderLineCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createOrderLine(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createOrderLineWithHttpInfo(orderId = orderId, tenantId = tenantId, orderLineCreateDto = orderLineCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Creates a new order line.
+     * Creates a new line (item) for the specified order.
+     * @param orderId 
+     * @param tenantId 
+     * @param orderLineCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createOrderLineWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createOrderLineRequestConfig(orderId = orderId, tenantId = tenantId, orderLineCreateDto = orderLineCreateDto)
+
+        return request<OrderLineCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createOrderLine
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @param orderLineCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createOrderLineRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto?) : RequestConfig<OrderLineCreateDto> {
+        val localVariableBody = orderLineCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes an order.
+     * Deletes the specified order.
+     * @param orderId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteOrder(orderId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteOrderWithHttpInfo(orderId = orderId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes an order.
+     * Deletes the specified order.
+     * @param orderId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteOrderRequestConfig(orderId = orderId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteOrder
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes an order line.
+     * Deletes the specified order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes an order line.
+     * Deletes the specified order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteOrderLine
+     *
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets a list of extended orders for a tenant.
+     * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId 
      * @return ExtendedOrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -143,8 +543,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersExtendedGet(tenantId: java.util.UUID) : ExtendedOrderDtoListEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersExtendedGetWithHttpInfo(tenantId = tenantId)
+    fun getExtendedOrders(tenantId: java.util.UUID) : ExtendedOrderDtoListEnvelope {
+        val localVarResponse = getExtendedOrdersWithHttpInfo(tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedOrderDtoListEnvelope
@@ -162,8 +562,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets a list of extended orders for a tenant.
+     * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId 
      * @return ApiResponse<ExtendedOrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -171,8 +571,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersExtendedGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersExtendedGetRequestConfig(tenantId = tenantId)
+    fun getExtendedOrdersWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
+        val localVariableConfig = getExtendedOrdersRequestConfig(tenantId = tenantId)
 
         return request<Unit, ExtendedOrderDtoListEnvelope>(
             localVariableConfig
@@ -180,12 +580,12 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersExtendedGet
+     * To obtain the request config of the operation getExtendedOrders
      *
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2OrdersServiceOrdersExtendedGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getExtendedOrdersRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -199,17 +599,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/OrdersService/Orders/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets a specific order by ID.
+     * Retrieves the details of a specific order by its ID.
      * @param orderId 
      * @param tenantId 
-     * @return EmptyEnvelope
+     * @return OrderDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -218,11 +618,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdCalculatePut(orderId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdCalculatePutWithHttpInfo(orderId = orderId, tenantId = tenantId)
+    fun getOrder(orderId: java.util.UUID, tenantId: java.util.UUID) : OrderDtoEnvelope {
+        val localVarResponse = getOrderWithHttpInfo(orderId = orderId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -237,32 +637,32 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets a specific order by ID.
+     * Retrieves the details of a specific order by its ID.
      * @param orderId 
      * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<OrderDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdCalculatePutWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdCalculatePutRequestConfig(orderId = orderId, tenantId = tenantId)
+    fun getOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<OrderDtoEnvelope?> {
+        val localVariableConfig = getOrderRequestConfig(orderId = orderId, tenantId = tenantId)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, OrderDtoEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdCalculatePut
+     * To obtain the request config of the operation getOrder
      *
      * @param orderId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2OrdersServiceOrdersOrderIdCalculatePutRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -272,415 +672,18 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Calculate".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdDelete(orderId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdDeleteWithHttpInfo(orderId = orderId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdDeleteWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdDeleteRequestConfig(orderId = orderId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdDelete
-     *
-     * @param orderId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdDeleteRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
+            method = RequestMethod.GET,
             path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesCountGet(orderId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesCountGetWithHttpInfo(orderId = orderId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesCountGetWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesCountGetRequestConfig(orderId = orderId, tenantId = tenantId)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesCountGet
-     *
-     * @param orderId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdLinesCountGetRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/Count".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return OrderLineDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesGet(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : OrderLineDtoListEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesGetWithHttpInfo(orderId = orderId, tenantId = tenantId, itemId = itemId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderLineDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return ApiResponse<OrderLineDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesGetWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<OrderLineDtoListEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesGetRequestConfig(orderId = orderId, tenantId = tenantId, itemId = itemId)
-
-        return request<Unit, OrderLineDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesGet
-     *
-     * @param orderId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdLinesGetRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (itemId != null) {
-                    put("itemId", listOf(itemId.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Lines".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePutWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePutWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePutRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut
-     *
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePutRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}/Calculate".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDeleteWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDeleteWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDeleteRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete
-     *
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDeleteRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Gets a specific order line.
+     * Retrieves the details of a specific order line by its ID.
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
@@ -693,8 +696,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : OrderLineDtoEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGetWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+    fun getOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : OrderLineDtoEnvelope {
+        val localVarResponse = getOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderLineDtoEnvelope
@@ -712,8 +715,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets a specific order line.
+     * Retrieves the details of a specific order line by its ID.
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
@@ -723,8 +726,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGetWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<OrderLineDtoEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGetRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
+    fun getOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<OrderLineDtoEnvelope?> {
+        val localVariableConfig = getOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId)
 
         return request<Unit, OrderLineDtoEnvelope>(
             localVariableConfig
@@ -732,14 +735,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet
+     * To obtain the request config of the operation getOrderLine
      *
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGetRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -753,19 +756,18 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets order lines for an order.
+     * Retrieves the lines (items) for the specified order.
      * @param orderId 
-     * @param orderLineId 
      * @param tenantId 
-     * @param orderLineUpdateDto  (optional)
-     * @return EmptyEnvelope
+     * @param itemId  (optional)
+     * @return OrderLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -774,11 +776,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPutWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, orderLineUpdateDto = orderLineUpdateDto)
+    fun getOrderLines(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : OrderLineDtoListEnvelope {
+        val localVarResponse = getOrderLinesWithHttpInfo(orderId = orderId, tenantId = tenantId, itemId = itemId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderLineDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -793,143 +795,61 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets order lines for an order.
+     * Retrieves the lines (items) for the specified order.
      * @param orderId 
-     * @param orderLineId 
      * @param tenantId 
-     * @param orderLineUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @param itemId  (optional)
+     * @return ApiResponse<OrderLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPutWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPutRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, orderLineUpdateDto = orderLineUpdateDto)
+    fun getOrderLinesWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<OrderLineDtoListEnvelope?> {
+        val localVariableConfig = getOrderLinesRequestConfig(orderId = orderId, tenantId = tenantId, itemId = itemId)
 
-        return request<OrderLineUpdateDto, EmptyEnvelope>(
+        return request<Unit, OrderLineDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut
-     *
-     * @param orderId 
-     * @param orderLineId 
-     * @param tenantId 
-     * @param orderLineUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPutRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto?) : RequestConfig<OrderLineUpdateDto> {
-        val localVariableBody = orderLineUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @param orderLineCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesPost(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdLinesPostWithHttpInfo(orderId = orderId, tenantId = tenantId, orderLineCreateDto = orderLineCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @param orderLineCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdLinesPostWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdLinesPostRequestConfig(orderId = orderId, tenantId = tenantId, orderLineCreateDto = orderLineCreateDto)
-
-        return request<OrderLineCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdLinesPost
+     * To obtain the request config of the operation getOrderLines
      *
      * @param orderId 
      * @param tenantId 
-     * @param orderLineCreateDto  (optional)
+     * @param itemId  (optional)
      * @return RequestConfig
      */
-    fun apiV2OrdersServiceOrdersOrderIdLinesPostRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineCreateDto: OrderLineCreateDto?) : RequestConfig<OrderLineCreateDto> {
-        val localVariableBody = orderLineCreateDto
+    fun getOrderLinesRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
+        val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
+                if (itemId != null) {
+                    put("itemId", listOf(itemId.toString()))
+                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.POST,
+            method = RequestMethod.GET,
             path = "/api/v2/OrdersService/Orders/{orderId}/Lines".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets the count of order lines for an order.
+     * Retrieves the total number of lines for the specified order.
      * @param orderId 
      * @param tenantId 
-     * @param orderUpdateDto  (optional)
-     * @return EmptyEnvelope
+     * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -938,11 +858,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersOrderIdPut(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersOrderIdPutWithHttpInfo(orderId = orderId, tenantId = tenantId, orderUpdateDto = orderUpdateDto)
+    fun getOrderLinesCount(orderId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getOrderLinesCountWithHttpInfo(orderId = orderId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -957,264 +877,32 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets the count of order lines for an order.
+     * Retrieves the total number of lines for the specified order.
      * @param orderId 
      * @param tenantId 
-     * @param orderUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersOrderIdPutWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersOrderIdPutRequestConfig(orderId = orderId, tenantId = tenantId, orderUpdateDto = orderUpdateDto)
+    fun getOrderLinesCountWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOrderLinesCountRequestConfig(orderId = orderId, tenantId = tenantId)
 
-        return request<OrderUpdateDto, EmptyEnvelope>(
+        return request<Unit, Int32Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersOrderIdPut
-     *
-     * @param orderId 
-     * @param tenantId 
-     * @param orderUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersOrderIdPutRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto?) : RequestConfig<OrderUpdateDto> {
-        val localVariableBody = orderUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param orderCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersPost(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersPostWithHttpInfo(tenantId = tenantId, orderCreateDto = orderCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param orderCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersPostWithHttpInfo(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersPostRequestConfig(tenantId = tenantId, orderCreateDto = orderCreateDto)
-
-        return request<OrderCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersPost
-     *
-     * @param tenantId 
-     * @param orderCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersPostRequestConfig(tenantId: java.util.UUID, orderCreateDto: OrderCreateDto?) : RequestConfig<OrderCreateDto> {
-        val localVariableBody = orderCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/OrdersService/Orders",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param cartId 
-     * @return OrderDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2OrdersServiceOrdersSubmitCartPost(cartId: java.util.UUID) : OrderDtoEnvelope {
-        val localVarResponse = apiV2OrdersServiceOrdersSubmitCartPostWithHttpInfo(cartId = cartId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param cartId 
-     * @return ApiResponse<OrderDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2OrdersServiceOrdersSubmitCartPostWithHttpInfo(cartId: java.util.UUID) : ApiResponse<OrderDtoEnvelope?> {
-        val localVariableConfig = apiV2OrdersServiceOrdersSubmitCartPostRequestConfig(cartId = cartId)
-
-        return request<Unit, OrderDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2OrdersServiceOrdersSubmitCartPost
-     *
-     * @param cartId 
-     * @return RequestConfig
-     */
-    fun apiV2OrdersServiceOrdersSubmitCartPostRequestConfig(cartId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("cartId", listOf(cartId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/OrdersService/Orders/SubmitCart",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return OrderDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrderAsync(orderId: java.util.UUID, tenantId: java.util.UUID) : OrderDtoEnvelope {
-        val localVarResponse = getOrderAsyncWithHttpInfo(orderId = orderId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param orderId 
-     * @param tenantId 
-     * @return ApiResponse<OrderDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getOrderAsyncWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<OrderDtoEnvelope?> {
-        val localVariableConfig = getOrderAsyncRequestConfig(orderId = orderId, tenantId = tenantId)
-
-        return request<Unit, OrderDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation getOrderAsync
+     * To obtain the request config of the operation getOrderLinesCount
      *
      * @param orderId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun getOrderAsyncRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getOrderLinesCountRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1225,17 +913,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/Count".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets a list of orders for a tenant.
+     * Retrieves a list of orders for the specified tenant.
      * @param tenantId 
      * @return OrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -1246,8 +934,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrdersAsync(tenantId: java.util.UUID) : OrderDtoListEnvelope {
-        val localVarResponse = getOrdersAsyncWithHttpInfo(tenantId = tenantId)
+    fun getOrders(tenantId: java.util.UUID) : OrderDtoListEnvelope {
+        val localVarResponse = getOrdersWithHttpInfo(tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoListEnvelope
@@ -1265,8 +953,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Gets a list of orders for a tenant.
+     * Retrieves a list of orders for the specified tenant.
      * @param tenantId 
      * @return ApiResponse<OrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1274,8 +962,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrdersAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<OrderDtoListEnvelope?> {
-        val localVariableConfig = getOrdersAsyncRequestConfig(tenantId = tenantId)
+    fun getOrdersWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<OrderDtoListEnvelope?> {
+        val localVariableConfig = getOrdersRequestConfig(tenantId = tenantId)
 
         return request<Unit, OrderDtoListEnvelope>(
             localVariableConfig
@@ -1283,12 +971,12 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation getOrdersAsync
+     * To obtain the request config of the operation getOrders
      *
      * @param tenantId 
      * @return RequestConfig
      */
-    fun getOrdersAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getOrdersRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1302,7 +990,479 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/OrdersService/Orders",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets the count of orders for a tenant.
+     * Retrieves the total number of orders for the specified tenant.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getOrdersCount(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getOrdersCountWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Gets the count of orders for a tenant.
+     * Retrieves the total number of orders for the specified tenant.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getOrdersCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOrdersCountRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getOrdersCount
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getOrdersCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/OrdersService/Orders/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Preview the rendered email for an Order.
+     * Previews the rendered email template for the specified order. Only users with the &#39;send_email&#39; permission are permitted.
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun previewOrderEmailTemplate(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = previewOrderEmailTemplateWithHttpInfo(orderId = orderId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Preview the rendered email for an Order.
+     * Previews the rendered email template for the specified order. Only users with the &#39;send_email&#39; permission are permitted.
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun previewOrderEmailTemplateWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = previewOrderEmailTemplateRequestConfig(orderId = orderId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation previewOrderEmailTemplate
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun previewOrderEmailTemplateRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Emails/Preview".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Send a transactional email for an order.
+     * Sends a transactional email for the specified order. Only users with the &#39;send_email&#39; permission are permitted.
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun sendOrderEmail(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest? = null) : EmptyEnvelope {
+        val localVarResponse = sendOrderEmailWithHttpInfo(orderId = orderId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Send a transactional email for an order.
+     * Sends a transactional email for the specified order. Only users with the &#39;send_email&#39; permission are permitted.
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun sendOrderEmailWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = sendOrderEmailRequestConfig(orderId = orderId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation sendOrderEmail
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun sendOrderEmailRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Emails/Send".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Submits a cart and creates an order.
+     * Submits the specified cart and creates an order for the authenticated user.
+     * @param cartId 
+     * @return OrderDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun submitCart(cartId: java.util.UUID) : OrderDtoEnvelope {
+        val localVarResponse = submitCartWithHttpInfo(cartId = cartId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Submits a cart and creates an order.
+     * Submits the specified cart and creates an order for the authenticated user.
+     * @param cartId 
+     * @return ApiResponse<OrderDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun submitCartWithHttpInfo(cartId: java.util.UUID) : ApiResponse<OrderDtoEnvelope?> {
+        val localVariableConfig = submitCartRequestConfig(cartId = cartId)
+
+        return request<Unit, OrderDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation submitCart
+     *
+     * @param cartId 
+     * @return RequestConfig
+     */
+    fun submitCartRequestConfig(cartId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("cartId", listOf(cartId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/OrdersService/Orders/SubmitCart",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates an existing order.
+     * Updates the details of an existing order.
+     * @param orderId 
+     * @param tenantId 
+     * @param orderUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateOrder(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateOrderWithHttpInfo(orderId = orderId, tenantId = tenantId, orderUpdateDto = orderUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates an existing order.
+     * Updates the details of an existing order.
+     * @param orderId 
+     * @param tenantId 
+     * @param orderUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateOrderRequestConfig(orderId = orderId, tenantId = tenantId, orderUpdateDto = orderUpdateDto)
+
+        return request<OrderUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateOrder
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @param orderUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, orderUpdateDto: OrderUpdateDto?) : RequestConfig<OrderUpdateDto> {
+        val localVariableBody = orderUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates an order line.
+     * Updates the details of a specific order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param orderLineUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, orderLineUpdateDto = orderLineUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates an order line.
+     * Updates the details of a specific order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param orderLineUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, orderLineUpdateDto = orderLineUpdateDto)
+
+        return request<OrderLineUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateOrderLine
+     *
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param orderLineUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, orderLineUpdateDto: OrderLineUpdateDto?) : RequestConfig<OrderLineUpdateDto> {
+        val localVariableBody = orderLineUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

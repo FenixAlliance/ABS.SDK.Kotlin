@@ -27,13 +27,13 @@ class ShipmentsApiTest : ShouldSpec() {
         // uncomment below to create an instance of ShipmentsApi
         //val apiInstance = ShipmentsApi()
 
-        // to test apiV2ShipmentsServiceShipmentsGet
-        should("test apiV2ShipmentsServiceShipmentsGet") {
-            // uncomment below to test apiV2ShipmentsServiceShipmentsGet
+        // to test getShipmentsAsync
+        should("test getShipmentsAsync") {
+            // uncomment below to test getShipmentsAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : ShipmentDtoListEnvelope = apiInstance.apiV2ShipmentsServiceShipmentsGet(tenantId, apiVersion, xApiVersion)
+            //val result : ShipmentDtoListEnvelope = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

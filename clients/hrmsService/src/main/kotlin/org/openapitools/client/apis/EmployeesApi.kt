@@ -51,8 +51,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create an employee
+     * Creates a new employee for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -85,8 +85,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create an employee
+     * Creates a new employee for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -133,14 +133,14 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete an employee
+     * Deletes an employee for the specified tenant.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -173,8 +173,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Delete an employee
+     * Deletes an employee for the specified tenant.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -220,14 +220,14 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees/{employeeId}".replace("{"+"employeeId"+"}", encodeURIComponent(employeeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get employee by ID
+     * Retrieves a specific employee by its identifier.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -260,8 +260,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get employee by ID
+     * Retrieves a specific employee by its identifier.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -307,14 +307,14 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees/{employeeId}".replace("{"+"employeeId"+"}", encodeURIComponent(employeeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get employees
+     * Retrieves employees for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -346,8 +346,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get employees
+     * Retrieves employees for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -391,14 +391,14 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Count employees
+     * Counts employees for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -430,8 +430,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Count employees
+     * Counts employees for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -475,14 +475,14 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Update an employee
+     * Updates an existing employee for the specified tenant.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -516,8 +516,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Update an employee
+     * Updates an existing employee for the specified tenant.
      * @param employeeId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -566,7 +566,7 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/Employees/{employeeId}".replace("{"+"employeeId"+"}", encodeURIComponent(employeeId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

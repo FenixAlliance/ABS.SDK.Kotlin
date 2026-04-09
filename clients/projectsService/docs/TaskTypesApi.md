@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ProjectsServiceTaskTypesPost**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesPost) | **POST** /api/v2/ProjectsService/TaskTypes |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdDelete**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdGet**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdGet) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdPut**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdPut) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
+| [**createTaskTypeAsync**](TaskTypesApi.md#createTaskTypeAsync) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type |
+| [**deleteTaskTypeAsync**](TaskTypesApi.md#deleteTaskTypeAsync) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type |
+| [**getTaskTypeByIdAsync**](TaskTypesApi.md#getTaskTypeByIdAsync) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID |
+| [**updateTaskTypeAsync**](TaskTypesApi.md#updateTaskTypeAsync) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type |
 
 
-<a id="apiV2ProjectsServiceTaskTypesPost"></a>
-# **apiV2ProjectsServiceTaskTypesPost**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesPost(tenantId, apiVersion, xApiVersion, taskTypeCreateDto)
+<a id="createTaskTypeAsync"></a>
+# **createTaskTypeAsync**
+> TaskTypeDto createTaskTypeAsync(tenantId, taskTypeCreateDto)
 
+Creates a new task type
 
+Creates a new task type for the current tenant.
 
 ### Example
 ```kotlin
@@ -24,25 +26,21 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = TaskTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val taskTypeCreateDto : TaskTypeCreateDto =  // TaskTypeCreateDto | 
 try {
-    val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesPost(tenantId, apiVersion, xApiVersion, taskTypeCreateDto)
+    val result : TaskTypeDto = apiInstance.createTaskTypeAsync(tenantId, taskTypeCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesPost")
+    println("4xx response calling TaskTypesApi#createTaskTypeAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesPost")
+    println("5xx response calling TaskTypesApi#createTaskTypeAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **taskTypeCreateDto** | [**TaskTypeCreateDto**](TaskTypeCreateDto.md)|  | [optional] |
@@ -53,21 +51,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdDelete"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdDelete**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId, tenantId, apiVersion, xApiVersion)
+<a id="deleteTaskTypeAsync"></a>
+# **deleteTaskTypeAsync**
+> TaskTypeDto deleteTaskTypeAsync(taskTypeId, tenantId)
 
+Deletes a task type
 
+Deletes the specified task type.
 
 ### Example
 ```kotlin
@@ -78,27 +75,23 @@ Configure Bearer:
 val apiInstance = TaskTypesApi()
 val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId, tenantId, apiVersion, xApiVersion)
+    val result : TaskTypeDto = apiInstance.deleteTaskTypeAsync(taskTypeId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete")
+    println("4xx response calling TaskTypesApi#deleteTaskTypeAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete")
+    println("5xx response calling TaskTypesApi#deleteTaskTypeAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **taskTypeId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -106,21 +99,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdGet"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdGet**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId, tenantId, apiVersion, xApiVersion)
+<a id="getTaskTypeByIdAsync"></a>
+# **getTaskTypeByIdAsync**
+> TaskTypeDto getTaskTypeByIdAsync(taskTypeId, tenantId)
 
+Gets a task type by ID
 
+Retrieves the details of a task type using its unique identifier.
 
 ### Example
 ```kotlin
@@ -131,27 +123,23 @@ Configure Bearer:
 val apiInstance = TaskTypesApi()
 val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId, tenantId, apiVersion, xApiVersion)
+    val result : TaskTypeDto = apiInstance.getTaskTypeByIdAsync(taskTypeId, tenantId)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdGet")
+    println("4xx response calling TaskTypesApi#getTaskTypeByIdAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdGet")
+    println("5xx response calling TaskTypesApi#getTaskTypeByIdAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **taskTypeId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -159,21 +147,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdPut"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdPut**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId, tenantId, apiVersion, xApiVersion, taskTypeUpdateDto)
+<a id="updateTaskTypeAsync"></a>
+# **updateTaskTypeAsync**
+> TaskTypeDto updateTaskTypeAsync(taskTypeId, tenantId, taskTypeUpdateDto)
 
+Updates a task type
 
+Updates the specified task type.
 
 ### Example
 ```kotlin
@@ -184,17 +171,15 @@ Configure Bearer:
 val apiInstance = TaskTypesApi()
 val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val taskTypeUpdateDto : TaskTypeUpdateDto =  // TaskTypeUpdateDto | 
 try {
-    val result : TaskTypeDto = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId, tenantId, apiVersion, xApiVersion, taskTypeUpdateDto)
+    val result : TaskTypeDto = apiInstance.updateTaskTypeAsync(taskTypeId, tenantId, taskTypeUpdateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdPut")
+    println("4xx response calling TaskTypesApi#updateTaskTypeAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdPut")
+    println("5xx response calling TaskTypesApi#updateTaskTypeAsync")
     e.printStackTrace()
 }
 ```
@@ -202,8 +187,6 @@ try {
 ### Parameters
 | **taskTypeId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **taskTypeUpdateDto** | [**TaskTypeUpdateDto**](TaskTypeUpdateDto.md)|  | [optional] |
@@ -214,10 +197,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

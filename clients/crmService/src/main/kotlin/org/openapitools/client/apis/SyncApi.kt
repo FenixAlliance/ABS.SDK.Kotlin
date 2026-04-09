@@ -19,8 +19,8 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.ContactDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
+import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 
 import com.squareup.moshi.Json
@@ -48,12 +48,12 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Sync the current user into the current tenant&#39;s contact list
+     * Synchronizes the currently authenticated user into the current tenant&#39;s CRM contact list.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ContactDtoListEnvelope
+     * @return Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -62,11 +62,11 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2CrmServiceSyncMePost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = apiV2CrmServiceSyncMePostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncCurrentHolderToCurrentTenantCrm(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Envelope {
+        val localVarResponse = syncCurrentHolderToCurrentTenantCrmWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -81,118 +81,34 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Sync the current user into the current tenant&#39;s contact list
+     * Synchronizes the currently authenticated user into the current tenant&#39;s CRM contact list.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<ContactDtoListEnvelope?>
+     * @return ApiResponse<Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2CrmServiceSyncMePostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = apiV2CrmServiceSyncMePostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncCurrentHolderToCurrentTenantCrmWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Envelope?> {
+        val localVariableConfig = syncCurrentHolderToCurrentTenantCrmRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<Unit, Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2CrmServiceSyncMePost
+     * To obtain the request config of the operation syncCurrentHolderToCurrentTenantCrm
      *
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2CrmServiceSyncMePostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/CrmService/Sync/Me",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ContactDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2CrmServiceSyncPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = apiV2CrmServiceSyncPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<ContactDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2CrmServiceSyncPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = apiV2CrmServiceSyncPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, ContactDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2CrmServiceSyncPost
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2CrmServiceSyncPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun syncCurrentHolderToCurrentTenantCrmRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -210,19 +126,18 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/CrmService/Sync",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Sync the current user into a tenant&#39;s contact list
+     * Synchronizes the currently authenticated user into the specified tenant&#39;s CRM contact list.
      * @param tenantId 
-     * @param relatedTenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
+     * @return Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -231,11 +146,11 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2CrmServiceSyncTenantPost(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2CrmServiceSyncTenantPostWithHttpInfo(tenantId = tenantId, relatedTenantId = relatedTenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncCurrentHolderToTenantCrm(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Envelope {
+        val localVarResponse = syncCurrentHolderToTenantCrmWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -250,41 +165,38 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Sync the current user into a tenant&#39;s contact list
+     * Synchronizes the currently authenticated user into the specified tenant&#39;s CRM contact list.
      * @param tenantId 
-     * @param relatedTenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2CrmServiceSyncTenantPostWithHttpInfo(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2CrmServiceSyncTenantPostRequestConfig(tenantId = tenantId, relatedTenantId = relatedTenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncCurrentHolderToTenantCrmWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Envelope?> {
+        val localVariableConfig = syncCurrentHolderToTenantCrmRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<Unit, Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2CrmServiceSyncTenantPost
+     * To obtain the request config of the operation syncCurrentHolderToTenantCrm
      *
      * @param tenantId 
-     * @param relatedTenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2CrmServiceSyncTenantPostRequestConfig(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun syncCurrentHolderToTenantCrmRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("relatedTenantId", listOf(relatedTenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -295,22 +207,22 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/api/v2/CrmService/Sync/Tenant",
+            path = "/api/v2/CrmService/Sync/Me",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Sync a user into a tenant&#39;s contact list
+     * Synchronizes a specified user into the tenant&#39;s CRM contact list.
      * @param tenantId 
      * @param relatedUserId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ContactDtoListEnvelope
+     * @return Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -319,11 +231,11 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2CrmServiceSyncUserPost(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = apiV2CrmServiceSyncUserPostWithHttpInfo(tenantId = tenantId, relatedUserId = relatedUserId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncHolderToTenantCrmAsync(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Envelope {
+        val localVarResponse = syncHolderToTenantCrmAsyncWithHttpInfo(tenantId = tenantId, relatedUserId = relatedUserId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -338,28 +250,28 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Sync a user into a tenant&#39;s contact list
+     * Synchronizes a specified user into the tenant&#39;s CRM contact list.
      * @param tenantId 
      * @param relatedUserId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<ContactDtoListEnvelope?>
+     * @return ApiResponse<Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2CrmServiceSyncUserPostWithHttpInfo(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = apiV2CrmServiceSyncUserPostRequestConfig(tenantId = tenantId, relatedUserId = relatedUserId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun syncHolderToTenantCrmAsyncWithHttpInfo(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Envelope?> {
+        val localVariableConfig = syncHolderToTenantCrmAsyncRequestConfig(tenantId = tenantId, relatedUserId = relatedUserId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<Unit, Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2CrmServiceSyncUserPost
+     * To obtain the request config of the operation syncHolderToTenantCrmAsync
      *
      * @param tenantId 
      * @param relatedUserId 
@@ -367,7 +279,7 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2CrmServiceSyncUserPostRequestConfig(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun syncHolderToTenantCrmAsyncRequestConfig(tenantId: java.util.UUID, relatedUserId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -386,7 +298,95 @@ class SyncApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/CrmService/Sync/User",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Sync a tenant into another tenant&#39;s contact list
+     * Synchronizes a tenant into another tenant&#39;s CRM contact list.
+     * @param tenantId 
+     * @param relatedTenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun syncTenantToTenantCrm(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = syncTenantToTenantCrmWithHttpInfo(tenantId = tenantId, relatedTenantId = relatedTenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Sync a tenant into another tenant&#39;s contact list
+     * Synchronizes a tenant into another tenant&#39;s CRM contact list.
+     * @param tenantId 
+     * @param relatedTenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun syncTenantToTenantCrmWithHttpInfo(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = syncTenantToTenantCrmRequestConfig(tenantId = tenantId, relatedTenantId = relatedTenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation syncTenantToTenantCrm
+     *
+     * @param tenantId 
+     * @param relatedTenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun syncTenantToTenantCrmRequestConfig(tenantId: java.util.UUID, relatedTenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                put("relatedTenantId", listOf(relatedTenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/CrmService/Sync/Tenant",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

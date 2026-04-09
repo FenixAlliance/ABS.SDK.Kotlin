@@ -8,7 +8,7 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **enabled** | **kotlin.Boolean** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

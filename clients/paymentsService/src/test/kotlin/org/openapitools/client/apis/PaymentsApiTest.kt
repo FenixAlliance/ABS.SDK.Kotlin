@@ -30,55 +30,55 @@ class PaymentsApiTest : ShouldSpec() {
         // uncomment below to create an instance of PaymentsApi
         //val apiInstance = PaymentsApi()
 
-        // to test apiV2PaymentsServicePaymentsGet
-        should("test apiV2PaymentsServicePaymentsGet") {
-            // uncomment below to test apiV2PaymentsServicePaymentsGet
+        // to test createPaymentAsync
+        should("test createPaymentAsync") {
+            // uncomment below to test createPaymentAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : PaymentDtoListEnvelope = apiInstance.apiV2PaymentsServicePaymentsGet(tenantId)
+            //val paymentCreateDto : PaymentCreateDto =  // PaymentCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createPaymentAsync(tenantId, paymentCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PaymentsServicePaymentsPaymentIdDelete
-        should("test apiV2PaymentsServicePaymentsPaymentIdDelete") {
-            // uncomment below to test apiV2PaymentsServicePaymentsPaymentIdDelete
+        // to test deletePaymentAsync
+        should("test deletePaymentAsync") {
+            // uncomment below to test deletePaymentAsync
             //val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PaymentsServicePaymentsPaymentIdDelete(paymentId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.deletePaymentAsync(paymentId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PaymentsServicePaymentsPaymentIdDetailsGet
-        should("test apiV2PaymentsServicePaymentsPaymentIdDetailsGet") {
-            // uncomment below to test apiV2PaymentsServicePaymentsPaymentIdDetailsGet
+        // to test getPaymentAsync
+        should("test getPaymentAsync") {
+            // uncomment below to test getPaymentAsync
             //val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : PaymentDtoListEnvelope = apiInstance.apiV2PaymentsServicePaymentsPaymentIdDetailsGet(paymentId)
+            //val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsync(paymentId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PaymentsServicePaymentsPaymentIdGet
-        should("test apiV2PaymentsServicePaymentsPaymentIdGet") {
-            // uncomment below to test apiV2PaymentsServicePaymentsPaymentIdGet
+        // to test getPaymentAsyncV2
+        should("test getPaymentAsyncV2") {
+            // uncomment below to test getPaymentAsyncV2
             //val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : PaymentDtoListEnvelope = apiInstance.apiV2PaymentsServicePaymentsPaymentIdGet(paymentId)
+            //val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsyncV2(paymentId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2PaymentsServicePaymentsPaymentIdPut
-        should("test apiV2PaymentsServicePaymentsPaymentIdPut") {
-            // uncomment below to test apiV2PaymentsServicePaymentsPaymentIdPut
+        // to test getPaymentsAsync
+        should("test getPaymentsAsync") {
+            // uncomment below to test getPaymentsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : PaymentDtoListEnvelope = apiInstance.getPaymentsAsync(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updatePaymentAsync
+        should("test updatePaymentAsync") {
+            // uncomment below to test updatePaymentAsync
             //val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val paymentUpdateDto : PaymentUpdateDto =  // PaymentUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PaymentsServicePaymentsPaymentIdPut(paymentId, tenantId, paymentUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2PaymentsServicePaymentsPost
-        should("test apiV2PaymentsServicePaymentsPost") {
-            // uncomment below to test apiV2PaymentsServicePaymentsPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val paymentCreateDto : PaymentCreateDto =  // PaymentCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2PaymentsServicePaymentsPost(tenantId, paymentCreateDto)
+            //val result : EmptyEnvelope = apiInstance.updatePaymentAsync(paymentId, tenantId, paymentUpdateDto)
             //result shouldBe ("TODO")
         }
 

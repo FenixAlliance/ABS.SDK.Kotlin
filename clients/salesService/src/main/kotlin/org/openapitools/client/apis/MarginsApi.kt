@@ -45,8 +45,8 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * 
-     * 
+     * Get margin details by ID
+     * Retrieves the details of a specific sales margin by its ID.
      * @param marginId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -58,8 +58,8 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SalesServiceMarginsMarginIdDetailsGet(marginId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2SalesServiceMarginsMarginIdDetailsGetWithHttpInfo(marginId = marginId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getQuoteAsync(marginId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = getQuoteAsyncWithHttpInfo(marginId = marginId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -77,8 +77,8 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * 
-     * 
+     * Get margin details by ID
+     * Retrieves the details of a specific sales margin by its ID.
      * @param marginId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -87,8 +87,8 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SalesServiceMarginsMarginIdDetailsGetWithHttpInfo(marginId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2SalesServiceMarginsMarginIdDetailsGetRequestConfig(marginId = marginId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getQuoteAsyncWithHttpInfo(marginId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = getQuoteAsyncRequestConfig(marginId = marginId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -96,14 +96,14 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * To obtain the request config of the operation apiV2SalesServiceMarginsMarginIdDetailsGet
+     * To obtain the request config of the operation getQuoteAsync
      *
      * @param marginId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SalesServiceMarginsMarginIdDetailsGetRequestConfig(marginId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getQuoteAsyncRequestConfig(marginId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -119,7 +119,7 @@ class MarginsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/SalesService/Margins/{marginId}/Details".replace("{"+"marginId"+"}", encodeURIComponent(marginId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -11,7 +11,6 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **userId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **priceListId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
@@ -29,41 +28,46 @@
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
 | **customerNotes** | **kotlin.String** |  |  [optional] |
+| **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
+| **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
-| **total** | **kotlin.Double** |  |  [optional] |
-| **totalTaxes** | **kotlin.Double** |  |  [optional] |
-| **totalTaxBase** | **kotlin.Double** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **totalDetail** | **kotlin.Double** |  |  [optional] |
+| **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalProfit** | **kotlin.Double** |  |  [optional] |
+| **totalProfitCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalSurcharges** | **kotlin.Double** |  |  [optional] |
+| **totalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxBase** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxes** | **kotlin.Double** |  |  [optional] |
+| **totalTaxesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingCost** | **kotlin.Double** |  |  [optional] |
+| **totalShippingCostCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingTax** | **kotlin.Double** |  |  [optional] |
+| **totalShippingTaxCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalWithheldTax** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalGlobalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalGlobalSurcharges** | **kotlin.Double** |  |  [optional] |
-| **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalAmountInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **total** | **kotlin.Double** |  |  [optional] |
+| **totalCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalDetailInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalProfitInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalDetailAmountInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalGlobalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalGlobalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalWithholdingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxesInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingCostInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **currency** | [**Currency**](Currency.md) |  |  [optional] |
-| **totalInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxBaseAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **totalAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-| **totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalGlobalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalInUsd** | **kotlin.Double** |  |  [optional] |
 | **ordered** | **kotlin.Boolean** |  |  [optional] |
 | **dealUnitFeedId** | **kotlin.String** |  |  [optional] |
 | **dealUnitFlowId** | **kotlin.String** |  |  [optional] |
@@ -96,32 +100,46 @@
 | **customShippingTaxAmount** | **kotlin.Double** |  |  [optional] |
 
 
+<a id="TaxCalculationMethod"></a>
+## Enum: taxCalculationMethod
+| Name | Value |
+| ---- | ----- |
+| taxCalculationMethod | Included, Excluded |
+
+
+<a id="CostCalculationMethod"></a>
+## Enum: costCalculationMethod
+| Name | Value |
+| ---- | ----- |
+| costCalculationMethod | Automatic, Custom |
+
+
 <a id="DealUnitStatus"></a>
 ## Enum: dealUnitStatus
 | Name | Value |
 | ---- | ----- |
-| dealUnitStatus | 0, 1, 2, 3 |
+| dealUnitStatus | Open, Won, Lost, Frozen |
 
 
 <a id="DealUnitPurchaseProcess"></a>
 ## Enum: dealUnitPurchaseProcess
 | Name | Value |
 | ---- | ----- |
-| dealUnitPurchaseProcess | 0, 1, 2, 3 |
+| dealUnitPurchaseProcess | None, Individual, Commitee, Unknown |
 
 
 <a id="DealUnitForecastCategory"></a>
 ## Enum: dealUnitForecastCategory
 | Name | Value |
 | ---- | ----- |
-| dealUnitForecastCategory | 0, 1, 2, 3, 4, 5, 6 |
+| dealUnitForecastCategory | None, Pipeline, BestCase, Commited, Ommited, Won, Lost |
 
 
 <a id="DealUnitAmountsCalculation"></a>
 ## Enum: dealUnitAmountsCalculation
 | Name | Value |
 | ---- | ----- |
-| dealUnitAmountsCalculation | 0, 1 |
+| dealUnitAmountsCalculation | UserProvided, SystemCalculated |
 
 
 

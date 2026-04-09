@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.OrdersApi
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedOrderDtoListEnvelope
@@ -37,151 +38,170 @@ class OrdersApiTest : ShouldSpec() {
         // uncomment below to create an instance of OrdersApi
         //val apiInstance = OrdersApi()
 
-        // to test apiV2OrdersServiceOrdersCountGet
-        should("test apiV2OrdersServiceOrdersCountGet") {
-            // uncomment below to test apiV2OrdersServiceOrdersCountGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2OrdersServiceOrdersCountGet(tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersExtendedGet
-        should("test apiV2OrdersServiceOrdersExtendedGet") {
-            // uncomment below to test apiV2OrdersServiceOrdersExtendedGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : ExtendedOrderDtoListEnvelope = apiInstance.apiV2OrdersServiceOrdersExtendedGet(tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersOrderIdCalculatePut
-        should("test apiV2OrdersServiceOrdersOrderIdCalculatePut") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdCalculatePut
+        // to test calculateOrder
+        should("test calculateOrder") {
+            // uncomment below to test calculateOrder
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdCalculatePut(orderId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.calculateOrder(orderId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdDelete
-        should("test apiV2OrdersServiceOrdersOrderIdDelete") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdDelete
+        // to test calculateOrderLine
+        should("test calculateOrderLine") {
+            // uncomment below to test calculateOrderLine
+            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.calculateOrderLine(orderId, orderLineId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createOrder
+        should("test createOrder") {
+            // uncomment below to test createOrder
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val orderCreateDto : OrderCreateDto =  // OrderCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createOrder(tenantId, orderCreateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createOrderLine
+        should("test createOrderLine") {
+            // uncomment below to test createOrderLine
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdDelete(orderId, tenantId)
+            //val orderLineCreateDto : OrderLineCreateDto =  // OrderLineCreateDto | 
+            //val result : EmptyEnvelope = apiInstance.createOrderLine(orderId, tenantId, orderLineCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesCountGet
-        should("test apiV2OrdersServiceOrdersOrderIdLinesCountGet") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesCountGet
+        // to test deleteOrder
+        should("test deleteOrder") {
+            // uncomment below to test deleteOrder
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesCountGet(orderId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.deleteOrder(orderId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesGet
-        should("test apiV2OrdersServiceOrdersOrderIdLinesGet") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesGet
+        // to test deleteOrderLine
+        should("test deleteOrderLine") {
+            // uncomment below to test deleteOrderLine
+            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteOrderLine(orderId, orderLineId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getExtendedOrders
+        should("test getExtendedOrders") {
+            // uncomment below to test getExtendedOrders
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ExtendedOrderDtoListEnvelope = apiInstance.getExtendedOrders(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getOrder
+        should("test getOrder") {
+            // uncomment below to test getOrder
+            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : OrderDtoEnvelope = apiInstance.getOrder(orderId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getOrderLine
+        should("test getOrderLine") {
+            // uncomment below to test getOrderLine
+            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : OrderLineDtoEnvelope = apiInstance.getOrderLine(orderId, orderLineId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getOrderLines
+        should("test getOrderLines") {
+            // uncomment below to test getOrderLines
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : OrderLineDtoListEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesGet(orderId, tenantId, itemId)
+            //val result : OrderLineDtoListEnvelope = apiInstance.getOrderLines(orderId, tenantId, itemId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut
-        should("test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut
+        // to test getOrderLinesCount
+        should("test getOrderLinesCount") {
+            // uncomment below to test getOrderLinesCount
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut(orderId, orderLineId, tenantId)
+            //val result : Int32Envelope = apiInstance.getOrderLinesCount(orderId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete
-        should("test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete
+        // to test getOrders
+        should("test getOrders") {
+            // uncomment below to test getOrders
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : OrderDtoListEnvelope = apiInstance.getOrders(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getOrdersCount
+        should("test getOrdersCount") {
+            // uncomment below to test getOrdersCount
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getOrdersCount(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test previewOrderEmailTemplate
+        should("test previewOrderEmailTemplate") {
+            // uncomment below to test previewOrderEmailTemplate
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete(orderId, orderLineId, tenantId)
-            //result shouldBe ("TODO")
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.previewOrderEmailTemplate(orderId, tenantId, emailDispatchRequest)
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet
-        should("test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet
+        // to test sendOrderEmail
+        should("test sendOrderEmail") {
+            // uncomment below to test sendOrderEmail
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : OrderLineDtoEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet(orderId, orderLineId, tenantId)
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //val result : EmptyEnvelope = apiInstance.sendOrderEmail(orderId, tenantId, emailDispatchRequest)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut
-        should("test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut
+        // to test submitCart
+        should("test submitCart") {
+            // uncomment below to test submitCart
+            //val cartId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : OrderDtoEnvelope = apiInstance.submitCart(cartId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateOrder
+        should("test updateOrder") {
+            // uncomment below to test updateOrder
+            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val orderUpdateDto : OrderUpdateDto =  // OrderUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateOrder(orderId, tenantId, orderUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateOrderLine
+        should("test updateOrderLine") {
+            // uncomment below to test updateOrderLine
             //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val orderLineUpdateDto : OrderLineUpdateDto =  // OrderLineUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut(orderId, orderLineId, tenantId, orderLineUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersOrderIdLinesPost
-        should("test apiV2OrdersServiceOrdersOrderIdLinesPost") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdLinesPost
-            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderLineCreateDto : OrderLineCreateDto =  // OrderLineCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdLinesPost(orderId, tenantId, orderLineCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersOrderIdPut
-        should("test apiV2OrdersServiceOrdersOrderIdPut") {
-            // uncomment below to test apiV2OrdersServiceOrdersOrderIdPut
-            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderUpdateDto : OrderUpdateDto =  // OrderUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersOrderIdPut(orderId, tenantId, orderUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersPost
-        should("test apiV2OrdersServiceOrdersPost") {
-            // uncomment below to test apiV2OrdersServiceOrdersPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val orderCreateDto : OrderCreateDto =  // OrderCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2OrdersServiceOrdersPost(tenantId, orderCreateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2OrdersServiceOrdersSubmitCartPost
-        should("test apiV2OrdersServiceOrdersSubmitCartPost") {
-            // uncomment below to test apiV2OrdersServiceOrdersSubmitCartPost
-            //val cartId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : OrderDtoEnvelope = apiInstance.apiV2OrdersServiceOrdersSubmitCartPost(cartId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test getOrderAsync
-        should("test getOrderAsync") {
-            // uncomment below to test getOrderAsync
-            //val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : OrderDtoEnvelope = apiInstance.getOrderAsync(orderId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test getOrdersAsync
-        should("test getOrdersAsync") {
-            // uncomment below to test getOrdersAsync
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : OrderDtoListEnvelope = apiInstance.getOrdersAsync(tenantId)
+            //val result : EmptyEnvelope = apiInstance.updateOrderLine(orderId, orderLineId, tenantId, orderLineUpdateDto)
             //result shouldBe ("TODO")
         }
 

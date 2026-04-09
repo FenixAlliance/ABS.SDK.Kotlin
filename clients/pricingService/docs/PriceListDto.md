@@ -16,7 +16,7 @@
 | **unitGroupId** | **kotlin.String** |  |  [optional] |
 | **partnerVisible** | **kotlin.Boolean** |  |  [optional] |
 | **unitOfMeasureDependant** | **kotlin.Boolean** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

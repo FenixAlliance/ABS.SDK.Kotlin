@@ -37,10 +37,118 @@ class InvoiceLineCreateDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
-        // to test the property `invoiceId`
-        should("test invoiceId") {
+        // to test the property `closed`
+        should("test closed") {
             // uncomment below to test the property
-            //modelInstance.invoiceId shouldBe ("TODO")
+            //modelInstance.closed shouldBe ("TODO")
+        }
+
+        // to test the property `title`
+        should("test title") {
+            // uncomment below to test the property
+            //modelInstance.title shouldBe ("TODO")
+        }
+
+        // to test the property `priceListId`
+        should("test priceListId") {
+            // uncomment below to test the property
+            //modelInstance.priceListId shouldBe ("TODO")
+        }
+
+        // to test the property `description`
+        should("test description") {
+            // uncomment below to test the property
+            //modelInstance.description shouldBe ("TODO")
+        }
+
+        // to test the property `individualId`
+        should("test individualId") {
+            // uncomment below to test the property
+            //modelInstance.individualId shouldBe ("TODO")
+        }
+
+        // to test the property `paymentTermId`
+        should("test paymentTermId") {
+            // uncomment below to test the property
+            //modelInstance.paymentTermId shouldBe ("TODO")
+        }
+
+        // to test the property `organizationId`
+        should("test organizationId") {
+            // uncomment below to test the property
+            //modelInstance.organizationId shouldBe ("TODO")
+        }
+
+        // to test the property `receiverTenantId`
+        should("test receiverTenantId") {
+            // uncomment below to test the property
+            //modelInstance.receiverTenantId shouldBe ("TODO")
+        }
+
+        // to test the property `firstName`
+        should("test firstName") {
+            // uncomment below to test the property
+            //modelInstance.firstName shouldBe ("TODO")
+        }
+
+        // to test the property `lastName`
+        should("test lastName") {
+            // uncomment below to test the property
+            //modelInstance.lastName shouldBe ("TODO")
+        }
+
+        // to test the property `companyName`
+        should("test companyName") {
+            // uncomment below to test the property
+            //modelInstance.companyName shouldBe ("TODO")
+        }
+
+        // to test the property `billingEmail`
+        should("test billingEmail") {
+            // uncomment below to test the property
+            //modelInstance.billingEmail shouldBe ("TODO")
+        }
+
+        // to test the property `addressLine1`
+        should("test addressLine1") {
+            // uncomment below to test the property
+            //modelInstance.addressLine1 shouldBe ("TODO")
+        }
+
+        // to test the property `addressLine2`
+        should("test addressLine2") {
+            // uncomment below to test the property
+            //modelInstance.addressLine2 shouldBe ("TODO")
+        }
+
+        // to test the property `postalCode`
+        should("test postalCode") {
+            // uncomment below to test the property
+            //modelInstance.postalCode shouldBe ("TODO")
+        }
+
+        // to test the property `countryId`
+        should("test countryId") {
+            // uncomment below to test the property
+            //modelInstance.countryId shouldBe ("TODO")
+        }
+
+        // to test the property `stateId`
+        should("test stateId") {
+            // uncomment below to test the property
+            //modelInstance.stateId shouldBe ("TODO")
+        }
+
+        // to test the property `cityId`
+        should("test cityId") {
+            // uncomment below to test the property
+            //modelInstance.cityId shouldBe ("TODO")
+        }
+
+        // to test the property `forexRate`
+        should("test forexRate") {
+            // uncomment below to test the property
+            //modelInstance.forexRate shouldBe ("TODO")
         }
 
         // to test the property `currencyId`
@@ -49,16 +157,184 @@ class InvoiceLineCreateDtoTest : ShouldSpec() {
             //modelInstance.currencyId shouldBe ("TODO")
         }
 
-        // to test the property `itemId`
-        should("test itemId") {
+        // to test the property `totalDetail`
+        should("test totalDetail") {
             // uncomment below to test the property
-            //modelInstance.itemId shouldBe ("TODO")
+            //modelInstance.totalDetail shouldBe ("TODO")
+        }
+
+        // to test the property `totalDetailCurrencyId`
+        should("test totalDetailCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalDetailCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalProfit`
+        should("test totalProfit") {
+            // uncomment below to test the property
+            //modelInstance.totalProfit shouldBe ("TODO")
+        }
+
+        // to test the property `totalProfitCurrencyId`
+        should("test totalProfitCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalProfitCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalDiscounts`
+        should("test totalDiscounts") {
+            // uncomment below to test the property
+            //modelInstance.totalDiscounts shouldBe ("TODO")
+        }
+
+        // to test the property `totalDiscountsCurrencyId`
+        should("test totalDiscountsCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalDiscountsCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalSurcharges`
+        should("test totalSurcharges") {
+            // uncomment below to test the property
+            //modelInstance.totalSurcharges shouldBe ("TODO")
+        }
+
+        // to test the property `totalSurchargesCurrencyId`
+        should("test totalSurchargesCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalSurchargesCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalShippingCost`
+        should("test totalShippingCost") {
+            // uncomment below to test the property
+            //modelInstance.totalShippingCost shouldBe ("TODO")
+        }
+
+        // to test the property `totalShippingCostCurrencyId`
+        should("test totalShippingCostCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalShippingCostCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalShippingTax`
+        should("test totalShippingTax") {
+            // uncomment below to test the property
+            //modelInstance.totalShippingTax shouldBe ("TODO")
+        }
+
+        // to test the property `totalShippingTaxCurrencyId`
+        should("test totalShippingTaxCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalShippingTaxCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalWithheldTax`
+        should("test totalWithheldTax") {
+            // uncomment below to test the property
+            //modelInstance.totalWithheldTax shouldBe ("TODO")
+        }
+
+        // to test the property `totalWithheldTaxCurrencyId`
+        should("test totalWithheldTaxCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalWithheldTaxCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalTaxBase`
+        should("test totalTaxBase") {
+            // uncomment below to test the property
+            //modelInstance.totalTaxBase shouldBe ("TODO")
+        }
+
+        // to test the property `totalTaxBaseCurrencyId`
+        should("test totalTaxBaseCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalTaxBaseCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalTaxes`
+        should("test totalTaxes") {
+            // uncomment below to test the property
+            //modelInstance.totalTaxes shouldBe ("TODO")
+        }
+
+        // to test the property `totalTaxesCurrencyId`
+        should("test totalTaxesCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalTaxesCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalGlobalSurcharges`
+        should("test totalGlobalSurcharges") {
+            // uncomment below to test the property
+            //modelInstance.totalGlobalSurcharges shouldBe ("TODO")
+        }
+
+        // to test the property `totalGlobalSurchargesCurrencyId`
+        should("test totalGlobalSurchargesCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalGlobalSurchargesCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `totalGlobalDiscounts`
+        should("test totalGlobalDiscounts") {
+            // uncomment below to test the property
+            //modelInstance.totalGlobalDiscounts shouldBe ("TODO")
+        }
+
+        // to test the property `totalGlobalDiscountsCurrencyId`
+        should("test totalGlobalDiscountsCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalGlobalDiscountsCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `total`
+        should("test total") {
+            // uncomment below to test the property
+            //modelInstance.total shouldBe ("TODO")
+        }
+
+        // to test the property `totalCurrencyId`
+        should("test totalCurrencyId") {
+            // uncomment below to test the property
+            //modelInstance.totalCurrencyId shouldBe ("TODO")
+        }
+
+        // to test the property `costCalculationMethod`
+        should("test costCalculationMethod") {
+            // uncomment below to test the property
+            //modelInstance.costCalculationMethod shouldBe ("TODO")
+        }
+
+        // to test the property `taxCalculationMethod`
+        should("test taxCalculationMethod") {
+            // uncomment below to test the property
+            //modelInstance.taxCalculationMethod shouldBe ("TODO")
         }
 
         // to test the property `quantity`
         should("test quantity") {
             // uncomment below to test the property
             //modelInstance.quantity shouldBe ("TODO")
+        }
+
+        // to test the property `itemId`
+        should("test itemId") {
+            // uncomment below to test the property
+            //modelInstance.itemId shouldBe ("TODO")
+        }
+
+        // to test the property `invoiceId`
+        should("test invoiceId") {
+            // uncomment below to test the property
+            //modelInstance.invoiceId shouldBe ("TODO")
+        }
+
+        // to test the property `itemPriceId`
+        should("test itemPriceId") {
+            // uncomment below to test the property
+            //modelInstance.itemPriceId shouldBe ("TODO")
         }
 
     }

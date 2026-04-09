@@ -47,8 +47,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at historical rates (v3)
+     * Exchange an amount of money from one currency to another using exchange rates from a specific historical date. Returns the full ExchangeRate details.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
@@ -62,8 +62,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV3ForexServiceExchangeHistoryGet(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ExchangeRateEnvelope {
-        val localVarResponse = apiV3ForexServiceExchangeHistoryGetWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
+    fun exchangeAmountHistoricalV3Async(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ExchangeRateEnvelope {
+        val localVarResponse = exchangeAmountHistoricalV3AsyncWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExchangeRateEnvelope
@@ -81,8 +81,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at historical rates (v3)
+     * Exchange an amount of money from one currency to another using exchange rates from a specific historical date. Returns the full ExchangeRate details.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
@@ -93,8 +93,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV3ForexServiceExchangeHistoryGetWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ApiResponse<ExchangeRateEnvelope?> {
-        val localVariableConfig = apiV3ForexServiceExchangeHistoryGetRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
+    fun exchangeAmountHistoricalV3AsyncWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : ApiResponse<ExchangeRateEnvelope?> {
+        val localVariableConfig = exchangeAmountHistoricalV3AsyncRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId, date = date)
 
         return request<Unit, ExchangeRateEnvelope>(
             localVariableConfig
@@ -102,7 +102,7 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV3ForexServiceExchangeHistoryGet
+     * To obtain the request config of the operation exchangeAmountHistoricalV3Async
      *
      * @param amount 
      * @param sourceCurrencyId 
@@ -110,7 +110,7 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param date 
      * @return RequestConfig
      */
-    fun apiV3ForexServiceExchangeHistoryGetRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : RequestConfig<Unit> {
+    fun exchangeAmountHistoricalV3AsyncRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String, date: java.time.LocalDate) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -127,14 +127,14 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v3/ForexService/Exchange/History",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at latest rates (v3)
+     * Exchange an amount of money from one currency to another using the latest available exchange rates. Returns the full ExchangeRate details.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
@@ -147,8 +147,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV3ForexServiceExchangeLatestGet(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ExchangeRateEnvelope {
-        val localVarResponse = apiV3ForexServiceExchangeLatestGetWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
+    fun exchangeAmountV3Async(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ExchangeRateEnvelope {
+        val localVarResponse = exchangeAmountV3AsyncWithHttpInfo(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExchangeRateEnvelope
@@ -166,8 +166,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Exchange currency at latest rates (v3)
+     * Exchange an amount of money from one currency to another using the latest available exchange rates. Returns the full ExchangeRate details.
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
@@ -177,8 +177,8 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV3ForexServiceExchangeLatestGetWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ApiResponse<ExchangeRateEnvelope?> {
-        val localVariableConfig = apiV3ForexServiceExchangeLatestGetRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
+    fun exchangeAmountV3AsyncWithHttpInfo(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : ApiResponse<ExchangeRateEnvelope?> {
+        val localVariableConfig = exchangeAmountV3AsyncRequestConfig(amount = amount, sourceCurrencyId = sourceCurrencyId, targetCurrencyId = targetCurrencyId)
 
         return request<Unit, ExchangeRateEnvelope>(
             localVariableConfig
@@ -186,14 +186,14 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * To obtain the request config of the operation apiV3ForexServiceExchangeLatestGet
+     * To obtain the request config of the operation exchangeAmountV3Async
      *
      * @param amount 
      * @param sourceCurrencyId 
      * @param targetCurrencyId 
      * @return RequestConfig
      */
-    fun apiV3ForexServiceExchangeLatestGetRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : RequestConfig<Unit> {
+    fun exchangeAmountV3AsyncRequestConfig(amount: kotlin.Double, sourceCurrencyId: kotlin.String, targetCurrencyId: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -209,7 +209,7 @@ class ExchangeVApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v3/ForexService/Exchange/Latest",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

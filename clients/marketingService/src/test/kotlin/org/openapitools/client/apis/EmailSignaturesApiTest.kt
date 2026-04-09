@@ -32,68 +32,68 @@ class EmailSignaturesApiTest : ShouldSpec() {
         // uncomment below to create an instance of EmailSignaturesApi
         //val apiInstance = EmailSignaturesApi()
 
-        // to test apiV2MarketingServiceEmailSignaturesCountGet
-        should("test apiV2MarketingServiceEmailSignaturesCountGet") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesCountGet
+        // to test createEmailSignatureAsync
+        should("test createEmailSignatureAsync") {
+            // uncomment below to test createEmailSignatureAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val emailSignatureCreateDto : EmailSignatureCreateDto =  // EmailSignatureCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceEmailSignaturesCountGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createEmailSignatureAsync(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete
-        should("test apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete
+        // to test deleteEmailSignatureAsync
+        should("test deleteEmailSignatureAsync") {
+            // uncomment below to test deleteEmailSignatureAsync
             //val emailsignatureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(emailsignatureId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteEmailSignatureAsync(emailsignatureId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet
-        should("test apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet
+        // to test getEmailSignatureDetailsAsync
+        should("test getEmailSignatureDetailsAsync") {
+            // uncomment below to test getEmailSignatureDetailsAsync
             //val emailsignatureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailSignatureDtoEnvelope = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(emailsignatureId, tenantId, apiVersion, xApiVersion)
+            //val result : EmailSignatureDtoEnvelope = apiInstance.getEmailSignatureDetailsAsync(emailsignatureId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut
-        should("test apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut
+        // to test getEmailSignaturesCountAsync
+        should("test getEmailSignaturesCountAsync") {
+            // uncomment below to test getEmailSignaturesCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getEmailSignaturesODataAsync
+        should("test getEmailSignaturesODataAsync") {
+            // uncomment below to test getEmailSignaturesODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmailSignatureDtoListEnvelope = apiInstance.getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateEmailSignatureAsync
+        should("test updateEmailSignatureAsync") {
+            // uncomment below to test updateEmailSignatureAsync
             //val emailsignatureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val emailSignatureUpdateDto : EmailSignatureUpdateDto =  // EmailSignatureUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(emailsignatureId, tenantId, emailSignatureUpdateDto, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailSignaturesGet
-        should("test apiV2MarketingServiceEmailSignaturesGet") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailSignatureDtoListEnvelope = apiInstance.apiV2MarketingServiceEmailSignaturesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailSignaturesPost
-        should("test apiV2MarketingServiceEmailSignaturesPost") {
-            // uncomment below to test apiV2MarketingServiceEmailSignaturesPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val emailSignatureCreateDto : EmailSignatureCreateDto =  // EmailSignatureCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailSignaturesPost(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateEmailSignatureAsync(emailsignatureId, tenantId, emailSignatureUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

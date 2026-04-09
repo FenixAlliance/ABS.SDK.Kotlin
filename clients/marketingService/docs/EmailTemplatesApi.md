@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceEmailTemplatesCountGet**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesCountGet) | **GET** /api/v2/MarketingService/EmailTemplates/Count |  |
-| [**apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete) | **DELETE** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} |  |
-| [**apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet) | **GET** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} |  |
-| [**apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut) | **PUT** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} |  |
-| [**apiV2MarketingServiceEmailTemplatesGet**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesGet) | **GET** /api/v2/MarketingService/EmailTemplates |  |
-| [**apiV2MarketingServiceEmailTemplatesPost**](EmailTemplatesApi.md#apiV2MarketingServiceEmailTemplatesPost) | **POST** /api/v2/MarketingService/EmailTemplates |  |
+| [**createEmailTemplateAsync**](EmailTemplatesApi.md#createEmailTemplateAsync) | **POST** /api/v2/MarketingService/EmailTemplates | Create an email template |
+| [**deleteEmailTemplateAsync**](EmailTemplatesApi.md#deleteEmailTemplateAsync) | **DELETE** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Delete an email template |
+| [**getEmailTemplateDetailsAsync**](EmailTemplatesApi.md#getEmailTemplateDetailsAsync) | **GET** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Get email template by ID |
+| [**getEmailTemplatesCountAsync**](EmailTemplatesApi.md#getEmailTemplatesCountAsync) | **GET** /api/v2/MarketingService/EmailTemplates/Count | Get email templates count |
+| [**getEmailTemplatesODataAsync**](EmailTemplatesApi.md#getEmailTemplatesODataAsync) | **GET** /api/v2/MarketingService/EmailTemplates | Get email templates |
+| [**updateEmailTemplateAsync**](EmailTemplatesApi.md#updateEmailTemplateAsync) | **PUT** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Update an email template |
 
 
-<a id="apiV2MarketingServiceEmailTemplatesCountGet"></a>
-# **apiV2MarketingServiceEmailTemplatesCountGet**
-> Int32Envelope apiV2MarketingServiceEmailTemplatesCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createEmailTemplateAsync"></a>
+# **createEmailTemplateAsync**
+> EmptyEnvelope createEmailTemplateAsync(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
 
+Create an email template
 
+Creates a new email template for the specified tenant.
 
 ### Example
 ```kotlin
@@ -26,22 +28,24 @@ All URIs are relative to *http://localhost*
 
 val apiInstance = EmailTemplatesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val emailTemplateCreateDto : EmailTemplateCreateDto =  // EmailTemplateCreateDto | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.apiV2MarketingServiceEmailTemplatesCountGet(tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createEmailTemplateAsync(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesCountGet")
+    println("4xx response calling EmailTemplatesApi#createEmailTemplateAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesCountGet")
+    println("5xx response calling EmailTemplatesApi#createEmailTemplateAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
+| **emailTemplateCreateDto** | [**EmailTemplateCreateDto**](EmailTemplateCreateDto.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -49,25 +53,24 @@ try {
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete"></a>
-# **apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete**
-> EmptyEnvelope apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete(emailTemplateId, tenantId, apiVersion, xApiVersion)
+<a id="deleteEmailTemplateAsync"></a>
+# **deleteEmailTemplateAsync**
+> EmptyEnvelope deleteEmailTemplateAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
 
+Delete an email template
 
+Deletes an email template by its ID.
 
 ### Example
 ```kotlin
@@ -81,13 +84,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete(emailTemplateId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteEmailTemplateAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete")
+    println("4xx response calling EmailTemplatesApi#deleteEmailTemplateAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete")
+    println("5xx response calling EmailTemplatesApi#deleteEmailTemplateAsync")
     e.printStackTrace()
 }
 ```
@@ -106,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet"></a>
-# **apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet**
-> EmailTemplateDtoEnvelope apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet(emailTemplateId, tenantId, emailTemplatesId, apiVersion, xApiVersion)
+<a id="getEmailTemplateDetailsAsync"></a>
+# **getEmailTemplateDetailsAsync**
+> EmailTemplateDtoEnvelope getEmailTemplateDetailsAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
 
+Get email template by ID
 
+Retrieves the details of a specific email template by its ID.
 
 ### Example
 ```kotlin
@@ -129,27 +131,25 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = EmailTemplatesApi()
-val emailTemplateId : kotlin.String = emailTemplateId_example // kotlin.String | 
+val emailTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val emailTemplatesId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmailTemplateDtoEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet(emailTemplateId, tenantId, emailTemplatesId, apiVersion, xApiVersion)
+    val result : EmailTemplateDtoEnvelope = apiInstance.getEmailTemplateDetailsAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet")
+    println("4xx response calling EmailTemplatesApi#getEmailTemplateDetailsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet")
+    println("5xx response calling EmailTemplatesApi#getEmailTemplateDetailsAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **emailTemplateId** | **kotlin.String**|  | |
+| **emailTemplateId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **emailTemplatesId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -161,21 +161,120 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut"></a>
-# **apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut**
-> EmptyEnvelope apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
+<a id="getEmailTemplatesCountAsync"></a>
+# **getEmailTemplatesCountAsync**
+> Int32Envelope getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
 
+Get email templates count
 
+Returns the count of email templates for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EmailTemplatesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EmailTemplatesApi#getEmailTemplatesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EmailTemplatesApi#getEmailTemplatesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getEmailTemplatesODataAsync"></a>
+# **getEmailTemplatesODataAsync**
+> EmailTemplateDtoListEnvelope getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion)
+
+Get email templates
+
+Retrieves a collection of email templates for the specified tenant using OData query options.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EmailTemplatesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmailTemplateDtoListEnvelope = apiInstance.getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EmailTemplatesApi#getEmailTemplatesODataAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EmailTemplatesApi#getEmailTemplatesODataAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmailTemplateDtoListEnvelope**](EmailTemplateDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateEmailTemplateAsync"></a>
+# **updateEmailTemplateAsync**
+> EmptyEnvelope updateEmailTemplateAsync(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
+
+Update an email template
+
+Updates an existing email template by its ID.
 
 ### Example
 ```kotlin
@@ -190,13 +289,13 @@ val emailTemplateUpdateDto : EmailTemplateUpdateDto =  // EmailTemplateUpdateDto
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateEmailTemplateAsync(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut")
+    println("4xx response calling EmailTemplatesApi#updateEmailTemplateAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut")
+    println("5xx response calling EmailTemplatesApi#updateEmailTemplateAsync")
     e.printStackTrace()
 }
 ```
@@ -216,114 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceEmailTemplatesGet"></a>
-# **apiV2MarketingServiceEmailTemplatesGet**
-> EmailTemplateDtoListEnvelope apiV2MarketingServiceEmailTemplatesGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = EmailTemplatesApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmailTemplateDtoListEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmailTemplateDtoListEnvelope**](EmailTemplateDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2MarketingServiceEmailTemplatesPost"></a>
-# **apiV2MarketingServiceEmailTemplatesPost**
-> EmptyEnvelope apiV2MarketingServiceEmailTemplatesPost(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = EmailTemplatesApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val emailTemplateCreateDto : EmailTemplateCreateDto =  // EmailTemplateCreateDto | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesPost(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling EmailTemplatesApi#apiV2MarketingServiceEmailTemplatesPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | |
-| **emailTemplateCreateDto** | [**EmailTemplateCreateDto**](EmailTemplateCreateDto.md)|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

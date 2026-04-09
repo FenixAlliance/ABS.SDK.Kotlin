@@ -15,7 +15,6 @@
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
 | **parentFileUploadID** | **kotlin.String** |  |  [optional] |
 | **filePath** | **kotlin.String** |  |  [optional] |
-| **file** | [**java.io.File**](java.io.File.md) |  |  [optional] |
 | **contentType** | **kotlin.String** |  |  [optional] |
 | **fileLength** | **kotlin.Long** |  |  [optional] |
 

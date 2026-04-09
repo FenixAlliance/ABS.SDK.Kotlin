@@ -19,6 +19,8 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BooleanEnvelope
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedQuoteDtoListEnvelope
@@ -30,6 +32,7 @@ import org.openapitools.client.models.QuoteLineCreateDto
 import org.openapitools.client.models.QuoteLineDtoEnvelope
 import org.openapitools.client.models.QuoteLineDtoListEnvelope
 import org.openapitools.client.models.QuoteLineUpdateDto
+import org.openapitools.client.models.QuoteLineUpsertDto
 import org.openapitools.client.models.QuoteUpdateDto
 
 import com.squareup.moshi.Json
@@ -57,10 +60,11 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Calculate a quote.
+     * Performs calculation logic for the specified quote.
+     * @param quoteId 
      * @param tenantId 
-     * @return Int32Envelope
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -69,11 +73,11 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesCountGet(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2QuotesServiceQuotesCountGetWithHttpInfo(tenantId = tenantId)
+    fun calculateQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -88,30 +92,32 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Calculate a quote.
+     * Performs calculation logic for the specified quote.
+     * @param quoteId 
      * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesCountGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesCountGetRequestConfig(tenantId = tenantId)
+    fun calculateQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
 
-        return request<Unit, Int32Envelope>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesCountGet
+     * To obtain the request config of the operation calculateQuote
      *
+     * @param quoteId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2QuotesServiceQuotesCountGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun calculateQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -121,18 +127,568 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/QuotesService/Quotes/Count",
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Calculate".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Calculate a quote line.
+     * Performs calculation logic for the specified quote line.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun calculateQuoteLine(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = calculateQuoteLineWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Calculate a quote line.
+     * Performs calculation logic for the specified quote line.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun calculateQuoteLineWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = calculateQuoteLineRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation calculateQuoteLine
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun calculateQuoteLineRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}/Calculate".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Close a quote.
+     * Closes the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun closeQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = closeQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Close a quote.
+     * Closes the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun closeQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = closeQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation closeQuote
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun closeQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Close".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create an order from a quote.
+     * Creates an order based on the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createOrderFromQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = createOrderFromQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create an order from a quote.
+     * Creates an order based on the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createOrderFromQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createOrderFromQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createOrderFromQuote
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun createOrderFromQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Orders".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create a new quote.
+     * Creates a new quote for the specified tenant.
+     * @param tenantId 
+     * @param quoteCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createQuote(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createQuoteWithHttpInfo(tenantId = tenantId, quoteCreateDto = quoteCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a new quote.
+     * Creates a new quote for the specified tenant.
+     * @param tenantId 
+     * @param quoteCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createQuoteWithHttpInfo(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createQuoteRequestConfig(tenantId = tenantId, quoteCreateDto = quoteCreateDto)
+
+        return request<QuoteCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createQuote
+     *
+     * @param tenantId 
+     * @param quoteCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createQuoteRequestConfig(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto?) : RequestConfig<QuoteCreateDto> {
+        val localVariableBody = quoteCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/QuotesService/Quotes",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Create a new quote line.
+     * Creates a new quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createQuoteLine(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createQuoteLineWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteLineCreateDto = quoteLineCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a new quote line.
+     * Creates a new quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createQuoteLineWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createQuoteLineRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteLineCreateDto = quoteLineCreateDto)
+
+        return request<QuoteLineCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createQuoteLine
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createQuoteLineRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto?) : RequestConfig<QuoteLineCreateDto> {
+        val localVariableBody = quoteLineCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a quote.
+     * Deletes the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a quote.
+     * Deletes the specified quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteQuote
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a quote line.
+     * Deletes the specified quote line for the quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteQuoteLine(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteQuoteLineWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a quote line.
+     * Deletes the specified quote line for the quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteQuoteLineWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteQuoteLineRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteQuoteLine
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteQuoteLineRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get a list of extended quotes.
+     * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
      * @return ExtendedQuoteDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -143,8 +699,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesExtendedGet(tenantId: java.util.UUID) : ExtendedQuoteDtoListEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesExtendedGetWithHttpInfo(tenantId = tenantId)
+    fun getExtendedQuotes(tenantId: java.util.UUID) : ExtendedQuoteDtoListEnvelope {
+        val localVarResponse = getExtendedQuotesWithHttpInfo(tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedQuoteDtoListEnvelope
@@ -162,8 +718,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Get a list of extended quotes.
+     * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
      * @return ApiResponse<ExtendedQuoteDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -171,8 +727,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesExtendedGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedQuoteDtoListEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesExtendedGetRequestConfig(tenantId = tenantId)
+    fun getExtendedQuotesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedQuoteDtoListEnvelope?> {
+        val localVariableConfig = getExtendedQuotesRequestConfig(tenantId = tenantId)
 
         return request<Unit, ExtendedQuoteDtoListEnvelope>(
             localVariableConfig
@@ -180,12 +736,12 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesExtendedGet
+     * To obtain the request config of the operation getExtendedQuotes
      *
      * @param tenantId 
      * @return RequestConfig
      */
-    fun apiV2QuotesServiceQuotesExtendedGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getExtendedQuotesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -199,966 +755,14 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/QuotesService/Quotes/Extended",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param tenantId 
-     * @return QuoteDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesGet(tenantId: java.util.UUID) : QuoteDtoListEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesGetWithHttpInfo(tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @return ApiResponse<QuoteDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesGetWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<QuoteDtoListEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesGetRequestConfig(tenantId = tenantId)
-
-        return request<Unit, QuoteDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesGet
-     *
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesGetRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/QuotesService/Quotes",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param quoteCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesPost(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesPostWithHttpInfo(tenantId = tenantId, quoteCreateDto = quoteCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param quoteCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesPostWithHttpInfo(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesPostRequestConfig(tenantId = tenantId, quoteCreateDto = quoteCreateDto)
-
-        return request<QuoteCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesPost
-     *
-     * @param tenantId 
-     * @param quoteCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesPostRequestConfig(tenantId: java.util.UUID, quoteCreateDto: QuoteCreateDto?) : RequestConfig<QuoteCreateDto> {
-        val localVariableBody = quoteCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/QuotesService/Quotes",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdCalculatePut(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdCalculatePutWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdCalculatePutWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdCalculatePutRequestConfig(quoteId = quoteId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdCalculatePut
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdCalculatePutRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Calculate".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdDelete(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdDeleteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdDeleteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdDeleteRequestConfig(quoteId = quoteId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdDelete
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdDeleteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesCountGet(quoteId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesCountGetWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesCountGetWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesCountGetRequestConfig(quoteId = quoteId, tenantId = tenantId)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesCountGet
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesCountGetRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/Count".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return QuoteLineDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesGet(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : QuoteLineDtoListEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesGetWithHttpInfo(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteLineDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return ApiResponse<QuoteLineDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesGetWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<QuoteLineDtoListEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesGetRequestConfig(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
-
-        return request<Unit, QuoteLineDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesGet
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @param itemId  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesGetRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (itemId != null) {
-                    put("itemId", listOf(itemId.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteLineCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesPost(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesPostWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteLineCreateDto = quoteLineCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteLineCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesPostWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesPostRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteLineCreateDto = quoteLineCreateDto)
-
-        return request<QuoteLineCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesPost
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteLineCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesPostRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineCreateDto: QuoteLineCreateDto?) : RequestConfig<QuoteLineCreateDto> {
-        val localVariableBody = quoteLineCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePutWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePutWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePutRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut
-     *
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePutRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}/Calculate".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDeleteWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDeleteWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDeleteRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete
-     *
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDeleteRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return QuoteLineDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : QuoteLineDtoEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGetWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteLineDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return ApiResponse<QuoteLineDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGetWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<QuoteLineDtoEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGetRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
-
-        return request<Unit, QuoteLineDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet
-     *
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGetRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @param quoteLineUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPutWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpdateDto = quoteLineUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @param quoteLineUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPutWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPutRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpdateDto = quoteLineUpdateDto)
-
-        return request<QuoteLineUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut
-     *
-     * @param quoteId 
-     * @param quoteLineId 
-     * @param tenantId 
-     * @param quoteLineUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPutRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto?) : RequestConfig<QuoteLineUpdateDto> {
-        val localVariableBody = quoteLineUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdPut(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2QuotesServiceQuotesQuoteIdPutWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteUpdateDto = quoteUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2QuotesServiceQuotesQuoteIdPutWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2QuotesServiceQuotesQuoteIdPutRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteUpdateDto = quoteUpdateDto)
-
-        return request<QuoteUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2QuotesServiceQuotesQuoteIdPut
-     *
-     * @param quoteId 
-     * @param tenantId 
-     * @param quoteUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2QuotesServiceQuotesQuoteIdPutRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto?) : RequestConfig<QuoteUpdateDto> {
-        val localVariableBody = quoteUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Get a quote by ID.
+     * Retrieves a single quote by its unique identifier for the specified tenant.
      * @param quoteId 
      * @param tenantId 
      * @return QuoteDtoEnvelope
@@ -1170,8 +774,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuoteAsync(quoteId: java.util.UUID, tenantId: java.util.UUID) : QuoteDtoEnvelope {
-        val localVarResponse = getQuoteAsyncWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+    fun getQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : QuoteDtoEnvelope {
+        val localVarResponse = getQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteDtoEnvelope
@@ -1189,8 +793,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * 
-     * 
+     * Get a quote by ID.
+     * Retrieves a single quote by its unique identifier for the specified tenant.
      * @param quoteId 
      * @param tenantId 
      * @return ApiResponse<QuoteDtoEnvelope?>
@@ -1199,8 +803,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuoteAsyncWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<QuoteDtoEnvelope?> {
-        val localVariableConfig = getQuoteAsyncRequestConfig(quoteId = quoteId, tenantId = tenantId)
+    fun getQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<QuoteDtoEnvelope?> {
+        val localVariableConfig = getQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
 
         return request<Unit, QuoteDtoEnvelope>(
             localVariableConfig
@@ -1208,13 +812,13 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation getQuoteAsync
+     * To obtain the request config of the operation getQuote
      *
      * @param quoteId 
      * @param tenantId 
      * @return RequestConfig
      */
-    fun getQuoteAsyncRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+    fun getQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1228,7 +832,969 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get a quote line by ID.
+     * Retrieves a single quote line by its unique identifier for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return QuoteLineDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getQuoteLine(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : QuoteLineDtoEnvelope {
+        val localVarResponse = getQuoteLineWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteLineDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get a quote line by ID.
+     * Retrieves a single quote line by its unique identifier for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return ApiResponse<QuoteLineDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getQuoteLineWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<QuoteLineDtoEnvelope?> {
+        val localVariableConfig = getQuoteLineRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId)
+
+        return request<Unit, QuoteLineDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getQuoteLine
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getQuoteLineRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get quote lines for a quote.
+     * Retrieves all quote lines for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return QuoteLineDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getQuoteLines(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : QuoteLineDtoListEnvelope {
+        val localVarResponse = getQuoteLinesWithHttpInfo(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteLineDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get quote lines for a quote.
+     * Retrieves all quote lines for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return ApiResponse<QuoteLineDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getQuoteLinesWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<QuoteLineDtoListEnvelope?> {
+        val localVariableConfig = getQuoteLinesRequestConfig(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
+
+        return request<Unit, QuoteLineDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getQuoteLines
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param itemId  (optional)
+     * @return RequestConfig
+     */
+    fun getQuoteLinesRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (itemId != null) {
+                    put("itemId", listOf(itemId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of quote lines.
+     * Retrieves the total count of quote lines for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getQuoteLinesCount(quoteId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getQuoteLinesCountWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of quote lines.
+     * Retrieves the total count of quote lines for the specified quote and tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getQuoteLinesCountWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getQuoteLinesCountRequestConfig(quoteId = quoteId, tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getQuoteLinesCount
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getQuoteLinesCountRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/Count".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get a list of quotes.
+     * Retrieves a list of quotes for the specified tenant, supporting OData query options.
+     * @param tenantId 
+     * @return QuoteDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getQuotes(tenantId: java.util.UUID) : QuoteDtoListEnvelope {
+        val localVarResponse = getQuotesWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get a list of quotes.
+     * Retrieves a list of quotes for the specified tenant, supporting OData query options.
+     * @param tenantId 
+     * @return ApiResponse<QuoteDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getQuotesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<QuoteDtoListEnvelope?> {
+        val localVariableConfig = getQuotesRequestConfig(tenantId = tenantId)
+
+        return request<Unit, QuoteDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getQuotes
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getQuotesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get the count of quotes.
+     * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getQuotesCount(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getQuotesCountWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the count of quotes.
+     * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getQuotesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getQuotesCountRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getQuotesCount
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getQuotesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Preview the rendered email for an invoice.
+     * This action is only available for users with the &#39;send_email&#39; permission.
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun previewQuoteEmailTemplate(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest? = null) : Unit {
+        val localVarResponse = previewQuoteEmailTemplateWithHttpInfo(quoteId = quoteId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Preview the rendered email for an invoice.
+     * This action is only available for users with the &#39;send_email&#39; permission.
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun previewQuoteEmailTemplateWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<Unit?> {
+        val localVariableConfig = previewQuoteEmailTemplateRequestConfig(quoteId = quoteId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation previewQuoteEmailTemplate
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun previewQuoteEmailTemplateRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Emails/Preview".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Check if a quote line exists.
+     * Checks if a quote line exists for the specified quote and tenant, by quote line ID or item ID.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineId  (optional)
+     * @param itemId  (optional)
+     * @return BooleanEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun quoteLineExists(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineId: java.util.UUID? = null, itemId: java.util.UUID? = null) : BooleanEnvelope {
+        val localVarResponse = quoteLineExistsWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteLineId = quoteLineId, itemId = itemId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as BooleanEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Check if a quote line exists.
+     * Checks if a quote line exists for the specified quote and tenant, by quote line ID or item ID.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineId  (optional)
+     * @param itemId  (optional)
+     * @return ApiResponse<BooleanEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun quoteLineExistsWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineId: java.util.UUID?, itemId: java.util.UUID?) : ApiResponse<BooleanEnvelope?> {
+        val localVariableConfig = quoteLineExistsRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteLineId = quoteLineId, itemId = itemId)
+
+        return request<Unit, BooleanEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation quoteLineExists
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteLineId  (optional)
+     * @param itemId  (optional)
+     * @return RequestConfig
+     */
+    fun quoteLineExistsRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineId: java.util.UUID?, itemId: java.util.UUID?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (quoteLineId != null) {
+                    put("quoteLineId", listOf(quoteLineId.toString()))
+                }
+                if (itemId != null) {
+                    put("itemId", listOf(itemId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/Exists".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Reopen a closed quote.
+     * Reopens a previously closed quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun reopenQuote(quoteId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = reopenQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Reopen a closed quote.
+     * Reopens a previously closed quote for the tenant.
+     * @param quoteId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun reopenQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = reopenQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation reopenQuote
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun reopenQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Reopen".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Send a quote transactional email to recipients.
+     * This action is only available for users with the &#39;send_email&#39; permission.
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun sendQuoteEmail(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest? = null) : EmptyEnvelope {
+        val localVarResponse = sendQuoteEmailWithHttpInfo(quoteId = quoteId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Send a quote transactional email to recipients.
+     * This action is only available for users with the &#39;send_email&#39; permission.
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun sendQuoteEmailWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = sendQuoteEmailRequestConfig(quoteId = quoteId, tenantId = tenantId, emailDispatchRequest = emailDispatchRequest)
+
+        return request<EmailDispatchRequest, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation sendQuoteEmail
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param emailDispatchRequest  (optional)
+     * @return RequestConfig
+     */
+    fun sendQuoteEmailRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, emailDispatchRequest: EmailDispatchRequest?) : RequestConfig<EmailDispatchRequest> {
+        val localVariableBody = emailDispatchRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Emails/Send".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update an existing quote.
+     * Updates an existing quote for the specified tenant and quote ID.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateQuote(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateQuoteWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteUpdateDto = quoteUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update an existing quote.
+     * Updates an existing quote for the specified tenant and quote ID.
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateQuoteWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateQuoteRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteUpdateDto = quoteUpdateDto)
+
+        return request<QuoteUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateQuote
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param quoteUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateQuoteRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteUpdateDto: QuoteUpdateDto?) : RequestConfig<QuoteUpdateDto> {
+        val localVariableBody = quoteUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a quote line.
+     * Updates an existing quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateQuoteLine(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateQuoteLineWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpdateDto = quoteLineUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a quote line.
+     * Updates an existing quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateQuoteLineWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateQuoteLineRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpdateDto = quoteLineUpdateDto)
+
+        return request<QuoteLineUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateQuoteLine
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateQuoteLineRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpdateDto: QuoteLineUpdateDto?) : RequestConfig<QuoteLineUpdateDto> {
+        val localVariableBody = quoteLineUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Upsert a quote line.
+     * Creates or updates a quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpsertDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun upsertQuoteLine(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpsertDto: QuoteLineUpsertDto? = null) : EmptyEnvelope {
+        val localVarResponse = upsertQuoteLineWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpsertDto = quoteLineUpsertDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Upsert a quote line.
+     * Creates or updates a quote line for the specified quote and tenant.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpsertDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun upsertQuoteLineWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpsertDto: QuoteLineUpsertDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = upsertQuoteLineRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, quoteLineUpsertDto = quoteLineUpsertDto)
+
+        return request<QuoteLineUpsertDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation upsertQuoteLine
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param quoteLineUpsertDto  (optional)
+     * @return RequestConfig
+     */
+    fun upsertQuoteLineRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, quoteLineUpsertDto: QuoteLineUpsertDto?) : RequestConfig<QuoteLineUpsertDto> {
+        val localVariableBody = quoteLineUpsertDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}/Upsert".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

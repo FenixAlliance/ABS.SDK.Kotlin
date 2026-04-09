@@ -37,6 +37,12 @@ class EmailSignatureDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
+        // to test the property `codeType`
+        should("test codeType") {
+            // uncomment below to test the property
+            //modelInstance.codeType shouldBe ("TODO")
+        }
+
         // to test the property `order`
         should("test order") {
             // uncomment below to test the property
@@ -89,6 +95,12 @@ class EmailSignatureDtoTest : ShouldSpec() {
         should("test canonicalUrl") {
             // uncomment below to test the property
             //modelInstance.canonicalUrl shouldBe ("TODO")
+        }
+
+        // to test the property `emitResult`
+        should("test emitResult") {
+            // uncomment below to test the property
+            //modelInstance.emitResult shouldBe ("TODO")
         }
 
         // to test the property `seoTitle`

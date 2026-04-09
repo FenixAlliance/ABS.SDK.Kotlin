@@ -25,16 +25,16 @@ class CountryStateDtoTest : ShouldSpec() {
         // uncomment below to create an instance of CountryStateDto
         //val modelInstance = CountryStateDto()
 
-        // to test the property `id`
-        should("test id") {
-            // uncomment below to test the property
-            //modelInstance.id shouldBe ("TODO")
-        }
-
         // to test the property `timestamp`
         should("test timestamp") {
             // uncomment below to test the property
             //modelInstance.timestamp shouldBe ("TODO")
+        }
+
+        // to test the property `id`
+        should("test id") {
+            // uncomment below to test the property
+            //modelInstance.id shouldBe ("TODO")
         }
 
         // to test the property `name`

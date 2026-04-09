@@ -4,75 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SupportServiceSupportTicketsCountGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsCountGet) | **GET** /api/v2/SupportService/SupportTickets/Count |  |
-| [**apiV2SupportServiceSupportTicketsGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsGet) | **GET** /api/v2/SupportService/SupportTickets |  |
-| [**apiV2SupportServiceSupportTicketsPost**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsPost) | **POST** /api/v2/SupportService/SupportTickets |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}/Messages |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdDelete**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdDelete) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId} |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdGet**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdGet) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId} |  |
-| [**apiV2SupportServiceSupportTicketsSupportTicketIdPut**](SupportTicketsApi.md#apiV2SupportServiceSupportTicketsSupportTicketIdPut) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} |  |
+| [**createSupportTicketAsync**](SupportTicketsApi.md#createSupportTicketAsync) | **POST** /api/v2/SupportService/SupportTickets | Create a new support ticket |
+| [**deleteSupportTicketAsync**](SupportTicketsApi.md#deleteSupportTicketAsync) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId} | Delete a support ticket |
+| [**deleteSupportTicketConversationAsync**](SupportTicketsApi.md#deleteSupportTicketConversationAsync) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | Delete a conversation from a support ticket |
+| [**getSupportTicketAsync**](SupportTicketsApi.md#getSupportTicketAsync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId} | Retrieve a support ticket by ID |
+| [**getSupportTicketConversationAsync**](SupportTicketsApi.md#getSupportTicketConversationAsync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | Retrieve a specific conversation for a support ticket |
+| [**getSupportTicketConversationMessagesAsync**](SupportTicketsApi.md#getSupportTicketConversationMessagesAsync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}/Messages | Retrieve messages for a support ticket conversation |
+| [**getSupportTicketConversationsAsync**](SupportTicketsApi.md#getSupportTicketConversationsAsync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Retrieve conversations for a support ticket |
+| [**getSupportTicketsAsync**](SupportTicketsApi.md#getSupportTicketsAsync) | **GET** /api/v2/SupportService/SupportTickets | Retrieve a list of support tickets |
+| [**getSupportTicketsCountAsync**](SupportTicketsApi.md#getSupportTicketsCountAsync) | **GET** /api/v2/SupportService/SupportTickets/Count | Get the count of support tickets |
+| [**relateSupportTicketToConversationAsync**](SupportTicketsApi.md#relateSupportTicketToConversationAsync) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Create a conversation for a support ticket |
+| [**updateSupportTicketAsync**](SupportTicketsApi.md#updateSupportTicketAsync) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | Update a support ticket |
 
 
-<a id="apiV2SupportServiceSupportTicketsCountGet"></a>
-# **apiV2SupportServiceSupportTicketsCountGet**
-> Int32Envelope apiV2SupportServiceSupportTicketsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSupportTicketAsync"></a>
+# **createSupportTicketAsync**
+> EmptyEnvelope createSupportTicketAsync(tenantId, apiVersion, xApiVersion, supportTicketCreateDto)
 
+Create a new support ticket
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportTicketsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportTicketsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportTicketsGet"></a>
-# **apiV2SupportServiceSupportTicketsGet**
-> SupportTicketDtoListEnvelope apiV2SupportServiceSupportTicketsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new support ticket for the specified tenant.
 
 ### Example
 ```kotlin
@@ -84,73 +35,74 @@ val apiInstance = SupportTicketsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SupportTicketDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SupportTicketDtoListEnvelope**](SupportTicketDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportTicketsPost"></a>
-# **apiV2SupportServiceSupportTicketsPost**
-> EmptyEnvelope apiV2SupportServiceSupportTicketsPost(supportTicketCreateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportTicketsApi()
 val supportTicketCreateDto : SupportTicketCreateDto =  // SupportTicketCreateDto | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsPost(supportTicketCreateDto, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createSupportTicketAsync(tenantId, apiVersion, xApiVersion, supportTicketCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsPost")
+    println("4xx response calling SupportTicketsApi#createSupportTicketAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsPost")
+    println("5xx response calling SupportTicketsApi#createSupportTicketAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **supportTicketCreateDto** | [**SupportTicketCreateDto**](SupportTicketCreateDto.md)|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **supportTicketCreateDto** | [**SupportTicketCreateDto**](SupportTicketCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="deleteSupportTicketAsync"></a>
+# **deleteSupportTicketAsync**
+> EmptyEnvelope deleteSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
+
+Delete a support ticket
+
+Deletes a support ticket by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportTicketsApi()
+val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportTicketsApi#deleteSupportTicketAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportTicketsApi#deleteSupportTicketAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **supportTicketId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -162,127 +114,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet**
-> SupportTicketConversationDtoListEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet(supportTicketId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportTicketsApi()
-val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SupportTicketConversationDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet(supportTicketId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **supportTicketId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SupportTicketConversationDtoListEnvelope**](SupportTicketConversationDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost**
-> EmptyEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost(supportTicketId, supportTicketConversationCreateDto, tenantId, apiVersion, xApiVersion)
+<a id="deleteSupportTicketConversationAsync"></a>
+# **deleteSupportTicketConversationAsync**
+> EmptyEnvelope deleteSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
 
+Delete a conversation from a support ticket
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportTicketsApi()
-val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val supportTicketConversationCreateDto : SupportTicketConversationCreateDto =  // SupportTicketConversationCreateDto | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost(supportTicketId, supportTicketConversationCreateDto, tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **supportTicketId** | **java.util.UUID**|  | |
-| **supportTicketConversationCreateDto** | [**SupportTicketConversationCreateDto**](SupportTicketConversationCreateDto.md)|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
-
-
+Deletes a specific conversation from a support ticket.
 
 ### Example
 ```kotlin
@@ -297,13 +142,13 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete")
+    println("4xx response calling SupportTicketsApi#deleteSupportTicketConversationAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete")
+    println("5xx response calling SupportTicketsApi#deleteSupportTicketConversationAsync")
     e.printStackTrace()
 }
 ```
@@ -311,7 +156,7 @@ try {
 ### Parameters
 | **supportTicketId** | **java.util.UUID**|  | |
 | **supportTicketConversationId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -323,21 +168,72 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet**
-> SupportTicketConversationDtoEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet(supportTicketId, supportTicketConversationId, apiVersion, xApiVersion)
+<a id="getSupportTicketAsync"></a>
+# **getSupportTicketAsync**
+> SupportTicketDtoEnvelope getSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
 
+Retrieve a support ticket by ID
 
+Retrieves a single support ticket by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportTicketsApi()
+val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SupportTicketDtoEnvelope = apiInstance.getSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportTicketsApi#getSupportTicketAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportTicketsApi#getSupportTicketAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **supportTicketId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SupportTicketDtoEnvelope**](SupportTicketDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSupportTicketConversationAsync"></a>
+# **getSupportTicketConversationAsync**
+> SupportTicketConversationDtoEnvelope getSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
+
+Retrieve a specific conversation for a support ticket
+
+Retrieves a single conversation by its ID for a specific support ticket.
 
 ### Example
 ```kotlin
@@ -348,16 +244,17 @@ Configure Bearer:
 val apiInstance = SupportTicketsApi()
 val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : SupportTicketConversationDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet(supportTicketId, supportTicketConversationId, apiVersion, xApiVersion)
+    val result : SupportTicketConversationDtoEnvelope = apiInstance.getSupportTicketConversationAsync(supportTicketId, supportTicketConversationId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet")
+    println("4xx response calling SupportTicketsApi#getSupportTicketConversationAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet")
+    println("5xx response calling SupportTicketsApi#getSupportTicketConversationAsync")
     e.printStackTrace()
 }
 ```
@@ -365,6 +262,7 @@ try {
 ### Parameters
 | **supportTicketId** | **java.util.UUID**|  | |
 | **supportTicketConversationId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -376,21 +274,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet**
-> PrivateMessageDtoListEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet(supportTicketConversationId, supportTicketId, pageNumber, pageSize, apiVersion, xApiVersion)
+<a id="getSupportTicketConversationMessagesAsync"></a>
+# **getSupportTicketConversationMessagesAsync**
+> PrivateMessageDtoListEnvelope getSupportTicketConversationMessagesAsync(supportTicketId, supportTicketConversationId, tenantId, pageNumber, pageSize, apiVersion, xApiVersion)
 
+Retrieve messages for a support ticket conversation
 
+Retrieves the list of messages within a specific conversation of a support ticket.
 
 ### Example
 ```kotlin
@@ -399,27 +296,29 @@ Configure Bearer:
 //import org.openapitools.client.models.*
 
 val apiInstance = SupportTicketsApi()
+val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val supportTicketConversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val supportTicketId : kotlin.String = supportTicketId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val pageNumber : kotlin.Int = 56 // kotlin.Int | 
 val pageSize : kotlin.Int = 56 // kotlin.Int | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : PrivateMessageDtoListEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet(supportTicketConversationId, supportTicketId, pageNumber, pageSize, apiVersion, xApiVersion)
+    val result : PrivateMessageDtoListEnvelope = apiInstance.getSupportTicketConversationMessagesAsync(supportTicketId, supportTicketConversationId, tenantId, pageNumber, pageSize, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet")
+    println("4xx response calling SupportTicketsApi#getSupportTicketConversationMessagesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet")
+    println("5xx response calling SupportTicketsApi#getSupportTicketConversationMessagesAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
+| **supportTicketId** | **java.util.UUID**|  | |
 | **supportTicketConversationId** | **java.util.UUID**|  | |
-| **supportTicketId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **pageNumber** | **kotlin.Int**|  | [optional] |
 | **pageSize** | **kotlin.Int**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
@@ -433,21 +332,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdDelete"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdDelete(supportTicketId, tenantId, apiVersion, xApiVersion)
+<a id="getSupportTicketConversationsAsync"></a>
+# **getSupportTicketConversationsAsync**
+> SupportTicketConversationDtoListEnvelope getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
 
+Retrieve conversations for a support ticket
 
+Retrieves the list of conversations associated with a specific support ticket.
 
 ### Example
 ```kotlin
@@ -461,24 +359,178 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdDelete(supportTicketId, tenantId, apiVersion, xApiVersion)
+    val result : SupportTicketConversationDtoListEnvelope = apiInstance.getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdDelete")
+    println("4xx response calling SupportTicketsApi#getSupportTicketConversationsAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdDelete")
+    println("5xx response calling SupportTicketsApi#getSupportTicketConversationsAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **supportTicketId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SupportTicketConversationDtoListEnvelope**](SupportTicketConversationDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSupportTicketsAsync"></a>
+# **getSupportTicketsAsync**
+> SupportTicketDtoListEnvelope getSupportTicketsAsync(tenantId, apiVersion, xApiVersion)
+
+Retrieve a list of support tickets
+
+Retrieves a list of support tickets for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportTicketsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SupportTicketDtoListEnvelope = apiInstance.getSupportTicketsAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportTicketsApi#getSupportTicketsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportTicketsApi#getSupportTicketsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SupportTicketDtoListEnvelope**](SupportTicketDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSupportTicketsCountAsync"></a>
+# **getSupportTicketsCountAsync**
+> Int32Envelope getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of support tickets
+
+Returns the total count of support tickets for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportTicketsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportTicketsApi#getSupportTicketsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportTicketsApi#getSupportTicketsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="relateSupportTicketToConversationAsync"></a>
+# **relateSupportTicketToConversationAsync**
+> EmptyEnvelope relateSupportTicketToConversationAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketConversationCreateDto)
+
+Create a conversation for a support ticket
+
+Creates a new conversation and associates it with the specified support ticket.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportTicketsApi()
+val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportTicketConversationCreateDto : SupportTicketConversationCreateDto =  // SupportTicketConversationCreateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.relateSupportTicketToConversationAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketConversationCreateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportTicketsApi#relateSupportTicketToConversationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportTicketsApi#relateSupportTicketToConversationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **supportTicketId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **supportTicketConversationCreateDto** | [**SupportTicketConversationCreateDto**](SupportTicketConversationCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -486,21 +538,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdGet"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdGet**
-> SupportTicketDtoEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdGet(supportTicketId, apiVersion, xApiVersion)
+<a id="updateSupportTicketAsync"></a>
+# **updateSupportTicketAsync**
+> EmptyEnvelope updateSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketUpdateDto)
 
+Update a support ticket
 
+Updates an existing support ticket by its unique identifier.
 
 ### Example
 ```kotlin
@@ -510,81 +561,30 @@ Configure Bearer:
 
 val apiInstance = SupportTicketsApi()
 val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SupportTicketDtoEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdGet(supportTicketId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **supportTicketId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SupportTicketDtoEnvelope**](SupportTicketDtoEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportTicketsSupportTicketIdPut"></a>
-# **apiV2SupportServiceSupportTicketsSupportTicketIdPut**
-> EmptyEnvelope apiV2SupportServiceSupportTicketsSupportTicketIdPut(supportTicketId, supportTicketUpdateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportTicketsApi()
-val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val supportTicketUpdateDto : SupportTicketUpdateDto =  // SupportTicketUpdateDto | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportTicketsSupportTicketIdPut(supportTicketId, supportTicketUpdateDto, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketUpdateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdPut")
+    println("4xx response calling SupportTicketsApi#updateSupportTicketAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportTicketsApi#apiV2SupportServiceSupportTicketsSupportTicketIdPut")
+    println("5xx response calling SupportTicketsApi#updateSupportTicketAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **supportTicketId** | **java.util.UUID**|  | |
-| **supportTicketUpdateDto** | [**SupportTicketUpdateDto**](SupportTicketUpdateDto.md)|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportTicketUpdateDto** | [**SupportTicketUpdateDto**](SupportTicketUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -592,10 +592,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

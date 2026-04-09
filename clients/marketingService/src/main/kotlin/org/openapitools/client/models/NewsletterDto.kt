@@ -22,23 +22,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param timestamp 
  * @param id 
+ * @param timestamp 
  * @param name 
  * @param code 
  * @param title 
  * @param tenantId 
- * @param enrolmentId 
+ * @param enrollmentId 
  */
 
 
 data class NewsletterDto (
 
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
-
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
@@ -52,8 +52,8 @@ data class NewsletterDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "enrolmentId")
-    val enrolmentId: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

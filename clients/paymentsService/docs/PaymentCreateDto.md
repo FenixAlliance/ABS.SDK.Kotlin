@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] [readonly] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **invoiceId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **emisorWalletId** | **kotlin.String** |  |  [optional] |
@@ -59,7 +59,7 @@
 | **accountingEntryId** | **kotlin.String** |  |  [optional] |
 | **paymentGatewayId** | **kotlin.String** |  |  [optional] |
 | **bankAccountId** | **kotlin.String** |  |  [optional] |
-| **enrolmentId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **bankId** | **kotlin.String** |  |  [optional] |
 | **paymentTokenId** | **kotlin.String** |  |  [optional] |
 | **emisorWalletAccountId** | **kotlin.String** |  |  [optional] |
@@ -70,21 +70,21 @@
 ## Enum: onBehalfOf
 | Name | Value |
 | ---- | ----- |
-| onBehalfOf | 0, 1, 2, 3 |
+| onBehalfOf | Self, Tenant, Individual, Organization |
 
 
 <a id="PaymentType"></a>
 ## Enum: paymentType
 | Name | Value |
 | ---- | ----- |
-| paymentType | 0, 1, 2 |
+| paymentType | Paid, Received, Internal |
 
 
 <a id="PaymentStatus"></a>
 ## Enum: paymentStatus
 | Name | Value |
 | ---- | ----- |
-| paymentStatus | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 |
+| paymentStatus | Unset, Accepted, Rejected, OnHold, Failed, Reversed, Retained, Initialized, Expired, Abandoned, Cancelled, AcceptedRetained |
 
 
 

@@ -19,10 +19,12 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.GigCreateDto
 import org.openapitools.client.models.GigDtoEnvelope
 import org.openapitools.client.models.GigDtoListEnvelope
+import org.openapitools.client.models.GigUpdateDto
 import org.openapitools.client.models.Int32Envelope
 
 import com.squareup.moshi.Json
@@ -50,25 +52,26 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Create a gig
+     * Creates a new gig for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param gigCreateDto  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createGigAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, gigCreateDto: GigCreateDto? = null) : Unit {
+    fun createGigAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, gigCreateDto: GigCreateDto? = null) : EmptyEnvelope {
         val localVarResponse = createGigAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, gigCreateDto = gigCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -83,21 +86,22 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Create a gig
+     * Creates a new gig for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param gigCreateDto  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createGigAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, gigCreateDto: GigCreateDto?) : ApiResponse<Unit?> {
+    fun createGigAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, gigCreateDto: GigCreateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = createGigAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, gigCreateDto = gigCreateDto)
 
-        return request<GigCreateDto, Unit>(
+        return request<GigCreateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -130,31 +134,32 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a gig
+     * Deletes a gig for the specified tenant.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteGigAsync(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+    fun deleteGigAsync(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
         val localVarResponse = deleteGigAsyncWithHttpInfo(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -169,21 +174,22 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Delete a gig
+     * Deletes a gig for the specified tenant.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteGigAsyncWithHttpInfo(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+    fun deleteGigAsyncWithHttpInfo(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = deleteGigAsyncRequestConfig(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, Unit>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -215,14 +221,14 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs/{gigId}".replace("{"+"gigId"+"}", encodeURIComponent(gigId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get gig by ID
+     * Retrieves a specific gig by its identifier.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -255,8 +261,8 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Get gig by ID
+     * Retrieves a specific gig by its identifier.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -302,14 +308,14 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs/{gigId}".replace("{"+"gigId"+"}", encodeURIComponent(gigId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get gigs
+     * Retrieves gigs for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -341,8 +347,8 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Get gigs
+     * Retrieves gigs for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -386,14 +392,14 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Count gigs
+     * Counts gigs for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -425,8 +431,8 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Count gigs
+     * Counts gigs for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -470,32 +476,33 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Update a gig
+     * Updates an existing gig for the specified tenant.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
-     * @return void
+     * @param gigUpdateDto  (optional)
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateGigAsync(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : Unit {
-        val localVarResponse = updateGigAsyncWithHttpInfo(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun updateGigAsync(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, gigUpdateDto: GigUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateGigAsyncWithHttpInfo(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, gigUpdateDto = gigUpdateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -510,22 +517,23 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     }
 
     /**
-     * 
-     * 
+     * Update a gig
+     * Updates an existing gig for the specified tenant.
      * @param gigId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
-     * @return ApiResponse<Unit?>
+     * @param gigUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateGigAsyncWithHttpInfo(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<Unit?> {
-        val localVariableConfig = updateGigAsyncRequestConfig(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun updateGigAsyncWithHttpInfo(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, gigUpdateDto: GigUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateGigAsyncRequestConfig(gigId = gigId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, gigUpdateDto = gigUpdateDto)
 
-        return request<kotlin.Any, Unit>(
+        return request<GigUpdateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -537,11 +545,11 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
+     * @param gigUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun updateGigAsyncRequestConfig(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : RequestConfig<kotlin.Any> {
-        val localVariableBody = body
+    fun updateGigAsyncRequestConfig(gigId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, gigUpdateDto: GigUpdateDto?) : RequestConfig<GigUpdateDto> {
+        val localVariableBody = gigUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -559,7 +567,7 @@ class GigsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             path = "/api/v2/HrmsService/Gigs/{gigId}".replace("{"+"gigId"+"}", encodeURIComponent(gigId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

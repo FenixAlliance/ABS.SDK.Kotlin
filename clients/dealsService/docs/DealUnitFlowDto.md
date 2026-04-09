@@ -10,7 +10,7 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **parentBusinessProcessId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **tenantEnrolmentId** | **kotlin.String** |  |  [optional] |
+| **tenantEnrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

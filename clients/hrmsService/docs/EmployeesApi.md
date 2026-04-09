@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createEmployeeAsync**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees |  |
-| [**deleteEmployeeAsync**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeeByIdAsync**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeesAsync**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees |  |
-| [**getEmployeesCountAsync**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count |  |
-| [**updateEmployeeAsync**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} |  |
+| [**createEmployeeAsync**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees | Create an employee |
+| [**deleteEmployeeAsync**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} | Delete an employee |
+| [**getEmployeeByIdAsync**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} | Get employee by ID |
+| [**getEmployeesAsync**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees | Get employees |
+| [**getEmployeesCountAsync**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count | Count employees |
+| [**updateEmployeeAsync**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} | Update an employee |
 
 
 <a id="createEmployeeAsync"></a>
 # **createEmployeeAsync**
 > EmptyEnvelope createEmployeeAsync(tenantId, apiVersion, xApiVersion, employeeProfileCreateDto)
 
+Create an employee
 
+Creates a new employee for the specified tenant.
 
 ### Example
 ```kotlin
@@ -55,10 +57,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -69,7 +68,9 @@ Configure Bearer:
 # **deleteEmployeeAsync**
 > EmptyEnvelope deleteEmployeeAsync(employeeId, tenantId, apiVersion, xApiVersion)
 
+Delete an employee
 
+Deletes an employee for the specified tenant.
 
 ### Example
 ```kotlin
@@ -108,10 +109,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -122,7 +120,9 @@ Configure Bearer:
 # **getEmployeeByIdAsync**
 > EmployeeProfileDtoEnvelope getEmployeeByIdAsync(employeeId, tenantId, apiVersion, xApiVersion)
 
+Get employee by ID
 
+Retrieves a specific employee by its identifier.
 
 ### Example
 ```kotlin
@@ -161,10 +161,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -175,7 +172,9 @@ Configure Bearer:
 # **getEmployeesAsync**
 > EmployeeProfileDtoListEnvelope getEmployeesAsync(tenantId, apiVersion, xApiVersion)
 
+Get employees
 
+Retrieves employees for the specified tenant.
 
 ### Example
 ```kotlin
@@ -212,10 +211,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -226,7 +222,9 @@ Configure Bearer:
 # **getEmployeesCountAsync**
 > Int32Envelope getEmployeesCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count employees
 
+Counts employees for the specified tenant.
 
 ### Example
 ```kotlin
@@ -263,10 +261,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -277,7 +272,9 @@ Configure Bearer:
 # **updateEmployeeAsync**
 > EmptyEnvelope updateEmployeeAsync(employeeId, tenantId, apiVersion, xApiVersion, body)
 
+Update an employee
 
+Updates an existing employee for the specified tenant.
 
 ### Example
 ```kotlin
@@ -318,10 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

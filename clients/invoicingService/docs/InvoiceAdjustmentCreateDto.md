@@ -4,12 +4,9 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] [readonly] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **invoiceId** | **kotlin.String** |  |  [optional] |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **surchargePercent** | **kotlin.Double** |  |  [optional] |
 | **surchargeAmount** | **kotlin.Double** |  |  [optional] |
@@ -24,7 +21,7 @@
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1 |
+| type | Discount, Surcharge |
 
 
 

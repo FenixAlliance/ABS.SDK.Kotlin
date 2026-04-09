@@ -32,69 +32,68 @@ class EmailTemplatesApiTest : ShouldSpec() {
         // uncomment below to create an instance of EmailTemplatesApi
         //val apiInstance = EmailTemplatesApi()
 
-        // to test apiV2MarketingServiceEmailTemplatesCountGet
-        should("test apiV2MarketingServiceEmailTemplatesCountGet") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesCountGet
+        // to test createEmailTemplateAsync
+        should("test createEmailTemplateAsync") {
+            // uncomment below to test createEmailTemplateAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val emailTemplateCreateDto : EmailTemplateCreateDto =  // EmailTemplateCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceEmailTemplatesCountGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createEmailTemplateAsync(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete
-        should("test apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete
+        // to test deleteEmailTemplateAsync
+        should("test deleteEmailTemplateAsync") {
+            // uncomment below to test deleteEmailTemplateAsync
             //val emailTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdDelete(emailTemplateId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteEmailTemplateAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet
-        should("test apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet
-            //val emailTemplateId : kotlin.String = emailTemplateId_example // kotlin.String | 
+        // to test getEmailTemplateDetailsAsync
+        should("test getEmailTemplateDetailsAsync") {
+            // uncomment below to test getEmailTemplateDetailsAsync
+            //val emailTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val emailTemplatesId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailTemplateDtoEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdGet(emailTemplateId, tenantId, emailTemplatesId, apiVersion, xApiVersion)
+            //val result : EmailTemplateDtoEnvelope = apiInstance.getEmailTemplateDetailsAsync(emailTemplateId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut
-        should("test apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut
+        // to test getEmailTemplatesCountAsync
+        should("test getEmailTemplatesCountAsync") {
+            // uncomment below to test getEmailTemplatesCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getEmailTemplatesODataAsync
+        should("test getEmailTemplatesODataAsync") {
+            // uncomment below to test getEmailTemplatesODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmailTemplateDtoListEnvelope = apiInstance.getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateEmailTemplateAsync
+        should("test updateEmailTemplateAsync") {
+            // uncomment below to test updateEmailTemplateAsync
             //val emailTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val emailTemplateUpdateDto : EmailTemplateUpdateDto =  // EmailTemplateUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesEmailTemplateIdPut(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailTemplatesGet
-        should("test apiV2MarketingServiceEmailTemplatesGet") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmailTemplateDtoListEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceEmailTemplatesPost
-        should("test apiV2MarketingServiceEmailTemplatesPost") {
-            // uncomment below to test apiV2MarketingServiceEmailTemplatesPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val emailTemplateCreateDto : EmailTemplateCreateDto =  // EmailTemplateCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceEmailTemplatesPost(tenantId, emailTemplateCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateEmailTemplateAsync(emailTemplateId, tenantId, emailTemplateUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

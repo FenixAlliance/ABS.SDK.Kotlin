@@ -37,24 +37,6 @@ class InvoiceReferenceCreateDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
-        // to test the property `tenantId`
-        should("test tenantId") {
-            // uncomment below to test the property
-            //modelInstance.tenantId shouldBe ("TODO")
-        }
-
-        // to test the property `enrollmentId`
-        should("test enrollmentId") {
-            // uncomment below to test the property
-            //modelInstance.enrollmentId shouldBe ("TODO")
-        }
-
-        // to test the property `referralInvoiceId`
-        should("test referralInvoiceId") {
-            // uncomment below to test the property
-            //modelInstance.referralInvoiceId shouldBe ("TODO")
-        }
-
         // to test the property `referencedInvoiceId`
         should("test referencedInvoiceId") {
             // uncomment below to test the property

@@ -46,37 +46,25 @@
 | **unitGroupId** | **kotlin.String** |  |  [optional] |
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
-| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
+| **forexRates** | [**ForexRates**](ForexRates.md) |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
-| **totalBaseAmountInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalDetailInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalProfitInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalDetailAmountInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalWithholdingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxesInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingCostInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalShippingTaxesInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalWarrantyCostInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalReturnCostInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalRefundCostInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
-| **totalAmountInUsd** | **kotlin.Double** |  |  [optional] |
+| **totalInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalGlobalDiscountsInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalGlobalSurchargesInUsd** | **kotlin.Double** |  |  [optional] |
 | **customGlobalSurchargesAmount** | **kotlin.Double** |  |  [optional] |
 | **customGlobalDiscountsAmount** | **kotlin.Double** |  |  [optional] |
-| **customBaseAmount** | **kotlin.Double** |  |  [optional] |
-| **customDetailAmount** | **kotlin.Double** |  |  [optional] |
-| **customDiscountsAmount** | **kotlin.Double** |  |  [optional] |
-| **customTaxBase** | **kotlin.Double** |  |  [optional] |
-| **customSurchargesAmount** | **kotlin.Double** |  |  [optional] |
-| **customProfitAmount** | **kotlin.Double** |  |  [optional] |
-| **customShippingCostAmount** | **kotlin.Double** |  |  [optional] |
-| **customShippingTaxAmount** | **kotlin.Double** |  |  [optional] |
-| **customTaxAmount** | **kotlin.Double** |  |  [optional] |
-| **customWithholdingTaxAmount** | **kotlin.Double** |  |  [optional] |
-| **customTotalAmount** | **kotlin.Double** |  |  [optional] |
 | **returnPolicyId** | **kotlin.String** |  |  [optional] |
 | **refundPolicyId** | **kotlin.String** |  |  [optional] |
 | **warrantyPolicyId** | **kotlin.String** |  |  [optional] |
@@ -86,6 +74,43 @@
 | **quoteItemRecordId** | **kotlin.String** |  |  [optional] |
 | **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
 | **parentBillingItemRecordId** | **kotlin.String** |  |  [optional] |
+| **currency** | [**CurrencyId**](CurrencyId.md) |  |  [optional] |
+| **totalDetail** | **kotlin.Double** |  |  [optional] |
+| **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalDetailAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalProfit** | **kotlin.Double** |  |  [optional] |
+| **totalProfitCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalProfitAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalSurcharges** | **kotlin.Double** |  |  [optional] |
+| **totalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalTaxBase** | **kotlin.Double** |  |  [optional] |
+| **totalTaxBaseCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalTaxes** | **kotlin.Double** |  |  [optional] |
+| **totalTaxesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalTaxesAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalShippingCost** | **kotlin.Double** |  |  [optional] |
+| **totalShippingCostCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingCostAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalShippingTax** | **kotlin.Double** |  |  [optional] |
+| **totalShippingTaxCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalShippingTaxAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalWithheldTax** | **kotlin.Double** |  |  [optional] |
+| **totalWithheldTaxCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalWithheldTaxAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalGlobalDiscounts** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalGlobalSurcharges** | **kotlin.Double** |  |  [optional] |
+| **totalGlobalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+| **total** | **kotlin.Double** |  |  [optional] |
+| **totalCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalAmount** | [**Money**](Money.md) |  |  [optional] |
 | **dealUnitId** | **kotlin.String** |  |  [optional] |
 
 
@@ -93,14 +118,14 @@
 ## Enum: taxCalculationMethod
 | Name | Value |
 | ---- | ----- |
-| taxCalculationMethod | 0, 1 |
+| taxCalculationMethod | Included, Excluded |
 
 
 <a id="CostCalculationMethod"></a>
 ## Enum: costCalculationMethod
 | Name | Value |
 | ---- | ----- |
-| costCalculationMethod | 0, 1 |
+| costCalculationMethod | Automatic, Custom |
 
 
 

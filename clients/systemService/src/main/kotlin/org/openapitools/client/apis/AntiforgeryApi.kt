@@ -45,8 +45,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Get and store antiforgery tokens
+     * Generates antiforgery tokens and stores them in the current HTTP context.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return void
@@ -57,8 +57,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2SystemServiceAntiforgeryGetAndStoreTokensGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAndStoreTokens(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = getAndStoreTokensWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -76,8 +76,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Get and store antiforgery tokens
+     * Generates antiforgery tokens and stores them in the current HTTP context.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Unit?>
@@ -85,8 +85,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceAntiforgeryGetAndStoreTokensGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2SystemServiceAntiforgeryGetAndStoreTokensGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAndStoreTokensWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = getAndStoreTokensRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -94,13 +94,13 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceAntiforgeryGetAndStoreTokensGet
+     * To obtain the request config of the operation getAndStoreTokens
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceAntiforgeryGetAndStoreTokensGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getAndStoreTokensRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -116,14 +116,14 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SystemService/Antiforgery/GetAndStoreTokens",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Validate antiforgery request
+     * Validates whether the current HTTP request contains a valid antiforgery token.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return void
@@ -134,8 +134,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = apiV2SystemServiceAntiforgeryIsRequestValidGetWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun isRequestValidAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = isRequestValidAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -153,8 +153,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * 
-     * 
+     * Validate antiforgery request
+     * Validates whether the current HTTP request contains a valid antiforgery token.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Unit?>
@@ -162,8 +162,8 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2SystemServiceAntiforgeryIsRequestValidGetWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = apiV2SystemServiceAntiforgeryIsRequestValidGetRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun isRequestValidAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = isRequestValidAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -171,13 +171,13 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
-     * To obtain the request config of the operation apiV2SystemServiceAntiforgeryIsRequestValidGet
+     * To obtain the request config of the operation isRequestValidAsync
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2SystemServiceAntiforgeryIsRequestValidGetRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun isRequestValidAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -193,7 +193,7 @@ class AntiforgeryApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             path = "/api/v2/SystemService/Antiforgery/IsRequestValid",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

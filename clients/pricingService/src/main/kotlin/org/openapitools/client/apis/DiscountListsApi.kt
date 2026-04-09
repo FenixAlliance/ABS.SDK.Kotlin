@@ -56,96 +56,10 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Creates a new discount list
+     * Creates a new discount list for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsCountGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsCountGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsCountGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsCountGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PricingService/DiscountLists/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param discountListCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -155,8 +69,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDelete(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDeleteWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createDiscountList(tenantId: java.util.UUID, discountListCreateDto: DiscountListCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createDiscountListWithHttpInfo(tenantId = tenantId, discountListCreateDto = discountListCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -174,423 +88,56 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
-     * @param discountListId 
+     * Creates a new discount list
+     * Creates a new discount list for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param discountListCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDeleteWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDeleteRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createDiscountListWithHttpInfo(tenantId: java.util.UUID, discountListCreateDto: DiscountListCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createDiscountListRequestConfig(tenantId = tenantId, discountListCreateDto = discountListCreateDto)
 
-        return request<Unit, EmptyEnvelope>(
+        return request<DiscountListCreateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDelete
+     * To obtain the request config of the operation createDiscountList
      *
-     * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param discountListCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDeleteRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun createDiscountListRequestConfig(tenantId: java.util.UUID, discountListCreateDto: DiscountListCreateDto?) : RequestConfig<DiscountListCreateDto> {
+        val localVariableBody = discountListCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGetWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGetWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGetRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGet
-     *
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsCountGetRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDeleteWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDeleteWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDeleteRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDelete
-     *
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdDeleteRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())).replace("{"+"discountListEntryId"+"}", encodeURIComponent(discountListEntryId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, discountUpdateDto: DiscountUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPutWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountUpdateDto = discountUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPutWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountUpdateDto: DiscountUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPutRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountUpdateDto = discountUpdateDto)
-
-        return request<DiscountUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPut
-     *
-     * @param discountListId 
-     * @param discountListEntryId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsDiscountListEntryIdPutRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountUpdateDto: DiscountUpdateDto?) : RequestConfig<DiscountUpdateDto> {
-        val localVariableBody = discountUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())).replace("{"+"discountListEntryId"+"}", encodeURIComponent(discountListEntryId.toString())),
+            method = RequestMethod.POST,
+            path = "/api/v2/PricingService/DiscountLists",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Creates a discount list entry
+     * Creates a new discount entry in the specified discount list.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return DiscountDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DiscountDtoListEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDiscountsGetWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<DiscountDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsGetWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DiscountDtoListEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDiscountsGetRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, DiscountDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDiscountsGet
-     *
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsGetRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param discountListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param discountCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -601,8 +148,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, discountCreateDto: DiscountCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdDiscountsPostWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountCreateDto = discountCreateDto)
+    fun createDiscountListEntry(discountListId: java.util.UUID, tenantId: java.util.UUID, discountCreateDto: DiscountCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createDiscountListEntryWithHttpInfo(discountListId = discountListId, tenantId = tenantId, discountCreateDto = discountCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -620,12 +167,10 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Creates a discount list entry
+     * Creates a new discount entry in the specified discount list.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param discountCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -633,8 +178,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsPostWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountCreateDto: DiscountCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdDiscountsPostRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountCreateDto = discountCreateDto)
+    fun createDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, discountCreateDto: DiscountCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createDiscountListEntryRequestConfig(discountListId = discountListId, tenantId = tenantId, discountCreateDto = discountCreateDto)
 
         return request<DiscountCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -642,26 +187,20 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdDiscountsPost
+     * To obtain the request config of the operation createDiscountListEntry
      *
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param discountCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServiceDiscountListsDiscountListIdDiscountsPostRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountCreateDto: DiscountCreateDto?) : RequestConfig<DiscountCreateDto> {
+    fun createDiscountListEntryRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, discountCreateDto: DiscountCreateDto?) : RequestConfig<DiscountCreateDto> {
         val localVariableBody = discountCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -670,18 +209,173 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Deletes a discount list
+     * Deletes the specified discount list.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteDiscountList(discountListId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteDiscountListWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a discount list
+     * Deletes the specified discount list.
+     * @param discountListId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteDiscountListWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteDiscountListRequestConfig(discountListId = discountListId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteDiscountList
+     *
+     * @param discountListId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteDiscountListRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes a discount list entry
+     * Deletes the specified discount entry from a discount list.
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deleteDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a discount list entry
+     * Deletes the specified discount entry from a discount list.
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteDiscountListEntry
+     *
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deleteDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())).replace("{"+"discountListEntryId"+"}", encodeURIComponent(discountListEntryId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Gets a discount list by ID
+     * Retrieves the details of a discount list using its unique identifier.
+     * @param discountListId 
+     * @param tenantId 
      * @return DiscountListDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -691,8 +385,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdGet(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DiscountListDtoEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdGetWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDiscountList(discountListId: java.util.UUID, tenantId: java.util.UUID) : DiscountListDtoEnvelope {
+        val localVarResponse = getDiscountListWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountListDtoEnvelope
@@ -710,20 +404,18 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Gets a discount list by ID
+     * Retrieves the details of a discount list using its unique identifier.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<DiscountListDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdGetWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DiscountListDtoEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdGetRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDiscountListWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DiscountListDtoEnvelope?> {
+        val localVariableConfig = getDiscountListRequestConfig(discountListId = discountListId, tenantId = tenantId)
 
         return request<Unit, DiscountListDtoEnvelope>(
             localVariableConfig
@@ -731,25 +423,19 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdGet
+     * To obtain the request config of the operation getDiscountList
      *
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServiceDiscountListsDiscountListIdGetRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getDiscountListRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -757,20 +443,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/PricingService/DiscountLists/{discountListId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieves discounts in a discount list
+     * Gets all discount entries for a specific discount list with OData support.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListUpdateDto  (optional)
-     * @return EmptyEnvelope
+     * @return DiscountDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -779,11 +462,11 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdPut(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, discountListUpdateDto: DiscountListUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsDiscountListIdPutWithHttpInfo(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountListUpdateDto = discountListUpdateDto)
+    fun getDiscountListEntries(discountListId: java.util.UUID, tenantId: java.util.UUID) : DiscountDtoListEnvelope {
+        val localVarResponse = getDiscountListEntriesWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountDtoListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -798,153 +481,56 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Retrieves discounts in a discount list
+     * Gets all discount entries for a specific discount list with OData support.
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<DiscountDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsDiscountListIdPutWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountListUpdateDto: DiscountListUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsDiscountListIdPutRequestConfig(discountListId = discountListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountListUpdateDto = discountListUpdateDto)
+    fun getDiscountListEntriesWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DiscountDtoListEnvelope?> {
+        val localVariableConfig = getDiscountListEntriesRequestConfig(discountListId = discountListId, tenantId = tenantId)
 
-        return request<DiscountListUpdateDto, EmptyEnvelope>(
+        return request<Unit, DiscountDtoListEnvelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsDiscountListIdPut
+     * To obtain the request config of the operation getDiscountListEntries
      *
      * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServiceDiscountListsDiscountListIdPutRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountListUpdateDto: DiscountListUpdateDto?) : RequestConfig<DiscountListUpdateDto> {
-        val localVariableBody = discountListUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/PricingService/DiscountLists/{discountListId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return DiscountListDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DiscountListDtoListEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountListDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<DiscountListDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DiscountListDtoListEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, DiscountListDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServiceDiscountListsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getDiscountListEntriesRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/PricingService/DiscountLists",
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Counts discounts in a discount list
+     * Gets the count of discount entries for a specific discount list.
+     * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListCreateDto  (optional)
-     * @return EmptyEnvelope
+     * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -953,11 +539,11 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServiceDiscountListsPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, discountListCreateDto: DiscountListCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServiceDiscountListsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountListCreateDto = discountListCreateDto)
+    fun getDiscountListEntriesCount(discountListId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getDiscountListEntriesCountWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -972,67 +558,56 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Counts discounts in a discount list
+     * Gets the count of discount entries for a specific discount list.
+     * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServiceDiscountListsPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountListCreateDto: DiscountListCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServiceDiscountListsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, discountListCreateDto = discountListCreateDto)
+    fun getDiscountListEntriesCountWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDiscountListEntriesCountRequestConfig(discountListId = discountListId, tenantId = tenantId)
 
-        return request<DiscountListCreateDto, EmptyEnvelope>(
+        return request<Unit, Int32Envelope>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServiceDiscountListsPost
+     * To obtain the request config of the operation getDiscountListEntriesCount
      *
+     * @param discountListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param discountListCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServiceDiscountListsPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, discountListCreateDto: DiscountListCreateDto?) : RequestConfig<DiscountListCreateDto> {
-        val localVariableBody = discountListCreateDto
+    fun getDiscountListEntriesCountRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/PricingService/DiscountLists",
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets a discount list entry by ID
+     * Retrieves a specific discount entry from a discount list.
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return DiscountDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1042,8 +617,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DiscountDtoEnvelope {
-        val localVarResponse = getDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : DiscountDtoEnvelope {
+        val localVarResponse = getDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountDtoEnvelope
@@ -1061,21 +636,19 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * 
-     * 
+     * Gets a discount list entry by ID
+     * Retrieves a specific discount entry from a discount list.
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<DiscountDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DiscountDtoEnvelope?> {
-        val localVariableConfig = getDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DiscountDtoEnvelope?> {
+        val localVariableConfig = getDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId)
 
         return request<Unit, DiscountDtoEnvelope>(
             localVariableConfig
@@ -1088,21 +661,15 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1110,7 +677,320 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())).replace("{"+"discountListEntryId"+"}", encodeURIComponent(discountListEntryId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieves all discount lists
+     * Gets all discount lists for the current tenant with OData support.
+     * @param tenantId 
+     * @return DiscountListDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDiscountLists(tenantId: java.util.UUID) : DiscountListDtoListEnvelope {
+        val localVarResponse = getDiscountListsWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountListDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieves all discount lists
+     * Gets all discount lists for the current tenant with OData support.
+     * @param tenantId 
+     * @return ApiResponse<DiscountListDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDiscountListsWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DiscountListDtoListEnvelope?> {
+        val localVariableConfig = getDiscountListsRequestConfig(tenantId = tenantId)
+
+        return request<Unit, DiscountListDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDiscountLists
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDiscountListsRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/DiscountLists",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Counts discount lists
+     * Gets the count of discount lists for the current tenant.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getDiscountListsCount(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getDiscountListsCountWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Counts discount lists
+     * Gets the count of discount lists for the current tenant.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getDiscountListsCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDiscountListsCountRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getDiscountListsCount
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getDiscountListsCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/DiscountLists/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a discount list
+     * Updates the specified discount list.
+     * @param discountListId 
+     * @param tenantId 
+     * @param discountListUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateDiscountList(discountListId: java.util.UUID, tenantId: java.util.UUID, discountListUpdateDto: DiscountListUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateDiscountListWithHttpInfo(discountListId = discountListId, tenantId = tenantId, discountListUpdateDto = discountListUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a discount list
+     * Updates the specified discount list.
+     * @param discountListId 
+     * @param tenantId 
+     * @param discountListUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateDiscountListWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, discountListUpdateDto: DiscountListUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateDiscountListRequestConfig(discountListId = discountListId, tenantId = tenantId, discountListUpdateDto = discountListUpdateDto)
+
+        return request<DiscountListUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateDiscountList
+     *
+     * @param discountListId 
+     * @param tenantId 
+     * @param discountListUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateDiscountListRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, discountListUpdateDto: DiscountListUpdateDto?) : RequestConfig<DiscountListUpdateDto> {
+        val localVariableBody = discountListUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a discount list entry
+     * Updates the specified discount entry in a discount list.
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @param discountUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, discountUpdateDto: DiscountUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, discountUpdateDto = discountUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a discount list entry
+     * Updates the specified discount entry in a discount list.
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @param discountUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, discountUpdateDto: DiscountUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, discountUpdateDto = discountUpdateDto)
+
+        return request<DiscountUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateDiscountListEntry
+     *
+     * @param discountListId 
+     * @param discountListEntryId 
+     * @param tenantId 
+     * @param discountUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, discountUpdateDto: DiscountUpdateDto?) : RequestConfig<DiscountUpdateDto> {
+        val localVariableBody = discountUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}".replace("{"+"discountListId"+"}", encodeURIComponent(discountListId.toString())).replace("{"+"discountListEntryId"+"}", encodeURIComponent(discountListEntryId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

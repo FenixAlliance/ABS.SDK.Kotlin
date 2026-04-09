@@ -22,28 +22,38 @@ import org.openapitools.client.apis.CurrenciesApi
 import org.openapitools.client.models.CurrencyDtoEnvelope
 import org.openapitools.client.models.CurrencyDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.Int32Envelope
 
 class CurrenciesApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of CurrenciesApi
         //val apiInstance = CurrenciesApi()
 
-        // to test apiV2GlobeServiceCurrenciesCurrencyIdGet
-        should("test apiV2GlobeServiceCurrenciesCurrencyIdGet") {
-            // uncomment below to test apiV2GlobeServiceCurrenciesCurrencyIdGet
-            //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
+        // to test countCurrenciesAsync
+        should("test countCurrenciesAsync") {
+            // uncomment below to test countCurrenciesAsync
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CurrencyDtoEnvelope = apiInstance.apiV2GlobeServiceCurrenciesCurrencyIdGet(currencyId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.countCurrenciesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2GlobeServiceCurrenciesGet
-        should("test apiV2GlobeServiceCurrenciesGet") {
-            // uncomment below to test apiV2GlobeServiceCurrenciesGet
+        // to test getCurrencyByIdAsync
+        should("test getCurrencyByIdAsync") {
+            // uncomment below to test getCurrencyByIdAsync
+            //val currencyId : kotlin.String = currencyId_example // kotlin.String | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : CurrencyDtoListEnvelope = apiInstance.apiV2GlobeServiceCurrenciesGet(apiVersion, xApiVersion)
+            //val result : CurrencyDtoEnvelope = apiInstance.getCurrencyByIdAsync(currencyId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getEnabledCurrenciesAsync
+        should("test getEnabledCurrenciesAsync") {
+            // uncomment below to test getEnabledCurrenciesAsync
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesAsync(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

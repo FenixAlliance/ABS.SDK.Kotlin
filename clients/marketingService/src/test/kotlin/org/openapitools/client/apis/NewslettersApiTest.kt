@@ -31,67 +31,67 @@ class NewslettersApiTest : ShouldSpec() {
         // uncomment below to create an instance of NewslettersApi
         //val apiInstance = NewslettersApi()
 
-        // to test apiV2MarketingServiceNewslettersCountGet
-        should("test apiV2MarketingServiceNewslettersCountGet") {
-            // uncomment below to test apiV2MarketingServiceNewslettersCountGet
+        // to test createNewsletterAsync
+        should("test createNewsletterAsync") {
+            // uncomment below to test createNewsletterAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val newsletterCreateDto : NewsletterCreateDto =  // NewsletterCreateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2MarketingServiceNewslettersCountGet(tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createNewsletterAsync(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceNewslettersGet
-        should("test apiV2MarketingServiceNewslettersGet") {
-            // uncomment below to test apiV2MarketingServiceNewslettersGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.apiV2MarketingServiceNewslettersGet(tenantId, apiVersion, xApiVersion)
-        }
-
-        // to test apiV2MarketingServiceNewslettersNewsletterIdDelete
-        should("test apiV2MarketingServiceNewslettersNewsletterIdDelete") {
-            // uncomment below to test apiV2MarketingServiceNewslettersNewsletterIdDelete
+        // to test deleteNewsletterAsync
+        should("test deleteNewsletterAsync") {
+            // uncomment below to test deleteNewsletterAsync
             //val newsletterId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdDelete(newsletterId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceNewslettersNewsletterIdGet
-        should("test apiV2MarketingServiceNewslettersNewsletterIdGet") {
-            // uncomment below to test apiV2MarketingServiceNewslettersNewsletterIdGet
+        // to test getNewsletterDetailsAsync
+        should("test getNewsletterDetailsAsync") {
+            // uncomment below to test getNewsletterDetailsAsync
             //val newsletterId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : NewsletterDtoEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdGet(newsletterId, tenantId, apiVersion, xApiVersion)
+            //val result : NewsletterDtoEnvelope = apiInstance.getNewsletterDetailsAsync(newsletterId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2MarketingServiceNewslettersNewsletterIdPut
-        should("test apiV2MarketingServiceNewslettersNewsletterIdPut") {
-            // uncomment below to test apiV2MarketingServiceNewslettersNewsletterIdPut
+        // to test getNewsletterODataAsync
+        should("test getNewsletterODataAsync") {
+            // uncomment below to test getNewsletterODataAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
+        }
+
+        // to test getNewslettersCountAsync
+        should("test getNewslettersCountAsync") {
+            // uncomment below to test getNewslettersCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateNewsletterAsync
+        should("test updateNewsletterAsync") {
+            // uncomment below to test updateNewsletterAsync
             //val newsletterId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val newsletterUpdateDto : NewsletterUpdateDto =  // NewsletterUpdateDto | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersNewsletterIdPut(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2MarketingServiceNewslettersPost
-        should("test apiV2MarketingServiceNewslettersPost") {
-            // uncomment below to test apiV2MarketingServiceNewslettersPost
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val newsletterCreateDto : NewsletterCreateDto =  // NewsletterCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2MarketingServiceNewslettersPost(tenantId, newsletterCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateNewsletterAsync(newsletterId, tenantId, newsletterUpdateDto, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

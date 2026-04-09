@@ -56,179 +56,9 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Creates a new price list
+     * Creates a new price list for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsCountGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = apiV2PricingServicePriceListsCountGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsCountGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsCountGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsCountGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServicePriceListsCountGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PricingService/PriceLists/Count",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return PriceListDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsGet(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PriceListDtoListEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsGetWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PriceListDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<PriceListDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsGetWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PriceListDtoListEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsGetRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, PriceListDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsGet
-     *
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServicePriceListsGetRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/PricingService/PriceLists",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param priceListCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -239,8 +69,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPost(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, priceListCreateDto: PriceListCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, priceListCreateDto = priceListCreateDto)
+    fun createPriceListAsync(tenantId: java.util.UUID, priceListCreateDto: PriceListCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createPriceListAsyncWithHttpInfo(tenantId = tenantId, priceListCreateDto = priceListCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -258,11 +88,9 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Creates a new price list
+     * Creates a new price list for the current tenant.
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param priceListCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -270,8 +98,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPostWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, priceListCreateDto: PriceListCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, priceListCreateDto = priceListCreateDto)
+    fun createPriceListAsyncWithHttpInfo(tenantId: java.util.UUID, priceListCreateDto: PriceListCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createPriceListAsyncRequestConfig(tenantId = tenantId, priceListCreateDto = priceListCreateDto)
 
         return request<PriceListCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -279,25 +107,19 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPost
+     * To obtain the request config of the operation createPriceListAsync
      *
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param priceListCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePriceListsPostRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, priceListCreateDto: PriceListCreateDto?) : RequestConfig<PriceListCreateDto> {
+    fun createPriceListAsyncRequestConfig(tenantId: java.util.UUID, priceListCreateDto: PriceListCreateDto?) : RequestConfig<PriceListCreateDto> {
         val localVariableBody = priceListCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -306,18 +128,17 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Creates a price list entry
+     * Creates a new price entry in the specified price list.
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
+     * @param itemPriceCreateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -327,8 +148,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPriceListIdDelete(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPriceListIdDeleteWithHttpInfo(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun createPriceListPricesAsync(priceListId: java.util.UUID, tenantId: java.util.UUID, itemPriceCreateDto: ItemPriceCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createPriceListPricesAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId, itemPriceCreateDto = itemPriceCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -346,100 +167,10 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Creates a price list entry
+     * Creates a new price entry in the specified price list.
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPriceListIdDeleteWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPriceListIdDeleteRequestConfig(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPriceListIdDelete
-     *
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServicePriceListsPriceListIdDeleteRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/PricingService/PriceLists/{priceListId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param itemPriceCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPost(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPriceCreateDto: ItemPriceCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPriceListIdPricesPostWithHttpInfo(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPriceCreateDto = itemPriceCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param itemPriceCreateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -447,8 +178,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPostWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPriceCreateDto: ItemPriceCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPriceListIdPricesPostRequestConfig(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPriceCreateDto = itemPriceCreateDto)
+    fun createPriceListPricesAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, itemPriceCreateDto: ItemPriceCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createPriceListPricesAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId, itemPriceCreateDto = itemPriceCreateDto)
 
         return request<ItemPriceCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -456,26 +187,20 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPriceListIdPricesPost
+     * To obtain the request config of the operation createPriceListPricesAsync
      *
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @param itemPriceCreateDto  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePriceListsPriceListIdPricesPostRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPriceCreateDto: ItemPriceCreateDto?) : RequestConfig<ItemPriceCreateDto> {
+    fun createPriceListPricesAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, itemPriceCreateDto: ItemPriceCreateDto?) : RequestConfig<ItemPriceCreateDto> {
         val localVariableBody = itemPriceCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
@@ -484,19 +209,16 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Deletes a price list
+     * Deletes the specified price list.
      * @param priceListId 
-     * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -506,8 +228,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPriceListIdPricesPriceIdDeleteWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deletePriceListAsync(priceListId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deletePriceListAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -525,21 +247,18 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Deletes a price list
+     * Deletes the specified price list.
      * @param priceListId 
-     * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdDeleteWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPriceListIdPricesPriceIdDeleteRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deletePriceListAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deletePriceListAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -547,26 +266,99 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete
+     * To obtain the request config of the operation deletePriceListAsync
      *
      * @param priceListId 
-     * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdDeleteRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deletePriceListAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/PricingService/PriceLists/{priceListId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Deletes a price list entry
+     * Deletes the specified price entry from a price list.
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deletePriceListPriceAsync(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : EmptyEnvelope {
+        val localVarResponse = deletePriceListPriceAsyncWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Deletes a price list entry
+     * Deletes the specified price entry from a price list.
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deletePriceListPriceAsyncWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deletePriceListPriceAsyncRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deletePriceListPriceAsync
+     *
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun deletePriceListPriceAsyncRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -574,203 +366,16 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())).replace("{"+"priceId"+"}", encodeURIComponent(priceId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
-     * @param priceListId 
-     * @param priceId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param itemPriceUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPriceUpdateDto: ItemPriceUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPriceListIdPricesPriceIdPutWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPriceUpdateDto = itemPriceUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param priceListId 
-     * @param priceId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param itemPriceUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdPutWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPriceUpdateDto: ItemPriceUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPriceListIdPricesPriceIdPutRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPriceUpdateDto = itemPriceUpdateDto)
-
-        return request<ItemPriceUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut
-     *
-     * @param priceListId 
-     * @param priceId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param itemPriceUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServicePriceListsPriceListIdPricesPriceIdPutRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPriceUpdateDto: ItemPriceUpdateDto?) : RequestConfig<ItemPriceUpdateDto> {
-        val localVariableBody = itemPriceUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())).replace("{"+"priceId"+"}", encodeURIComponent(priceId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
+     * Gets a price list by ID
+     * Retrieves the details of a price list using its unique identifier.
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param priceListUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPut(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, priceListUpdateDto: PriceListUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2PricingServicePriceListsPriceListIdPutWithHttpInfo(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, priceListUpdateDto = priceListUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param priceListUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2PricingServicePriceListsPriceListIdPutWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, priceListUpdateDto: PriceListUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2PricingServicePriceListsPriceListIdPutRequestConfig(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, priceListUpdateDto = priceListUpdateDto)
-
-        return request<PriceListUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation apiV2PricingServicePriceListsPriceListIdPut
-     *
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param priceListUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun apiV2PricingServicePriceListsPriceListIdPutRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, priceListUpdateDto: PriceListUpdateDto?) : RequestConfig<PriceListUpdateDto> {
-        val localVariableBody = priceListUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/PricingService/PriceLists/{priceListId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * 
-     * @param priceListId 
-     * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return PriceListDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -780,8 +385,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPriceListAsync(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PriceListDtoEnvelope {
-        val localVarResponse = getPriceListAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListAsync(priceListId: java.util.UUID, tenantId: java.util.UUID) : PriceListDtoEnvelope {
+        val localVarResponse = getPriceListAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PriceListDtoEnvelope
@@ -799,20 +404,18 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Gets a price list by ID
+     * Retrieves the details of a price list using its unique identifier.
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<PriceListDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPriceListAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PriceListDtoEnvelope?> {
-        val localVariableConfig = getPriceListAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<PriceListDtoEnvelope?> {
+        val localVariableConfig = getPriceListAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId)
 
         return request<Unit, PriceListDtoEnvelope>(
             localVariableConfig
@@ -824,21 +427,15 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      *
      * @param priceListId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getPriceListAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getPriceListAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -846,19 +443,17 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists/{priceListId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Gets a price list entry by ID
+     * Retrieves a specific price entry from a price list.
      * @param priceListId 
      * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ItemPriceDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -868,8 +463,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPriceListPriceAsync(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPriceDtoEnvelope {
-        val localVarResponse = getPriceListPriceAsyncWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListPriceAsync(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : ItemPriceDtoEnvelope {
+        val localVarResponse = getPriceListPriceAsyncWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPriceDtoEnvelope
@@ -887,21 +482,19 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Gets a price list entry by ID
+     * Retrieves a specific price entry from a price list.
      * @param priceListId 
      * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<ItemPriceDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPriceListPriceAsyncWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPriceDtoEnvelope?> {
-        val localVariableConfig = getPriceListPriceAsyncRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListPriceAsyncWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ItemPriceDtoEnvelope?> {
+        val localVariableConfig = getPriceListPriceAsyncRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId)
 
         return request<Unit, ItemPriceDtoEnvelope>(
             localVariableConfig
@@ -914,21 +507,15 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param priceListId 
      * @param priceId 
      * @param tenantId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getPriceListPriceAsyncRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getPriceListPriceAsyncRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -936,19 +523,17 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())).replace("{"+"priceId"+"}", encodeURIComponent(priceId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Retrieves prices in a price list
+     * Gets all price entries for a specific price list with OData support.
      * @param priceListId 
      * @param tenantId 
      * @param itemId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ItemPriceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -958,8 +543,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPriceListPricesAsync(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPriceDtoListEnvelope {
-        val localVarResponse = getPriceListPricesAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListPricesAsync(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : ItemPriceDtoListEnvelope {
+        val localVarResponse = getPriceListPricesAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId, itemId = itemId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPriceDtoListEnvelope
@@ -977,21 +562,19 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     }
 
     /**
-     * 
-     * 
+     * Retrieves prices in a price list
+     * Gets all price entries for a specific price list with OData support.
      * @param priceListId 
      * @param tenantId 
      * @param itemId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return ApiResponse<ItemPriceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPriceListPricesAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPriceDtoListEnvelope?> {
-        val localVariableConfig = getPriceListPricesAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPriceListPricesAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<ItemPriceDtoListEnvelope?> {
+        val localVariableConfig = getPriceListPricesAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId, itemId = itemId)
 
         return request<Unit, ItemPriceDtoListEnvelope>(
             localVariableConfig
@@ -1004,11 +587,9 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param priceListId 
      * @param tenantId 
      * @param itemId  (optional)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getPriceListPricesAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getPriceListPricesAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1016,12 +597,8 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1029,7 +606,320 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Retrieves all price lists
+     * Gets all price lists for the current tenant with OData support.
+     * @param tenantId 
+     * @return PriceListDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPriceListsAsync(tenantId: java.util.UUID) : PriceListDtoListEnvelope {
+        val localVarResponse = getPriceListsAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PriceListDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Retrieves all price lists
+     * Gets all price lists for the current tenant with OData support.
+     * @param tenantId 
+     * @return ApiResponse<PriceListDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPriceListsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<PriceListDtoListEnvelope?> {
+        val localVariableConfig = getPriceListsAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, PriceListDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPriceListsAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getPriceListsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/PriceLists",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Counts price lists
+     * Gets the count of price lists for the current tenant.
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPriceListsCountAsync(tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getPriceListsCountAsyncWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Counts price lists
+     * Gets the count of price lists for the current tenant.
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPriceListsCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPriceListsCountAsyncRequestConfig(tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPriceListsCountAsync
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getPriceListsCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/PriceLists/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a price list
+     * Updates the specified price list.
+     * @param priceListId 
+     * @param tenantId 
+     * @param priceListUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updatePriceListAsync(priceListId: java.util.UUID, tenantId: java.util.UUID, priceListUpdateDto: PriceListUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updatePriceListAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId, priceListUpdateDto = priceListUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a price list
+     * Updates the specified price list.
+     * @param priceListId 
+     * @param tenantId 
+     * @param priceListUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updatePriceListAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID, priceListUpdateDto: PriceListUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updatePriceListAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId, priceListUpdateDto = priceListUpdateDto)
+
+        return request<PriceListUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updatePriceListAsync
+     *
+     * @param priceListId 
+     * @param tenantId 
+     * @param priceListUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updatePriceListAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID, priceListUpdateDto: PriceListUpdateDto?) : RequestConfig<PriceListUpdateDto> {
+        val localVariableBody = priceListUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/PricingService/PriceLists/{priceListId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Updates a price list entry
+     * Updates the specified price entry in a price list.
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @param itemPriceUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updatePriceListPriceAsync(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, itemPriceUpdateDto: ItemPriceUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updatePriceListPriceAsyncWithHttpInfo(priceListId = priceListId, priceId = priceId, tenantId = tenantId, itemPriceUpdateDto = itemPriceUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Updates a price list entry
+     * Updates the specified price entry in a price list.
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @param itemPriceUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updatePriceListPriceAsyncWithHttpInfo(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, itemPriceUpdateDto: ItemPriceUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updatePriceListPriceAsyncRequestConfig(priceListId = priceListId, priceId = priceId, tenantId = tenantId, itemPriceUpdateDto = itemPriceUpdateDto)
+
+        return request<ItemPriceUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updatePriceListPriceAsync
+     *
+     * @param priceListId 
+     * @param priceId 
+     * @param tenantId 
+     * @param itemPriceUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updatePriceListPriceAsyncRequestConfig(priceListId: java.util.UUID, priceId: java.util.UUID, tenantId: java.util.UUID, itemPriceUpdateDto: ItemPriceUpdateDto?) : RequestConfig<ItemPriceUpdateDto> {
+        val localVariableBody = itemPriceUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())).replace("{"+"priceId"+"}", encodeURIComponent(priceId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

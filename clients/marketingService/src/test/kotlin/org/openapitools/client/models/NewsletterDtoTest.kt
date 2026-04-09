@@ -25,16 +25,16 @@ class NewsletterDtoTest : ShouldSpec() {
         // uncomment below to create an instance of NewsletterDto
         //val modelInstance = NewsletterDto()
 
-        // to test the property `timestamp`
-        should("test timestamp") {
-            // uncomment below to test the property
-            //modelInstance.timestamp shouldBe ("TODO")
-        }
-
         // to test the property `id`
         should("test id") {
             // uncomment below to test the property
             //modelInstance.id shouldBe ("TODO")
+        }
+
+        // to test the property `timestamp`
+        should("test timestamp") {
+            // uncomment below to test the property
+            //modelInstance.timestamp shouldBe ("TODO")
         }
 
         // to test the property `name`
@@ -61,10 +61,10 @@ class NewsletterDtoTest : ShouldSpec() {
             //modelInstance.tenantId shouldBe ("TODO")
         }
 
-        // to test the property `enrolmentId`
-        should("test enrolmentId") {
+        // to test the property `enrollmentId`
+        should("test enrollmentId") {
             // uncomment below to test the property
-            //modelInstance.enrolmentId shouldBe ("TODO")
+            //modelInstance.enrollmentId shouldBe ("TODO")
         }
 
     }

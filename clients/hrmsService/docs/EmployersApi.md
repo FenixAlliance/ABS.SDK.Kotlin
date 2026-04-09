@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createEmployerAsync**](EmployersApi.md#createEmployerAsync) | **POST** /api/v2/HrmsService/Employers |  |
-| [**deleteEmployerAsync**](EmployersApi.md#deleteEmployerAsync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} |  |
-| [**getEmployerByIdAsync**](EmployersApi.md#getEmployerByIdAsync) | **GET** /api/v2/HrmsService/Employers/{employerId} |  |
-| [**getEmployersAsync**](EmployersApi.md#getEmployersAsync) | **GET** /api/v2/HrmsService/Employers |  |
-| [**getEmployersCountAsync**](EmployersApi.md#getEmployersCountAsync) | **GET** /api/v2/HrmsService/Employers/Count |  |
-| [**updateEmployerAsync**](EmployersApi.md#updateEmployerAsync) | **PUT** /api/v2/HrmsService/Employers/{employerId} |  |
+| [**createEmployerAsync**](EmployersApi.md#createEmployerAsync) | **POST** /api/v2/HrmsService/Employers | Create an employer |
+| [**deleteEmployerAsync**](EmployersApi.md#deleteEmployerAsync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} | Delete an employer |
+| [**getEmployerByIdAsync**](EmployersApi.md#getEmployerByIdAsync) | **GET** /api/v2/HrmsService/Employers/{employerId} | Get employer by ID |
+| [**getEmployersAsync**](EmployersApi.md#getEmployersAsync) | **GET** /api/v2/HrmsService/Employers | Get employers |
+| [**getEmployersCountAsync**](EmployersApi.md#getEmployersCountAsync) | **GET** /api/v2/HrmsService/Employers/Count | Count employers |
+| [**updateEmployerAsync**](EmployersApi.md#updateEmployerAsync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer |
 
 
 <a id="createEmployerAsync"></a>
 # **createEmployerAsync**
-> createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
+> EmptyEnvelope createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
 
+Create an employer
 
+Creates a new employer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -30,7 +32,8 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val employerProfileCreateDto : EmployerProfileCreateDto =  // EmployerProfileCreateDto | 
 try {
-    apiInstance.createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
+    val result : EmptyEnvelope = apiInstance.createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling EmployersApi#createEmployerAsync")
     e.printStackTrace()
@@ -50,14 +53,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -66,9 +66,11 @@ Configure Bearer:
 
 <a id="deleteEmployerAsync"></a>
 # **deleteEmployerAsync**
-> deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
 
+Delete an employer
 
+Deletes an employer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -82,7 +84,8 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling EmployersApi#deleteEmployerAsync")
     e.printStackTrace()
@@ -102,14 +105,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -120,7 +120,9 @@ Configure Bearer:
 # **getEmployerByIdAsync**
 > EmployerProfileDtoEnvelope getEmployerByIdAsync(employerId, tenantId, apiVersion, xApiVersion)
 
+Get employer by ID
 
+Retrieves a specific employer by its identifier.
 
 ### Example
 ```kotlin
@@ -159,10 +161,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -173,7 +172,9 @@ Configure Bearer:
 # **getEmployersAsync**
 > EmployerProfileDtoListEnvelope getEmployersAsync(tenantId, apiVersion, xApiVersion)
 
+Get employers
 
+Retrieves employers for the specified tenant.
 
 ### Example
 ```kotlin
@@ -210,10 +211,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -224,7 +222,9 @@ Configure Bearer:
 # **getEmployersCountAsync**
 > Int32Envelope getEmployersCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count employers
 
+Counts employers for the specified tenant.
 
 ### Example
 ```kotlin
@@ -261,10 +261,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -273,9 +270,11 @@ Configure Bearer:
 
 <a id="updateEmployerAsync"></a>
 # **updateEmployerAsync**
-> updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
 
+Update an employer
 
+Updates an existing employer for the specified tenant.
 
 ### Example
 ```kotlin
@@ -290,7 +289,8 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val body : kotlin.Any = Object // kotlin.Any | 
 try {
-    apiInstance.updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
+    val result : EmptyEnvelope = apiInstance.updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling EmployersApi#updateEmployerAsync")
     e.printStackTrace()
@@ -311,14 +311,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

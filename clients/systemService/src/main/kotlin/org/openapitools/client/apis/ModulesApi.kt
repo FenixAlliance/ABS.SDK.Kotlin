@@ -126,7 +126,7 @@ class ModulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StudioService/Modules",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -212,7 +212,7 @@ class ModulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StudioService/Modules/Data",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

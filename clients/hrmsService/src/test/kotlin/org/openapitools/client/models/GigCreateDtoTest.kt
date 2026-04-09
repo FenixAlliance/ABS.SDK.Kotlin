@@ -37,5 +37,47 @@ class GigCreateDtoTest : ShouldSpec() {
             //modelInstance.timestamp shouldBe ("TODO")
         }
 
+        // to test the property `title`
+        should("test title") {
+            // uncomment below to test the property
+            //modelInstance.title shouldBe ("TODO")
+        }
+
+        // to test the property `description`
+        should("test description") {
+            // uncomment below to test the property
+            //modelInstance.description shouldBe ("TODO")
+        }
+
+        // to test the property `startDate`
+        should("test startDate") {
+            // uncomment below to test the property
+            //modelInstance.startDate shouldBe ("TODO")
+        }
+
+        // to test the property `endDate`
+        should("test endDate") {
+            // uncomment below to test the property
+            //modelInstance.endDate shouldBe ("TODO")
+        }
+
+        // to test the property `budget`
+        should("test budget") {
+            // uncomment below to test the property
+            //modelInstance.budget shouldBe ("TODO")
+        }
+
+        // to test the property `location`
+        should("test location") {
+            // uncomment below to test the property
+            //modelInstance.location shouldBe ("TODO")
+        }
+
+        // to test the property `skillsRequired`
+        should("test skillsRequired") {
+            // uncomment below to test the property
+            //modelInstance.skillsRequired shouldBe ("TODO")
+        }
+
     }
 }

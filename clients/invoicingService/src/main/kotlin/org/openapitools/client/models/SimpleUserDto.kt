@@ -27,6 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param fullName 
  * @param qualifiedName 
  * @param publicName 
+ * @param handler 
  * @param lastName 
  * @param firstName 
  * @param coverUrl 
@@ -60,6 +61,9 @@ data class SimpleUserDto (
 
     @Json(name = "publicName")
     val publicName: kotlin.String? = null,
+
+    @Json(name = "handler")
+    val handler: kotlin.String? = null,
 
     @Json(name = "lastName")
     val lastName: kotlin.String? = null,

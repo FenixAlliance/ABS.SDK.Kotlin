@@ -88,12 +88,12 @@ data class InvoiceAdjustmentDto (
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Discount,Surcharge
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Discount") Discount("Discount"),
+        @Json(name = "Surcharge") Surcharge("Surcharge");
     }
 
 }

@@ -9,6 +9,7 @@
 | **fullName** | **kotlin.String** |  |  [optional] [readonly] |
 | **qualifiedName** | **kotlin.String** |  |  [optional] |
 | **publicName** | **kotlin.String** |  |  [optional] |
+| **handler** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **coverUrl** | **kotlin.String** |  |  [optional] |
@@ -56,21 +57,21 @@
 ## Enum: gender
 | Name | Value |
 | ---- | ----- |
-| gender | 0, 1, 2 |
+| gender | Unknown, Male, Female, PreferNotToSay |
 
 
 <a id="Availability"></a>
 ## Enum: availability
 | Name | Value |
 | ---- | ----- |
-| availability | 0, 1, 2, 3, 4 |
+| availability | DND, Busy, Away, Offline, Available |
 
 
 <a id="SiteTheme"></a>
 ## Enum: siteTheme
 | Name | Value |
 | ---- | ----- |
-| siteTheme | 0, 1, 2 |
+| siteTheme | System, Light, Dark |
 
 
 

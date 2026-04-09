@@ -84,12 +84,12 @@ data class Blob (
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: File,Folder
      */
     @JsonClass(generateAdapter = false)
-    enum class Kind(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Kind(val value: kotlin.String) {
+        @Json(name = "File") File("File"),
+        @Json(name = "Folder") Folder("Folder");
     }
 
 }

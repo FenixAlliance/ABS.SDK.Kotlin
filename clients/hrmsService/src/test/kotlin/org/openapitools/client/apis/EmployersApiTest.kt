@@ -22,6 +22,7 @@ import org.openapitools.client.apis.EmployersApi
 import org.openapitools.client.models.EmployerProfileCreateDto
 import org.openapitools.client.models.EmployerProfileDtoEnvelope
 import org.openapitools.client.models.EmployerProfileDtoListEnvelope
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 
@@ -37,7 +38,8 @@ class EmployersApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val employerProfileCreateDto : EmployerProfileCreateDto =  // EmployerProfileCreateDto | 
-            //apiInstance.createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createEmployerAsync(tenantId, apiVersion, xApiVersion, employerProfileCreateDto)
+            //result shouldBe ("TODO")
         }
 
         // to test deleteEmployerAsync
@@ -47,7 +49,8 @@ class EmployersApiTest : ShouldSpec() {
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteEmployerAsync(employerId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
         }
 
         // to test getEmployerByIdAsync
@@ -89,7 +92,8 @@ class EmployersApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val body : kotlin.Any = Object // kotlin.Any | 
-            //apiInstance.updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
+            //val result : EmptyEnvelope = apiInstance.updateEmployerAsync(employerId, tenantId, apiVersion, xApiVersion, body)
+            //result shouldBe ("TODO")
         }
 
     }

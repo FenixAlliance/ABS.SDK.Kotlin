@@ -38,7 +38,7 @@
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1, 2, 3 |
+| type | Module, Integration, StudioModule, StudioIntegration |
 
 
 

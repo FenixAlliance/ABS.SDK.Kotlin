@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.JobOfferCreateDto
@@ -50,25 +51,26 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create a job offer
+     * Creates a new job offer for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param jobOfferCreateDto  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createJobOfferAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, jobOfferCreateDto: JobOfferCreateDto? = null) : Unit {
+    fun createJobOfferAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, jobOfferCreateDto: JobOfferCreateDto? = null) : EmptyEnvelope {
         val localVarResponse = createJobOfferAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, jobOfferCreateDto = jobOfferCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -83,21 +85,22 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Create a job offer
+     * Creates a new job offer for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param jobOfferCreateDto  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createJobOfferAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, jobOfferCreateDto: JobOfferCreateDto?) : ApiResponse<Unit?> {
+    fun createJobOfferAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, jobOfferCreateDto: JobOfferCreateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = createJobOfferAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, jobOfferCreateDto = jobOfferCreateDto)
 
-        return request<JobOfferCreateDto, Unit>(
+        return request<JobOfferCreateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -130,31 +133,32 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Delete a job offer
+     * Deletes a job offer for the specified tenant.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteJobOfferAsync(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+    fun deleteJobOfferAsync(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
         val localVarResponse = deleteJobOfferAsyncWithHttpInfo(jobOfferId = jobOfferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -169,21 +173,22 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Delete a job offer
+     * Deletes a job offer for the specified tenant.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteJobOfferAsyncWithHttpInfo(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+    fun deleteJobOfferAsyncWithHttpInfo(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = deleteJobOfferAsyncRequestConfig(jobOfferId = jobOfferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, Unit>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -215,14 +220,14 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers/{jobOfferId}".replace("{"+"jobOfferId"+"}", encodeURIComponent(jobOfferId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get job offer by ID
+     * Retrieves a specific job offer by its identifier.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -255,8 +260,8 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get job offer by ID
+     * Retrieves a specific job offer by its identifier.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
@@ -302,14 +307,14 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers/{jobOfferId}".replace("{"+"jobOfferId"+"}", encodeURIComponent(jobOfferId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Get job offers
+     * Retrieves job offers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -341,8 +346,8 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Get job offers
+     * Retrieves job offers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -386,14 +391,14 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Count job offers
+     * Counts job offers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -425,8 +430,8 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Count job offers
+     * Counts job offers for the specified tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -470,32 +475,33 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers/Count",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
-     * 
-     * 
+     * Update a job offer
+     * Updates an existing job offer for the specified tenant.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param body  (optional)
-     * @return void
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateJobOfferAsync(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : Unit {
+    fun updateJobOfferAsync(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : EmptyEnvelope {
         val localVarResponse = updateJobOfferAsyncWithHttpInfo(jobOfferId = jobOfferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -510,22 +516,23 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
-     * 
-     * 
+     * Update a job offer
+     * Updates an existing job offer for the specified tenant.
      * @param jobOfferId 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param body  (optional)
-     * @return ApiResponse<Unit?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
+    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateJobOfferAsyncWithHttpInfo(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<Unit?> {
+    fun updateJobOfferAsyncWithHttpInfo(jobOfferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = updateJobOfferAsyncRequestConfig(jobOfferId = jobOfferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
-        return request<kotlin.Any, Unit>(
+        return request<kotlin.Any, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -559,7 +566,7 @@ class JobOffersApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             path = "/api/v2/HrmsService/JobOffers/{jobOfferId}".replace("{"+"jobOfferId"+"}", encodeURIComponent(jobOfferId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

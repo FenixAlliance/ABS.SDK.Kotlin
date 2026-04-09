@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.JobOffersApi
+import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.JobOfferCreateDto
@@ -37,7 +38,8 @@ class JobOffersApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val jobOfferCreateDto : JobOfferCreateDto =  // JobOfferCreateDto | 
-            //apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+            //result shouldBe ("TODO")
         }
 
         // to test deleteJobOfferAsync
@@ -47,7 +49,8 @@ class JobOffersApiTest : ShouldSpec() {
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //apiInstance.deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
         }
 
         // to test getJobOfferByIdAsync
@@ -89,7 +92,8 @@ class JobOffersApiTest : ShouldSpec() {
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val body : kotlin.Any = Object // kotlin.Any | 
-            //apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+            //val result : EmptyEnvelope = apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+            //result shouldBe ("TODO")
         }
 
     }

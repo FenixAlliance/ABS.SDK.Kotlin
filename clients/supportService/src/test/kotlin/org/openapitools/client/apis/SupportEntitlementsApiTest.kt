@@ -32,67 +32,68 @@ class SupportEntitlementsApiTest : ShouldSpec() {
         // uncomment below to create an instance of SupportEntitlementsApi
         //val apiInstance = SupportEntitlementsApi()
 
-        // to test apiV2SupportServiceSupportEntitlementsCountGet
-        should("test apiV2SupportServiceSupportEntitlementsCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsCountGet
+        // to test createSupportEntitlementAsync
+        should("test createSupportEntitlementAsync") {
+            // uncomment below to test createSupportEntitlementAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportEntitlementsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportEntitlementsGet
-        should("test apiV2SupportServiceSupportEntitlementsGet") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportEntitlementDtoListEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportEntitlementsPost
-        should("test apiV2SupportServiceSupportEntitlementsPost") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsPost
             //val supportEntitlementCreateDto : SupportEntitlementCreateDto =  // SupportEntitlementCreateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsPost(supportEntitlementCreateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSupportEntitlementAsync(tenantId, apiVersion, xApiVersion, supportEntitlementCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete
-        should("test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete
+        // to test deleteSupportEntitlementAsync
+        should("test deleteSupportEntitlementAsync") {
+            // uncomment below to test deleteSupportEntitlementAsync
             //val supportEntitlementId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete(supportEntitlementId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.deleteSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet
-        should("test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet
+        // to test getSupportEntitlementAsync
+        should("test getSupportEntitlementAsync") {
+            // uncomment below to test getSupportEntitlementAsync
             //val supportEntitlementId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportEntitlementDtoEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet(supportEntitlementId, apiVersion, xApiVersion)
+            //val result : SupportEntitlementDtoEnvelope = apiInstance.getSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut
-        should("test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut") {
-            // uncomment below to test apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut
+        // to test getSupportEntitlementsAsync
+        should("test getSupportEntitlementsAsync") {
+            // uncomment below to test getSupportEntitlementsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportEntitlementDtoListEnvelope = apiInstance.getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportEntitlementsCountAsync
+        should("test getSupportEntitlementsCountAsync") {
+            // uncomment below to test getSupportEntitlementsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateSupportEntitlementAsync
+        should("test updateSupportEntitlementAsync") {
+            // uncomment below to test updateSupportEntitlementAsync
             //val supportEntitlementId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val supportEntitlementUpdateDto : SupportEntitlementUpdateDto =  // SupportEntitlementUpdateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut(supportEntitlementId, supportEntitlementUpdateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion, supportEntitlementUpdateDto)
             //result shouldBe ("TODO")
         }
 

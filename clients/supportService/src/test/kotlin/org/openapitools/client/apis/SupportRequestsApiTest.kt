@@ -36,122 +36,125 @@ class SupportRequestsApiTest : ShouldSpec() {
         // uncomment below to create an instance of SupportRequestsApi
         //val apiInstance = SupportRequestsApi()
 
-        // to test apiV2SupportServiceSupportRequestsCountGet
-        should("test apiV2SupportServiceSupportRequestsCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsCountGet
+        // to test createSupportRequestAsync
+        should("test createSupportRequestAsync") {
+            // uncomment below to test createSupportRequestAsync
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportRequestsCountGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportRequestsGet
-        should("test apiV2SupportServiceSupportRequestsGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsGet
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportRequestDtoListEnvelope = apiInstance.apiV2SupportServiceSupportRequestsGet(tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportRequestsPost
-        should("test apiV2SupportServiceSupportRequestsPost") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsPost
             //val supportRequestCreateDto : SupportRequestCreateDto =  // SupportRequestCreateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportRequestsPost(supportRequestCreateDto, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.createSupportRequestAsync(tenantId, apiVersion, xApiVersion, supportRequestCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet
+        // to test deleteSupportRequestAsync
+        should("test deleteSupportRequestAsync") {
+            // uncomment below to test deleteSupportRequestAsync
+            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : EmptyEnvelope = apiInstance.deleteSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportRequestAsync
+        should("test getSupportRequestAsync") {
+            // uncomment below to test getSupportRequestAsync
+            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportRequestDtoEnvelope = apiInstance.getSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportRequestAttachmentByRequest
+        should("test getSupportRequestAttachmentByRequest") {
+            // uncomment below to test getSupportRequestAttachmentByRequest
             //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val attachmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportRequestAttachmentDtoEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(supportRequestId, attachmentId, apiVersion, xApiVersion)
+            //val result : SupportRequestAttachmentDtoEnvelope = apiInstance.getSupportRequestAttachmentByRequest(supportRequestId, attachmentId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet
+        // to test getSupportRequestAttachmentsByRequest
+        should("test getSupportRequestAttachmentsByRequest") {
+            // uncomment below to test getSupportRequestAttachmentsByRequest
             //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //val result : SupportRequestAttachmentDtoListEnvelope = apiInstance.getSupportRequestAttachmentsByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet
+        // to test getSupportRequestAttachmentsCountByRequest
+        should("test getSupportRequestAttachmentsCountByRequest") {
+            // uncomment below to test getSupportRequestAttachmentsCountByRequest
             //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportRequestAttachmentDtoListEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //val result : Int32Envelope = apiInstance.getSupportRequestAttachmentsCountByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost
+        // to test getSupportRequestTicketsAsync
+        should("test getSupportRequestTicketsAsync") {
+            // uncomment below to test getSupportRequestTicketsAsync
             //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportTicketDtoListEnvelope = apiInstance.getSupportRequestTicketsAsync(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportRequestsAsync
+        should("test getSupportRequestsAsync") {
+            // uncomment below to test getSupportRequestsAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : SupportRequestDtoListEnvelope = apiInstance.getSupportRequestsAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getSupportRequestsCountAsync
+        should("test getSupportRequestsCountAsync") {
+            // uncomment below to test getSupportRequestsCountAsync
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+            //val result : Int32Envelope = apiInstance.getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+            //result shouldBe ("TODO")
+        }
+
+        // to test relateSupportRequestToAttachmentAsync
+        should("test relateSupportRequestToAttachmentAsync") {
+            // uncomment below to test relateSupportRequestToAttachmentAsync
+            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
             //val supportRequestAttachmentCreateDto : SupportRequestAttachmentCreateDto =  // SupportRequestAttachmentCreateDto | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(supportRequestId, supportRequestAttachmentCreateDto, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.relateSupportRequestToAttachmentAsync(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestAttachmentCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdDelete
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdDelete") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdDelete
+        // to test updateSupportRequestAsync
+        should("test updateSupportRequestAsync") {
+            // uncomment below to test updateSupportRequestAsync
             //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdDelete(supportRequestId, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdGet
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdGet
-            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportRequestDtoEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdGet(supportRequestId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdPut
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdPut") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdPut
-            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val supportRequestUpdateDto : SupportRequestUpdateDto =  // SupportRequestUpdateDto | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdPut(supportRequestId, supportRequestUpdateDto, tenantId, apiVersion, xApiVersion)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet
-        should("test apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet") {
-            // uncomment below to test apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet
-            //val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-            //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : SupportTicketDtoListEnvelope = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(supportRequestId, tenantId, apiVersion, xApiVersion)
+            //val result : EmptyEnvelope = apiInstance.updateSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestUpdateDto)
             //result shouldBe ("TODO")
         }
 

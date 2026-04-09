@@ -56,13 +56,13 @@ data class ProjectTimeLogUpdateDto (
     /**
      * 
      *
-     * Values: _0,_1,_2
+     * Values: RegularHours,OvertimeToPay,OvertimeToCompensate
      */
     @JsonClass(generateAdapter = false)
-    enum class ProjectTimeLogRecordType(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2);
+    enum class ProjectTimeLogRecordType(val value: kotlin.String) {
+        @Json(name = "RegularHours") RegularHours("RegularHours"),
+        @Json(name = "OvertimeToPay") OvertimeToPay("OvertimeToPay"),
+        @Json(name = "OvertimeToCompensate") OvertimeToCompensate("OvertimeToCompensate");
     }
 
 }

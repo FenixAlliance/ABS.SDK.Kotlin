@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createGigAsync**](GigsApi.md#createGigAsync) | **POST** /api/v2/HrmsService/Gigs |  |
-| [**deleteGigAsync**](GigsApi.md#deleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} |  |
-| [**getGigByIdAsync**](GigsApi.md#getGigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} |  |
-| [**getGigsAsync**](GigsApi.md#getGigsAsync) | **GET** /api/v2/HrmsService/Gigs |  |
-| [**getGigsCountAsync**](GigsApi.md#getGigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count |  |
-| [**updateGigAsync**](GigsApi.md#updateGigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} |  |
+| [**createGigAsync**](GigsApi.md#createGigAsync) | **POST** /api/v2/HrmsService/Gigs | Create a gig |
+| [**deleteGigAsync**](GigsApi.md#deleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig |
+| [**getGigByIdAsync**](GigsApi.md#getGigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID |
+| [**getGigsAsync**](GigsApi.md#getGigsAsync) | **GET** /api/v2/HrmsService/Gigs | Get gigs |
+| [**getGigsCountAsync**](GigsApi.md#getGigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count | Count gigs |
+| [**updateGigAsync**](GigsApi.md#updateGigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | Update a gig |
 
 
 <a id="createGigAsync"></a>
 # **createGigAsync**
-> createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
+> EmptyEnvelope createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
 
+Create a gig
 
+Creates a new gig for the specified tenant.
 
 ### Example
 ```kotlin
@@ -30,7 +32,8 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val gigCreateDto : GigCreateDto =  // GigCreateDto | 
 try {
-    apiInstance.createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
+    val result : EmptyEnvelope = apiInstance.createGigAsync(tenantId, apiVersion, xApiVersion, gigCreateDto)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigsApi#createGigAsync")
     e.printStackTrace()
@@ -50,14 +53,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -66,9 +66,11 @@ Configure Bearer:
 
 <a id="deleteGigAsync"></a>
 # **deleteGigAsync**
-> deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
 
+Delete a gig
 
+Deletes a gig for the specified tenant.
 
 ### Example
 ```kotlin
@@ -82,7 +84,8 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteGigAsync(gigId, tenantId, apiVersion, xApiVersion)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigsApi#deleteGigAsync")
     e.printStackTrace()
@@ -102,14 +105,11 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -120,7 +120,9 @@ Configure Bearer:
 # **getGigByIdAsync**
 > GigDtoEnvelope getGigByIdAsync(gigId, tenantId, apiVersion, xApiVersion)
 
+Get gig by ID
 
+Retrieves a specific gig by its identifier.
 
 ### Example
 ```kotlin
@@ -159,10 +161,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -173,7 +172,9 @@ Configure Bearer:
 # **getGigsAsync**
 > GigDtoListEnvelope getGigsAsync(tenantId, apiVersion, xApiVersion)
 
+Get gigs
 
+Retrieves gigs for the specified tenant.
 
 ### Example
 ```kotlin
@@ -210,10 +211,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -224,7 +222,9 @@ Configure Bearer:
 # **getGigsCountAsync**
 > Int32Envelope getGigsCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count gigs
 
+Counts gigs for the specified tenant.
 
 ### Example
 ```kotlin
@@ -261,10 +261,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -273,9 +270,11 @@ Configure Bearer:
 
 <a id="updateGigAsync"></a>
 # **updateGigAsync**
-> updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, gigUpdateDto)
 
+Update a gig
 
+Updates an existing gig for the specified tenant.
 
 ### Example
 ```kotlin
@@ -288,9 +287,10 @@ val gigId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.U
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val body : kotlin.Any = Object // kotlin.Any | 
+val gigUpdateDto : GigUpdateDto =  // GigUpdateDto | 
 try {
-    apiInstance.updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, body)
+    val result : EmptyEnvelope = apiInstance.updateGigAsync(gigId, tenantId, apiVersion, xApiVersion, gigUpdateDto)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigsApi#updateGigAsync")
     e.printStackTrace()
@@ -307,18 +307,15 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **kotlin.Any**|  | [optional] |
+| **gigUpdateDto** | [**GigUpdateDto**](GigUpdateDto.md)|  | [optional] |
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

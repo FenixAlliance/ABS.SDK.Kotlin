@@ -37,9 +37,11 @@ import com.squareup.moshi.JsonClass
  * @param jobTitle 
  * @param countryId 
  * @param parentContactId 
+ * @param addressLine1 
+ * @param addressLine2 
+ * @param postalCode 
  * @param stateId 
  * @param cityId 
- * @param postalCode 
  * @param streetLine1 
  * @param streetLine2 
  * @param currencyId 
@@ -48,20 +50,20 @@ import com.squareup.moshi.JsonClass
  * @param coverUrl 
  * @param githubUsername 
  * @param instagramUsername 
+ * @param webUrl 
  * @param twitchUrl 
  * @param redditUrl 
  * @param gitHubUrl 
- * @param githubUrl 
  * @param tikTokUrl 
  * @param twitterUrl 
  * @param youTubeUrl 
- * @param websiteUrl 
  * @param facebookUrl 
  * @param linkedInUrl 
  * @param instagramUrl 
  * @param tikTokUsername 
  * @param stackExchangeUrl 
  * @param stackOverflowUrl 
+ * @param faxNumber 
  */
 
 
@@ -112,14 +114,20 @@ data class ContactUpdateDto (
     @Json(name = "parentContactId")
     val parentContactId: kotlin.String? = null,
 
+    @Json(name = "addressLine1")
+    val addressLine1: kotlin.String? = null,
+
+    @Json(name = "addressLine2")
+    val addressLine2: kotlin.String? = null,
+
+    @Json(name = "postalCode")
+    val postalCode: kotlin.String? = null,
+
     @Json(name = "stateId")
     val stateId: kotlin.String? = null,
 
     @Json(name = "cityId")
     val cityId: kotlin.String? = null,
-
-    @Json(name = "postalCode")
-    val postalCode: kotlin.String? = null,
 
     @Json(name = "streetLine1")
     val streetLine1: kotlin.String? = null,
@@ -145,6 +153,9 @@ data class ContactUpdateDto (
     @Json(name = "instagramUsername")
     val instagramUsername: kotlin.String? = null,
 
+    @Json(name = "webUrl")
+    val webUrl: kotlin.String? = null,
+
     @Json(name = "twitchUrl")
     val twitchUrl: kotlin.String? = null,
 
@@ -154,9 +165,6 @@ data class ContactUpdateDto (
     @Json(name = "gitHubUrl")
     val gitHubUrl: kotlin.String? = null,
 
-    @Json(name = "githubUrl")
-    val githubUrl: kotlin.String? = null,
-
     @Json(name = "tikTokUrl")
     val tikTokUrl: kotlin.String? = null,
 
@@ -165,9 +173,6 @@ data class ContactUpdateDto (
 
     @Json(name = "youTubeUrl")
     val youTubeUrl: kotlin.String? = null,
-
-    @Json(name = "websiteUrl")
-    val websiteUrl: kotlin.String? = null,
 
     @Json(name = "facebookUrl")
     val facebookUrl: kotlin.String? = null,
@@ -185,19 +190,22 @@ data class ContactUpdateDto (
     val stackExchangeUrl: kotlin.String? = null,
 
     @Json(name = "stackOverflowUrl")
-    val stackOverflowUrl: kotlin.String? = null
+    val stackOverflowUrl: kotlin.String? = null,
+
+    @Json(name = "faxNumber")
+    val faxNumber: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: _0,_1
+     * Values: Individual,Organization
      */
     @JsonClass(generateAdapter = false)
-    enum class Type(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1);
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Organization") Organization("Organization");
     }
 
 }

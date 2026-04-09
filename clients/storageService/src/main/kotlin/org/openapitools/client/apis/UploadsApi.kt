@@ -47,8 +47,29 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * 
-     * 
+     * enum for parameter appFileSource
+     */
+     enum class AppFileSourceSaveFileAsync(val value: kotlin.String) {
+         @Json(name = "Unknown") Unknown("Unknown"),
+         @Json(name = "HttpUpload") HttpUpload("HttpUpload"),
+         @Json(name = "Integration") Integration("Integration"),
+         @Json(name = "InternalProcess") InternalProcess("InternalProcess"),
+         @Json(name = "ApiClient") ApiClient("ApiClient"),
+         @Json(name = "WorkflowEngine") WorkflowEngine("WorkflowEngine");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * Upload a file
+     * Uploads a file to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -62,8 +83,22 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
-     * @param iD  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
      * @param timestamp  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
@@ -74,8 +109,8 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun apiV2StorageServiceUploadsPost(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notes: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadId: kotlin.String? = null, filePath: kotlin.String? = null, file: java.io.File? = null, iD: java.util.UUID? = null, timestamp: java.time.OffsetDateTime? = null) : EmptyEnvelope {
-        val localVarResponse = apiV2StorageServiceUploadsPostWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, file = file, iD = iD, timestamp = timestamp)
+    fun saveFileAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notes: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadId: kotlin.String? = null, filePath: kotlin.String? = null, appFileContent: kotlin.ByteArray? = null, appFileSha256: kotlin.String? = null, appFileCreatedAtUtc: java.time.OffsetDateTime? = null, appFileUserIdValue: java.util.UUID? = null, appFileTenantIdValue: java.util.UUID? = null, appFileEnrollmentIdValue: java.util.UUID? = null, appFileSource: AppFileSourceSaveFileAsync? = null, appFileLength: kotlin.Long? = null, appFileName: kotlin.String? = null, appFileFileName: kotlin.String? = null, appFileLastModified: java.time.OffsetDateTime? = null, appFileSize: kotlin.Long? = null, appFileContentType: kotlin.String? = null, appFileContentDisposition: kotlin.String? = null, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>? = null, id: java.util.UUID? = null, timestamp: java.time.OffsetDateTime? = null) : EmptyEnvelope {
+        val localVarResponse = saveFileAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders, id = id, timestamp = timestamp)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -93,8 +128,8 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * 
-     * 
+     * Upload a file
+     * Uploads a file to tenant or user storage.
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -108,8 +143,22 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
-     * @param iD  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
      * @param timestamp  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -117,8 +166,8 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun apiV2StorageServiceUploadsPostWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, file: java.io.File?, iD: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = apiV2StorageServiceUploadsPostRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, file = file, iD = iD, timestamp = timestamp)
+    fun saveFileAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceSaveFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = saveFileAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders, id = id, timestamp = timestamp)
 
         return request<Map<String, PartConfig<*>>, EmptyEnvelope>(
             localVariableConfig
@@ -126,7 +175,7 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * To obtain the request config of the operation apiV2StorageServiceUploadsPost
+     * To obtain the request config of the operation saveFileAsync
      *
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
@@ -141,12 +190,26 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
-     * @param iD  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
      * @param timestamp  (optional)
      * @return RequestConfig
      */
-    fun apiV2StorageServiceUploadsPostRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, file: java.io.File?, iD: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun saveFileAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceSaveFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "notes" to PartConfig(body = notes, headers = mutableMapOf()),
             "title" to PartConfig(body = title, headers = mutableMapOf()),
@@ -158,8 +221,22 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             "validResponse" to PartConfig(body = validResponse, headers = mutableMapOf()),
             "parentFileUploadId" to PartConfig(body = parentFileUploadId, headers = mutableMapOf()),
             "filePath" to PartConfig(body = filePath, headers = mutableMapOf()),
-            "file" to PartConfig(body = file, headers = mutableMapOf()),
-            "iD" to PartConfig(body = iD, headers = mutableMapOf()),
+            "appFile.content" to PartConfig(body = appFileContent, headers = mutableMapOf()),
+            "appFile.sha256" to PartConfig(body = appFileSha256, headers = mutableMapOf()),
+            "appFile.createdAtUtc" to PartConfig(body = appFileCreatedAtUtc, headers = mutableMapOf()),
+            "appFile.userId.value" to PartConfig(body = appFileUserIdValue, headers = mutableMapOf()),
+            "appFile.tenantId.value" to PartConfig(body = appFileTenantIdValue, headers = mutableMapOf()),
+            "appFile.enrollmentId.value" to PartConfig(body = appFileEnrollmentIdValue, headers = mutableMapOf()),
+            "appFile.source" to PartConfig(body = appFileSource?.value, headers = mutableMapOf()),
+            "appFile.length" to PartConfig(body = appFileLength, headers = mutableMapOf()),
+            "appFile.name" to PartConfig(body = appFileName, headers = mutableMapOf()),
+            "appFile.fileName" to PartConfig(body = appFileFileName, headers = mutableMapOf()),
+            "appFile.lastModified" to PartConfig(body = appFileLastModified, headers = mutableMapOf()),
+            "appFile.size" to PartConfig(body = appFileSize, headers = mutableMapOf()),
+            "appFile.contentType" to PartConfig(body = appFileContentType, headers = mutableMapOf()),
+            "appFile.contentDisposition" to PartConfig(body = appFileContentDisposition, headers = mutableMapOf()),
+            "appFile.headers" to PartConfig(body = appFileHeaders, headers = mutableMapOf()),
+            "id" to PartConfig(body = id, headers = mutableMapOf()),
             "timestamp" to PartConfig(body = timestamp, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -179,7 +256,7 @@ class UploadsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             path = "/api/v2/StorageService/Uploads",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

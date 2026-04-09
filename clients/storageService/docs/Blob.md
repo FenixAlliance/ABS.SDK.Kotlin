@@ -23,7 +23,7 @@
 ## Enum: kind
 | Name | Value |
 | ---- | ----- |
-| kind | 0, 1 |
+| kind | File, Folder |
 
 
 

@@ -27,22 +27,22 @@ class MigrationsApiTest : ShouldSpec() {
         // uncomment below to create an instance of MigrationsApi
         //val apiInstance = MigrationsApi()
 
-        // to test apiV2SystemServiceMigrationsGet
-        should("test apiV2SystemServiceMigrationsGet") {
-            // uncomment below to test apiV2SystemServiceMigrationsGet
-            //val pending : kotlin.Boolean = true // kotlin.Boolean | 
+        // to test migrate
+        should("test migrate") {
+            // uncomment below to test migrate
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : StringListEnvelope = apiInstance.apiV2SystemServiceMigrationsGet(pending, apiVersion, xApiVersion)
+            //val result : StringListEnvelope = apiInstance.migrate(apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2SystemServiceMigrationsMigratePost
-        should("test apiV2SystemServiceMigrationsMigratePost") {
-            // uncomment below to test apiV2SystemServiceMigrationsMigratePost
+        // to test migrations
+        should("test migrations") {
+            // uncomment below to test migrations
+            //val pending : kotlin.Boolean = true // kotlin.Boolean | 
             //val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
             //val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-            //val result : StringListEnvelope = apiInstance.apiV2SystemServiceMigrationsMigratePost(apiVersion, xApiVersion)
+            //val result : StringListEnvelope = apiInstance.migrations(pending, apiVersion, xApiVersion)
             //result shouldBe ("TODO")
         }
 

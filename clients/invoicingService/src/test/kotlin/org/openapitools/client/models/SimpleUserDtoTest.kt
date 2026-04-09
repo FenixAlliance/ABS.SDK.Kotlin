@@ -55,6 +55,12 @@ class SimpleUserDtoTest : ShouldSpec() {
             //modelInstance.publicName shouldBe ("TODO")
         }
 
+        // to test the property `handler`
+        should("test handler") {
+            // uncomment below to test the property
+            //modelInstance.handler shouldBe ("TODO")
+        }
+
         // to test the property `lastName`
         should("test lastName") {
             // uncomment below to test the property

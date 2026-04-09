@@ -19,6 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.QuotesApi
+import org.openapitools.client.models.BooleanEnvelope
+import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedQuoteDtoListEnvelope
@@ -30,6 +32,7 @@ import org.openapitools.client.models.QuoteLineCreateDto
 import org.openapitools.client.models.QuoteLineDtoEnvelope
 import org.openapitools.client.models.QuoteLineDtoListEnvelope
 import org.openapitools.client.models.QuoteLineUpdateDto
+import org.openapitools.client.models.QuoteLineUpsertDto
 import org.openapitools.client.models.QuoteUpdateDto
 
 class QuotesApiTest : ShouldSpec() {
@@ -37,143 +40,211 @@ class QuotesApiTest : ShouldSpec() {
         // uncomment below to create an instance of QuotesApi
         //val apiInstance = QuotesApi()
 
-        // to test apiV2QuotesServiceQuotesCountGet
-        should("test apiV2QuotesServiceQuotesCountGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesCountGet
+        // to test calculateQuote
+        should("test calculateQuote") {
+            // uncomment below to test calculateQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2QuotesServiceQuotesCountGet(tenantId)
+            //val result : EmptyEnvelope = apiInstance.calculateQuote(quoteId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesExtendedGet
-        should("test apiV2QuotesServiceQuotesExtendedGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesExtendedGet
+        // to test calculateQuoteLine
+        should("test calculateQuoteLine") {
+            // uncomment below to test calculateQuoteLine
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : ExtendedQuoteDtoListEnvelope = apiInstance.apiV2QuotesServiceQuotesExtendedGet(tenantId)
+            //val result : EmptyEnvelope = apiInstance.calculateQuoteLine(quoteId, quoteLineId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesGet
-        should("test apiV2QuotesServiceQuotesGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesGet
+        // to test closeQuote
+        should("test closeQuote") {
+            // uncomment below to test closeQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : QuoteDtoListEnvelope = apiInstance.apiV2QuotesServiceQuotesGet(tenantId)
+            //val result : EmptyEnvelope = apiInstance.closeQuote(quoteId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesPost
-        should("test apiV2QuotesServiceQuotesPost") {
-            // uncomment below to test apiV2QuotesServiceQuotesPost
+        // to test createOrderFromQuote
+        should("test createOrderFromQuote") {
+            // uncomment below to test createOrderFromQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.createOrderFromQuote(quoteId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test createQuote
+        should("test createQuote") {
+            // uncomment below to test createQuote
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteCreateDto : QuoteCreateDto =  // QuoteCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesPost(tenantId, quoteCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createQuote(tenantId, quoteCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdCalculatePut
-        should("test apiV2QuotesServiceQuotesQuoteIdCalculatePut") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdCalculatePut
-            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdCalculatePut(quoteId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2QuotesServiceQuotesQuoteIdDelete
-        should("test apiV2QuotesServiceQuotesQuoteIdDelete") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdDelete
-            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdDelete(quoteId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesCountGet
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesCountGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesCountGet
-            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : Int32Envelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesCountGet(quoteId, tenantId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesGet
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesGet
-            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : QuoteLineDtoListEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesGet(quoteId, tenantId, itemId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesPost
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesPost") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesPost
+        // to test createQuoteLine
+        should("test createQuoteLine") {
+            // uncomment below to test createQuoteLine
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteLineCreateDto : QuoteLineCreateDto =  // QuoteLineCreateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesPost(quoteId, tenantId, quoteLineCreateDto)
+            //val result : EmptyEnvelope = apiInstance.createQuoteLine(quoteId, tenantId, quoteLineCreateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut
+        // to test deleteQuote
+        should("test deleteQuote") {
+            // uncomment below to test deleteQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.deleteQuote(quoteId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteQuoteLine
+        should("test deleteQuoteLine") {
+            // uncomment below to test deleteQuoteLine
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdCalculatePut(quoteId, quoteLineId, tenantId)
+            //val result : EmptyEnvelope = apiInstance.deleteQuoteLine(quoteId, quoteLineId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete
+        // to test getExtendedQuotes
+        should("test getExtendedQuotes") {
+            // uncomment below to test getExtendedQuotes
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : ExtendedQuoteDtoListEnvelope = apiInstance.getExtendedQuotes(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getQuote
+        should("test getQuote") {
+            // uncomment below to test getQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : QuoteDtoEnvelope = apiInstance.getQuote(quoteId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getQuoteLine
+        should("test getQuoteLine") {
+            // uncomment below to test getQuoteLine
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdDelete(quoteId, quoteLineId, tenantId)
+            //val result : QuoteLineDtoEnvelope = apiInstance.getQuoteLine(quoteId, quoteLineId, tenantId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet
+        // to test getQuoteLines
+        should("test getQuoteLines") {
+            // uncomment below to test getQuoteLines
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : QuoteLineDtoEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdGet(quoteId, quoteLineId, tenantId)
+            //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : QuoteLineDtoListEnvelope = apiInstance.getQuoteLines(quoteId, tenantId, itemId)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut
-        should("test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut
+        // to test getQuoteLinesCount
+        should("test getQuoteLinesCount") {
+            // uncomment below to test getQuoteLinesCount
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getQuoteLinesCount(quoteId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getQuotes
+        should("test getQuotes") {
+            // uncomment below to test getQuotes
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : QuoteDtoListEnvelope = apiInstance.getQuotes(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test getQuotesCount
+        should("test getQuotesCount") {
+            // uncomment below to test getQuotesCount
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : Int32Envelope = apiInstance.getQuotesCount(tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test previewQuoteEmailTemplate
+        should("test previewQuoteEmailTemplate") {
+            // uncomment below to test previewQuoteEmailTemplate
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //apiInstance.previewQuoteEmailTemplate(quoteId, tenantId, emailDispatchRequest)
+        }
+
+        // to test quoteLineExists
+        should("test quoteLineExists") {
+            // uncomment below to test quoteLineExists
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : BooleanEnvelope = apiInstance.quoteLineExists(quoteId, tenantId, quoteLineId, itemId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test reopenQuote
+        should("test reopenQuote") {
+            // uncomment below to test reopenQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val result : EmptyEnvelope = apiInstance.reopenQuote(quoteId, tenantId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test sendQuoteEmail
+        should("test sendQuoteEmail") {
+            // uncomment below to test sendQuoteEmail
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val emailDispatchRequest : EmailDispatchRequest =  // EmailDispatchRequest | 
+            //val result : EmptyEnvelope = apiInstance.sendQuoteEmail(quoteId, tenantId, emailDispatchRequest)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateQuote
+        should("test updateQuote") {
+            // uncomment below to test updateQuote
+            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val quoteUpdateDto : QuoteUpdateDto =  // QuoteUpdateDto | 
+            //val result : EmptyEnvelope = apiInstance.updateQuote(quoteId, tenantId, quoteUpdateDto)
+            //result shouldBe ("TODO")
+        }
+
+        // to test updateQuoteLine
+        should("test updateQuoteLine") {
+            // uncomment below to test updateQuoteLine
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val quoteLineUpdateDto : QuoteLineUpdateDto =  // QuoteLineUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdLinesQuoteLineIdPut(quoteId, quoteLineId, tenantId, quoteLineUpdateDto)
+            //val result : EmptyEnvelope = apiInstance.updateQuoteLine(quoteId, quoteLineId, tenantId, quoteLineUpdateDto)
             //result shouldBe ("TODO")
         }
 
-        // to test apiV2QuotesServiceQuotesQuoteIdPut
-        should("test apiV2QuotesServiceQuotesQuoteIdPut") {
-            // uncomment below to test apiV2QuotesServiceQuotesQuoteIdPut
+        // to test upsertQuoteLine
+        should("test upsertQuoteLine") {
+            // uncomment below to test upsertQuoteLine
             //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+            //val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
             //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val quoteUpdateDto : QuoteUpdateDto =  // QuoteUpdateDto | 
-            //val result : EmptyEnvelope = apiInstance.apiV2QuotesServiceQuotesQuoteIdPut(quoteId, tenantId, quoteUpdateDto)
-            //result shouldBe ("TODO")
-        }
-
-        // to test getQuoteAsync
-        should("test getQuoteAsync") {
-            // uncomment below to test getQuoteAsync
-            //val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-            //val result : QuoteDtoEnvelope = apiInstance.getQuoteAsync(quoteId, tenantId)
+            //val quoteLineUpsertDto : QuoteLineUpsertDto =  // QuoteLineUpsertDto | 
+            //val result : EmptyEnvelope = apiInstance.upsertQuoteLine(quoteId, quoteLineId, tenantId, quoteLineUpsertDto)
             //result shouldBe ("TODO")
         }
 

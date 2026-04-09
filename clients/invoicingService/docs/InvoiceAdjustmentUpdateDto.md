@@ -19,7 +19,7 @@
 ## Enum: type
 | Name | Value |
 | ---- | ----- |
-| type | 0, 1 |
+| type | Discount, Surcharge |
 
 
 

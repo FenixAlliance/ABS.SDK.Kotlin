@@ -4,70 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SupportServiceSupportEntitlementsCountGet**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsCountGet) | **GET** /api/v2/SupportService/SupportEntitlements/Count |  |
-| [**apiV2SupportServiceSupportEntitlementsGet**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsGet) | **GET** /api/v2/SupportService/SupportEntitlements |  |
-| [**apiV2SupportServiceSupportEntitlementsPost**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsPost) | **POST** /api/v2/SupportService/SupportEntitlements |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
+| [**createSupportEntitlementAsync**](SupportEntitlementsApi.md#createSupportEntitlementAsync) | **POST** /api/v2/SupportService/SupportEntitlements | Create a new support entitlement |
+| [**deleteSupportEntitlementAsync**](SupportEntitlementsApi.md#deleteSupportEntitlementAsync) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Delete a support entitlement |
+| [**getSupportEntitlementAsync**](SupportEntitlementsApi.md#getSupportEntitlementAsync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID |
+| [**getSupportEntitlementsAsync**](SupportEntitlementsApi.md#getSupportEntitlementsAsync) | **GET** /api/v2/SupportService/SupportEntitlements | Retrieve a list of support entitlements |
+| [**getSupportEntitlementsCountAsync**](SupportEntitlementsApi.md#getSupportEntitlementsCountAsync) | **GET** /api/v2/SupportService/SupportEntitlements/Count | Get the count of support entitlements |
+| [**updateSupportEntitlementAsync**](SupportEntitlementsApi.md#updateSupportEntitlementAsync) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Update a support entitlement |
 
 
-<a id="apiV2SupportServiceSupportEntitlementsCountGet"></a>
-# **apiV2SupportServiceSupportEntitlementsCountGet**
-> Int32Envelope apiV2SupportServiceSupportEntitlementsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSupportEntitlementAsync"></a>
+# **createSupportEntitlementAsync**
+> EmptyEnvelope createSupportEntitlementAsync(tenantId, apiVersion, xApiVersion, supportEntitlementCreateDto)
 
+Create a new support entitlement
 
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportEntitlementsApi()
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.apiV2SupportServiceSupportEntitlementsCountGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsCountGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsCountGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportEntitlementsGet"></a>
-# **apiV2SupportServiceSupportEntitlementsGet**
-> SupportEntitlementDtoListEnvelope apiV2SupportServiceSupportEntitlementsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new support entitlement for the specified tenant.
 
 ### Example
 ```kotlin
@@ -79,77 +30,26 @@ val apiInstance = SupportEntitlementsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : SupportEntitlementDtoListEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsGet(tenantId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsGet")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsGet")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **tenantId** | **java.util.UUID**|  | [optional] |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**SupportEntitlementDtoListEnvelope**](SupportEntitlementDtoListEnvelope.md)
-
-### Authorization
-
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="apiV2SupportServiceSupportEntitlementsPost"></a>
-# **apiV2SupportServiceSupportEntitlementsPost**
-> EmptyEnvelope apiV2SupportServiceSupportEntitlementsPost(supportEntitlementCreateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = SupportEntitlementsApi()
 val supportEntitlementCreateDto : SupportEntitlementCreateDto =  // SupportEntitlementCreateDto | 
-val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsPost(supportEntitlementCreateDto, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.createSupportEntitlementAsync(tenantId, apiVersion, xApiVersion, supportEntitlementCreateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsPost")
+    println("4xx response calling SupportEntitlementsApi#createSupportEntitlementAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsPost")
+    println("5xx response calling SupportEntitlementsApi#createSupportEntitlementAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
-| **supportEntitlementCreateDto** | [**SupportEntitlementCreateDto**](SupportEntitlementCreateDto.md)|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportEntitlementCreateDto** | [**SupportEntitlementCreateDto**](SupportEntitlementCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -157,21 +57,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete"></a>
-# **apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete(supportEntitlementId, tenantId, apiVersion, xApiVersion)
+<a id="deleteSupportEntitlementAsync"></a>
+# **deleteSupportEntitlementAsync**
+> EmptyEnvelope deleteSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
 
+Delete a support entitlement
 
+Deletes a support entitlement by its unique identifier.
 
 ### Example
 ```kotlin
@@ -185,20 +84,20 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete(supportEntitlementId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete")
+    println("4xx response calling SupportEntitlementsApi#deleteSupportEntitlementAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete")
+    println("5xx response calling SupportEntitlementsApi#deleteSupportEntitlementAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **supportEntitlementId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -210,21 +109,20 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet"></a>
-# **apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet**
-> SupportEntitlementDtoEnvelope apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet(supportEntitlementId, apiVersion, xApiVersion)
+<a id="getSupportEntitlementAsync"></a>
+# **getSupportEntitlementAsync**
+> SupportEntitlementDtoEnvelope getSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
 
+Retrieve a support entitlement by ID
 
+Retrieves a single support entitlement by its unique identifier.
 
 ### Example
 ```kotlin
@@ -234,22 +132,24 @@ Configure Bearer:
 
 val apiInstance = SupportEntitlementsApi()
 val supportEntitlementId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : SupportEntitlementDtoEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet(supportEntitlementId, apiVersion, xApiVersion)
+    val result : SupportEntitlementDtoEnvelope = apiInstance.getSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet")
+    println("4xx response calling SupportEntitlementsApi#getSupportEntitlementAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet")
+    println("5xx response calling SupportEntitlementsApi#getSupportEntitlementAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **supportEntitlementId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -261,21 +161,120 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut"></a>
-# **apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut**
-> EmptyEnvelope apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut(supportEntitlementId, supportEntitlementUpdateDto, tenantId, apiVersion, xApiVersion)
+<a id="getSupportEntitlementsAsync"></a>
+# **getSupportEntitlementsAsync**
+> SupportEntitlementDtoListEnvelope getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion)
 
+Retrieve a list of support entitlements
 
+Retrieves a list of support entitlements for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportEntitlementsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SupportEntitlementDtoListEnvelope = apiInstance.getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportEntitlementsApi#getSupportEntitlementsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportEntitlementsApi#getSupportEntitlementsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SupportEntitlementDtoListEnvelope**](SupportEntitlementDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSupportEntitlementsCountAsync"></a>
+# **getSupportEntitlementsCountAsync**
+> Int32Envelope getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of support entitlements
+
+Returns the total count of support entitlements for the specified tenant with OData query support.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SupportEntitlementsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SupportEntitlementsApi#getSupportEntitlementsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SupportEntitlementsApi#getSupportEntitlementsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateSupportEntitlementAsync"></a>
+# **updateSupportEntitlementAsync**
+> EmptyEnvelope updateSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion, supportEntitlementUpdateDto)
+
+Update a support entitlement
+
+Updates an existing support entitlement by its unique identifier.
 
 ### Example
 ```kotlin
@@ -285,30 +284,30 @@ Configure Bearer:
 
 val apiInstance = SupportEntitlementsApi()
 val supportEntitlementId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val supportEntitlementUpdateDto : SupportEntitlementUpdateDto =  // SupportEntitlementUpdateDto | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportEntitlementUpdateDto : SupportEntitlementUpdateDto =  // SupportEntitlementUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut(supportEntitlementId, supportEntitlementUpdateDto, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateSupportEntitlementAsync(supportEntitlementId, tenantId, apiVersion, xApiVersion, supportEntitlementUpdateDto)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut")
+    println("4xx response calling SupportEntitlementsApi#updateSupportEntitlementAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SupportEntitlementsApi#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut")
+    println("5xx response calling SupportEntitlementsApi#updateSupportEntitlementAsync")
     e.printStackTrace()
 }
 ```
 
 ### Parameters
 | **supportEntitlementId** | **java.util.UUID**|  | |
-| **supportEntitlementUpdateDto** | [**SupportEntitlementUpdateDto**](SupportEntitlementUpdateDto.md)|  | |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportEntitlementUpdateDto** | [**SupportEntitlementUpdateDto**](SupportEntitlementUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -316,10 +315,7 @@ try {
 
 ### Authorization
 
-
-Configure Bearer:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
+No authorization required
 
 ### HTTP request headers
 

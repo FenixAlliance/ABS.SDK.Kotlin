@@ -27,24 +27,24 @@ class ExchangeApiTest : ShouldSpec() {
         // uncomment below to create an instance of ExchangeApi
         //val apiInstance = ExchangeApi()
 
-        // to test apiV2ForexServiceExchangeHistoryGet
-        should("test apiV2ForexServiceExchangeHistoryGet") {
-            // uncomment below to test apiV2ForexServiceExchangeHistoryGet
+        // to test exchangeAmountAsync
+        should("test exchangeAmountAsync") {
+            // uncomment below to test exchangeAmountAsync
+            //val amount : kotlin.Double = 1.2 // kotlin.Double | 
+            //val sourceCurrencyId : kotlin.String = sourceCurrencyId_example // kotlin.String | 
+            //val targetCurrencyId : kotlin.String = targetCurrencyId_example // kotlin.String | 
+            //val result : MoneyEnvelope = apiInstance.exchangeAmountAsync(amount, sourceCurrencyId, targetCurrencyId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test exchangeAmountHistoricalAsync
+        should("test exchangeAmountHistoricalAsync") {
+            // uncomment below to test exchangeAmountHistoricalAsync
             //val amount : kotlin.Double = 1.2 // kotlin.Double | 
             //val sourceCurrencyId : kotlin.String = sourceCurrencyId_example // kotlin.String | 
             //val targetCurrencyId : kotlin.String = targetCurrencyId_example // kotlin.String | 
             //val date : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | 
-            //val result : MoneyEnvelope = apiInstance.apiV2ForexServiceExchangeHistoryGet(amount, sourceCurrencyId, targetCurrencyId, date)
-            //result shouldBe ("TODO")
-        }
-
-        // to test apiV2ForexServiceExchangeLatestGet
-        should("test apiV2ForexServiceExchangeLatestGet") {
-            // uncomment below to test apiV2ForexServiceExchangeLatestGet
-            //val amount : kotlin.Double = 1.2 // kotlin.Double | 
-            //val sourceCurrencyId : kotlin.String = sourceCurrencyId_example // kotlin.String | 
-            //val targetCurrencyId : kotlin.String = targetCurrencyId_example // kotlin.String | 
-            //val result : MoneyEnvelope = apiInstance.apiV2ForexServiceExchangeLatestGet(amount, sourceCurrencyId, targetCurrencyId)
+            //val result : MoneyEnvelope = apiInstance.exchangeAmountHistoricalAsync(amount, sourceCurrencyId, targetCurrencyId, date)
             //result shouldBe ("TODO")
         }
 

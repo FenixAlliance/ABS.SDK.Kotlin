@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.QuoteLineCreateDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -26,16 +27,11 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param closed 
  * @param title 
- * @param userId 
- * @param tenantId 
  * @param priceListId 
  * @param description 
- * @param enrollmentId 
  * @param individualId 
  * @param paymentTermId 
  * @param organizationId 
- * @param currencyId 
- * @param forexRate 
  * @param firstName 
  * @param lastName 
  * @param companyName 
@@ -46,12 +42,41 @@ import com.squareup.moshi.JsonClass
  * @param countryId 
  * @param stateId 
  * @param cityId 
+ * @param forexRate 
+ * @param currencyId 
+ * @param totalDetail 
+ * @param totalDetailCurrencyId 
+ * @param totalProfit 
+ * @param totalProfitCurrencyId 
+ * @param totalDiscounts 
+ * @param totalDiscountsCurrencyId 
+ * @param totalSurcharges 
+ * @param totalSurchargesCurrencyId 
+ * @param totalShippingCost 
+ * @param totalShippingCostCurrencyId 
+ * @param totalShippingTax 
+ * @param totalShippingTaxCurrencyId 
+ * @param totalWithheldTax 
+ * @param totalWithheldTaxCurrencyId 
+ * @param totalTaxBase 
+ * @param totalTaxBaseCurrencyId 
+ * @param totalTaxes 
+ * @param totalTaxesCurrencyId 
+ * @param totalGlobalSurcharges 
+ * @param totalGlobalSurchargesCurrencyId 
+ * @param totalGlobalDiscounts 
+ * @param totalGlobalDiscountsCurrencyId 
+ * @param total 
+ * @param totalCurrencyId 
+ * @param costCalculationMethod 
+ * @param taxCalculationMethod 
  * @param cartId 
  * @param dealUnitId 
  * @param receiverTenantId 
  * @param effectiveTo 
  * @param effectiveFrom 
  * @param quoteStatus 
+ * @param quoteLines 
  */
 
 
@@ -69,20 +94,11 @@ data class QuoteCreateDto (
     @Json(name = "title")
     val title: kotlin.String? = null,
 
-    @Json(name = "userId")
-    val userId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "priceListId")
     val priceListId: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "individualId")
     val individualId: kotlin.String? = null,
@@ -92,12 +108,6 @@ data class QuoteCreateDto (
 
     @Json(name = "organizationId")
     val organizationId: kotlin.String? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
 
     @Json(name = "firstName")
     val firstName: kotlin.String? = null,
@@ -129,6 +139,90 @@ data class QuoteCreateDto (
     @Json(name = "cityId")
     val cityId: kotlin.String? = null,
 
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
+
+    @Json(name = "totalDetail")
+    val totalDetail: kotlin.Double? = null,
+
+    @Json(name = "totalDetailCurrencyId")
+    val totalDetailCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalProfit")
+    val totalProfit: kotlin.Double? = null,
+
+    @Json(name = "totalProfitCurrencyId")
+    val totalProfitCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalDiscounts")
+    val totalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalDiscountsCurrencyId")
+    val totalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalSurcharges")
+    val totalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalSurchargesCurrencyId")
+    val totalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingCost")
+    val totalShippingCost: kotlin.Double? = null,
+
+    @Json(name = "totalShippingCostCurrencyId")
+    val totalShippingCostCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingTax")
+    val totalShippingTax: kotlin.Double? = null,
+
+    @Json(name = "totalShippingTaxCurrencyId")
+    val totalShippingTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalWithheldTax")
+    val totalWithheldTax: kotlin.Double? = null,
+
+    @Json(name = "totalWithheldTaxCurrencyId")
+    val totalWithheldTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxBase")
+    val totalTaxBase: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseCurrencyId")
+    val totalTaxBaseCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxes")
+    val totalTaxes: kotlin.Double? = null,
+
+    @Json(name = "totalTaxesCurrencyId")
+    val totalTaxesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalSurcharges")
+    val totalGlobalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesCurrencyId")
+    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalDiscounts")
+    val totalGlobalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsCurrencyId")
+    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "total")
+    val total: kotlin.Double? = null,
+
+    @Json(name = "totalCurrencyId")
+    val totalCurrencyId: kotlin.String? = null,
+
+    @Json(name = "costCalculationMethod")
+    val costCalculationMethod: QuoteCreateDto.CostCalculationMethod? = null,
+
+    @Json(name = "taxCalculationMethod")
+    val taxCalculationMethod: QuoteCreateDto.TaxCalculationMethod? = null,
+
     @Json(name = "cartId")
     val cartId: kotlin.String? = null,
 
@@ -145,22 +239,45 @@ data class QuoteCreateDto (
     val effectiveFrom: java.time.OffsetDateTime? = null,
 
     @Json(name = "quoteStatus")
-    val quoteStatus: QuoteCreateDto.QuoteStatus? = null
+    val quoteStatus: QuoteCreateDto.QuoteStatus? = null,
+
+    @Json(name = "quoteLines")
+    val quoteLines: kotlin.collections.List<QuoteLineCreateDto>? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: _0,_1,_2,_3,_4
+     * Values: Automatic,Custom
      */
     @JsonClass(generateAdapter = false)
-    enum class QuoteStatus(val value: kotlin.Int) {
-        @Json(name = "0") _0(0),
-        @Json(name = "1") _1(1),
-        @Json(name = "2") _2(2),
-        @Json(name = "3") _3(3),
-        @Json(name = "4") _4(4);
+    enum class CostCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Automatic") Automatic("Automatic"),
+        @Json(name = "Custom") Custom("Custom");
+    }
+    /**
+     * 
+     *
+     * Values: Included,Excluded
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TaxCalculationMethod(val value: kotlin.String) {
+        @Json(name = "Included") Included("Included"),
+        @Json(name = "Excluded") Excluded("Excluded");
+    }
+    /**
+     * 
+     *
+     * Values: Draft,New,Accepted,Declined,Expired
+     */
+    @JsonClass(generateAdapter = false)
+    enum class QuoteStatus(val value: kotlin.String) {
+        @Json(name = "Draft") Draft("Draft"),
+        @Json(name = "New") New("New"),
+        @Json(name = "Accepted") Accepted("Accepted"),
+        @Json(name = "Declined") Declined("Declined"),
+        @Json(name = "Expired") Expired("Expired");
     }
 
 }
