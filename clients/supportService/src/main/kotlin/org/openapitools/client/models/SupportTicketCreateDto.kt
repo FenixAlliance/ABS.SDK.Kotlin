@@ -25,10 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param description 
- * @param accountHolderID 
  * @param contactID 
- * @param businessID 
- * @param businessProfileRecordID 
  * @param supportTicketTypeID 
  * @param supportEntitlementID 
  * @param supportPriorityID 
@@ -46,17 +43,8 @@ data class SupportTicketCreateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "accountHolderID")
-    val accountHolderID: kotlin.String? = null,
-
     @Json(name = "contactID")
     val contactID: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "supportTicketTypeID")
     val supportTicketTypeID: kotlin.String? = null,

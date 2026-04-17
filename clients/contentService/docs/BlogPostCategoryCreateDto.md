@@ -19,8 +19,6 @@
 | **imageURL** | **kotlin.String** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **webPortalID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 
 
 

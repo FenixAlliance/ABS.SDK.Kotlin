@@ -42,12 +42,9 @@
 | **data8Label** | **kotlin.String** |  |  [optional] |
 | **data9** | **kotlin.String** |  |  [optional] |
 | **data9Label** | **kotlin.String** |  |  [optional] |
-| **accountHolderID** | **kotlin.String** |  |  [optional] |
 | **individualID** | **kotlin.String** |  |  [optional] |
 | **organizationID** | **kotlin.String** |  |  [optional] |
 | **receiverBusinessID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **paymentTokenID** | **kotlin.String** |  |  [optional] |
 | **walletAccountID** | **kotlin.String** |  |  [optional] |
 | **securityCertificateID** | **kotlin.String** |  |  [optional] |

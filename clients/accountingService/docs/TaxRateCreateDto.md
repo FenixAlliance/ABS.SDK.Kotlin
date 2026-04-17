@@ -20,12 +20,10 @@
 | **cumulativeTransactionThreshold** | **kotlin.Double** |  |  [optional] |
 | **fiscalAuthorityId** | **kotlin.String** |  |  [optional] |
 | **fiscalYearId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **taxClassId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **taxPolicyId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

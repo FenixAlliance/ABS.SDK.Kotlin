@@ -4,8 +4,6 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **amount** | **kotlin.Double** |  |  [optional] |
 | **date** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |

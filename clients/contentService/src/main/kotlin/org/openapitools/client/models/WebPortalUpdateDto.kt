@@ -29,7 +29,6 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param websiteThemeID 
  * @param businessDomainID 
- * @param businessProfileRecordID 
  * @param businessPortalApplicationID 
  */
 
@@ -56,9 +55,6 @@ data class WebPortalUpdateDto (
 
     @Json(name = "businessDomainID")
     val businessDomainID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "businessPortalApplicationID")
     val businessPortalApplicationID: kotlin.String? = null

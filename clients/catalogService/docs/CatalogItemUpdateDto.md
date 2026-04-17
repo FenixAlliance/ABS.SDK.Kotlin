@@ -55,7 +55,6 @@
 | **material** | **kotlin.String** |  |  [optional] |
 | **onDiscount** | **kotlin.Boolean** |  |  [optional] |
 | **totalTax** | **kotlin.Double** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **permalink** | **kotlin.String** |  |  [optional] |
 | **brandName** | **kotlin.String** |  |  [optional] |
 | **reviewsCount** | **kotlin.Int** |  |  [optional] |
@@ -80,7 +79,6 @@
 | **customTaxValue** | **kotlin.Double** |  |  [optional] |
 | **hasVariations** | **kotlin.Boolean** |  |  [optional] |
 | **questionsCount** | **kotlin.Int** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **supplierCode** | **kotlin.String** |  |  [optional] |
 | **auctionEnd** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **purchaseNote** | **kotlin.String** |  |  [optional] |

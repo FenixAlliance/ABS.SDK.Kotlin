@@ -27,8 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param modifiedDate 
  * @param expirationDate 
- * @param tenantId 
- * @param enrollmentId 
  * @param salesLiteratureTypeId 
  */
 
@@ -49,12 +47,6 @@ data class SalesLiteratureUpdateDto (
 
     @Json(name = "expirationDate")
     val expirationDate: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "salesLiteratureTypeId")
     val salesLiteratureTypeId: kotlin.String? = null

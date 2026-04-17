@@ -4,7 +4,6 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **tenantId** | **kotlin.String** |  |  |
 | **type** | [**inline**](#Type) |  |  |
 | **firstName** | **kotlin.String** |  |  |
 | **email** | **kotlin.String** |  |  |

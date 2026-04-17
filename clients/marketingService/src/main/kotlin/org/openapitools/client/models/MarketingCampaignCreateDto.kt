@@ -38,8 +38,6 @@ import com.squareup.moshi.JsonClass
  * @param expectedResponsePercent 
  * @param marketingAreaId 
  * @param currencyId 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -91,13 +89,7 @@ data class MarketingCampaignCreateDto (
     val marketingAreaId: kotlin.String? = null,
 
     @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val currencyId: kotlin.String? = null
 
 ) {
 

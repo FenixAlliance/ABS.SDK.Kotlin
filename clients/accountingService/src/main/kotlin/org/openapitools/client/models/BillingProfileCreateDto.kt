@@ -38,7 +38,6 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param contactId 
- * @param tenantId 
  * @param address1 
  * @param address2 
  * @param ticker 
@@ -97,9 +96,6 @@ data class BillingProfileCreateDto (
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "address1")
     val address1: kotlin.String? = null,

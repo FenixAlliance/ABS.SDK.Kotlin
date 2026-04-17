@@ -22,6 +22,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
+ * @param timestamp 
  * @param assetId 
  * @param isRootTransfer 
  * @param serialList 
@@ -38,6 +40,12 @@ import com.squareup.moshi.JsonClass
 
 
 data class AssetTransferCreateDto (
+
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "assetId")
     val assetId: kotlin.String? = null,

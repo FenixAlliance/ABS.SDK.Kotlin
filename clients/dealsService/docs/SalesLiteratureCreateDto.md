@@ -11,8 +11,6 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **modifiedDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **expirationDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **salesLiteratureTypeId** | **kotlin.String** |  |  [optional] |
 
 

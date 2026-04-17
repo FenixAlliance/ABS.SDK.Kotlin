@@ -22,8 +22,6 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param tenantId 
- * @param enrollmentId 
  * @param unitPrice 
  * @param quantity 
  * @param currencyId 
@@ -31,12 +29,6 @@ import com.squareup.moshi.JsonClass
 
 
 data class ShareIssuanceUpdateDto (
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "unitPrice")
     val unitPrice: kotlin.Int? = null,

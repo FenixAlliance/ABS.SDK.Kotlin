@@ -25,8 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param description 
  * @param parentAccountGroupId 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -39,13 +37,7 @@ data class AccountGroupUpdateDto (
     val description: kotlin.String? = null,
 
     @Json(name = "parentAccountGroupId")
-    val parentAccountGroupId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val parentAccountGroupId: kotlin.String? = null
 
 ) {
 

@@ -38,12 +38,10 @@ import com.squareup.moshi.JsonClass
  * @param cumulativeTransactionThreshold 
  * @param fiscalAuthorityId 
  * @param fiscalYearId 
- * @param tenantId 
  * @param countryId 
  * @param taxClassId 
  * @param currencyId 
  * @param taxPolicyId 
- * @param enrollmentId 
  */
 
 
@@ -97,9 +95,6 @@ data class TaxRateCreateDto (
     @Json(name = "fiscalYearId")
     val fiscalYearId: kotlin.String? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "countryId")
     val countryId: kotlin.String? = null,
 
@@ -110,10 +105,7 @@ data class TaxRateCreateDto (
     val currencyId: kotlin.String? = null,
 
     @Json(name = "taxPolicyId")
-    val taxPolicyId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val taxPolicyId: kotlin.String? = null
 
 ) {
 

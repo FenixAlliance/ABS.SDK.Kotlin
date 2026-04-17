@@ -25,10 +25,8 @@ import com.squareup.moshi.JsonClass
  * @param closed 
  * @param title 
  * @param userId 
- * @param tenantId 
  * @param priceListId 
  * @param description 
- * @param enrollmentId 
  * @param individualId 
  * @param paymentTermId 
  * @param organizationId 
@@ -102,17 +100,11 @@ data class QuoteUpdateDto (
     @Json(name = "userId")
     val userId: kotlin.String? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "priceListId")
     val priceListId: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "individualId")
     val individualId: kotlin.String? = null,

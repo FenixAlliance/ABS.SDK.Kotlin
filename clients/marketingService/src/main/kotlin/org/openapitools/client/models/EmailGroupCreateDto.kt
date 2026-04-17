@@ -27,8 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param description 
  * @param enabled 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -47,13 +45,7 @@ data class EmailGroupCreateDto (
     val description: kotlin.String? = null,
 
     @Json(name = "enabled")
-    val enabled: kotlin.Boolean? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val enabled: kotlin.Boolean? = null
 
 ) {
 

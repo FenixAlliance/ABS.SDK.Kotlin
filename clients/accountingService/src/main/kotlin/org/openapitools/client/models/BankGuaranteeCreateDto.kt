@@ -33,9 +33,7 @@ import com.squareup.moshi.JsonClass
  * @param startDate 
  * @param endDate 
  * @param validityInDays 
- * @param tenantId 
  * @param bankGuaranteeType 
- * @param enrollmentId 
  * @param contactId 
  * @param projectId 
  * @param orderId 
@@ -80,14 +78,8 @@ data class BankGuaranteeCreateDto (
     @Json(name = "validityInDays")
     val validityInDays: kotlin.Int? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "bankGuaranteeType")
     val bankGuaranteeType: BankGuaranteeCreateDto.BankGuaranteeType? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,

@@ -26,11 +26,9 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param unitId 
- * @param tenantId 
  * @param currencyId 
  * @param priceListId 
  * @param unitGroupId 
- * @param enrollmentId 
  * @param discountListId 
  * @param roundingPolicyId 
  * @param price 
@@ -52,9 +50,6 @@ data class ItemPriceCreateDto (
     @Json(name = "unitId")
     val unitId: kotlin.String? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
 
@@ -63,9 +58,6 @@ data class ItemPriceCreateDto (
 
     @Json(name = "unitGroupId")
     val unitGroupId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "discountListId")
     val discountListId: kotlin.String? = null,

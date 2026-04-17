@@ -63,12 +63,9 @@ import com.squareup.moshi.JsonClass
  * @param data8Label 
  * @param data9 
  * @param data9Label 
- * @param accountHolderID 
  * @param individualID 
  * @param organizationID 
  * @param receiverBusinessID 
- * @param businessID 
- * @param businessProfileRecordID 
  * @param paymentTokenID 
  * @param walletAccountID 
  * @param securityCertificateID 
@@ -200,9 +197,6 @@ data class SupportEntitlementCreateDto (
     @Json(name = "data9Label")
     val data9Label: kotlin.String? = null,
 
-    @Json(name = "accountHolderID")
-    val accountHolderID: kotlin.String? = null,
-
     @Json(name = "individualID")
     val individualID: kotlin.String? = null,
 
@@ -211,12 +205,6 @@ data class SupportEntitlementCreateDto (
 
     @Json(name = "receiverBusinessID")
     val receiverBusinessID: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "paymentTokenID")
     val paymentTokenID: kotlin.String? = null,

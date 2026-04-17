@@ -23,7 +23,6 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.GrantCreateDto
 import org.openapitools.client.models.GrantDtoEnvelope
 import org.openapitools.client.models.GrantDtoIReadOnlyListEnvelope
-import org.openapitools.client.models.GrantUpdateDto
 import org.openapitools.client.models.Int32Envelope
 
 import com.squareup.moshi.Json
@@ -487,7 +486,7 @@ class GrantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -497,8 +496,8 @@ class GrantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateGrantAsync(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, grantUpdateDto: GrantUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = updateGrantAsyncWithHttpInfo(grantId = grantId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, grantUpdateDto = grantUpdateDto)
+    fun updateGrantAsync(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : EmptyEnvelope {
+        val localVarResponse = updateGrantAsyncWithHttpInfo(grantId = grantId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -522,17 +521,17 @@ class GrantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateGrantAsyncWithHttpInfo(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, grantUpdateDto: GrantUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = updateGrantAsyncRequestConfig(grantId = grantId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, grantUpdateDto = grantUpdateDto)
+    fun updateGrantAsyncWithHttpInfo(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateGrantAsyncRequestConfig(grantId = grantId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
 
-        return request<GrantUpdateDto, EmptyEnvelope>(
+        return request<kotlin.Any, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -544,11 +543,11 @@ class GrantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @return RequestConfig
      */
-    fun updateGrantAsyncRequestConfig(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, grantUpdateDto: GrantUpdateDto?) : RequestConfig<GrantUpdateDto> {
-        val localVariableBody = grantUpdateDto
+    fun updateGrantAsyncRequestConfig(grantId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : RequestConfig<kotlin.Any> {
+        val localVariableBody = body
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -14,8 +14,6 @@
 | **code** | **kotlin.String** |  |  [optional] |
 | **path** | **kotlin.String** |  |  [optional] |
 | **prefix** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **accountTypeId** | **kotlin.String** |  |  [optional] |
 | **parentAccountId** | **kotlin.String** |  |  [optional] |
 

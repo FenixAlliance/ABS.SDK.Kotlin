@@ -37,8 +37,6 @@ import com.squareup.moshi.JsonClass
  * @param imageURL 
  * @param image 
  * @param webPortalID 
- * @param businessID 
- * @param businessProfileRecordID 
  */
 
 
@@ -87,13 +85,7 @@ data class BlogPostTagCreateDto (
     val image: kotlin.String? = null,
 
     @Json(name = "webPortalID")
-    val webPortalID: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val webPortalID: kotlin.String? = null
 
 ) {
 

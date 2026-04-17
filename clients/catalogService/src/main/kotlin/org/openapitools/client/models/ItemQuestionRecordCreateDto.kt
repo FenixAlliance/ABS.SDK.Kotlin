@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param needsRevision 
  * @param question 
- * @param businessID 
  * @param id 
  * @param timestamp 
  * @param socialProfileID 
@@ -42,9 +41,6 @@ data class ItemQuestionRecordCreateDto (
 
     @Json(name = "question")
     val question: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

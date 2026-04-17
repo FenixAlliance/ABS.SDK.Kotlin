@@ -27,7 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param courseID 
  * @param courseCohortID 
  * @param studentProfileID 
- * @param businessProfileRecordID 
  * @param courseCompletionCertificateID 
  */
 
@@ -48,9 +47,6 @@ data class CourseEnrollmentCreateDto (
 
     @Json(name = "studentProfileID")
     val studentProfileID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "courseCompletionCertificateID")
     val courseCompletionCertificateID: kotlin.String? = null

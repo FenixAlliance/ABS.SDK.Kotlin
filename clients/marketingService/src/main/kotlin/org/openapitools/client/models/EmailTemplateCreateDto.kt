@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param tenantId 
- * @param enrollmentId 
  * @param title 
  * @param code 
  * @param published 
@@ -44,12 +42,6 @@ data class EmailTemplateCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,

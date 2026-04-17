@@ -22,7 +22,6 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param tenantId 
  * @param type 
  * @param firstName 
  * @param email 
@@ -69,9 +68,6 @@ import com.squareup.moshi.JsonClass
 
 
 data class ContactCreateDto (
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String,
 
     @Json(name = "type")
     val type: ContactCreateDto.Type,

@@ -23,7 +23,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param contactId 
- * @param tenantId 
  * @param taxId 
  * @param phone 
  * @param email 
@@ -50,9 +49,6 @@ data class BillingProfileUpdateDto (
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "taxId")
     val taxId: kotlin.String? = null,

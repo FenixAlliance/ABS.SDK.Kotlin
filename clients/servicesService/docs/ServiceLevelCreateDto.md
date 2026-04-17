@@ -36,7 +36,6 @@
 | **pattern** | **kotlin.String** |  |  [optional] |
 | **features** | **kotlin.String** |  |  [optional] |
 | **material** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **permalink** | **kotlin.String** |  |  [optional] |
 | **brandName** | **kotlin.String** |  |  [optional] |
 | **variations** | **kotlin.String** |  |  [optional] |

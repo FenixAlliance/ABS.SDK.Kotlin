@@ -9,8 +9,6 @@
 | **name** | **kotlin.String** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -27,8 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param newShareHolderId 
  * @param formerShareHolderId 
  * @param shareTransferReasonId 
- * @param enrollmentId 
- * @param tenantId 
  */
 
 
@@ -47,13 +45,7 @@ data class ShareTransferUpdateDto (
     val formerShareHolderId: kotlin.String? = null,
 
     @Json(name = "shareTransferReasonId")
-    val shareTransferReasonId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val shareTransferReasonId: kotlin.String? = null
 
 ) {
 

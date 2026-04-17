@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param description 
  * @param type 
- * @param businessProfileRecordID 
  */
 
 
@@ -38,10 +37,7 @@ data class TenantPositionUpdateDto (
     val description: kotlin.String? = null,
 
     @Json(name = "type")
-    val type: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val type: kotlin.String? = null
 
 ) {
 

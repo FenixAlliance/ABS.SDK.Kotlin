@@ -15,9 +15,7 @@
 | **startDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **endDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **validityInDays** | **kotlin.Int** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **bankGuaranteeType** | [**inline**](#BankGuaranteeType) |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
 | **projectId** | **kotlin.String** |  |  [optional] |
 | **orderId** | **kotlin.String** |  |  [optional] |

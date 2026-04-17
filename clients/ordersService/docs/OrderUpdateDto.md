@@ -4,7 +4,6 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **companyName** | **kotlin.String** |  |  [optional] |
@@ -48,7 +47,6 @@
 | **userId** | **kotlin.String** |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **individualId** | **kotlin.String** |  |  [optional] |
 | **organizationId** | **kotlin.String** |  |  [optional] |
 | **totalAmountInUsd** | **kotlin.Double** |  |  [optional] |

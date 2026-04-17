@@ -19,8 +19,6 @@
 | **contactEmail** | **kotlin.String** |  |  [optional] |
 | **privacyPolicyURL** | **kotlin.String** |  |  [optional] |
 | **termsAndConditionsURL** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **requireHttps** | **kotlin.Boolean** |  |  [optional] |
 | **requireAppSecret** | **kotlin.Boolean** |  |  [optional] |
 | **enableClientOauthLogin** | **kotlin.Boolean** |  |  [optional] |

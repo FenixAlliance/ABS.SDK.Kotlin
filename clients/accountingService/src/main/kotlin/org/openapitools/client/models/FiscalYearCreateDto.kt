@@ -27,10 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param description 
  * @param closed 
- * @param tenantId 
- * @param enrollmentId 
  * @param endDate 
  * @param startDate 
+ * @param fiscalAuthorityId 
  */
 
 
@@ -51,17 +50,14 @@ data class FiscalYearCreateDto (
     @Json(name = "closed")
     val closed: kotlin.Boolean? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
-
     @Json(name = "endDate")
     val endDate: java.time.OffsetDateTime? = null,
 
     @Json(name = "startDate")
-    val startDate: java.time.OffsetDateTime? = null
+    val startDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "fiscalAuthorityId")
+    val fiscalAuthorityId: kotlin.String? = null
 
 ) {
 

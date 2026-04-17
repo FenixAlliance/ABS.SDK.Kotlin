@@ -27,8 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param name 
  * @param fiscalAuthorityId 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -47,13 +45,7 @@ data class FiscalIdentificationTypeCreateDto (
     val name: kotlin.String? = null,
 
     @Json(name = "fiscalAuthorityId")
-    val fiscalAuthorityId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val fiscalAuthorityId: kotlin.String? = null
 
 ) {
 

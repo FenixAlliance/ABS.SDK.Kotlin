@@ -31,8 +31,6 @@ import com.squareup.moshi.JsonClass
  * @param modifiedOn 
  * @param lastUsedOn 
  * @param currencyId 
- * @param tenantId 
- * @param enrollmentId 
  * @param marketingListType 
  * @param marketingListTarget 
  */
@@ -66,12 +64,6 @@ data class MarketingListUpdateDto (
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "marketingListType")
     val marketingListType: MarketingListUpdateDto.MarketingListType? = null,

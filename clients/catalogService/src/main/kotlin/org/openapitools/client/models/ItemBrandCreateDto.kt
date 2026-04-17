@@ -23,7 +23,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param name 
- * @param businessID 
  * @param id 
  * @param timestamp 
  * @param code 
@@ -38,9 +37,6 @@ data class ItemBrandCreateDto (
 
     @Json(name = "name")
     val name: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

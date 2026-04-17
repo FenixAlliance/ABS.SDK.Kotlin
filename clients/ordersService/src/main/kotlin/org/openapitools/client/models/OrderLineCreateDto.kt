@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
  * @param itemShortDescription 
  * @param itemPrimaryImageUrl 
  * @param shippingPolicyId 
- * @param tenantId 
- * @param enrollmentId 
  * @param currencyId 
  * @param description 
  * @param quantity 
@@ -117,7 +115,6 @@ import com.squareup.moshi.JsonClass
  * @param shippingLocationId 
  * @param locationId 
  * @param quoteItemRecordId 
- * @param businessProfileRecordId 
  * @param parentBillingItemRecordId 
  * @param orderId 
  */
@@ -148,12 +145,6 @@ data class OrderLineCreateDto (
 
     @Json(name = "shippingPolicyId")
     val shippingPolicyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -409,9 +400,6 @@ data class OrderLineCreateDto (
 
     @Json(name = "quoteItemRecordId")
     val quoteItemRecordId: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
 
     @Json(name = "parentBillingItemRecordId")
     val parentBillingItemRecordId: kotlin.String? = null,

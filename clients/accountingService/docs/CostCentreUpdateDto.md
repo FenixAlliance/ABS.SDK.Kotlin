@@ -8,7 +8,6 @@
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **costCentreType** | [**inline**](#CostCentreType) |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **costCentresGroupId** | **kotlin.String** |  |  [optional] |
 | **parentCostCentreId** | **kotlin.String** |  |  [optional] |
 

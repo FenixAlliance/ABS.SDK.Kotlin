@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param needsRevision 
  * @param question 
- * @param businessID 
  * @param itemID 
  * @param id 
  * @param timestamp 
@@ -43,9 +42,6 @@ data class ItemQuestionCreateDto (
 
     @Json(name = "question")
     val question: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "itemID")
     val itemID: kotlin.String,

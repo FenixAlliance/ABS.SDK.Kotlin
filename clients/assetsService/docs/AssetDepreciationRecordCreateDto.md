@@ -4,6 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **assetId** | **kotlin.String** |  |  [optional] |
 | **assetDepreciationPolicyId** | **kotlin.String** |  |  [optional] |
 | **depreciationAmount** | **kotlin.Double** |  |  [optional] |

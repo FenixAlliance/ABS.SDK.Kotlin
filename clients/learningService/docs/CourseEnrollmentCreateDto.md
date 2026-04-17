@@ -9,7 +9,6 @@
 | **courseID** | **kotlin.String** |  |  [optional] |
 | **courseCohortID** | **kotlin.String** |  |  [optional] |
 | **studentProfileID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **courseCompletionCertificateID** | **kotlin.String** |  |  [optional] |
 
 

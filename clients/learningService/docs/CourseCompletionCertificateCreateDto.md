@@ -8,8 +8,6 @@
 | **courseEnrollmentID** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **courseCompletionCertificateTemplateID** | **kotlin.String** |  |  [optional] |
 | **courseID** | **kotlin.String** |  |  [optional] |
 

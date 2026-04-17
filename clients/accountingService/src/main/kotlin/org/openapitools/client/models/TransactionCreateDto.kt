@@ -35,8 +35,6 @@ import com.squareup.moshi.JsonClass
  * @param unitId 
  * @param transactionCategoryId 
  * @param currencyId 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -79,13 +77,7 @@ data class TransactionCreateDto (
     val transactionCategoryId: kotlin.String? = null,
 
     @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val currencyId: kotlin.String? = null
 
 ) {
 

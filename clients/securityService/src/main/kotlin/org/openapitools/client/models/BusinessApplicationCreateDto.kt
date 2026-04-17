@@ -37,8 +37,6 @@ import com.squareup.moshi.JsonClass
  * @param contactEmail 
  * @param privacyPolicyURL 
  * @param termsAndConditionsURL 
- * @param businessID 
- * @param businessProfileRecordID 
  * @param requireHttps 
  * @param requireAppSecret 
  * @param enableClientOauthLogin 
@@ -110,12 +108,6 @@ data class BusinessApplicationCreateDto (
 
     @Json(name = "termsAndConditionsURL")
     val termsAndConditionsURL: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "requireHttps")
     val requireHttps: kotlin.Boolean? = null,

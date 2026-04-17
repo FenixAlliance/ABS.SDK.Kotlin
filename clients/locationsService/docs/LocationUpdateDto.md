@@ -16,7 +16,6 @@
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **postalCode** | **kotlin.String** |  |  [optional] |
 | **countryId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **longitude** | **kotlin.Double** |  |  [optional] |
 | **latitude** | **kotlin.Double** |  |  [optional] |
 | **isRoutable** | **kotlin.Boolean** |  |  [optional] |

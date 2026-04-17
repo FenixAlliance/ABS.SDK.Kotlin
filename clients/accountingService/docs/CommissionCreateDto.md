@@ -12,8 +12,6 @@
 | **addedPercent** | **kotlin.Double** |  |  [optional] |
 | **addedAmount** | **kotlin.Double** |  |  [optional] |
 | **taxComission** | **kotlin.Double** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **salaryId** | **kotlin.String** |  |  [optional] |
 | **emisorWalletAccountId** | **kotlin.String** |  |  [optional] |
 | **receiverWalletAccountId** | **kotlin.String** |  |  [optional] |

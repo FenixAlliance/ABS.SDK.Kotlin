@@ -4,14 +4,14 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **closed** | **kotlin.Boolean** |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
 | **itemTitle** | **kotlin.String** |  |  [optional] |
 | **itemShortDescription** | **kotlin.String** |  |  [optional] |
 | **itemPrimaryImageUrl** | **kotlin.String** |  |  [optional] |
 | **shippingPolicyId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **quantity** | **kotlin.Double** |  |  [optional] |
@@ -68,14 +68,14 @@
 | **customGlobalDiscountsAmountCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalDetail** | **kotlin.Double** |  |  [optional] |
 | **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
-| **totalProfit** | **kotlin.Double** |  |  [optional] |
-| **totalProfitCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalDiscounts** | **kotlin.Double** |  |  [optional] |
 | **totalDiscountsCurrencyId** | **kotlin.String** |  |  [optional] |
-| **totalSurcharges** | **kotlin.Double** |  |  [optional] |
-| **totalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalTaxBase** | **kotlin.Double** |  |  [optional] |
 | **totalTaxBaseCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalSurcharges** | **kotlin.Double** |  |  [optional] |
+| **totalSurchargesCurrencyId** | **kotlin.String** |  |  [optional] |
+| **totalProfit** | **kotlin.Double** |  |  [optional] |
+| **totalProfitCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalShippingCost** | **kotlin.Double** |  |  [optional] |
 | **totalShippingCostCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalShippingTax** | **kotlin.Double** |  |  [optional] |
@@ -97,7 +97,6 @@
 | **shippingLocationId** | **kotlin.String** |  |  [optional] |
 | **locationId** | **kotlin.String** |  |  [optional] |
 | **quoteItemRecordId** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
 | **parentBillingItemRecordId** | **kotlin.String** |  |  [optional] |
 | **dealUnitId** | **kotlin.String** |  |  [optional] |
 

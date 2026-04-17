@@ -26,8 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param ledgerClass 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -43,13 +41,7 @@ data class LedgerTypeCreateDto (
     val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "ledgerClass")
-    val ledgerClass: LedgerTypeCreateDto.LedgerClass? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val ledgerClass: LedgerTypeCreateDto.LedgerClass? = null
 
 ) {
 

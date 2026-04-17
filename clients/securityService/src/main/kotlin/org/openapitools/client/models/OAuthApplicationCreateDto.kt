@@ -23,6 +23,8 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param displayName 
+ * @param id 
+ * @param timestamp 
  * @param clientId 
  * @param clientSecret 
  * @param consentType 
@@ -31,8 +33,6 @@ import com.squareup.moshi.JsonClass
  * @param redirectUris 
  * @param postLogoutRedirectUris 
  * @param logo 
- * @param businessID 
- * @param businessProfileRecordID 
  */
 
 
@@ -40,6 +40,12 @@ data class OAuthApplicationCreateDto (
 
     @Json(name = "displayName")
     val displayName: kotlin.String,
+
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "clientId")
     val clientId: kotlin.String? = null,
@@ -63,13 +69,7 @@ data class OAuthApplicationCreateDto (
     val postLogoutRedirectUris: kotlin.String? = null,
 
     @Json(name = "logo")
-    val logo: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val logo: kotlin.String? = null
 
 ) {
 

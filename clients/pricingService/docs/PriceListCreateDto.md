@@ -13,8 +13,6 @@
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **unitId** | **kotlin.String** |  |  [optional] |
 | **unitGroupId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -7,7 +7,6 @@
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **invoiceId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **emisorWalletId** | **kotlin.String** |  |  [optional] |
 | **receiverWalletId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
@@ -59,7 +58,6 @@
 | **accountingEntryId** | **kotlin.String** |  |  [optional] |
 | **paymentGatewayId** | **kotlin.String** |  |  [optional] |
 | **bankAccountId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **bankId** | **kotlin.String** |  |  [optional] |
 | **paymentTokenId** | **kotlin.String** |  |  [optional] |
 | **emisorWalletAccountId** | **kotlin.String** |  |  [optional] |

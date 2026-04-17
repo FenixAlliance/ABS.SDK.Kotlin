@@ -54,7 +54,6 @@ import com.squareup.moshi.JsonClass
  * @param pattern 
  * @param features 
  * @param material 
- * @param tenantId 
  * @param permalink 
  * @param brandName 
  * @param variations 
@@ -283,9 +282,6 @@ data class ServiceLevelCreateDto (
 
     @Json(name = "material")
     val material: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "permalink")
     val permalink: kotlin.String? = null,

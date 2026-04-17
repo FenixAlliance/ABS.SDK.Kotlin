@@ -29,7 +29,6 @@ import com.squareup.moshi.JsonClass
  * @param isCompundInterestRate 
  * @param loanTypeId 
  * @param currencyId 
- * @param enrollmentId 
  */
 
 
@@ -54,10 +53,7 @@ data class LoanUpdateDto (
     val loanTypeId: kotlin.String? = null,
 
     @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val currencyId: kotlin.String? = null
 
 ) {
 

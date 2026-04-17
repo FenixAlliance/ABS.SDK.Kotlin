@@ -45,8 +45,6 @@ import com.squareup.moshi.JsonClass
  * @param customState 
  * @param customCity 
  * @param cityId 
- * @param enrollmentId 
- * @param tenantId 
  * @param zero 
  * @param reduced 
  * @param withholding 
@@ -124,12 +122,6 @@ data class TaxPolicyCreateDto (
 
     @Json(name = "cityId")
     val cityId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "zero")
     val zero: kotlin.Boolean? = null,

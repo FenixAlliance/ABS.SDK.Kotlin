@@ -23,12 +23,10 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param courseID 
- * @param businessID 
  * @param id 
  * @param timestamp 
  * @param webPortalID 
  * @param websiteThemeID 
- * @param businessProfileRecordID 
  * @param socialProfileID 
  * @param parentWebContentID 
  * @param parentWebContentVersionID 
@@ -39,9 +37,6 @@ data class CourseCertificateTemplateCreateDto (
 
     @Json(name = "courseID")
     val courseID: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -54,9 +49,6 @@ data class CourseCertificateTemplateCreateDto (
 
     @Json(name = "websiteThemeID")
     val websiteThemeID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "socialProfileID")
     val socialProfileID: kotlin.String? = null,

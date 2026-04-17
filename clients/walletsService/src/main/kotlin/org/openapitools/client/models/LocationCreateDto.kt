@@ -36,7 +36,6 @@ import com.squareup.moshi.JsonClass
  * @param stateId 
  * @param postalCode 
  * @param countryId 
- * @param tenantId 
  * @param longitude 
  * @param latitude 
  * @param isRoutable 
@@ -92,9 +91,6 @@ data class LocationCreateDto (
 
     @Json(name = "countryId")
     val countryId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "longitude")
     val longitude: kotlin.Double? = null,

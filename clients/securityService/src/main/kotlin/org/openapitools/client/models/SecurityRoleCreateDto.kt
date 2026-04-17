@@ -23,7 +23,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param name 
- * @param tenantId 
  * @param id 
  * @param timestamp 
  * @param description 
@@ -34,9 +33,6 @@ data class SecurityRoleCreateDto (
 
     @Json(name = "name")
     val name: kotlin.String,
-
-    @Json(name = "tenantId")
-    val tenantId: java.util.UUID,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

@@ -56,6 +56,7 @@ All URIs are relative to *http://localhost*
 | *BlogPostCategoriesApi* | [**getBlogPostCategoriesAsync**](docs/BlogPostCategoriesApi.md#getblogpostcategoriesasync) | **GET** /api/v2/ContentService/BlogPostCategories | Get blog post categories |
 | *BlogPostCategoriesApi* | [**getBlogPostCategoryByIdAsync**](docs/BlogPostCategoriesApi.md#getblogpostcategorybyidasync) | **GET** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Get blog post category by ID |
 | *BlogPostCategoriesApi* | [**updateBlogPostCategoryAsync**](docs/BlogPostCategoriesApi.md#updateblogpostcategoryasync) | **PUT** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Update a blog post category |
+| *BlogPostTagsApi* | [**countBlogPostTagsAsync**](docs/BlogPostTagsApi.md#countblogposttagsasync) | **GET** /api/v2/ContentService/BlogPostTags/Count | Count blog post tags |
 | *BlogPostTagsApi* | [**createBlogPostTagAsync**](docs/BlogPostTagsApi.md#createblogposttagasync) | **POST** /api/v2/ContentService/BlogPostTags | Create a blog post tag |
 | *BlogPostTagsApi* | [**deleteBlogPostTagAsync**](docs/BlogPostTagsApi.md#deleteblogposttagasync) | **DELETE** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Delete a blog post tag |
 | *BlogPostTagsApi* | [**getBlogPostTagByIdAsync**](docs/BlogPostTagsApi.md#getblogposttagbyidasync) | **GET** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Get blog post tag by ID |
@@ -96,10 +97,12 @@ All URIs are relative to *http://localhost*
 | *FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail |  |
 | *FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword |  |
 | *FenixAllianceABPWebApi* | [**versionGet**](docs/FenixAllianceABPWebApi.md#versionget) | **GET** /version |  |
+| *PortalsApi* | [**countPortalsAsync**](docs/PortalsApi.md#countportalsasync) | **GET** /api/v2/ContentService/Portals/Count | Count portals |
 | *PortalsApi* | [**createWebPortalAsync**](docs/PortalsApi.md#createwebportalasync) | **POST** /api/v2/ContentService/Portals | Create a new web portal |
 | *PortalsApi* | [**deleteWebPortalAsync**](docs/PortalsApi.md#deletewebportalasync) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal |
 | *PortalsApi* | [**getCurrentWebPortalAsync**](docs/PortalsApi.md#getcurrentwebportalasync) | **GET** /api/v2/ContentService/Portals/Current | Get the current portal |
 | *PortalsApi* | [**getCurrentWebPortalOptionsAsync**](docs/PortalsApi.md#getcurrentwebportaloptionsasync) | **GET** /api/v2/ContentService/Portals/Current/Options | Get the current portal's options |
+| *PortalsApi* | [**getPortalsAsync**](docs/PortalsApi.md#getportalsasync) | **GET** /api/v2/ContentService/Portals | Get portals |
 | *PortalsApi* | [**getRootWebPortalAsync**](docs/PortalsApi.md#getrootwebportalasync) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal |
 | *PortalsApi* | [**getWebPortalByIdAsync**](docs/PortalsApi.md#getwebportalbyidasync) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID |
 | *PortalsApi* | [**getWebPortalOptionsAsync**](docs/PortalsApi.md#getwebportaloptionsasync) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal's options by its ID |
@@ -115,11 +118,13 @@ All URIs are relative to *http://localhost*
 | *WebContentsApi* | [**getWebContentByIdAsync**](docs/WebContentsApi.md#getwebcontentbyidasync) | **GET** /api/v2/ContentService/WebContents/{webContentId} | Get web content by ID |
 | *WebContentsApi* | [**getWebContentsAsync**](docs/WebContentsApi.md#getwebcontentsasync) | **GET** /api/v2/ContentService/WebContents | Get web contents |
 | *WebContentsApi* | [**updateWebContentAsync**](docs/WebContentsApi.md#updatewebcontentasync) | **PUT** /api/v2/ContentService/WebContents/{webContentId} | Update a web content |
+| *WebPageCategoriesApi* | [**countWebPageCategoriesAsync**](docs/WebPageCategoriesApi.md#countwebpagecategoriesasync) | **GET** /api/v2/ContentService/WebPageCategories/Count | Count web page categories |
 | *WebPageCategoriesApi* | [**createWebPageCategoryAsync**](docs/WebPageCategoriesApi.md#createwebpagecategoryasync) | **POST** /api/v2/ContentService/WebPageCategories | Create a web page category |
 | *WebPageCategoriesApi* | [**deleteWebPageCategoryAsync**](docs/WebPageCategoriesApi.md#deletewebpagecategoryasync) | **DELETE** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Delete a web page category |
 | *WebPageCategoriesApi* | [**getWebPageCategoriesAsync**](docs/WebPageCategoriesApi.md#getwebpagecategoriesasync) | **GET** /api/v2/ContentService/WebPageCategories | Get web page categories |
 | *WebPageCategoriesApi* | [**getWebPageCategoryByIdAsync**](docs/WebPageCategoriesApi.md#getwebpagecategorybyidasync) | **GET** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Get web page category by ID |
 | *WebPageCategoriesApi* | [**updateWebPageCategoryAsync**](docs/WebPageCategoriesApi.md#updatewebpagecategoryasync) | **PUT** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Update a web page category |
+| *WebPageTagsApi* | [**countWebPageTagsAsync**](docs/WebPageTagsApi.md#countwebpagetagsasync) | **GET** /api/v2/ContentService/WebPageTags/Count | Count web page tags |
 | *WebPageTagsApi* | [**createWebPageTagAsync**](docs/WebPageTagsApi.md#createwebpagetagasync) | **POST** /api/v2/ContentService/WebPageTags | Create a web page tag |
 | *WebPageTagsApi* | [**deleteWebPageTagAsync**](docs/WebPageTagsApi.md#deletewebpagetagasync) | **DELETE** /api/v2/ContentService/WebPageTags/{webPageTagId} | Delete a web page tag |
 | *WebPageTagsApi* | [**getWebPageTagByIdAsync**](docs/WebPageTagsApi.md#getwebpagetagbyidasync) | **GET** /api/v2/ContentService/WebPageTags/{webPageTagId} | Get web page tag by ID |
@@ -291,6 +296,7 @@ All URIs are relative to *http://localhost*
  - [org.openapitools.client.models.WebPortalCreateDto](docs/WebPortalCreateDto.md)
  - [org.openapitools.client.models.WebPortalDto](docs/WebPortalDto.md)
  - [org.openapitools.client.models.WebPortalDtoEnvelope](docs/WebPortalDtoEnvelope.md)
+ - [org.openapitools.client.models.WebPortalDtoListEnvelope](docs/WebPortalDtoListEnvelope.md)
  - [org.openapitools.client.models.WebPortalUpdateDto](docs/WebPortalUpdateDto.md)
  - [org.openapitools.client.models.WebTemplateCreateDto](docs/WebTemplateCreateDto.md)
  - [org.openapitools.client.models.WebTemplateDto](docs/WebTemplateDto.md)

@@ -23,15 +23,12 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param paymentId 
- * @param tenantId 
  * @param forexRate 
  * @param totalAmount 
  * @param totalAmountInUsd 
  * @param closed 
  * @param currencyId 
- * @param accountHolderId 
  * @param contactId 
- * @param enrollmentId 
  * @param orderId 
  * @param invoiceId 
  */
@@ -41,9 +38,6 @@ data class ReceiptUpdateDto (
 
     @Json(name = "paymentId")
     val paymentId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "forexRate")
     val forexRate: kotlin.Double? = null,
@@ -60,14 +54,8 @@ data class ReceiptUpdateDto (
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
 
-    @Json(name = "accountHolderId")
-    val accountHolderId: kotlin.String? = null,
-
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "orderId")
     val orderId: kotlin.String? = null,

@@ -22,6 +22,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
+ * @param timestamp 
  * @param name 
  * @param title 
  * @param avatarURL 
@@ -30,6 +32,12 @@ import com.squareup.moshi.JsonClass
 
 
 data class SocialGroupCreateDto (
+
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,

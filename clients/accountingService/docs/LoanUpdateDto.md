@@ -11,7 +11,6 @@
 | **isCompundInterestRate** | **kotlin.Boolean** |  |  [optional] |
 | **loanTypeId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

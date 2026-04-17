@@ -23,12 +23,10 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
- * @param businessID 
  * @param id 
  * @param timestamp 
  * @param description 
  * @param imageURL 
- * @param businessProfileRecordID 
  * @param parentItemCategoryID 
  */
 
@@ -37,9 +35,6 @@ data class ItemCategoryCreateDto (
 
     @Json(name = "title")
     val title: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -52,9 +47,6 @@ data class ItemCategoryCreateDto (
 
     @Json(name = "imageURL")
     val imageURL: java.net.URI? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "parentItemCategoryID")
     val parentItemCategoryID: kotlin.String? = null

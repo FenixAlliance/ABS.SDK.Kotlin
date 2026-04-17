@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessId 
- * @param businessProfileRecordId 
  * @param name 
  * @param description 
  */
@@ -38,12 +36,6 @@ data class AssetCategoryCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "businessId")
-    val businessId: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,

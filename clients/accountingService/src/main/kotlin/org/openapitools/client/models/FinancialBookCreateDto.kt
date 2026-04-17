@@ -26,7 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param description 
- * @param tenantID 
  */
 
 
@@ -42,10 +41,7 @@ data class FinancialBookCreateDto (
     val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "tenantID")
-    val tenantID: kotlin.String? = null
+    val description: kotlin.String? = null
 
 ) {
 

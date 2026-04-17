@@ -73,7 +73,6 @@ import com.squareup.moshi.JsonClass
  * @param material 
  * @param onDiscount 
  * @param totalTax 
- * @param tenantId 
  * @param permalink 
  * @param brandName 
  * @param reviewsCount 
@@ -98,7 +97,6 @@ import com.squareup.moshi.JsonClass
  * @param customTaxValue 
  * @param hasVariations 
  * @param questionsCount 
- * @param enrollmentId 
  * @param supplierCode 
  * @param auctionEnd 
  * @param purchaseNote 
@@ -357,9 +355,6 @@ data class SubscriptionPlanUpdateDto (
     @Json(name = "totalTax")
     val totalTax: kotlin.Double? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "permalink")
     val permalink: kotlin.String? = null,
 
@@ -431,9 +426,6 @@ data class SubscriptionPlanUpdateDto (
 
     @Json(name = "questionsCount")
     val questionsCount: kotlin.Int? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "supplierCode")
     val supplierCode: kotlin.String? = null,

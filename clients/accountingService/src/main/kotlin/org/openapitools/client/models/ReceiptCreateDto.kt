@@ -22,8 +22,9 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
+ * @param timestamp 
  * @param title 
- * @param userId 
  * @param priceListId 
  * @param description 
  * @param individualId 
@@ -40,9 +41,6 @@ import com.squareup.moshi.JsonClass
  * @param countryId 
  * @param stateId 
  * @param cityId 
- * @param billingLocationId 
- * @param shippingLocationId 
- * @param shippingMethodId 
  * @param currencyId 
  * @param totalDetail 
  * @param totalDetailCurrencyId 
@@ -52,33 +50,30 @@ import com.squareup.moshi.JsonClass
  * @param totalDiscountsCurrencyId 
  * @param totalSurcharges 
  * @param totalSurchargesCurrencyId 
- * @param totalShippingTax 
- * @param totalShippingTaxCurrencyId 
  * @param totalShippingCost 
  * @param totalShippingCostCurrencyId 
- * @param totalGlobalDiscounts 
- * @param totalGlobalDiscountsCurrencyId 
- * @param totalGlobalSurcharges 
- * @param totalGlobalSurchargesCurrencyId 
+ * @param totalShippingTax 
+ * @param totalShippingTaxCurrencyId 
  * @param totalWithheldTax 
  * @param totalWithheldTaxCurrencyId 
  * @param totalTaxBase 
  * @param totalTaxBaseCurrencyId 
  * @param totalTaxes 
  * @param totalTaxesCurrencyId 
+ * @param totalGlobalSurcharges 
+ * @param totalGlobalSurchargesCurrencyId 
+ * @param totalGlobalDiscounts 
+ * @param totalGlobalDiscountsCurrencyId 
  * @param total 
  * @param totalCurrencyId 
  * @param costCalculationMethod 
  * @param taxCalculationMethod 
  * @param paymentId 
- * @param tenantId 
  * @param forexRate 
  * @param totalAmount 
  * @param totalAmountInUSD 
  * @param closed 
- * @param accountHolderId 
  * @param contactId 
- * @param enrollmentId 
  * @param receiptType 
  * @param orderId 
  * @param invoiceId 
@@ -87,11 +82,14 @@ import com.squareup.moshi.JsonClass
 
 data class ReceiptCreateDto (
 
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
+
     @Json(name = "title")
     val title: kotlin.String? = null,
-
-    @Json(name = "userId")
-    val userId: kotlin.String? = null,
 
     @Json(name = "priceListId")
     val priceListId: kotlin.String? = null,
@@ -141,15 +139,6 @@ data class ReceiptCreateDto (
     @Json(name = "cityId")
     val cityId: kotlin.String? = null,
 
-    @Json(name = "billingLocationId")
-    val billingLocationId: kotlin.String? = null,
-
-    @Json(name = "shippingLocationId")
-    val shippingLocationId: kotlin.String? = null,
-
-    @Json(name = "shippingMethodId")
-    val shippingMethodId: kotlin.String? = null,
-
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
 
@@ -177,29 +166,17 @@ data class ReceiptCreateDto (
     @Json(name = "totalSurchargesCurrencyId")
     val totalSurchargesCurrencyId: kotlin.String? = null,
 
-    @Json(name = "totalShippingTax")
-    val totalShippingTax: kotlin.Double? = null,
-
-    @Json(name = "totalShippingTaxCurrencyId")
-    val totalShippingTaxCurrencyId: kotlin.String? = null,
-
     @Json(name = "totalShippingCost")
     val totalShippingCost: kotlin.Double? = null,
 
     @Json(name = "totalShippingCostCurrencyId")
     val totalShippingCostCurrencyId: kotlin.String? = null,
 
-    @Json(name = "totalGlobalDiscounts")
-    val totalGlobalDiscounts: kotlin.Double? = null,
+    @Json(name = "totalShippingTax")
+    val totalShippingTax: kotlin.Double? = null,
 
-    @Json(name = "totalGlobalDiscountsCurrencyId")
-    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalGlobalSurcharges")
-    val totalGlobalSurcharges: kotlin.Double? = null,
-
-    @Json(name = "totalGlobalSurchargesCurrencyId")
-    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+    @Json(name = "totalShippingTaxCurrencyId")
+    val totalShippingTaxCurrencyId: kotlin.String? = null,
 
     @Json(name = "totalWithheldTax")
     val totalWithheldTax: kotlin.Double? = null,
@@ -219,6 +196,18 @@ data class ReceiptCreateDto (
     @Json(name = "totalTaxesCurrencyId")
     val totalTaxesCurrencyId: kotlin.String? = null,
 
+    @Json(name = "totalGlobalSurcharges")
+    val totalGlobalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesCurrencyId")
+    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalDiscounts")
+    val totalGlobalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsCurrencyId")
+    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
+
     @Json(name = "total")
     val total: kotlin.Double? = null,
 
@@ -234,9 +223,6 @@ data class ReceiptCreateDto (
     @Json(name = "paymentId")
     val paymentId: kotlin.String? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "forexRate")
     val forexRate: kotlin.Double? = null,
 
@@ -249,14 +235,8 @@ data class ReceiptCreateDto (
     @Json(name = "closed")
     val closed: kotlin.Boolean? = null,
 
-    @Json(name = "accountHolderId")
-    val accountHolderId: kotlin.String? = null,
-
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "receiptType")
     val receiptType: ReceiptCreateDto.ReceiptType? = null,

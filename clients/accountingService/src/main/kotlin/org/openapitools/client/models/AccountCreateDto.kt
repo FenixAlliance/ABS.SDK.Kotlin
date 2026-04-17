@@ -32,8 +32,6 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param path 
  * @param prefix 
- * @param tenantId 
- * @param enrollmentId 
  * @param accountTypeId 
  * @param parentAccountId 
  */
@@ -70,12 +68,6 @@ data class AccountCreateDto (
 
     @Json(name = "prefix")
     val prefix: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "accountTypeId")
     val accountTypeId: kotlin.String? = null,

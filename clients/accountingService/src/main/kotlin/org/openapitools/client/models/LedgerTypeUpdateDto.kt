@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param ledgerClass 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -35,13 +33,7 @@ data class LedgerTypeUpdateDto (
     val name: kotlin.String? = null,
 
     @Json(name = "ledgerClass")
-    val ledgerClass: LedgerTypeUpdateDto.LedgerClass? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val ledgerClass: LedgerTypeUpdateDto.LedgerClass? = null
 
 ) {
 

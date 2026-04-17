@@ -22,16 +22,22 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
+ * @param timestamp 
  * @param title 
  * @param content 
  * @param featuredImageUrl 
- * @param tenantId 
  * @param socialPostBucketId 
- * @param enrollmentId 
  */
 
 
 data class SocialMediaPostCreateDto (
+
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,
@@ -42,14 +48,8 @@ data class SocialMediaPostCreateDto (
     @Json(name = "featuredImageUrl")
     val featuredImageUrl: java.net.URI? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "socialPostBucketId")
-    val socialPostBucketId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val socialPostBucketId: kotlin.String? = null
 
 ) {
 

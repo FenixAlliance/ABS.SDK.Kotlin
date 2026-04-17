@@ -28,7 +28,6 @@ import com.squareup.moshi.JsonClass
  * @param disabled 
  * @param description 
  * @param costCentreType 
- * @param tenantId 
  * @param costCentresGroupId 
  * @param parentCostCentreId 
  */
@@ -53,9 +52,6 @@ data class CostCentreCreateDto (
 
     @Json(name = "costCentreType")
     val costCentreType: CostCentreCreateDto.CostCentreType? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "costCentresGroupId")
     val costCentresGroupId: kotlin.String? = null,

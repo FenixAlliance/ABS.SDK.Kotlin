@@ -20,7 +20,6 @@
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **address1** | **kotlin.String** |  |  [optional] |
 | **address2** | **kotlin.String** |  |  [optional] |
 | **ticker** | **kotlin.String** |  |  [optional] |

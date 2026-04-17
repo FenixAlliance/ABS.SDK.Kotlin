@@ -22,14 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param id 
+ * @param timestamp 
  * @param closed 
  * @param itemId 
  * @param itemTitle 
  * @param itemShortDescription 
  * @param itemPrimaryImageUrl 
  * @param shippingPolicyId 
- * @param tenantId 
- * @param enrollmentId 
  * @param currencyId 
  * @param description 
  * @param quantity 
@@ -86,14 +86,14 @@ import com.squareup.moshi.JsonClass
  * @param customGlobalDiscountsAmountCurrencyId 
  * @param totalDetail 
  * @param totalDetailCurrencyId 
- * @param totalProfit 
- * @param totalProfitCurrencyId 
  * @param totalDiscounts 
  * @param totalDiscountsCurrencyId 
- * @param totalSurcharges 
- * @param totalSurchargesCurrencyId 
  * @param totalTaxBase 
  * @param totalTaxBaseCurrencyId 
+ * @param totalSurcharges 
+ * @param totalSurchargesCurrencyId 
+ * @param totalProfit 
+ * @param totalProfitCurrencyId 
  * @param totalShippingCost 
  * @param totalShippingCostCurrencyId 
  * @param totalShippingTax 
@@ -115,13 +115,18 @@ import com.squareup.moshi.JsonClass
  * @param shippingLocationId 
  * @param locationId 
  * @param quoteItemRecordId 
- * @param businessProfileRecordId 
  * @param parentBillingItemRecordId 
  * @param dealUnitId 
  */
 
 
 data class DealUnitLineCreateDto (
+
+    @Json(name = "id")
+    val id: java.util.UUID? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "closed")
     val closed: kotlin.Boolean? = null,
@@ -140,12 +145,6 @@ data class DealUnitLineCreateDto (
 
     @Json(name = "shippingPolicyId")
     val shippingPolicyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -315,17 +314,17 @@ data class DealUnitLineCreateDto (
     @Json(name = "totalDetailCurrencyId")
     val totalDetailCurrencyId: kotlin.String? = null,
 
-    @Json(name = "totalProfit")
-    val totalProfit: kotlin.Double? = null,
-
-    @Json(name = "totalProfitCurrencyId")
-    val totalProfitCurrencyId: kotlin.String? = null,
-
     @Json(name = "totalDiscounts")
     val totalDiscounts: kotlin.Double? = null,
 
     @Json(name = "totalDiscountsCurrencyId")
     val totalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxBase")
+    val totalTaxBase: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseCurrencyId")
+    val totalTaxBaseCurrencyId: kotlin.String? = null,
 
     @Json(name = "totalSurcharges")
     val totalSurcharges: kotlin.Double? = null,
@@ -333,11 +332,11 @@ data class DealUnitLineCreateDto (
     @Json(name = "totalSurchargesCurrencyId")
     val totalSurchargesCurrencyId: kotlin.String? = null,
 
-    @Json(name = "totalTaxBase")
-    val totalTaxBase: kotlin.Double? = null,
+    @Json(name = "totalProfit")
+    val totalProfit: kotlin.Double? = null,
 
-    @Json(name = "totalTaxBaseCurrencyId")
-    val totalTaxBaseCurrencyId: kotlin.String? = null,
+    @Json(name = "totalProfitCurrencyId")
+    val totalProfitCurrencyId: kotlin.String? = null,
 
     @Json(name = "totalShippingCost")
     val totalShippingCost: kotlin.Double? = null,
@@ -401,9 +400,6 @@ data class DealUnitLineCreateDto (
 
     @Json(name = "quoteItemRecordId")
     val quoteItemRecordId: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
 
     @Json(name = "parentBillingItemRecordId")
     val parentBillingItemRecordId: kotlin.String? = null,

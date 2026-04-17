@@ -24,10 +24,8 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param tenantId 
  * @param invoiceId 
  * @param taxPolicyId 
- * @param enrollmentId 
  */
 
 
@@ -39,17 +37,11 @@ data class InvoiceLineAppliedTaxCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
     @Json(name = "invoiceId")
     val invoiceId: kotlin.String? = null,
 
     @Json(name = "taxPolicyId")
-    val taxPolicyId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val taxPolicyId: kotlin.String? = null
 
 ) {
 

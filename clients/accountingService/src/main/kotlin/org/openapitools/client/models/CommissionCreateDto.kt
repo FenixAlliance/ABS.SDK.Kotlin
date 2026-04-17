@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
  * @param addedPercent 
  * @param addedAmount 
  * @param taxComission 
- * @param tenantId 
- * @param enrollmentId 
  * @param salaryId 
  * @param emisorWalletAccountId 
  * @param receiverWalletAccountId 
@@ -65,12 +63,6 @@ data class CommissionCreateDto (
 
     @Json(name = "taxComission")
     val taxComission: kotlin.Double? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "salaryId")
     val salaryId: kotlin.String? = null,

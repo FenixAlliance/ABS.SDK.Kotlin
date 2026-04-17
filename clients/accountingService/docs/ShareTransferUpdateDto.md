@@ -9,8 +9,6 @@
 | **newShareHolderId** | **kotlin.String** |  |  [optional] |
 | **formerShareHolderId** | **kotlin.String** |  |  [optional] |
 | **shareTransferReasonId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

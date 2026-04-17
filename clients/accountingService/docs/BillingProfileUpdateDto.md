@@ -5,7 +5,6 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **contactId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **taxId** | **kotlin.String** |  |  [optional] |
 | **phone** | **kotlin.String** |  |  [optional] |
 | **email** | **kotlin.String** |  |  [optional] |

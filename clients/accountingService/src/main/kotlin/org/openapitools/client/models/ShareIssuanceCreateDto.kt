@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param tenantId 
- * @param enrollmentId 
  * @param unitPrice 
  * @param quantity 
  * @param currencyId 
@@ -39,12 +37,6 @@ data class ShareIssuanceCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "unitPrice")
     val unitPrice: kotlin.Int? = null,

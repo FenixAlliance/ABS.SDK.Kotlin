@@ -532,7 +532,7 @@ No authorization required
 
 <a id="updateLoanApplicationAsync"></a>
 # **updateLoanApplicationAsync**
-> EmptyEnvelope updateLoanApplicationAsync(applicationId, tenantId, loanApplicationUpdateDto, apiVersion, xApiVersion)
+> EmptyEnvelope updateLoanApplicationAsync(applicationId, tenantId, body, apiVersion, xApiVersion)
 
 Updates a loan application
 
@@ -547,11 +547,11 @@ Updates the specified loan application.
 val apiInstance = LoansApi()
 val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val loanApplicationUpdateDto : LoanApplicationUpdateDto =  // LoanApplicationUpdateDto | 
+val body : kotlin.Any = Object // kotlin.Any | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateLoanApplicationAsync(applicationId, tenantId, loanApplicationUpdateDto, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.updateLoanApplicationAsync(applicationId, tenantId, body, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#updateLoanApplicationAsync")
@@ -565,7 +565,7 @@ try {
 ### Parameters
 | **applicationId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **loanApplicationUpdateDto** | [**LoanApplicationUpdateDto**](LoanApplicationUpdateDto.md)|  | |
+| **body** | **kotlin.Any**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

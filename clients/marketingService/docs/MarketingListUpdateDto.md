@@ -13,8 +13,6 @@
 | **modifiedOn** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **lastUsedOn** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **marketingListType** | [**inline**](#MarketingListType) |  |  [optional] |
 | **marketingListTarget** | [**inline**](#MarketingListTarget) |  |  [optional] |
 

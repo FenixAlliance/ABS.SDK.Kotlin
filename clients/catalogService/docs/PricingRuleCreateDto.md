@@ -27,8 +27,6 @@
 | **customState** | **kotlin.String** |  |  [optional] |
 | **customCity** | **kotlin.String** |  |  [optional] |
 | **cityID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 
 
 

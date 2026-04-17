@@ -4,11 +4,9 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **businessID** | **kotlin.String** |  |  |
 | **fileName** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **itemID** | **kotlin.String** |  |  [optional] |
 | **isItemMozaicBG** | **kotlin.Boolean** |  |  [optional] |
 | **mD5Hash** | **kotlin.String** |  |  [optional] |
@@ -24,7 +22,6 @@
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
 | **socialProfileID** | **kotlin.String** |  |  [optional] |
 | **parentFileUploadID** | **kotlin.String** |  |  [optional] |
-| **accountHolderID** | **kotlin.String** |  |  [optional] |
 
 
 

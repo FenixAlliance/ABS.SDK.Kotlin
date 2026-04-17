@@ -26,8 +26,6 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param description 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
@@ -43,13 +41,7 @@ data class PaymentMethodCreateDto (
     val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val description: kotlin.String? = null
 
 ) {
 

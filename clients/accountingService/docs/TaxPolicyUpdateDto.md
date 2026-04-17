@@ -25,8 +25,6 @@
 | **customState** | **kotlin.String** |  |  [optional] |
 | **customCity** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **zero** | **kotlin.Boolean** |  |  [optional] |
 | **reduced** | **kotlin.Boolean** |  |  [optional] |
 | **withholding** | **kotlin.Boolean** |  |  [optional] |

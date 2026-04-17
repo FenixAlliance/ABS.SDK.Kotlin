@@ -28,11 +28,9 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param domain 
  * @param disabled 
- * @param businessID 
  * @param description 
  * @param websiteThemeID 
  * @param businessDomainID 
- * @param businessProfileRecordID 
  * @param businessPortalApplicationID 
  */
 
@@ -57,9 +55,6 @@ data class WebPortalCreateDto (
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
     @Json(name = "description")
     val description: kotlin.String? = null,
 
@@ -68,9 +63,6 @@ data class WebPortalCreateDto (
 
     @Json(name = "businessDomainID")
     val businessDomainID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
 
     @Json(name = "businessPortalApplicationID")
     val businessPortalApplicationID: kotlin.String? = null

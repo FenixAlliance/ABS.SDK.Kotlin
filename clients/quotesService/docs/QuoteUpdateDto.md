@@ -7,10 +7,8 @@
 | **closed** | **kotlin.Boolean** |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **userId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **priceListId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **individualId** | **kotlin.String** |  |  [optional] |
 | **paymentTermId** | **kotlin.String** |  |  [optional] |
 | **organizationId** | **kotlin.String** |  |  [optional] |

@@ -24,7 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param parentBusinessIndustryID 
- * @param businessProfileRecordID 
  */
 
 
@@ -34,10 +33,7 @@ data class TenantIndustryUpdateDto (
     val name: kotlin.String? = null,
 
     @Json(name = "parentBusinessIndustryID")
-    val parentBusinessIndustryID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val parentBusinessIndustryID: kotlin.String? = null
 
 ) {
 

@@ -9,8 +9,6 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **dateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **tenantID** | **kotlin.String** |  |  [optional] |
-| **enrollmentID** | **kotlin.String** |  |  [optional] |
 | **parentJournalID** | **kotlin.String** |  |  [optional] |
 | **journalTypeID** | **kotlin.String** |  |  [optional] |
 | **ledgerID** | **kotlin.String** |  |  [optional] |

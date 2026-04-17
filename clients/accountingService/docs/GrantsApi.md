@@ -270,7 +270,7 @@ No authorization required
 
 <a id="updateGrantAsync"></a>
 # **updateGrantAsync**
-> EmptyEnvelope updateGrantAsync(grantId, tenantId, apiVersion, xApiVersion, grantUpdateDto)
+> EmptyEnvelope updateGrantAsync(grantId, tenantId, apiVersion, xApiVersion, body)
 
 Update grant
 
@@ -287,9 +287,9 @@ val grantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val grantUpdateDto : GrantUpdateDto =  // GrantUpdateDto | 
+val body : kotlin.Any = Object // kotlin.Any | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateGrantAsync(grantId, tenantId, apiVersion, xApiVersion, grantUpdateDto)
+    val result : EmptyEnvelope = apiInstance.updateGrantAsync(grantId, tenantId, apiVersion, xApiVersion, body)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GrantsApi#updateGrantAsync")
@@ -307,7 +307,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **grantUpdateDto** | [**GrantUpdateDto**](GrantUpdateDto.md)|  | [optional] |
+| **body** | **kotlin.Any**|  | [optional] |
 
 ### Return type
 

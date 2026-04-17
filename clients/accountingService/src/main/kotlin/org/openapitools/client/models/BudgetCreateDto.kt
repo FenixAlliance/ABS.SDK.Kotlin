@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param name 
- * @param tenantId 
  * @param fiscalYearId 
  */
 
@@ -40,9 +39,6 @@ data class BudgetCreateDto (
 
     @Json(name = "name")
     val name: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
 
     @Json(name = "fiscalYearId")
     val fiscalYearId: kotlin.String? = null

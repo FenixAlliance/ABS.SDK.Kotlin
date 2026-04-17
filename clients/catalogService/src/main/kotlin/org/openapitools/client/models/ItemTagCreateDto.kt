@@ -23,7 +23,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
- * @param businessID 
  * @param id 
  * @param timestamp 
  * @param description 
@@ -34,9 +33,6 @@ data class ItemTagCreateDto (
 
     @Json(name = "title")
     val title: kotlin.String,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

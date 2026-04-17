@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param code 
  * @param title 
- * @param tenantId 
- * @param enrollmentId 
  * @param name 
  */
 
@@ -37,12 +35,6 @@ data class NewsletterUpdateDto (
 
     @Json(name = "title")
     val title: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null

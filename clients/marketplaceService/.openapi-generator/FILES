@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 build.gradle
 docs/AccessTokenResponse.md
@@ -49,16 +48,3 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApiTest.kt
-src/test/kotlin/org/openapitools/client/models/AccessTokenResponseTest.kt
-src/test/kotlin/org/openapitools/client/models/ForgotPasswordRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/HttpValidationProblemDetailsTest.kt
-src/test/kotlin/org/openapitools/client/models/InfoRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/InfoResponseTest.kt
-src/test/kotlin/org/openapitools/client/models/LoginRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/RefreshRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/RegisterRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/ResetPasswordRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/TwoFactorRequestTest.kt
-src/test/kotlin/org/openapitools/client/models/TwoFactorResponseTest.kt

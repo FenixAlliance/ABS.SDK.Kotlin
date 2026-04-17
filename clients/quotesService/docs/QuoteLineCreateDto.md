@@ -12,8 +12,6 @@
 | **itemShortDescription** | **kotlin.String** |  |  [optional] |
 | **itemPrimaryImageUrl** | **kotlin.String** |  |  [optional] |
 | **shippingPolicyId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **quantity** | **kotlin.Double** |  |  [optional] |
@@ -99,7 +97,6 @@
 | **shippingLocationId** | **kotlin.String** |  |  [optional] |
 | **locationId** | **kotlin.String** |  |  [optional] |
 | **quoteItemRecordId** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
 | **parentBillingItemRecordId** | **kotlin.String** |  |  [optional] |
 | **quoteId** | **kotlin.String** |  |  [optional] |
 

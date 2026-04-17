@@ -23,21 +23,13 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param accountId 
- * @param tenantId 
- * @param enrollmentId 
  */
 
 
 data class AccountRelationUpdateDto (
 
     @Json(name = "accountId")
-    val accountId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null
+    val accountId: kotlin.String? = null
 
 ) {
 

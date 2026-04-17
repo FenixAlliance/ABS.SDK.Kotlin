@@ -6,8 +6,6 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  [optional] |
 | **ledgerClass** | [**inline**](#LedgerClass) |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="LedgerClass"></a>

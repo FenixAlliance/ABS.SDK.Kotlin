@@ -41,7 +41,7 @@ import com.squareup.moshi.JsonClass
 data class WebTemplateCreateDto (
 
     @Json(name = "id")
-    val id: kotlin.String? = null,
+    val id: java.util.UUID? = null,
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,

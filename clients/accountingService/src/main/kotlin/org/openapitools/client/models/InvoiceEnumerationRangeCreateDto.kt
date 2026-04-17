@@ -34,8 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param numerationFrom 
  * @param numerationTo 
  * @param fiscalAuthorityId 
- * @param tenantId 
- * @param enrollmentId 
  * @param documentType 
  */
 
@@ -77,12 +75,6 @@ data class InvoiceEnumerationRangeCreateDto (
 
     @Json(name = "fiscalAuthorityId")
     val fiscalAuthorityId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "documentType")
     val documentType: InvoiceEnumerationRangeCreateDto.DocumentType? = null

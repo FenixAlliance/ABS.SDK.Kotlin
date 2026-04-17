@@ -45,8 +45,6 @@ import com.squareup.moshi.JsonClass
  * @param customState 
  * @param customCity 
  * @param cityID 
- * @param businessID 
- * @param businessProfileRecordID 
  */
 
 
@@ -119,13 +117,7 @@ data class PricingRuleCreateDto (
     val customCity: kotlin.String? = null,
 
     @Json(name = "cityID")
-    val cityID: kotlin.String? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val cityID: kotlin.String? = null
 
 ) {
 

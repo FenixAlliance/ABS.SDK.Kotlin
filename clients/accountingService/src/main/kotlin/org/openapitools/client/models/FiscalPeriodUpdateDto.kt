@@ -25,8 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param fromDate 
  * @param toDate 
- * @param tenantId 
- * @param enrollmentId 
  * @param fiscalYearId 
  */
 
@@ -41,12 +39,6 @@ data class FiscalPeriodUpdateDto (
 
     @Json(name = "toDate")
     val toDate: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "fiscalYearId")
     val fiscalYearId: kotlin.String? = null

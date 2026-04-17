@@ -15,8 +15,6 @@
 | **creditMonths** | **kotlin.Double** |  |  [optional] |
 | **creditYears** | **kotlin.Double** |  |  [optional] |
 | **paymentModeID** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

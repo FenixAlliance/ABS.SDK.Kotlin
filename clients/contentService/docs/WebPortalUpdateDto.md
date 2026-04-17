@@ -11,7 +11,6 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **websiteThemeID** | **kotlin.String** |  |  [optional] |
 | **businessDomainID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 | **businessPortalApplicationID** | **kotlin.String** |  |  [optional] |
 
 

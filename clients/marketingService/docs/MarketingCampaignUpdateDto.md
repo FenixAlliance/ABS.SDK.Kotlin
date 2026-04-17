@@ -18,8 +18,6 @@
 | **expectedResponsePercent** | **kotlin.Double** |  |  [optional] |
 | **marketingAreaId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
-| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 
