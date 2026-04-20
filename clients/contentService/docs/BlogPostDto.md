@@ -63,15 +63,15 @@
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentVersionId** | **kotlin.String** |  |  [optional] |
-| **blogPostCategoryID** | **kotlin.String** |  |  [optional] |
-| **webTemplateID** | **kotlin.String** |  |  [optional] |
+| **blogPostCategoryId** | **kotlin.String** |  |  [optional] |
+| **webTemplateId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="CodeType"></a>
 ## Enum: codeType
 | Name | Value |
 | ---- | ----- |
-| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown, Markup |
 
 
 

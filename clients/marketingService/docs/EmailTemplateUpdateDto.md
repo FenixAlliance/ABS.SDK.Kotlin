@@ -65,7 +65,7 @@
 ## Enum: codeType
 | Name | Value |
 | ---- | ----- |
-| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown, Markup |
 
 
 

@@ -55,7 +55,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
     }
 

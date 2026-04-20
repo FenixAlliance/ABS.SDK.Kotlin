@@ -276,7 +276,7 @@ data class EmailTemplateDto (
     /**
      * 
      *
-     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown,Markup
      */
     @JsonClass(generateAdapter = false)
     enum class CodeType(val value: kotlin.String) {
@@ -285,7 +285,8 @@ data class EmailTemplateDto (
         @Json(name = "CSHtml") CSHtml("CSHtml"),
         @Json(name = "Liquid") Liquid("Liquid"),
         @Json(name = "Html5") Html5("Html5"),
-        @Json(name = "Markdown") Markdown("Markdown");
+        @Json(name = "Markdown") Markdown("Markdown"),
+        @Json(name = "Markup") Markup("Markup");
     }
 
 }

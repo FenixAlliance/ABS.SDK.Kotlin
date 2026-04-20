@@ -58,13 +58,15 @@
 | **cornerstoneContent** | **kotlin.Boolean** |  |  [optional] |
 | **isEssentialContent** | **kotlin.Boolean** |  |  [optional] |
 | **allowSearchEngineIndexing** | **kotlin.Boolean** |  |  [optional] |
+| **blogPostCategoryId** | **kotlin.String** |  |  [optional] |
+| **webTemplateId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="CodeType"></a>
 ## Enum: codeType
 | Name | Value |
 | ---- | ----- |
-| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown, Markup |
 
 
 

@@ -4,13 +4,13 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **title** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **title** | **kotlin.String** |  |  [optional] |
-| **code** | **kotlin.String** |  |  [optional] |
 | **published** | **kotlin.Boolean** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **htmlContent** | **kotlin.String** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
+| **markup** | **kotlin.String** |  |  [optional] |
 | **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **codeType** | [**inline**](#CodeType) |  |  [optional] |
 
@@ -19,7 +19,7 @@
 ## Enum: codeType
 | Name | Value |
 | ---- | ----- |
-| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown |
+| codeType | Razor, CSharp, CSHtml, Liquid, Html5, Markdown, Markup |
 
 
 

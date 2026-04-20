@@ -22,13 +22,13 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param title 
  * @param id 
  * @param timestamp 
- * @param title 
- * @param code 
  * @param published 
  * @param description 
- * @param htmlContent 
+ * @param code 
+ * @param markup 
  * @param featuredImageUrl 
  * @param codeType 
  */
@@ -36,17 +36,14 @@ import com.squareup.moshi.JsonClass
 
 data class WebContentCreateDto (
 
+    @Json(name = "title")
+    val title: kotlin.String,
+
     @Json(name = "id")
     val id: java.util.UUID? = null,
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "title")
-    val title: kotlin.String? = null,
-
-    @Json(name = "code")
-    val code: kotlin.String? = null,
 
     @Json(name = "published")
     val published: kotlin.Boolean? = null,
@@ -54,8 +51,11 @@ data class WebContentCreateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "htmlContent")
-    val htmlContent: kotlin.String? = null,
+    @Json(name = "code")
+    val code: kotlin.String? = null,
+
+    @Json(name = "markup")
+    val markup: kotlin.String? = null,
 
     @Json(name = "featuredImageUrl")
     val featuredImageUrl: kotlin.String? = null,
@@ -68,7 +68,7 @@ data class WebContentCreateDto (
     /**
      * 
      *
-     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown,Markup
      */
     @JsonClass(generateAdapter = false)
     enum class CodeType(val value: kotlin.String) {
@@ -77,7 +77,8 @@ data class WebContentCreateDto (
         @Json(name = "CSHtml") CSHtml("CSHtml"),
         @Json(name = "Liquid") Liquid("Liquid"),
         @Json(name = "Html5") Html5("Html5"),
-        @Json(name = "Markdown") Markdown("Markdown");
+        @Json(name = "Markdown") Markdown("Markdown"),
+        @Json(name = "Markup") Markup("Markup");
     }
 
 }

@@ -22,21 +22,24 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param title 
  * @param id 
  * @param timestamp 
- * @param title 
- * @param code 
  * @param published 
  * @param description 
- * @param htmlContent 
+ * @param code 
+ * @param markup 
  * @param featuredImageUrl 
  * @param codeType 
- * @param blogPostCategoryID 
- * @param webTemplateID 
+ * @param blogPostCategoryId 
+ * @param webTemplateId 
  */
 
 
 data class BlogPostCreateDto (
+
+    @Json(name = "title")
+    val title: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -44,20 +47,17 @@ data class BlogPostCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "title")
-    val title: kotlin.String? = null,
-
-    @Json(name = "code")
-    val code: kotlin.String? = null,
-
     @Json(name = "published")
     val published: kotlin.Boolean? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "htmlContent")
-    val htmlContent: kotlin.String? = null,
+    @Json(name = "code")
+    val code: kotlin.String? = null,
+
+    @Json(name = "markup")
+    val markup: kotlin.String? = null,
 
     @Json(name = "featuredImageUrl")
     val featuredImageUrl: kotlin.String? = null,
@@ -65,18 +65,18 @@ data class BlogPostCreateDto (
     @Json(name = "codeType")
     val codeType: BlogPostCreateDto.CodeType? = null,
 
-    @Json(name = "blogPostCategoryID")
-    val blogPostCategoryID: kotlin.String? = null,
+    @Json(name = "blogPostCategoryId")
+    val blogPostCategoryId: kotlin.String? = null,
 
-    @Json(name = "webTemplateID")
-    val webTemplateID: kotlin.String? = null
+    @Json(name = "webTemplateId")
+    val webTemplateId: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown
+     * Values: Razor,CSharp,CSHtml,Liquid,Html5,Markdown,Markup
      */
     @JsonClass(generateAdapter = false)
     enum class CodeType(val value: kotlin.String) {
@@ -85,7 +85,8 @@ data class BlogPostCreateDto (
         @Json(name = "CSHtml") CSHtml("CSHtml"),
         @Json(name = "Liquid") Liquid("Liquid"),
         @Json(name = "Html5") Html5("Html5"),
-        @Json(name = "Markdown") Markdown("Markdown");
+        @Json(name = "Markdown") Markdown("Markdown"),
+        @Json(name = "Markup") Markup("Markup");
     }
 
 }

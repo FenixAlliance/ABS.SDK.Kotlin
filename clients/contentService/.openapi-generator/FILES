@@ -344,4 +344,3 @@ src/main/kotlin/org/openapitools/client/models/WebTemplateDto.kt
 src/main/kotlin/org/openapitools/client/models/WebTemplateDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WebTemplateDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WebTemplateUpdateDto.kt
-src/test/kotlin/org/openapitools/client/models/WebPortalDtoListEnvelopeTest.kt
