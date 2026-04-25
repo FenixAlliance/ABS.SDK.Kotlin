@@ -13,7 +13,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesApi.md
@@ -161,7 +161,7 @@ settings.gradle
 src/main/kotlin/org/openapitools/client/apis/DepartmentsApi.kt
 src/main/kotlin/org/openapitools/client/apis/EmployeeEnrollmentsApi.kt
 src/main/kotlin/org/openapitools/client/apis/EnrollmentsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/IndustriesApi.kt
 src/main/kotlin/org/openapitools/client/apis/InvitationsApi.kt
 src/main/kotlin/org/openapitools/client/apis/OptionsApi.kt
@@ -328,3 +328,4 @@ src/main/kotlin/org/openapitools/client/models/WalletDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WebPortalDto.kt
 src/main/kotlin/org/openapitools/client/models/WebPortalDtoListEnvelope.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

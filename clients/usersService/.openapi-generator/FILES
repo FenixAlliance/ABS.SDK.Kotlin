@@ -13,7 +13,7 @@ docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -61,7 +61,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/OptionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/UsersApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt

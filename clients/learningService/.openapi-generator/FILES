@@ -78,7 +78,7 @@ docs/CourseWikiUpdateDto.md
 docs/CourseWikisApi.md
 docs/CoursesApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -121,7 +121,7 @@ src/main/kotlin/org/openapitools/client/apis/CourseUnitsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseUpdatesApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseWikisApi.kt
 src/main/kotlin/org/openapitools/client/apis/CoursesApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/InstructorProfilesApi.kt
 src/main/kotlin/org/openapitools/client/apis/StudentProfilesApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt

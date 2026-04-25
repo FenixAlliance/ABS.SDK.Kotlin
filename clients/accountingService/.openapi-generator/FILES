@@ -101,7 +101,7 @@ docs/CreateLedgerDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -288,7 +288,7 @@ src/main/kotlin/org/openapitools/client/apis/BillingProfilesApi.kt
 src/main/kotlin/org/openapitools/client/apis/BudgetsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CommissionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CostCentresApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/FinancialBooksApi.kt
 src/main/kotlin/org/openapitools/client/apis/FiscalAuthoritiesApi.kt
 src/main/kotlin/org/openapitools/client/apis/FiscalAuthorityYearsApi.kt
@@ -572,3 +572,4 @@ src/main/kotlin/org/openapitools/client/models/TransactionUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/UpdateLedgerDto.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

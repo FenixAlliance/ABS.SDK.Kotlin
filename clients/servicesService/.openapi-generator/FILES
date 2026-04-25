@@ -3,7 +3,7 @@ build.gradle
 docs/AccessTokenResponse.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -57,7 +57,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/ServiceCaseTypesApi.kt
 src/main/kotlin/org/openapitools/client/apis/ServiceCasesApi.kt
 src/main/kotlin/org/openapitools/client/apis/ServiceLevelAgreementsApi.kt
@@ -126,3 +126,4 @@ src/main/kotlin/org/openapitools/client/models/ServiceQueueUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/ServiceUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

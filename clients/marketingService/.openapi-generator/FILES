@@ -21,7 +21,7 @@ docs/EmailTemplateUpdateDto.md
 docs/EmailTemplatesApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -73,7 +73,7 @@ settings.gradle
 src/main/kotlin/org/openapitools/client/apis/EmailGroupsApi.kt
 src/main/kotlin/org/openapitools/client/apis/EmailSignaturesApi.kt
 src/main/kotlin/org/openapitools/client/apis/EmailTemplatesApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/MarketingCampaignsApi.kt
 src/main/kotlin/org/openapitools/client/apis/MarketingListsApi.kt
 src/main/kotlin/org/openapitools/client/apis/NewslettersApi.kt
@@ -152,3 +152,4 @@ src/main/kotlin/org/openapitools/client/models/SocialPostBucketDtoListEnvelope.k
 src/main/kotlin/org/openapitools/client/models/SocialPostBucketUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

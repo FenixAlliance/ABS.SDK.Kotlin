@@ -57,7 +57,7 @@ docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FenixAllianceIntegrationsOptions.md
 docs/FooterOptions.md
 docs/ForgotPasswordRequest.md
@@ -171,7 +171,7 @@ src/main/kotlin/org/openapitools/client/apis/BlogPostCategoriesApi.kt
 src/main/kotlin/org/openapitools/client/apis/BlogPostTagsApi.kt
 src/main/kotlin/org/openapitools/client/apis/BlogPostsApi.kt
 src/main/kotlin/org/openapitools/client/apis/BusinessDomainsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/PortalsApi.kt
 src/main/kotlin/org/openapitools/client/apis/ThemesApi.kt
 src/main/kotlin/org/openapitools/client/apis/WebContentsApi.kt

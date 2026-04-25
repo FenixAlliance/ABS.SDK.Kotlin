@@ -18,7 +18,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedContactDto.md
 docs/ExtendedContactDtoEnvelope.md
 docs/ExtendedContactDtoListEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -51,7 +51,7 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/ContactsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/OptionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/SyncApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt

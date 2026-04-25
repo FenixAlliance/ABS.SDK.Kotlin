@@ -7,7 +7,7 @@ docs/ConversationDto.md
 docs/ConversationDtoListEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -73,7 +73,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialFeedsApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialGroupsApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialPostsApi.kt
@@ -158,3 +158,4 @@ src/main/kotlin/org/openapitools/client/models/SocialReactionDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/SocialReactionUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

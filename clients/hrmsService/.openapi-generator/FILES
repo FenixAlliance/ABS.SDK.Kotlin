@@ -13,7 +13,7 @@ docs/EmployerProfileDtoListEnvelope.md
 docs/EmployersApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABPWebApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/GigCreateDto.md
 docs/GigDto.md
@@ -44,7 +44,7 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/EmployeesApi.kt
 src/main/kotlin/org/openapitools/client/apis/EmployersApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABPWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/GigsApi.kt
 src/main/kotlin/org/openapitools/client/apis/JobOffersApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
