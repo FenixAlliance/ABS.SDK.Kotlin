@@ -9,7 +9,7 @@
 | **correlationId** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] [readonly] |
 | **activityId** | **kotlin.String** |  |  [optional] [readonly] |
-| **result** | [**AuthorizationResult**](AuthorizationResult.md) |  |  [optional] |
+| **result** | [**AuthResult**](AuthResult.md) |  |  [optional] |
 
 
 

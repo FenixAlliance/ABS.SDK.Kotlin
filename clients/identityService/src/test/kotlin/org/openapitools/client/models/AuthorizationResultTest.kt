@@ -18,12 +18,12 @@ package org.openapitools.client.models
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
-import org.openapitools.client.models.AuthorizationResult
+import org.openapitools.client.models.AuthResult
 
 class AuthorizationResultTest : ShouldSpec() {
     init {
-        // uncomment below to create an instance of AuthorizationResult
-        //val modelInstance = AuthorizationResult()
+        // uncomment below to create an instance of AuthResult
+        //val modelInstance = AuthResult()
 
         // to test the property `userId`
         should("test userId") {

@@ -15,7 +15,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AuthorizationResult
+import org.openapitools.client.models.AuthResult
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -50,7 +50,7 @@ data class AuthorizationResultEnvelope (
     val activityId: kotlin.String? = null,
 
     @Json(name = "result")
-    val result: AuthorizationResult? = null
+    val result: AuthResult? = null
 
 ) {
 

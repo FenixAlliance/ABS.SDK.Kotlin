@@ -1,5 +1,5 @@
 
-# AuthorizationResult
+# AuthResult
 
 ## Properties
 | Name | Type | Description | Notes |

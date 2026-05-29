@@ -33,7 +33,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class AuthorizationResult (
+data class AuthResult (
 
     @Json(name = "userId")
     val userId: kotlin.Any? = null,

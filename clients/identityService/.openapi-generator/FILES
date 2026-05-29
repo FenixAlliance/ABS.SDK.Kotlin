@@ -2,7 +2,7 @@ README.md
 build.gradle
 docs/AccessTokenResponse.md
 docs/ApplicationsApi.md
-docs/AuthorizationResult.md
+docs/AuthResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
@@ -64,7 +64,7 @@ src/main/kotlin/org/openapitools/client/infrastructure/Serializer.kt
 src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
-src/main/kotlin/org/openapitools/client/models/AuthorizationResult.kt
+src/main/kotlin/org/openapitools/client/models/AuthResult.kt
 src/main/kotlin/org/openapitools/client/models/AuthorizationResultEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt

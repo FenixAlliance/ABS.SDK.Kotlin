@@ -85,7 +85,7 @@ All URIs are relative to *https://absuite.net*
 ## Documentation for Models
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
- - [org.openapitools.client.models.AuthorizationResult](docs/AuthorizationResult.md)
+ - [org.openapitools.client.models.AuthResult](docs/AuthResult.md)
  - [org.openapitools.client.models.AuthorizationResultEnvelope](docs/AuthorizationResultEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)

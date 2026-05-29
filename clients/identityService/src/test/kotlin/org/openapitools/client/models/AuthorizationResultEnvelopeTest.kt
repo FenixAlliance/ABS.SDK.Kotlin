@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.models.AuthorizationResultEnvelope
-import org.openapitools.client.models.AuthorizationResult
+import org.openapitools.client.models.AuthResult
 
 class AuthorizationResultEnvelopeTest : ShouldSpec() {
     init {
