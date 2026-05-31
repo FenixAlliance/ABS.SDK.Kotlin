@@ -30,6 +30,7 @@
 | **customerNotes** | **kotlin.String** |  |  [optional] |
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
+| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **totalDetail** | **kotlin.Double** |  |  [optional] |
 | **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |

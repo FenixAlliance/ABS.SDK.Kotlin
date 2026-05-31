@@ -45,7 +45,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -208,6 +208,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets a payment by ID (deprecated)
      * Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
      * @param paymentId 
+     * @param tenantId 
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -218,9 +219,9 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
     @Deprecated(message = "This operation is deprecated.")
-    fun getPaymentAsync(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
+    fun getPaymentAsync(paymentId: java.util.UUID, tenantId: java.util.UUID) : PaymentDtoListEnvelope {
         @Suppress("DEPRECATION")
-        val localVarResponse = getPaymentAsyncWithHttpInfo(paymentId = paymentId)
+        val localVarResponse = getPaymentAsyncWithHttpInfo(paymentId = paymentId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -241,6 +242,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets a payment by ID (deprecated)
      * Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
      * @param paymentId 
+     * @param tenantId 
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -248,9 +250,9 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
     @Deprecated(message = "This operation is deprecated.")
-    fun getPaymentAsyncWithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
+    fun getPaymentAsyncWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
         @Suppress("DEPRECATION")
-        val localVariableConfig = getPaymentAsyncRequestConfig(paymentId = paymentId)
+        val localVariableConfig = getPaymentAsyncRequestConfig(paymentId = paymentId, tenantId = tenantId)
 
         return request<Unit, PaymentDtoListEnvelope>(
             localVariableConfig
@@ -261,12 +263,16 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getPaymentAsync
      *
      * @param paymentId 
+     * @param tenantId 
      * @return RequestConfig
      */
     @Deprecated(message = "This operation is deprecated.")
-    fun getPaymentAsyncRequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
+    fun getPaymentAsyncRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -284,6 +290,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets a payment by ID
      * Retrieves the details of a payment using its unique identifier.
      * @param paymentId 
+     * @param tenantId 
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -293,8 +300,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPaymentAsyncV2(paymentId: java.util.UUID) : PaymentDtoListEnvelope {
-        val localVarResponse = getPaymentAsyncV2WithHttpInfo(paymentId = paymentId)
+    fun getPaymentAsyncV2(paymentId: java.util.UUID, tenantId: java.util.UUID) : PaymentDtoListEnvelope {
+        val localVarResponse = getPaymentAsyncV2WithHttpInfo(paymentId = paymentId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -315,14 +322,15 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets a payment by ID
      * Retrieves the details of a payment using its unique identifier.
      * @param paymentId 
+     * @param tenantId 
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPaymentAsyncV2WithHttpInfo(paymentId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = getPaymentAsyncV2RequestConfig(paymentId = paymentId)
+    fun getPaymentAsyncV2WithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getPaymentAsyncV2RequestConfig(paymentId = paymentId, tenantId = tenantId)
 
         return request<Unit, PaymentDtoListEnvelope>(
             localVariableConfig
@@ -333,11 +341,15 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getPaymentAsyncV2
      *
      * @param paymentId 
+     * @param tenantId 
      * @return RequestConfig
      */
-    fun getPaymentAsyncV2RequestConfig(paymentId: java.util.UUID) : RequestConfig<Unit> {
+    fun getPaymentAsyncV2RequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

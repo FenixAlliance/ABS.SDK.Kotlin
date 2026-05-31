@@ -1,6 +1,6 @@
 # FiscalEnumerationRangesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,7 +27,7 @@ Creates a new invoice enumeration range for a fiscal authority.
 //import org.openapitools.client.models.*
 
 val apiInstance = FiscalEnumerationRangesApi()
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val invoiceEnumerationRangeCreateDto : InvoiceEnumerationRangeCreateDto =  // InvoiceEnumerationRangeCreateDto | 
@@ -44,7 +44,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -80,7 +80,7 @@ Deletes an invoice enumeration range identified by its unique identifier.
 
 val apiInstance = FiscalEnumerationRangesApi()
 val enumerationRangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -97,7 +97,7 @@ try {
 
 ### Parameters
 | **enumerationRangeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -133,7 +133,7 @@ Retrieves a specific invoice enumeration range by its unique identifier.
 val apiInstance = FiscalEnumerationRangesApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val enumerationRangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -151,7 +151,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **enumerationRangeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -172,7 +172,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRanges"></a>
 # **getInvoiceEnumerationRanges**
-> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(authorityId, fiscalAuthorityId, apiVersion, xApiVersion)
+> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
 
 Get invoice enumeration ranges for an authority
 
@@ -186,11 +186,12 @@ Retrieves all invoice enumeration ranges for the specified fiscal authority.
 
 val apiInstance = FiscalEnumerationRangesApi()
 val authorityId : kotlin.String = authorityId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRanges(authorityId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalEnumerationRangesApi#getInvoiceEnumerationRanges")
@@ -203,6 +204,7 @@ try {
 
 ### Parameters
 | **authorityId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -224,7 +226,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRangesCount"></a>
 # **getInvoiceEnumerationRangesCount**
-> Int32Envelope getInvoiceEnumerationRangesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
 
 Get invoice enumeration ranges count
 
@@ -238,10 +240,11 @@ Returns the total count of invoice enumeration ranges for the specified fiscal a
 
 val apiInstance = FiscalEnumerationRangesApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceEnumerationRangesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalEnumerationRangesApi#getInvoiceEnumerationRangesCount")
@@ -254,6 +257,7 @@ try {
 
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -288,7 +292,7 @@ Updates an existing invoice enumeration range identified by its unique identifie
 
 val apiInstance = FiscalEnumerationRangesApi()
 val enumerationRangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val invoiceEnumerationRangeUpdateDto : InvoiceEnumerationRangeUpdateDto =  // InvoiceEnumerationRangeUpdateDto | 
@@ -306,7 +310,7 @@ try {
 
 ### Parameters
 | **enumerationRangeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

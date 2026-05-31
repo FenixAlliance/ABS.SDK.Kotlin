@@ -62,7 +62,7 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -579,7 +579,7 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Get course by ID
      * Retrieves a specific course by its ID.
      * @param courseId 
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return CourseDto
@@ -591,7 +591,7 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseByIdAsync(courseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseDto {
+    fun getCourseByIdAsync(courseId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseDto {
         val localVarResponse = getCourseByIdAsyncWithHttpInfo(courseId = courseId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -613,7 +613,7 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Get course by ID
      * Retrieves a specific course by its ID.
      * @param courseId 
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<CourseDto?>
@@ -622,7 +622,7 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseByIdAsyncWithHttpInfo(courseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseDto?> {
+    fun getCourseByIdAsyncWithHttpInfo(courseId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseDto?> {
         val localVariableConfig = getCourseByIdAsyncRequestConfig(courseId = courseId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, CourseDto>(
@@ -634,16 +634,18 @@ class CoursesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * To obtain the request config of the operation getCourseByIdAsync
      *
      * @param courseId 
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getCourseByIdAsyncRequestConfig(courseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getCourseByIdAsyncRequestConfig(courseId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

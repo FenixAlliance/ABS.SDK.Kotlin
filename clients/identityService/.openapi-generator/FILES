@@ -3,10 +3,11 @@ build.gradle
 docs/AccessTokenResponse.md
 docs/ApplicationsApi.md
 docs/AuthResult.md
-docs/AuthorizationResultEnvelope.md
+docs/AuthResultEnvelope.md
 docs/CheckerApi.md
+docs/CompletionsApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -42,7 +43,8 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/ApplicationsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CheckerApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
 src/main/kotlin/org/openapitools/client/apis/OAuthApi.kt
 src/main/kotlin/org/openapitools/client/apis/ResourceApi.kt
 src/main/kotlin/org/openapitools/client/apis/UserInfoApi.kt
@@ -65,7 +67,7 @@ src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
 src/main/kotlin/org/openapitools/client/models/AuthResult.kt
-src/main/kotlin/org/openapitools/client/models/AuthorizationResultEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/AuthResultEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
@@ -92,3 +94,7 @@ src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/UserCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/UserCreateDtoEnvelope.kt
+src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
+src/test/kotlin/org/openapitools/client/models/AuthResultEnvelopeTest.kt
+src/test/kotlin/org/openapitools/client/models/AuthResultTest.kt

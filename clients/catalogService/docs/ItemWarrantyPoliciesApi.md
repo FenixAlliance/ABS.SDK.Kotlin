@@ -1,6 +1,6 @@
 # ItemWarrantyPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemWarrantyPoliciesAsync"></a>
 # **countItemWarrantyPoliciesAsync**
-> Int32Envelope countItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item warranty policies
 
@@ -26,11 +26,12 @@ Counts all warranty policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemWarrantyPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemWarrantyPoliciesApi#countItemWarrantyPoliciesAsync")
@@ -42,6 +43,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -63,7 +65,7 @@ No authorization required
 
 <a id="getItemWarrantyPoliciesAsync"></a>
 # **getItemWarrantyPoliciesAsync**
-> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item warranty policies
 
@@ -76,11 +78,12 @@ Retrieves all warranty policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemWarrantyPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemWarrantyPoliciesApi#getItemWarrantyPoliciesAsync")
@@ -92,6 +95,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -113,7 +117,7 @@ No authorization required
 
 <a id="getItemWarrantyPolicyByIdAsync"></a>
 # **getItemWarrantyPolicyByIdAsync**
-> ItemWarrantyPolicyDtoEnvelope getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoEnvelope getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item warranty policy by ID
 
@@ -127,11 +131,12 @@ Retrieves a specific warranty policy for an item.
 
 val apiInstance = ItemWarrantyPoliciesApi()
 val itemWarrantyPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemWarrantyPolicyDtoEnvelope = apiInstance.getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, itemId, apiVersion, xApiVersion)
+    val result : ItemWarrantyPolicyDtoEnvelope = apiInstance.getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemWarrantyPoliciesApi#getItemWarrantyPolicyByIdAsync")
@@ -144,6 +149,7 @@ try {
 
 ### Parameters
 | **itemWarrantyPolicyId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

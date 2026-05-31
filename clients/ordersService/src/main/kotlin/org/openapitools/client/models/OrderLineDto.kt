@@ -15,9 +15,6 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.CurrencyId
-import org.openapitools.client.models.ForexRates
-import org.openapitools.client.models.Money
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -28,15 +25,73 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param closed 
+ * @param type 
+ * @param title 
+ * @param userId 
+ * @param tenantId 
+ * @param description 
+ * @param priceListId 
+ * @param enrollmentId 
+ * @param individualId 
+ * @param organizationId 
+ * @param receiverTenantId 
+ * @param firstName 
+ * @param lastName 
+ * @param companyName 
+ * @param billingEmail 
+ * @param addressLine1 
+ * @param addressLine2 
+ * @param postalCode 
+ * @param countryId 
+ * @param stateId 
+ * @param cityId 
+ * @param customerNotes 
+ * @param taxCalculationMethod 
+ * @param costCalculationMethod 
+ * @param forexRate 
+ * @param forexRatesSnapshot 
+ * @param currencyId 
+ * @param totalDetail 
+ * @param totalDetailCurrencyId 
+ * @param totalProfit 
+ * @param totalProfitCurrencyId 
+ * @param totalDiscounts 
+ * @param totalDiscountsCurrencyId 
+ * @param totalSurcharges 
+ * @param totalSurchargesCurrencyId 
+ * @param totalTaxBase 
+ * @param totalTaxBaseCurrencyId 
+ * @param totalTaxes 
+ * @param totalTaxesCurrencyId 
+ * @param totalShippingCost 
+ * @param totalShippingCostCurrencyId 
+ * @param totalShippingTax 
+ * @param totalShippingTaxCurrencyId 
+ * @param totalWithheldTax 
+ * @param totalWithheldTaxCurrencyId 
+ * @param totalGlobalDiscounts 
+ * @param totalGlobalDiscountsCurrencyId 
+ * @param totalGlobalSurcharges 
+ * @param totalGlobalSurchargesCurrencyId 
+ * @param total 
+ * @param totalCurrencyId 
+ * @param totalDetailInUsd 
+ * @param totalProfitInUsd 
+ * @param totalDiscountsInUsd 
+ * @param totalSurchargesInUsd 
+ * @param totalTaxBaseInUsd 
+ * @param totalTaxesInUsd 
+ * @param totalWithheldTaxesInUsd 
+ * @param totalShippingCostInUsd 
+ * @param totalShippingTaxesInUsd 
+ * @param totalGlobalDiscountsInUsd 
+ * @param totalGlobalSurchargesInUsd 
+ * @param totalInUsd 
  * @param itemId 
  * @param itemTitle 
  * @param itemShortDescription 
  * @param itemPrimaryImageUrl 
  * @param shippingPolicyId 
- * @param tenantId 
- * @param enrollmentId 
- * @param currencyId 
- * @param description 
  * @param quantity 
  * @param free 
  * @param freeReason 
@@ -65,25 +120,9 @@ import com.squareup.moshi.JsonClass
  * @param priceListItemId 
  * @param unitId 
  * @param unitGroupId 
- * @param taxCalculationMethod 
- * @param costCalculationMethod 
- * @param forexRates 
- * @param forexRate 
- * @param totalDetailInUsd 
- * @param totalProfitInUsd 
- * @param totalDiscountsInUsd 
- * @param totalSurchargesInUsd 
- * @param totalTaxBaseInUsd 
- * @param totalTaxesInUsd 
- * @param totalWithheldTaxesInUsd 
- * @param totalShippingCostInUsd 
- * @param totalShippingTaxesInUsd 
  * @param totalWarrantyCostInUsd 
  * @param totalReturnCostInUsd 
  * @param totalRefundCostInUsd 
- * @param totalInUsd 
- * @param totalGlobalDiscountsInUsd 
- * @param totalGlobalSurchargesInUsd 
  * @param customGlobalSurchargesAmount 
  * @param customGlobalDiscountsAmount 
  * @param returnPolicyId 
@@ -95,43 +134,6 @@ import com.squareup.moshi.JsonClass
  * @param quoteItemRecordId 
  * @param businessProfileRecordId 
  * @param parentBillingItemRecordId 
- * @param currency 
- * @param totalDetail 
- * @param totalDetailCurrencyId 
- * @param totalDetailAmount 
- * @param totalProfit 
- * @param totalProfitCurrencyId 
- * @param totalProfitAmount 
- * @param totalDiscounts 
- * @param totalDiscountsCurrencyId 
- * @param totalDiscountsAmount 
- * @param totalSurcharges 
- * @param totalSurchargesCurrencyId 
- * @param totalSurchargesAmount 
- * @param totalTaxBase 
- * @param totalTaxBaseCurrencyId 
- * @param totalTaxBaseAmount 
- * @param totalTaxes 
- * @param totalTaxesCurrencyId 
- * @param totalTaxesAmount 
- * @param totalShippingCost 
- * @param totalShippingCostCurrencyId 
- * @param totalShippingCostAmount 
- * @param totalShippingTax 
- * @param totalShippingTaxCurrencyId 
- * @param totalShippingTaxAmount 
- * @param totalWithheldTax 
- * @param totalWithheldTaxCurrencyId 
- * @param totalWithheldTaxAmount 
- * @param totalGlobalDiscounts 
- * @param totalGlobalDiscountsCurrencyId 
- * @param totalGlobalDiscountsAmount 
- * @param totalGlobalSurcharges 
- * @param totalGlobalSurchargesCurrencyId 
- * @param totalGlobalSurchargesAmount 
- * @param total 
- * @param totalCurrencyId 
- * @param totalAmount 
  * @param orderId 
  */
 
@@ -147,6 +149,192 @@ data class OrderLineDto (
     @Json(name = "closed")
     val closed: kotlin.Boolean? = null,
 
+    @Json(name = "type")
+    val type: kotlin.String? = null,
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "priceListId")
+    val priceListId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
+
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
+
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
+
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
+
+    @Json(name = "firstName")
+    val firstName: kotlin.String? = null,
+
+    @Json(name = "lastName")
+    val lastName: kotlin.String? = null,
+
+    @Json(name = "companyName")
+    val companyName: kotlin.String? = null,
+
+    @Json(name = "billingEmail")
+    val billingEmail: kotlin.String? = null,
+
+    @Json(name = "addressLine1")
+    val addressLine1: kotlin.String? = null,
+
+    @Json(name = "addressLine2")
+    val addressLine2: kotlin.String? = null,
+
+    @Json(name = "postalCode")
+    val postalCode: kotlin.String? = null,
+
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
+
+    @Json(name = "stateId")
+    val stateId: kotlin.String? = null,
+
+    @Json(name = "cityId")
+    val cityId: kotlin.String? = null,
+
+    @Json(name = "customerNotes")
+    val customerNotes: kotlin.String? = null,
+
+    @Json(name = "taxCalculationMethod")
+    val taxCalculationMethod: OrderLineDto.TaxCalculationMethod? = null,
+
+    @Json(name = "costCalculationMethod")
+    val costCalculationMethod: OrderLineDto.CostCalculationMethod? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
+    @Json(name = "forexRatesSnapshot")
+    val forexRatesSnapshot: kotlin.String? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
+
+    @Json(name = "totalDetail")
+    val totalDetail: kotlin.Double? = null,
+
+    @Json(name = "totalDetailCurrencyId")
+    val totalDetailCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalProfit")
+    val totalProfit: kotlin.Double? = null,
+
+    @Json(name = "totalProfitCurrencyId")
+    val totalProfitCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalDiscounts")
+    val totalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalDiscountsCurrencyId")
+    val totalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalSurcharges")
+    val totalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalSurchargesCurrencyId")
+    val totalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxBase")
+    val totalTaxBase: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseCurrencyId")
+    val totalTaxBaseCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalTaxes")
+    val totalTaxes: kotlin.Double? = null,
+
+    @Json(name = "totalTaxesCurrencyId")
+    val totalTaxesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingCost")
+    val totalShippingCost: kotlin.Double? = null,
+
+    @Json(name = "totalShippingCostCurrencyId")
+    val totalShippingCostCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalShippingTax")
+    val totalShippingTax: kotlin.Double? = null,
+
+    @Json(name = "totalShippingTaxCurrencyId")
+    val totalShippingTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalWithheldTax")
+    val totalWithheldTax: kotlin.Double? = null,
+
+    @Json(name = "totalWithheldTaxCurrencyId")
+    val totalWithheldTaxCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalDiscounts")
+    val totalGlobalDiscounts: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsCurrencyId")
+    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalGlobalSurcharges")
+    val totalGlobalSurcharges: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesCurrencyId")
+    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
+
+    @Json(name = "total")
+    val total: kotlin.Double? = null,
+
+    @Json(name = "totalCurrencyId")
+    val totalCurrencyId: kotlin.String? = null,
+
+    @Json(name = "totalDetailInUsd")
+    val totalDetailInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalProfitInUsd")
+    val totalProfitInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalDiscountsInUsd")
+    val totalDiscountsInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalSurchargesInUsd")
+    val totalSurchargesInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalTaxBaseInUsd")
+    val totalTaxBaseInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalTaxesInUsd")
+    val totalTaxesInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalWithheldTaxesInUsd")
+    val totalWithheldTaxesInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalShippingCostInUsd")
+    val totalShippingCostInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalShippingTaxesInUsd")
+    val totalShippingTaxesInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalDiscountsInUsd")
+    val totalGlobalDiscountsInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalGlobalSurchargesInUsd")
+    val totalGlobalSurchargesInUsd: kotlin.Double? = null,
+
+    @Json(name = "totalInUsd")
+    val totalInUsd: kotlin.Double? = null,
+
     @Json(name = "itemId")
     val itemId: kotlin.String? = null,
 
@@ -161,18 +349,6 @@ data class OrderLineDto (
 
     @Json(name = "shippingPolicyId")
     val shippingPolicyId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "description")
-    val description: kotlin.String? = null,
 
     @Json(name = "quantity")
     val quantity: kotlin.Double? = null,
@@ -258,45 +434,6 @@ data class OrderLineDto (
     @Json(name = "unitGroupId")
     val unitGroupId: kotlin.String? = null,
 
-    @Json(name = "taxCalculationMethod")
-    val taxCalculationMethod: OrderLineDto.TaxCalculationMethod? = null,
-
-    @Json(name = "costCalculationMethod")
-    val costCalculationMethod: OrderLineDto.CostCalculationMethod? = null,
-
-    @Json(name = "forexRates")
-    val forexRates: ForexRates? = null,
-
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
-    @Json(name = "totalDetailInUsd")
-    val totalDetailInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalProfitInUsd")
-    val totalProfitInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalDiscountsInUsd")
-    val totalDiscountsInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalSurchargesInUsd")
-    val totalSurchargesInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalTaxBaseInUsd")
-    val totalTaxBaseInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalTaxesInUsd")
-    val totalTaxesInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalWithheldTaxesInUsd")
-    val totalWithheldTaxesInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalShippingCostInUsd")
-    val totalShippingCostInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalShippingTaxesInUsd")
-    val totalShippingTaxesInUsd: kotlin.Double? = null,
-
     @Json(name = "totalWarrantyCostInUsd")
     val totalWarrantyCostInUsd: kotlin.Double? = null,
 
@@ -305,15 +442,6 @@ data class OrderLineDto (
 
     @Json(name = "totalRefundCostInUsd")
     val totalRefundCostInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalInUsd")
-    val totalInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalGlobalDiscountsInUsd")
-    val totalGlobalDiscountsInUsd: kotlin.Double? = null,
-
-    @Json(name = "totalGlobalSurchargesInUsd")
-    val totalGlobalSurchargesInUsd: kotlin.Double? = null,
 
     @Json(name = "customGlobalSurchargesAmount")
     val customGlobalSurchargesAmount: kotlin.Double? = null,
@@ -347,117 +475,6 @@ data class OrderLineDto (
 
     @Json(name = "parentBillingItemRecordId")
     val parentBillingItemRecordId: kotlin.String? = null,
-
-    @Json(name = "currency")
-    val currency: CurrencyId? = null,
-
-    @Json(name = "totalDetail")
-    val totalDetail: kotlin.Double? = null,
-
-    @Json(name = "totalDetailCurrencyId")
-    val totalDetailCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalDetailAmount")
-    val totalDetailAmount: Money? = null,
-
-    @Json(name = "totalProfit")
-    val totalProfit: kotlin.Double? = null,
-
-    @Json(name = "totalProfitCurrencyId")
-    val totalProfitCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalProfitAmount")
-    val totalProfitAmount: Money? = null,
-
-    @Json(name = "totalDiscounts")
-    val totalDiscounts: kotlin.Double? = null,
-
-    @Json(name = "totalDiscountsCurrencyId")
-    val totalDiscountsCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalDiscountsAmount")
-    val totalDiscountsAmount: Money? = null,
-
-    @Json(name = "totalSurcharges")
-    val totalSurcharges: kotlin.Double? = null,
-
-    @Json(name = "totalSurchargesCurrencyId")
-    val totalSurchargesCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalSurchargesAmount")
-    val totalSurchargesAmount: Money? = null,
-
-    @Json(name = "totalTaxBase")
-    val totalTaxBase: kotlin.Double? = null,
-
-    @Json(name = "totalTaxBaseCurrencyId")
-    val totalTaxBaseCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalTaxBaseAmount")
-    val totalTaxBaseAmount: Money? = null,
-
-    @Json(name = "totalTaxes")
-    val totalTaxes: kotlin.Double? = null,
-
-    @Json(name = "totalTaxesCurrencyId")
-    val totalTaxesCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalTaxesAmount")
-    val totalTaxesAmount: Money? = null,
-
-    @Json(name = "totalShippingCost")
-    val totalShippingCost: kotlin.Double? = null,
-
-    @Json(name = "totalShippingCostCurrencyId")
-    val totalShippingCostCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalShippingCostAmount")
-    val totalShippingCostAmount: Money? = null,
-
-    @Json(name = "totalShippingTax")
-    val totalShippingTax: kotlin.Double? = null,
-
-    @Json(name = "totalShippingTaxCurrencyId")
-    val totalShippingTaxCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalShippingTaxAmount")
-    val totalShippingTaxAmount: Money? = null,
-
-    @Json(name = "totalWithheldTax")
-    val totalWithheldTax: kotlin.Double? = null,
-
-    @Json(name = "totalWithheldTaxCurrencyId")
-    val totalWithheldTaxCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalWithheldTaxAmount")
-    val totalWithheldTaxAmount: Money? = null,
-
-    @Json(name = "totalGlobalDiscounts")
-    val totalGlobalDiscounts: kotlin.Double? = null,
-
-    @Json(name = "totalGlobalDiscountsCurrencyId")
-    val totalGlobalDiscountsCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalGlobalDiscountsAmount")
-    val totalGlobalDiscountsAmount: Money? = null,
-
-    @Json(name = "totalGlobalSurcharges")
-    val totalGlobalSurcharges: kotlin.Double? = null,
-
-    @Json(name = "totalGlobalSurchargesCurrencyId")
-    val totalGlobalSurchargesCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalGlobalSurchargesAmount")
-    val totalGlobalSurchargesAmount: Money? = null,
-
-    @Json(name = "total")
-    val total: kotlin.Double? = null,
-
-    @Json(name = "totalCurrencyId")
-    val totalCurrencyId: kotlin.String? = null,
-
-    @Json(name = "totalAmount")
-    val totalAmount: Money? = null,
 
     @Json(name = "orderId")
     val orderId: kotlin.String? = null

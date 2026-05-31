@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param name 
  * @param description 
+ * @param itemAttributeId 
  * @param businessID 
  */
 
@@ -43,6 +44,9 @@ data class ItemAttributeOptionDto (
 
     @Json(name = "description")
     val description: kotlin.String? = null,
+
+    @Json(name = "itemAttributeId")
+    val itemAttributeId: kotlin.String? = null,
 
     @Json(name = "businessID")
     val businessID: kotlin.String? = null

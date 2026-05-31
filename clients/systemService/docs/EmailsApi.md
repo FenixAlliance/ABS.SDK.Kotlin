@@ -1,6 +1,6 @@
 # EmailsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -59,7 +59,7 @@ No authorization required
 
 <a id="adminSendBasicEmail"></a>
 # **adminSendBasicEmail**
-> TenantDtoListEnvelope adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
+> Envelope adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
 
 Send a basic transactional email to recipients.
 
@@ -76,7 +76,7 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val objectEmailDispatchRequest : ObjectEmailDispatchRequest =  // ObjectEmailDispatchRequest | 
 try {
-    val result : TenantDtoListEnvelope = apiInstance.adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
+    val result : Envelope = apiInstance.adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EmailsApi#adminSendBasicEmail")
@@ -96,7 +96,7 @@ try {
 
 ### Return type
 
-[**TenantDtoListEnvelope**](TenantDtoListEnvelope.md)
+[**Envelope**](Envelope.md)
 
 ### Authorization
 

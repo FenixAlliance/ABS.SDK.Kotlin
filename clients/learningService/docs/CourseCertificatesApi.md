@@ -1,6 +1,6 @@
 # CourseCertificatesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -11,9 +11,11 @@ All URIs are relative to *https://absuite.net*
 | [**getCourseCertificateAsync**](CourseCertificatesApi.md#getCourseCertificateAsync) | **GET** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID |
 | [**getCourseCertificateTemplateAsync**](CourseCertificatesApi.md#getCourseCertificateTemplateAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID |
 | [**getCourseCertificateTemplatesAsync**](CourseCertificatesApi.md#getCourseCertificateTemplatesAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates |
+| [**getCourseCertificateTemplatesCountAsync**](CourseCertificatesApi.md#getCourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count |
 | [**getCourseCertificatesAsync**](CourseCertificatesApi.md#getCourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates |
 | [**getCourseCertificatesCountAsync**](CourseCertificatesApi.md#getCourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count |
 | [**updateCourseCertificateAsync**](CourseCertificatesApi.md#updateCourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate |
+| [**updateCourseCertificateTemplateAsync**](CourseCertificatesApi.md#updateCourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template |
 
 
 <a id="createCourseCertificateAsync"></a>
@@ -374,6 +376,56 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="getCourseCertificateTemplatesCountAsync"></a>
+# **getCourseCertificateTemplatesCountAsync**
+> kotlin.Int getCourseCertificateTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get certificate templates count
+
+Returns the count of course certificate templates for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseCertificatesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : kotlin.Int = apiInstance.getCourseCertificateTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseCertificatesApi#getCourseCertificateTemplatesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseCertificatesApi#getCourseCertificateTemplatesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+**kotlin.Int**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="getCourseCertificatesAsync"></a>
 # **getCourseCertificatesAsync**
 > kotlin.collections.List&lt;CourseCompletionCertificateDto&gt; getCourseCertificatesAsync(tenantId, apiVersion, xApiVersion)
@@ -513,6 +565,59 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **courseCompletionCertificateUpdateDto** | [**CourseCompletionCertificateUpdateDto**](CourseCompletionCertificateUpdateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateCourseCertificateTemplateAsync"></a>
+# **updateCourseCertificateTemplateAsync**
+> updateCourseCertificateTemplateAsync(courseCertificateTemplateId, tenantId, apiVersion, xApiVersion, courseCertificateTemplateUpdateDto)
+
+Update a certificate template
+
+Updates an existing course certificate template for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseCertificatesApi()
+val courseCertificateTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCertificateTemplateUpdateDto : CourseCertificateTemplateUpdateDto =  // CourseCertificateTemplateUpdateDto | 
+try {
+    apiInstance.updateCourseCertificateTemplateAsync(courseCertificateTemplateId, tenantId, apiVersion, xApiVersion, courseCertificateTemplateUpdateDto)
+} catch (e: ClientException) {
+    println("4xx response calling CourseCertificatesApi#updateCourseCertificateTemplateAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseCertificatesApi#updateCourseCertificateTemplateAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseCertificateTemplateId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **courseCertificateTemplateUpdateDto** | [**CourseCertificateTemplateUpdateDto**](CourseCertificateTemplateUpdateDto.md)|  | [optional] |
 
 ### Return type
 

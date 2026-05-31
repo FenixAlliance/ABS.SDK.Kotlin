@@ -29,6 +29,7 @@ import org.openapitools.client.models.JournalEntryCreateDto
 import org.openapitools.client.models.JournalEntryDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.JournalEntryUpdateDto
 import org.openapitools.client.models.JournalUpdateDto
+import org.openapitools.client.models.MoneyEnvelope
 
 import com.squareup.moshi.Json
 
@@ -50,8 +51,194 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
+    }
+
+    /**
+     * Aggregate journal entry credits
+     * Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return MoneyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun aggregateJournalEntryCreditsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Aggregate journal entry credits
+     * Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<MoneyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateJournalEntryCreditsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, MoneyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation aggregateJournalEntryCreditsAsync
+     *
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun aggregateJournalEntryCreditsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (currencyId != null) {
+                    put("currencyId", listOf(currencyId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits".replace("{"+"journalId"+"}", encodeURIComponent(journalId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Aggregate journal entry debits
+     * Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return MoneyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun aggregateJournalEntryDebitsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Aggregate journal entry debits
+     * Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<MoneyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateJournalEntryDebitsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, MoneyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation aggregateJournalEntryDebitsAsync
+     *
+     * @param journalId 
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun aggregateJournalEntryDebitsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (currencyId != null) {
+                    put("currencyId", listOf(currencyId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits".replace("{"+"journalId"+"}", encodeURIComponent(journalId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**

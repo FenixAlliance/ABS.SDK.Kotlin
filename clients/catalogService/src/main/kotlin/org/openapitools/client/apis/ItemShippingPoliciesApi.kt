@@ -44,13 +44,14 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Count item shipping policies
      * Counts all shipping policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -63,8 +64,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemShippingPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemShippingPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -84,6 +85,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Count item shipping policies
      * Counts all shipping policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -93,8 +95,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemShippingPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemShippingPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -104,15 +106,19 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation countItemShippingPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countItemShippingPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -137,6 +143,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Get item shipping policies
      * Retrieves all shipping policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -149,8 +156,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemShippingPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoListEnvelope {
-        val localVarResponse = getItemShippingPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoListEnvelope {
+        val localVarResponse = getItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemShippingPolicyDtoListEnvelope
@@ -170,6 +177,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Get item shipping policies
      * Retrieves all shipping policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -179,8 +187,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemShippingPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemShippingPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemShippingPolicyDtoListEnvelope>(
             localVariableConfig
@@ -190,15 +198,19 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation getItemShippingPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemShippingPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -224,6 +236,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * Get item shipping policy by ID
      * Retrieves a specific shipping policy for an item.
      * @param itemShippingPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -236,8 +249,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemShippingPolicyByIdAsync(itemShippingPolicyId: java.util.UUID, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoEnvelope {
-        val localVarResponse = getItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId = itemShippingPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemShippingPolicyByIdAsync(itemShippingPolicyId: java.util.UUID, tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoEnvelope {
+        val localVarResponse = getItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId = itemShippingPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemShippingPolicyDtoEnvelope
@@ -258,6 +271,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * Get item shipping policy by ID
      * Retrieves a specific shipping policy for an item.
      * @param itemShippingPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -267,8 +281,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoEnvelope?> {
-        val localVariableConfig = getItemShippingPolicyByIdAsyncRequestConfig(itemShippingPolicyId = itemShippingPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoEnvelope?> {
+        val localVariableConfig = getItemShippingPolicyByIdAsyncRequestConfig(itemShippingPolicyId = itemShippingPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemShippingPolicyDtoEnvelope>(
             localVariableConfig
@@ -279,15 +293,19 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * To obtain the request config of the operation getItemShippingPolicyByIdAsync
      *
      * @param itemShippingPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemShippingPolicyByIdAsyncRequestConfig(itemShippingPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemShippingPolicyByIdAsyncRequestConfig(itemShippingPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }

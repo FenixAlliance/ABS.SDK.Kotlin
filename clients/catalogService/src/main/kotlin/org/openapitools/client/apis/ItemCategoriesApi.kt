@@ -46,14 +46,14 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Count item categories
      * Counts all item categories for the specified tenant.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -65,7 +65,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+    fun countItemCategoriesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
         val localVarResponse = countItemCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -86,7 +86,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * Count item categories
      * Counts all item categories for the specified tenant.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -95,7 +95,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+    fun countItemCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
         val localVariableConfig = countItemCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
@@ -106,16 +106,18 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation countItemCategoriesAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countItemCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countItemCategoriesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -310,7 +312,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * Get all item categories
      * Retrieves all item categories for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemCategoryDtoListEnvelope
@@ -322,7 +324,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemCategoryDtoListEnvelope {
+    fun getItemCategoriesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemCategoryDtoListEnvelope {
         val localVarResponse = getItemCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -343,7 +345,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * Get all item categories
      * Retrieves all item categories for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemCategoryDtoListEnvelope?>
@@ -352,7 +354,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemCategoryDtoListEnvelope?> {
+    fun getItemCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemCategoryDtoListEnvelope?> {
         val localVariableConfig = getItemCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemCategoryDtoListEnvelope>(
@@ -363,16 +365,18 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation getItemCategoriesAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemCategoriesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -395,6 +399,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Get item category by ID
      * Retrieves a specific item category by its ID.
      * @param itemCategoryId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemCategoryDtoEnvelope
@@ -406,8 +411,8 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemCategoryByIdAsync(itemCategoryId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemCategoryDtoEnvelope {
-        val localVarResponse = getItemCategoryByIdAsyncWithHttpInfo(itemCategoryId = itemCategoryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemCategoryByIdAsync(itemCategoryId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemCategoryDtoEnvelope {
+        val localVarResponse = getItemCategoryByIdAsyncWithHttpInfo(itemCategoryId = itemCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemCategoryDtoEnvelope
@@ -428,6 +433,7 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Get item category by ID
      * Retrieves a specific item category by its ID.
      * @param itemCategoryId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemCategoryDtoEnvelope?>
@@ -436,8 +442,8 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemCategoryByIdAsyncWithHttpInfo(itemCategoryId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemCategoryDtoEnvelope?> {
-        val localVariableConfig = getItemCategoryByIdAsyncRequestConfig(itemCategoryId = itemCategoryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemCategoryByIdAsyncWithHttpInfo(itemCategoryId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemCategoryDtoEnvelope?> {
+        val localVariableConfig = getItemCategoryByIdAsyncRequestConfig(itemCategoryId = itemCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemCategoryDtoEnvelope>(
             localVariableConfig
@@ -448,14 +454,18 @@ class ItemCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation getItemCategoryByIdAsync
      *
      * @param itemCategoryId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemCategoryByIdAsyncRequestConfig(itemCategoryId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemCategoryByIdAsyncRequestConfig(itemCategoryId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

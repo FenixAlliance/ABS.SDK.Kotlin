@@ -47,7 +47,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -139,6 +139,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Create a social group
      * Creates a new social group for the specified tenant.
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupCreateDto  (optional)
@@ -151,8 +152,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSocialGroupAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupCreateDto: SocialGroupCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = createSocialGroupAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupCreateDto = socialGroupCreateDto)
+    fun createSocialGroupAsync(tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupCreateDto: SocialGroupCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createSocialGroupAsyncWithHttpInfo(tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupCreateDto = socialGroupCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -173,6 +174,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Create a social group
      * Creates a new social group for the specified tenant.
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupCreateDto  (optional)
@@ -182,8 +184,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSocialGroupAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupCreateDto: SocialGroupCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = createSocialGroupAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupCreateDto = socialGroupCreateDto)
+    fun createSocialGroupAsyncWithHttpInfo(tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupCreateDto: SocialGroupCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createSocialGroupAsyncRequestConfig(tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupCreateDto = socialGroupCreateDto)
 
         return request<SocialGroupCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -194,16 +196,18 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation createSocialGroupAsync
      *
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupCreateDto  (optional)
      * @return RequestConfig
      */
-    fun createSocialGroupAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupCreateDto: SocialGroupCreateDto?) : RequestConfig<SocialGroupCreateDto> {
+    fun createSocialGroupAsyncRequestConfig(tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupCreateDto: SocialGroupCreateDto?) : RequestConfig<SocialGroupCreateDto> {
         val localVariableBody = socialGroupCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
+                put("socialProfileId", listOf(socialProfileId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -228,6 +232,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Deletes a social group for the specified tenant.
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -239,8 +244,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = deleteSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -262,6 +267,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Deletes a social group for the specified tenant.
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -270,8 +276,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = deleteSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -283,15 +289,17 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun deleteSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
+                put("socialProfileId", listOf(socialProfileId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -486,6 +494,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Updates an existing social group for the specified tenant.
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupUpdateDto  (optional)
@@ -498,8 +507,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupUpdateDto: SocialGroupUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = updateSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupUpdateDto = socialGroupUpdateDto)
+    fun updateSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupUpdateDto: SocialGroupUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupUpdateDto = socialGroupUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -521,6 +530,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Updates an existing social group for the specified tenant.
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupUpdateDto  (optional)
@@ -530,8 +540,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupUpdateDto: SocialGroupUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = updateSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupUpdateDto = socialGroupUpdateDto)
+    fun updateSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupUpdateDto: SocialGroupUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupUpdateDto = socialGroupUpdateDto)
 
         return request<SocialGroupUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -543,16 +553,18 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param socialGroupId 
      * @param tenantId 
+     * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialGroupUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun updateSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupUpdateDto: SocialGroupUpdateDto?) : RequestConfig<SocialGroupUpdateDto> {
+    fun updateSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupUpdateDto: SocialGroupUpdateDto?) : RequestConfig<SocialGroupUpdateDto> {
         val localVariableBody = socialGroupUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
+                put("socialProfileId", listOf(socialProfileId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

@@ -83,7 +83,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -91,6 +91,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count tags for a stock item
      * Counts the number of tags associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -102,8 +103,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countStockItemTagsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countStockItemTagsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -124,6 +125,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count tags for a stock item
      * Counts the number of tags associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -132,8 +134,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countStockItemTagsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -144,14 +146,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * To obtain the request config of the operation countStockItemTagsByItemId
      *
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -2709,6 +2713,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieves a specific tag by ID for a stock item.
      * @param itemId 
      * @param itemTagId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTagDtoEnvelope
@@ -2720,8 +2725,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTagById(itemId: java.util.UUID, itemTagId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoEnvelope {
-        val localVarResponse = getStockItemTagByIdWithHttpInfo(itemId = itemId, itemTagId = itemTagId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagById(itemId: java.util.UUID, itemTagId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoEnvelope {
+        val localVarResponse = getStockItemTagByIdWithHttpInfo(itemId = itemId, itemTagId = itemTagId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTagDtoEnvelope
@@ -2743,6 +2748,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieves a specific tag by ID for a stock item.
      * @param itemId 
      * @param itemTagId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTagDtoEnvelope?>
@@ -2751,8 +2757,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTagByIdWithHttpInfo(itemId: java.util.UUID, itemTagId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoEnvelope?> {
-        val localVariableConfig = getStockItemTagByIdRequestConfig(itemId = itemId, itemTagId = itemTagId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagByIdWithHttpInfo(itemId: java.util.UUID, itemTagId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoEnvelope?> {
+        val localVariableConfig = getStockItemTagByIdRequestConfig(itemId = itemId, itemTagId = itemTagId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTagDtoEnvelope>(
             localVariableConfig
@@ -2764,14 +2770,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param itemId 
      * @param itemTagId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTagByIdRequestConfig(itemId: java.util.UUID, itemTagId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getStockItemTagByIdRequestConfig(itemId: java.util.UUID, itemTagId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -2794,6 +2802,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get tags for a stock item
      * Retrieves all tags associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTagDtoListEnvelope
@@ -2805,8 +2814,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTagsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoListEnvelope {
-        val localVarResponse = getStockItemTagsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoListEnvelope {
+        val localVarResponse = getStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTagDtoListEnvelope
@@ -2827,6 +2836,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get tags for a stock item
      * Retrieves all tags associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTagDtoListEnvelope?>
@@ -2835,8 +2845,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoListEnvelope?> {
-        val localVariableConfig = getStockItemTagsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoListEnvelope?> {
+        val localVariableConfig = getStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTagDtoListEnvelope>(
             localVariableConfig
@@ -2847,14 +2857,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * To obtain the request config of the operation getStockItemTagsByItemId
      *
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -3047,6 +3059,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieves a specific type by ID for a stock item.
      * @param itemId 
      * @param itemTypeId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTypeDtoEnvelope
@@ -3058,8 +3071,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTypeById(itemId: java.util.UUID, itemTypeId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTypeDtoEnvelope {
-        val localVarResponse = getStockItemTypeByIdWithHttpInfo(itemId = itemId, itemTypeId = itemTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypeById(itemId: java.util.UUID, itemTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTypeDtoEnvelope {
+        val localVarResponse = getStockItemTypeByIdWithHttpInfo(itemId = itemId, itemTypeId = itemTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTypeDtoEnvelope
@@ -3081,6 +3094,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieves a specific type by ID for a stock item.
      * @param itemId 
      * @param itemTypeId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTypeDtoEnvelope?>
@@ -3089,8 +3103,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTypeByIdWithHttpInfo(itemId: java.util.UUID, itemTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTypeDtoEnvelope?> {
-        val localVariableConfig = getStockItemTypeByIdRequestConfig(itemId = itemId, itemTypeId = itemTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypeByIdWithHttpInfo(itemId: java.util.UUID, itemTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTypeDtoEnvelope?> {
+        val localVariableConfig = getStockItemTypeByIdRequestConfig(itemId = itemId, itemTypeId = itemTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTypeDtoEnvelope>(
             localVariableConfig
@@ -3102,14 +3116,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param itemId 
      * @param itemTypeId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTypeByIdRequestConfig(itemId: java.util.UUID, itemTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getStockItemTypeByIdRequestConfig(itemId: java.util.UUID, itemTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -3132,6 +3148,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get types for a stock item
      * Retrieves all types associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTypeDtoListEnvelope
@@ -3143,8 +3160,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTypesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTypeDtoListEnvelope {
-        val localVarResponse = getStockItemTypesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypesByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTypeDtoListEnvelope {
+        val localVarResponse = getStockItemTypesByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTypeDtoListEnvelope
@@ -3165,6 +3182,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get types for a stock item
      * Retrieves all types associated with a specific stock item.
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTypeDtoListEnvelope?>
@@ -3173,8 +3191,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTypesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTypeDtoListEnvelope?> {
-        val localVariableConfig = getStockItemTypesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypesByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTypeDtoListEnvelope?> {
+        val localVariableConfig = getStockItemTypesByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTypeDtoListEnvelope>(
             localVariableConfig
@@ -3185,14 +3203,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * To obtain the request config of the operation getStockItemTypesByItemId
      *
      * @param itemId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTypesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getStockItemTypesByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

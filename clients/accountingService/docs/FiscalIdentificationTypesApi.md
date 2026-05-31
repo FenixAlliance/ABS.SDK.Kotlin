@@ -1,6 +1,6 @@
 # FiscalIdentificationTypesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,7 +27,7 @@ Creates a new fiscal identification type for a fiscal authority.
 //import org.openapitools.client.models.*
 
 val apiInstance = FiscalIdentificationTypesApi()
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalIdentificationTypeCreateDto : FiscalIdentificationTypeCreateDto =  // FiscalIdentificationTypeCreateDto | 
@@ -44,7 +44,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -80,7 +80,7 @@ Deletes a fiscal identification type identified by its unique identifier.
 
 val apiInstance = FiscalIdentificationTypesApi()
 val identificationTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -97,7 +97,7 @@ try {
 
 ### Parameters
 | **identificationTypeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -133,7 +133,7 @@ Retrieves a specific fiscal identification type by its unique identifier.
 val apiInstance = FiscalIdentificationTypesApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val identificationTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -151,7 +151,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **identificationTypeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -172,7 +172,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypes"></a>
 # **getFiscalIdentificationTypes**
-> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(authorityId, apiVersion, xApiVersion)
+> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion)
 
 Get fiscal identification types for an authority
 
@@ -186,10 +186,11 @@ Retrieves all fiscal identification types for the specified fiscal authority.
 
 val apiInstance = FiscalIdentificationTypesApi()
 val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : FiscalIdentificationTypeDtoListEnvelope = apiInstance.getFiscalIdentificationTypes(authorityId, apiVersion, xApiVersion)
+    val result : FiscalIdentificationTypeDtoListEnvelope = apiInstance.getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalIdentificationTypesApi#getFiscalIdentificationTypes")
@@ -202,6 +203,7 @@ try {
 
 ### Parameters
 | **authorityId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -222,7 +224,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypesCount"></a>
 # **getFiscalIdentificationTypesCount**
-> Int32Envelope getFiscalIdentificationTypesCount(authorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion)
 
 Get fiscal identification types count
 
@@ -236,10 +238,11 @@ Returns the total count of fiscal identification types for the specified fiscal 
 
 val apiInstance = FiscalIdentificationTypesApi()
 val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalIdentificationTypesCount(authorityId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalIdentificationTypesApi#getFiscalIdentificationTypesCount")
@@ -252,6 +255,7 @@ try {
 
 ### Parameters
 | **authorityId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -286,7 +290,7 @@ Updates an existing fiscal identification type identified by its unique identifi
 
 val apiInstance = FiscalIdentificationTypesApi()
 val identificationTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalIdentificationTypeUpdateDto : FiscalIdentificationTypeUpdateDto =  // FiscalIdentificationTypeUpdateDto | 
@@ -304,7 +308,7 @@ try {
 
 ### Parameters
 | **identificationTypeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

@@ -1,11 +1,11 @@
 # TenantsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**adminPreviewTenantEmail**](TenantsApi.md#adminPreviewTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user. |
-| [**adminSendTenantEmail**](TenantsApi.md#adminSendTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user. |
+| [**adminPreviewTenantEmail**](TenantsApi.md#adminPreviewTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a tenant. |
+| [**adminSendTenantEmail**](TenantsApi.md#adminSendTenantEmail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a tenant. |
 | [**createTenant**](TenantsApi.md#createTenant) | **POST** /api/v2/SystemService/Tenants | Create a new tenant. |
 | [**deleteTenant**](TenantsApi.md#deleteTenant) | **DELETE** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID. |
 | [**getAllExtendedTenants**](TenantsApi.md#getAllExtendedTenants) | **GET** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance. |
@@ -20,9 +20,9 @@ All URIs are relative to *https://absuite.net*
 # **adminPreviewTenantEmail**
 > adminPreviewTenantEmail(tenantId, apiVersion, xApiVersion, emailDispatchRequest)
 
-Preview the rendered email for a user.
+Preview the rendered email for a tenant.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -71,9 +71,9 @@ No authorization required
 # **adminSendTenantEmail**
 > adminSendTenantEmail(tenantId, apiVersion, xApiVersion, emailDispatchRequest)
 
-Send an email to a user.
+Send an email to a tenant.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin

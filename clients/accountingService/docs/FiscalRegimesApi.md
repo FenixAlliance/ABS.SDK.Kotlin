@@ -1,6 +1,6 @@
 # FiscalRegimesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,7 +27,7 @@ Creates a new fiscal regime for a fiscal authority.
 //import org.openapitools.client.models.*
 
 val apiInstance = FiscalRegimesApi()
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalRegimeCreateDto : FiscalRegimeCreateDto =  // FiscalRegimeCreateDto | 
@@ -44,7 +44,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -80,7 +80,7 @@ Deletes a fiscal regime identified by its unique identifier.
 
 val apiInstance = FiscalRegimesApi()
 val regimeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -97,7 +97,7 @@ try {
 
 ### Parameters
 | **regimeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -133,7 +133,7 @@ Retrieves a specific fiscal regime by its unique identifier.
 val apiInstance = FiscalRegimesApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val regimeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -151,7 +151,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **regimeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -172,7 +172,7 @@ No authorization required
 
 <a id="getFiscalRegimes"></a>
 # **getFiscalRegimes**
-> FiscalRegimeDtoListEnvelope getFiscalRegimes(authorityId, fiscalAuthorityId, apiVersion, xApiVersion)
+> FiscalRegimeDtoListEnvelope getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
 
 Get fiscal regimes for an authority
 
@@ -186,11 +186,12 @@ Retrieves all fiscal regimes for the specified fiscal authority.
 
 val apiInstance = FiscalRegimesApi()
 val authorityId : kotlin.String = authorityId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : FiscalRegimeDtoListEnvelope = apiInstance.getFiscalRegimes(authorityId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : FiscalRegimeDtoListEnvelope = apiInstance.getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalRegimesApi#getFiscalRegimes")
@@ -203,6 +204,7 @@ try {
 
 ### Parameters
 | **authorityId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -224,7 +226,7 @@ No authorization required
 
 <a id="getFiscalRegimesCount"></a>
 # **getFiscalRegimesCount**
-> Int32Envelope getFiscalRegimesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
 
 Get fiscal regimes count
 
@@ -238,10 +240,11 @@ Returns the total count of fiscal regimes for the specified fiscal authority.
 
 val apiInstance = FiscalRegimesApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalRegimesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalRegimesApi#getFiscalRegimesCount")
@@ -254,6 +257,7 @@ try {
 
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -288,7 +292,7 @@ Updates an existing fiscal regime identified by its unique identifier.
 
 val apiInstance = FiscalRegimesApi()
 val regimeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalRegimeUpdateDto : FiscalRegimeUpdateDto =  // FiscalRegimeUpdateDto | 
@@ -306,7 +310,7 @@ try {
 
 ### Parameters
 | **regimeId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

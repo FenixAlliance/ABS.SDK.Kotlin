@@ -1,6 +1,6 @@
 # PaymentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -110,7 +110,7 @@ No authorization required
 
 <a id="getPaymentAsync"></a>
 # **getPaymentAsync**
-> PaymentDtoListEnvelope getPaymentAsync(paymentId)
+> PaymentDtoListEnvelope getPaymentAsync(paymentId, tenantId)
 
 Gets a payment by ID (deprecated)
 
@@ -124,8 +124,9 @@ Retrieves a payment using the deprecated /Details route. Use GET {paymentId} ins
 
 val apiInstance = PaymentsApi()
 val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsync(paymentId)
+    val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsync(paymentId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentsApi#getPaymentAsync")
@@ -137,9 +138,10 @@ try {
 ```
 
 ### Parameters
+| **paymentId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **paymentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -156,7 +158,7 @@ No authorization required
 
 <a id="getPaymentAsyncV2"></a>
 # **getPaymentAsyncV2**
-> PaymentDtoListEnvelope getPaymentAsyncV2(paymentId)
+> PaymentDtoListEnvelope getPaymentAsyncV2(paymentId, tenantId)
 
 Gets a payment by ID
 
@@ -170,8 +172,9 @@ Retrieves the details of a payment using its unique identifier.
 
 val apiInstance = PaymentsApi()
 val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsyncV2(paymentId)
+    val result : PaymentDtoListEnvelope = apiInstance.getPaymentAsyncV2(paymentId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentsApi#getPaymentAsyncV2")
@@ -183,9 +186,10 @@ try {
 ```
 
 ### Parameters
+| **paymentId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **paymentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 

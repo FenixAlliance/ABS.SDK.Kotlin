@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param concurrencyToken 
  * @param creationDate 
  * @param properties 
@@ -39,6 +40,9 @@ data class OAuthAuthorizationDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "concurrencyToken")
     val concurrencyToken: kotlin.String? = null,

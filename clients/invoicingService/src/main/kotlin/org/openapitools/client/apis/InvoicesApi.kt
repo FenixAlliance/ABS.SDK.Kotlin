@@ -68,13 +68,14 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Aggregate invoice discounts.
      * Aggregates the discounts for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return MoneyEnvelope
@@ -86,8 +87,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateInvoiceDiscounts(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateInvoiceDiscountsWithHttpInfo(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceDiscounts(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateInvoiceDiscountsWithHttpInfo(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -107,6 +108,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice discounts.
      * Aggregates the discounts for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -115,8 +117,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateInvoiceDiscountsWithHttpInfo(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateInvoiceDiscountsRequestConfig(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceDiscountsWithHttpInfo(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateInvoiceDiscountsRequestConfig(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return request<kotlin.collections.List<java.util.UUID>, MoneyEnvelope>(
             localVariableConfig
@@ -126,14 +128,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation aggregateInvoiceDiscounts
      *
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return RequestConfig
      */
-    fun aggregateInvoiceDiscountsRequestConfig(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
+    fun aggregateInvoiceDiscountsRequestConfig(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
         val localVariableBody = javaUtilUUID
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
                 }
@@ -155,6 +159,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice global surcharges.
      * Aggregates the global surcharges for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return MoneyEnvelope
@@ -166,8 +171,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateInvoiceGlobalSurcharges(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateInvoiceGlobalSurchargesWithHttpInfo(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceGlobalSurcharges(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateInvoiceGlobalSurchargesWithHttpInfo(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -187,6 +192,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice global surcharges.
      * Aggregates the global surcharges for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -195,8 +201,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateInvoiceGlobalSurchargesWithHttpInfo(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateInvoiceGlobalSurchargesRequestConfig(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceGlobalSurchargesWithHttpInfo(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateInvoiceGlobalSurchargesRequestConfig(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return request<kotlin.collections.List<java.util.UUID>, MoneyEnvelope>(
             localVariableConfig
@@ -206,14 +212,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation aggregateInvoiceGlobalSurcharges
      *
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return RequestConfig
      */
-    fun aggregateInvoiceGlobalSurchargesRequestConfig(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
+    fun aggregateInvoiceGlobalSurchargesRequestConfig(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
         val localVariableBody = javaUtilUUID
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
                 }
@@ -235,6 +243,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice tax bases.
      * Aggregates the tax bases for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return MoneyEnvelope
@@ -246,8 +255,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateInvoiceTaxBases(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateInvoiceTaxBasesWithHttpInfo(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTaxBases(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateInvoiceTaxBasesWithHttpInfo(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -267,6 +276,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice tax bases.
      * Aggregates the tax bases for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -275,8 +285,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateInvoiceTaxBasesWithHttpInfo(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateInvoiceTaxBasesRequestConfig(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTaxBasesWithHttpInfo(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateInvoiceTaxBasesRequestConfig(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return request<kotlin.collections.List<java.util.UUID>, MoneyEnvelope>(
             localVariableConfig
@@ -286,14 +296,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation aggregateInvoiceTaxBases
      *
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return RequestConfig
      */
-    fun aggregateInvoiceTaxBasesRequestConfig(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
+    fun aggregateInvoiceTaxBasesRequestConfig(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
         val localVariableBody = javaUtilUUID
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
                 }
@@ -315,6 +327,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice taxes.
      * Aggregates the taxes for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return MoneyEnvelope
@@ -326,8 +339,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateInvoiceTaxes(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateInvoiceTaxesWithHttpInfo(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTaxes(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateInvoiceTaxesWithHttpInfo(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -347,6 +360,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice taxes.
      * Aggregates the taxes for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -355,8 +369,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateInvoiceTaxesWithHttpInfo(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateInvoiceTaxesRequestConfig(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTaxesWithHttpInfo(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateInvoiceTaxesRequestConfig(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return request<kotlin.collections.List<java.util.UUID>, MoneyEnvelope>(
             localVariableConfig
@@ -366,14 +380,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation aggregateInvoiceTaxes
      *
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return RequestConfig
      */
-    fun aggregateInvoiceTaxesRequestConfig(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
+    fun aggregateInvoiceTaxesRequestConfig(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
         val localVariableBody = javaUtilUUID
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
                 }
@@ -395,6 +411,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice totals.
      * Aggregates the totals for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return MoneyEnvelope
@@ -406,8 +423,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateInvoiceTotals(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateInvoiceTotalsWithHttpInfo(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTotals(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateInvoiceTotalsWithHttpInfo(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -427,6 +444,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Aggregate invoice totals.
      * Aggregates the totals for the specified invoices.
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -435,8 +453,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateInvoiceTotalsWithHttpInfo(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateInvoiceTotalsRequestConfig(javaUtilUUID = javaUtilUUID, currencyId = currencyId)
+    fun aggregateInvoiceTotalsWithHttpInfo(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateInvoiceTotalsRequestConfig(tenantId = tenantId, javaUtilUUID = javaUtilUUID, currencyId = currencyId)
 
         return request<kotlin.collections.List<java.util.UUID>, MoneyEnvelope>(
             localVariableConfig
@@ -446,14 +464,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation aggregateInvoiceTotals
      *
+     * @param tenantId 
      * @param javaUtilUUID 
      * @param currencyId  (optional)
      * @return RequestConfig
      */
-    fun aggregateInvoiceTotalsRequestConfig(javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
+    fun aggregateInvoiceTotalsRequestConfig(tenantId: java.util.UUID, javaUtilUUID: kotlin.collections.List<java.util.UUID>, currencyId: kotlin.String?) : RequestConfig<kotlin.collections.List<java.util.UUID>> {
         val localVariableBody = javaUtilUUID
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (currencyId != null) {
                     put("currencyId", listOf(currencyId.toString()))
                 }
@@ -2374,6 +2394,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get payments for an invoice.
      * Retrieves the list of payments related to the specified invoice.
      * @param invoiceId 
+     * @param tenantId 
      * @return PaymentDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2383,8 +2404,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoicePayments(invoiceId: java.util.UUID) : PaymentDtoIReadOnlyListEnvelope {
-        val localVarResponse = getInvoicePaymentsWithHttpInfo(invoiceId = invoiceId)
+    fun getInvoicePayments(invoiceId: java.util.UUID, tenantId: java.util.UUID) : PaymentDtoIReadOnlyListEnvelope {
+        val localVarResponse = getInvoicePaymentsWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoIReadOnlyListEnvelope
@@ -2405,14 +2426,15 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get payments for an invoice.
      * Retrieves the list of payments related to the specified invoice.
      * @param invoiceId 
+     * @param tenantId 
      * @return ApiResponse<PaymentDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicePaymentsWithHttpInfo(invoiceId: java.util.UUID) : ApiResponse<PaymentDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getInvoicePaymentsRequestConfig(invoiceId = invoiceId)
+    fun getInvoicePaymentsWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<PaymentDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getInvoicePaymentsRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
 
         return request<Unit, PaymentDtoIReadOnlyListEnvelope>(
             localVariableConfig
@@ -2423,11 +2445,15 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getInvoicePayments
      *
      * @param invoiceId 
+     * @param tenantId 
      * @return RequestConfig
      */
-    fun getInvoicePaymentsRequestConfig(invoiceId: java.util.UUID) : RequestConfig<Unit> {
+    fun getInvoicePaymentsRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -2445,6 +2471,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of payments for an invoice.
      * Retrieves the total count of payments for the specified invoice.
      * @param invoiceId 
+     * @param tenantId 
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2454,8 +2481,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoicePaymentsCount(invoiceId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoicePaymentsCountWithHttpInfo(invoiceId = invoiceId)
+    fun getInvoicePaymentsCount(invoiceId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getInvoicePaymentsCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2476,14 +2503,15 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of payments for an invoice.
      * Retrieves the total count of payments for the specified invoice.
      * @param invoiceId 
+     * @param tenantId 
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicePaymentsCountWithHttpInfo(invoiceId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoicePaymentsCountRequestConfig(invoiceId = invoiceId)
+    fun getInvoicePaymentsCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoicePaymentsCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -2494,11 +2522,15 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getInvoicePaymentsCount
      *
      * @param invoiceId 
+     * @param tenantId 
      * @return RequestConfig
      */
-    fun getInvoicePaymentsCountRequestConfig(invoiceId: java.util.UUID) : RequestConfig<Unit> {
+    fun getInvoicePaymentsCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

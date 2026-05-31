@@ -1,9 +1,10 @@
 # AccountsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**aggregateAccountsBalanceAsync**](AccountsApi.md#aggregateAccountsBalanceAsync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance |
 | [**balanceAccountAsync**](AccountsApi.md#balanceAccountAsync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account |
 | [**balanceRootAccountAsync**](AccountsApi.md#balanceRootAccountAsync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account |
 | [**createAccountAsync**](AccountsApi.md#createAccountAsync) | **POST** /api/v2/AccountingService/Accounts | Get root accounts |
@@ -26,20 +27,75 @@ All URIs are relative to *https://absuite.net*
 | [**getAccountEntryAsync**](AccountsApi.md#getAccountEntryAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry |
 | [**getAccountRelationsAsync**](AccountsApi.md#getAccountRelationsAsync) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations |
 | [**getAccountRelationsCountAsync**](AccountsApi.md#getAccountRelationsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count |
+| [**getAccountTypeByIdAsync**](AccountsApi.md#getAccountTypeByIdAsync) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID |
 | [**getAccountTypesAsync**](AccountsApi.md#getAccountTypesAsync) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types |
 | [**getAccountTypesCountAsync**](AccountsApi.md#getAccountTypesCountAsync) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count |
 | [**getAccountsAsync**](AccountsApi.md#getAccountsAsync) | **GET** /api/v2/AccountingService/Accounts | Creates a new account |
 | [**getAccountsCountAsync**](AccountsApi.md#getAccountsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts |
+| [**getChartsOfAccountsAsync**](AccountsApi.md#getChartsOfAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts |
 | [**getChildAccountsAsync**](AccountsApi.md#getChildAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts |
 | [**getCreditAccountEntriesAsync**](AccountsApi.md#getCreditAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries |
 | [**getDebitAccountEntriesAsync**](AccountsApi.md#getDebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries |
 | [**getRootAccountsAsync**](AccountsApi.md#getRootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts |
 | [**patchAccountAsync**](AccountsApi.md#patchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account |
+| [**seedChartOfAccountsAsync**](AccountsApi.md#seedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts |
 | [**updateAccountAsync**](AccountsApi.md#updateAccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account |
 | [**updateAccountEntryAsync**](AccountsApi.md#updateAccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry |
 | [**updateAccountRelationAsync**](AccountsApi.md#updateAccountRelationAsync) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation |
 | [**updateAccountTypeAsync**](AccountsApi.md#updateAccountTypeAsync) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type |
 
+
+<a id="aggregateAccountsBalanceAsync"></a>
+# **aggregateAccountsBalanceAsync**
+> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+
+Aggregate accounts balance
+
+Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val currencyId : kotlin.String = currencyId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : MoneyEnvelope = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#aggregateAccountsBalanceAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#aggregateAccountsBalanceAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **currencyId** | **kotlin.String**|  | [optional] |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="balanceAccountAsync"></a>
 # **balanceAccountAsync**
@@ -413,7 +469,7 @@ No authorization required
 
 <a id="createAccountTypeAsync"></a>
 # **createAccountTypeAsync**
-> EmptyEnvelope createAccountTypeAsync(tenantId, accountId, apiVersion, xApiVersion, accountTypeCreateDto)
+> EmptyEnvelope createAccountTypeAsync(tenantId, apiVersion, xApiVersion, accountTypeCreateDto)
 
 Create account type
 
@@ -427,12 +483,11 @@ Create account type.
 
 val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val accountTypeCreateDto : AccountTypeCreateDto =  // AccountTypeCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.createAccountTypeAsync(tenantId, accountId, apiVersion, xApiVersion, accountTypeCreateDto)
+    val result : EmptyEnvelope = apiInstance.createAccountTypeAsync(tenantId, apiVersion, xApiVersion, accountTypeCreateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#createAccountTypeAsync")
@@ -445,7 +500,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **accountId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -627,7 +681,7 @@ No authorization required
 
 <a id="deleteAccountTypeAsync"></a>
 # **deleteAccountTypeAsync**
-> EmptyEnvelope deleteAccountTypeAsync(accountTypeId, tenantId, accountId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion)
 
 Delete account type
 
@@ -642,11 +696,10 @@ Delete account type.
 val apiInstance = AccountsApi()
 val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.deleteAccountTypeAsync(accountTypeId, tenantId, accountId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#deleteAccountTypeAsync")
@@ -660,7 +713,6 @@ try {
 ### Parameters
 | **accountTypeId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **accountId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1203,9 +1255,61 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="getAccountTypeByIdAsync"></a>
+# **getAccountTypeByIdAsync**
+> AccountTypeDtoEnvelope getAccountTypeByIdAsync(accountTypeId, tenantId, apiVersion, xApiVersion)
+
+Get account type by ID
+
+Get account type by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : AccountTypeDtoEnvelope = apiInstance.getAccountTypeByIdAsync(accountTypeId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#getAccountTypeByIdAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#getAccountTypeByIdAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountTypeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**AccountTypeDtoEnvelope**](AccountTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="getAccountTypesAsync"></a>
 # **getAccountTypesAsync**
-> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
 
 Get account types
 
@@ -1219,11 +1323,10 @@ Get account types.
 
 val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : AccountTypeDtoListEnvelope = apiInstance.getAccountTypesAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+    val result : AccountTypeDtoListEnvelope = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountTypesAsync")
@@ -1236,7 +1339,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **accountTypeId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1257,7 +1359,7 @@ No authorization required
 
 <a id="getAccountTypesCountAsync"></a>
 # **getAccountTypesCountAsync**
-> Int32Envelope getAccountTypesCountAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get account types count
 
@@ -1271,11 +1373,10 @@ Get account types count.
 
 val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountTypesCountAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountTypesCountAsync")
@@ -1288,7 +1389,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **accountTypeId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1397,6 +1497,54 @@ try {
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getChartsOfAccountsAsync"></a>
+# **getChartsOfAccountsAsync**
+> ChartOfAccountsListEnvelope getChartsOfAccountsAsync(apiVersion, xApiVersion)
+
+Get charts of accounts
+
+Get available charts of accounts.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ChartOfAccountsListEnvelope = apiInstance.getChartsOfAccountsAsync(apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#getChartsOfAccountsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#getChartsOfAccountsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ChartOfAccountsListEnvelope**](ChartOfAccountsListEnvelope.md)
 
 ### Authorization
 
@@ -1667,6 +1815,58 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a id="seedChartOfAccountsAsync"></a>
+# **seedChartOfAccountsAsync**
+> EmptyEnvelope seedChartOfAccountsAsync(tenantId, apiVersion, xApiVersion, seedChartOfAccountsRequest)
+
+Seed chart of accounts
+
+Seed a chart of accounts from a file URL.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val seedChartOfAccountsRequest : SeedChartOfAccountsRequest =  // SeedChartOfAccountsRequest | 
+try {
+    val result : EmptyEnvelope = apiInstance.seedChartOfAccountsAsync(tenantId, apiVersion, xApiVersion, seedChartOfAccountsRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#seedChartOfAccountsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#seedChartOfAccountsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **seedChartOfAccountsRequest** | [**SeedChartOfAccountsRequest**](SeedChartOfAccountsRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a id="updateAccountAsync"></a>
 # **updateAccountAsync**
 > AccountDtoEnvelope updateAccountAsync(accountId, tenantId, apiVersion, xApiVersion, accountUpdateDto)
@@ -1835,7 +2035,7 @@ No authorization required
 
 <a id="updateAccountTypeAsync"></a>
 # **updateAccountTypeAsync**
-> EmptyEnvelope updateAccountTypeAsync(accountTypeId, tenantId, accountId, apiVersion, xApiVersion, accountTypeUpdateDto)
+> EmptyEnvelope updateAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, accountTypeUpdateDto)
 
 Update account type
 
@@ -1850,12 +2050,11 @@ Update account type.
 val apiInstance = AccountsApi()
 val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val accountTypeUpdateDto : AccountTypeUpdateDto =  // AccountTypeUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateAccountTypeAsync(accountTypeId, tenantId, accountId, apiVersion, xApiVersion, accountTypeUpdateDto)
+    val result : EmptyEnvelope = apiInstance.updateAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, accountTypeUpdateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#updateAccountTypeAsync")
@@ -1869,7 +2068,6 @@ try {
 ### Parameters
 | **accountTypeId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **accountId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

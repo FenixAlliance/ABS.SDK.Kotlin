@@ -19,7 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.AuthorizationResultEnvelope
+import org.openapitools.client.models.AuthResultEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.JsonWebKeySetEnvelope
 import org.openapitools.client.models.JsonWebTokenEnvelope
@@ -49,7 +49,7 @@ class OAuthApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -139,7 +139,7 @@ class OAuthApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return AuthorizationResultEnvelope
+     * @return AuthResultEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -148,11 +148,11 @@ class OAuthApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun get(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AuthorizationResultEnvelope {
+    fun get(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AuthResultEnvelope {
         val localVarResponse = getWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthorizationResultEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthResultEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -172,16 +172,16 @@ class OAuthApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<AuthorizationResultEnvelope?>
+     * @return ApiResponse<AuthResultEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AuthorizationResultEnvelope?> {
+    fun getWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AuthResultEnvelope?> {
         val localVariableConfig = getRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, AuthorizationResultEnvelope>(
+        return request<Unit, AuthResultEnvelope>(
             localVariableConfig
         )
     }

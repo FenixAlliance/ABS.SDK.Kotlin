@@ -1,6 +1,6 @@
 # FiscalPeriodsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,7 +27,7 @@ Creates a new fiscal period associated with a fiscal year.
 //import org.openapitools.client.models.*
 
 val apiInstance = FiscalPeriodsApi()
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalPeriodCreateDto : FiscalPeriodCreateDto =  // FiscalPeriodCreateDto | 
@@ -44,7 +44,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -80,7 +80,7 @@ Deletes a fiscal period identified by its unique identifier.
 
 val apiInstance = FiscalPeriodsApi()
 val fiscalPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -97,7 +97,7 @@ try {
 
 ### Parameters
 | **fiscalPeriodId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -134,7 +134,7 @@ val apiInstance = FiscalPeriodsApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalYearId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -153,7 +153,7 @@ try {
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **fiscalYearId** | **java.util.UUID**|  | |
 | **fiscalPeriodId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -189,7 +189,7 @@ Retrieves all fiscal periods for the specified fiscal year within a fiscal autho
 val apiInstance = FiscalPeriodsApi()
 val fiscalYearId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val authorityId : kotlin.String = authorityId_example // kotlin.String | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -208,7 +208,7 @@ try {
 ### Parameters
 | **fiscalYearId** | **java.util.UUID**|  | |
 | **authorityId** | **kotlin.String**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -245,7 +245,7 @@ Returns the total count of fiscal periods for the specified fiscal year.
 val apiInstance = FiscalPeriodsApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalYearId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -263,7 +263,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **fiscalYearId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -298,7 +298,7 @@ Updates an existing fiscal period identified by its unique identifier.
 
 val apiInstance = FiscalPeriodsApi()
 val fiscalPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalPeriodUpdateDto : FiscalPeriodUpdateDto =  // FiscalPeriodUpdateDto | 
@@ -316,7 +316,7 @@ try {
 
 ### Parameters
 | **fiscalPeriodId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

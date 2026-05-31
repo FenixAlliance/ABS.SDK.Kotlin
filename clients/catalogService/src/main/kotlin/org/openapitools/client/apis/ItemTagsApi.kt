@@ -45,7 +45,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -226,6 +226,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get item tag by ID
      * Retrieves a specific item tag by its ID.
      * @param itemTagId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTagDtoEnvelope
@@ -237,8 +238,8 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTagByIdAsync(itemTagId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoEnvelope {
-        val localVarResponse = getItemTagByIdAsyncWithHttpInfo(itemTagId = itemTagId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTagByIdAsync(itemTagId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoEnvelope {
+        val localVarResponse = getItemTagByIdAsyncWithHttpInfo(itemTagId = itemTagId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTagDtoEnvelope
@@ -259,6 +260,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get item tag by ID
      * Retrieves a specific item tag by its ID.
      * @param itemTagId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTagDtoEnvelope?>
@@ -267,8 +269,8 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTagByIdAsyncWithHttpInfo(itemTagId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoEnvelope?> {
-        val localVariableConfig = getItemTagByIdAsyncRequestConfig(itemTagId = itemTagId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTagByIdAsyncWithHttpInfo(itemTagId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoEnvelope?> {
+        val localVariableConfig = getItemTagByIdAsyncRequestConfig(itemTagId = itemTagId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTagDtoEnvelope>(
             localVariableConfig
@@ -279,14 +281,18 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getItemTagByIdAsync
      *
      * @param itemTagId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemTagByIdAsyncRequestConfig(itemTagId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemTagByIdAsyncRequestConfig(itemTagId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -308,7 +314,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Get all item tags
      * Retrieves all item tags for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemTagDtoListEnvelope
@@ -320,7 +326,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTagsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoListEnvelope {
+    fun getItemTagsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoListEnvelope {
         val localVarResponse = getItemTagsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -341,7 +347,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * Get all item tags
      * Retrieves all item tags for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemTagDtoListEnvelope?>
@@ -350,7 +356,7 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTagsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoListEnvelope?> {
+    fun getItemTagsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoListEnvelope?> {
         val localVariableConfig = getItemTagsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTagDtoListEnvelope>(
@@ -361,16 +367,18 @@ class ItemTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation getItemTagsAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemTagsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemTagsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param ip 
  * @param type 
  * @param total 
@@ -40,6 +41,9 @@ data class CartDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "ip")
     val ip: kotlin.String? = null,

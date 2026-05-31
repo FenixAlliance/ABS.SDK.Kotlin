@@ -1,6 +1,6 @@
 # ItemShippingPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemShippingPoliciesAsync"></a>
 # **countItemShippingPoliciesAsync**
-> Int32Envelope countItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item shipping policies
 
@@ -26,11 +26,12 @@ Counts all shipping policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemShippingPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#countItemShippingPoliciesAsync")
@@ -42,6 +43,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -63,7 +65,7 @@ No authorization required
 
 <a id="getItemShippingPoliciesAsync"></a>
 # **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policies
 
@@ -76,11 +78,12 @@ Retrieves all shipping policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemShippingPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync")
@@ -92,6 +95,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -113,7 +117,7 @@ No authorization required
 
 <a id="getItemShippingPolicyByIdAsync"></a>
 # **getItemShippingPolicyByIdAsync**
-> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policy by ID
 
@@ -127,11 +131,12 @@ Retrieves a specific shipping policy for an item.
 
 val apiInstance = ItemShippingPoliciesApi()
 val itemShippingPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemShippingPolicyDtoEnvelope = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoEnvelope = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#getItemShippingPolicyByIdAsync")
@@ -144,6 +149,7 @@ try {
 
 ### Parameters
 | **itemShippingPolicyId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

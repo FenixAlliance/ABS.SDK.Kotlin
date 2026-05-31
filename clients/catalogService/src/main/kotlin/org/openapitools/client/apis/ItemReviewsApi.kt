@@ -45,7 +45,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -226,6 +226,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get item review by ID
      * Retrieves a specific item review by its ID.
      * @param itemReviewId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemReviewDtoEnvelope
@@ -237,8 +238,8 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemReviewByIdAsync(itemReviewId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReviewDtoEnvelope {
-        val localVarResponse = getItemReviewByIdAsyncWithHttpInfo(itemReviewId = itemReviewId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemReviewByIdAsync(itemReviewId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReviewDtoEnvelope {
+        val localVarResponse = getItemReviewByIdAsyncWithHttpInfo(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemReviewDtoEnvelope
@@ -259,6 +260,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get item review by ID
      * Retrieves a specific item review by its ID.
      * @param itemReviewId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemReviewDtoEnvelope?>
@@ -267,8 +269,8 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemReviewByIdAsyncWithHttpInfo(itemReviewId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReviewDtoEnvelope?> {
-        val localVariableConfig = getItemReviewByIdAsyncRequestConfig(itemReviewId = itemReviewId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemReviewByIdAsyncWithHttpInfo(itemReviewId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReviewDtoEnvelope?> {
+        val localVariableConfig = getItemReviewByIdAsyncRequestConfig(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemReviewDtoEnvelope>(
             localVariableConfig
@@ -279,14 +281,18 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * To obtain the request config of the operation getItemReviewByIdAsync
      *
      * @param itemReviewId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemReviewByIdAsyncRequestConfig(itemReviewId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemReviewByIdAsyncRequestConfig(itemReviewId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

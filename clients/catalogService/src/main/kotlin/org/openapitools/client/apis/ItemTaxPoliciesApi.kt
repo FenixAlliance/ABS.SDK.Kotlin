@@ -44,13 +44,14 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Count item tax policies
      * Counts all tax policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -63,8 +64,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemTaxPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemTaxPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -84,6 +85,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * Count item tax policies
      * Counts all tax policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -93,8 +95,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemTaxPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemTaxPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -104,15 +106,19 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation countItemTaxPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countItemTaxPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -137,6 +143,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * Get item tax policies
      * Retrieves all tax policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -149,8 +156,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTaxPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoListEnvelope {
-        val localVarResponse = getItemTaxPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoListEnvelope {
+        val localVarResponse = getItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTaxPolicyDtoListEnvelope
@@ -170,6 +177,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * Get item tax policies
      * Retrieves all tax policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -179,8 +187,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTaxPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemTaxPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTaxPolicyDtoListEnvelope>(
             localVariableConfig
@@ -190,15 +198,19 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getItemTaxPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemTaxPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -224,6 +236,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get item tax policy by ID
      * Retrieves a specific tax policy for an item.
      * @param itemTaxPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -236,8 +249,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTaxPolicyByIdAsync(itemTaxPolicyId: java.util.UUID, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoEnvelope {
-        val localVarResponse = getItemTaxPolicyByIdAsyncWithHttpInfo(itemTaxPolicyId = itemTaxPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPolicyByIdAsync(itemTaxPolicyId: java.util.UUID, tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoEnvelope {
+        val localVarResponse = getItemTaxPolicyByIdAsyncWithHttpInfo(itemTaxPolicyId = itemTaxPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTaxPolicyDtoEnvelope
@@ -258,6 +271,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get item tax policy by ID
      * Retrieves a specific tax policy for an item.
      * @param itemTaxPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -267,8 +281,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTaxPolicyByIdAsyncWithHttpInfo(itemTaxPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoEnvelope?> {
-        val localVariableConfig = getItemTaxPolicyByIdAsyncRequestConfig(itemTaxPolicyId = itemTaxPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPolicyByIdAsyncWithHttpInfo(itemTaxPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoEnvelope?> {
+        val localVariableConfig = getItemTaxPolicyByIdAsyncRequestConfig(itemTaxPolicyId = itemTaxPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemTaxPolicyDtoEnvelope>(
             localVariableConfig
@@ -279,15 +293,19 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * To obtain the request config of the operation getItemTaxPolicyByIdAsync
      *
      * @param itemTaxPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemTaxPolicyByIdAsyncRequestConfig(itemTaxPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemTaxPolicyByIdAsyncRequestConfig(itemTaxPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }

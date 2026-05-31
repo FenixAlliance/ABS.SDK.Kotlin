@@ -19,9 +19,9 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ObjectEmailDispatchRequest
-import org.openapitools.client.models.TenantDtoListEnvelope
 
 import com.squareup.moshi.Json
 
@@ -43,7 +43,7 @@ class EmailsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -134,7 +134,7 @@ class EmailsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param objectEmailDispatchRequest  (optional)
-     * @return TenantDtoListEnvelope
+     * @return Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -143,11 +143,11 @@ class EmailsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSendBasicEmail(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, objectEmailDispatchRequest: ObjectEmailDispatchRequest? = null) : TenantDtoListEnvelope {
+    fun adminSendBasicEmail(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, objectEmailDispatchRequest: ObjectEmailDispatchRequest? = null) : Envelope {
         val localVarResponse = adminSendBasicEmailWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, objectEmailDispatchRequest = objectEmailDispatchRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantDtoListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -167,16 +167,16 @@ class EmailsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param objectEmailDispatchRequest  (optional)
-     * @return ApiResponse<TenantDtoListEnvelope?>
+     * @return ApiResponse<Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminSendBasicEmailWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, objectEmailDispatchRequest: ObjectEmailDispatchRequest?) : ApiResponse<TenantDtoListEnvelope?> {
+    fun adminSendBasicEmailWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, objectEmailDispatchRequest: ObjectEmailDispatchRequest?) : ApiResponse<Envelope?> {
         val localVariableConfig = adminSendBasicEmailRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, objectEmailDispatchRequest = objectEmailDispatchRequest)
 
-        return request<ObjectEmailDispatchRequest, TenantDtoListEnvelope>(
+        return request<ObjectEmailDispatchRequest, Envelope>(
             localVariableConfig
         )
     }

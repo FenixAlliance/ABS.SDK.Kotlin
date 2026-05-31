@@ -4,6 +4,15 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **closed** | **kotlin.Boolean** |  |  [optional] |
+| **title** | **kotlin.String** |  |  [optional] |
+| **userId** | **kotlin.String** |  |  [optional] |
+| **priceListId** | **kotlin.String** |  |  [optional] |
+| **description** | **kotlin.String** |  |  [optional] |
+| **individualId** | **kotlin.String** |  |  [optional] |
+| **paymentTermId** | **kotlin.String** |  |  [optional] |
+| **organizationId** | **kotlin.String** |  |  [optional] |
+| **receiverTenantId** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **companyName** | **kotlin.String** |  |  [optional] |
@@ -17,6 +26,8 @@
 | **billingLocationId** | **kotlin.String** |  |  [optional] |
 | **shippingLocationId** | **kotlin.String** |  |  [optional] |
 | **shippingMethodId** | **kotlin.String** |  |  [optional] |
+| **forexRate** | **kotlin.Double** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
 | **totalDetail** | **kotlin.Double** |  |  [optional] |
 | **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
 | **totalProfit** | **kotlin.Double** |  |  [optional] |
@@ -44,22 +55,11 @@
 | **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **cartId** | **kotlin.String** |  |  [optional] |
-| **userId** | **kotlin.String** |  |  [optional] |
-| **forexRate** | **kotlin.Double** |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
-| **individualId** | **kotlin.String** |  |  [optional] |
-| **organizationId** | **kotlin.String** |  |  [optional] |
 | **totalAmountInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |
-| **receiverTenantId** | **kotlin.String** |  |  [optional] |
-| **closed** | **kotlin.Boolean** |  |  [optional] |
-| **priceListId** | **kotlin.String** |  |  [optional] |
-| **paymentTermId** | **kotlin.String** |  |  [optional] |
 | **quoteStatus** | **kotlin.String** |  |  [optional] |
 | **effectiveTo** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **effectiveFrom** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **description** | **kotlin.String** |  |  [optional] |
-| **title** | **kotlin.String** |  |  [optional] |
 
 
 <a id="CostCalculationMethod"></a>

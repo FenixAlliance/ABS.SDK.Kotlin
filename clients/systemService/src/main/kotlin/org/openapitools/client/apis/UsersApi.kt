@@ -50,13 +50,13 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Preview the rendered email for a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -89,7 +89,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Preview the rendered email for a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -141,7 +141,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Send an email to a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -175,7 +175,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Send an email to a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -228,7 +228,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Create a new user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param userCreateDto  (optional)
@@ -261,7 +261,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Create a new user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param userCreateDto  (optional)
@@ -312,7 +312,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Delete a user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -345,7 +345,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Delete a user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -395,7 +395,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve an extended user by ID
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -428,7 +428,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve an extended user by ID
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -478,7 +478,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a list of extended users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ExtendedUserDtoListEnvelope
@@ -510,7 +510,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a list of extended users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ExtendedUserDtoListEnvelope?>
@@ -558,7 +558,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Get the count of extended users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -590,7 +590,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Get the count of extended users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -638,7 +638,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a user by ID
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -671,7 +671,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a user by ID
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -721,7 +721,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a list of users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return UserDtoListEnvelope
@@ -753,7 +753,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Retrieve a list of users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<UserDtoListEnvelope?>
@@ -801,7 +801,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Get the count of users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -833,7 +833,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Get the count of users
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -881,7 +881,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Update a user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -915,7 +915,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
 
     /**
      * Update a user
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * This action is only available for global administrators.
      * @param userId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)

@@ -45,7 +45,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -226,6 +226,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Get item image by ID
      * Retrieves a specific item image by its ID.
      * @param itemImageId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemImageDtoEnvelope
@@ -237,8 +238,8 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemImageByIdAsync(itemImageId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoEnvelope {
-        val localVarResponse = getItemImageByIdAsyncWithHttpInfo(itemImageId = itemImageId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemImageByIdAsync(itemImageId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoEnvelope {
+        val localVarResponse = getItemImageByIdAsyncWithHttpInfo(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemImageDtoEnvelope
@@ -259,6 +260,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Get item image by ID
      * Retrieves a specific item image by its ID.
      * @param itemImageId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemImageDtoEnvelope?>
@@ -267,8 +269,8 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemImageByIdAsyncWithHttpInfo(itemImageId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoEnvelope?> {
-        val localVariableConfig = getItemImageByIdAsyncRequestConfig(itemImageId = itemImageId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemImageByIdAsyncWithHttpInfo(itemImageId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoEnvelope?> {
+        val localVariableConfig = getItemImageByIdAsyncRequestConfig(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemImageDtoEnvelope>(
             localVariableConfig
@@ -279,14 +281,18 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * To obtain the request config of the operation getItemImageByIdAsync
      *
      * @param itemImageId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemImageByIdAsyncRequestConfig(itemImageId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemImageByIdAsyncRequestConfig(itemImageId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -308,7 +314,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * Get all item images
      * Retrieves all item images for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemImageDtoListEnvelope
@@ -320,7 +326,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemImagesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoListEnvelope {
+    fun getItemImagesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoListEnvelope {
         val localVarResponse = getItemImagesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -341,7 +347,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * Get all item images
      * Retrieves all item images for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemImageDtoListEnvelope?>
@@ -350,7 +356,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemImagesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoListEnvelope?> {
+    fun getItemImagesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoListEnvelope?> {
         val localVariableConfig = getItemImagesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemImageDtoListEnvelope>(
@@ -361,16 +367,18 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * To obtain the request config of the operation getItemImagesAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemImagesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemImagesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

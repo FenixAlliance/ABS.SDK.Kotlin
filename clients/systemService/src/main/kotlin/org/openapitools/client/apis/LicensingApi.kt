@@ -47,7 +47,7 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -229,6 +229,7 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieve a license by ID
      * Retrieves a single suite license by its unique identifier.
      * @param licenseId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return SuiteLicenseDtoEnvelope
@@ -240,8 +241,8 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLicenseByIdAsync(licenseId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SuiteLicenseDtoEnvelope {
-        val localVarResponse = getLicenseByIdAsyncWithHttpInfo(licenseId = licenseId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseByIdAsync(licenseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SuiteLicenseDtoEnvelope {
+        val localVarResponse = getLicenseByIdAsyncWithHttpInfo(licenseId = licenseId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SuiteLicenseDtoEnvelope
@@ -262,6 +263,7 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieve a license by ID
      * Retrieves a single suite license by its unique identifier.
      * @param licenseId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<SuiteLicenseDtoEnvelope?>
@@ -270,8 +272,8 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLicenseByIdAsyncWithHttpInfo(licenseId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SuiteLicenseDtoEnvelope?> {
-        val localVariableConfig = getLicenseByIdAsyncRequestConfig(licenseId = licenseId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseByIdAsyncWithHttpInfo(licenseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SuiteLicenseDtoEnvelope?> {
+        val localVariableConfig = getLicenseByIdAsyncRequestConfig(licenseId = licenseId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, SuiteLicenseDtoEnvelope>(
             localVariableConfig
@@ -282,14 +284,16 @@ class LicensingApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getLicenseByIdAsync
      *
      * @param licenseId 
+     * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getLicenseByIdAsyncRequestConfig(licenseId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getLicenseByIdAsyncRequestConfig(licenseId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                put("tenantId", listOf(tenantId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

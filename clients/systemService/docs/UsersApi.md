@@ -1,6 +1,6 @@
 # UsersApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -23,7 +23,7 @@ All URIs are relative to *https://absuite.net*
 
 Preview the rendered email for a user.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -74,7 +74,7 @@ No authorization required
 
 Send an email to a user.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -126,7 +126,7 @@ No authorization required
 
 Create a new user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -176,7 +176,7 @@ No authorization required
 
 Delete a user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -226,7 +226,7 @@ No authorization required
 
 Retrieve an extended user by ID
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -276,7 +276,7 @@ No authorization required
 
 Retrieve a list of extended users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -324,7 +324,7 @@ No authorization required
 
 Get the count of extended users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -372,7 +372,7 @@ No authorization required
 
 Retrieve a user by ID
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -422,7 +422,7 @@ No authorization required
 
 Retrieve a list of users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -470,7 +470,7 @@ No authorization required
 
 Get the count of users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin
@@ -518,7 +518,7 @@ No authorization required
 
 Update a user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```kotlin

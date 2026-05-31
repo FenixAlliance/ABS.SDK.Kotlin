@@ -1,6 +1,6 @@
 # ItemsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -84,7 +84,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countStockItemTagsByItemId"></a>
 # **countStockItemTagsByItemId**
-> Int32Envelope countStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
 
 Count tags for a stock item
 
@@ -98,10 +98,11 @@ Counts the number of tags associated with a specific stock item.
 
 val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#countStockItemTagsByItemId")
@@ -114,6 +115,7 @@ try {
 
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1660,7 +1662,7 @@ No authorization required
 
 <a id="getStockItemTagById"></a>
 # **getStockItemTagById**
-> ItemTagDtoEnvelope getStockItemTagById(itemId, itemTagId, apiVersion, xApiVersion)
+> ItemTagDtoEnvelope getStockItemTagById(itemId, itemTagId, tenantId, apiVersion, xApiVersion)
 
 Get tag by ID for a stock item
 
@@ -1675,10 +1677,11 @@ Retrieves a specific tag by ID for a stock item.
 val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemTagId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTagDtoEnvelope = apiInstance.getStockItemTagById(itemId, itemTagId, apiVersion, xApiVersion)
+    val result : ItemTagDtoEnvelope = apiInstance.getStockItemTagById(itemId, itemTagId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTagById")
@@ -1692,6 +1695,7 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **itemTagId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1712,7 +1716,7 @@ No authorization required
 
 <a id="getStockItemTagsByItemId"></a>
 # **getStockItemTagsByItemId**
-> ItemTagDtoListEnvelope getStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+> ItemTagDtoListEnvelope getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
 
 Get tags for a stock item
 
@@ -1726,10 +1730,11 @@ Retrieves all tags associated with a specific stock item.
 
 val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTagDtoListEnvelope = apiInstance.getStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemTagDtoListEnvelope = apiInstance.getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTagsByItemId")
@@ -1742,6 +1747,7 @@ try {
 
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1864,7 +1870,7 @@ No authorization required
 
 <a id="getStockItemTypeById"></a>
 # **getStockItemTypeById**
-> ItemTypeDtoEnvelope getStockItemTypeById(itemId, itemTypeId, apiVersion, xApiVersion)
+> ItemTypeDtoEnvelope getStockItemTypeById(itemId, itemTypeId, tenantId, apiVersion, xApiVersion)
 
 Get type by ID for a stock item
 
@@ -1879,10 +1885,11 @@ Retrieves a specific type by ID for a stock item.
 val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTypeDtoEnvelope = apiInstance.getStockItemTypeById(itemId, itemTypeId, apiVersion, xApiVersion)
+    val result : ItemTypeDtoEnvelope = apiInstance.getStockItemTypeById(itemId, itemTypeId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTypeById")
@@ -1896,6 +1903,7 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **itemTypeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1916,7 +1924,7 @@ No authorization required
 
 <a id="getStockItemTypesByItemId"></a>
 # **getStockItemTypesByItemId**
-> ItemTypeDtoListEnvelope getStockItemTypesByItemId(itemId, apiVersion, xApiVersion)
+> ItemTypeDtoListEnvelope getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion)
 
 Get types for a stock item
 
@@ -1930,10 +1938,11 @@ Retrieves all types associated with a specific stock item.
 
 val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTypeDtoListEnvelope = apiInstance.getStockItemTypesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemTypeDtoListEnvelope = apiInstance.getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTypesByItemId")
@@ -1946,6 +1955,7 @@ try {
 
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

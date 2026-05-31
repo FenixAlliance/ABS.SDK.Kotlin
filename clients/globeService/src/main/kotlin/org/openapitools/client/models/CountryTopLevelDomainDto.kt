@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param domain 
  * @param countryID 
  */
@@ -32,6 +33,9 @@ data class CountryTopLevelDomainDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "domain")
     val domain: kotlin.String? = null,

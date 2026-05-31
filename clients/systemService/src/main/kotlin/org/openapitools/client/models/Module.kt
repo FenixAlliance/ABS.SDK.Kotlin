@@ -49,6 +49,7 @@ import com.squareup.moshi.JsonClass
  * @param swaggerSpecs 
  * @param url 
  * @param assemblyPaths 
+ * @param requiredPermissions 
  * @param markedForDeletion 
  * @param version 
  */
@@ -133,6 +134,9 @@ data class Module (
 
     @Json(name = "assemblyPaths")
     val assemblyPaths: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "requiredPermissions")
+    val requiredPermissions: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "markedForDeletion")
     val markedForDeletion: kotlin.Boolean? = null,

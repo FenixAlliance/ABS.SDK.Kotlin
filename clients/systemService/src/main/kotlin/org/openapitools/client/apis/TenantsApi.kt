@@ -49,13 +49,13 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
-     * Preview the rendered email for a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * Preview the rendered email for a tenant.
+     * This action is only available for global administrators.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -87,8 +87,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * Preview the rendered email for a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * Preview the rendered email for a tenant.
+     * This action is only available for global administrators.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -138,8 +138,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * Send an email to a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * Send an email to a tenant.
+     * This action is only available for global administrators.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -171,8 +171,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
-     * Send an email to a user.
-     * This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+     * Send an email to a tenant.
+     * This action is only available for global administrators.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)

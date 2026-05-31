@@ -1,6 +1,6 @@
 # SocialGroupsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -64,7 +64,7 @@ No authorization required
 
 <a id="createSocialGroupAsync"></a>
 # **createSocialGroupAsync**
-> EmptyEnvelope createSocialGroupAsync(tenantId, apiVersion, xApiVersion, socialGroupCreateDto)
+> EmptyEnvelope createSocialGroupAsync(tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupCreateDto)
 
 Create a social group
 
@@ -78,11 +78,12 @@ Creates a new social group for the specified tenant.
 
 val apiInstance = SocialGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val socialGroupCreateDto : SocialGroupCreateDto =  // SocialGroupCreateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.createSocialGroupAsync(tenantId, apiVersion, xApiVersion, socialGroupCreateDto)
+    val result : EmptyEnvelope = apiInstance.createSocialGroupAsync(tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupCreateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialGroupsApi#createSocialGroupAsync")
@@ -95,6 +96,7 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -116,7 +118,7 @@ No authorization required
 
 <a id="deleteSocialGroupAsync"></a>
 # **deleteSocialGroupAsync**
-> EmptyEnvelope deleteSocialGroupAsync(socialGroupId, tenantId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteSocialGroupAsync(socialGroupId, tenantId, socialProfileId, apiVersion, xApiVersion)
 
 Delete a social group
 
@@ -131,10 +133,11 @@ Deletes a social group for the specified tenant.
 val apiInstance = SocialGroupsApi()
 val socialGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.deleteSocialGroupAsync(socialGroupId, tenantId, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.deleteSocialGroupAsync(socialGroupId, tenantId, socialProfileId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialGroupsApi#deleteSocialGroupAsync")
@@ -148,6 +151,7 @@ try {
 ### Parameters
 | **socialGroupId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -270,7 +274,7 @@ No authorization required
 
 <a id="updateSocialGroupAsync"></a>
 # **updateSocialGroupAsync**
-> EmptyEnvelope updateSocialGroupAsync(socialGroupId, tenantId, apiVersion, xApiVersion, socialGroupUpdateDto)
+> EmptyEnvelope updateSocialGroupAsync(socialGroupId, tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupUpdateDto)
 
 Update a social group
 
@@ -285,11 +289,12 @@ Updates an existing social group for the specified tenant.
 val apiInstance = SocialGroupsApi()
 val socialGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val socialGroupUpdateDto : SocialGroupUpdateDto =  // SocialGroupUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateSocialGroupAsync(socialGroupId, tenantId, apiVersion, xApiVersion, socialGroupUpdateDto)
+    val result : EmptyEnvelope = apiInstance.updateSocialGroupAsync(socialGroupId, tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupUpdateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialGroupsApi#updateSocialGroupAsync")
@@ -303,6 +308,7 @@ try {
 ### Parameters
 | **socialGroupId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

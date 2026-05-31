@@ -2,12 +2,13 @@ README.md
 build.gradle
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/CompletionsApi.md
 docs/ConversationCreateDto.md
 docs/ConversationDto.md
 docs/ConversationDtoListEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -17,6 +18,7 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
@@ -73,7 +75,8 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialFeedsApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialGroupsApi.kt
 src/main/kotlin/org/openapitools/client/apis/SocialPostsApi.kt
@@ -111,6 +114,7 @@ src/main/kotlin/org/openapitools/client/models/InfoResponse.kt
 src/main/kotlin/org/openapitools/client/models/Int32Envelope.kt
 src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDto.kt
+src/main/kotlin/org/openapitools/client/models/NotificationDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/PrivateMessageCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/PrivateMessageDto.kt
@@ -158,4 +162,6 @@ src/main/kotlin/org/openapitools/client/models/SocialReactionDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/SocialReactionUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
+src/test/kotlin/org/openapitools/client/models/NotificationDtoEnvelopeTest.kt

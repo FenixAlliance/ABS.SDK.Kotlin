@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmployeeProfileCreateDto
 import org.openapitools.client.models.EmployeeProfileDtoEnvelope
 import org.openapitools.client.models.EmployeeProfileDtoListEnvelope
+import org.openapitools.client.models.EmployeeProfileUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
@@ -46,7 +47,7 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -487,7 +488,7 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
+     * @param employeeProfileUpdateDto  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -497,8 +498,8 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateEmployeeAsync(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: kotlin.Any? = null) : EmptyEnvelope {
-        val localVarResponse = updateEmployeeAsyncWithHttpInfo(employeeId = employeeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun updateEmployeeAsync(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, employeeProfileUpdateDto: EmployeeProfileUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateEmployeeAsyncWithHttpInfo(employeeId = employeeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeProfileUpdateDto = employeeProfileUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -522,17 +523,17 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
+     * @param employeeProfileUpdateDto  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateEmployeeAsyncWithHttpInfo(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = updateEmployeeAsyncRequestConfig(employeeId = employeeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+    fun updateEmployeeAsyncWithHttpInfo(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeProfileUpdateDto: EmployeeProfileUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateEmployeeAsyncRequestConfig(employeeId = employeeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeProfileUpdateDto = employeeProfileUpdateDto)
 
-        return request<kotlin.Any, EmptyEnvelope>(
+        return request<EmployeeProfileUpdateDto, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -544,11 +545,11 @@ class EmployeesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param body  (optional)
+     * @param employeeProfileUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun updateEmployeeAsyncRequestConfig(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: kotlin.Any?) : RequestConfig<kotlin.Any> {
-        val localVariableBody = body
+    fun updateEmployeeAsyncRequestConfig(employeeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeProfileUpdateDto: EmployeeProfileUpdateDto?) : RequestConfig<EmployeeProfileUpdateDto> {
+        val localVariableBody = employeeProfileUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

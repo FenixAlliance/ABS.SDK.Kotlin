@@ -33,6 +33,8 @@ import com.squareup.moshi.JsonClass
  * @param forexRate 
  * @param credit 
  * @param debit 
+ * @param creditInUsd 
+ * @param debitInUsd 
  * @param currencyId 
  * @param tenantId 
  * @param enrollmentId 
@@ -47,6 +49,8 @@ import com.squareup.moshi.JsonClass
  * @param parentJournalEntryId 
  * @param creditAmount 
  * @param debitAmount 
+ * @param creditAmountInUsd 
+ * @param debitAmountInUsd 
  */
 
 
@@ -81,6 +85,12 @@ data class JournalEntryDto (
 
     @Json(name = "debit")
     val debit: kotlin.Double? = null,
+
+    @Json(name = "creditInUsd")
+    val creditInUsd: kotlin.Double? = null,
+
+    @Json(name = "debitInUsd")
+    val debitInUsd: kotlin.Double? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -122,7 +132,13 @@ data class JournalEntryDto (
     val creditAmount: Money? = null,
 
     @Json(name = "debitAmount")
-    val debitAmount: Money? = null
+    val debitAmount: Money? = null,
+
+    @Json(name = "creditAmountInUsd")
+    val creditAmountInUsd: Money? = null,
+
+    @Json(name = "debitAmountInUsd")
+    val debitAmountInUsd: Money? = null
 
 ) {
 

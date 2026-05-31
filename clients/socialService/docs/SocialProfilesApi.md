@@ -1,6 +1,6 @@
 # SocialProfilesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -23,6 +23,7 @@ All URIs are relative to *https://absuite.net*
 | [**getFollowersAsync**](SocialProfilesApi.md#getFollowersAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers | Get Followers |
 | [**getFollowsAsync**](SocialProfilesApi.md#getFollowsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows | Get Follows |
 | [**getMessagesAsync**](SocialProfilesApi.md#getMessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
+| [**getNotificationByIdAsync**](SocialProfilesApi.md#getNotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | [**getNotificationsAsync**](SocialProfilesApi.md#getNotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
 | [**getSocialProfileAsync**](SocialProfilesApi.md#getSocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | [**getSocialProfilesAsync**](SocialProfilesApi.md#getSocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
@@ -282,7 +283,7 @@ No authorization required
 
 <a id="countMessagesAsync"></a>
 # **countMessagesAsync**
-> Int32Envelope countMessagesAsync(conversationId, apiVersion, xApiVersion)
+> Int32Envelope countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
 
 Count Messages
 
@@ -296,10 +297,11 @@ Count messages for a conversation.
 
 val apiInstance = SocialProfilesApi()
 val conversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countMessagesAsync(conversationId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countMessagesAsync")
@@ -312,6 +314,7 @@ try {
 
 ### Parameters
 | **conversationId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -944,7 +947,7 @@ No authorization required
 
 <a id="getMessagesAsync"></a>
 # **getMessagesAsync**
-> PrivateMessageDtoListEnvelope getMessagesAsync(conversationId, apiVersion, xApiVersion)
+> PrivateMessageDtoListEnvelope getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
 
 Get Messages
 
@@ -958,10 +961,11 @@ Get a list of messages for a conversation.
 
 val apiInstance = SocialProfilesApi()
 val conversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : PrivateMessageDtoListEnvelope = apiInstance.getMessagesAsync(conversationId, apiVersion, xApiVersion)
+    val result : PrivateMessageDtoListEnvelope = apiInstance.getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getMessagesAsync")
@@ -974,6 +978,7 @@ try {
 
 ### Parameters
 | **conversationId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -982,6 +987,58 @@ try {
 ### Return type
 
 [**PrivateMessageDtoListEnvelope**](PrivateMessageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getNotificationByIdAsync"></a>
+# **getNotificationByIdAsync**
+> NotificationDtoEnvelope getNotificationByIdAsync(socialProfileId, notificationId, apiVersion, xApiVersion)
+
+Get Notification
+
+Get a notification by ID for a social profile.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialProfilesApi()
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val notificationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : NotificationDtoEnvelope = apiInstance.getNotificationByIdAsync(socialProfileId, notificationId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialProfilesApi#getNotificationByIdAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialProfilesApi#getNotificationByIdAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialProfileId** | **java.util.UUID**|  | |
+| **notificationId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**NotificationDtoEnvelope**](NotificationDtoEnvelope.md)
 
 ### Authorization
 

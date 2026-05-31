@@ -49,6 +49,7 @@ import com.squareup.moshi.JsonClass
  * @param taxCalculationMethod 
  * @param costCalculationMethod 
  * @param forexRate 
+ * @param forexRatesSnapshot 
  * @param currencyId 
  * @param totalDetail 
  * @param totalDetailCurrencyId 
@@ -186,6 +187,9 @@ data class InvoiceDto (
 
     @Json(name = "forexRate")
     val forexRate: kotlin.Double? = null,
+
+    @Json(name = "forexRatesSnapshot")
+    val forexRatesSnapshot: kotlin.String? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,

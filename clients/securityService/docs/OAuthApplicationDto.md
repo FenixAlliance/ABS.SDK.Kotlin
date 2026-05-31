@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **applicationType** | **kotlin.String** |  |  [optional] |
 | **clientId** | **kotlin.String** |  |  [optional] |
 | **concurrencyToken** | **kotlin.String** |  |  [optional] |

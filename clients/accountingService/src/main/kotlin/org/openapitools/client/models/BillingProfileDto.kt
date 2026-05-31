@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.ContactDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -27,13 +28,15 @@ import com.squareup.moshi.JsonClass
  * @param countryId 
  * @param id 
  * @param timestamp 
- * @param tenantId 
  * @param contactId 
+ * @param tenantId 
+ * @param type 
  * @param enrollmentId 
  * @param about 
  * @param verified 
  * @param submitted 
  * @param avatarUrl 
+ * @param contact 
  * @param qualifiedName 
  * @param verificationTimestamp 
  * @param `data` 
@@ -96,11 +99,14 @@ data class BillingProfileDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
+
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "contactId")
-    val contactId: kotlin.String? = null,
+    @Json(name = "type")
+    val type: kotlin.String? = null,
 
     @Json(name = "enrollmentId")
     val enrollmentId: kotlin.String? = null,
@@ -116,6 +122,9 @@ data class BillingProfileDto (
 
     @Json(name = "avatarUrl")
     val avatarUrl: kotlin.String? = null,
+
+    @Json(name = "contact")
+    val contact: ContactDto? = null,
 
     @Json(name = "qualifiedName")
     val qualifiedName: kotlin.String? = null,

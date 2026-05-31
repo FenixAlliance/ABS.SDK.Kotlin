@@ -8,6 +8,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
+| **itemAttributeId** | **kotlin.String** |  |  [optional] |
 | **businessID** | **kotlin.String** |  |  [optional] |
 
 

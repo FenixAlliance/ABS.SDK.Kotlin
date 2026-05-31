@@ -5,9 +5,10 @@ docs/AvatarsApi.md
 docs/Blob.md
 docs/BlobEnvelope.md
 docs/BlobsApi.md
+docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceABSWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/FileUploadDto.md
 docs/FileUploadDtoEnvelope.md
 docs/FilesApi.md
@@ -31,7 +32,8 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/AvatarsApi.kt
 src/main/kotlin/org/openapitools/client/apis/BlobsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
 src/main/kotlin/org/openapitools/client/apis/FilesApi.kt
 src/main/kotlin/org/openapitools/client/apis/RadzenEditorApi.kt
 src/main/kotlin/org/openapitools/client/apis/UploadsApi.kt
@@ -70,4 +72,5 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

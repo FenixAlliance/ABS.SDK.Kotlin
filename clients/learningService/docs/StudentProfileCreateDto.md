@@ -6,12 +6,10 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **type** | **kotlin.String** |  |  [optional] |
+| **contactId** | **kotlin.String** |  |  [optional] |
 | **about** | **kotlin.String** |  |  [optional] |
-| **verified** | **kotlin.Boolean** |  |  [optional] |
-| **submitted** | **kotlin.Boolean** |  |  [optional] |
 | **avatarUrl** | **kotlin.String** |  |  [optional] |
-| **qualifiedName** | **kotlin.String** |  |  [optional] |
-| **verificationTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **&#x60;data&#x60;** | **kotlin.String** |  |  [optional] |
 | **dataLabel** | **kotlin.String** |  |  [optional] |
 | **data1** | **kotlin.String** |  |  [optional] |

@@ -1,6 +1,6 @@
 # FiscalResponsibilityRecordsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,7 +27,7 @@ Creates a new fiscal responsibility record for a fiscal responsibility.
 //import org.openapitools.client.models.*
 
 val apiInstance = FiscalResponsibilityRecordsApi()
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalResponsibilityRecordCreateDto : FiscalResponsibilityRecordCreateDto =  // FiscalResponsibilityRecordCreateDto | 
@@ -44,7 +44,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -80,7 +80,7 @@ Deletes a fiscal responsibility record identified by its unique identifier.
 
 val apiInstance = FiscalResponsibilityRecordsApi()
 val fiscalResponsibilityRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -97,7 +97,7 @@ try {
 
 ### Parameters
 | **fiscalResponsibilityRecordId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -134,7 +134,7 @@ val apiInstance = FiscalResponsibilityRecordsApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalResponsibilityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalResponsibilityRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -153,7 +153,7 @@ try {
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **fiscalResponsibilityId** | **java.util.UUID**|  | |
 | **fiscalResponsibilityRecordId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -189,7 +189,7 @@ Retrieves all fiscal responsibility records for the specified fiscal responsibil
 val apiInstance = FiscalResponsibilityRecordsApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalResponsibilityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -207,7 +207,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **fiscalResponsibilityId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -243,7 +243,7 @@ Returns the total count of fiscal responsibility records for the specified fisca
 val apiInstance = FiscalResponsibilityRecordsApi()
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val fiscalResponsibilityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
@@ -261,7 +261,7 @@ try {
 ### Parameters
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **fiscalResponsibilityId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -296,7 +296,7 @@ Updates an existing fiscal responsibility record identified by its unique identi
 
 val apiInstance = FiscalResponsibilityRecordsApi()
 val fiscalResponsibilityRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val tenantId : kotlin.Any = Object // kotlin.Any | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val fiscalResponsibilityRecordUpdateDto : FiscalResponsibilityRecordUpdateDto =  // FiscalResponsibilityRecordUpdateDto | 
@@ -314,7 +314,7 @@ try {
 
 ### Parameters
 | **fiscalResponsibilityRecordId** | **java.util.UUID**|  | |
-| **tenantId** | [**kotlin.Any**](.md)|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

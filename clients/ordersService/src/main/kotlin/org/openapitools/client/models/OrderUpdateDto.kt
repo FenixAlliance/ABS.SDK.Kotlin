@@ -22,6 +22,15 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param closed 
+ * @param title 
+ * @param userId 
+ * @param priceListId 
+ * @param description 
+ * @param individualId 
+ * @param paymentTermId 
+ * @param organizationId 
+ * @param receiverTenantId 
  * @param firstName 
  * @param lastName 
  * @param companyName 
@@ -35,6 +44,8 @@ import com.squareup.moshi.JsonClass
  * @param billingLocationId 
  * @param shippingLocationId 
  * @param shippingMethodId 
+ * @param forexRate 
+ * @param currencyId 
  * @param totalDetail 
  * @param totalDetailCurrencyId 
  * @param totalProfit 
@@ -62,26 +73,42 @@ import com.squareup.moshi.JsonClass
  * @param costCalculationMethod 
  * @param taxCalculationMethod 
  * @param cartId 
- * @param userId 
- * @param forexRate 
- * @param currencyId 
- * @param individualId 
- * @param organizationId 
  * @param totalAmountInUsd 
  * @param totalTaxesInUsd 
- * @param receiverTenantId 
- * @param closed 
- * @param priceListId 
- * @param paymentTermId 
  * @param quoteStatus 
  * @param effectiveTo 
  * @param effectiveFrom 
- * @param description 
- * @param title 
  */
 
 
 data class OrderUpdateDto (
+
+    @Json(name = "closed")
+    val closed: kotlin.Boolean? = null,
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
+
+    @Json(name = "priceListId")
+    val priceListId: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
+
+    @Json(name = "paymentTermId")
+    val paymentTermId: kotlin.String? = null,
+
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
+
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
 
     @Json(name = "firstName")
     val firstName: kotlin.String? = null,
@@ -121,6 +148,12 @@ data class OrderUpdateDto (
 
     @Json(name = "shippingMethodId")
     val shippingMethodId: kotlin.String? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
 
     @Json(name = "totalDetail")
     val totalDetail: kotlin.Double? = null,
@@ -203,38 +236,11 @@ data class OrderUpdateDto (
     @Json(name = "cartId")
     val cartId: kotlin.String? = null,
 
-    @Json(name = "userId")
-    val userId: kotlin.String? = null,
-
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "individualId")
-    val individualId: kotlin.String? = null,
-
-    @Json(name = "organizationId")
-    val organizationId: kotlin.String? = null,
-
     @Json(name = "totalAmountInUsd")
     val totalAmountInUsd: kotlin.Double? = null,
 
     @Json(name = "totalTaxesInUsd")
     val totalTaxesInUsd: kotlin.Double? = null,
-
-    @Json(name = "receiverTenantId")
-    val receiverTenantId: kotlin.String? = null,
-
-    @Json(name = "closed")
-    val closed: kotlin.Boolean? = null,
-
-    @Json(name = "priceListId")
-    val priceListId: kotlin.String? = null,
-
-    @Json(name = "paymentTermId")
-    val paymentTermId: kotlin.String? = null,
 
     @Json(name = "quoteStatus")
     val quoteStatus: kotlin.String? = null,
@@ -243,13 +249,7 @@ data class OrderUpdateDto (
     val effectiveTo: java.time.OffsetDateTime? = null,
 
     @Json(name = "effectiveFrom")
-    val effectiveFrom: java.time.OffsetDateTime? = null,
-
-    @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "title")
-    val title: kotlin.String? = null
+    val effectiveFrom: java.time.OffsetDateTime? = null
 
 ) {
 

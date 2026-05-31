@@ -44,13 +44,14 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Count item warranty policies
      * Counts all warranty policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -63,8 +64,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemWarrantyPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemWarrantyPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemWarrantyPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countItemWarrantyPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -84,6 +85,7 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Count item warranty policies
      * Counts all warranty policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -93,8 +95,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemWarrantyPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemWarrantyPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemWarrantyPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemWarrantyPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -104,15 +106,19 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation countItemWarrantyPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countItemWarrantyPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countItemWarrantyPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -137,6 +143,7 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Get item warranty policies
      * Retrieves all warranty policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -149,8 +156,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemWarrantyPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemWarrantyPolicyDtoListEnvelope {
-        val localVarResponse = getItemWarrantyPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemWarrantyPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemWarrantyPolicyDtoListEnvelope {
+        val localVarResponse = getItemWarrantyPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemWarrantyPolicyDtoListEnvelope
@@ -170,6 +177,7 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * Get item warranty policies
      * Retrieves all warranty policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -179,8 +187,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemWarrantyPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemWarrantyPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemWarrantyPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemWarrantyPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemWarrantyPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemWarrantyPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemWarrantyPolicyDtoListEnvelope>(
             localVariableConfig
@@ -190,15 +198,19 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
     /**
      * To obtain the request config of the operation getItemWarrantyPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemWarrantyPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemWarrantyPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -224,6 +236,7 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * Get item warranty policy by ID
      * Retrieves a specific warranty policy for an item.
      * @param itemWarrantyPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -236,8 +249,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId: java.util.UUID, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemWarrantyPolicyDtoEnvelope {
-        val localVarResponse = getItemWarrantyPolicyByIdAsyncWithHttpInfo(itemWarrantyPolicyId = itemWarrantyPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId: java.util.UUID, tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemWarrantyPolicyDtoEnvelope {
+        val localVarResponse = getItemWarrantyPolicyByIdAsyncWithHttpInfo(itemWarrantyPolicyId = itemWarrantyPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemWarrantyPolicyDtoEnvelope
@@ -258,6 +271,7 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * Get item warranty policy by ID
      * Retrieves a specific warranty policy for an item.
      * @param itemWarrantyPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -267,8 +281,8 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemWarrantyPolicyByIdAsyncWithHttpInfo(itemWarrantyPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemWarrantyPolicyDtoEnvelope?> {
-        val localVariableConfig = getItemWarrantyPolicyByIdAsyncRequestConfig(itemWarrantyPolicyId = itemWarrantyPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemWarrantyPolicyByIdAsyncWithHttpInfo(itemWarrantyPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemWarrantyPolicyDtoEnvelope?> {
+        val localVariableConfig = getItemWarrantyPolicyByIdAsyncRequestConfig(itemWarrantyPolicyId = itemWarrantyPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemWarrantyPolicyDtoEnvelope>(
             localVariableConfig
@@ -279,15 +293,19 @@ class ItemWarrantyPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * To obtain the request config of the operation getItemWarrantyPolicyByIdAsync
      *
      * @param itemWarrantyPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemWarrantyPolicyByIdAsyncRequestConfig(itemWarrantyPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemWarrantyPolicyByIdAsyncRequestConfig(itemWarrantyPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }

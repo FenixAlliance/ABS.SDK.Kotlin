@@ -20,6 +20,10 @@
 | **accountTypeId** | **kotlin.String** |  |  [optional] |
 | **debitsBalance** | **kotlin.Double** |  |  [optional] |
 | **creditsBalance** | **kotlin.Double** |  |  [optional] |
+| **balanceInUsd** | **kotlin.Double** |  |  [optional] |
+| **debitsBalanceInUsd** | **kotlin.Double** |  |  [optional] |
+| **creditsBalanceInUsd** | **kotlin.Double** |  |  [optional] |
+| **forexRate** | **kotlin.Double** |  |  [optional] |
 | **parentAccountId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
@@ -28,6 +32,9 @@
 | **balanceAmount** | [**Money**](Money.md) |  |  [optional] |
 | **creditsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
 | **debitsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
+| **balanceAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
+| **debitsBalanceAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
+| **creditsBalanceAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
 
 
 <a id="AccountCategory"></a>

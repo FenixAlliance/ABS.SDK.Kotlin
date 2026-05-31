@@ -1,13 +1,14 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
+docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/ErrorEnvelope.md
 docs/ExchangeApi.md
 docs/ExchangeRate.md
 docs/ExchangeRateEnvelope.md
 docs/ExchangeVApi.md
-docs/FenixAllianceABSWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForexRatesDto.md
 docs/ForexRatesDtoEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -29,9 +30,10 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
+src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/ExchangeApi.kt
 src/main/kotlin/org/openapitools/client/apis/ExchangeVApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
 src/main/kotlin/org/openapitools/client/apis/RatesApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiClient.kt
@@ -70,3 +72,5 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

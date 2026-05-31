@@ -14,6 +14,8 @@
 | **forexRate** | **kotlin.Double** |  |  [optional] |
 | **credit** | **kotlin.Double** |  |  [optional] |
 | **debit** | **kotlin.Double** |  |  [optional] |
+| **creditInUsd** | **kotlin.Double** |  |  [optional] |
+| **debitInUsd** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
@@ -28,6 +30,8 @@
 | **parentJournalEntryId** | **kotlin.String** |  |  [optional] |
 | **creditAmount** | [**Money**](Money.md) |  |  [optional] |
 | **debitAmount** | [**Money**](Money.md) |  |  [optional] |
+| **creditAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
+| **debitAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
 
 
 

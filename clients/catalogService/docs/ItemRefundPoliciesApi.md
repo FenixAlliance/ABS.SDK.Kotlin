@@ -1,6 +1,6 @@
 # ItemRefundPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemRefundPoliciesAsync"></a>
 # **countItemRefundPoliciesAsync**
-> Int32Envelope countItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item refund policies
 
@@ -26,11 +26,12 @@ Counts all refund policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemRefundPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemRefundPoliciesApi#countItemRefundPoliciesAsync")
@@ -42,6 +43,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -63,7 +65,7 @@ No authorization required
 
 <a id="getItemRefundPoliciesAsync"></a>
 # **getItemRefundPoliciesAsync**
-> ItemRefundPolicyDtoListEnvelope getItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoListEnvelope getItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item refund policies
 
@@ -76,11 +78,12 @@ Retrieves all refund policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemRefundPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemRefundPolicyDtoListEnvelope = apiInstance.getItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemRefundPolicyDtoListEnvelope = apiInstance.getItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemRefundPoliciesApi#getItemRefundPoliciesAsync")
@@ -92,6 +95,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -113,7 +117,7 @@ No authorization required
 
 <a id="getItemRefundPolicyByIdAsync"></a>
 # **getItemRefundPolicyByIdAsync**
-> ItemRefundPolicyDtoEnvelope getItemRefundPolicyByIdAsync(itemRefundPolicyId, itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoEnvelope getItemRefundPolicyByIdAsync(itemRefundPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item refund policy by ID
 
@@ -127,11 +131,12 @@ Retrieves a specific refund policy for an item.
 
 val apiInstance = ItemRefundPoliciesApi()
 val itemRefundPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemRefundPolicyDtoEnvelope = apiInstance.getItemRefundPolicyByIdAsync(itemRefundPolicyId, itemId, apiVersion, xApiVersion)
+    val result : ItemRefundPolicyDtoEnvelope = apiInstance.getItemRefundPolicyByIdAsync(itemRefundPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemRefundPoliciesApi#getItemRefundPolicyByIdAsync")
@@ -144,6 +149,7 @@ try {
 
 ### Parameters
 | **itemRefundPolicyId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

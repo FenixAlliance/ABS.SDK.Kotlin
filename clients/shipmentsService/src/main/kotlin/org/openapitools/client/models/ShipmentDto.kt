@@ -23,12 +23,18 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param trackingCode 
  * @param isInternational 
+ * @param shipped 
+ * @param delivered 
  * @param shipmentTimestamp 
  * @param deliveryTimestamp 
  * @param expectedShippingDate 
  * @param expectedDeliveryDate 
+ * @param shippingTerms 
+ * @param orderID 
+ * @param businessID 
  */
 
 
@@ -37,11 +43,20 @@ data class ShipmentDto (
     @Json(name = "id")
     val id: kotlin.String? = null,
 
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
+
     @Json(name = "trackingCode")
     val trackingCode: kotlin.String? = null,
 
     @Json(name = "isInternational")
     val isInternational: kotlin.Boolean? = null,
+
+    @Json(name = "shipped")
+    val shipped: kotlin.Boolean? = null,
+
+    @Json(name = "delivered")
+    val delivered: kotlin.Boolean? = null,
 
     @Json(name = "shipmentTimestamp")
     val shipmentTimestamp: java.time.OffsetDateTime? = null,
@@ -53,10 +68,39 @@ data class ShipmentDto (
     val expectedShippingDate: java.time.OffsetDateTime? = null,
 
     @Json(name = "expectedDeliveryDate")
-    val expectedDeliveryDate: java.time.OffsetDateTime? = null
+    val expectedDeliveryDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "shippingTerms")
+    val shippingTerms: ShipmentDto.ShippingTerms? = null,
+
+    @Json(name = "orderID")
+    val orderID: kotlin.String? = null,
+
+    @Json(name = "businessID")
+    val businessID: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NC,EXW,FCA,FOB,FAS,CFR,CIF,CPT,CIP,DDP,DAP,DPU
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ShippingTerms(val value: kotlin.String) {
+        @Json(name = "NC") NC("NC"),
+        @Json(name = "EXW") EXW("EXW"),
+        @Json(name = "FCA") FCA("FCA"),
+        @Json(name = "FOB") FOB("FOB"),
+        @Json(name = "FAS") FAS("FAS"),
+        @Json(name = "CFR") CFR("CFR"),
+        @Json(name = "CIF") CIF("CIF"),
+        @Json(name = "CPT") CPT("CPT"),
+        @Json(name = "CIP") CIP("CIP"),
+        @Json(name = "DDP") DDP("DDP"),
+        @Json(name = "DAP") DAP("DAP"),
+        @Json(name = "DPU") DPU("DPU");
+    }
 
 }
 

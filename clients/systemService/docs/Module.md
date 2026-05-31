@@ -30,6 +30,7 @@
 | **swaggerSpecs** | [**kotlin.collections.List&lt;ISwaggerSpec&gt;**](ISwaggerSpec.md) |  |  [optional] |
 | **url** | **kotlin.String** |  |  [optional] |
 | **assemblyPaths** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
+| **requiredPermissions** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] [readonly] |
 | **markedForDeletion** | **kotlin.Boolean** |  |  [optional] |
 | **version** | **kotlin.String** |  |  [optional] |
 

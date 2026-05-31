@@ -1,6 +1,6 @@
 # CoursesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -386,7 +386,7 @@ try {
 
 ### Parameters
 | **courseId** | **java.util.UUID**|  | |
-| **tenantId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

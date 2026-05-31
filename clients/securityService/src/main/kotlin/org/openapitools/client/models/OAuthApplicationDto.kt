@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param applicationType 
  * @param clientId 
  * @param concurrencyToken 
@@ -49,6 +50,9 @@ data class OAuthApplicationDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "applicationType")
     val applicationType: kotlin.String? = null,

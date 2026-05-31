@@ -1,10 +1,15 @@
 # CountriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**countCallingCodesByCountryAsync**](CountriesApi.md#countCallingCodesByCountryAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count | Count calling codes for a country |
+| [**countCitiesByStateAsync**](CountriesApi.md#countCitiesByStateAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count | Count cities for a state |
 | [**countCountries**](CountriesApi.md#countCountries) | **GET** /api/v2/GlobeService/Countries/Count | Count countries |
+| [**countCountryStatesAsync**](CountriesApi.md#countCountryStatesAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/Count | Count states for a country |
+| [**countTimezonesByCountryAsync**](CountriesApi.md#countTimezonesByCountryAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones/Count | Count timezones for a country |
+| [**countTopLevelDomainsByCountryAsync**](CountriesApi.md#countTopLevelDomainsByCountryAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count | Count top-level domains for a country |
 | [**getAllCountries**](CountriesApi.md#getAllCountries) | **GET** /api/v2/GlobeService/Countries | Get all countries |
 | [**getCallingCodesByCountryIdAsync**](CountriesApi.md#getCallingCodesByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country |
 | [**getCitiesByCountryStateIdAsync**](CountriesApi.md#getCitiesByCountryStateIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state |
@@ -16,6 +21,108 @@ All URIs are relative to *https://absuite.net*
 | [**getTopLevelDomainsByCountryIdAsync**](CountriesApi.md#getTopLevelDomainsByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country |
 | [**searchCountriesByNameAsync**](CountriesApi.md#searchCountriesByNameAsync) | **GET** /api/v2/GlobeService/Countries/Search | Search countries by name |
 
+
+<a id="countCallingCodesByCountryAsync"></a>
+# **countCallingCodesByCountryAsync**
+> Int32Envelope countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion)
+
+Count calling codes for a country
+
+Returns the total number of calling codes for the specified country, with optional OData filtering.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CountriesApi()
+val countryId : kotlin.String = countryId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CountriesApi#countCallingCodesByCountryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CountriesApi#countCallingCodesByCountryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **countryId** | **kotlin.String**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="countCitiesByStateAsync"></a>
+# **countCitiesByStateAsync**
+> Int32Envelope countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion)
+
+Count cities for a state
+
+Returns the total number of cities for the specified state, with optional OData filtering.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CountriesApi()
+val countryStateId : kotlin.String = countryStateId_example // kotlin.String | 
+val countryId : kotlin.String = countryId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CountriesApi#countCitiesByStateAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CountriesApi#countCitiesByStateAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **countryStateId** | **kotlin.String**|  | |
+| **countryId** | **kotlin.String**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="countCountries"></a>
 # **countCountries**
@@ -47,6 +154,156 @@ try {
 ```
 
 ### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="countCountryStatesAsync"></a>
+# **countCountryStatesAsync**
+> Int32Envelope countCountryStatesAsync(countryId, apiVersion, xApiVersion)
+
+Count states for a country
+
+Returns the total number of states or provinces for the specified country, with optional OData filtering.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CountriesApi()
+val countryId : kotlin.String = countryId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.countCountryStatesAsync(countryId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CountriesApi#countCountryStatesAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CountriesApi#countCountryStatesAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **countryId** | **kotlin.String**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="countTimezonesByCountryAsync"></a>
+# **countTimezonesByCountryAsync**
+> Int32Envelope countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion)
+
+Count timezones for a country
+
+Returns the total number of timezones for the specified country, with optional OData filtering.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CountriesApi()
+val countryId : kotlin.String = countryId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CountriesApi#countTimezonesByCountryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CountriesApi#countTimezonesByCountryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **countryId** | **kotlin.String**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="countTopLevelDomainsByCountryAsync"></a>
+# **countTopLevelDomainsByCountryAsync**
+> Int32Envelope countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion)
+
+Count top-level domains for a country
+
+Returns the total number of top-level domains for the specified country, with optional OData filtering.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CountriesApi()
+val countryId : kotlin.String = countryId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CountriesApi#countTopLevelDomainsByCountryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CountriesApi#countTopLevelDomainsByCountryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

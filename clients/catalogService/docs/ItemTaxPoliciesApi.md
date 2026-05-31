@@ -1,6 +1,6 @@
 # ItemTaxPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemTaxPoliciesAsync"></a>
 # **countItemTaxPoliciesAsync**
-> Int32Envelope countItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item tax policies
 
@@ -26,11 +26,12 @@ Counts all tax policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemTaxPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemTaxPoliciesApi#countItemTaxPoliciesAsync")
@@ -42,6 +43,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -63,7 +65,7 @@ No authorization required
 
 <a id="getItemTaxPoliciesAsync"></a>
 # **getItemTaxPoliciesAsync**
-> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item tax policies
 
@@ -76,11 +78,12 @@ Retrieves all tax policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemTaxPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTaxPolicyDtoListEnvelope = apiInstance.getItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemTaxPolicyDtoListEnvelope = apiInstance.getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemTaxPoliciesApi#getItemTaxPoliciesAsync")
@@ -92,6 +95,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -113,7 +117,7 @@ No authorization required
 
 <a id="getItemTaxPolicyByIdAsync"></a>
 # **getItemTaxPolicyByIdAsync**
-> ItemTaxPolicyDtoEnvelope getItemTaxPolicyByIdAsync(itemTaxPolicyId, itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoEnvelope getItemTaxPolicyByIdAsync(itemTaxPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item tax policy by ID
 
@@ -127,11 +131,12 @@ Retrieves a specific tax policy for an item.
 
 val apiInstance = ItemTaxPoliciesApi()
 val itemTaxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTaxPolicyDtoEnvelope = apiInstance.getItemTaxPolicyByIdAsync(itemTaxPolicyId, itemId, apiVersion, xApiVersion)
+    val result : ItemTaxPolicyDtoEnvelope = apiInstance.getItemTaxPolicyByIdAsync(itemTaxPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemTaxPoliciesApi#getItemTaxPolicyByIdAsync")
@@ -144,6 +149,7 @@ try {
 
 ### Parameters
 | **itemTaxPolicyId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

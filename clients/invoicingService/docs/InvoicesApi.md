@@ -1,6 +1,6 @@
 # InvoicesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -51,7 +51,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="aggregateInvoiceDiscounts"></a>
 # **aggregateInvoiceDiscounts**
-> MoneyEnvelope aggregateInvoiceDiscounts(javaUtilUUID, currencyId)
+> MoneyEnvelope aggregateInvoiceDiscounts(tenantId, javaUtilUUID, currencyId)
 
 Aggregate invoice discounts.
 
@@ -64,10 +64,11 @@ Aggregates the discounts for the specified invoices.
 //import org.openapitools.client.models.*
 
 val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateInvoiceDiscounts(javaUtilUUID, currencyId)
+    val result : MoneyEnvelope = apiInstance.aggregateInvoiceDiscounts(tenantId, javaUtilUUID, currencyId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#aggregateInvoiceDiscounts")
@@ -79,6 +80,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -99,7 +101,7 @@ No authorization required
 
 <a id="aggregateInvoiceGlobalSurcharges"></a>
 # **aggregateInvoiceGlobalSurcharges**
-> MoneyEnvelope aggregateInvoiceGlobalSurcharges(javaUtilUUID, currencyId)
+> MoneyEnvelope aggregateInvoiceGlobalSurcharges(tenantId, javaUtilUUID, currencyId)
 
 Aggregate invoice global surcharges.
 
@@ -112,10 +114,11 @@ Aggregates the global surcharges for the specified invoices.
 //import org.openapitools.client.models.*
 
 val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateInvoiceGlobalSurcharges(javaUtilUUID, currencyId)
+    val result : MoneyEnvelope = apiInstance.aggregateInvoiceGlobalSurcharges(tenantId, javaUtilUUID, currencyId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#aggregateInvoiceGlobalSurcharges")
@@ -127,6 +130,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -147,7 +151,7 @@ No authorization required
 
 <a id="aggregateInvoiceTaxBases"></a>
 # **aggregateInvoiceTaxBases**
-> MoneyEnvelope aggregateInvoiceTaxBases(javaUtilUUID, currencyId)
+> MoneyEnvelope aggregateInvoiceTaxBases(tenantId, javaUtilUUID, currencyId)
 
 Aggregate invoice tax bases.
 
@@ -160,10 +164,11 @@ Aggregates the tax bases for the specified invoices.
 //import org.openapitools.client.models.*
 
 val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTaxBases(javaUtilUUID, currencyId)
+    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTaxBases(tenantId, javaUtilUUID, currencyId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#aggregateInvoiceTaxBases")
@@ -175,6 +180,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -195,7 +201,7 @@ No authorization required
 
 <a id="aggregateInvoiceTaxes"></a>
 # **aggregateInvoiceTaxes**
-> MoneyEnvelope aggregateInvoiceTaxes(javaUtilUUID, currencyId)
+> MoneyEnvelope aggregateInvoiceTaxes(tenantId, javaUtilUUID, currencyId)
 
 Aggregate invoice taxes.
 
@@ -208,10 +214,11 @@ Aggregates the taxes for the specified invoices.
 //import org.openapitools.client.models.*
 
 val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTaxes(javaUtilUUID, currencyId)
+    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTaxes(tenantId, javaUtilUUID, currencyId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#aggregateInvoiceTaxes")
@@ -223,6 +230,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -243,7 +251,7 @@ No authorization required
 
 <a id="aggregateInvoiceTotals"></a>
 # **aggregateInvoiceTotals**
-> MoneyEnvelope aggregateInvoiceTotals(javaUtilUUID, currencyId)
+> MoneyEnvelope aggregateInvoiceTotals(tenantId, javaUtilUUID, currencyId)
 
 Aggregate invoice totals.
 
@@ -256,10 +264,11 @@ Aggregates the totals for the specified invoices.
 //import org.openapitools.client.models.*
 
 val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTotals(javaUtilUUID, currencyId)
+    val result : MoneyEnvelope = apiInstance.aggregateInvoiceTotals(tenantId, javaUtilUUID, currencyId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#aggregateInvoiceTotals")
@@ -271,6 +280,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1471,7 +1481,7 @@ No authorization required
 
 <a id="getInvoicePayments"></a>
 # **getInvoicePayments**
-> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(invoiceId)
+> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(invoiceId, tenantId)
 
 Get payments for an invoice.
 
@@ -1485,8 +1495,9 @@ Retrieves the list of payments related to the specified invoice.
 
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : PaymentDtoIReadOnlyListEnvelope = apiInstance.getInvoicePayments(invoiceId)
+    val result : PaymentDtoIReadOnlyListEnvelope = apiInstance.getInvoicePayments(invoiceId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoicePayments")
@@ -1498,9 +1509,10 @@ try {
 ```
 
 ### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 
@@ -1517,7 +1529,7 @@ No authorization required
 
 <a id="getInvoicePaymentsCount"></a>
 # **getInvoicePaymentsCount**
-> Int32Envelope getInvoicePaymentsCount(invoiceId)
+> Int32Envelope getInvoicePaymentsCount(invoiceId, tenantId)
 
 Get the count of payments for an invoice.
 
@@ -1531,8 +1543,9 @@ Retrieves the total count of payments for the specified invoice.
 
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoicePaymentsCount(invoiceId)
+    val result : Int32Envelope = apiInstance.getInvoicePaymentsCount(invoiceId, tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoicePaymentsCount")
@@ -1544,9 +1557,10 @@ try {
 ```
 
 ### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 
 ### Return type
 

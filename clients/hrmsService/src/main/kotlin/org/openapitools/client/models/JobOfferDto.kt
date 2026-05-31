@@ -24,6 +24,56 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param remote 
+ * @param expectedHireDate 
+ * @param title 
+ * @param description 
+ * @param technicalSkills 
+ * @param nonTechnicalSkills 
+ * @param certifications 
+ * @param projectExperience 
+ * @param technologies 
+ * @param benefits 
+ * @param isOfficialJobOffer 
+ * @param isRemoteJobOffer 
+ * @param isMidTimeJobOffer 
+ * @param isUndergraduateOption 
+ * @param minOverallExperienceYears 
+ * @param availiablePositionsCount 
+ * @param viewsCount 
+ * @param minSalaryAmount 
+ * @param maxSalaryAmount 
+ * @param imageUrl 
+ * @param location 
+ * @param `data` 
+ * @param dataLabel 
+ * @param data1 
+ * @param data1Label 
+ * @param data2 
+ * @param data2Label 
+ * @param data3 
+ * @param data3Label 
+ * @param data4 
+ * @param data4Label 
+ * @param data5 
+ * @param data5Label 
+ * @param data6 
+ * @param data6Label 
+ * @param data7 
+ * @param data7Label 
+ * @param data8 
+ * @param data8Label 
+ * @param data9 
+ * @param data9Label 
+ * @param externalUrl 
+ * @param tenantId 
+ * @param enrollmentId 
+ * @param currencyId 
+ * @param jobFieldId 
+ * @param employerProfileId 
+ * @param countryId 
+ * @param countryStateId 
+ * @param cityId 
  */
 
 
@@ -33,7 +83,157 @@ data class JobOfferDto (
     val id: kotlin.String? = null,
 
     @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null
+    val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "remote")
+    val remote: kotlin.Boolean? = null,
+
+    @Json(name = "expectedHireDate")
+    val expectedHireDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "technicalSkills")
+    val technicalSkills: kotlin.String? = null,
+
+    @Json(name = "nonTechnicalSkills")
+    val nonTechnicalSkills: kotlin.String? = null,
+
+    @Json(name = "certifications")
+    val certifications: kotlin.String? = null,
+
+    @Json(name = "projectExperience")
+    val projectExperience: kotlin.String? = null,
+
+    @Json(name = "technologies")
+    val technologies: kotlin.String? = null,
+
+    @Json(name = "benefits")
+    val benefits: kotlin.String? = null,
+
+    @Json(name = "isOfficialJobOffer")
+    val isOfficialJobOffer: kotlin.Boolean? = null,
+
+    @Json(name = "isRemoteJobOffer")
+    val isRemoteJobOffer: kotlin.Boolean? = null,
+
+    @Json(name = "isMidTimeJobOffer")
+    val isMidTimeJobOffer: kotlin.Boolean? = null,
+
+    @Json(name = "isUndergraduateOption")
+    val isUndergraduateOption: kotlin.Boolean? = null,
+
+    @Json(name = "minOverallExperienceYears")
+    val minOverallExperienceYears: kotlin.Int? = null,
+
+    @Json(name = "availiablePositionsCount")
+    val availiablePositionsCount: kotlin.Int? = null,
+
+    @Json(name = "viewsCount")
+    val viewsCount: kotlin.Int? = null,
+
+    @Json(name = "minSalaryAmount")
+    val minSalaryAmount: kotlin.Double? = null,
+
+    @Json(name = "maxSalaryAmount")
+    val maxSalaryAmount: kotlin.Double? = null,
+
+    @Json(name = "imageUrl")
+    val imageUrl: kotlin.String? = null,
+
+    @Json(name = "location")
+    val location: kotlin.String? = null,
+
+    @Json(name = "data")
+    val `data`: kotlin.String? = null,
+
+    @Json(name = "dataLabel")
+    val dataLabel: kotlin.String? = null,
+
+    @Json(name = "data1")
+    val data1: kotlin.String? = null,
+
+    @Json(name = "data1Label")
+    val data1Label: kotlin.String? = null,
+
+    @Json(name = "data2")
+    val data2: kotlin.String? = null,
+
+    @Json(name = "data2Label")
+    val data2Label: kotlin.String? = null,
+
+    @Json(name = "data3")
+    val data3: kotlin.String? = null,
+
+    @Json(name = "data3Label")
+    val data3Label: kotlin.String? = null,
+
+    @Json(name = "data4")
+    val data4: kotlin.String? = null,
+
+    @Json(name = "data4Label")
+    val data4Label: kotlin.String? = null,
+
+    @Json(name = "data5")
+    val data5: kotlin.String? = null,
+
+    @Json(name = "data5Label")
+    val data5Label: kotlin.String? = null,
+
+    @Json(name = "data6")
+    val data6: kotlin.String? = null,
+
+    @Json(name = "data6Label")
+    val data6Label: kotlin.String? = null,
+
+    @Json(name = "data7")
+    val data7: kotlin.String? = null,
+
+    @Json(name = "data7Label")
+    val data7Label: kotlin.String? = null,
+
+    @Json(name = "data8")
+    val data8: kotlin.String? = null,
+
+    @Json(name = "data8Label")
+    val data8Label: kotlin.String? = null,
+
+    @Json(name = "data9")
+    val data9: kotlin.String? = null,
+
+    @Json(name = "data9Label")
+    val data9Label: kotlin.String? = null,
+
+    @Json(name = "externalUrl")
+    val externalUrl: kotlin.String? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
+
+    @Json(name = "jobFieldId")
+    val jobFieldId: kotlin.String? = null,
+
+    @Json(name = "employerProfileId")
+    val employerProfileId: kotlin.String? = null,
+
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
+
+    @Json(name = "countryStateId")
+    val countryStateId: kotlin.String? = null,
+
+    @Json(name = "cityId")
+    val cityId: kotlin.String? = null
 
 ) {
 

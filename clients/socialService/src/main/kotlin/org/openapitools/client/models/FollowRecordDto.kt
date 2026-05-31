@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param type 
  * @param followerId 
  * @param followedId 
@@ -34,6 +35,9 @@ data class FollowRecordDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "type")
     val type: kotlin.String? = null,

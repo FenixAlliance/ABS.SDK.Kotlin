@@ -27,6 +27,7 @@ import org.openapitools.client.models.AccountRelationCreateDto
 import org.openapitools.client.models.AccountRelationDtoListEnvelope
 import org.openapitools.client.models.AccountRelationUpdateDto
 import org.openapitools.client.models.AccountTypeCreateDto
+import org.openapitools.client.models.AccountTypeDtoEnvelope
 import org.openapitools.client.models.AccountTypeDtoListEnvelope
 import org.openapitools.client.models.AccountTypeUpdateDto
 import org.openapitools.client.models.AccountUpdateDto
@@ -34,10 +35,13 @@ import org.openapitools.client.models.AccountingEntryCreateDto
 import org.openapitools.client.models.AccountingEntryDtoEnvelope
 import org.openapitools.client.models.AccountingEntryDtoListEnvelope
 import org.openapitools.client.models.AccountingEntryUpdateDto
+import org.openapitools.client.models.ChartOfAccountsListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.MoneyEnvelope
 import org.openapitools.client.models.Operation
+import org.openapitools.client.models.SeedChartOfAccountsRequest
 
 import com.squareup.moshi.Json
 
@@ -59,8 +63,98 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
+    }
+
+    /**
+     * Aggregate accounts balance
+     * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return MoneyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun aggregateAccountsBalanceAsync(tenantId: java.util.UUID, currencyId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateAccountsBalanceAsyncWithHttpInfo(tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Aggregate accounts balance
+     * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<MoneyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun aggregateAccountsBalanceAsyncWithHttpInfo(tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateAccountsBalanceAsyncRequestConfig(tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, MoneyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation aggregateAccountsBalanceAsync
+     *
+     * @param tenantId 
+     * @param currencyId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun aggregateAccountsBalanceAsyncRequestConfig(tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (currencyId != null) {
+                    put("currencyId", listOf(currencyId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Accounts/Aggregate/Balance",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**
@@ -691,7 +785,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Create account type
      * Create account type.
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeCreateDto  (optional)
@@ -704,8 +797,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createAccountTypeAsync(tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountTypeCreateDto: AccountTypeCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = createAccountTypeAsyncWithHttpInfo(tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeCreateDto = accountTypeCreateDto)
+    fun createAccountTypeAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountTypeCreateDto: AccountTypeCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createAccountTypeAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeCreateDto = accountTypeCreateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -726,7 +819,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Create account type
      * Create account type.
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeCreateDto  (optional)
@@ -736,8 +828,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createAccountTypeAsyncWithHttpInfo(tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeCreateDto: AccountTypeCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = createAccountTypeAsyncRequestConfig(tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeCreateDto = accountTypeCreateDto)
+    fun createAccountTypeAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeCreateDto: AccountTypeCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createAccountTypeAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeCreateDto = accountTypeCreateDto)
 
         return request<AccountTypeCreateDto, EmptyEnvelope>(
             localVariableConfig
@@ -748,18 +840,16 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation createAccountTypeAsync
      *
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeCreateDto  (optional)
      * @return RequestConfig
      */
-    fun createAccountTypeAsyncRequestConfig(tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeCreateDto: AccountTypeCreateDto?) : RequestConfig<AccountTypeCreateDto> {
+    fun createAccountTypeAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeCreateDto: AccountTypeCreateDto?) : RequestConfig<AccountTypeCreateDto> {
         val localVariableBody = accountTypeCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("accountId", listOf(accountId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -1052,7 +1142,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Delete account type.
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -1064,8 +1153,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteAccountTypeAsync(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = deleteAccountTypeAsyncWithHttpInfo(accountTypeId = accountTypeId, tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteAccountTypeAsync(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteAccountTypeAsyncWithHttpInfo(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1087,7 +1176,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Delete account type.
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -1096,8 +1184,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteAccountTypeAsyncWithHttpInfo(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = deleteAccountTypeAsyncRequestConfig(accountTypeId = accountTypeId, tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun deleteAccountTypeAsyncWithHttpInfo(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteAccountTypeAsyncRequestConfig(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
             localVariableConfig
@@ -1109,17 +1197,15 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun deleteAccountTypeAsyncRequestConfig(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteAccountTypeAsyncRequestConfig(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("accountId", listOf(accountId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -2021,10 +2107,96 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
+     * Get account type by ID
+     * Get account type by ID.
+     * @param accountTypeId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return AccountTypeDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getAccountTypeByIdAsync(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AccountTypeDtoEnvelope {
+        val localVarResponse = getAccountTypeByIdAsyncWithHttpInfo(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AccountTypeDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get account type by ID
+     * Get account type by ID.
+     * @param accountTypeId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<AccountTypeDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getAccountTypeByIdAsyncWithHttpInfo(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AccountTypeDtoEnvelope?> {
+        val localVariableConfig = getAccountTypeByIdAsyncRequestConfig(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, AccountTypeDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getAccountTypeByIdAsync
+     *
+     * @param accountTypeId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getAccountTypeByIdAsyncRequestConfig(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Accounts/Types/{accountTypeId}".replace("{"+"accountTypeId"+"}", encodeURIComponent(accountTypeId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Get account types
      * Get account types.
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return AccountTypeDtoListEnvelope
@@ -2036,8 +2208,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccountTypesAsync(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AccountTypeDtoListEnvelope {
-        val localVarResponse = getAccountTypesAsyncWithHttpInfo(tenantId = tenantId, accountTypeId = accountTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAccountTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AccountTypeDtoListEnvelope {
+        val localVarResponse = getAccountTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AccountTypeDtoListEnvelope
@@ -2058,7 +2230,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get account types
      * Get account types.
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<AccountTypeDtoListEnvelope?>
@@ -2067,8 +2238,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAccountTypesAsyncWithHttpInfo(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AccountTypeDtoListEnvelope?> {
-        val localVariableConfig = getAccountTypesAsyncRequestConfig(tenantId = tenantId, accountTypeId = accountTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAccountTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AccountTypeDtoListEnvelope?> {
+        val localVariableConfig = getAccountTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, AccountTypeDtoListEnvelope>(
             localVariableConfig
@@ -2079,17 +2250,15 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getAccountTypesAsync
      *
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getAccountTypesAsyncRequestConfig(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getAccountTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("accountTypeId", listOf(accountTypeId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -2112,7 +2281,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get account types count
      * Get account types count.
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -2124,8 +2292,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccountTypesCountAsync(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getAccountTypesCountAsyncWithHttpInfo(tenantId = tenantId, accountTypeId = accountTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAccountTypesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getAccountTypesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2146,7 +2314,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get account types count
      * Get account types count.
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -2155,8 +2322,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAccountTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAccountTypesCountAsyncRequestConfig(tenantId = tenantId, accountTypeId = accountTypeId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAccountTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAccountTypesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -2167,17 +2334,15 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getAccountTypesCountAsync
      *
      * @param tenantId 
-     * @param accountTypeId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getAccountTypesCountAsyncRequestConfig(tenantId: java.util.UUID, accountTypeId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getAccountTypesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("accountTypeId", listOf(accountTypeId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -2357,6 +2522,86 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/AccountingService/Accounts/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get charts of accounts
+     * Get available charts of accounts.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ChartOfAccountsListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getChartsOfAccountsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ChartOfAccountsListEnvelope {
+        val localVarResponse = getChartsOfAccountsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ChartOfAccountsListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get charts of accounts
+     * Get available charts of accounts.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ChartOfAccountsListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getChartsOfAccountsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ChartOfAccountsListEnvelope?> {
+        val localVariableConfig = getChartsOfAccountsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ChartOfAccountsListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getChartsOfAccountsAsync
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getChartsOfAccountsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Accounts/ChartsOfAccounts",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2801,6 +3046,94 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
+     * Seed chart of accounts
+     * Seed a chart of accounts from a file URL.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param seedChartOfAccountsRequest  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun seedChartOfAccountsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, seedChartOfAccountsRequest: SeedChartOfAccountsRequest? = null) : EmptyEnvelope {
+        val localVarResponse = seedChartOfAccountsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seedChartOfAccountsRequest = seedChartOfAccountsRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Seed chart of accounts
+     * Seed a chart of accounts from a file URL.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param seedChartOfAccountsRequest  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun seedChartOfAccountsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seedChartOfAccountsRequest: SeedChartOfAccountsRequest?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = seedChartOfAccountsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seedChartOfAccountsRequest = seedChartOfAccountsRequest)
+
+        return request<SeedChartOfAccountsRequest, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation seedChartOfAccountsAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param seedChartOfAccountsRequest  (optional)
+     * @return RequestConfig
+     */
+    fun seedChartOfAccountsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seedChartOfAccountsRequest: SeedChartOfAccountsRequest?) : RequestConfig<SeedChartOfAccountsRequest> {
+        val localVariableBody = seedChartOfAccountsRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Update an account
      * Update an account.
      * @param accountId 
@@ -3085,7 +3418,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Update account type.
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeUpdateDto  (optional)
@@ -3098,8 +3430,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateAccountTypeAsync(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountTypeUpdateDto: AccountTypeUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = updateAccountTypeAsyncWithHttpInfo(accountTypeId = accountTypeId, tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeUpdateDto = accountTypeUpdateDto)
+    fun updateAccountTypeAsync(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountTypeUpdateDto: AccountTypeUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateAccountTypeAsyncWithHttpInfo(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeUpdateDto = accountTypeUpdateDto)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3121,7 +3453,6 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Update account type.
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeUpdateDto  (optional)
@@ -3131,8 +3462,8 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateAccountTypeAsyncWithHttpInfo(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeUpdateDto: AccountTypeUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = updateAccountTypeAsyncRequestConfig(accountTypeId = accountTypeId, tenantId = tenantId, accountId = accountId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeUpdateDto = accountTypeUpdateDto)
+    fun updateAccountTypeAsyncWithHttpInfo(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeUpdateDto: AccountTypeUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateAccountTypeAsyncRequestConfig(accountTypeId = accountTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountTypeUpdateDto = accountTypeUpdateDto)
 
         return request<AccountTypeUpdateDto, EmptyEnvelope>(
             localVariableConfig
@@ -3144,18 +3475,16 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param accountTypeId 
      * @param tenantId 
-     * @param accountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountTypeUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun updateAccountTypeAsyncRequestConfig(accountTypeId: java.util.UUID, tenantId: java.util.UUID, accountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeUpdateDto: AccountTypeUpdateDto?) : RequestConfig<AccountTypeUpdateDto> {
+    fun updateAccountTypeAsyncRequestConfig(accountTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountTypeUpdateDto: AccountTypeUpdateDto?) : RequestConfig<AccountTypeUpdateDto> {
         val localVariableBody = accountTypeUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                put("accountId", listOf(accountId.toString()))
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

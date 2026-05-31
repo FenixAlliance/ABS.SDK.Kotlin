@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.ContactDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -24,11 +25,15 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param authorized 
+ * @param contactId 
+ * @param tenantId 
+ * @param type 
+ * @param enrollmentId 
  * @param about 
  * @param verified 
  * @param submitted 
  * @param avatarUrl 
+ * @param contact 
  * @param qualifiedName 
  * @param verificationTimestamp 
  * @param `data` 
@@ -51,6 +56,7 @@ import com.squareup.moshi.JsonClass
  * @param data8Label 
  * @param data9 
  * @param data9Label 
+ * @param authorized 
  * @param businessID 
  * @param contactID 
  * @param businessProfileRecordID 
@@ -65,8 +71,17 @@ data class InstructorProfileDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "authorized")
-    val authorized: kotlin.Boolean? = null,
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "about")
     val about: kotlin.String? = null,
@@ -79,6 +94,9 @@ data class InstructorProfileDto (
 
     @Json(name = "avatarUrl")
     val avatarUrl: kotlin.String? = null,
+
+    @Json(name = "contact")
+    val contact: ContactDto? = null,
 
     @Json(name = "qualifiedName")
     val qualifiedName: kotlin.String? = null,
@@ -145,6 +163,9 @@ data class InstructorProfileDto (
 
     @Json(name = "data9Label")
     val data9Label: kotlin.String? = null,
+
+    @Json(name = "authorized")
+    val authorized: kotlin.Boolean? = null,
 
     @Json(name = "businessID")
     val businessID: kotlin.String? = null,

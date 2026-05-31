@@ -47,7 +47,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -67,7 +67,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFiscalResponsibilityRecord(tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto? = null) : EmptyEnvelope {
+    fun createFiscalResponsibilityRecord(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto? = null) : EmptyEnvelope {
         val localVarResponse = createFiscalResponsibilityRecordWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalResponsibilityRecordCreateDto = fiscalResponsibilityRecordCreateDto)
 
         return when (localVarResponse.responseType) {
@@ -98,7 +98,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFiscalResponsibilityRecordWithHttpInfo(tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto?) : ApiResponse<EmptyEnvelope?> {
+    fun createFiscalResponsibilityRecordWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = createFiscalResponsibilityRecordRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalResponsibilityRecordCreateDto = fiscalResponsibilityRecordCreateDto)
 
         return request<FiscalResponsibilityRecordCreateDto, EmptyEnvelope>(
@@ -115,7 +115,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param fiscalResponsibilityRecordCreateDto  (optional)
      * @return RequestConfig
      */
-    fun createFiscalResponsibilityRecordRequestConfig(tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto?) : RequestConfig<FiscalResponsibilityRecordCreateDto> {
+    fun createFiscalResponsibilityRecordRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordCreateDto: FiscalResponsibilityRecordCreateDto?) : RequestConfig<FiscalResponsibilityRecordCreateDto> {
         val localVariableBody = fiscalResponsibilityRecordCreateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -155,7 +155,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFiscalResponsibilityRecord(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+    fun deleteFiscalResponsibilityRecord(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
         val localVarResponse = deleteFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -186,7 +186,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+    fun deleteFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = deleteFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, EmptyEnvelope>(
@@ -203,7 +203,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun deleteFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun deleteFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -244,7 +244,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalResponsibilityRecord(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalResponsibilityRecordDtoEnvelope {
+    fun getFiscalResponsibilityRecord(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalResponsibilityRecordDtoEnvelope {
         val localVarResponse = getFiscalResponsibilityRecordWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -277,7 +277,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalResponsibilityRecordWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalResponsibilityRecordDtoEnvelope?> {
+    fun getFiscalResponsibilityRecordWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalResponsibilityRecordDtoEnvelope?> {
         val localVariableConfig = getFiscalResponsibilityRecordRequestConfig(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, FiscalResponsibilityRecordDtoEnvelope>(
@@ -296,7 +296,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getFiscalResponsibilityRecordRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getFiscalResponsibilityRecordRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -336,7 +336,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalResponsibilityRecords(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalResponsibilityRecordDtoListEnvelope {
+    fun getFiscalResponsibilityRecords(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalResponsibilityRecordDtoListEnvelope {
         val localVarResponse = getFiscalResponsibilityRecordsWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -368,7 +368,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalResponsibilityRecordsWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalResponsibilityRecordDtoListEnvelope?> {
+    fun getFiscalResponsibilityRecordsWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalResponsibilityRecordDtoListEnvelope?> {
         val localVariableConfig = getFiscalResponsibilityRecordsRequestConfig(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, FiscalResponsibilityRecordDtoListEnvelope>(
@@ -386,7 +386,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getFiscalResponsibilityRecordsRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getFiscalResponsibilityRecordsRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -426,7 +426,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalResponsibilityRecordsCount(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+    fun getFiscalResponsibilityRecordsCount(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
         val localVarResponse = getFiscalResponsibilityRecordsCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -458,7 +458,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalResponsibilityRecordsCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+    fun getFiscalResponsibilityRecordsCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
         val localVariableConfig = getFiscalResponsibilityRecordsCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, fiscalResponsibilityId = fiscalResponsibilityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
@@ -476,7 +476,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getFiscalResponsibilityRecordsCountRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getFiscalResponsibilityRecordsCountRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalResponsibilityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -516,7 +516,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateFiscalResponsibilityRecord(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto? = null) : EmptyEnvelope {
+    fun updateFiscalResponsibilityRecord(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto? = null) : EmptyEnvelope {
         val localVarResponse = updateFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalResponsibilityRecordUpdateDto = fiscalResponsibilityRecordUpdateDto)
 
         return when (localVarResponse.responseType) {
@@ -548,7 +548,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+    fun updateFiscalResponsibilityRecordWithHttpInfo(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = updateFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId = fiscalResponsibilityRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalResponsibilityRecordUpdateDto = fiscalResponsibilityRecordUpdateDto)
 
         return request<FiscalResponsibilityRecordUpdateDto, EmptyEnvelope>(
@@ -566,7 +566,7 @@ class FiscalResponsibilityRecordsApi(basePath: kotlin.String = defaultBasePath, 
      * @param fiscalResponsibilityRecordUpdateDto  (optional)
      * @return RequestConfig
      */
-    fun updateFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId: java.util.UUID, tenantId: kotlin.Any, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto?) : RequestConfig<FiscalResponsibilityRecordUpdateDto> {
+    fun updateFiscalResponsibilityRecordRequestConfig(fiscalResponsibilityRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalResponsibilityRecordUpdateDto: FiscalResponsibilityRecordUpdateDto?) : RequestConfig<FiscalResponsibilityRecordUpdateDto> {
         val localVariableBody = fiscalResponsibilityRecordUpdateDto
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

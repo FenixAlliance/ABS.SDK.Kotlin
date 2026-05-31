@@ -46,7 +46,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -229,6 +229,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get item attachment by ID
      * Retrieves a specific item attachment by its ID.
      * @param itemAttachmentId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemAttachmentDtoEnvelope
@@ -240,8 +241,8 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemAttachmentByIdAsync(itemAttachmentId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemAttachmentDtoEnvelope {
-        val localVarResponse = getItemAttachmentByIdAsyncWithHttpInfo(itemAttachmentId = itemAttachmentId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemAttachmentByIdAsync(itemAttachmentId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemAttachmentDtoEnvelope {
+        val localVarResponse = getItemAttachmentByIdAsyncWithHttpInfo(itemAttachmentId = itemAttachmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemAttachmentDtoEnvelope
@@ -262,6 +263,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get item attachment by ID
      * Retrieves a specific item attachment by its ID.
      * @param itemAttachmentId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemAttachmentDtoEnvelope?>
@@ -270,8 +272,8 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemAttachmentByIdAsyncWithHttpInfo(itemAttachmentId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemAttachmentDtoEnvelope?> {
-        val localVariableConfig = getItemAttachmentByIdAsyncRequestConfig(itemAttachmentId = itemAttachmentId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemAttachmentByIdAsyncWithHttpInfo(itemAttachmentId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemAttachmentDtoEnvelope?> {
+        val localVariableConfig = getItemAttachmentByIdAsyncRequestConfig(itemAttachmentId = itemAttachmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemAttachmentDtoEnvelope>(
             localVariableConfig
@@ -282,14 +284,18 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * To obtain the request config of the operation getItemAttachmentByIdAsync
      *
      * @param itemAttachmentId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemAttachmentByIdAsyncRequestConfig(itemAttachmentId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemAttachmentByIdAsyncRequestConfig(itemAttachmentId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -311,7 +317,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * Get all item attachments
      * Retrieves all item attachments for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemAttachmentDtoListEnvelope
@@ -323,7 +329,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemAttachmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemAttachmentDtoListEnvelope {
+    fun getItemAttachmentsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemAttachmentDtoListEnvelope {
         val localVarResponse = getItemAttachmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -344,7 +350,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * Get all item attachments
      * Retrieves all item attachments for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemAttachmentDtoListEnvelope?>
@@ -353,7 +359,7 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemAttachmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemAttachmentDtoListEnvelope?> {
+    fun getItemAttachmentsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemAttachmentDtoListEnvelope?> {
         val localVariableConfig = getItemAttachmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemAttachmentDtoListEnvelope>(
@@ -364,16 +370,18 @@ class ItemAttachmentsApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * To obtain the request config of the operation getItemAttachmentsAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemAttachmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemAttachmentsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

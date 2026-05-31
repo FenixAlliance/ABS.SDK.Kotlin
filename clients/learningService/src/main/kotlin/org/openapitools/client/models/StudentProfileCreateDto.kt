@@ -24,12 +24,10 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param type 
+ * @param contactId 
  * @param about 
- * @param verified 
- * @param submitted 
  * @param avatarUrl 
- * @param qualifiedName 
- * @param verificationTimestamp 
  * @param `data` 
  * @param dataLabel 
  * @param data1 
@@ -62,23 +60,17 @@ data class StudentProfileCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "type")
+    val type: kotlin.String? = null,
+
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
+
     @Json(name = "about")
     val about: kotlin.String? = null,
 
-    @Json(name = "verified")
-    val verified: kotlin.Boolean? = null,
-
-    @Json(name = "submitted")
-    val submitted: kotlin.Boolean? = null,
-
     @Json(name = "avatarUrl")
     val avatarUrl: kotlin.String? = null,
-
-    @Json(name = "qualifiedName")
-    val qualifiedName: kotlin.String? = null,
-
-    @Json(name = "verificationTimestamp")
-    val verificationTimestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "data")
     val `data`: kotlin.String? = null,

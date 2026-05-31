@@ -1,6 +1,6 @@
 # ItemReturnPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemReturnPoliciesAsync"></a>
 # **countItemReturnPoliciesAsync**
-> Int32Envelope countItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item return policies
 
@@ -26,11 +26,12 @@ Counts all return policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemReturnPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.countItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemReturnPoliciesApi#countItemReturnPoliciesAsync")
@@ -42,6 +43,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -63,7 +65,7 @@ No authorization required
 
 <a id="getItemReturnPoliciesAsync"></a>
 # **getItemReturnPoliciesAsync**
-> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item return policies
 
@@ -76,11 +78,12 @@ Retrieves all return policies for a specific item.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemReturnPoliciesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemReturnPolicyDtoListEnvelope = apiInstance.getItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemReturnPolicyDtoListEnvelope = apiInstance.getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemReturnPoliciesApi#getItemReturnPoliciesAsync")
@@ -92,6 +95,7 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -113,7 +117,7 @@ No authorization required
 
 <a id="getItemReturnPolicyByIdAsync"></a>
 # **getItemReturnPolicyByIdAsync**
-> ItemReturnPolicyDtoEnvelope getItemReturnPolicyByIdAsync(itemReturnPolicyId, itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoEnvelope getItemReturnPolicyByIdAsync(itemReturnPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item return policy by ID
 
@@ -127,11 +131,12 @@ Retrieves a specific return policy for an item.
 
 val apiInstance = ItemReturnPoliciesApi()
 val itemReturnPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemReturnPolicyDtoEnvelope = apiInstance.getItemReturnPolicyByIdAsync(itemReturnPolicyId, itemId, apiVersion, xApiVersion)
+    val result : ItemReturnPolicyDtoEnvelope = apiInstance.getItemReturnPolicyByIdAsync(itemReturnPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemReturnPoliciesApi#getItemReturnPolicyByIdAsync")
@@ -144,6 +149,7 @@ try {
 
 ### Parameters
 | **itemReturnPolicyId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

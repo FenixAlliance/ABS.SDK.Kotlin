@@ -1,6 +1,6 @@
 # ItemTagsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -116,7 +116,7 @@ No authorization required
 
 <a id="getItemTagByIdAsync"></a>
 # **getItemTagByIdAsync**
-> ItemTagDtoEnvelope getItemTagByIdAsync(itemTagId, apiVersion, xApiVersion)
+> ItemTagDtoEnvelope getItemTagByIdAsync(itemTagId, tenantId, apiVersion, xApiVersion)
 
 Get item tag by ID
 
@@ -130,10 +130,11 @@ Retrieves a specific item tag by its ID.
 
 val apiInstance = ItemTagsApi()
 val itemTagId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemTagDtoEnvelope = apiInstance.getItemTagByIdAsync(itemTagId, apiVersion, xApiVersion)
+    val result : ItemTagDtoEnvelope = apiInstance.getItemTagByIdAsync(itemTagId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemTagsApi#getItemTagByIdAsync")
@@ -146,6 +147,7 @@ try {
 
 ### Parameters
 | **itemTagId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -195,7 +197,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

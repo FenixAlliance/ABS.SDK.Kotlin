@@ -39,6 +39,10 @@ import com.squareup.moshi.JsonClass
  * @param accountTypeId 
  * @param debitsBalance 
  * @param creditsBalance 
+ * @param balanceInUsd 
+ * @param debitsBalanceInUsd 
+ * @param creditsBalanceInUsd 
+ * @param forexRate 
  * @param parentAccountId 
  * @param tenantId 
  * @param enrollmentId 
@@ -47,6 +51,9 @@ import com.squareup.moshi.JsonClass
  * @param balanceAmount 
  * @param creditsBalanceAmount 
  * @param debitsBalanceAmount 
+ * @param balanceAmountInUsd 
+ * @param debitsBalanceAmountInUsd 
+ * @param creditsBalanceAmountInUsd 
  */
 
 
@@ -100,6 +107,18 @@ data class AccountDto (
     @Json(name = "creditsBalance")
     val creditsBalance: kotlin.Double? = null,
 
+    @Json(name = "balanceInUsd")
+    val balanceInUsd: kotlin.Double? = null,
+
+    @Json(name = "debitsBalanceInUsd")
+    val debitsBalanceInUsd: kotlin.Double? = null,
+
+    @Json(name = "creditsBalanceInUsd")
+    val creditsBalanceInUsd: kotlin.Double? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
     @Json(name = "parentAccountId")
     val parentAccountId: kotlin.String? = null,
 
@@ -122,7 +141,16 @@ data class AccountDto (
     val creditsBalanceAmount: Money? = null,
 
     @Json(name = "debitsBalanceAmount")
-    val debitsBalanceAmount: Money? = null
+    val debitsBalanceAmount: Money? = null,
+
+    @Json(name = "balanceAmountInUsd")
+    val balanceAmountInUsd: Money? = null,
+
+    @Json(name = "debitsBalanceAmountInUsd")
+    val debitsBalanceAmountInUsd: Money? = null,
+
+    @Json(name = "creditsBalanceAmountInUsd")
+    val creditsBalanceAmountInUsd: Money? = null
 
 ) {
 

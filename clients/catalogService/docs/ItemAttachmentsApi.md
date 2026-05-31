@@ -1,6 +1,6 @@
 # ItemAttachmentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -117,7 +117,7 @@ No authorization required
 
 <a id="getItemAttachmentByIdAsync"></a>
 # **getItemAttachmentByIdAsync**
-> ItemAttachmentDtoEnvelope getItemAttachmentByIdAsync(itemAttachmentId, apiVersion, xApiVersion)
+> ItemAttachmentDtoEnvelope getItemAttachmentByIdAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion)
 
 Get item attachment by ID
 
@@ -131,10 +131,11 @@ Retrieves a specific item attachment by its ID.
 
 val apiInstance = ItemAttachmentsApi()
 val itemAttachmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemAttachmentDtoEnvelope = apiInstance.getItemAttachmentByIdAsync(itemAttachmentId, apiVersion, xApiVersion)
+    val result : ItemAttachmentDtoEnvelope = apiInstance.getItemAttachmentByIdAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttachmentsApi#getItemAttachmentByIdAsync")
@@ -147,6 +148,7 @@ try {
 
 ### Parameters
 | **itemAttachmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -196,7 +198,7 @@ try {
 ```
 
 ### Parameters
-| **tenantId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

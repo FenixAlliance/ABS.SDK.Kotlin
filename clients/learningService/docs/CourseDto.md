@@ -167,6 +167,20 @@
 | **selectedShipmentPolicies** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **selectedAttributesOptions** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **selectedSellingMarginPolicies** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
+| **version** | **kotlin.String** |  |  [optional] |
+| **courseCategoryID** | **kotlin.String** |  |  [optional] |
+| **courseCategoryName** | **kotlin.String** |  |  [optional] |
+| **instructorProfileID** | **kotlin.String** |  |  [optional] |
+| **instructorProfileName** | **kotlin.String** |  |  [optional] |
+| **maxCourseEnrollments** | **kotlin.Int** |  |  [optional] |
+| **totalEffortInWeeks** | **kotlin.Int** |  |  [optional] |
+| **totalHoursPerWeek** | **kotlin.Int** |  |  [optional] |
+| **totalEffortInHours** | **kotlin.Int** |  |  [optional] |
+| **startDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **endDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **inscriptionsStartDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **inscriptionsEndDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 
 
 

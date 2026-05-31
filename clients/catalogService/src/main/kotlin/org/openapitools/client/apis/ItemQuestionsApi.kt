@@ -45,7 +45,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -226,6 +226,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Get item question by ID
      * Retrieves a specific item question by its ID.
      * @param itemQuestionId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemQuestionDtoEnvelope
@@ -237,8 +238,8 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemQuestionByIdAsync(itemQuestionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoEnvelope {
-        val localVarResponse = getItemQuestionByIdAsyncWithHttpInfo(itemQuestionId = itemQuestionId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemQuestionByIdAsync(itemQuestionId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoEnvelope {
+        val localVarResponse = getItemQuestionByIdAsyncWithHttpInfo(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemQuestionDtoEnvelope
@@ -259,6 +260,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Get item question by ID
      * Retrieves a specific item question by its ID.
      * @param itemQuestionId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemQuestionDtoEnvelope?>
@@ -267,8 +269,8 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemQuestionByIdAsyncWithHttpInfo(itemQuestionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoEnvelope?> {
-        val localVariableConfig = getItemQuestionByIdAsyncRequestConfig(itemQuestionId = itemQuestionId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemQuestionByIdAsyncWithHttpInfo(itemQuestionId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoEnvelope?> {
+        val localVariableConfig = getItemQuestionByIdAsyncRequestConfig(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemQuestionDtoEnvelope>(
             localVariableConfig
@@ -279,14 +281,18 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * To obtain the request config of the operation getItemQuestionByIdAsync
      *
      * @param itemQuestionId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemQuestionByIdAsyncRequestConfig(itemQuestionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemQuestionByIdAsyncRequestConfig(itemQuestionId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -308,7 +314,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * Get all item questions
      * Retrieves all item questions for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ItemQuestionDtoListEnvelope
@@ -320,7 +326,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemQuestionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoListEnvelope {
+    fun getItemQuestionsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoListEnvelope {
         val localVarResponse = getItemQuestionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -341,7 +347,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * Get all item questions
      * Retrieves all item questions for the specified tenant using OData query options.
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<ItemQuestionDtoListEnvelope?>
@@ -350,7 +356,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemQuestionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
+    fun getItemQuestionsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
         val localVariableConfig = getItemQuestionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemQuestionDtoListEnvelope>(
@@ -361,16 +367,18 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation getItemQuestionsAsync
      *
-     * @param tenantId 
+     * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemQuestionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemQuestionsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tenantId", listOf(tenantId.toString()))
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

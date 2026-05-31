@@ -1,9 +1,11 @@
 # JournalsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**aggregateJournalEntryCreditsAsync**](JournalsApi.md#aggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits |
+| [**aggregateJournalEntryDebitsAsync**](JournalsApi.md#aggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits |
 | [**countJournalsAsync**](JournalsApi.md#countJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals |
 | [**createJournalAsync**](JournalsApi.md#createJournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal |
 | [**createJournalEntryAsync**](JournalsApi.md#createJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry |
@@ -16,6 +18,114 @@ All URIs are relative to *https://absuite.net*
 | [**updateJournalAsync**](JournalsApi.md#updateJournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal |
 | [**updateJournalEntryAsync**](JournalsApi.md#updateJournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry |
 
+
+<a id="aggregateJournalEntryCreditsAsync"></a>
+# **aggregateJournalEntryCreditsAsync**
+> MoneyEnvelope aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+
+Aggregate journal entry credits
+
+Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = JournalsApi()
+val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val currencyId : kotlin.String = currencyId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling JournalsApi#aggregateJournalEntryCreditsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling JournalsApi#aggregateJournalEntryCreditsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **journalId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **currencyId** | **kotlin.String**|  | [optional] |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="aggregateJournalEntryDebitsAsync"></a>
+# **aggregateJournalEntryDebitsAsync**
+> MoneyEnvelope aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+
+Aggregate journal entry debits
+
+Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = JournalsApi()
+val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val currencyId : kotlin.String = currencyId_example // kotlin.String | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling JournalsApi#aggregateJournalEntryDebitsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling JournalsApi#aggregateJournalEntryDebitsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **journalId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **currencyId** | **kotlin.String**|  | [optional] |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="countJournalsAsync"></a>
 # **countJournalsAsync**

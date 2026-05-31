@@ -23,13 +23,85 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
+ * @param description 
+ * @param sku 
+ * @param summary 
+ * @param code 
+ * @param version 
+ * @param courseCategoryID 
+ * @param instructorProfileID 
+ * @param currencyID 
+ * @param regularPrice 
+ * @param maxCourseEnrollments 
+ * @param totalEffortInWeeks 
+ * @param totalHoursPerWeek 
+ * @param totalEffortInHours 
+ * @param startDateTime 
+ * @param endDateTime 
+ * @param inscriptionsStartDateTime 
+ * @param inscriptionsEndDateTime 
+ * @param published 
  */
 
 
 data class CourseUpdateDto (
 
     @Json(name = "title")
-    val title: kotlin.String? = null
+    val title: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "sku")
+    val sku: kotlin.String? = null,
+
+    @Json(name = "summary")
+    val summary: kotlin.String? = null,
+
+    @Json(name = "code")
+    val code: kotlin.String? = null,
+
+    @Json(name = "version")
+    val version: kotlin.String? = null,
+
+    @Json(name = "courseCategoryID")
+    val courseCategoryID: kotlin.String? = null,
+
+    @Json(name = "instructorProfileID")
+    val instructorProfileID: kotlin.String? = null,
+
+    @Json(name = "currencyID")
+    val currencyID: kotlin.String? = null,
+
+    @Json(name = "regularPrice")
+    val regularPrice: kotlin.Double? = null,
+
+    @Json(name = "maxCourseEnrollments")
+    val maxCourseEnrollments: kotlin.Int? = null,
+
+    @Json(name = "totalEffortInWeeks")
+    val totalEffortInWeeks: kotlin.Int? = null,
+
+    @Json(name = "totalHoursPerWeek")
+    val totalHoursPerWeek: kotlin.Int? = null,
+
+    @Json(name = "totalEffortInHours")
+    val totalEffortInHours: kotlin.Int? = null,
+
+    @Json(name = "startDateTime")
+    val startDateTime: java.time.OffsetDateTime? = null,
+
+    @Json(name = "endDateTime")
+    val endDateTime: java.time.OffsetDateTime? = null,
+
+    @Json(name = "inscriptionsStartDateTime")
+    val inscriptionsStartDateTime: java.time.OffsetDateTime? = null,
+
+    @Json(name = "inscriptionsEndDateTime")
+    val inscriptionsEndDateTime: java.time.OffsetDateTime? = null,
+
+    @Json(name = "published")
+    val published: kotlin.Boolean? = null
 
 ) {
 

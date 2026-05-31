@@ -44,13 +44,14 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
     /**
      * Count item refund policies
      * Counts all refund policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -63,8 +64,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemRefundPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemRefundPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = countItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -84,6 +85,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * Count item refund policies
      * Counts all refund policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -93,8 +95,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemRefundPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemRefundPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -104,15 +106,19 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation countItemRefundPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun countItemRefundPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun countItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -137,6 +143,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * Get item refund policies
      * Retrieves all refund policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -149,8 +156,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRefundPoliciesAsync(itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoListEnvelope {
-        val localVarResponse = getItemRefundPoliciesAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoListEnvelope {
+        val localVarResponse = getItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRefundPolicyDtoListEnvelope
@@ -170,6 +177,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * Get item refund policies
      * Retrieves all refund policies for a specific item.
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -179,8 +187,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRefundPoliciesAsyncWithHttpInfo(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemRefundPoliciesAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemRefundPolicyDtoListEnvelope>(
             localVariableConfig
@@ -190,15 +198,19 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
     /**
      * To obtain the request config of the operation getItemRefundPoliciesAsync
      *
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemRefundPoliciesAsyncRequestConfig(itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }
@@ -224,6 +236,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * Get item refund policy by ID
      * Retrieves a specific refund policy for an item.
      * @param itemRefundPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -236,8 +249,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRefundPolicyByIdAsync(itemRefundPolicyId: java.util.UUID, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoEnvelope {
-        val localVarResponse = getItemRefundPolicyByIdAsyncWithHttpInfo(itemRefundPolicyId = itemRefundPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPolicyByIdAsync(itemRefundPolicyId: java.util.UUID, tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoEnvelope {
+        val localVarResponse = getItemRefundPolicyByIdAsyncWithHttpInfo(itemRefundPolicyId = itemRefundPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRefundPolicyDtoEnvelope
@@ -258,6 +271,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * Get item refund policy by ID
      * Retrieves a specific refund policy for an item.
      * @param itemRefundPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -267,8 +281,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRefundPolicyByIdAsyncWithHttpInfo(itemRefundPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoEnvelope?> {
-        val localVariableConfig = getItemRefundPolicyByIdAsyncRequestConfig(itemRefundPolicyId = itemRefundPolicyId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPolicyByIdAsyncWithHttpInfo(itemRefundPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoEnvelope?> {
+        val localVariableConfig = getItemRefundPolicyByIdAsyncRequestConfig(itemRefundPolicyId = itemRefundPolicyId, tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, ItemRefundPolicyDtoEnvelope>(
             localVariableConfig
@@ -279,15 +293,19 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * To obtain the request config of the operation getItemRefundPolicyByIdAsync
      *
      * @param itemRefundPolicyId 
+     * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getItemRefundPolicyByIdAsyncRequestConfig(itemRefundPolicyId: java.util.UUID, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getItemRefundPolicyByIdAsyncRequestConfig(itemRefundPolicyId: java.util.UUID, tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
                 if (itemId != null) {
                     put("itemId", listOf(itemId.toString()))
                 }

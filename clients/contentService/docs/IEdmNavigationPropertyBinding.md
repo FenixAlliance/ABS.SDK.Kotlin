@@ -1,0 +1,12 @@
+
+# IEdmNavigationPropertyBinding
+
+## Properties
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **navigationProperty** | [**IEdmNavigationProperty**](IEdmNavigationProperty.md) |  |  [optional] |
+| **target** | [**IEdmNavigationSource**](IEdmNavigationSource.md) |  |  [optional] |
+| **path** | [**IEdmPathExpression**](IEdmPathExpression.md) |  |  [optional] |
+
+
+

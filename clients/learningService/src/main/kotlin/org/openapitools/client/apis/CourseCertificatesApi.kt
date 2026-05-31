@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CourseCertificateTemplateCreateDto
 import org.openapitools.client.models.CourseCertificateTemplateDto
+import org.openapitools.client.models.CourseCertificateTemplateUpdateDto
 import org.openapitools.client.models.CourseCompletionCertificateCreateDto
 import org.openapitools.client.models.CourseCompletionCertificateDto
 import org.openapitools.client.models.CourseCompletionCertificateUpdateDto
@@ -46,7 +47,7 @@ class CourseCertificatesApi(basePath: kotlin.String = defaultBasePath, client: C
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
         }
     }
 
@@ -651,6 +652,90 @@ class CourseCertificatesApi(basePath: kotlin.String = defaultBasePath, client: C
     }
 
     /**
+     * Get certificate templates count
+     * Returns the count of course certificate templates for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return kotlin.Int
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getCourseCertificateTemplatesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
+        val localVarResponse = getCourseCertificateTemplatesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get certificate templates count
+     * Returns the count of course certificate templates for the specified tenant.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<kotlin.Int?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getCourseCertificateTemplatesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getCourseCertificateTemplatesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, kotlin.Int>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getCourseCertificateTemplatesCountAsync
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getCourseCertificateTemplatesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/LearningService/CourseCertificates/Template/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Get all course certificates
      * Retrieves all course certificates for the specified tenant.
      * @param tenantId 
@@ -900,6 +985,95 @@ class CourseCertificatesApi(basePath: kotlin.String = defaultBasePath, client: C
         return RequestConfig(
             method = RequestMethod.PUT,
             path = "/api/v2/LearningService/CourseCertificates/{courseCertificateId}".replace("{"+"courseCertificateId"+"}", encodeURIComponent(courseCertificateId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a certificate template
+     * Updates an existing course certificate template for the specified tenant.
+     * @param courseCertificateTemplateId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param courseCertificateTemplateUpdateDto  (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateCourseCertificateTemplateAsync(courseCertificateTemplateId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseCertificateTemplateUpdateDto: CourseCertificateTemplateUpdateDto? = null) : Unit {
+        val localVarResponse = updateCourseCertificateTemplateAsyncWithHttpInfo(courseCertificateTemplateId = courseCertificateTemplateId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseCertificateTemplateUpdateDto = courseCertificateTemplateUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a certificate template
+     * Updates an existing course certificate template for the specified tenant.
+     * @param courseCertificateTemplateId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param courseCertificateTemplateUpdateDto  (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateCourseCertificateTemplateAsyncWithHttpInfo(courseCertificateTemplateId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCertificateTemplateUpdateDto: CourseCertificateTemplateUpdateDto?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateCourseCertificateTemplateAsyncRequestConfig(courseCertificateTemplateId = courseCertificateTemplateId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseCertificateTemplateUpdateDto = courseCertificateTemplateUpdateDto)
+
+        return request<CourseCertificateTemplateUpdateDto, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateCourseCertificateTemplateAsync
+     *
+     * @param courseCertificateTemplateId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param courseCertificateTemplateUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateCourseCertificateTemplateAsyncRequestConfig(courseCertificateTemplateId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCertificateTemplateUpdateDto: CourseCertificateTemplateUpdateDto?) : RequestConfig<CourseCertificateTemplateUpdateDto> {
+        val localVariableBody = courseCertificateTemplateUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId}".replace("{"+"courseCertificateTemplateId"+"}", encodeURIComponent(courseCertificateTemplateId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

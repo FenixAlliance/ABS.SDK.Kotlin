@@ -1,19 +1,178 @@
 # ShipmentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getShipmentsAsync**](ShipmentsApi.md#getShipmentsAsync) | **GET** /api/v2/ShipmentsService/Shipments | Retrieve a list of shipments |
+| [**createShipmentAsync**](ShipmentsApi.md#createShipmentAsync) | **POST** /api/v2/ShipmentsService/Shipments | Create a shipment |
+| [**deleteShipmentAsync**](ShipmentsApi.md#deleteShipmentAsync) | **DELETE** /api/v2/ShipmentsService/Shipments/{shipmentId} | Delete a shipment |
+| [**getShipmentByIdAsync**](ShipmentsApi.md#getShipmentByIdAsync) | **GET** /api/v2/ShipmentsService/Shipments/{shipmentId} | Get shipment by ID |
+| [**getShipmentsAsync**](ShipmentsApi.md#getShipmentsAsync) | **GET** /api/v2/ShipmentsService/Shipments | Get all shipments |
+| [**getShipmentsCountAsync**](ShipmentsApi.md#getShipmentsCountAsync) | **GET** /api/v2/ShipmentsService/Shipments/Count | Get shipments count |
+| [**updateShipmentAsync**](ShipmentsApi.md#updateShipmentAsync) | **PUT** /api/v2/ShipmentsService/Shipments/{shipmentId} | Update a shipment |
 
+
+<a id="createShipmentAsync"></a>
+# **createShipmentAsync**
+> createShipmentAsync(tenantId, apiVersion, xApiVersion, shipmentCreateDto)
+
+Create a shipment
+
+Creates a new shipment for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShipmentsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shipmentCreateDto : ShipmentCreateDto =  // ShipmentCreateDto | 
+try {
+    apiInstance.createShipmentAsync(tenantId, apiVersion, xApiVersion, shipmentCreateDto)
+} catch (e: ClientException) {
+    println("4xx response calling ShipmentsApi#createShipmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShipmentsApi#createShipmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentCreateDto** | [**ShipmentCreateDto**](ShipmentCreateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="deleteShipmentAsync"></a>
+# **deleteShipmentAsync**
+> deleteShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion)
+
+Delete a shipment
+
+Deletes a shipment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShipmentsApi()
+val shipmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    apiInstance.deleteShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion)
+} catch (e: ClientException) {
+    println("4xx response calling ShipmentsApi#deleteShipmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShipmentsApi#deleteShipmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **shipmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getShipmentByIdAsync"></a>
+# **getShipmentByIdAsync**
+> ShipmentDtoEnvelope getShipmentByIdAsync(shipmentId, tenantId, apiVersion, xApiVersion)
+
+Get shipment by ID
+
+Retrieves a specific shipment by its ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShipmentsApi()
+val shipmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ShipmentDtoEnvelope = apiInstance.getShipmentByIdAsync(shipmentId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ShipmentsApi#getShipmentByIdAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShipmentsApi#getShipmentByIdAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **shipmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ShipmentDtoEnvelope**](ShipmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="getShipmentsAsync"></a>
 # **getShipmentsAsync**
 > ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion)
 
-Retrieve a list of shipments
+Get all shipments
 
-Retrieves a list of shipments for the specified tenant.
+Retrieves all shipments for the specified tenant.
 
 ### Example
 ```kotlin
@@ -55,5 +214,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getShipmentsCountAsync"></a>
+# **getShipmentsCountAsync**
+> Int32Envelope getShipmentsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get shipments count
+
+Returns the count of shipments for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShipmentsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getShipmentsCountAsync(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ShipmentsApi#getShipmentsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShipmentsApi#getShipmentsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="updateShipmentAsync"></a>
+# **updateShipmentAsync**
+> updateShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, shipmentUpdateDto)
+
+Update a shipment
+
+Updates an existing shipment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShipmentsApi()
+val shipmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shipmentUpdateDto : ShipmentUpdateDto =  // ShipmentUpdateDto | 
+try {
+    apiInstance.updateShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, shipmentUpdateDto)
+} catch (e: ClientException) {
+    println("4xx response calling ShipmentsApi#updateShipmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShipmentsApi#updateShipmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **shipmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **shipmentUpdateDto** | [**ShipmentUpdateDto**](ShipmentUpdateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

@@ -1,6 +1,7 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
+docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
@@ -8,8 +9,7 @@ docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAllianceABSWebApi.md
-docs/ForexRates.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -61,7 +61,8 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
+src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
 src/main/kotlin/org/openapitools/client/apis/InvoicesApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiClient.kt
@@ -88,7 +89,6 @@ src/main/kotlin/org/openapitools/client/models/Envelope.kt
 src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ExtendedInvoiceDto.kt
 src/main/kotlin/org/openapitools/client/models/ExtendedInvoiceDtoListEnvelope.kt
-src/main/kotlin/org/openapitools/client/models/ForexRates.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
 src/main/kotlin/org/openapitools/client/models/InfoRequest.kt
@@ -134,3 +134,5 @@ src/main/kotlin/org/openapitools/client/models/SimpleUserDto.kt
 src/main/kotlin/org/openapitools/client/models/TenantDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

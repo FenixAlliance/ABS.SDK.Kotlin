@@ -1,6 +1,6 @@
 # OAuthApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -63,7 +63,7 @@ No authorization required
 
 <a id="get"></a>
 # **get**
-> AuthorizationResultEnvelope get(tenantId, apiVersion, xApiVersion)
+> AuthResultEnvelope get(tenantId, apiVersion, xApiVersion)
 
 Get current user identity
 
@@ -80,7 +80,7 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : AuthorizationResultEnvelope = apiInstance.get(tenantId, apiVersion, xApiVersion)
+    val result : AuthResultEnvelope = apiInstance.get(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OAuthApi#get")
@@ -100,7 +100,7 @@ try {
 
 ### Return type
 
-[**AuthorizationResultEnvelope**](AuthorizationResultEnvelope.md)
+[**AuthResultEnvelope**](AuthResultEnvelope.md)
 
 ### Authorization
 
