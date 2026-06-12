@@ -9,9 +9,10 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **content** | **kotlin.String** |  |  [optional] |
-| **courseWikiID** | **kotlin.String** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **courseWikiId** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

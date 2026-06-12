@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 | [**issueRailWaybillAsync**](RailWaybillsApi.md#issueRailWaybillAsync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/Issue | Issue a rail waybill |
 | [**markRailWaybillDeliveredAsync**](RailWaybillsApi.md#markRailWaybillDeliveredAsync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkDelivered | Mark rail waybill delivered |
 | [**markRailWaybillInTransitAsync**](RailWaybillsApi.md#markRailWaybillInTransitAsync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkInTransit | Mark rail waybill in transit |
+| [**patchRailWaybillAsync**](RailWaybillsApi.md#patchRailWaybillAsync) | **PATCH** /api/v2/LogisticsService/RailWaybills/{waybillId} | Patch a rail waybill |
+| [**patchRailWaybillLineAsync**](RailWaybillsApi.md#patchRailWaybillLineAsync) | **PATCH** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Patch a rail waybill line |
 | [**removeRailWaybillLineAsync**](RailWaybillsApi.md#removeRailWaybillLineAsync) | **DELETE** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Remove a rail waybill line |
 | [**updateRailWaybillAsync**](RailWaybillsApi.md#updateRailWaybillAsync) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId} | Update a rail waybill |
 | [**updateRailWaybillLineAsync**](RailWaybillsApi.md#updateRailWaybillLineAsync) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Update a rail waybill line |
@@ -641,6 +643,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchRailWaybillAsync"></a>
+# **patchRailWaybillAsync**
+> EmptyEnvelope patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a rail waybill
+
+Partially updates an existing rail waybill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RailWaybillsApi()
+val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RailWaybillsApi#patchRailWaybillAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RailWaybillsApi#patchRailWaybillAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **waybillId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchRailWaybillLineAsync"></a>
+# **patchRailWaybillLineAsync**
+> EmptyEnvelope patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a rail waybill line
+
+Partially updates a line on a rail waybill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RailWaybillsApi()
+val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RailWaybillsApi#patchRailWaybillLineAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RailWaybillsApi#patchRailWaybillLineAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **waybillId** | **java.util.UUID**|  | |
+| **lineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="removeRailWaybillLineAsync"></a>

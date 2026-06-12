@@ -22,30 +22,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param webPortalID 
- * @param websiteThemeID 
- * @param socialProfileID 
- * @param parentWebContentID 
- * @param parentWebContentVersionID 
+ * @param webPortalId 
+ * @param websiteThemeId 
+ * @param socialProfileId 
+ * @param parentWebContentId 
+ * @param parentWebContentVersionId 
  */
 
 
 data class CourseCertificateTemplateUpdateDto (
 
-    @Json(name = "webPortalID")
-    val webPortalID: kotlin.String? = null,
+    @Json(name = "webPortalId")
+    val webPortalId: kotlin.String? = null,
 
-    @Json(name = "websiteThemeID")
-    val websiteThemeID: kotlin.String? = null,
+    @Json(name = "websiteThemeId")
+    val websiteThemeId: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null,
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null,
 
-    @Json(name = "parentWebContentID")
-    val parentWebContentID: kotlin.String? = null,
+    @Json(name = "parentWebContentId")
+    val parentWebContentId: kotlin.String? = null,
 
-    @Json(name = "parentWebContentVersionID")
-    val parentWebContentVersionID: kotlin.String? = null
+    @Json(name = "parentWebContentVersionId")
+    val parentWebContentVersionId: kotlin.String? = null
 
 ) {
 

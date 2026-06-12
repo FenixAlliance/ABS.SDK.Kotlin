@@ -31,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param logoURL 
  * @param featured 
  * @param trending 
- * @param businessID 
+ * @param tenantId 
  */
 
 
@@ -64,8 +64,8 @@ data class ItemBrandDto (
     @Json(name = "trending")
     val trending: kotlin.Boolean? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null
 
 ) {
 

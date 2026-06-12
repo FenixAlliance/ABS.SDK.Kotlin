@@ -24,11 +24,13 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param title 
  * @param description 
- * @param contactID 
- * @param supportTicketTypeID 
- * @param supportEntitlementID 
- * @param supportPriorityID 
+ * @param supportTicketStatus 
+ * @param contactId 
+ * @param supportTicketTypeId 
+ * @param supportEntitlementId 
+ * @param supportPriorityId 
  */
 
 
@@ -40,23 +42,41 @@ data class SupportTicketCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "contactID")
-    val contactID: kotlin.String? = null,
+    @Json(name = "supportTicketStatus")
+    val supportTicketStatus: SupportTicketCreateDto.SupportTicketStatus? = null,
 
-    @Json(name = "supportTicketTypeID")
-    val supportTicketTypeID: kotlin.String? = null,
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
 
-    @Json(name = "supportEntitlementID")
-    val supportEntitlementID: kotlin.String? = null,
+    @Json(name = "supportTicketTypeId")
+    val supportTicketTypeId: kotlin.String? = null,
 
-    @Json(name = "supportPriorityID")
-    val supportPriorityID: kotlin.String? = null
+    @Json(name = "supportEntitlementId")
+    val supportEntitlementId: kotlin.String? = null,
+
+    @Json(name = "supportPriorityId")
+    val supportPriorityId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: New,OpenAndWaitingForAgent,OpenAndWaitingForCustomer,Closed
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SupportTicketStatus(val value: kotlin.String) {
+        @Json(name = "New") New("New"),
+        @Json(name = "OpenAndWaitingForAgent") OpenAndWaitingForAgent("OpenAndWaitingForAgent"),
+        @Json(name = "OpenAndWaitingForCustomer") OpenAndWaitingForCustomer("OpenAndWaitingForCustomer"),
+        @Json(name = "Closed") Closed("Closed");
+    }
 
 }
 

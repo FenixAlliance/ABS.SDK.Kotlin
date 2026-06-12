@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**getSystemOptionByKey**](OptionsApi.md#getSystemOptionByKey) | **GET** /api/v2/SystemService/Options/Key/{key} | Retrieve a single system option by its key |
 | [**getSystemOptions**](OptionsApi.md#getSystemOptions) | **GET** /api/v2/SystemService/Options | Retrieve a list of system options |
 | [**getSystemOptionsCount**](OptionsApi.md#getSystemOptionsCount) | **GET** /api/v2/SystemService/Options/Count | Get the count of system options |
+| [**patchSystemOption**](OptionsApi.md#patchSystemOption) | **PATCH** /api/v2/SystemService/Options/{optionId} | Partially update a system option |
 | [**updateSystemOption**](OptionsApi.md#updateSystemOption) | **PUT** /api/v2/SystemService/Options/{optionId} | Update a system option |
 | [**upsertSystemOption**](OptionsApi.md#upsertSystemOption) | **PUT** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key |
 
@@ -318,6 +319,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSystemOption"></a>
+# **patchSystemOption**
+> EmptyEnvelope patchSystemOption(optionId, apiVersion, xApiVersion, operation)
+
+Partially update a system option
+
+Partially update a system option using a JSON Patch document
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OptionsApi()
+val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSystemOption(optionId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OptionsApi#patchSystemOption")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OptionsApi#patchSystemOption")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **optionId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSystemOption"></a>

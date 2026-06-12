@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**getUserOptionByKey**](OptionsApi.md#getUserOptionByKey) | **GET** /api/v2/Me/Options/Key/{key} | Retrieve a single user option by its key |
 | [**getUserOptions**](OptionsApi.md#getUserOptions) | **GET** /api/v2/Me/Options | Retrieve a list of user options |
 | [**getUserOptionsCount**](OptionsApi.md#getUserOptionsCount) | **GET** /api/v2/Me/Options/Count | Get the count of user options |
+| [**patchUserOption**](OptionsApi.md#patchUserOption) | **PATCH** /api/v2/Me/Options/{optionId} | Patch a user option |
 | [**updateUserOption**](OptionsApi.md#updateUserOption) | **PUT** /api/v2/Me/Options/{optionId} | Update a user option |
 | [**upsertUserOption**](OptionsApi.md#upsertUserOption) | **PUT** /api/v2/Me/Options/Upsert/{key} | Create or update a user option by key |
 
@@ -318,6 +319,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchUserOption"></a>
+# **patchUserOption**
+> EmptyEnvelope patchUserOption(optionId, apiVersion, xApiVersion, operation)
+
+Patch a user option
+
+Partially updates a user option using a JSON Patch document
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OptionsApi()
+val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchUserOption(optionId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OptionsApi#patchUserOption")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OptionsApi#patchUserOption")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **optionId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateUserOption"></a>

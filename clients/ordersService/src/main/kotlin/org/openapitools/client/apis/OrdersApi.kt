@@ -24,6 +24,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedOrderDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.Operation
 import org.openapitools.client.models.OrderCreateDto
 import org.openapitools.client.models.OrderDtoEnvelope
 import org.openapitools.client.models.OrderDtoListEnvelope
@@ -1062,6 +1063,171 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/OrdersService/Orders/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Partially updates an existing order.
+     * Applies a JSON Patch document to partially update an existing order.
+     * @param orderId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchOrder(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchOrderWithHttpInfo(orderId = orderId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Partially updates an existing order.
+     * Applies a JSON Patch document to partially update an existing order.
+     * @param orderId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchOrderRequestConfig(orderId = orderId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchOrder
+     *
+     * @param orderId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/OrdersService/Orders/{orderId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Partially updates an order line.
+     * Applies a JSON Patch document to partially update a specific order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Partially updates an order line.
+     * Applies a JSON Patch document to partially update a specific order line.
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchOrderLine
+     *
+     * @param orderId 
+     * @param orderLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}".replace("{"+"orderId"+"}", encodeURIComponent(orderId.toString())).replace("{"+"orderLineId"+"}", encodeURIComponent(orderLineId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

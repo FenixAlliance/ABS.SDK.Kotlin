@@ -17,6 +17,7 @@ All URIs are relative to *http://localhost*
 | [**getCommentsForBlogPostAsync**](BlogPostsApi.md#getCommentsForBlogPostAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments | Get comments for a blog post |
 | [**getRepliesForCommentAsync**](BlogPostsApi.md#getRepliesForCommentAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies | Get replies for a comment |
 | [**getTagsForBlogPostAsync**](BlogPostsApi.md#getTagsForBlogPostAsync) | **GET** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags | Get tags for a blog post |
+| [**patchBlogPostAsync**](BlogPostsApi.md#patchBlogPostAsync) | **PATCH** /api/v2/ContentService/BlogPosts/{blogPostId} | Patch a blog post |
 | [**relateCategoryToBlogPostAsync**](BlogPostsApi.md#relateCategoryToBlogPostAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Categories/{categoryId} | Relate an existing category to a blog post |
 | [**relateTagToBlogPostAsync**](BlogPostsApi.md#relateTagToBlogPostAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Tags/{tagId} | Relate an existing tag to a blog post |
 | [**replyToCommentAsync**](BlogPostsApi.md#replyToCommentAsync) | **POST** /api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Reply | Reply to a blog post comment |
@@ -643,6 +644,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchBlogPostAsync"></a>
+# **patchBlogPostAsync**
+> EmptyEnvelope patchBlogPostAsync(blogPostId, tenantId, operation)
+
+Patch a blog post
+
+Partially updates an existing blog post for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BlogPostsApi()
+val blogPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBlogPostAsync(blogPostId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BlogPostsApi#patchBlogPostAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BlogPostsApi#patchBlogPostAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **blogPostId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="relateCategoryToBlogPostAsync"></a>

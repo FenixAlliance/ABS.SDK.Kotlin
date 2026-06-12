@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getSalariesAsync**](SalariesApi.md#getSalariesAsync) | **GET** /api/v2/HrmsService/Salaries | Get salaries |
 | [**getSalariesCountAsync**](SalariesApi.md#getSalariesCountAsync) | **GET** /api/v2/HrmsService/Salaries/Count | Count salaries |
 | [**getSalaryByIdAsync**](SalariesApi.md#getSalaryByIdAsync) | **GET** /api/v2/HrmsService/Salaries/{salaryId} | Get salary by ID |
+| [**patchSalaryAsync**](SalariesApi.md#patchSalaryAsync) | **PATCH** /api/v2/HrmsService/Salaries/{salaryId} | Patch a salary |
 | [**updateSalaryAsync**](SalariesApi.md#updateSalaryAsync) | **PUT** /api/v2/HrmsService/Salaries/{salaryId} | Update a salary |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSalaryAsync"></a>
+# **patchSalaryAsync**
+> EmptyEnvelope patchSalaryAsync(salaryId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a salary
+
+Partially updates an existing salary for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SalariesApi()
+val salaryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSalaryAsync(salaryId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SalariesApi#patchSalaryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SalariesApi#patchSalaryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **salaryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSalaryAsync"></a>

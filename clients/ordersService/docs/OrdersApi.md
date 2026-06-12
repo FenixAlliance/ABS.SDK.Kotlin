@@ -17,6 +17,8 @@ All URIs are relative to *http://localhost*
 | [**getOrderLinesCount**](OrdersApi.md#getOrderLinesCount) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/Count | Gets the count of order lines for an order. |
 | [**getOrders**](OrdersApi.md#getOrders) | **GET** /api/v2/OrdersService/Orders | Gets a list of orders for a tenant. |
 | [**getOrdersCount**](OrdersApi.md#getOrdersCount) | **GET** /api/v2/OrdersService/Orders/Count | Gets the count of orders for a tenant. |
+| [**patchOrder**](OrdersApi.md#patchOrder) | **PATCH** /api/v2/OrdersService/Orders/{orderId} | Partially updates an existing order. |
+| [**patchOrderLine**](OrdersApi.md#patchOrderLine) | **PATCH** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | Partially updates an order line. |
 | [**previewOrderEmailTemplate**](OrdersApi.md#previewOrderEmailTemplate) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Preview | Preview the rendered email for an Order. |
 | [**sendOrderEmail**](OrdersApi.md#sendOrderEmail) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Send | Send a transactional email for an order. |
 | [**submitCart**](OrdersApi.md#submitCart) | **POST** /api/v2/OrdersService/Orders/SubmitCart | Submits a cart and creates an order. |
@@ -650,6 +652,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchOrder"></a>
+# **patchOrder**
+> EmptyEnvelope patchOrder(orderId, tenantId, operation)
+
+Partially updates an existing order.
+
+Applies a JSON Patch document to partially update an existing order.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OrdersApi()
+val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchOrder(orderId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OrdersApi#patchOrder")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrdersApi#patchOrder")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **orderId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchOrderLine"></a>
+# **patchOrderLine**
+> EmptyEnvelope patchOrderLine(orderId, orderLineId, tenantId, operation)
+
+Partially updates an order line.
+
+Applies a JSON Patch document to partially update a specific order line.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OrdersApi()
+val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchOrderLine(orderId, orderLineId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OrdersApi#patchOrderLine")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrdersApi#patchOrderLine")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **orderId** | **java.util.UUID**|  | |
+| **orderLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="previewOrderEmailTemplate"></a>

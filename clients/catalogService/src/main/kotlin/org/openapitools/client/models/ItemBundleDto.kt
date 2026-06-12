@@ -28,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param description 
  * @param disabled 
- * @param businessID 
+ * @param tenantId 
  */
 
 
@@ -52,8 +52,8 @@ data class ItemBundleDto (
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null
 
 ) {
 

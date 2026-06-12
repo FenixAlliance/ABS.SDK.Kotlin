@@ -7,6 +7,8 @@
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
+| **priority** | **kotlin.Int** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **surchargePercent** | **kotlin.Double** |  |  [optional] |
 | **surchargeAmount** | **kotlin.Double** |  |  [optional] |

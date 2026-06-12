@@ -9,7 +9,7 @@
 | **name** | **kotlin.String** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

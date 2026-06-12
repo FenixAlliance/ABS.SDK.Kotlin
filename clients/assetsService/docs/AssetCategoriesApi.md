@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getAssetCategories**](AssetCategoriesApi.md#getAssetCategories) | **GET** /api/v2/AssetsService/AssetCategories | Gets all asset categories for the current tenant |
 | [**getAssetCategoriesCount**](AssetCategoriesApi.md#getAssetCategoriesCount) | **GET** /api/v2/AssetsService/AssetCategories/count | Gets the count of asset categories |
 | [**getAssetCategory**](AssetCategoriesApi.md#getAssetCategory) | **GET** /api/v2/AssetsService/AssetCategories/{categoryId} | Gets a specific asset category |
+| [**patchAssetCategory**](AssetCategoriesApi.md#patchAssetCategory) | **PATCH** /api/v2/AssetsService/AssetCategories/{categoryId} | Partially updates an existing asset category |
 | [**updateAssetCategory**](AssetCategoriesApi.md#updateAssetCategory) | **PUT** /api/v2/AssetsService/AssetCategories/{categoryId} | Updates an existing asset category |
 
 
@@ -245,6 +246,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAssetCategory"></a>
+# **patchAssetCategory**
+> EmptyEnvelope patchAssetCategory(categoryId, tenantId, operation)
+
+Partially updates an existing asset category
+
+Applies a JSON Patch document to an existing asset category for the authenticated tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetCategoriesApi()
+val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetCategory(categoryId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetCategoriesApi#patchAssetCategory")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetCategoriesApi#patchAssetCategory")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **categoryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAssetCategory"></a>

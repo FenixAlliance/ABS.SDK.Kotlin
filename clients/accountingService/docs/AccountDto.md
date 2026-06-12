@@ -15,6 +15,7 @@
 | **prefix** | **kotlin.String** |  |  [optional] |
 | **balance** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
+| **contactId** | **kotlin.String** |  |  [optional] |
 | **accountType** | **kotlin.String** |  |  [optional] |
 | **qualifiedName** | **kotlin.String** |  |  [optional] |
 | **accountTypeId** | **kotlin.String** |  |  [optional] |

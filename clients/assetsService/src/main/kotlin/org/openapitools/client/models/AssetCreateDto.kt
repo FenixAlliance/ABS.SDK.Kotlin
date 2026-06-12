@@ -36,6 +36,7 @@ import com.squareup.moshi.JsonClass
  * @param purchasePrice 
  * @param currencyId 
  * @param itemId 
+ * @param assetTypeId 
  * @param assetCategoryId 
  * @param purchaseInvoiceId 
  * @param purchaseReceiptId 
@@ -88,6 +89,9 @@ data class AssetCreateDto (
 
     @Json(name = "itemId")
     val itemId: kotlin.String? = null,
+
+    @Json(name = "assetTypeId")
+    val assetTypeId: kotlin.String? = null,
 
     @Json(name = "assetCategoryId")
     val assetCategoryId: kotlin.String? = null,

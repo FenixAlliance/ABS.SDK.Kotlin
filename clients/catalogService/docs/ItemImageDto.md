@@ -6,9 +6,9 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **itemID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **itemId** | **kotlin.String** |  |  [optional] |
 | **isItemMozaicBG** | **kotlin.Boolean** |  |  [optional] |
 | **mD5Hash** | **kotlin.String** |  |  [optional] |
 | **metadata** | **kotlin.String** |  |  [optional] |
@@ -22,9 +22,9 @@
 | **contentType** | **kotlin.String** |  |  [optional] |
 | **fileLength** | **kotlin.Long** |  |  [optional] |
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
-| **parentFileUploadID** | **kotlin.String** |  |  [optional] |
-| **accountHolderID** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
+| **parentFileUploadId** | **kotlin.String** |  |  [optional] |
+| **userId** | **kotlin.String** |  |  [optional] |
 
 
 

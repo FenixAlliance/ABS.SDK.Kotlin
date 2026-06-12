@@ -25,8 +25,8 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param description 
  * @param disabled 
- * @param organizationProfileID 
- * @param parentDepartmentID 
+ * @param organizationProfileId 
+ * @param parentDepartmentId 
  */
 
 
@@ -41,11 +41,11 @@ data class TenantDepartmentUpdateDto (
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @Json(name = "organizationProfileID")
-    val organizationProfileID: kotlin.String? = null,
+    @Json(name = "organizationProfileId")
+    val organizationProfileId: kotlin.String? = null,
 
-    @Json(name = "parentDepartmentID")
-    val parentDepartmentID: kotlin.String? = null
+    @Json(name = "parentDepartmentId")
+    val parentDepartmentId: kotlin.String? = null
 
 ) {
 

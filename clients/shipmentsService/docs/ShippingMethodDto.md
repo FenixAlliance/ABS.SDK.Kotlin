@@ -11,8 +11,8 @@
 | **cost** | **kotlin.Double** |  |  [optional] |
 | **taxable** | **kotlin.Boolean** |  |  [optional] |
 | **taxIncluded** | **kotlin.Boolean** |  |  [optional] |
-| **currencyID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 | **shippingClassCalculationType** | [**inline**](#ShippingClassCalculationType) |  |  [optional] |
 
 

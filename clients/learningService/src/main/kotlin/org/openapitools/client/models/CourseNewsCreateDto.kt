@@ -23,7 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
- * @param courseID 
+ * @param courseId 
  * @param id 
  * @param timestamp 
  * @param description 
@@ -36,8 +36,8 @@ data class CourseNewsCreateDto (
     @Json(name = "title")
     val title: kotlin.String,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String,
+    @Json(name = "courseId")
+    val courseId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

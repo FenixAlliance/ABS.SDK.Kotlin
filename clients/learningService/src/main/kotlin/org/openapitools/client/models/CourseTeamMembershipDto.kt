@@ -24,10 +24,11 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param courseID 
- * @param instructorProfileID 
+ * @param courseId 
+ * @param instructorProfileId 
  * @param courseTeamMembershipType 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -39,17 +40,20 @@ data class CourseTeamMembershipDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
-    @Json(name = "instructorProfileID")
-    val instructorProfileID: kotlin.String? = null,
+    @Json(name = "instructorProfileId")
+    val instructorProfileId: kotlin.String? = null,
 
     @Json(name = "courseTeamMembershipType")
     val courseTeamMembershipType: CourseTeamMembershipDto.CourseTeamMembershipType? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

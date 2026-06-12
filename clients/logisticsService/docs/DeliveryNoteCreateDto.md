@@ -8,8 +8,8 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **shipmentID** | **kotlin.String** |  |  [optional] |
-| **proofOfDeliveryID** | **kotlin.String** |  |  [optional] |
+| **shipmentId** | **kotlin.String** |  |  [optional] |
+| **proofOfDeliveryId** | **kotlin.String** |  |  [optional] |
 
 
 

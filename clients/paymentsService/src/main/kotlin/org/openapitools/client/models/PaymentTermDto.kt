@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param creditWeeks 
  * @param creditMonths 
  * @param creditYears 
- * @param paymentModeID 
+ * @param paymentModeId 
  * @param tenantId 
  * @param enrollmentId 
  */
@@ -70,8 +70,8 @@ data class PaymentTermDto (
     @Json(name = "creditYears")
     val creditYears: kotlin.Double? = null,
 
-    @Json(name = "paymentModeID")
-    val paymentModeID: kotlin.String? = null,
+    @Json(name = "paymentModeId")
+    val paymentModeId: kotlin.String? = null,
 
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,

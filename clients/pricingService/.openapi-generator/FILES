@@ -32,6 +32,7 @@ docs/ItemPriceUpdateDto.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PriceListCreateDto.md
 docs/PriceListDto.md
 docs/PriceListDtoEnvelope.md
@@ -115,6 +116,7 @@ src/main/kotlin/org/openapitools/client/models/ItemPriceUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
 src/main/kotlin/org/openapitools/client/models/Money.kt
 src/main/kotlin/org/openapitools/client/models/MoneyEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/PriceListCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/PriceListDto.kt
 src/main/kotlin/org/openapitools/client/models/PriceListDtoEnvelope.kt
@@ -136,17 +138,3 @@ src/main/kotlin/org/openapitools/client/models/RoundingPolicyDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/RoundingPolicyUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/PricingRulesApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/RoundingPoliciesApiTest.kt
-src/test/kotlin/org/openapitools/client/models/PricingRuleCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/PricingRuleDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/PricingRuleDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/PricingRuleDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/PricingRuleUpdateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/RoundingPolicyCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/RoundingPolicyDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/RoundingPolicyDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/RoundingPolicyDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/RoundingPolicyUpdateDtoTest.kt

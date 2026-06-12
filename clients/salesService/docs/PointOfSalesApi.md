@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**deletePointOfSaleAsync**](PointOfSalesApi.md#deletePointOfSaleAsync) | **DELETE** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Delete a point of sale |
 | [**getPointOfSaleAsync**](PointOfSalesApi.md#getPointOfSaleAsync) | **GET** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Get point of sale by ID |
 | [**getPointOfSalesAsync**](PointOfSalesApi.md#getPointOfSalesAsync) | **GET** /api/v2/SalesService/PointOfSales | Get point of sales |
+| [**patchPointOfSaleAsync**](PointOfSalesApi.md#patchPointOfSaleAsync) | **PATCH** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Patch a point of sale |
 | [**updatePointOfSaleAsync**](PointOfSalesApi.md#updatePointOfSaleAsync) | **PUT** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Update a point of sale |
 
 
@@ -246,6 +247,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchPointOfSaleAsync"></a>
+# **patchPointOfSaleAsync**
+> EmptyEnvelope patchPointOfSaleAsync(pointOfSaleId, tenantId, operation)
+
+Patch a point of sale
+
+Partially updates an existing point of sale using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PointOfSalesApi()
+val pointOfSaleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPointOfSaleAsync(pointOfSaleId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PointOfSalesApi#patchPointOfSaleAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PointOfSalesApi#patchPointOfSaleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **pointOfSaleId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updatePointOfSaleAsync"></a>

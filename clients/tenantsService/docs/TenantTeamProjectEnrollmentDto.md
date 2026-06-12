@@ -9,7 +9,7 @@
 | **teamId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
-| **projectID** | **kotlin.String** |  |  [optional] |
+| **projectId** | **kotlin.String** |  |  [optional] |
 
 
 

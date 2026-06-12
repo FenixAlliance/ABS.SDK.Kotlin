@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
+| **parentTerritoryId** | **kotlin.String** |  |  [optional] |
 
 
 

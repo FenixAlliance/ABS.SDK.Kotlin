@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getTenantSegmentById**](SegmentsApi.md#getTenantSegmentById) | **GET** /api/v2/TenantsService/Segments/{tenantSegmentId} | Retrieve a single tenant segment by its ID |
 | [**getTenantSegments**](SegmentsApi.md#getTenantSegments) | **GET** /api/v2/TenantsService/Segments | Retrieve a list of tenant segments |
 | [**getTenantSegmentsCount**](SegmentsApi.md#getTenantSegmentsCount) | **GET** /api/v2/TenantsService/Segments/Count | Get the count of tenant segments |
+| [**patchTenantSegment**](SegmentsApi.md#patchTenantSegment) | **PATCH** /api/v2/TenantsService/Segments/{tenantSegmentId} | Patch a tenant segment |
 | [**updateTenantSegment**](SegmentsApi.md#updateTenantSegment) | **PUT** /api/v2/TenantsService/Segments/{tenantSegmentId} | Update a tenant segment |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTenantSegment"></a>
+# **patchTenantSegment**
+> EmptyEnvelope patchTenantSegment(tenantSegmentId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a tenant segment
+
+Patch a tenant segment
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SegmentsApi()
+val tenantSegmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTenantSegment(tenantSegmentId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SegmentsApi#patchTenantSegment")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SegmentsApi#patchTenantSegment")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantSegmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTenantSegment"></a>

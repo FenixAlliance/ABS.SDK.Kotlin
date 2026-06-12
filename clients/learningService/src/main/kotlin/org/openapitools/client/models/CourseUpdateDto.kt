@@ -28,9 +28,9 @@ import com.squareup.moshi.JsonClass
  * @param summary 
  * @param code 
  * @param version 
- * @param courseCategoryID 
- * @param instructorProfileID 
- * @param currencyID 
+ * @param courseCategoryId 
+ * @param instructorProfileId 
+ * @param currencyId 
  * @param regularPrice 
  * @param maxCourseEnrollments 
  * @param totalEffortInWeeks 
@@ -64,14 +64,14 @@ data class CourseUpdateDto (
     @Json(name = "version")
     val version: kotlin.String? = null,
 
-    @Json(name = "courseCategoryID")
-    val courseCategoryID: kotlin.String? = null,
+    @Json(name = "courseCategoryId")
+    val courseCategoryId: kotlin.String? = null,
 
-    @Json(name = "instructorProfileID")
-    val instructorProfileID: kotlin.String? = null,
+    @Json(name = "instructorProfileId")
+    val instructorProfileId: kotlin.String? = null,
 
-    @Json(name = "currencyID")
-    val currencyID: kotlin.String? = null,
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
 
     @Json(name = "regularPrice")
     val regularPrice: kotlin.Double? = null,

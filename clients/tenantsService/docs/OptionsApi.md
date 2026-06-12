@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**getTenantOptionByKey**](OptionsApi.md#getTenantOptionByKey) | **GET** /api/v2/TenantsService/Options/Key/{key} | Retrieve a single tenant option by its key |
 | [**getTenantOptions**](OptionsApi.md#getTenantOptions) | **GET** /api/v2/TenantsService/Options | Retrieve a list of tenant options |
 | [**getTenantOptionsCount**](OptionsApi.md#getTenantOptionsCount) | **GET** /api/v2/TenantsService/Options/Count | Get the count of tenant options |
+| [**patchTenantOption**](OptionsApi.md#patchTenantOption) | **PATCH** /api/v2/TenantsService/Options/{optionId} | Patch a tenant option |
 | [**updateTenantOption**](OptionsApi.md#updateTenantOption) | **PUT** /api/v2/TenantsService/Options/{optionId} | Update a tenant option |
 | [**upsertTenantOption**](OptionsApi.md#upsertTenantOption) | **PUT** /api/v2/TenantsService/Options/Upsert/{key} | Create or update a tenant option by key |
 
@@ -330,6 +331,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTenantOption"></a>
+# **patchTenantOption**
+> EmptyEnvelope patchTenantOption(optionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a tenant option
+
+Patch a tenant option
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OptionsApi()
+val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTenantOption(optionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OptionsApi#patchTenantOption")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OptionsApi#patchTenantOption")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **optionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTenantOption"></a>

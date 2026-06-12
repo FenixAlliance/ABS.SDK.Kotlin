@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getWebsiteThemeByIdAsync**](WebsiteThemesApi.md#getWebsiteThemeByIdAsync) | **GET** /api/v2/ContentService/WebsiteThemes/{id} | Get website theme by ID |
 | [**getWebsiteThemesAsync**](WebsiteThemesApi.md#getWebsiteThemesAsync) | **GET** /api/v2/ContentService/WebsiteThemes | Get all website themes |
 | [**getWebsiteThemesCountAsync**](WebsiteThemesApi.md#getWebsiteThemesCountAsync) | **GET** /api/v2/ContentService/WebsiteThemes/Count | Get website themes count |
+| [**patchWebsiteThemeAsync**](WebsiteThemesApi.md#patchWebsiteThemeAsync) | **PATCH** /api/v2/ContentService/WebsiteThemes/{id} | Patch a website theme |
 | [**updateWebsiteThemeAsync**](WebsiteThemesApi.md#updateWebsiteThemeAsync) | **PUT** /api/v2/ContentService/WebsiteThemes/{id} | Update a website theme |
 
 
@@ -268,6 +269,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchWebsiteThemeAsync"></a>
+# **patchWebsiteThemeAsync**
+> patchWebsiteThemeAsync(id, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a website theme
+
+Partially updates an existing website theme for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WebsiteThemesApi()
+val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchWebsiteThemeAsync(id, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling WebsiteThemesApi#patchWebsiteThemeAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WebsiteThemesApi#patchWebsiteThemeAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **id** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateWebsiteThemeAsync"></a>

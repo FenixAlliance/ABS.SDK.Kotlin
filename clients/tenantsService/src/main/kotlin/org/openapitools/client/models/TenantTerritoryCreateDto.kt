@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param name 
  * @param description 
- * @param parentTerritoryID 
+ * @param parentTerritoryId 
  */
 
 
@@ -44,8 +44,8 @@ data class TenantTerritoryCreateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "parentTerritoryID")
-    val parentTerritoryID: kotlin.String? = null
+    @Json(name = "parentTerritoryId")
+    val parentTerritoryId: kotlin.String? = null
 
 ) {
 

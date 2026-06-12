@@ -12,6 +12,7 @@ All URIs are relative to *http://localhost*
 | [**getOAuthAuthorizationByIdAsync**](OAuthApplicationsApi.md#getOAuthAuthorizationByIdAsync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/{authorizationId} | Get OAuth authorization by ID |
 | [**getOAuthAuthorizationsAsync**](OAuthApplicationsApi.md#getOAuthAuthorizationsAsync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations | Get all OAuth authorizations |
 | [**getOAuthAuthorizationsCountAsync**](OAuthApplicationsApi.md#getOAuthAuthorizationsCountAsync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/Count | Get OAuth authorizations count |
+| [**patchOAuthApplicationAsync**](OAuthApplicationsApi.md#patchOAuthApplicationAsync) | **PATCH** /api/v2/SecurityService/OAuthApplications/{applicationId} | Patch an existing OAuth application |
 | [**updateOAuthApplicationAsync**](OAuthApplicationsApi.md#updateOAuthApplicationAsync) | **PUT** /api/v2/SecurityService/OAuthApplications/{applicationId} | Update an existing OAuth application |
 
 
@@ -425,6 +426,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchOAuthApplicationAsync"></a>
+# **patchOAuthApplicationAsync**
+> EmptyEnvelope patchOAuthApplicationAsync(applicationId, tenantId, operation, apiVersion, xApiVersion)
+
+Patch an existing OAuth application
+
+Partially updates an existing OAuth application using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OAuthApplicationsApi()
+val applicationId : kotlin.String = applicationId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchOAuthApplicationAsync(applicationId, tenantId, operation, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OAuthApplicationsApi#patchOAuthApplicationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OAuthApplicationsApi#patchOAuthApplicationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **applicationId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateOAuthApplicationAsync"></a>

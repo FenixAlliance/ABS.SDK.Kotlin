@@ -9,7 +9,7 @@
 | **cost** | **kotlin.Double** |  |  [optional] |
 | **taxable** | **kotlin.Boolean** |  |  [optional] |
 | **taxIncluded** | **kotlin.Boolean** |  |  [optional] |
-| **currencyID** | **kotlin.String** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
 | **shippingClassCalculationType** | [**inline**](#ShippingClassCalculationType) |  |  [optional] |
 
 

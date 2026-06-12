@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param title 
  * @param description 
+ * @param type 
  */
 
 
@@ -41,7 +42,10 @@ data class TenantPositionCreateDto (
     val title: kotlin.String? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null
+    val description: kotlin.String? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null
 
 ) {
 

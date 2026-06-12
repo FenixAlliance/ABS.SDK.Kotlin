@@ -60,12 +60,12 @@ import com.squareup.moshi.JsonClass
  * @param data8Label 
  * @param data9 
  * @param data9Label 
- * @param individualID 
- * @param organizationID 
- * @param receiverBusinessID 
- * @param paymentTokenID 
- * @param walletAccountID 
- * @param securityCertificateID 
+ * @param individualId 
+ * @param organizationId 
+ * @param receiverTenantId 
+ * @param paymentTokenId 
+ * @param walletAccountId 
+ * @param securityCertificateId 
  */
 
 
@@ -185,23 +185,23 @@ data class SupportEntitlementUpdateDto (
     @Json(name = "data9Label")
     val data9Label: kotlin.String? = null,
 
-    @Json(name = "individualID")
-    val individualID: kotlin.String? = null,
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
 
-    @Json(name = "organizationID")
-    val organizationID: kotlin.String? = null,
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
 
-    @Json(name = "receiverBusinessID")
-    val receiverBusinessID: kotlin.String? = null,
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
 
-    @Json(name = "paymentTokenID")
-    val paymentTokenID: kotlin.String? = null,
+    @Json(name = "paymentTokenId")
+    val paymentTokenId: kotlin.String? = null,
 
-    @Json(name = "walletAccountID")
-    val walletAccountID: kotlin.String? = null,
+    @Json(name = "walletAccountId")
+    val walletAccountId: kotlin.String? = null,
 
-    @Json(name = "securityCertificateID")
-    val securityCertificateID: kotlin.String? = null
+    @Json(name = "securityCertificateId")
+    val securityCertificateId: kotlin.String? = null
 
 ) {
 

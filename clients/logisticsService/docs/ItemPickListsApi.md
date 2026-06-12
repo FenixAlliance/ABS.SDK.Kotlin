@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getItemPickListEntryByIdAsync**](ItemPickListsApi.md#getItemPickListEntryByIdAsync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Get pick list entry by ID |
 | [**getItemPickListsAsync**](ItemPickListsApi.md#getItemPickListsAsync) | **GET** /api/v2/LogisticsService/ItemPickLists | Get all item pick lists |
 | [**getItemPickListsCountAsync**](ItemPickListsApi.md#getItemPickListsCountAsync) | **GET** /api/v2/LogisticsService/ItemPickLists/Count | Get item pick lists count |
+| [**patchItemPickListAsync**](ItemPickListsApi.md#patchItemPickListAsync) | **PATCH** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Patch an item pick list |
+| [**patchItemPickListEntryAsync**](ItemPickListsApi.md#patchItemPickListEntryAsync) | **PATCH** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Patch a pick list entry |
 | [**updateItemPickListAsync**](ItemPickListsApi.md#updateItemPickListAsync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Update an item pick list |
 | [**updateItemPickListEntryAsync**](ItemPickListsApi.md#updateItemPickListEntryAsync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Update a pick list entry |
 
@@ -538,6 +540,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemPickListAsync"></a>
+# **patchItemPickListAsync**
+> EmptyEnvelope patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item pick list
+
+Applies a JSON Patch document to an item pick list.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemPickListsApi()
+val pickListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemPickListsApi#patchItemPickListAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemPickListsApi#patchItemPickListAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **pickListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchItemPickListEntryAsync"></a>
+# **patchItemPickListEntryAsync**
+> EmptyEnvelope patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a pick list entry
+
+Applies a JSON Patch document to a pick list entry.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemPickListsApi()
+val pickListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemPickListsApi#patchItemPickListEntryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemPickListsApi#patchItemPickListEntryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **pickListId** | **java.util.UUID**|  | |
+| **entryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemPickListAsync"></a>

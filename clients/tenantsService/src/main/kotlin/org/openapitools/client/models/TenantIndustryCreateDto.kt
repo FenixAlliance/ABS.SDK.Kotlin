@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param name 
- * @param parentBusinessIndustryID 
+ * @param parentBusinessIndustryId 
  */
 
 
@@ -40,8 +40,8 @@ data class TenantIndustryCreateDto (
     @Json(name = "name")
     val name: kotlin.String? = null,
 
-    @Json(name = "parentBusinessIndustryID")
-    val parentBusinessIndustryID: kotlin.String? = null
+    @Json(name = "parentBusinessIndustryId")
+    val parentBusinessIndustryId: kotlin.String? = null
 
 ) {
 

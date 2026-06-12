@@ -12,6 +12,7 @@ All URIs are relative to *http://localhost*
 | [**getCartWishListItemsAsync**](WishListsApi.md#getCartWishListItemsAsync) | **GET** /api/v2/CartService/WishLists/{wishListId}/Records | Get wish list item records |
 | [**getWishListAsync**](WishListsApi.md#getWishListAsync) | **GET** /api/v2/CartService/WishLists/{cartId} | Get wish lists for a cart |
 | [**isProductInWishLists**](WishListsApi.md#isProductInWishLists) | **GET** /api/v2/CartService/WishLists/Contains | Check if a product is in any wish list |
+| [**patchWishList**](WishListsApi.md#patchWishList) | **PATCH** /api/v2/CartService/WishLists/{wishListId} | Patch a wish list |
 | [**updateProductToWishList**](WishListsApi.md#updateProductToWishList) | **PUT** /api/v2/CartService/WishLists/{wishListId} | Update a wish list |
 | [**wishListExists**](WishListsApi.md#wishListExists) | **GET** /api/v2/CartService/WishLists/Exists | Check if a wish list exists |
 | [**wishListExistsHeadAsync**](WishListsApi.md#wishListExistsHeadAsync) | **HEAD** /api/v2/CartService/WishLists/Exists | Check if a wish list exists (HEAD) |
@@ -416,6 +417,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchWishList"></a>
+# **patchWishList**
+> EmptyEnvelope patchWishList(wishListId, apiVersion, xApiVersion, operation)
+
+Patch a wish list
+
+Partially updates the specified wish list using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WishListsApi()
+val wishListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchWishList(wishListId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WishListsApi#patchWishList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WishListsApi#patchWishList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **wishListId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateProductToWishList"></a>

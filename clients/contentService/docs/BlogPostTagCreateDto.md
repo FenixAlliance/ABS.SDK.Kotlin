@@ -18,7 +18,7 @@
 | **canonicalUrl** | **kotlin.String** |  |  [optional] |
 | **imageURL** | **kotlin.String** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
-| **webPortalID** | **kotlin.String** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
 
 
 

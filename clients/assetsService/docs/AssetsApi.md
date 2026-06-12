@@ -34,6 +34,12 @@ All URIs are relative to *http://localhost*
 | [**getAssetValueAmendsCount**](AssetsApi.md#getAssetValueAmendsCount) | **GET** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/Count | Gets count of value amendments for a specific asset |
 | [**getAssets**](AssetsApi.md#getAssets) | **GET** /api/v2/AssetsService/Assets | Gets all assets for the current tenant |
 | [**getAssetsCount**](AssetsApi.md#getAssetsCount) | **GET** /api/v2/AssetsService/Assets/count | Gets the count of assets |
+| [**patchAsset**](AssetsApi.md#patchAsset) | **PATCH** /api/v2/AssetsService/Assets/{assetId} | Partially updates an existing asset |
+| [**patchAssetAssetCategory**](AssetsApi.md#patchAssetAssetCategory) | **PATCH** /api/v2/AssetsService/Assets/Categories/{categoryId} | Partially updates an existing asset category |
+| [**patchAssetDepreciationRecord**](AssetsApi.md#patchAssetDepreciationRecord) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Partially updates a depreciation record for an asset |
+| [**patchAssetRepair**](AssetsApi.md#patchAssetRepair) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Repairs/{repairId} | Partially updates a repair for an asset |
+| [**patchAssetTransfer**](AssetsApi.md#patchAssetTransfer) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Transfers/{transferId} | Partially updates a transfer for an asset |
+| [**patchAssetValueAmend**](AssetsApi.md#patchAssetValueAmend) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/{amendId} | Partially updates a value amendment for an asset |
 | [**updateAsset**](AssetsApi.md#updateAsset) | **PUT** /api/v2/AssetsService/Assets/{assetId} | Updates an existing asset |
 | [**updateAssetAssetCategory**](AssetsApi.md#updateAssetAssetCategory) | **PUT** /api/v2/AssetsService/Assets/Categories/{categoryId} | Updates an existing asset category |
 | [**updateAssetDepreciationRecord**](AssetsApi.md#updateAssetDepreciationRecord) | **PUT** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Updates a depreciation record for an asset |
@@ -1494,6 +1500,314 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAsset"></a>
+# **patchAsset**
+> EmptyEnvelope patchAsset(assetId, tenantId, operation)
+
+Partially updates an existing asset
+
+Applies a JSON Patch document to an existing asset for the authenticated tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAsset(assetId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAsset")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAsset")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAssetAssetCategory"></a>
+# **patchAssetAssetCategory**
+> EmptyEnvelope patchAssetAssetCategory(categoryId, tenantId, operation)
+
+Partially updates an existing asset category
+
+Applies a JSON Patch document to an existing asset category for the authenticated tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetAssetCategory(categoryId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAssetAssetCategory")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAssetAssetCategory")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **categoryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAssetDepreciationRecord"></a>
+# **patchAssetDepreciationRecord**
+> EmptyEnvelope patchAssetDepreciationRecord(assetId, recordId, tenantId, operation)
+
+Partially updates a depreciation record for an asset
+
+Applies a JSON Patch document to an existing depreciation record for the specified asset.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val recordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetDepreciationRecord(assetId, recordId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAssetDepreciationRecord")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAssetDepreciationRecord")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **assetId** | **java.util.UUID**|  | |
+| **recordId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAssetRepair"></a>
+# **patchAssetRepair**
+> EmptyEnvelope patchAssetRepair(assetId, repairId, tenantId, operation)
+
+Partially updates a repair for an asset
+
+Applies a JSON Patch document to an existing repair record for the specified asset.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val repairId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetRepair(assetId, repairId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAssetRepair")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAssetRepair")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **assetId** | **java.util.UUID**|  | |
+| **repairId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAssetTransfer"></a>
+# **patchAssetTransfer**
+> EmptyEnvelope patchAssetTransfer(assetId, transferId, tenantId, operation)
+
+Partially updates a transfer for an asset
+
+Applies a JSON Patch document to an existing transfer record for the specified asset.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetTransfer(assetId, transferId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAssetTransfer")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAssetTransfer")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **assetId** | **java.util.UUID**|  | |
+| **transferId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAssetValueAmend"></a>
+# **patchAssetValueAmend**
+> EmptyEnvelope patchAssetValueAmend(assetId, amendId, tenantId, operation)
+
+Partially updates a value amendment for an asset
+
+Applies a JSON Patch document to an existing value amendment record for the specified asset.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetsApi()
+val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val amendId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetValueAmend(assetId, amendId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsApi#patchAssetValueAmend")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsApi#patchAssetValueAmend")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **assetId** | **java.util.UUID**|  | |
+| **amendId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAsset"></a>

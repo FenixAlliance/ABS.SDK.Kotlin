@@ -1,0 +1,11 @@
+
+# ODataPathSegment
+
+## Properties
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **edmType** | [**IEdmType**](IEdmType.md) |  |  [optional] |
+| **identifier** | **kotlin.String** |  |  [optional] |
+
+
+

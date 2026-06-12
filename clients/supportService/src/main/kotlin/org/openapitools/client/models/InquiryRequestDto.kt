@@ -35,8 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param phone 
  * @param message 
  * @param tenantId 
- * @param businessProfileRecordId 
- * @param accountHolderId 
+ * @param enrollmentId 
+ * @param userId 
  * @param socialProfileId 
  */
 
@@ -82,11 +82,11 @@ data class InquiryRequestDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "accountHolderId")
-    val accountHolderId: kotlin.String? = null,
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
 
     @Json(name = "socialProfileId")
     val socialProfileId: kotlin.String? = null

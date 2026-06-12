@@ -24,14 +24,14 @@ import com.squareup.moshi.JsonClass
  *
  * @param pluralTitle 
  * @param singularTitle 
- * @param businessID 
- * @param itemCategoryID 
+ * @param tenantId 
+ * @param itemCategoryId 
  * @param id 
  * @param timestamp 
  * @param description 
  * @param imageURL 
  * @param googleCategoryTaxonomy 
- * @param itemGoogleCategoryID 
+ * @param itemGoogleCategoryId 
  */
 
 
@@ -43,11 +43,11 @@ data class ItemTypeDto (
     @Json(name = "singularTitle")
     val singularTitle: kotlin.String,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String,
 
-    @Json(name = "itemCategoryID")
-    val itemCategoryID: kotlin.String,
+    @Json(name = "itemCategoryId")
+    val itemCategoryId: kotlin.String,
 
     @Json(name = "id")
     val id: kotlin.String? = null,
@@ -64,8 +64,8 @@ data class ItemTypeDto (
     @Json(name = "googleCategoryTaxonomy")
     val googleCategoryTaxonomy: kotlin.String? = null,
 
-    @Json(name = "itemGoogleCategoryID")
-    val itemGoogleCategoryID: kotlin.String? = null
+    @Json(name = "itemGoogleCategoryId")
+    val itemGoogleCategoryId: kotlin.String? = null
 
 ) {
 

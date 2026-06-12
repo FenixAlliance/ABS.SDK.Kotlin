@@ -24,12 +24,12 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param studentProfileID 
- * @param courseEnrollmentID 
- * @param businessID 
- * @param businessProfileRecordID 
- * @param courseCompletionCertificateTemplateID 
- * @param courseID 
+ * @param studentProfileId 
+ * @param courseEnrollmentId 
+ * @param tenantId 
+ * @param enrollmentId 
+ * @param courseCompletionCertificateTemplateId 
+ * @param courseId 
  * @param studentName 
  * @param studentLastName 
  * @param courseTitle 
@@ -47,23 +47,23 @@ data class CourseCompletionCertificateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "studentProfileID")
-    val studentProfileID: kotlin.String? = null,
+    @Json(name = "studentProfileId")
+    val studentProfileId: kotlin.String? = null,
 
-    @Json(name = "courseEnrollmentID")
-    val courseEnrollmentID: kotlin.String? = null,
+    @Json(name = "courseEnrollmentId")
+    val courseEnrollmentId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "courseCompletionCertificateTemplateID")
-    val courseCompletionCertificateTemplateID: kotlin.String? = null,
+    @Json(name = "courseCompletionCertificateTemplateId")
+    val courseCompletionCertificateTemplateId: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
     @Json(name = "studentName")
     val studentName: kotlin.String? = null,

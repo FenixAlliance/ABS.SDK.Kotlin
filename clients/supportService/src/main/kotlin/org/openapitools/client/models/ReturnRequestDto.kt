@@ -29,10 +29,10 @@ import com.squareup.moshi.JsonClass
  * @param approved 
  * @param approvedTimestamp 
  * @param tenantId 
- * @param businessProfileRecordId 
+ * @param enrollmentId 
  * @param supportEntitlementId 
  * @param contactId 
- * @param accountHolderId 
+ * @param userId 
  * @param returnPolicyId 
  */
 
@@ -60,8 +60,8 @@ data class ReturnRequestDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "supportEntitlementId")
     val supportEntitlementId: kotlin.String? = null,
@@ -69,8 +69,8 @@ data class ReturnRequestDto (
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
 
-    @Json(name = "accountHolderId")
-    val accountHolderId: kotlin.String? = null,
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
 
     @Json(name = "returnPolicyId")
     val returnPolicyId: kotlin.String? = null

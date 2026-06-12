@@ -29,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * @param cost 
  * @param taxable 
  * @param taxIncluded 
- * @param currencyID 
- * @param businessID 
+ * @param currencyId 
+ * @param tenantId 
  * @param shippingClassCalculationType 
  */
 
@@ -58,11 +58,11 @@ data class ShippingMethodDto (
     @Json(name = "taxIncluded")
     val taxIncluded: kotlin.Boolean? = null,
 
-    @Json(name = "currencyID")
-    val currencyID: kotlin.String? = null,
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
     @Json(name = "shippingClassCalculationType")
     val shippingClassCalculationType: ShippingMethodDto.ShippingClassCalculationType? = null

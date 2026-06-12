@@ -24,13 +24,40 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param remote 
+ * @param type 
  * @param title 
  * @param description 
- * @param startDate 
- * @param endDate 
- * @param budget 
+ * @param expectedDeliveryDate 
+ * @param employerProfileId 
+ * @param minBudget 
+ * @param maxBudget 
+ * @param currencyId 
+ * @param countryId 
+ * @param countryStateId 
+ * @param cityId 
  * @param location 
- * @param skillsRequired 
+ * @param externalUrl 
+ * @param `data` 
+ * @param dataLabel 
+ * @param data1 
+ * @param data1Label 
+ * @param data2 
+ * @param data2Label 
+ * @param data3 
+ * @param data3Label 
+ * @param data4 
+ * @param data4Label 
+ * @param data5 
+ * @param data5Label 
+ * @param data6 
+ * @param data6Label 
+ * @param data7 
+ * @param data7Label 
+ * @param data8 
+ * @param data8Label 
+ * @param data9 
+ * @param data9Label 
  */
 
 
@@ -42,26 +69,107 @@ data class GigCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "remote")
+    val remote: kotlin.Boolean? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null,
+
     @Json(name = "title")
     val title: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "startDate")
-    val startDate: java.time.OffsetDateTime? = null,
+    @Json(name = "expectedDeliveryDate")
+    val expectedDeliveryDate: java.time.OffsetDateTime? = null,
 
-    @Json(name = "endDate")
-    val endDate: java.time.OffsetDateTime? = null,
+    @Json(name = "employerProfileId")
+    val employerProfileId: kotlin.String? = null,
 
-    @Json(name = "budget")
-    val budget: kotlin.Double? = null,
+    @Json(name = "minBudget")
+    val minBudget: kotlin.Double? = null,
+
+    @Json(name = "maxBudget")
+    val maxBudget: kotlin.Double? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
+
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
+
+    @Json(name = "countryStateId")
+    val countryStateId: kotlin.String? = null,
+
+    @Json(name = "cityId")
+    val cityId: kotlin.String? = null,
 
     @Json(name = "location")
     val location: kotlin.String? = null,
 
-    @Json(name = "skillsRequired")
-    val skillsRequired: kotlin.String? = null
+    @Json(name = "externalUrl")
+    val externalUrl: kotlin.String? = null,
+
+    @Json(name = "data")
+    val `data`: kotlin.String? = null,
+
+    @Json(name = "dataLabel")
+    val dataLabel: kotlin.String? = null,
+
+    @Json(name = "data1")
+    val data1: kotlin.String? = null,
+
+    @Json(name = "data1Label")
+    val data1Label: kotlin.String? = null,
+
+    @Json(name = "data2")
+    val data2: kotlin.String? = null,
+
+    @Json(name = "data2Label")
+    val data2Label: kotlin.String? = null,
+
+    @Json(name = "data3")
+    val data3: kotlin.String? = null,
+
+    @Json(name = "data3Label")
+    val data3Label: kotlin.String? = null,
+
+    @Json(name = "data4")
+    val data4: kotlin.String? = null,
+
+    @Json(name = "data4Label")
+    val data4Label: kotlin.String? = null,
+
+    @Json(name = "data5")
+    val data5: kotlin.String? = null,
+
+    @Json(name = "data5Label")
+    val data5Label: kotlin.String? = null,
+
+    @Json(name = "data6")
+    val data6: kotlin.String? = null,
+
+    @Json(name = "data6Label")
+    val data6Label: kotlin.String? = null,
+
+    @Json(name = "data7")
+    val data7: kotlin.String? = null,
+
+    @Json(name = "data7Label")
+    val data7Label: kotlin.String? = null,
+
+    @Json(name = "data8")
+    val data8: kotlin.String? = null,
+
+    @Json(name = "data8Label")
+    val data8Label: kotlin.String? = null,
+
+    @Json(name = "data9")
+    val data9: kotlin.String? = null,
+
+    @Json(name = "data9Label")
+    val data9Label: kotlin.String? = null
 
 ) {
 

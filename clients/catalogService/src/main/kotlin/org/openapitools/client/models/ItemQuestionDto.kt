@@ -27,9 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param needsRevision 
  * @param question 
- * @param socialProfileID 
- * @param businessID 
- * @param itemID 
+ * @param socialProfileId 
+ * @param tenantId 
+ * @param itemId 
  */
 
 
@@ -50,14 +50,14 @@ data class ItemQuestionDto (
     @Json(name = "question")
     val question: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null,
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "itemID")
-    val itemID: kotlin.String? = null
+    @Json(name = "itemId")
+    val itemId: kotlin.String? = null
 
 ) {
 

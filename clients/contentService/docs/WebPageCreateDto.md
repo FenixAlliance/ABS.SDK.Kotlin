@@ -13,7 +13,9 @@
 | **markup** | **kotlin.String** |  |  [optional] |
 | **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **codeType** | [**inline**](#CodeType) |  |  [optional] |
-| **webTemplateID** | **kotlin.String** |  |  [optional] |
+| **slug** | **kotlin.String** |  |  [optional] |
+| **webTemplateId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="CodeType"></a>

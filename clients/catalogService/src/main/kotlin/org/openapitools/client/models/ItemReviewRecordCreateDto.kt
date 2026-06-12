@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param reviewScore 
  * @param reviewMessage 
- * @param socialProfileID 
+ * @param socialProfileId 
  */
 
 
@@ -44,8 +44,8 @@ data class ItemReviewRecordCreateDto (
     @Json(name = "reviewMessage")
     val reviewMessage: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null
 
 ) {
 

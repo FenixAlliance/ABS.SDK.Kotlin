@@ -4,10 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **studentProfileID** | **kotlin.String** |  |  [optional] |
-| **courseEnrollmentID** | **kotlin.String** |  |  [optional] |
-| **courseCompletionCertificateTemplateID** | **kotlin.String** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **studentProfileId** | **kotlin.String** |  |  [optional] |
+| **courseEnrollmentId** | **kotlin.String** |  |  [optional] |
+| **courseCompletionCertificateTemplateId** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 
 
 

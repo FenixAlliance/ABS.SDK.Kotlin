@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.Operation
 import org.openapitools.client.models.ServiceQueueCreateDto
 import org.openapitools.client.models.ServiceQueueDtoEnvelope
 import org.openapitools.client.models.ServiceQueueDtoIReadOnlyListEnvelope
@@ -474,6 +475,97 @@ class ServiceQueuesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/ServicesService/ServiceQueues/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch a service queue
+     * Partially updates an existing service queue using a JSON Patch document.
+     * @param serviceQueueId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchServiceQueueAsync(serviceQueueId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Envelope {
+        val localVarResponse = patchServiceQueueAsyncWithHttpInfo(serviceQueueId = serviceQueueId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch a service queue
+     * Partially updates an existing service queue using a JSON Patch document.
+     * @param serviceQueueId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return ApiResponse<Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchServiceQueueAsyncWithHttpInfo(serviceQueueId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Envelope?> {
+        val localVariableConfig = patchServiceQueueAsyncRequestConfig(serviceQueueId = serviceQueueId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchServiceQueueAsync
+     *
+     * @param serviceQueueId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchServiceQueueAsyncRequestConfig(serviceQueueId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/ServicesService/ServiceQueues/{serviceQueueId}".replace("{"+"serviceQueueId"+"}", encodeURIComponent(serviceQueueId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

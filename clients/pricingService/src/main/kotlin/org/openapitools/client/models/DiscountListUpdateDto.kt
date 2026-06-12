@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param name 
+ * @param discountListType 
  * @param currencyId 
  */
 
@@ -32,11 +33,24 @@ data class DiscountListUpdateDto (
     @Json(name = "name")
     val name: kotlin.String? = null,
 
+    @Json(name = "discountListType")
+    val discountListType: DiscountListUpdateDto.DiscountListType? = null,
+
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Amount,Percentage
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DiscountListType(val value: kotlin.String) {
+        @Json(name = "Amount") Amount("Amount"),
+        @Json(name = "Percentage") Percentage("Percentage");
+    }
 
 }
 

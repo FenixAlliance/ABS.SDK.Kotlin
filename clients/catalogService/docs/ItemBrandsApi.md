@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**deleteItemBrandAsync**](ItemBrandsApi.md#deleteItemBrandAsync) | **DELETE** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Delete an item brand |
 | [**getItemBrandByIdAsync**](ItemBrandsApi.md#getItemBrandByIdAsync) | **GET** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Get item brand by ID |
 | [**getItemBrandsAsync**](ItemBrandsApi.md#getItemBrandsAsync) | **GET** /api/v2/CatalogService/ItemBrands | Get all item brands |
+| [**patchItemBrandAsync**](ItemBrandsApi.md#patchItemBrandAsync) | **PATCH** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Patch an item brand |
 | [**updateItemBrandAsync**](ItemBrandsApi.md#updateItemBrandAsync) | **PUT** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Update an item brand |
 
 
@@ -214,6 +215,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemBrandAsync"></a>
+# **patchItemBrandAsync**
+> patchItemBrandAsync(itemBrandId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item brand
+
+Partially updates an existing item brand for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemBrandsApi()
+val itemBrandId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchItemBrandAsync(itemBrandId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling ItemBrandsApi#patchItemBrandAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemBrandsApi#patchItemBrandAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemBrandId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemBrandAsync"></a>

@@ -27,8 +27,10 @@ import com.squareup.moshi.JsonClass
  * @param read 
  * @param icon 
  * @param message 
+ * @param imageUrl 
  * @param redirectUrl 
- * @param socialProfileID 
+ * @param type 
+ * @param socialProfileId 
  * @param readTimestamp 
  * @param issuedTimestamp 
  */
@@ -51,11 +53,17 @@ data class NotificationDto (
     @Json(name = "message")
     val message: kotlin.String? = null,
 
+    @Json(name = "imageUrl")
+    val imageUrl: kotlin.String? = null,
+
     @Json(name = "redirectUrl")
     val redirectUrl: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null,
+    @Json(name = "type")
+    val type: NotificationDto.Type? = null,
+
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null,
 
     @Json(name = "readTimestamp")
     val readTimestamp: java.time.OffsetDateTime? = null,
@@ -65,6 +73,17 @@ data class NotificationDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Event,Alert,Log
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "Event") Event("Event"),
+        @Json(name = "Alert") Alert("Alert"),
+        @Json(name = "Log") Log("Log");
+    }
 
 }
 

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCoursePageByIdAsync**](CoursePagesApi.md#getCoursePageByIdAsync) | **GET** /api/v2/LearningService/CoursePages/{pageId} | Get course page by ID |
 | [**getCoursePagesAsync**](CoursePagesApi.md#getCoursePagesAsync) | **GET** /api/v2/LearningService/CoursePages | Get all course pages |
 | [**getCoursePagesCountAsync**](CoursePagesApi.md#getCoursePagesCountAsync) | **GET** /api/v2/LearningService/CoursePages/Count | Get course pages count |
+| [**patchCoursePageAsync**](CoursePagesApi.md#patchCoursePageAsync) | **PATCH** /api/v2/LearningService/CoursePages/{pageId} | Patch a course page |
 | [**updateCoursePageAsync**](CoursePagesApi.md#updateCoursePageAsync) | **PUT** /api/v2/LearningService/CoursePages/{pageId} | Update a course page |
 
 
@@ -262,6 +263,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCoursePageAsync"></a>
+# **patchCoursePageAsync**
+> patchCoursePageAsync(pageId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course page
+
+Partially updates an existing course page for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CoursePagesApi()
+val pageId : kotlin.String = pageId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchCoursePageAsync(pageId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling CoursePagesApi#patchCoursePageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoursePagesApi#patchCoursePageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **pageId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCoursePageAsync"></a>

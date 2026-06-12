@@ -46,6 +46,7 @@ import org.openapitools.client.models.InvoiceReferenceDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.InvoiceReferenceUpdateDto
 import org.openapitools.client.models.InvoiceUpdateDto
 import org.openapitools.client.models.MoneyEnvelope
+import org.openapitools.client.models.Operation
 import org.openapitools.client.models.PaymentDtoIReadOnlyListEnvelope
 
 import com.squareup.moshi.Json
@@ -2919,6 +2920,426 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/InvoicingService/Invoices/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an invoice.
+     * Partially updates the specified invoice for the tenant.
+     * @param invoiceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchInvoice(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an invoice.
+     * Partially updates the specified invoice for the tenant.
+     * @param invoiceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchInvoiceWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceRequestConfig(invoiceId = invoiceId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchInvoice
+     *
+     * @param invoiceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchInvoiceRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/InvoicingService/Invoices/{invoiceId}".replace("{"+"invoiceId"+"}", encodeURIComponent(invoiceId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an invoice adjustment.
+     * Partially updates the specified adjustment for the invoice.
+     * @param invoiceId 
+     * @param invoiceAdjustmentId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchInvoiceAdjustment(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceAdjustmentWithHttpInfo(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an invoice adjustment.
+     * Partially updates the specified adjustment for the invoice.
+     * @param invoiceId 
+     * @param invoiceAdjustmentId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchInvoiceAdjustmentWithHttpInfo(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceAdjustmentRequestConfig(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchInvoiceAdjustment
+     *
+     * @param invoiceId 
+     * @param invoiceAdjustmentId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchInvoiceAdjustmentRequestConfig(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId}".replace("{"+"invoiceId"+"}", encodeURIComponent(invoiceId.toString())).replace("{"+"invoiceAdjustmentId"+"}", encodeURIComponent(invoiceAdjustmentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an invoice line.
+     * Partially updates the specified invoice line.
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchInvoiceLine(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceLineWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an invoice line.
+     * Partially updates the specified invoice line.
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchInvoiceLineWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceLineRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchInvoiceLine
+     *
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchInvoiceLineRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}".replace("{"+"invoiceId"+"}", encodeURIComponent(invoiceId.toString())).replace("{"+"invoiceLineId"+"}", encodeURIComponent(invoiceLineId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch a tax for an invoice line.
+     * Partially updates the specified tax entry for the invoice line.
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param invoiceLineTaxId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchInvoiceLineTax(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceLineTaxWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch a tax for an invoice line.
+     * Partially updates the specified tax entry for the invoice line.
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param invoiceLineTaxId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchInvoiceLineTaxWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceLineTaxRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchInvoiceLineTax
+     *
+     * @param invoiceId 
+     * @param invoiceLineId 
+     * @param invoiceLineTaxId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchInvoiceLineTaxRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId}".replace("{"+"invoiceId"+"}", encodeURIComponent(invoiceId.toString())).replace("{"+"invoiceLineId"+"}", encodeURIComponent(invoiceLineId.toString())).replace("{"+"invoiceLineTaxId"+"}", encodeURIComponent(invoiceLineTaxId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an invoice reference.
+     * Partially updates the specified reference for the invoice.
+     * @param invoiceId 
+     * @param invoiceReferenceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchInvoiceReference(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceReferenceWithHttpInfo(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an invoice reference.
+     * Partially updates the specified reference for the invoice.
+     * @param invoiceId 
+     * @param invoiceReferenceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchInvoiceReferenceWithHttpInfo(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceReferenceRequestConfig(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchInvoiceReference
+     *
+     * @param invoiceId 
+     * @param invoiceReferenceId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchInvoiceReferenceRequestConfig(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId}".replace("{"+"invoiceId"+"}", encodeURIComponent(invoiceId.toString())).replace("{"+"invoiceReferenceId"+"}", encodeURIComponent(invoiceReferenceId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -136,5 +136,3 @@ src/main/kotlin/org/openapitools/client/models/UserSettingsUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/UserUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletDtoEnvelope.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

@@ -16,7 +16,7 @@
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
 | **parentFileUploadId** | **kotlin.String** |  |  [optional] |
 | **filePath** | **kotlin.String** |  |  [optional] |
-| **itemID** | **kotlin.String** |  |  [optional] |
+| **itemId** | **kotlin.String** |  |  [optional] |
 
 
 

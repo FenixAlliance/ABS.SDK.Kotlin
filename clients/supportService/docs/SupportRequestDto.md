@@ -10,11 +10,11 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **approved** | **kotlin.Boolean** |  |  [optional] |
 | **approvedTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **supportEntitlementID** | **kotlin.String** |  |  [optional] |
-| **contactID** | **kotlin.String** |  |  [optional] |
-| **accountHolderID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **supportEntitlementId** | **kotlin.String** |  |  [optional] |
+| **contactId** | **kotlin.String** |  |  [optional] |
+| **userId** | **kotlin.String** |  |  [optional] |
 
 
 

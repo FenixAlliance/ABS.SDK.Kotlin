@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getTenantTeamContactEnrollmentById**](TeamContactEnrollmentsApi.md#getTenantTeamContactEnrollmentById) | **GET** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Retrieve a single tenant team contact enrollment by its ID |
 | [**getTenantTeamContactEnrollments**](TeamContactEnrollmentsApi.md#getTenantTeamContactEnrollments) | **GET** /api/v2/TenantsService/TeamContactEnrollments | Retrieve a list of tenant team contact enrollments |
 | [**getTenantTeamContactEnrollmentsCount**](TeamContactEnrollmentsApi.md#getTenantTeamContactEnrollmentsCount) | **GET** /api/v2/TenantsService/TeamContactEnrollments/Count | Get the count of tenant team contact enrollments |
+| [**patchTenantTeamContactEnrollment**](TeamContactEnrollmentsApi.md#patchTenantTeamContactEnrollment) | **PATCH** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Patch a tenant team contact enrollment |
 | [**updateTenantTeamContactEnrollment**](TeamContactEnrollmentsApi.md#updateTenantTeamContactEnrollment) | **PUT** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Update a tenant team contact enrollment |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTenantTeamContactEnrollment"></a>
+# **patchTenantTeamContactEnrollment**
+> EmptyEnvelope patchTenantTeamContactEnrollment(tenantTeamContactEnrollmentId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a tenant team contact enrollment
+
+Patch a tenant team contact enrollment
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TeamContactEnrollmentsApi()
+val tenantTeamContactEnrollmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTenantTeamContactEnrollment(tenantTeamContactEnrollmentId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TeamContactEnrollmentsApi#patchTenantTeamContactEnrollment")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TeamContactEnrollmentsApi#patchTenantTeamContactEnrollment")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantTeamContactEnrollmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTenantTeamContactEnrollment"></a>

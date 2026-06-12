@@ -10,6 +10,8 @@
 | **invoiceId** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **priority** | **kotlin.Int** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **surchargePercent** | **kotlin.Double** |  |  [optional] |
 | **surchargeAmount** | **kotlin.Double** |  |  [optional] |

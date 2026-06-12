@@ -13,6 +13,8 @@ All URIs are relative to *http://localhost*
 | [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
 | [**getPriceListsAsync**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
 | [**getPriceListsCountAsync**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
+| [**patchPriceListAsync**](PriceListsApi.md#patchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list |
+| [**patchPriceListPriceAsync**](PriceListsApi.md#patchPriceListPriceAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Patches a price list entry |
 | [**updatePriceListAsync**](PriceListsApi.md#updatePriceListAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list |
 | [**updatePriceListPriceAsync**](PriceListsApi.md#updatePriceListPriceAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry |
 
@@ -451,6 +453,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchPriceListAsync"></a>
+# **patchPriceListAsync**
+> EmptyEnvelope patchPriceListAsync(priceListId, tenantId, operation)
+
+Patches a price list
+
+Partially updates the specified price list using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPriceListAsync(priceListId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#patchPriceListAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#patchPriceListAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **priceListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchPriceListPriceAsync"></a>
+# **patchPriceListPriceAsync**
+> EmptyEnvelope patchPriceListPriceAsync(priceListId, priceId, tenantId, operation)
+
+Patches a price list entry
+
+Partially updates the specified price entry in a price list using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPriceListPriceAsync(priceListId, priceId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#patchPriceListPriceAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#patchPriceListPriceAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **priceListId** | **java.util.UUID**|  | |
+| **priceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updatePriceListAsync"></a>

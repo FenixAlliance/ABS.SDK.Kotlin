@@ -38,9 +38,6 @@
 | **data9** | **kotlin.String** |  |  [optional] |
 | **data9Label** | **kotlin.String** |  |  [optional] |
 | **authorized** | **kotlin.Boolean** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **contactID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
 
 
 

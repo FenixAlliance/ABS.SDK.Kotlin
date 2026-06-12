@@ -24,7 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param description 
- * @param assetType 
+ * @param assetClass 
  * @param assetOwner 
  * @param calculateDepreciation 
  * @param allowMonthlyDepreciation 
@@ -32,8 +32,8 @@ import com.squareup.moshi.JsonClass
  * @param purchaseDate 
  * @param purchasePrice 
  * @param currencyId 
- * @param currencyCode 
  * @param itemId 
+ * @param assetTypeId 
  * @param assetCategoryId 
  * @param purchaseInvoiceId 
  * @param purchaseReceiptId 
@@ -51,8 +51,8 @@ data class AssetUpdateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "assetType")
-    val assetType: AssetUpdateDto.AssetType? = null,
+    @Json(name = "assetClass")
+    val assetClass: AssetUpdateDto.AssetClass? = null,
 
     @Json(name = "assetOwner")
     val assetOwner: AssetUpdateDto.AssetOwner? = null,
@@ -75,11 +75,11 @@ data class AssetUpdateDto (
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
 
-    @Json(name = "currencyCode")
-    val currencyCode: kotlin.String? = null,
-
     @Json(name = "itemId")
     val itemId: kotlin.String? = null,
+
+    @Json(name = "assetTypeId")
+    val assetTypeId: kotlin.String? = null,
 
     @Json(name = "assetCategoryId")
     val assetCategoryId: kotlin.String? = null,
@@ -107,7 +107,7 @@ data class AssetUpdateDto (
      * Values: Fixed,Stock
      */
     @JsonClass(generateAdapter = false)
-    enum class AssetType(val value: kotlin.String) {
+    enum class AssetClass(val value: kotlin.String) {
         @Json(name = "Fixed") Fixed("Fixed"),
         @Json(name = "Stock") Stock("Stock");
     }

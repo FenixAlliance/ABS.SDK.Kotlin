@@ -13,6 +13,7 @@ All URIs are relative to *http://localhost*
 | [**getTagsByWebPageAsync**](WebPagesApi.md#getTagsByWebPageAsync) | **GET** /api/v2/ContentService/WebPages/{webPageId}/Tags | Get tags by web page |
 | [**getWebPageByIdAsync**](WebPagesApi.md#getWebPageByIdAsync) | **GET** /api/v2/ContentService/WebPages/{webPageId} | Get web page by ID |
 | [**getWebPagesAsync**](WebPagesApi.md#getWebPagesAsync) | **GET** /api/v2/ContentService/WebPages | Get web pages |
+| [**patchWebPageAsync**](WebPagesApi.md#patchWebPageAsync) | **PATCH** /api/v2/ContentService/WebPages/{webPageId} | Patch a web page |
 | [**relateWebPageToCategoryAsync**](WebPagesApi.md#relateWebPageToCategoryAsync) | **POST** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Relate web page to category |
 | [**relateWebPageToTagAsync**](WebPagesApi.md#relateWebPageToTagAsync) | **POST** /api/v2/ContentService/WebPages/{webPageId}/Tags/{tagId} | Relate web page to tag |
 | [**unrelateWebPageCategoryAsync**](WebPagesApi.md#unrelateWebPageCategoryAsync) | **DELETE** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Unrelate web page from category |
@@ -478,6 +479,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchWebPageAsync"></a>
+# **patchWebPageAsync**
+> patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a web page
+
+Partially updates an existing web page for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WebPagesApi()
+val webPageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling WebPagesApi#patchWebPageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WebPagesApi#patchWebPageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **webPageId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="relateWebPageToCategoryAsync"></a>

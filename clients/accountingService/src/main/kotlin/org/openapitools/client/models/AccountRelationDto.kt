@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param accountId 
+ * @param type 
  * @param tenantId 
  * @param enrollmentId 
  */
@@ -40,6 +41,9 @@ data class AccountRelationDto (
 
     @Json(name = "accountId")
     val accountId: kotlin.String? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null,
 
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,

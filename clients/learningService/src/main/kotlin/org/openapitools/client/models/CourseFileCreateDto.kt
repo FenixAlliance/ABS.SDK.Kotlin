@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param fileName 
  * @param fileUploadURL 
- * @param courseID 
+ * @param courseId 
  * @param id 
  * @param timestamp 
  * @param contentType 
@@ -44,8 +44,8 @@ data class CourseFileCreateDto (
     @Json(name = "fileUploadURL")
     val fileUploadURL: kotlin.String,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String,
+    @Json(name = "courseId")
+    val courseId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

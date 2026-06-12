@@ -10,7 +10,7 @@
 | **code** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

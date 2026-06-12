@@ -37,12 +37,12 @@ import com.squareup.moshi.JsonClass
  * @param years 
  * @param `value` 
  * @param percentage 
- * @param currencyID 
- * @param countryID 
- * @param countryStateID 
+ * @param currencyId 
+ * @param countryId 
+ * @param countryStateId 
  * @param customState 
  * @param customCity 
- * @param cityID 
+ * @param cityId 
  */
 
 
@@ -93,14 +93,14 @@ data class ItemWarrantyPolicyUpdateDto (
     @Json(name = "percentage")
     val percentage: kotlin.Double? = null,
 
-    @Json(name = "currencyID")
-    val currencyID: kotlin.String? = null,
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
 
-    @Json(name = "countryID")
-    val countryID: kotlin.String? = null,
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
 
-    @Json(name = "countryStateID")
-    val countryStateID: kotlin.String? = null,
+    @Json(name = "countryStateId")
+    val countryStateId: kotlin.String? = null,
 
     @Json(name = "customState")
     val customState: kotlin.String? = null,
@@ -108,8 +108,8 @@ data class ItemWarrantyPolicyUpdateDto (
     @Json(name = "customCity")
     val customCity: kotlin.String? = null,
 
-    @Json(name = "cityID")
-    val cityID: kotlin.String? = null
+    @Json(name = "cityId")
+    val cityId: kotlin.String? = null
 
 ) {
 

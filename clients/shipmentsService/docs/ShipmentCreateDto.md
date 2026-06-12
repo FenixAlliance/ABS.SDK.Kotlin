@@ -11,7 +11,7 @@
 | **expectedShippingDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **expectedDeliveryDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **shippingTerms** | [**inline**](#ShippingTerms) |  |  [optional] |
-| **orderID** | **kotlin.String** |  |  [optional] |
+| **orderId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="ShippingTerms"></a>

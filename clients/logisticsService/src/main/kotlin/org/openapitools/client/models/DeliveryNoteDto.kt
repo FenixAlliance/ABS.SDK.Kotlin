@@ -26,6 +26,9 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param title 
  * @param description 
+ * @param shipmentId 
+ * @param proofOfDeliveryId 
+ * @param tenantId 
  */
 
 
@@ -41,7 +44,16 @@ data class DeliveryNoteDto (
     val title: kotlin.String? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null
+    val description: kotlin.String? = null,
+
+    @Json(name = "shipmentId")
+    val shipmentId: kotlin.String? = null,
+
+    @Json(name = "proofOfDeliveryId")
+    val proofOfDeliveryId: kotlin.String? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null
 
 ) {
 

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID |
 | [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers |
 | [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers |
+| [**patchJobOfferAsync**](JobOffersApi.md#patchJobOfferAsync) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer |
 | [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer |
 
 
@@ -268,9 +269,63 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="patchJobOfferAsync"></a>
+# **patchJobOfferAsync**
+> EmptyEnvelope patchJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a job offer
+
+Partially updates an existing job offer for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = JobOffersApi()
+val jobOfferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling JobOffersApi#patchJobOfferAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling JobOffersApi#patchJobOfferAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **jobOfferId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a id="updateJobOfferAsync"></a>
 # **updateJobOfferAsync**
-> EmptyEnvelope updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, jobOfferUpdateDto)
 
 Update a job offer
 
@@ -287,9 +342,9 @@ val jobOfferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val body : kotlin.Any = Object // kotlin.Any | 
+val jobOfferUpdateDto : JobOfferUpdateDto =  // JobOfferUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, body)
+    val result : EmptyEnvelope = apiInstance.updateJobOfferAsync(jobOfferId, tenantId, apiVersion, xApiVersion, jobOfferUpdateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobOffersApi#updateJobOfferAsync")
@@ -307,7 +362,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **kotlin.Any**|  | [optional] |
+| **jobOfferUpdateDto** | [**JobOfferUpdateDto**](JobOfferUpdateDto.md)|  | [optional] |
 
 ### Return type
 

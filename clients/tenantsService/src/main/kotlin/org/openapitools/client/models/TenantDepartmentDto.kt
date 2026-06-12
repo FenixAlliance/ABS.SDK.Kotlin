@@ -24,13 +24,13 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessID 
- * @param businessProfileRecordID 
+ * @param tenantId 
+ * @param enrollmentId 
  * @param name 
  * @param description 
  * @param disabled 
- * @param organizationProfileID 
- * @param parentDepartmentID 
+ * @param organizationProfileId 
+ * @param parentDepartmentId 
  */
 
 
@@ -42,11 +42,11 @@ data class TenantDepartmentDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
@@ -57,11 +57,11 @@ data class TenantDepartmentDto (
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @Json(name = "organizationProfileID")
-    val organizationProfileID: kotlin.String? = null,
+    @Json(name = "organizationProfileId")
+    val organizationProfileId: kotlin.String? = null,
 
-    @Json(name = "parentDepartmentID")
-    val parentDepartmentID: kotlin.String? = null
+    @Json(name = "parentDepartmentId")
+    val parentDepartmentId: kotlin.String? = null
 
 ) {
 

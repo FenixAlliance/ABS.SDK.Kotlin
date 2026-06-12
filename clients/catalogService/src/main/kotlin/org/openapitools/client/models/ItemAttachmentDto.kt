@@ -44,7 +44,7 @@ import com.squareup.moshi.JsonClass
  * @param enrollmentId 
  * @param socialProfileId 
  * @param folderPath 
- * @param itemID 
+ * @param itemId 
  */
 
 
@@ -116,8 +116,8 @@ data class ItemAttachmentDto (
     @Json(name = "folderPath")
     val folderPath: kotlin.String? = null,
 
-    @Json(name = "itemID")
-    val itemID: kotlin.String? = null
+    @Json(name = "itemId")
+    val itemId: kotlin.String? = null
 
 ) {
 

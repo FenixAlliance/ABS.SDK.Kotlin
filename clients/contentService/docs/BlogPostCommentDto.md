@@ -6,11 +6,11 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **blogPostID** | **kotlin.String** |  |  [optional] |
+| **blogPostId** | **kotlin.String** |  |  [optional] |
 | **message** | **kotlin.String** |  |  [optional] |
-| **ownerSocialProfileID** | **kotlin.String** |  |  [optional] |
-| **socialPostID** | **kotlin.String** |  |  [optional] |
-| **parentCommentID** | **kotlin.String** |  |  [optional] |
+| **ownerSocialProfileId** | **kotlin.String** |  |  [optional] |
+| **socialPostId** | **kotlin.String** |  |  [optional] |
+| **parentCommentId** | **kotlin.String** |  |  [optional] |
 
 
 

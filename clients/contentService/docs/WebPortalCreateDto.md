@@ -11,9 +11,9 @@
 | **domain** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **websiteThemeID** | **kotlin.String** |  |  [optional] |
-| **businessDomainID** | **kotlin.String** |  |  [optional] |
-| **businessPortalApplicationID** | **kotlin.String** |  |  [optional] |
+| **websiteThemeId** | **kotlin.String** |  |  [optional] |
+| **businessDomainId** | **kotlin.String** |  |  [optional] |
+| **businessPortalApplicationId** | **kotlin.String** |  |  [optional] |
 
 
 

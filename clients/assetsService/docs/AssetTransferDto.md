@@ -6,8 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessId** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **assetId** | **kotlin.String** |  |  [optional] |
 | **assetName** | **kotlin.String** |  |  [optional] |
 | **isRootTransfer** | **kotlin.Boolean** |  |  [optional] |

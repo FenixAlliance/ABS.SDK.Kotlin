@@ -35,6 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param razorContent 
  * @param highlightImage 
  * @param order 
+ * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -77,7 +79,13 @@ data class WebTemplateDto (
     val highlightImage: kotlin.String? = null,
 
     @Json(name = "order")
-    val order: kotlin.Int? = null
+    val order: kotlin.Int? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

@@ -28,6 +28,8 @@
 | **isDefaultSenderAddress** | **kotlin.Boolean** |  |  [optional] |
 | **isDefaultReturnAddress** | **kotlin.Boolean** |  |  [optional] |
 | **isDefaultSuppingLocation** | **kotlin.Boolean** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

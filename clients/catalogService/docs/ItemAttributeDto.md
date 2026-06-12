@@ -8,7 +8,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

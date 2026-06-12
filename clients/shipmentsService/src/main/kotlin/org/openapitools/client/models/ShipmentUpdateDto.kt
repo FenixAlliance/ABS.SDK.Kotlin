@@ -31,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param expectedShippingDate 
  * @param expectedDeliveryDate 
  * @param shippingTerms 
- * @param orderID 
+ * @param orderId 
  */
 
 
@@ -64,8 +64,8 @@ data class ShipmentUpdateDto (
     @Json(name = "shippingTerms")
     val shippingTerms: ShipmentUpdateDto.ShippingTerms? = null,
 
-    @Json(name = "orderID")
-    val orderID: kotlin.String? = null
+    @Json(name = "orderId")
+    val orderId: kotlin.String? = null
 
 ) {
 

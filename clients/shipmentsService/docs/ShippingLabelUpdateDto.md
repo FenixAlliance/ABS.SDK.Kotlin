@@ -6,9 +6,9 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **trackingCode** | **kotlin.String** |  |  [optional] |
 | **expectedDelivery** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **locationID** | **kotlin.String** |  |  [optional] |
-| **shipmentID** | **kotlin.String** |  |  [optional] |
-| **shippingCourierID** | **kotlin.String** |  |  [optional] |
+| **locationId** | **kotlin.String** |  |  [optional] |
+| **shipmentId** | **kotlin.String** |  |  [optional] |
+| **shippingCourierId** | **kotlin.String** |  |  [optional] |
 
 
 

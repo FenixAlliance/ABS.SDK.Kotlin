@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getTruckDriverByIdAsync**](TruckDriversApi.md#getTruckDriverByIdAsync) | **GET** /api/v2/LogisticsService/TruckDrivers/{driverId} | Get truck driver by ID |
 | [**getTruckDriversAsync**](TruckDriversApi.md#getTruckDriversAsync) | **GET** /api/v2/LogisticsService/TruckDrivers | Get all truck drivers |
 | [**getTruckDriversCountAsync**](TruckDriversApi.md#getTruckDriversCountAsync) | **GET** /api/v2/LogisticsService/TruckDrivers/Count | Get truck drivers count |
+| [**patchTruckDriverAsync**](TruckDriversApi.md#patchTruckDriverAsync) | **PATCH** /api/v2/LogisticsService/TruckDrivers/{driverId} | Patch a truck driver |
 | [**updateTruckDriverAsync**](TruckDriversApi.md#updateTruckDriverAsync) | **PUT** /api/v2/LogisticsService/TruckDrivers/{driverId} | Update a truck driver |
 
 
@@ -372,6 +373,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTruckDriverAsync"></a>
+# **patchTruckDriverAsync**
+> EmptyEnvelope patchTruckDriverAsync(driverId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a truck driver
+
+Partially updates an existing truck driver using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TruckDriversApi()
+val driverId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTruckDriverAsync(driverId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TruckDriversApi#patchTruckDriverAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TruckDriversApi#patchTruckDriverAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **driverId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTruckDriverAsync"></a>

@@ -57,6 +57,7 @@ docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
+docs/Operation.md
 docs/OrderDto.md
 docs/OrderDtoEnvelope.md
 docs/RefreshRequest.md
@@ -160,6 +161,7 @@ src/main/kotlin/org/openapitools/client/models/NewsletterCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterUpdateDto.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/OrderDto.kt
 src/main/kotlin/org/openapitools/client/models/OrderDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/RefreshRequest.kt
@@ -178,17 +180,3 @@ src/main/kotlin/org/openapitools/client/models/SocialPostBucketDtoListEnvelope.k
 src/main/kotlin/org/openapitools/client/models/SocialPostBucketUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/MarketingAreasApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/MarketingLeadsApiTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingAreaCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingAreaDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingAreaDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingAreaDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingAreaUpdateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingLeadCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingLeadDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingLeadDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingLeadDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/MarketingLeadUpdateDtoTest.kt

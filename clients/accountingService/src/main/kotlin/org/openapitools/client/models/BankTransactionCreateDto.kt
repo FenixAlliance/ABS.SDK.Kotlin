@@ -24,6 +24,17 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param description 
+ * @param price 
+ * @param quantity 
+ * @param externalDescription 
+ * @param basisQuantity 
+ * @param basisAmount 
+ * @param percent 
+ * @param unitGroupId 
+ * @param unitId 
+ * @param transactionCategoryId 
+ * @param currencyId 
  * @param bankProfileId 
  * @param bankAccountId 
  */
@@ -36,6 +47,39 @@ data class BankTransactionCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
+    @Json(name = "price")
+    val price: kotlin.Double? = null,
+
+    @Json(name = "quantity")
+    val quantity: kotlin.Double? = null,
+
+    @Json(name = "externalDescription")
+    val externalDescription: kotlin.String? = null,
+
+    @Json(name = "basisQuantity")
+    val basisQuantity: kotlin.Double? = null,
+
+    @Json(name = "basisAmount")
+    val basisAmount: kotlin.Double? = null,
+
+    @Json(name = "percent")
+    val percent: kotlin.Double? = null,
+
+    @Json(name = "unitGroupId")
+    val unitGroupId: kotlin.String? = null,
+
+    @Json(name = "unitId")
+    val unitId: kotlin.String? = null,
+
+    @Json(name = "transactionCategoryId")
+    val transactionCategoryId: kotlin.String? = null,
+
+    @Json(name = "currencyId")
+    val currencyId: kotlin.String? = null,
 
     @Json(name = "bankProfileId")
     val bankProfileId: kotlin.String? = null,

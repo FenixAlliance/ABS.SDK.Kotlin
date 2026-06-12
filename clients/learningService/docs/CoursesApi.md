@@ -44,6 +44,7 @@ All URIs are relative to *http://localhost*
 | [**getInstructorProfilesByCourseCountAsync**](CoursesApi.md#getInstructorProfilesByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Instructors/Count | Get instructor profiles by course count |
 | [**getStudentProfilesByCourseAsync**](CoursesApi.md#getStudentProfilesByCourseAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students | Get student profiles by course |
 | [**getStudentProfilesByCourseCountAsync**](CoursesApi.md#getStudentProfilesByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students/Count | Get student profiles by course count |
+| [**patchCourseAsync**](CoursesApi.md#patchCourseAsync) | **PATCH** /api/v2/LearningService/Courses/{courseId} | Patch a course |
 | [**updateCourseAsync**](CoursesApi.md#updateCourseAsync) | **PUT** /api/v2/LearningService/Courses/{courseId} | Update a course |
 
 
@@ -2059,6 +2060,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseAsync"></a>
+# **patchCourseAsync**
+> EmptyEnvelope patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course
+
+Partially updates a course for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CoursesApi()
+val courseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoursesApi#patchCourseAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoursesApi#patchCourseAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseAsync"></a>

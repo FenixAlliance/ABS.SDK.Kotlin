@@ -17,6 +17,8 @@
 | **razorContent** | **kotlin.String** |  |  [optional] |
 | **highlightImage** | **kotlin.String** |  |  [optional] |
 | **order** | **kotlin.Int** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

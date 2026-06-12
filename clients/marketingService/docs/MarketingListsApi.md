@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getMarketingListDetailsAsync**](MarketingListsApi.md#getMarketingListDetailsAsync) | **GET** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Get marketing list by ID |
 | [**getMarketingListODataAsync**](MarketingListsApi.md#getMarketingListODataAsync) | **GET** /api/v2/MarketingService/MarketingLists | Get marketing lists |
 | [**getMarketingListsCountAsync**](MarketingListsApi.md#getMarketingListsCountAsync) | **GET** /api/v2/MarketingService/MarketingLists/Count | Get marketing lists count |
+| [**patchMarketingListAsync**](MarketingListsApi.md#patchMarketingListAsync) | **PATCH** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Patch a marketing list |
 | [**updateMarketingListAsync**](MarketingListsApi.md#updateMarketingListAsync) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Update a marketing list |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchMarketingListAsync"></a>
+# **patchMarketingListAsync**
+> EmptyEnvelope patchMarketingListAsync(marketinglistId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a marketing list
+
+Partially updates a marketing list by its ID using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = MarketingListsApi()
+val marketinglistId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchMarketingListAsync(marketinglistId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling MarketingListsApi#patchMarketingListAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MarketingListsApi#patchMarketingListAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **marketinglistId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateMarketingListAsync"></a>

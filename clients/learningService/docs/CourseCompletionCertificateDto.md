@@ -6,12 +6,12 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **studentProfileID** | **kotlin.String** |  |  [optional] |
-| **courseEnrollmentID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **courseCompletionCertificateTemplateID** | **kotlin.String** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **studentProfileId** | **kotlin.String** |  |  [optional] |
+| **courseEnrollmentId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **courseCompletionCertificateTemplateId** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 | **studentName** | **kotlin.String** |  |  [optional] |
 | **studentLastName** | **kotlin.String** |  |  [optional] |
 | **courseTitle** | **kotlin.String** |  |  [optional] |

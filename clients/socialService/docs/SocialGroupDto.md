@@ -9,9 +9,9 @@
 | **name** | **kotlin.String** |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **avatarURL** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

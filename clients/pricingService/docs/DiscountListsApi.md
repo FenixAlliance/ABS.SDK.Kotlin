@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getDiscountListEntry**](DiscountListsApi.md#getDiscountListEntry) | **GET** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Gets a discount list entry by ID |
 | [**getDiscountLists**](DiscountListsApi.md#getDiscountLists) | **GET** /api/v2/PricingService/DiscountLists | Retrieves all discount lists |
 | [**getDiscountListsCount**](DiscountListsApi.md#getDiscountListsCount) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists |
+| [**patchDiscountList**](DiscountListsApi.md#patchDiscountList) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId} | Patches a discount list |
+| [**patchDiscountListEntry**](DiscountListsApi.md#patchDiscountListEntry) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Patches a discount list entry |
 | [**updateDiscountList**](DiscountListsApi.md#updateDiscountList) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list |
 | [**updateDiscountListEntry**](DiscountListsApi.md#updateDiscountListEntry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry |
 
@@ -498,6 +500,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchDiscountList"></a>
+# **patchDiscountList**
+> EmptyEnvelope patchDiscountList(discountListId, tenantId, operation)
+
+Patches a discount list
+
+Partially updates the specified discount list using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DiscountListsApi()
+val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDiscountList(discountListId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DiscountListsApi#patchDiscountList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DiscountListsApi#patchDiscountList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **discountListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchDiscountListEntry"></a>
+# **patchDiscountListEntry**
+> EmptyEnvelope patchDiscountListEntry(discountListId, discountListEntryId, tenantId, operation)
+
+Patches a discount list entry
+
+Partially updates the specified discount entry using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DiscountListsApi()
+val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDiscountListEntry(discountListId, discountListEntryId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DiscountListsApi#patchDiscountListEntry")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DiscountListsApi#patchDiscountListEntry")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **discountListId** | **java.util.UUID**|  | |
+| **discountListEntryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateDiscountList"></a>

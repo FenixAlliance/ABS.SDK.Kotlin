@@ -9,7 +9,7 @@
 | **content** | **kotlin.String** |  |  [optional] |
 | **url** | **kotlin.String** |  |  [optional] |
 | **releaseDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
 
 
 

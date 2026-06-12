@@ -25,8 +25,9 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param name 
- * @param courseID 
- * @param businessID 
+ * @param courseId 
+ * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -41,11 +42,14 @@ data class CourseContentGroupDto (
     @Json(name = "name")
     val name: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

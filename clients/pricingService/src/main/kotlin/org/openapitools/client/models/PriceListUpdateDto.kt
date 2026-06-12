@@ -24,11 +24,14 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param description 
+ * @param context 
  * @param startDate 
  * @param endDate 
  * @param currencyId 
  * @param unitId 
  * @param unitGroupId 
+ * @param partnerVisible 
+ * @param unitOfMeasureDependant 
  */
 
 
@@ -39,6 +42,9 @@ data class PriceListUpdateDto (
 
     @Json(name = "description")
     val description: kotlin.String? = null,
+
+    @Json(name = "context")
+    val context: PriceListUpdateDto.Context? = null,
 
     @Json(name = "startDate")
     val startDate: java.time.OffsetDateTime? = null,
@@ -53,10 +59,27 @@ data class PriceListUpdateDto (
     val unitId: kotlin.String? = null,
 
     @Json(name = "unitGroupId")
-    val unitGroupId: kotlin.String? = null
+    val unitGroupId: kotlin.String? = null,
+
+    @Json(name = "partnerVisible")
+    val partnerVisible: kotlin.Boolean? = null,
+
+    @Json(name = "unitOfMeasureDependant")
+    val unitOfMeasureDependant: kotlin.Boolean? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Sales,Purchase,Cost
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Context(val value: kotlin.String) {
+        @Json(name = "Sales") Sales("Sales"),
+        @Json(name = "Purchase") Purchase("Purchase"),
+        @Json(name = "Cost") Cost("Cost");
+    }
 
 }
 

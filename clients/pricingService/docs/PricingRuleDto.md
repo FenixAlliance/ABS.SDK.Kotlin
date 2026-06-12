@@ -6,7 +6,8 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
@@ -22,12 +23,12 @@
 | **years** | **kotlin.Int** |  |  [optional] |
 | **&#x60;value&#x60;** | **kotlin.Double** |  |  [optional] |
 | **percentage** | **kotlin.Double** |  |  [optional] |
-| **currencyID** | **kotlin.String** |  |  [optional] |
-| **countryID** | **kotlin.String** |  |  [optional] |
-| **countryStateID** | **kotlin.String** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **countryId** | **kotlin.String** |  |  [optional] |
+| **countryStateId** | **kotlin.String** |  |  [optional] |
 | **customState** | **kotlin.String** |  |  [optional] |
 | **customCity** | **kotlin.String** |  |  [optional] |
-| **cityID** | **kotlin.String** |  |  [optional] |
+| **cityId** | **kotlin.String** |  |  [optional] |
 
 
 

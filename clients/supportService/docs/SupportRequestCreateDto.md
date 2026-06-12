@@ -10,8 +10,8 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **approved** | **kotlin.Boolean** |  |  [optional] |
 | **approvedTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **supportEntitlementID** | **kotlin.String** |  |  [optional] |
-| **contactID** | **kotlin.String** |  |  [optional] |
+| **supportEntitlementId** | **kotlin.String** |  |  [optional] |
+| **contactId** | **kotlin.String** |  |  [optional] |
 
 
 

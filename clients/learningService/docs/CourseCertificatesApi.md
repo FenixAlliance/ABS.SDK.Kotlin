@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getCourseCertificateTemplatesCountAsync**](CourseCertificatesApi.md#getCourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count |
 | [**getCourseCertificatesAsync**](CourseCertificatesApi.md#getCourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates |
 | [**getCourseCertificatesCountAsync**](CourseCertificatesApi.md#getCourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count |
+| [**patchCourseCertificateAsync**](CourseCertificatesApi.md#patchCourseCertificateAsync) | **PATCH** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Patch a course certificate |
+| [**patchCourseCertificateTemplateAsync**](CourseCertificatesApi.md#patchCourseCertificateTemplateAsync) | **PATCH** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Patch a certificate template |
 | [**updateCourseCertificateAsync**](CourseCertificatesApi.md#updateCourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate |
 | [**updateCourseCertificateTemplateAsync**](CourseCertificatesApi.md#updateCourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template |
 
@@ -524,6 +526,114 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseCertificateAsync"></a>
+# **patchCourseCertificateAsync**
+> EmptyEnvelope patchCourseCertificateAsync(courseCertificateId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course certificate
+
+Partially updates a course certificate for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseCertificatesApi()
+val courseCertificateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseCertificateAsync(courseCertificateId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseCertificatesApi#patchCourseCertificateAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseCertificatesApi#patchCourseCertificateAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseCertificateId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchCourseCertificateTemplateAsync"></a>
+# **patchCourseCertificateTemplateAsync**
+> EmptyEnvelope patchCourseCertificateTemplateAsync(courseCertificateTemplateId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a certificate template
+
+Partially updates a course certificate template for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseCertificatesApi()
+val courseCertificateTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseCertificateTemplateAsync(courseCertificateTemplateId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseCertificatesApi#patchCourseCertificateTemplateAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseCertificatesApi#patchCourseCertificateTemplateAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseCertificateTemplateId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseCertificateAsync"></a>

@@ -14,6 +14,7 @@
 | **code** | **kotlin.String** |  |  [optional] |
 | **path** | **kotlin.String** |  |  [optional] |
 | **prefix** | **kotlin.String** |  |  [optional] |
+| **contactId** | **kotlin.String** |  |  [optional] |
 | **accountTypeId** | **kotlin.String** |  |  [optional] |
 | **parentAccountId** | **kotlin.String** |  |  [optional] |
 

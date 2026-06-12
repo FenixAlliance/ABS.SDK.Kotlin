@@ -20,6 +20,7 @@ docs/LoginRequest.md
 docs/NotificationDto.md
 docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
+docs/Operation.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
 docs/PrivateMessageDtoListEnvelope.md
@@ -116,6 +117,7 @@ src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDto.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDtoListEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/PrivateMessageCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/PrivateMessageDto.kt
 src/main/kotlin/org/openapitools/client/models/PrivateMessageDtoListEnvelope.kt
@@ -162,6 +164,3 @@ src/main/kotlin/org/openapitools/client/models/SocialReactionDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/SocialReactionUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/models/NotificationDtoEnvelopeTest.kt

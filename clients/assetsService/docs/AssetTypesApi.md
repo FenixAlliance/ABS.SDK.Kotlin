@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getAssetType**](AssetTypesApi.md#getAssetType) | **GET** /api/v2/AssetsService/AssetTypes/{typeId} | Gets a specific asset type |
 | [**getAssetTypes**](AssetTypesApi.md#getAssetTypes) | **GET** /api/v2/AssetsService/AssetTypes | Gets all asset types for the current tenant |
 | [**getAssetTypesCount**](AssetTypesApi.md#getAssetTypesCount) | **GET** /api/v2/AssetsService/AssetTypes/count | Gets the count of asset types |
+| [**patchAssetType**](AssetTypesApi.md#patchAssetType) | **PATCH** /api/v2/AssetsService/AssetTypes/{typeId} | Partially updates an existing asset type |
 | [**updateAssetType**](AssetTypesApi.md#updateAssetType) | **PUT** /api/v2/AssetsService/AssetTypes/{typeId} | Updates an existing asset type |
 
 
@@ -245,6 +246,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAssetType"></a>
+# **patchAssetType**
+> EmptyEnvelope patchAssetType(typeId, tenantId, operation)
+
+Partially updates an existing asset type
+
+Applies a JSON Patch document to an existing asset type for the authenticated tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetTypesApi()
+val typeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetType(typeId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetTypesApi#patchAssetType")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetTypesApi#patchAssetType")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **typeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAssetType"></a>

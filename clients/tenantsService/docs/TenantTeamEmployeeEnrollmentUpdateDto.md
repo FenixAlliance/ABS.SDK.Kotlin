@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **businessTeamID** | **kotlin.String** |  |  [optional] |
-| **employeeProfileID** | **kotlin.String** |  |  [optional] |
+| **businessTeamId** | **kotlin.String** |  |  [optional] |
+| **employeeProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

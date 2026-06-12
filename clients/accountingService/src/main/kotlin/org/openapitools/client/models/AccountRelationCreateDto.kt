@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param accountId 
+ * @param type 
  */
 
 
@@ -37,7 +38,10 @@ data class AccountRelationCreateDto (
     val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "accountId")
-    val accountId: kotlin.String? = null
+    val accountId: kotlin.String? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null
 
 ) {
 

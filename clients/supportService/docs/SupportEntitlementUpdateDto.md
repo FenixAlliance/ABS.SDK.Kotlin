@@ -42,12 +42,12 @@
 | **data8Label** | **kotlin.String** |  |  [optional] |
 | **data9** | **kotlin.String** |  |  [optional] |
 | **data9Label** | **kotlin.String** |  |  [optional] |
-| **individualID** | **kotlin.String** |  |  [optional] |
-| **organizationID** | **kotlin.String** |  |  [optional] |
-| **receiverBusinessID** | **kotlin.String** |  |  [optional] |
-| **paymentTokenID** | **kotlin.String** |  |  [optional] |
-| **walletAccountID** | **kotlin.String** |  |  [optional] |
-| **securityCertificateID** | **kotlin.String** |  |  [optional] |
+| **individualId** | **kotlin.String** |  |  [optional] |
+| **organizationId** | **kotlin.String** |  |  [optional] |
+| **receiverTenantId** | **kotlin.String** |  |  [optional] |
+| **paymentTokenId** | **kotlin.String** |  |  [optional] |
+| **walletAccountId** | **kotlin.String** |  |  [optional] |
+| **securityCertificateId** | **kotlin.String** |  |  [optional] |
 
 
 

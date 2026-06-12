@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param fileName 
  * @param id 
  * @param timestamp 
- * @param itemID 
+ * @param itemId 
  * @param isItemMozaicBG 
  * @param mD5Hash 
  * @param metadata 
@@ -38,8 +38,8 @@ import com.squareup.moshi.JsonClass
  * @param contentType 
  * @param fileLength 
  * @param validResponse 
- * @param socialProfileID 
- * @param parentFileUploadID 
+ * @param socialProfileId 
+ * @param parentFileUploadId 
  */
 
 
@@ -54,8 +54,8 @@ data class ItemImageCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "itemID")
-    val itemID: kotlin.String? = null,
+    @Json(name = "itemId")
+    val itemId: kotlin.String? = null,
 
     @Json(name = "isItemMozaicBG")
     val isItemMozaicBG: kotlin.Boolean? = null,
@@ -93,11 +93,11 @@ data class ItemImageCreateDto (
     @Json(name = "validResponse")
     val validResponse: kotlin.Boolean? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null,
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null,
 
-    @Json(name = "parentFileUploadID")
-    val parentFileUploadID: kotlin.String? = null
+    @Json(name = "parentFileUploadId")
+    val parentFileUploadId: kotlin.String? = null
 
 ) {
 

@@ -81,7 +81,9 @@ import com.squareup.moshi.JsonClass
  * @param socialProfileId 
  * @param parentWebContentId 
  * @param parentWebContentVersionId 
- * @param webTemplateID 
+ * @param webTemplateId 
+ * @param authorName 
+ * @param authorId 
  * @param isHomePage 
  * @param isStorePage 
  * @param isCartPage 
@@ -274,8 +276,14 @@ data class WebPageDto (
     @Json(name = "parentWebContentVersionId")
     val parentWebContentVersionId: kotlin.String? = null,
 
-    @Json(name = "webTemplateID")
-    val webTemplateID: kotlin.String? = null,
+    @Json(name = "webTemplateId")
+    val webTemplateId: kotlin.String? = null,
+
+    @Json(name = "authorName")
+    val authorName: kotlin.String? = null,
+
+    @Json(name = "authorId")
+    val authorId: kotlin.String? = null,
 
     @Json(name = "isHomePage")
     val isHomePage: kotlin.Boolean? = null,

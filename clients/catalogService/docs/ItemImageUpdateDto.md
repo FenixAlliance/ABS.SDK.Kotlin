@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **itemID** | **kotlin.String** |  |  |
+| **itemId** | **kotlin.String** |  |  |
 | **mD5Hash** | **kotlin.String** |  |  |
 | **fileUploadURL** | [**java.net.URI**](java.net.URI.md) |  |  |
 | **fileName** | **kotlin.String** |  |  |
@@ -18,7 +18,7 @@
 | **notes** | **kotlin.String** |  |  [optional] |
 | **fileLength** | **kotlin.Long** |  |  [optional] |
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
-| **parentFileUploadID** | **kotlin.String** |  |  [optional] |
+| **parentFileUploadId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -40,6 +40,11 @@ All URIs are relative to *http://localhost*
 | [**getInvoiceReferencesCount**](InvoicesApi.md#getInvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references. |
 | [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices. |
 | [**getInvoicesCount**](InvoicesApi.md#getInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices. |
+| [**patchInvoice**](InvoicesApi.md#patchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice. |
+| [**patchInvoiceAdjustment**](InvoicesApi.md#patchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment. |
+| [**patchInvoiceLine**](InvoicesApi.md#patchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line. |
+| [**patchInvoiceLineTax**](InvoicesApi.md#patchInvoiceLineTax) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Patch a tax for an invoice line. |
+| [**patchInvoiceReference**](InvoicesApi.md#patchInvoiceReference) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Patch an invoice reference. |
 | [**previewInvoiceEmail**](InvoicesApi.md#previewInvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Preview | Preview the rendered email for an invoice. |
 | [**sendInvoiceEmail**](InvoicesApi.md#sendInvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Send | Send an invoice transactional email to recipients. |
 | [**updateInvoice**](InvoicesApi.md#updateInvoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} | Update an invoice. |
@@ -1811,6 +1816,266 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchInvoice"></a>
+# **patchInvoice**
+> EmptyEnvelope patchInvoice(invoiceId, tenantId, operation)
+
+Patch an invoice.
+
+Partially updates the specified invoice for the tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoice(invoiceId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#patchInvoice")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#patchInvoice")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchInvoiceAdjustment"></a>
+# **patchInvoiceAdjustment**
+> EmptyEnvelope patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, operation)
+
+Patch an invoice adjustment.
+
+Partially updates the specified adjustment for the invoice.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceAdjustmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#patchInvoiceAdjustment")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#patchInvoiceAdjustment")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
+| **invoiceAdjustmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchInvoiceLine"></a>
+# **patchInvoiceLine**
+> EmptyEnvelope patchInvoiceLine(invoiceId, invoiceLineId, tenantId, operation)
+
+Patch an invoice line.
+
+Partially updates the specified invoice line.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoiceLine(invoiceId, invoiceLineId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#patchInvoiceLine")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#patchInvoiceLine")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
+| **invoiceLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchInvoiceLineTax"></a>
+# **patchInvoiceLineTax**
+> EmptyEnvelope patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, operation)
+
+Patch a tax for an invoice line.
+
+Partially updates the specified tax entry for the invoice line.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineTaxId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#patchInvoiceLineTax")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#patchInvoiceLineTax")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
+| **invoiceLineId** | **java.util.UUID**|  | |
+| **invoiceLineTaxId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchInvoiceReference"></a>
+# **patchInvoiceReference**
+> EmptyEnvelope patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, operation)
+
+Patch an invoice reference.
+
+Partially updates the specified reference for the invoice.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceReferenceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#patchInvoiceReference")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#patchInvoiceReference")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **invoiceId** | **java.util.UUID**|  | |
+| **invoiceReferenceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="previewInvoiceEmail"></a>

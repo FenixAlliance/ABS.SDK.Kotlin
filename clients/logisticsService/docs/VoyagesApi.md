@@ -15,6 +15,8 @@ All URIs are relative to *http://localhost*
 | [**getVoyagePortCallsCountAsync**](VoyagesApi.md#getVoyagePortCallsCountAsync) | **GET** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/Count | Get voyage port calls count |
 | [**getVoyagesAsync**](VoyagesApi.md#getVoyagesAsync) | **GET** /api/v2/LogisticsService/Voyages | Get all voyages |
 | [**getVoyagesCountAsync**](VoyagesApi.md#getVoyagesCountAsync) | **GET** /api/v2/LogisticsService/Voyages/Count | Get voyages count |
+| [**patchVoyageAsync**](VoyagesApi.md#patchVoyageAsync) | **PATCH** /api/v2/LogisticsService/Voyages/{voyageId} | Patch a voyage |
+| [**patchVoyagePortCallAsync**](VoyagesApi.md#patchVoyagePortCallAsync) | **PATCH** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Patch a voyage port call |
 | [**startVoyageAsync**](VoyagesApi.md#startVoyageAsync) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/Start | Start a voyage |
 | [**updateVoyageAsync**](VoyagesApi.md#updateVoyageAsync) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId} | Update a voyage |
 | [**updateVoyagePortCallAsync**](VoyagesApi.md#updateVoyagePortCallAsync) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Update a port call |
@@ -590,6 +592,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchVoyageAsync"></a>
+# **patchVoyageAsync**
+> EmptyEnvelope patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a voyage
+
+Partially updates an existing voyage using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = VoyagesApi()
+val voyageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling VoyagesApi#patchVoyageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling VoyagesApi#patchVoyageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **voyageId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchVoyagePortCallAsync"></a>
+# **patchVoyagePortCallAsync**
+> EmptyEnvelope patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a voyage port call
+
+Partially updates an existing voyage port call using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = VoyagesApi()
+val voyageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val portCallId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling VoyagesApi#patchVoyagePortCallAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling VoyagesApi#patchVoyagePortCallAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **voyageId** | **java.util.UUID**|  | |
+| **portCallId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="startVoyageAsync"></a>

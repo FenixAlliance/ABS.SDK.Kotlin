@@ -18,6 +18,7 @@
 | **purchasePrice** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
+| **assetTypeId** | **kotlin.String** |  |  [optional] |
 | **assetCategoryId** | **kotlin.String** |  |  [optional] |
 | **purchaseInvoiceId** | **kotlin.String** |  |  [optional] |
 | **purchaseReceiptId** | **kotlin.String** |  |  [optional] |

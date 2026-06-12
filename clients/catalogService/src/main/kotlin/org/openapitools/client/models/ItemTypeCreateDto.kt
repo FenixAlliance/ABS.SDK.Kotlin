@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param itemCategoryID 
+ * @param itemCategoryId 
  * @param id 
  * @param timestamp 
  * @param pluralTitle 
@@ -30,14 +30,14 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param imageURL 
  * @param googleCategoryTaxonomy 
- * @param itemGoogleCategoryID 
+ * @param itemGoogleCategoryId 
  */
 
 
 data class ItemTypeCreateDto (
 
-    @Json(name = "itemCategoryID")
-    val itemCategoryID: kotlin.String,
+    @Json(name = "itemCategoryId")
+    val itemCategoryId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -60,8 +60,8 @@ data class ItemTypeCreateDto (
     @Json(name = "googleCategoryTaxonomy")
     val googleCategoryTaxonomy: kotlin.String? = null,
 
-    @Json(name = "itemGoogleCategoryID")
-    val itemGoogleCategoryID: kotlin.String? = null
+    @Json(name = "itemGoogleCategoryId")
+    val itemGoogleCategoryId: kotlin.String? = null
 
 ) {
 

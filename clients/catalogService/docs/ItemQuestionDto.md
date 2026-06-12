@@ -9,9 +9,9 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **needsRevision** | **kotlin.Boolean** |  |  [optional] |
 | **question** | **kotlin.String** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **itemID** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **itemId** | **kotlin.String** |  |  [optional] |
 
 
 

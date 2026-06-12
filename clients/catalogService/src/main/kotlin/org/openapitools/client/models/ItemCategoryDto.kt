@@ -33,9 +33,9 @@ import com.squareup.moshi.JsonClass
  * @param enableForLicenses 
  * @param enableForServices 
  * @param enableForSubscriptions 
- * @param businessID 
- * @param businessProfileRecordID 
- * @param parentItemCategoryID 
+ * @param tenantId 
+ * @param enrollmentId 
+ * @param parentItemCategoryId 
  */
 
 
@@ -74,14 +74,14 @@ data class ItemCategoryDto (
     @Json(name = "enableForSubscriptions")
     val enableForSubscriptions: kotlin.Boolean? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "parentItemCategoryID")
-    val parentItemCategoryID: kotlin.String? = null
+    @Json(name = "parentItemCategoryId")
+    val parentItemCategoryId: kotlin.String? = null
 
 ) {
 

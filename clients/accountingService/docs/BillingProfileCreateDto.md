@@ -26,6 +26,14 @@
 | **duns** | **kotlin.String** |  |  [optional] |
 | **isPublicCompany** | **kotlin.Boolean** |  |  [optional] |
 | **isFactaCustomer** | **kotlin.Boolean** |  |  [optional] |
+| **taxPayerType** | [**inline**](#TaxPayerType) |  |  [optional] |
+
+
+<a id="TaxPayerType"></a>
+## Enum: taxPayerType
+| Name | Value |
+| ---- | ----- |
+| taxPayerType | Individual, Business |
 
 
 

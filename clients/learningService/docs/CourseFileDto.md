@@ -11,8 +11,9 @@
 | **fileUploadURL** | **kotlin.String** |  |  [optional] |
 | **contentType** | **kotlin.String** |  |  [optional] |
 | **fileLength** | **kotlin.Long** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -22,24 +22,16 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param timestamp 
  * @param name 
  * @param description 
- * @param avatarURL 
+ * @param avatarUrl 
  * @param isPublic 
- * @param businessUnitID 
- * @param organizationProfileID 
+ * @param businessUnitId 
+ * @param organizationProfileId 
  */
 
 
 data class TenantTeamUpdateDto (
-
-    @Json(name = "id")
-    val id: kotlin.String? = null,
-
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
@@ -47,17 +39,17 @@ data class TenantTeamUpdateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "avatarURL")
-    val avatarURL: kotlin.String? = null,
+    @Json(name = "avatarUrl")
+    val avatarUrl: kotlin.String? = null,
 
     @Json(name = "isPublic")
     val isPublic: kotlin.Boolean? = null,
 
-    @Json(name = "businessUnitID")
-    val businessUnitID: kotlin.String? = null,
+    @Json(name = "businessUnitId")
+    val businessUnitId: kotlin.String? = null,
 
-    @Json(name = "organizationProfileID")
-    val organizationProfileID: kotlin.String? = null
+    @Json(name = "organizationProfileId")
+    val organizationProfileId: kotlin.String? = null
 
 ) {
 

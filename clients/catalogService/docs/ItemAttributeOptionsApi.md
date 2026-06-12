@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getItemAttributeOptionByIdAsync**](ItemAttributeOptionsApi.md#getItemAttributeOptionByIdAsync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Get item attribute option by ID |
 | [**getItemAttributeOptionsAsync**](ItemAttributeOptionsApi.md#getItemAttributeOptionsAsync) | **GET** /api/v2/CatalogService/ItemAttributeOptions | Get all item attribute options |
 | [**getItemAttributeOptionsCountAsync**](ItemAttributeOptionsApi.md#getItemAttributeOptionsCountAsync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/Count | Get item attribute options count |
+| [**patchItemAttributeOptionAsync**](ItemAttributeOptionsApi.md#patchItemAttributeOptionAsync) | **PATCH** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Patch an item attribute option |
 | [**updateItemAttributeOptionAsync**](ItemAttributeOptionsApi.md#updateItemAttributeOptionAsync) | **PUT** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Update an item attribute option |
 
 
@@ -265,6 +266,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemAttributeOptionAsync"></a>
+# **patchItemAttributeOptionAsync**
+> EmptyEnvelope patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item attribute option
+
+Partially updates an existing item attribute option for the specified tenant using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemAttributeOptionsApi()
+val itemAttributeOptionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemAttributeOptionsApi#patchItemAttributeOptionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemAttributeOptionsApi#patchItemAttributeOptionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemAttributeOptionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemAttributeOptionAsync"></a>

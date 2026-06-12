@@ -33,6 +33,7 @@ docs/OAuthApplicationsApi.md
 docs/OAuthAuthorizationDto.md
 docs/OAuthAuthorizationDtoEnvelope.md
 docs/OAuthAuthorizationDtoListEnvelope.md
+docs/Operation.md
 docs/PermissionsApi.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
@@ -120,6 +121,7 @@ src/main/kotlin/org/openapitools/client/models/OAuthApplicationUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/OAuthAuthorizationDto.kt
 src/main/kotlin/org/openapitools/client/models/OAuthAuthorizationDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/OAuthAuthorizationDtoListEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/RefreshRequest.kt
 src/main/kotlin/org/openapitools/client/models/RegisterRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
@@ -142,5 +144,3 @@ src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/WebhookRequestDto.kt
 src/main/kotlin/org/openapitools/client/models/WebhookRequestDtoListEnvelope.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

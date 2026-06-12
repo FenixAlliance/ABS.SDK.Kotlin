@@ -8,10 +8,11 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
 | **releaseDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

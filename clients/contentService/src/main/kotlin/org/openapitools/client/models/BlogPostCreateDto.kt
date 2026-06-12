@@ -31,6 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param markup 
  * @param featuredImageUrl 
  * @param codeType 
+ * @param slug 
  * @param blogPostCategoryId 
  * @param webTemplateId 
  */
@@ -64,6 +65,9 @@ data class BlogPostCreateDto (
 
     @Json(name = "codeType")
     val codeType: BlogPostCreateDto.CodeType? = null,
+
+    @Json(name = "slug")
+    val slug: kotlin.String? = null,
 
     @Json(name = "blogPostCategoryId")
     val blogPostCategoryId: kotlin.String? = null,

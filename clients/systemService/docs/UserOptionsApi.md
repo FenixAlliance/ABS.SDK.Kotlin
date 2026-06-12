@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getSystemUserOptionById**](UserOptionsApi.md#getSystemUserOptionById) | **GET** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Retrieve a single user option by its ID (admin) |
 | [**getSystemUserOptions**](UserOptionsApi.md#getSystemUserOptions) | **GET** /api/v2/SystemService/Users/{userId}/Options | Retrieve a list of user options (admin) |
 | [**getSystemUserOptionsCount**](UserOptionsApi.md#getSystemUserOptionsCount) | **GET** /api/v2/SystemService/Users/{userId}/Options/Count | Get the count of user options (admin) |
+| [**patchSystemUserOption**](UserOptionsApi.md#patchSystemUserOption) | **PATCH** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Partially update a user option (admin) |
 | [**updateSystemUserOption**](UserOptionsApi.md#updateSystemUserOption) | **PUT** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Update a user option (admin) |
 
 
@@ -274,6 +275,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSystemUserOption"></a>
+# **patchSystemUserOption**
+> EmptyEnvelope patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, operation)
+
+Partially update a user option (admin)
+
+Admin endpoint to partially update an option for any user using a JSON Patch document
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UserOptionsApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UserOptionsApi#patchSystemUserOption")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UserOptionsApi#patchSystemUserOption")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **java.util.UUID**|  | |
+| **optionId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSystemUserOption"></a>

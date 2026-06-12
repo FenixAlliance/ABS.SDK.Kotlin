@@ -11,10 +11,15 @@
 | **instructions** | **kotlin.String** |  |  [optional] |
 | **points** | **kotlin.Double** |  |  [optional] |
 | **dueDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
-| **courseSectionID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
+| **courseSectionId** | **kotlin.String** |  |  [optional] |
+| **courseCohortId** | **kotlin.String** |  |  [optional] |
+| **courseAssignmentTypeId** | **kotlin.String** |  |  [optional] |
+| **asignToAllCohorts** | **kotlin.Boolean** |  |  [optional] |
+| **resources** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

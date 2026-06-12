@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param title 
  * @param description 
+ * @param status 
  * @param startDateTime 
  * @param endDateTime 
  * @param nextInvoiceDateTime 
@@ -63,15 +64,15 @@ import com.squareup.moshi.JsonClass
  * @param data8Label 
  * @param data9 
  * @param data9Label 
- * @param accountHolderID 
- * @param individualID 
- * @param organizationID 
- * @param receiverBusinessID 
- * @param businessID 
- * @param businessProfileRecordID 
- * @param paymentTokenID 
- * @param walletAccountID 
- * @param securityCertificateID 
+ * @param userId 
+ * @param individualId 
+ * @param organizationId 
+ * @param receiverTenantId 
+ * @param tenantId 
+ * @param enrollmentId 
+ * @param paymentTokenId 
+ * @param walletAccountId 
+ * @param securityCertificateId 
  */
 
 
@@ -88,6 +89,9 @@ data class SupportEntitlementDto (
 
     @Json(name = "description")
     val description: kotlin.String? = null,
+
+    @Json(name = "status")
+    val status: SupportEntitlementDto.Status? = null,
 
     @Json(name = "startDateTime")
     val startDateTime: java.time.OffsetDateTime? = null,
@@ -200,35 +204,47 @@ data class SupportEntitlementDto (
     @Json(name = "data9Label")
     val data9Label: kotlin.String? = null,
 
-    @Json(name = "accountHolderID")
-    val accountHolderID: kotlin.String? = null,
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
 
-    @Json(name = "individualID")
-    val individualID: kotlin.String? = null,
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
 
-    @Json(name = "organizationID")
-    val organizationID: kotlin.String? = null,
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
 
-    @Json(name = "receiverBusinessID")
-    val receiverBusinessID: kotlin.String? = null,
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "paymentTokenID")
-    val paymentTokenID: kotlin.String? = null,
+    @Json(name = "paymentTokenId")
+    val paymentTokenId: kotlin.String? = null,
 
-    @Json(name = "walletAccountID")
-    val walletAccountID: kotlin.String? = null,
+    @Json(name = "walletAccountId")
+    val walletAccountId: kotlin.String? = null,
 
-    @Json(name = "securityCertificateID")
-    val securityCertificateID: kotlin.String? = null
+    @Json(name = "securityCertificateId")
+    val securityCertificateId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Active,GracePeriod,Disabled,Deleted
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Status(val value: kotlin.String) {
+        @Json(name = "Active") Active("Active"),
+        @Json(name = "GracePeriod") GracePeriod("GracePeriod"),
+        @Json(name = "Disabled") Disabled("Disabled"),
+        @Json(name = "Deleted") Deleted("Deleted");
+    }
 
 }
 

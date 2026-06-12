@@ -22,26 +22,26 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param studentProfileID 
- * @param courseEnrollmentID 
- * @param courseCompletionCertificateTemplateID 
- * @param courseID 
+ * @param studentProfileId 
+ * @param courseEnrollmentId 
+ * @param courseCompletionCertificateTemplateId 
+ * @param courseId 
  */
 
 
 data class CourseCompletionCertificateUpdateDto (
 
-    @Json(name = "studentProfileID")
-    val studentProfileID: kotlin.String? = null,
+    @Json(name = "studentProfileId")
+    val studentProfileId: kotlin.String? = null,
 
-    @Json(name = "courseEnrollmentID")
-    val courseEnrollmentID: kotlin.String? = null,
+    @Json(name = "courseEnrollmentId")
+    val courseEnrollmentId: kotlin.String? = null,
 
-    @Json(name = "courseCompletionCertificateTemplateID")
-    val courseCompletionCertificateTemplateID: kotlin.String? = null,
+    @Json(name = "courseCompletionCertificateTemplateId")
+    val courseCompletionCertificateTemplateId: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null
 
 ) {
 

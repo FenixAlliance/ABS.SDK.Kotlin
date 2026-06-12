@@ -24,8 +24,8 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessID 
- * @param businessProfileRecordID 
+ * @param tenantId 
+ * @param enrollmentId 
  * @param title 
  * @param description 
  * @param type 
@@ -40,11 +40,11 @@ data class TenantPositionDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,

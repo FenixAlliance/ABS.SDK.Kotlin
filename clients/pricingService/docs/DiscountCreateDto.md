@@ -11,6 +11,7 @@
 | **endQuantity** | **kotlin.Double** |  |  [optional] |
 | **percent** | **kotlin.Double** |  |  [optional] |
 | **&#x60;value&#x60;** | **kotlin.Double** |  |  [optional] |
+| **itemId** | **kotlin.String** |  |  [optional] |
 | **discountListId** | **kotlin.String** |  |  [optional] |
 
 

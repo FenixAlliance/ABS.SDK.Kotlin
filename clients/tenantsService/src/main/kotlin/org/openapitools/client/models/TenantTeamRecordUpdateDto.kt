@@ -22,14 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param businessTeamID 
+ * @param businessTeamId 
  */
 
 
 data class TenantTeamRecordUpdateDto (
 
-    @Json(name = "businessTeamID")
-    val businessTeamID: kotlin.String? = null
+    @Json(name = "businessTeamId")
+    val businessTeamId: kotlin.String? = null
 
 ) {
 

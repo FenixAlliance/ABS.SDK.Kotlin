@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **instructorProfileID** | **kotlin.String** |  |  [optional] |
+| **instructorProfileId** | **kotlin.String** |  |  [optional] |
 | **courseTeamMembershipType** | [**inline**](#CourseTeamMembershipType) |  |  [optional] |
 
 

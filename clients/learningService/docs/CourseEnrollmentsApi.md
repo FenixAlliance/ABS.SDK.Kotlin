@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**getEnrollmentsAsync**](CourseEnrollmentsApi.md#getEnrollmentsAsync) | **GET** /api/v2/LearningService/CourseEnrollments | Get all course enrollments |
 | [**getEnrollmentsCountAsync**](CourseEnrollmentsApi.md#getEnrollmentsCountAsync) | **GET** /api/v2/LearningService/CourseEnrollments/Count | Get course enrollments count |
 | [**getStudentCourseEnrollmentsAsync**](CourseEnrollmentsApi.md#getStudentCourseEnrollmentsAsync) | **GET** /api/v2/LearningService/CourseEnrollments/Student/{studentProfileId} | Get enrollments by student |
+| [**patchCourseEnrollmentAsync**](CourseEnrollmentsApi.md#patchCourseEnrollmentAsync) | **PATCH** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Patch a course enrollment |
 | [**updateCourseEnrollmentAsync**](CourseEnrollmentsApi.md#updateCourseEnrollmentAsync) | **PUT** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Update a course enrollment |
 
 
@@ -317,6 +318,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseEnrollmentAsync"></a>
+# **patchCourseEnrollmentAsync**
+> patchCourseEnrollmentAsync(courseEnrollmentId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course enrollment
+
+Partially updates an existing course enrollment for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseEnrollmentsApi()
+val courseEnrollmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchCourseEnrollmentAsync(courseEnrollmentId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling CourseEnrollmentsApi#patchCourseEnrollmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseEnrollmentsApi#patchCourseEnrollmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseEnrollmentId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseEnrollmentAsync"></a>

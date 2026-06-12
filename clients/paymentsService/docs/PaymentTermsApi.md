@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getPaymentTermDetailsAsync**](PaymentTermsApi.md#getPaymentTermDetailsAsync) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID |
 | [**getPaymentTermsAsync**](PaymentTermsApi.md#getPaymentTermsAsync) | **GET** /api/v2/PaymentsService/PaymentTerms | Retrieves all payment terms |
 | [**getPaymentTermsCountAsync**](PaymentTermsApi.md#getPaymentTermsCountAsync) | **GET** /api/v2/PaymentsService/PaymentTerms/Count | Counts payment terms |
+| [**patchPaymentTermAsync**](PaymentTermsApi.md#patchPaymentTermAsync) | **PATCH** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Patch a payment term |
 | [**updatePaymentTermAsync**](PaymentTermsApi.md#updatePaymentTermAsync) | **PUT** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Updates a payment term |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchPaymentTermAsync"></a>
+# **patchPaymentTermAsync**
+> EmptyEnvelope patchPaymentTermAsync(paymentTermId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a payment term
+
+Patch a payment term
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PaymentTermsApi()
+val paymentTermId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPaymentTermAsync(paymentTermId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PaymentTermsApi#patchPaymentTermAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PaymentTermsApi#patchPaymentTermAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **paymentTermId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updatePaymentTermAsync"></a>

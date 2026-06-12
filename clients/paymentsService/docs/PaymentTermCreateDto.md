@@ -14,7 +14,7 @@
 | **creditWeeks** | **kotlin.Double** |  |  [optional] |
 | **creditMonths** | **kotlin.Double** |  |  [optional] |
 | **creditYears** | **kotlin.Double** |  |  [optional] |
-| **paymentModeID** | **kotlin.String** |  |  [optional] |
+| **paymentModeId** | **kotlin.String** |  |  [optional] |
 
 
 

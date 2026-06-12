@@ -46,6 +46,8 @@ import com.squareup.moshi.JsonClass
  * @param isDefaultSenderAddress 
  * @param isDefaultReturnAddress 
  * @param isDefaultSuppingLocation 
+ * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -121,7 +123,13 @@ data class LocationDto (
     val isDefaultReturnAddress: kotlin.Boolean? = null,
 
     @Json(name = "isDefaultSuppingLocation")
-    val isDefaultSuppingLocation: kotlin.Boolean? = null
+    val isDefaultSuppingLocation: kotlin.Boolean? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

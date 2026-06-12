@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param tenantId 
  * @param revenue 
  * @param minEmployees 
  * @param maxEmployees 
@@ -37,6 +38,9 @@ data class TenantSegmentDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
     @Json(name = "revenue")
     val revenue: kotlin.String? = null,

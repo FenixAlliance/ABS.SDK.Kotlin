@@ -16,6 +16,7 @@ All URIs are relative to *http://localhost*
 | [**getPermissionsByEnrollmentAsync**](PermissionsApi.md#getPermissionsByEnrollmentAsync) | **GET** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment |
 | [**getPermissionsCountAsync**](PermissionsApi.md#getPermissionsCountAsync) | **GET** /api/v2/SecurityService/Permissions/Count | Get permissions count |
 | [**getRolesByPermissionAsync**](PermissionsApi.md#getRolesByPermissionAsync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission |
+| [**patchPermissionAsync**](PermissionsApi.md#patchPermissionAsync) | **PATCH** /api/v2/SecurityService/Permissions/{securityPermissionId} | Patch an existing permission |
 | [**revokePermissionFromBusinessApplicationAsync**](PermissionsApi.md#revokePermissionFromBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application |
 | [**revokePermissionFromEnrollmentAsync**](PermissionsApi.md#revokePermissionFromEnrollmentAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment |
 | [**revokeRoleFromPermissionAsync**](PermissionsApi.md#revokeRoleFromPermissionAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission |
@@ -646,6 +647,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchPermissionAsync"></a>
+# **patchPermissionAsync**
+> EmptyEnvelope patchPermissionAsync(securityPermissionId, tenantId, operation, apiVersion, xApiVersion)
+
+Patch an existing permission
+
+Partially updates an existing security permission using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PermissionsApi()
+val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPermissionAsync(securityPermissionId, tenantId, operation, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PermissionsApi#patchPermissionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PermissionsApi#patchPermissionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityPermissionId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="revokePermissionFromBusinessApplicationAsync"></a>

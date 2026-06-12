@@ -31,7 +31,6 @@
 | **data9** | **kotlin.String** |  |  [optional] |
 | **data9Label** | **kotlin.String** |  |  [optional] |
 | **authorized** | **kotlin.Boolean** |  |  [optional] |
-| **contactID** | **kotlin.String** |  |  [optional] |
 
 
 

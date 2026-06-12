@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param title 
  * @param description 
+ * @param supportEntitlementId 
  */
 
 
@@ -33,7 +34,10 @@ data class SupportTicketPriorityUpdateDto (
     val title: kotlin.String? = null,
 
     @Json(name = "description")
-    val description: kotlin.String? = null
+    val description: kotlin.String? = null,
+
+    @Json(name = "supportEntitlementId")
+    val supportEntitlementId: kotlin.String? = null
 
 ) {
 

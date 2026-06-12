@@ -11,7 +11,7 @@
 | **message** | **kotlin.String** |  |  [optional] |
 | **conversationId** | **kotlin.String** |  |  [optional] |
 | **senderSocialProfileId** | **kotlin.String** |  |  [optional] |
-| **receiverSocialProfileID** | **kotlin.String** |  |  [optional] |
+| **receiverSocialProfileId** | **kotlin.String** |  |  [optional] |
 | **sentTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **readTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **receivedTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |

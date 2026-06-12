@@ -24,10 +24,10 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param itemID 
+ * @param itemId 
  * @param reviewScore 
  * @param reviewMessage 
- * @param socialProfileID 
+ * @param socialProfileId 
  */
 
 
@@ -39,8 +39,8 @@ data class ItemReviewDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "itemID")
-    val itemID: kotlin.String? = null,
+    @Json(name = "itemId")
+    val itemId: kotlin.String? = null,
 
     @Json(name = "reviewScore")
     val reviewScore: kotlin.Double? = null,
@@ -48,8 +48,8 @@ data class ItemReviewDto (
     @Json(name = "reviewMessage")
     val reviewMessage: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null
 
 ) {
 

@@ -11,9 +11,10 @@
 | **content** | **kotlin.String** |  |  [optional] |
 | **url** | **kotlin.String** |  |  [optional] |
 | **releaseDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

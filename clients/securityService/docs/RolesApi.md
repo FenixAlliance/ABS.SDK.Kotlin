@@ -16,6 +16,7 @@ All URIs are relative to *http://localhost*
 | [**getRolesAsync**](RolesApi.md#getRolesAsync) | **GET** /api/v2/SecurityService/Roles | Get all roles |
 | [**getRolesByEnrollmentAsync**](RolesApi.md#getRolesByEnrollmentAsync) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment |
 | [**getRolesCountAsync**](RolesApi.md#getRolesCountAsync) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count |
+| [**patchRoleAsync**](RolesApi.md#patchRoleAsync) | **PATCH** /api/v2/SecurityService/Roles/{securityRoleId} | Patch an existing role |
 | [**revokePermissionFromRoleAsync**](RolesApi.md#revokePermissionFromRoleAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role |
 | [**revokeRoleFromBusinessApplicationAsync**](RolesApi.md#revokeRoleFromBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application |
 | [**revokeRoleFromEnrollmentAsync**](RolesApi.md#revokeRoleFromEnrollmentAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment |
@@ -646,6 +647,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchRoleAsync"></a>
+# **patchRoleAsync**
+> EmptyEnvelope patchRoleAsync(securityRoleId, tenantId, operation, apiVersion, xApiVersion)
+
+Patch an existing role
+
+Partially updates an existing security role using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = RolesApi()
+val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchRoleAsync(securityRoleId, tenantId, operation, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RolesApi#patchRoleAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RolesApi#patchRoleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **securityRoleId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="revokePermissionFromRoleAsync"></a>

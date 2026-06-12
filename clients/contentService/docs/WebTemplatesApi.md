@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**deleteWebTemplateAsync**](WebTemplatesApi.md#deleteWebTemplateAsync) | **DELETE** /api/v2/ContentService/WebTemplates/{webTemplateId} | Delete a web template |
 | [**getWebTemplateByIdAsync**](WebTemplatesApi.md#getWebTemplateByIdAsync) | **GET** /api/v2/ContentService/WebTemplates/{webTemplateId} | Get web template by ID |
 | [**getWebTemplatesAsync**](WebTemplatesApi.md#getWebTemplatesAsync) | **GET** /api/v2/ContentService/WebTemplates | Get web templates |
+| [**patchWebTemplateAsync**](WebTemplatesApi.md#patchWebTemplateAsync) | **PATCH** /api/v2/ContentService/WebTemplates/{webTemplateId} | Patch a web template |
 | [**updateWebTemplateAsync**](WebTemplatesApi.md#updateWebTemplateAsync) | **PUT** /api/v2/ContentService/WebTemplates/{webTemplateId} | Update a web template |
 
 
@@ -264,6 +265,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchWebTemplateAsync"></a>
+# **patchWebTemplateAsync**
+> patchWebTemplateAsync(webTemplateId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a web template
+
+Partially updates an existing web template for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WebTemplatesApi()
+val webTemplateId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchWebTemplateAsync(webTemplateId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling WebTemplatesApi#patchWebTemplateAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WebTemplatesApi#patchWebTemplateAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **webTemplateId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateWebTemplateAsync"></a>

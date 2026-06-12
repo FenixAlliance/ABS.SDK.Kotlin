@@ -26,6 +26,7 @@ import org.openapitools.client.models.BusinessApplicationUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.Operation
 import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
 
@@ -650,6 +651,97 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/SecurityService/Applications/{applicationId}/Roles".replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an existing business application
+     * Partially updates an existing business application using a JSON Patch document.
+     * @param applicationId 
+     * @param tenantId 
+     * @param operation 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchBusinessApplicationAsync(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = patchBusinessApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an existing business application
+     * Partially updates an existing business application using a JSON Patch document.
+     * @param applicationId 
+     * @param tenantId 
+     * @param operation 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchBusinessApplicationAsyncWithHttpInfo(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBusinessApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchBusinessApplicationAsync
+     *
+     * @param applicationId 
+     * @param tenantId 
+     * @param operation 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun patchBusinessApplicationAsyncRequestConfig(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/SecurityService/Applications/{applicationId}".replace("{"+"applicationId"+"}", encodeURIComponent(applicationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

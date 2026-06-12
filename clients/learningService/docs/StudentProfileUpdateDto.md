@@ -28,7 +28,6 @@
 | **data8Label** | **kotlin.String** |  |  [optional] |
 | **data9** | **kotlin.String** |  |  [optional] |
 | **data9Label** | **kotlin.String** |  |  [optional] |
-| **contactID** | **kotlin.String** |  |  [optional] |
 
 
 

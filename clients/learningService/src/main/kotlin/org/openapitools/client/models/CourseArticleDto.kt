@@ -27,9 +27,10 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param description 
  * @param content 
- * @param courseWikiID 
- * @param courseID 
+ * @param courseWikiId 
+ * @param courseId 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -50,14 +51,17 @@ data class CourseArticleDto (
     @Json(name = "content")
     val content: kotlin.String? = null,
 
-    @Json(name = "courseWikiID")
-    val courseWikiID: kotlin.String? = null,
+    @Json(name = "courseWikiId")
+    val courseWikiId: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

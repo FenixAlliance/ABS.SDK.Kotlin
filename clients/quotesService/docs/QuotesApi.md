@@ -19,6 +19,8 @@ All URIs are relative to *http://localhost*
 | [**getQuoteLinesCount**](QuotesApi.md#getQuoteLinesCount) | **GET** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Count | Get the count of quote lines. |
 | [**getQuotes**](QuotesApi.md#getQuotes) | **GET** /api/v2/QuotesService/Quotes | Get a list of quotes. |
 | [**getQuotesCount**](QuotesApi.md#getQuotesCount) | **GET** /api/v2/QuotesService/Quotes/Count | Get the count of quotes. |
+| [**patchQuoteAsync**](QuotesApi.md#patchQuoteAsync) | **PATCH** /api/v2/QuotesService/Quotes/{quoteId} | Patch an existing quote. |
+| [**patchQuoteLineAsync**](QuotesApi.md#patchQuoteLineAsync) | **PATCH** /api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId} | Patch a quote line. |
 | [**previewQuoteEmailTemplate**](QuotesApi.md#previewQuoteEmailTemplate) | **POST** /api/v2/QuotesService/Quotes/{quoteId}/Emails/Preview | Preview the rendered email for an invoice. |
 | [**quoteLineExists**](QuotesApi.md#quoteLineExists) | **GET** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Exists | Check if a quote line exists. |
 | [**reopenQuote**](QuotesApi.md#reopenQuote) | **PUT** /api/v2/QuotesService/Quotes/{quoteId}/Reopen | Reopen a closed quote. |
@@ -750,6 +752,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchQuoteAsync"></a>
+# **patchQuoteAsync**
+> EmptyEnvelope patchQuoteAsync(quoteId, tenantId, operation)
+
+Patch an existing quote.
+
+Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = QuotesApi()
+val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchQuoteAsync(quoteId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling QuotesApi#patchQuoteAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling QuotesApi#patchQuoteAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **quoteId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchQuoteLineAsync"></a>
+# **patchQuoteLineAsync**
+> EmptyEnvelope patchQuoteLineAsync(quoteId, quoteLineId, tenantId, operation)
+
+Patch a quote line.
+
+Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = QuotesApi()
+val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchQuoteLineAsync(quoteId, quoteLineId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling QuotesApi#patchQuoteLineAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling QuotesApi#patchQuoteLineAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **quoteId** | **java.util.UUID**|  | |
+| **quoteLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="previewQuoteEmailTemplate"></a>

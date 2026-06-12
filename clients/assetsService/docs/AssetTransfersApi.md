@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getAssetTransferAsync**](AssetTransfersApi.md#getAssetTransferAsync) | **GET** /api/v2/AssetsService/AssetTransfers/{transferId} | Gets a single asset transfer by ID |
 | [**getAssetTransfersAsync**](AssetTransfersApi.md#getAssetTransfersAsync) | **GET** /api/v2/AssetsService/AssetTransfers | Gets a list of asset transfers |
 | [**getAssetTransfersCountAsync**](AssetTransfersApi.md#getAssetTransfersCountAsync) | **GET** /api/v2/AssetsService/AssetTransfers/Count | Gets the count of asset transfers |
+| [**patchAssetTransferAsync**](AssetTransfersApi.md#patchAssetTransferAsync) | **PATCH** /api/v2/AssetsService/AssetTransfers/{transferId} | Partially updates an existing asset transfer |
 | [**updateAssetTransferAsync**](AssetTransfersApi.md#updateAssetTransferAsync) | **PUT** /api/v2/AssetsService/AssetTransfers/{transferId} | Updates an existing asset transfer |
 
 
@@ -246,6 +247,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAssetTransferAsync"></a>
+# **patchAssetTransferAsync**
+> EmptyEnvelope patchAssetTransferAsync(transferId, tenantId, operation)
+
+Partially updates an existing asset transfer
+
+Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AssetTransfersApi()
+val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAssetTransferAsync(transferId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetTransfersApi#patchAssetTransferAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetTransfersApi#patchAssetTransferAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **transferId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAssetTransferAsync"></a>

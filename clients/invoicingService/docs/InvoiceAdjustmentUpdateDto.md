@@ -5,6 +5,8 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **currencyId** | **kotlin.String** |  |  [optional] |
+| **priority** | **kotlin.Int** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **surchargePercent** | **kotlin.Double** |  |  [optional] |
 | **surchargeAmount** | **kotlin.Double** |  |  [optional] |

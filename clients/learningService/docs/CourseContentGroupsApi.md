@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseContentGroupsByCourseAsync**](CourseContentGroupsApi.md#getCourseContentGroupsByCourseAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups | Get course content groups by course |
 | [**getCourseContentGroupsByCourseCountAsync**](CourseContentGroupsApi.md#getCourseContentGroupsByCourseCountAsync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups/Count | Get course content groups count by course |
 | [**getCourseContentGroupsCountAsync**](CourseContentGroupsApi.md#getCourseContentGroupsCountAsync) | **GET** /api/v2/LearningService/CourseContentGroups/Count | Get course content groups count |
+| [**patchCourseContentGroupAsync**](CourseContentGroupsApi.md#patchCourseContentGroupAsync) | **PATCH** /api/v2/LearningService/CourseContentGroups/{groupId} | Patch a course content group |
 | [**updateCourseContentGroupAsync**](CourseContentGroupsApi.md#updateCourseContentGroupAsync) | **PUT** /api/v2/LearningService/CourseContentGroups/{groupId} | Update a course content group |
 
 
@@ -364,6 +365,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseContentGroupAsync"></a>
+# **patchCourseContentGroupAsync**
+> EmptyEnvelope patchCourseContentGroupAsync(groupId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course content group
+
+Partially updates a course content group for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseContentGroupsApi()
+val groupId : kotlin.String = groupId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseContentGroupAsync(groupId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseContentGroupsApi#patchCourseContentGroupAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseContentGroupsApi#patchCourseContentGroupAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **groupId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseContentGroupAsync"></a>

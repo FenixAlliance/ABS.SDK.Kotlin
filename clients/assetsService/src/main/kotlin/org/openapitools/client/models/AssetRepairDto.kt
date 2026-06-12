@@ -24,8 +24,8 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessId 
- * @param businessProfileRecordId 
+ * @param tenantId 
+ * @param enrollmentId 
  * @param assetId 
  * @param assetName 
  * @param repairStatus 
@@ -45,19 +45,19 @@ import com.squareup.moshi.JsonClass
 data class AssetRepairDto (
 
     @Json(name = "id")
-    val id: kotlin.Any? = null,
+    val id: kotlin.String? = null,
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "businessId")
-    val businessId: kotlin.Any? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.Any? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "assetId")
-    val assetId: kotlin.Any? = null,
+    val assetId: kotlin.String? = null,
 
     @Json(name = "assetName")
     val assetName: kotlin.String? = null,

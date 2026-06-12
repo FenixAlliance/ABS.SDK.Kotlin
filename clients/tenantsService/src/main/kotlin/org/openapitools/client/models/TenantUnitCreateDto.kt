@@ -27,10 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param description 
  * @param disabled 
- * @param businessUnitQualifiedName 
- * @param countryID 
- * @param organizationProfileID 
- * @param parentBusinessUnitID 
+ * @param countryId 
+ * @param organizationProfileId 
+ * @param parentBusinessUnitId 
  */
 
 
@@ -51,17 +50,14 @@ data class TenantUnitCreateDto (
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
-    @Json(name = "businessUnitQualifiedName")
-    val businessUnitQualifiedName: kotlin.String? = null,
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null,
 
-    @Json(name = "countryID")
-    val countryID: kotlin.String? = null,
+    @Json(name = "organizationProfileId")
+    val organizationProfileId: kotlin.String? = null,
 
-    @Json(name = "organizationProfileID")
-    val organizationProfileID: kotlin.String? = null,
-
-    @Json(name = "parentBusinessUnitID")
-    val parentBusinessUnitID: kotlin.String? = null
+    @Json(name = "parentBusinessUnitId")
+    val parentBusinessUnitId: kotlin.String? = null
 
 ) {
 

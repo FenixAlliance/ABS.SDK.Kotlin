@@ -63,7 +63,9 @@
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentVersionId** | **kotlin.String** |  |  [optional] |
-| **webTemplateID** | **kotlin.String** |  |  [optional] |
+| **webTemplateId** | **kotlin.String** |  |  [optional] |
+| **authorName** | **kotlin.String** |  |  [optional] |
+| **authorId** | **kotlin.String** |  |  [optional] |
 | **isHomePage** | **kotlin.Boolean** |  |  [optional] |
 | **isStorePage** | **kotlin.Boolean** |  |  [optional] |
 | **isCartPage** | **kotlin.Boolean** |  |  [optional] |

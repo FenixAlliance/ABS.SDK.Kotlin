@@ -7,8 +7,8 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **overallScore** | **kotlin.Double** |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
-| **courseGradingRubricID** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
+| **courseGradingRubricId** | **kotlin.String** |  |  [optional] |
 | **releaseDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 
 

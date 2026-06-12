@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  [optional] |
-| **parentBusinessIndustryID** | **kotlin.String** |  |  [optional] |
+| **parentBusinessIndustryId** | **kotlin.String** |  |  [optional] |
 
 
 

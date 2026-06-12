@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param slug 
+ * @param type 
  * @param title 
  * @param description 
  * @param seoTitle 
@@ -35,9 +36,9 @@ import com.squareup.moshi.JsonClass
  * @param canonicalUrl 
  * @param imageURL 
  * @param image 
- * @param webPortalID 
- * @param businessID 
- * @param businessProfileRecordID 
+ * @param webPortalId 
+ * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -51,6 +52,9 @@ data class BlogPostCategoryDto (
 
     @Json(name = "slug")
     val slug: kotlin.String? = null,
+
+    @Json(name = "type")
+    val type: kotlin.String? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,
@@ -82,14 +86,14 @@ data class BlogPostCategoryDto (
     @Json(name = "image")
     val image: kotlin.String? = null,
 
-    @Json(name = "webPortalID")
-    val webPortalID: kotlin.String? = null,
+    @Json(name = "webPortalId")
+    val webPortalId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

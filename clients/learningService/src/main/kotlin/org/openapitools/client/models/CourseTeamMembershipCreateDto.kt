@@ -22,8 +22,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param courseID 
- * @param instructorProfileID 
+ * @param courseId 
+ * @param instructorProfileId 
  * @param id 
  * @param timestamp 
  * @param courseTeamMembershipType 
@@ -32,11 +32,11 @@ import com.squareup.moshi.JsonClass
 
 data class CourseTeamMembershipCreateDto (
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String,
+    @Json(name = "courseId")
+    val courseId: kotlin.String,
 
-    @Json(name = "instructorProfileID")
-    val instructorProfileID: kotlin.String,
+    @Json(name = "instructorProfileId")
+    val instructorProfileId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,

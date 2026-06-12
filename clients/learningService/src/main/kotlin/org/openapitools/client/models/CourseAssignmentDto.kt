@@ -29,10 +29,15 @@ import com.squareup.moshi.JsonClass
  * @param instructions 
  * @param points 
  * @param dueDateTime 
- * @param courseID 
- * @param courseUnitID 
- * @param courseSectionID 
+ * @param courseId 
+ * @param courseUnitId 
+ * @param courseSectionId 
+ * @param courseCohortId 
+ * @param courseAssignmentTypeId 
+ * @param asignToAllCohorts 
+ * @param resources 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -59,17 +64,32 @@ data class CourseAssignmentDto (
     @Json(name = "dueDateTime")
     val dueDateTime: java.time.OffsetDateTime? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
-    @Json(name = "courseUnitID")
-    val courseUnitID: kotlin.String? = null,
+    @Json(name = "courseUnitId")
+    val courseUnitId: kotlin.String? = null,
 
-    @Json(name = "courseSectionID")
-    val courseSectionID: kotlin.String? = null,
+    @Json(name = "courseSectionId")
+    val courseSectionId: kotlin.String? = null,
+
+    @Json(name = "courseCohortId")
+    val courseCohortId: kotlin.String? = null,
+
+    @Json(name = "courseAssignmentTypeId")
+    val courseAssignmentTypeId: kotlin.String? = null,
+
+    @Json(name = "asignToAllCohorts")
+    val asignToAllCohorts: kotlin.Boolean? = null,
+
+    @Json(name = "resources")
+    val resources: kotlin.String? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

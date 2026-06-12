@@ -135,8 +135,6 @@ import com.squareup.moshi.JsonClass
  * @param businessProfileRecordId 
  * @param parentBillingItemRecordId 
  * @param cartId 
- * @param itemID 
- * @param shippingAddressID 
  */
 
 
@@ -479,13 +477,7 @@ data class ItemCartRecordDto (
     val parentBillingItemRecordId: kotlin.String? = null,
 
     @Json(name = "cartId")
-    val cartId: kotlin.String? = null,
-
-    @Json(name = "itemID")
-    val itemID: kotlin.String? = null,
-
-    @Json(name = "shippingAddressID")
-    val shippingAddressID: kotlin.String? = null
+    val cartId: kotlin.String? = null
 
 ) {
 

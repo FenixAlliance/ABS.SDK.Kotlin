@@ -35,6 +35,7 @@ All URIs are relative to *http://localhost*
 | [**isItemAlreadyInCartAsync**](CartsApi.md#isItemAlreadyInCartAsync) | **GET** /api/v2/CartService/Carts/{cartId}/Contains/{itemId} | Assesses if an Item is already in a cart |
 | [**isItemInCompareTableAsync**](CartsApi.md#isItemInCompareTableAsync) | **GET** /api/v2/CartService/Carts/{cartId}/Compare/Contains/{itemId} | Assesses if an Item is already in the compare table |
 | [**isItemInWishLists**](CartsApi.md#isItemInWishLists) | **GET** /api/v2/CartService/Carts/{cartId}/WishLists/Contains/{itemId} | Assesses if an Item is already in any of the cart&#39;s wishlists |
+| [**patchCartAsync**](CartsApi.md#patchCartAsync) | **PATCH** /api/v2/CartService/Carts/{cartId} | Patch a cart |
 | [**removeCartLineAsync**](CartsApi.md#removeCartLineAsync) | **DELETE** /api/v2/CartService/Carts/{cartId}/Lines/{lineId} | Remove a cart line |
 | [**removeItemFromCartAsync**](CartsApi.md#removeItemFromCartAsync) | **DELETE** /api/v2/CartService/Carts/{cartId}/Items/{itemId} | Remove an Item from a cart |
 | [**removeItemFromCompareTableAsync**](CartsApi.md#removeItemFromCompareTableAsync) | **DELETE** /api/v2/CartService/Carts/{cartId}/Compare/{itemId} | Remove an item from the compare table |
@@ -1644,6 +1645,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCartAsync"></a>
+# **patchCartAsync**
+> EmptyEnvelope patchCartAsync(cartId, apiVersion, xApiVersion, operation)
+
+Patch a cart
+
+Partially updates a cart using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CartsApi()
+val cartId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCartAsync(cartId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CartsApi#patchCartAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CartsApi#patchCartAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **cartId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="removeCartLineAsync"></a>

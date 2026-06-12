@@ -81,6 +81,8 @@ import com.squareup.moshi.JsonClass
  * @param enrollmentId 
  * @param bankId 
  * @param paymentTokenId 
+ * @param emisorWalletAccountId 
+ * @param receiverWalletAccountId 
  */
 
 
@@ -261,7 +263,13 @@ data class PaymentDto (
     val bankId: kotlin.String? = null,
 
     @Json(name = "paymentTokenId")
-    val paymentTokenId: kotlin.String? = null
+    val paymentTokenId: kotlin.String? = null,
+
+    @Json(name = "emisorWalletAccountId")
+    val emisorWalletAccountId: kotlin.String? = null,
+
+    @Json(name = "receiverWalletAccountId")
+    val receiverWalletAccountId: kotlin.String? = null
 
 ) {
 

@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param everywhere 
  * @param postalCodes 
  * @param countryCodes 
- * @param businessID 
+ * @param tenantId 
  */
 
 
@@ -56,8 +56,8 @@ data class ShippingZoneDto (
     @Json(name = "countryCodes")
     val countryCodes: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null
 
 ) {
 

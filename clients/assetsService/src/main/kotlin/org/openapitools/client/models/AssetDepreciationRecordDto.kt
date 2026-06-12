@@ -24,12 +24,18 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessId 
- * @param businessProfileRecordId 
+ * @param tenantId 
+ * @param enrollmentId 
  * @param assetId 
  * @param assetName 
  * @param assetDepreciationPolicyId 
  * @param assetDepreciationPolicyName 
+ * @param financialBookId 
+ * @param startDate 
+ * @param totalDepreciations 
+ * @param depreciationFrequency 
+ * @param depreciationRate 
+ * @param expectedValueAUL 
  * @param depreciationAmount 
  * @param accumulatedDepreciation 
  * @param bookValue 
@@ -43,19 +49,19 @@ import com.squareup.moshi.JsonClass
 data class AssetDepreciationRecordDto (
 
     @Json(name = "id")
-    val id: kotlin.Any? = null,
+    val id: kotlin.String? = null,
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "businessId")
-    val businessId: kotlin.Any? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.Any? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "assetId")
-    val assetId: kotlin.Any? = null,
+    val assetId: kotlin.String? = null,
 
     @Json(name = "assetName")
     val assetName: kotlin.String? = null,
@@ -65,6 +71,24 @@ data class AssetDepreciationRecordDto (
 
     @Json(name = "assetDepreciationPolicyName")
     val assetDepreciationPolicyName: kotlin.String? = null,
+
+    @Json(name = "financialBookId")
+    val financialBookId: kotlin.String? = null,
+
+    @Json(name = "startDate")
+    val startDate: java.time.OffsetDateTime? = null,
+
+    @Json(name = "totalDepreciations")
+    val totalDepreciations: kotlin.Int? = null,
+
+    @Json(name = "depreciationFrequency")
+    val depreciationFrequency: kotlin.Int? = null,
+
+    @Json(name = "depreciationRate")
+    val depreciationRate: kotlin.Double? = null,
+
+    @Json(name = "expectedValueAUL")
+    val expectedValueAUL: kotlin.Double? = null,
 
     @Json(name = "depreciationAmount")
     val depreciationAmount: kotlin.Double? = null,

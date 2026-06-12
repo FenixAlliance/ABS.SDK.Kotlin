@@ -25,6 +25,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedQuoteDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.Operation
 import org.openapitools.client.models.QuoteCreateDto
 import org.openapitools.client.models.QuoteDtoEnvelope
 import org.openapitools.client.models.QuoteDtoListEnvelope
@@ -1218,6 +1219,171 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/QuotesService/Quotes/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch an existing quote.
+     * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
+     * @param quoteId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchQuoteAsync(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchQuoteAsyncWithHttpInfo(quoteId = quoteId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch an existing quote.
+     * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
+     * @param quoteId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchQuoteAsyncWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchQuoteAsyncRequestConfig(quoteId = quoteId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchQuoteAsync
+     *
+     * @param quoteId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchQuoteAsyncRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Patch a quote line.
+     * Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun patchQuoteLineAsync(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchQuoteLineAsyncWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, operation = operation)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Patch a quote line.
+     * Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun patchQuoteLineAsyncWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchQuoteLineAsyncRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, operation = operation)
+
+        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation patchQuoteLineAsync
+     *
+     * @param quoteId 
+     * @param quoteLineId 
+     * @param tenantId 
+     * @param operation  (optional)
+     * @return RequestConfig
+     */
+    fun patchQuoteLineAsyncRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
+        val localVariableBody = operation
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}".replace("{"+"quoteId"+"}", encodeURIComponent(quoteId.toString())).replace("{"+"quoteLineId"+"}", encodeURIComponent(quoteLineId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

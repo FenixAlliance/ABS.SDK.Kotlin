@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param itemID 
+ * @param itemId 
  * @param mD5Hash 
  * @param fileUploadURL 
  * @param fileName 
@@ -36,14 +36,14 @@ import com.squareup.moshi.JsonClass
  * @param notes 
  * @param fileLength 
  * @param validResponse 
- * @param parentFileUploadID 
+ * @param parentFileUploadId 
  */
 
 
 data class ItemImageUpdateDto (
 
-    @Json(name = "itemID")
-    val itemID: kotlin.String,
+    @Json(name = "itemId")
+    val itemId: kotlin.String,
 
     @Json(name = "mD5Hash")
     val mD5Hash: kotlin.String,
@@ -84,8 +84,8 @@ data class ItemImageUpdateDto (
     @Json(name = "validResponse")
     val validResponse: kotlin.Boolean? = null,
 
-    @Json(name = "parentFileUploadID")
-    val parentFileUploadID: kotlin.String? = null
+    @Json(name = "parentFileUploadId")
+    val parentFileUploadId: kotlin.String? = null
 
 ) {
 

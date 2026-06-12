@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseForumByIdAsync**](CourseForumsApi.md#getCourseForumByIdAsync) | **GET** /api/v2/LearningService/CourseForums/{forumId} | Get course forum by ID |
 | [**getCourseForumsAsync**](CourseForumsApi.md#getCourseForumsAsync) | **GET** /api/v2/LearningService/CourseForums | Get all course forums |
 | [**getCourseForumsCountAsync**](CourseForumsApi.md#getCourseForumsCountAsync) | **GET** /api/v2/LearningService/CourseForums/Count | Get course forums count |
+| [**patchCourseForumAsync**](CourseForumsApi.md#patchCourseForumAsync) | **PATCH** /api/v2/LearningService/CourseForums/{forumId} | Patch a course forum |
 | [**updateCourseForumAsync**](CourseForumsApi.md#updateCourseForumAsync) | **PUT** /api/v2/LearningService/CourseForums/{forumId} | Update a course forum |
 
 
@@ -263,6 +264,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseForumAsync"></a>
+# **patchCourseForumAsync**
+> patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course forum
+
+Partially updates an existing course forum.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseForumsApi()
+val forumId : kotlin.String = forumId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling CourseForumsApi#patchCourseForumAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseForumsApi#patchCourseForumAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **forumId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseForumAsync"></a>

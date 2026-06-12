@@ -13,6 +13,7 @@
 | **markup** | **kotlin.String** |  |  [optional] |
 | **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **codeType** | [**inline**](#CodeType) |  |  [optional] |
+| **slug** | **kotlin.String** |  |  [optional] |
 | **blogPostCategoryId** | **kotlin.String** |  |  [optional] |
 | **webTemplateId** | **kotlin.String** |  |  [optional] |
 

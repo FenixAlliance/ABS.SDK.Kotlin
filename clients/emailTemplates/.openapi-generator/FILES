@@ -52,6 +52,3 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/models/ErrorEnvelopeTest.kt

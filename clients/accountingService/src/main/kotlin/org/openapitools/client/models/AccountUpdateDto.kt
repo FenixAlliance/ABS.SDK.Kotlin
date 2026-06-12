@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param path 
  * @param prefix 
+ * @param contactId 
  * @param accountTypeId 
  * @param parentAccountId 
  * @param accountCategory 
@@ -57,6 +58,9 @@ data class AccountUpdateDto (
 
     @Json(name = "prefix")
     val prefix: kotlin.String? = null,
+
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
 
     @Json(name = "accountTypeId")
     val accountTypeId: kotlin.String? = null,

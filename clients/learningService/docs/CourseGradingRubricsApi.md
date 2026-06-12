@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseGradingRubricByIdAsync**](CourseGradingRubricsApi.md#getCourseGradingRubricByIdAsync) | **GET** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Get course grading rubric by ID |
 | [**getCourseGradingRubricsAsync**](CourseGradingRubricsApi.md#getCourseGradingRubricsAsync) | **GET** /api/v2/LearningService/CourseGradingRubrics | Get all course grading rubrics |
 | [**getCourseGradingRubricsCountAsync**](CourseGradingRubricsApi.md#getCourseGradingRubricsCountAsync) | **GET** /api/v2/LearningService/CourseGradingRubrics/Count | Get course grading rubrics count |
+| [**patchCourseGradingRubricAsync**](CourseGradingRubricsApi.md#patchCourseGradingRubricAsync) | **PATCH** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Patch a course grading rubric |
 | [**updateCourseGradingRubricAsync**](CourseGradingRubricsApi.md#updateCourseGradingRubricAsync) | **PUT** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Update a course grading rubric |
 
 
@@ -262,6 +263,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseGradingRubricAsync"></a>
+# **patchCourseGradingRubricAsync**
+> patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course grading rubric
+
+Partially updates an existing course grading rubric.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseGradingRubricsApi()
+val rubricId : kotlin.String = rubricId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling CourseGradingRubricsApi#patchCourseGradingRubricAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseGradingRubricsApi#patchCourseGradingRubricAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **rubricId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseGradingRubricAsync"></a>

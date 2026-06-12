@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getItemRetainSampleByIdAsync**](ItemRetainSamplesApi.md#getItemRetainSampleByIdAsync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Get item retain sample by ID |
 | [**getItemRetainSamplesAsync**](ItemRetainSamplesApi.md#getItemRetainSamplesAsync) | **GET** /api/v2/LogisticsService/ItemRetainSamples | Get all item retain samples |
 | [**getItemRetainSamplesCountAsync**](ItemRetainSamplesApi.md#getItemRetainSamplesCountAsync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/Count | Get item retain samples count |
+| [**patchItemRetainSampleAsync**](ItemRetainSamplesApi.md#patchItemRetainSampleAsync) | **PATCH** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Patch an item retain sample |
 | [**updateItemRetainSampleAsync**](ItemRetainSamplesApi.md#updateItemRetainSampleAsync) | **PUT** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Update an item retain sample |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemRetainSampleAsync"></a>
+# **patchItemRetainSampleAsync**
+> EmptyEnvelope patchItemRetainSampleAsync(retainSampleId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item retain sample
+
+Applies a JSON Patch document to an item retain sample.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemRetainSamplesApi()
+val retainSampleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemRetainSampleAsync(retainSampleId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemRetainSamplesApi#patchItemRetainSampleAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemRetainSamplesApi#patchItemRetainSampleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **retainSampleId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemRetainSampleAsync"></a>

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getWarrantyRequestAsync**](WarrantyRequestsApi.md#getWarrantyRequestAsync) | **GET** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Retrieve a warranty request by ID |
 | [**getWarrantyRequestsAsync**](WarrantyRequestsApi.md#getWarrantyRequestsAsync) | **GET** /api/v2/SupportService/WarrantyRequests | Retrieve warranty requests |
 | [**getWarrantyRequestsCountAsync**](WarrantyRequestsApi.md#getWarrantyRequestsCountAsync) | **GET** /api/v2/SupportService/WarrantyRequests/Count | Get warranty requests count |
+| [**patchWarrantyRequestAsync**](WarrantyRequestsApi.md#patchWarrantyRequestAsync) | **PATCH** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Patch a warranty request |
 | [**updateWarrantyRequestAsync**](WarrantyRequestsApi.md#updateWarrantyRequestAsync) | **PUT** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Update a warranty request |
 
 
@@ -256,6 +257,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchWarrantyRequestAsync"></a>
+# **patchWarrantyRequestAsync**
+> EmptyEnvelope patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a warranty request
+
+Partially updates an existing warranty request by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WarrantyRequestsApi()
+val warrantyRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WarrantyRequestsApi#patchWarrantyRequestAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WarrantyRequestsApi#patchWarrantyRequestAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **warrantyRequestId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateWarrantyRequestAsync"></a>

@@ -36,6 +36,7 @@ import com.squareup.moshi.JsonClass
  * @param duns 
  * @param isPublicCompany 
  * @param isFactaCustomer 
+ * @param taxPayerType 
  * @param countryId 
  * @param stateId 
  * @param cityId 
@@ -89,6 +90,9 @@ data class BillingProfileUpdateDto (
     @Json(name = "isFactaCustomer")
     val isFactaCustomer: kotlin.Boolean? = null,
 
+    @Json(name = "taxPayerType")
+    val taxPayerType: BillingProfileUpdateDto.TaxPayerType? = null,
+
     @Json(name = "countryId")
     val countryId: kotlin.String? = null,
 
@@ -109,6 +113,16 @@ data class BillingProfileUpdateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Individual,Business
+     */
+    @JsonClass(generateAdapter = false)
+    enum class TaxPayerType(val value: kotlin.String) {
+        @Json(name = "Individual") Individual("Individual"),
+        @Json(name = "Business") Business("Business");
+    }
 
 }
 

@@ -17,6 +17,8 @@ All URIs are relative to *http://localhost*
 | [**markAirwayBillArrivedAsync**](AirwayBillsApi.md#markAirwayBillArrivedAsync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkArrived | Mark airway bill arrived |
 | [**markAirwayBillDeliveredAsync**](AirwayBillsApi.md#markAirwayBillDeliveredAsync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkDelivered | Mark airway bill delivered |
 | [**markAirwayBillInTransitAsync**](AirwayBillsApi.md#markAirwayBillInTransitAsync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkInTransit | Mark airway bill in transit |
+| [**patchAirwayBillAsync**](AirwayBillsApi.md#patchAirwayBillAsync) | **PATCH** /api/v2/LogisticsService/AirwayBills/{billId} | Patch an airway bill |
+| [**patchAirwayBillLineAsync**](AirwayBillsApi.md#patchAirwayBillLineAsync) | **PATCH** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Patch an airway bill line |
 | [**removeAirwayBillLineAsync**](AirwayBillsApi.md#removeAirwayBillLineAsync) | **DELETE** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Remove an airway bill line |
 | [**updateAirwayBillAsync**](AirwayBillsApi.md#updateAirwayBillAsync) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId} | Update an airway bill |
 | [**updateAirwayBillLineAsync**](AirwayBillsApi.md#updateAirwayBillLineAsync) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Update an airway bill line |
@@ -694,6 +696,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAirwayBillAsync"></a>
+# **patchAirwayBillAsync**
+> EmptyEnvelope patchAirwayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an airway bill
+
+Partially updates an existing airway bill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AirwayBillsApi()
+val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAirwayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AirwayBillsApi#patchAirwayBillAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AirwayBillsApi#patchAirwayBillAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **billId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAirwayBillLineAsync"></a>
+# **patchAirwayBillLineAsync**
+> EmptyEnvelope patchAirwayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an airway bill line
+
+Partially updates a line on an airway bill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AirwayBillsApi()
+val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAirwayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AirwayBillsApi#patchAirwayBillLineAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AirwayBillsApi#patchAirwayBillLineAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **billId** | **java.util.UUID**|  | |
+| **lineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="removeAirwayBillLineAsync"></a>

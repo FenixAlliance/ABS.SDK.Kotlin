@@ -9,7 +9,7 @@
 | **question** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

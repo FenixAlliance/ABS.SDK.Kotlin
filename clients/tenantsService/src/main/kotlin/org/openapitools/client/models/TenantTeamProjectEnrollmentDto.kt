@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param teamId 
  * @param tenantId 
  * @param enrollmentId 
- * @param projectID 
+ * @param projectId 
  */
 
 
@@ -48,8 +48,8 @@ data class TenantTeamProjectEnrollmentDto (
     @Json(name = "enrollmentId")
     val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "projectID")
-    val projectID: kotlin.String? = null
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null
 
 ) {
 

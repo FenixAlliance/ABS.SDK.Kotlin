@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 | [**issueSeawayBillAsync**](SeawayBillsApi.md#issueSeawayBillAsync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Issue | Issue a seaway bill |
 | [**markSeawayBillArrivedAsync**](SeawayBillsApi.md#markSeawayBillArrivedAsync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkArrived | Mark seaway bill arrived |
 | [**markSeawayBillInTransitAsync**](SeawayBillsApi.md#markSeawayBillInTransitAsync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkInTransit | Mark seaway bill in transit |
+| [**patchSeawayBillAsync**](SeawayBillsApi.md#patchSeawayBillAsync) | **PATCH** /api/v2/LogisticsService/SeawayBills/{billId} | Patch a seaway bill |
+| [**patchSeawayBillLineAsync**](SeawayBillsApi.md#patchSeawayBillLineAsync) | **PATCH** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Patch a seaway bill line |
 | [**releaseSeawayBillAsync**](SeawayBillsApi.md#releaseSeawayBillAsync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Release | Release a seaway bill |
 | [**removeSeawayBillLineAsync**](SeawayBillsApi.md#removeSeawayBillLineAsync) | **DELETE** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Remove a seaway bill line |
 | [**updateSeawayBillAsync**](SeawayBillsApi.md#updateSeawayBillAsync) | **PUT** /api/v2/LogisticsService/SeawayBills/{billId} | Update a seaway bill |
@@ -642,6 +644,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSeawayBillAsync"></a>
+# **patchSeawayBillAsync**
+> EmptyEnvelope patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a seaway bill
+
+Partially updates an existing seaway bill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SeawayBillsApi()
+val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SeawayBillsApi#patchSeawayBillAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SeawayBillsApi#patchSeawayBillAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **billId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchSeawayBillLineAsync"></a>
+# **patchSeawayBillLineAsync**
+> EmptyEnvelope patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a seaway bill line
+
+Partially updates a line on a seaway bill using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SeawayBillsApi()
+val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SeawayBillsApi#patchSeawayBillLineAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SeawayBillsApi#patchSeawayBillLineAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **billId** | **java.util.UUID**|  | |
+| **lineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="releaseSeawayBillAsync"></a>

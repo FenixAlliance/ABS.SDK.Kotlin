@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getShippingRegionByIdAsync**](ShippingRegionsApi.md#getShippingRegionByIdAsync) | **GET** /api/v2/ShipmentsService/ShippingRegions/{regionId} | Get shipping region by ID |
 | [**getShippingRegionsAsync**](ShippingRegionsApi.md#getShippingRegionsAsync) | **GET** /api/v2/ShipmentsService/ShippingRegions | Get all shipping regions |
 | [**getShippingRegionsCountAsync**](ShippingRegionsApi.md#getShippingRegionsCountAsync) | **GET** /api/v2/ShipmentsService/ShippingRegions/Count | Get shipping regions count |
+| [**patchShippingRegionAsync**](ShippingRegionsApi.md#patchShippingRegionAsync) | **PATCH** /api/v2/ShipmentsService/ShippingRegions/{regionId} | Patch a shipping region |
 | [**updateShippingRegionAsync**](ShippingRegionsApi.md#updateShippingRegionAsync) | **PUT** /api/v2/ShipmentsService/ShippingRegions/{regionId} | Update a shipping region |
 
 
@@ -264,6 +265,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchShippingRegionAsync"></a>
+# **patchShippingRegionAsync**
+> EmptyEnvelope patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a shipping region
+
+Partially updates an existing shipping region using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ShippingRegionsApi()
+val regionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ShippingRegionsApi#patchShippingRegionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ShippingRegionsApi#patchShippingRegionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **regionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateShippingRegionAsync"></a>

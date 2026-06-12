@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getSocialMediaPostDetailsAsync**](SocialMediaPostsApi.md#getSocialMediaPostDetailsAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Get social media post by ID |
 | [**getSocialMediaPostsCountAsync**](SocialMediaPostsApi.md#getSocialMediaPostsCountAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count | Get social media posts count |
 | [**getSocialMediaPostsODataAsync**](SocialMediaPostsApi.md#getSocialMediaPostsODataAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts | Get social media posts |
+| [**patchSocialMediaPostAsync**](SocialMediaPostsApi.md#patchSocialMediaPostAsync) | **PATCH** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Patch a social media post |
 | [**updateSocialMediaPostAsync**](SocialMediaPostsApi.md#updateSocialMediaPostAsync) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Update a social media post |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSocialMediaPostAsync"></a>
+# **patchSocialMediaPostAsync**
+> EmptyEnvelope patchSocialMediaPostAsync(socialmediapostId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a social media post
+
+Partially updates a social media post by its ID using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialMediaPostsApi()
+val socialmediapostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSocialMediaPostAsync(socialmediapostId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialMediaPostsApi#patchSocialMediaPostAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialMediaPostsApi#patchSocialMediaPostAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialmediapostId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSocialMediaPostAsync"></a>

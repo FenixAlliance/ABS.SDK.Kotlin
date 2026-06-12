@@ -58,6 +58,8 @@
 | **cornerstoneContent** | **kotlin.Boolean** |  |  [optional] |
 | **isEssentialContent** | **kotlin.Boolean** |  |  [optional] |
 | **allowSearchEngineIndexing** | **kotlin.Boolean** |  |  [optional] |
+| **webTemplateId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentId** | **kotlin.String** |  |  [optional] |
 | **isHomePage** | **kotlin.Boolean** |  |  [optional] |
 | **isStorePage** | **kotlin.Boolean** |  |  [optional] |
 | **isCartPage** | **kotlin.Boolean** |  |  [optional] |

@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param tenantId 
- * @param businessProfileRecordId 
+ * @param enrollmentId 
  */
 
 
@@ -40,8 +40,8 @@ data class MaintenanceVisitDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

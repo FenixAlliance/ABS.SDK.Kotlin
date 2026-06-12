@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**bindWebPortalDomainAsync**](PortalsApi.md#bindWebPortalDomainAsync) | **POST** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Bind a domain to a web portal |
 | [**countPortalsAsync**](PortalsApi.md#countPortalsAsync) | **GET** /api/v2/ContentService/Portals/Count | Count portals |
 | [**createWebPortalAsync**](PortalsApi.md#createWebPortalAsync) | **POST** /api/v2/ContentService/Portals | Create a new web portal |
 | [**deleteWebPortalAsync**](PortalsApi.md#deleteWebPortalAsync) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal |
@@ -12,13 +13,70 @@ All URIs are relative to *http://localhost*
 | [**getPortalsAsync**](PortalsApi.md#getPortalsAsync) | **GET** /api/v2/ContentService/Portals | Get portals |
 | [**getRootWebPortalAsync**](PortalsApi.md#getRootWebPortalAsync) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal |
 | [**getWebPortalByIdAsync**](PortalsApi.md#getWebPortalByIdAsync) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID |
+| [**getWebPortalDomainBindingsAsync**](PortalsApi.md#getWebPortalDomainBindingsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/DomainBindings | Get a web portal&#39;s bound domains |
 | [**getWebPortalOptionsAsync**](PortalsApi.md#getWebPortalOptionsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal&#39;s options by its ID |
 | [**getWebPortalSettingsAsync**](PortalsApi.md#getWebPortalSettingsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/Settings | Get a web portal&#39;s settings by its ID |
 | [**initializeCurrentWebPortalAsync**](PortalsApi.md#initializeCurrentWebPortalAsync) | **POST** /api/v2/ContentService/Portals/Initialize | Initialize the current portal |
 | [**patchWebPortalAsync**](PortalsApi.md#patchWebPortalAsync) | **PATCH** /api/v2/ContentService/Portals/{portalId} | Partially update a web portal |
 | [**searchWebPortalAsync**](PortalsApi.md#searchWebPortalAsync) | **GET** /api/v2/ContentService/Portals/Search | Search for a portal by its domain |
+| [**unbindWebPortalDomainAsync**](PortalsApi.md#unbindWebPortalDomainAsync) | **DELETE** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Unbind a domain from a web portal |
 | [**updateWebPortalAsync**](PortalsApi.md#updateWebPortalAsync) | **PUT** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal |
+| [**updateWebPortalSettingsAsync**](PortalsApi.md#updateWebPortalSettingsAsync) | **PUT** /api/v2/ContentService/Portals/{portalId}/Settings | Update a web portal&#39;s settings |
 
+
+<a id="bindWebPortalDomainAsync"></a>
+# **bindWebPortalDomainAsync**
+> EmptyEnvelope bindWebPortalDomainAsync(portalId, businessDomainId, tenantId, apiVersion, xApiVersion)
+
+Bind a domain to a web portal
+
+Bind a verified BusinessDomain to a web portal
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PortalsApi()
+val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val businessDomainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.bindWebPortalDomainAsync(portalId, businessDomainId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PortalsApi#bindWebPortalDomainAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PortalsApi#bindWebPortalDomainAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **portalId** | **java.util.UUID**|  | |
+| **businessDomainId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="countPortalsAsync"></a>
 # **countPortalsAsync**
@@ -418,6 +476,58 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="getWebPortalDomainBindingsAsync"></a>
+# **getWebPortalDomainBindingsAsync**
+> BusinessDomainDtoListEnvelope getWebPortalDomainBindingsAsync(portalId, tenantId, apiVersion, xApiVersion)
+
+Get a web portal&#39;s bound domains
+
+Get the BusinessDomains bound to a web portal
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PortalsApi()
+val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : BusinessDomainDtoListEnvelope = apiInstance.getWebPortalDomainBindingsAsync(portalId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PortalsApi#getWebPortalDomainBindingsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PortalsApi#getWebPortalDomainBindingsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **portalId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**BusinessDomainDtoListEnvelope**](BusinessDomainDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="getWebPortalOptionsAsync"></a>
 # **getWebPortalOptionsAsync**
 > PortalOptionsEnvelope getWebPortalOptionsAsync(portalId, apiVersion, xApiVersion)
@@ -670,6 +780,60 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="unbindWebPortalDomainAsync"></a>
+# **unbindWebPortalDomainAsync**
+> EmptyEnvelope unbindWebPortalDomainAsync(portalId, businessDomainId, tenantId, apiVersion, xApiVersion)
+
+Unbind a domain from a web portal
+
+Unbind a BusinessDomain from a web portal
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PortalsApi()
+val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val businessDomainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.unbindWebPortalDomainAsync(portalId, businessDomainId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PortalsApi#unbindWebPortalDomainAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PortalsApi#unbindWebPortalDomainAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **portalId** | **java.util.UUID**|  | |
+| **businessDomainId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="updateWebPortalAsync"></a>
 # **updateWebPortalAsync**
 > EmptyEnvelope updateWebPortalAsync(portalId, tenantId, apiVersion, xApiVersion, webPortalUpdateDto)
@@ -710,6 +874,60 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **webPortalUpdateDto** | [**WebPortalUpdateDto**](WebPortalUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateWebPortalSettingsAsync"></a>
+# **updateWebPortalSettingsAsync**
+> EmptyEnvelope updateWebPortalSettingsAsync(portalId, tenantId, apiVersion, xApiVersion, portalSettings)
+
+Update a web portal&#39;s settings
+
+Update a web portal&#39;s settings (Options) by its ID
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PortalsApi()
+val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val portalSettings : PortalSettings =  // PortalSettings | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateWebPortalSettingsAsync(portalId, tenantId, apiVersion, xApiVersion, portalSettings)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PortalsApi#updateWebPortalSettingsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PortalsApi#updateWebPortalSettingsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **portalId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **portalSettings** | [**PortalSettings**](PortalSettings.md)|  | [optional] |
 
 ### Return type
 

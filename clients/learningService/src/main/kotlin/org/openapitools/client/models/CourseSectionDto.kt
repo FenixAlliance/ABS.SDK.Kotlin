@@ -27,10 +27,11 @@ import com.squareup.moshi.JsonClass
  * @param icon 
  * @param name 
  * @param description 
- * @param courseID 
+ * @param courseId 
  * @param releaseDateTime 
  * @param hideFromStudents 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -51,8 +52,8 @@ data class CourseSectionDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
     @Json(name = "releaseDateTime")
     val releaseDateTime: java.time.OffsetDateTime? = null,
@@ -61,7 +62,10 @@ data class CourseSectionDto (
     val hideFromStudents: kotlin.Boolean? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

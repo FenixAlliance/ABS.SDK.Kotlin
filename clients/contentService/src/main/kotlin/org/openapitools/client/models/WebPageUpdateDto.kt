@@ -76,6 +76,8 @@ import com.squareup.moshi.JsonClass
  * @param cornerstoneContent 
  * @param isEssentialContent 
  * @param allowSearchEngineIndexing 
+ * @param webTemplateId 
+ * @param parentWebContentId 
  * @param isHomePage 
  * @param isStorePage 
  * @param isCartPage 
@@ -252,6 +254,12 @@ data class WebPageUpdateDto (
 
     @Json(name = "allowSearchEngineIndexing")
     val allowSearchEngineIndexing: kotlin.Boolean? = null,
+
+    @Json(name = "webTemplateId")
+    val webTemplateId: kotlin.String? = null,
+
+    @Json(name = "parentWebContentId")
+    val parentWebContentId: kotlin.String? = null,
 
     @Json(name = "isHomePage")
     val isHomePage: kotlin.Boolean? = null,

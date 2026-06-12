@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param tenantId 
  * @param businessName 
- * @param businessProfileRecordId 
+ * @param enrollmentId 
  * @param name 
  * @param description 
  * @param assetClass 
@@ -41,6 +41,8 @@ import com.squareup.moshi.JsonClass
  * @param currencyCode 
  * @param itemId 
  * @param itemName 
+ * @param assetTypeId 
+ * @param assetTypeName 
  * @param assetCategoryId 
  * @param assetCategoryName 
  * @param purchaseInvoiceId 
@@ -69,8 +71,8 @@ data class AssetDto (
     @Json(name = "businessName")
     val businessName: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordId")
-    val businessProfileRecordId: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
@@ -113,6 +115,12 @@ data class AssetDto (
 
     @Json(name = "itemName")
     val itemName: kotlin.String? = null,
+
+    @Json(name = "assetTypeId")
+    val assetTypeId: kotlin.String? = null,
+
+    @Json(name = "assetTypeName")
+    val assetTypeName: kotlin.String? = null,
 
     @Json(name = "assetCategoryId")
     val assetCategoryId: kotlin.String? = null,

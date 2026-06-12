@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param message 
  * @param conversationId 
  * @param senderSocialProfileId 
- * @param receiverSocialProfileID 
+ * @param receiverSocialProfileId 
  * @param sentTimestamp 
  * @param readTimestamp 
  * @param receivedTimestamp 
@@ -59,8 +59,8 @@ data class PrivateMessageDto (
     @Json(name = "senderSocialProfileId")
     val senderSocialProfileId: kotlin.String? = null,
 
-    @Json(name = "receiverSocialProfileID")
-    val receiverSocialProfileID: kotlin.String? = null,
+    @Json(name = "receiverSocialProfileId")
+    val receiverSocialProfileId: kotlin.String? = null,
 
     @Json(name = "sentTimestamp")
     val sentTimestamp: java.time.OffsetDateTime? = null,

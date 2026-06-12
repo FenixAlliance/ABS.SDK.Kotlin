@@ -112,9 +112,3 @@ src/main/kotlin/org/openapitools/client/models/TimezoneDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/TimezoneDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/MigrationsApiTest.kt
-src/test/kotlin/org/openapitools/client/models/ErrorTest.kt
-src/test/kotlin/org/openapitools/client/models/PaymentResponseTest.kt
-src/test/kotlin/org/openapitools/client/models/ResponseStatusTest.kt

@@ -26,9 +26,9 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param instructions 
  * @param points 
- * @param courseUnitID 
- * @param courseCohortID 
- * @param courseAssignmentTypeID 
+ * @param courseUnitId 
+ * @param courseCohortId 
+ * @param courseAssignmentTypeId 
  * @param dueDateTime 
  * @param asignToAllCohorts 
  * @param resources 
@@ -49,14 +49,14 @@ data class CourseAssignmentUpdateDto (
     @Json(name = "points")
     val points: kotlin.Double? = null,
 
-    @Json(name = "courseUnitID")
-    val courseUnitID: kotlin.String? = null,
+    @Json(name = "courseUnitId")
+    val courseUnitId: kotlin.String? = null,
 
-    @Json(name = "courseCohortID")
-    val courseCohortID: kotlin.String? = null,
+    @Json(name = "courseCohortId")
+    val courseCohortId: kotlin.String? = null,
 
-    @Json(name = "courseAssignmentTypeID")
-    val courseAssignmentTypeID: kotlin.String? = null,
+    @Json(name = "courseAssignmentTypeId")
+    val courseAssignmentTypeId: kotlin.String? = null,
 
     @Json(name = "dueDateTime")
     val dueDateTime: java.time.OffsetDateTime? = null,

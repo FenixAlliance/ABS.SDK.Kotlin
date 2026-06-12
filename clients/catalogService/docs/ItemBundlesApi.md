@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getItemBundleByIdAsync**](ItemBundlesApi.md#getItemBundleByIdAsync) | **GET** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Get item bundle by ID |
 | [**getItemBundlesAsync**](ItemBundlesApi.md#getItemBundlesAsync) | **GET** /api/v2/CatalogService/ItemBundles | Get all item bundles |
 | [**getItemBundlesCountAsync**](ItemBundlesApi.md#getItemBundlesCountAsync) | **GET** /api/v2/CatalogService/ItemBundles/Count | Get item bundles count |
+| [**patchItemBundleAsync**](ItemBundlesApi.md#patchItemBundleAsync) | **PATCH** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Patch an item bundle |
 | [**updateItemBundleAsync**](ItemBundlesApi.md#updateItemBundleAsync) | **PUT** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Update an item bundle |
 
 
@@ -265,6 +266,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemBundleAsync"></a>
+# **patchItemBundleAsync**
+> EmptyEnvelope patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item bundle
+
+Partially updates an existing item bundle for the specified tenant using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemBundlesApi()
+val itemBundleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemBundlesApi#patchItemBundleAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemBundlesApi#patchItemBundleAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemBundleId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemBundleAsync"></a>

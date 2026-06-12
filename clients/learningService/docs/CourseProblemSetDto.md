@@ -9,10 +9,12 @@
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **overallScore** | **kotlin.Double** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
-| **courseUnitID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
+| **courseUnitId** | **kotlin.String** |  |  [optional] |
+| **courseGradingRubricId** | **kotlin.String** |  |  [optional] |
 | **releaseDateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

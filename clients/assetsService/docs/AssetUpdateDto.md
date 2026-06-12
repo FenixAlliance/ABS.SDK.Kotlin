@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **assetType** | [**inline**](#AssetType) |  |  [optional] |
+| **assetClass** | [**inline**](#AssetClass) |  |  [optional] |
 | **assetOwner** | [**inline**](#AssetOwner) |  |  [optional] |
 | **calculateDepreciation** | **kotlin.Boolean** |  |  [optional] |
 | **allowMonthlyDepreciation** | **kotlin.Boolean** |  |  [optional] |
@@ -14,8 +14,8 @@
 | **purchaseDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **purchasePrice** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
-| **currencyCode** | **kotlin.String** |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
+| **assetTypeId** | **kotlin.String** |  |  [optional] |
 | **assetCategoryId** | **kotlin.String** |  |  [optional] |
 | **purchaseInvoiceId** | **kotlin.String** |  |  [optional] |
 | **purchaseReceiptId** | **kotlin.String** |  |  [optional] |
@@ -24,11 +24,11 @@
 | **organizationDepartmentId** | **kotlin.String** |  |  [optional] |
 
 
-<a id="AssetType"></a>
-## Enum: assetType
+<a id="AssetClass"></a>
+## Enum: assetClass
 | Name | Value |
 | ---- | ----- |
-| assetType | Fixed, Stock |
+| assetClass | Fixed, Stock |
 
 
 <a id="AssetOwner"></a>

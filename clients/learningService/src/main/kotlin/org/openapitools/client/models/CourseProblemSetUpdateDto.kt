@@ -25,8 +25,8 @@ import com.squareup.moshi.JsonClass
  * @param title 
  * @param description 
  * @param overallScore 
- * @param courseUnitID 
- * @param courseGradingRubricID 
+ * @param courseUnitId 
+ * @param courseGradingRubricId 
  * @param releaseDateTime 
  */
 
@@ -42,11 +42,11 @@ data class CourseProblemSetUpdateDto (
     @Json(name = "overallScore")
     val overallScore: kotlin.Double? = null,
 
-    @Json(name = "courseUnitID")
-    val courseUnitID: kotlin.String? = null,
+    @Json(name = "courseUnitId")
+    val courseUnitId: kotlin.String? = null,
 
-    @Json(name = "courseGradingRubricID")
-    val courseGradingRubricID: kotlin.String? = null,
+    @Json(name = "courseGradingRubricId")
+    val courseGradingRubricId: kotlin.String? = null,
 
     @Json(name = "releaseDateTime")
     val releaseDateTime: java.time.OffsetDateTime? = null

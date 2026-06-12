@@ -57,9 +57,6 @@ import com.squareup.moshi.JsonClass
  * @param data9 
  * @param data9Label 
  * @param authorized 
- * @param businessID 
- * @param contactID 
- * @param businessProfileRecordID 
  */
 
 
@@ -165,16 +162,7 @@ data class InstructorProfileDto (
     val data9Label: kotlin.String? = null,
 
     @Json(name = "authorized")
-    val authorized: kotlin.Boolean? = null,
-
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
-
-    @Json(name = "contactID")
-    val contactID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    val authorized: kotlin.Boolean? = null
 
 ) {
 

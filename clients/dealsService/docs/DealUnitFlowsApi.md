@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getDealUnitFlowStagesCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowStagesCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow |
 | [**getDealUnitFlowsAsync**](DealUnitFlowsApi.md#getDealUnitFlowsAsync) | **GET** /api/v2/DealsService/DealUnitFlows | Get deal unit flows |
 | [**getDealUnitFlowsCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowsCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count |
+| [**patchDealUnitFlowAsync**](DealUnitFlowsApi.md#patchDealUnitFlowAsync) | **PATCH** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Patch a deal unit flow |
+| [**patchDealUnitFlowStageAsync**](DealUnitFlowsApi.md#patchDealUnitFlowStageAsync) | **PATCH** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Patch a deal unit flow stage |
 | [**updateDealUnitFlowAsync**](DealUnitFlowsApi.md#updateDealUnitFlowAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow |
 | [**updateDealUnitFlowStageAsync**](DealUnitFlowsApi.md#updateDealUnitFlowStageAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage |
 
@@ -498,6 +500,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchDealUnitFlowAsync"></a>
+# **patchDealUnitFlowAsync**
+> EmptyEnvelope patchDealUnitFlowAsync(dealUnitFlowId, tenantId, operation)
+
+Patch a deal unit flow
+
+Partially updates an existing deal unit flow by its unique identifier using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowAsync(dealUnitFlowId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#patchDealUnitFlowAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#patchDealUnitFlowAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchDealUnitFlowStageAsync"></a>
+# **patchDealUnitFlowStageAsync**
+> EmptyEnvelope patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, operation)
+
+Patch a deal unit flow stage
+
+Partially updates an existing stage within a specific deal unit flow using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitFlowsApi()
+val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitFlowsApi#patchDealUnitFlowStageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitFlowsApi#patchDealUnitFlowStageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitFlowId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateDealUnitFlowAsync"></a>

@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **businessTeamID** | **kotlin.String** |  |  [optional] |
+| **businessTeamId** | **kotlin.String** |  |  [optional] |
 
 
 

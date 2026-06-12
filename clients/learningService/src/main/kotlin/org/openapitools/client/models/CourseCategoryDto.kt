@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param imageURL 
  * @param isFeatured 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -53,7 +54,10 @@ data class CourseCategoryDto (
     val isFeatured: kotlin.Boolean? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

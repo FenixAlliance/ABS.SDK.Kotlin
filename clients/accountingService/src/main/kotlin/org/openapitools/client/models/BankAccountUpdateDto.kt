@@ -27,9 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param swift 
  * @param branchCode 
  * @param bankAccountNumber 
- * @param qualifiedName 
  * @param bankId 
  * @param bankProfileId 
+ * @param walletId 
  */
 
 
@@ -50,14 +50,14 @@ data class BankAccountUpdateDto (
     @Json(name = "bankAccountNumber")
     val bankAccountNumber: kotlin.String? = null,
 
-    @Json(name = "qualifiedName")
-    val qualifiedName: kotlin.String? = null,
-
     @Json(name = "bankId")
     val bankId: kotlin.String? = null,
 
     @Json(name = "bankProfileId")
-    val bankProfileId: kotlin.String? = null
+    val bankProfileId: kotlin.String? = null,
+
+    @Json(name = "walletId")
+    val walletId: kotlin.String? = null
 
 ) {
 

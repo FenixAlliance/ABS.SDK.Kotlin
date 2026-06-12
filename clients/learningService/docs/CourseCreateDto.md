@@ -12,9 +12,9 @@
 | **summary** | **kotlin.String** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **version** | **kotlin.String** |  |  [optional] |
-| **courseCategoryID** | **kotlin.String** |  |  [optional] |
-| **instructorProfileID** | **kotlin.String** |  |  [optional] |
-| **currencyID** | **kotlin.String** |  |  [optional] |
+| **courseCategoryId** | **kotlin.String** |  |  [optional] |
+| **instructorProfileId** | **kotlin.String** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
 | **regularPrice** | **kotlin.Double** |  |  [optional] |
 | **maxCourseEnrollments** | **kotlin.Int** |  |  [optional] |
 | **totalEffortInWeeks** | **kotlin.Int** |  |  [optional] |

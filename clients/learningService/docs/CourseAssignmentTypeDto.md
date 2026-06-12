@@ -11,8 +11,9 @@
 | **weight** | **kotlin.Double** |  |  [optional] |
 | **quantity** | **kotlin.Int** |  |  [optional] |
 | **excluded** | **kotlin.Int** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

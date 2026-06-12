@@ -17,8 +17,8 @@
 | **phone** | **kotlin.String** |  |  [optional] |
 | **message** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
-| **accountHolderId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **userId** | **kotlin.String** |  |  [optional] |
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
 
 

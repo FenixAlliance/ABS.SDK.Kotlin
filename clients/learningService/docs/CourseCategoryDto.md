@@ -11,6 +11,7 @@
 | **imageURL** | **kotlin.String** |  |  [optional] |
 | **isFeatured** | **kotlin.Boolean** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getPayrollByIdAsync**](PayrollsApi.md#getPayrollByIdAsync) | **GET** /api/v2/HrmsService/Payrolls/{payrollId} | Get payroll by ID |
 | [**getPayrollsAsync**](PayrollsApi.md#getPayrollsAsync) | **GET** /api/v2/HrmsService/Payrolls | Get payrolls |
 | [**getPayrollsCountAsync**](PayrollsApi.md#getPayrollsCountAsync) | **GET** /api/v2/HrmsService/Payrolls/Count | Count payrolls |
+| [**patchPayrollAsync**](PayrollsApi.md#patchPayrollAsync) | **PATCH** /api/v2/HrmsService/Payrolls/{payrollId} | Patch a payroll |
 | [**updatePayrollAsync**](PayrollsApi.md#updatePayrollAsync) | **PUT** /api/v2/HrmsService/Payrolls/{payrollId} | Update a payroll |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchPayrollAsync"></a>
+# **patchPayrollAsync**
+> EmptyEnvelope patchPayrollAsync(payrollId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a payroll
+
+Partially updates an existing payroll for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PayrollsApi()
+val payrollId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPayrollAsync(payrollId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PayrollsApi#patchPayrollAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PayrollsApi#patchPayrollAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **payrollId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updatePayrollAsync"></a>

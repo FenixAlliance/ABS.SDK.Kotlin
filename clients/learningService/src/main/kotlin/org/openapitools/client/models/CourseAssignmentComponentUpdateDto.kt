@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param content 
  * @param order 
- * @param courseAssignmentID 
+ * @param courseAssignmentId 
  */
 
 
@@ -44,8 +44,8 @@ data class CourseAssignmentComponentUpdateDto (
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
-    @Json(name = "courseAssignmentID")
-    val courseAssignmentID: kotlin.String? = null
+    @Json(name = "courseAssignmentId")
+    val courseAssignmentId: kotlin.String? = null
 
 ) {
 

@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**deleteItemImageAsync**](ItemImagesApi.md#deleteItemImageAsync) | **DELETE** /api/v2/CatalogService/ItemImages/{itemImageId} | Delete an item image |
 | [**getItemImageByIdAsync**](ItemImagesApi.md#getItemImageByIdAsync) | **GET** /api/v2/CatalogService/ItemImages/{itemImageId} | Get item image by ID |
 | [**getItemImagesAsync**](ItemImagesApi.md#getItemImagesAsync) | **GET** /api/v2/CatalogService/ItemImages | Get all item images |
+| [**patchItemImageAsync**](ItemImagesApi.md#patchItemImageAsync) | **PATCH** /api/v2/CatalogService/ItemImages/{itemImageId} | Patch an item image |
 | [**updateItemImageAsync**](ItemImagesApi.md#updateItemImageAsync) | **PUT** /api/v2/CatalogService/ItemImages/{itemImageId} | Update an item image |
 
 
@@ -214,6 +215,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemImageAsync"></a>
+# **patchItemImageAsync**
+> patchItemImageAsync(itemImageId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item image
+
+Partially updates an existing item image for the specified tenant using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemImagesApi()
+val itemImageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchItemImageAsync(itemImageId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling ItemImagesApi#patchItemImageAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemImagesApi#patchItemImageAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemImageId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemImageAsync"></a>

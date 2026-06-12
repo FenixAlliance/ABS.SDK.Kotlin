@@ -7,7 +7,7 @@
 | **fileName** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **itemID** | **kotlin.String** |  |  [optional] |
+| **itemId** | **kotlin.String** |  |  [optional] |
 | **isItemMozaicBG** | **kotlin.Boolean** |  |  [optional] |
 | **mD5Hash** | **kotlin.String** |  |  [optional] |
 | **metadata** | **kotlin.String** |  |  [optional] |
@@ -20,8 +20,8 @@
 | **contentType** | **kotlin.String** |  |  [optional] |
 | **fileLength** | **kotlin.Long** |  |  [optional] |
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
-| **parentFileUploadID** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
+| **parentFileUploadId** | **kotlin.String** |  |  [optional] |
 
 
 

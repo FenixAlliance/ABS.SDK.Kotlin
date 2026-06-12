@@ -24,11 +24,11 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param blogPostID 
+ * @param blogPostId 
  * @param message 
- * @param ownerSocialProfileID 
- * @param socialPostID 
- * @param parentCommentID 
+ * @param ownerSocialProfileId 
+ * @param socialPostId 
+ * @param parentCommentId 
  */
 
 
@@ -40,20 +40,20 @@ data class BlogPostCommentDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "blogPostID")
-    val blogPostID: kotlin.String? = null,
+    @Json(name = "blogPostId")
+    val blogPostId: kotlin.String? = null,
 
     @Json(name = "message")
     val message: kotlin.String? = null,
 
-    @Json(name = "ownerSocialProfileID")
-    val ownerSocialProfileID: kotlin.String? = null,
+    @Json(name = "ownerSocialProfileId")
+    val ownerSocialProfileId: kotlin.String? = null,
 
-    @Json(name = "socialPostID")
-    val socialPostID: kotlin.String? = null,
+    @Json(name = "socialPostId")
+    val socialPostId: kotlin.String? = null,
 
-    @Json(name = "parentCommentID")
-    val parentCommentID: kotlin.String? = null
+    @Json(name = "parentCommentId")
+    val parentCommentId: kotlin.String? = null
 
 ) {
 

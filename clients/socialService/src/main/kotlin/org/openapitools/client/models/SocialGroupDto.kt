@@ -27,9 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param title 
  * @param avatarURL 
- * @param businessID 
- * @param businessProfileRecordID 
- * @param socialProfileID 
+ * @param tenantId 
+ * @param enrollmentId 
+ * @param socialProfileId 
  */
 
 
@@ -50,14 +50,14 @@ data class SocialGroupDto (
     @Json(name = "avatarURL")
     val avatarURL: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null
 
 ) {
 

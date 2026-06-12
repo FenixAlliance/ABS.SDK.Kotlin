@@ -7,6 +7,7 @@
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **accountId** | **kotlin.String** |  |  [optional] |
+| **type** | **kotlin.String** |  |  [optional] |
 
 
 

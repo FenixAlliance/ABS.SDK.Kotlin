@@ -63,6 +63,8 @@
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **bankId** | **kotlin.String** |  |  [optional] |
 | **paymentTokenId** | **kotlin.String** |  |  [optional] |
+| **emisorWalletAccountId** | **kotlin.String** |  |  [optional] |
+| **receiverWalletAccountId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="OnBehalfOf"></a>

@@ -35,7 +35,7 @@ import com.squareup.moshi.JsonClass
  * @param canonicalUrl 
  * @param imageURL 
  * @param image 
- * @param webPortalID 
+ * @param webPortalId 
  */
 
 
@@ -80,8 +80,8 @@ data class WebPageCategoryCreateDto (
     @Json(name = "image")
     val image: kotlin.String? = null,
 
-    @Json(name = "webPortalID")
-    val webPortalID: kotlin.String? = null
+    @Json(name = "webPortalId")
+    val webPortalId: kotlin.String? = null
 
 ) {
 

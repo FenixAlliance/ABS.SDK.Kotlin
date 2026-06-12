@@ -18,6 +18,8 @@ All URIs are relative to *http://localhost*
 | [**getDealUnitsCountAsync**](DealUnitsApi.md#getDealUnitsCountAsync) | **GET** /api/v2/DealsService/DealUnits/Count | Get deal units count |
 | [**getExtendedDealUnitAsync**](DealUnitsApi.md#getExtendedDealUnitAsync) | **GET** /api/v2/DealsService/DealUnits/{dealUnitId}/Extended | Get extended deal unit by ID |
 | [**getExtendedDealUnitsAsync**](DealUnitsApi.md#getExtendedDealUnitsAsync) | **GET** /api/v2/DealsService/DealUnits/Extended | Get extended deal units |
+| [**patchDealUnitAsync**](DealUnitsApi.md#patchDealUnitAsync) | **PATCH** /api/v2/DealsService/DealUnits/{dealUnitId} | Patch a deal unit |
+| [**patchDealUnitLineAsync**](DealUnitsApi.md#patchDealUnitLineAsync) | **PATCH** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Patch a deal unit line |
 | [**updateDealUnitAsync**](DealUnitsApi.md#updateDealUnitAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit |
 | [**updateDealUnitPriceAsync**](DealUnitsApi.md#updateDealUnitPriceAsync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line |
 
@@ -696,6 +698,108 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchDealUnitAsync"></a>
+# **patchDealUnitAsync**
+> EmptyEnvelope patchDealUnitAsync(dealUnitId, tenantId, operation)
+
+Patch a deal unit
+
+Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDealUnitAsync(dealUnitId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#patchDealUnitAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#patchDealUnitAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchDealUnitLineAsync"></a>
+# **patchDealUnitLineAsync**
+> EmptyEnvelope patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, operation)
+
+Patch a deal unit line
+
+Partially updates an existing line within a specific deal unit using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = DealUnitsApi()
+val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DealUnitsApi#patchDealUnitLineAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DealUnitsApi#patchDealUnitLineAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **dealUnitId** | **java.util.UUID**|  | |
+| **dealUnitLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateDealUnitAsync"></a>

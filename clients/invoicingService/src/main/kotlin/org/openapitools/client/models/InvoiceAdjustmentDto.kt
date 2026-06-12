@@ -28,6 +28,8 @@ import com.squareup.moshi.JsonClass
  * @param invoiceId 
  * @param currencyId 
  * @param enrollmentId 
+ * @param priority 
+ * @param code 
  * @param description 
  * @param surchargePercent 
  * @param surchargeAmount 
@@ -58,6 +60,12 @@ data class InvoiceAdjustmentDto (
 
     @Json(name = "enrollmentId")
     val enrollmentId: kotlin.String? = null,
+
+    @Json(name = "priority")
+    val priority: kotlin.Int? = null,
+
+    @Json(name = "code")
+    val code: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,

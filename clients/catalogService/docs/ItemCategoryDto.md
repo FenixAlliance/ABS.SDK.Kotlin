@@ -15,9 +15,9 @@
 | **enableForLicenses** | **kotlin.Boolean** |  |  [optional] |
 | **enableForServices** | **kotlin.Boolean** |  |  [optional] |
 | **enableForSubscriptions** | **kotlin.Boolean** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **parentItemCategoryID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **parentItemCategoryId** | **kotlin.String** |  |  [optional] |
 
 
 

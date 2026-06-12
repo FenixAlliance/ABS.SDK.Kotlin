@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **courseID** | **kotlin.String** |  |  |
-| **instructorProfileID** | **kotlin.String** |  |  |
+| **courseId** | **kotlin.String** |  |  |
+| **instructorProfileId** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **courseTeamMembershipType** | [**inline**](#CourseTeamMembershipType) |  |  [optional] |

@@ -26,7 +26,7 @@
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
 | **folderPath** | **kotlin.String** |  |  [optional] |
-| **supportRequestID** | **kotlin.String** |  |  [optional] |
+| **supportRequestId** | **kotlin.String** |  |  [optional] |
 
 
 

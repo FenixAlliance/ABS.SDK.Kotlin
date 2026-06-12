@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getServiceLevelByIdAsync**](ServiceLevelsApi.md#getServiceLevelByIdAsync) | **GET** /api/v2/ServicesService/Services/{serviceId}/ServiceLevels/{serviceLevelId} | Get a service level by ID |
 | [**getServiceLevelsAsync**](ServiceLevelsApi.md#getServiceLevelsAsync) | **GET** /api/v2/ServicesService/Services/{serviceId}/ServiceLevels | Get all service levels |
 | [**getServiceLevelsCountAsync**](ServiceLevelsApi.md#getServiceLevelsCountAsync) | **GET** /api/v2/ServicesService/Services/{serviceId}/ServiceLevels/Count | Get service levels count |
+| [**patchServiceLevelAsync**](ServiceLevelsApi.md#patchServiceLevelAsync) | **PATCH** /api/v2/ServicesService/Services/{serviceId}/ServiceLevels/{serviceLevelId} | Patch a service level |
 | [**updateServiceLevelAsync**](ServiceLevelsApi.md#updateServiceLevelAsync) | **PUT** /api/v2/ServicesService/Services/{serviceId}/ServiceLevels/{serviceLevelId} | Update a service level |
 
 
@@ -378,6 +379,62 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchServiceLevelAsync"></a>
+# **patchServiceLevelAsync**
+> Envelope patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a service level
+
+Partially updates an existing service level using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ServiceLevelsApi()
+val serviceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val serviceLevelId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : Envelope = apiInstance.patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ServiceLevelsApi#patchServiceLevelAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ServiceLevelsApi#patchServiceLevelAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **serviceId** | **java.util.UUID**|  | |
+| **serviceLevelId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateServiceLevelAsync"></a>

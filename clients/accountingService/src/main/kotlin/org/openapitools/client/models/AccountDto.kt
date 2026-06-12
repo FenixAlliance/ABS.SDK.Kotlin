@@ -34,6 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param prefix 
  * @param balance 
  * @param currencyId 
+ * @param contactId 
  * @param accountType 
  * @param qualifiedName 
  * @param accountTypeId 
@@ -91,6 +92,9 @@ data class AccountDto (
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
+
+    @Json(name = "contactId")
+    val contactId: kotlin.String? = null,
 
     @Json(name = "accountType")
     val accountType: kotlin.String? = null,

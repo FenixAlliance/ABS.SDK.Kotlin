@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getSubscriptionByIdAsync**](SubscriptionsApi.md#getSubscriptionByIdAsync) | **GET** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Get a subscription by ID |
 | [**getSubscriptionsAsync**](SubscriptionsApi.md#getSubscriptionsAsync) | **GET** /api/v2/SubscriptionsService/Subscriptions | Get all subscriptions |
 | [**getSubscriptionsCountAsync**](SubscriptionsApi.md#getSubscriptionsCountAsync) | **GET** /api/v2/SubscriptionsService/Subscriptions/Count | Get subscriptions count |
+| [**patchSubscriptionAsync**](SubscriptionsApi.md#patchSubscriptionAsync) | **PATCH** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Patch a subscription |
 | [**updateSubscriptionAsync**](SubscriptionsApi.md#updateSubscriptionAsync) | **PUT** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Update a subscription |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSubscriptionAsync"></a>
+# **patchSubscriptionAsync**
+> EmptyEnvelope patchSubscriptionAsync(subscriptionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a subscription
+
+Patch a subscription
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SubscriptionsApi()
+val subscriptionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSubscriptionAsync(subscriptionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SubscriptionsApi#patchSubscriptionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SubscriptionsApi#patchSubscriptionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **subscriptionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSubscriptionAsync"></a>

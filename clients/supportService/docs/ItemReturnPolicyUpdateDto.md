@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **shippingCourierID** | **kotlin.String** |  |  [optional] |
+| **shippingCourierId** | **kotlin.String** |  |  [optional] |
 | **isFree** | **kotlin.Boolean** |  |  [optional] |
 | **reduce** | **kotlin.Boolean** |  |  [optional] |
 | **isEnabled** | **kotlin.Boolean** |  |  [optional] |
@@ -19,12 +19,12 @@
 | **years** | **kotlin.Int** |  |  [optional] |
 | **&#x60;value&#x60;** | **kotlin.Double** |  |  [optional] |
 | **percentage** | **kotlin.Double** |  |  [optional] |
-| **currencyID** | **kotlin.String** |  |  [optional] |
-| **countryID** | **kotlin.String** |  |  [optional] |
-| **countryStateID** | **kotlin.String** |  |  [optional] |
+| **currencyId** | **kotlin.String** |  |  [optional] |
+| **countryId** | **kotlin.String** |  |  [optional] |
+| **countryStateId** | **kotlin.String** |  |  [optional] |
 | **customState** | **kotlin.String** |  |  [optional] |
 | **customCity** | **kotlin.String** |  |  [optional] |
-| **cityID** | **kotlin.String** |  |  [optional] |
+| **cityId** | **kotlin.String** |  |  [optional] |
 
 
 

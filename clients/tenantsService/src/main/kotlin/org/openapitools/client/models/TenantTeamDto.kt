@@ -24,14 +24,14 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param businessID 
- * @param businessProfileRecordID 
+ * @param tenantId 
+ * @param enrollmentId 
  * @param name 
  * @param description 
- * @param avatarURL 
+ * @param avatarUrl 
  * @param isPublic 
- * @param businessUnitID 
- * @param organizationProfileID 
+ * @param businessUnitId 
+ * @param organizationProfileId 
  */
 
 
@@ -43,11 +43,11 @@ data class TenantTeamDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "name")
     val name: kotlin.String? = null,
@@ -55,17 +55,17 @@ data class TenantTeamDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "avatarURL")
-    val avatarURL: kotlin.String? = null,
+    @Json(name = "avatarUrl")
+    val avatarUrl: kotlin.String? = null,
 
     @Json(name = "isPublic")
     val isPublic: kotlin.Boolean? = null,
 
-    @Json(name = "businessUnitID")
-    val businessUnitID: kotlin.String? = null,
+    @Json(name = "businessUnitId")
+    val businessUnitId: kotlin.String? = null,
 
-    @Json(name = "organizationProfileID")
-    val organizationProfileID: kotlin.String? = null
+    @Json(name = "organizationProfileId")
+    val organizationProfileId: kotlin.String? = null
 
 ) {
 

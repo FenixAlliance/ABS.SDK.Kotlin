@@ -169,9 +169,9 @@
 | **selectedSellingMarginPolicies** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **code** | **kotlin.String** |  |  [optional] |
 | **version** | **kotlin.String** |  |  [optional] |
-| **courseCategoryID** | **kotlin.String** |  |  [optional] |
+| **courseCategoryId** | **kotlin.String** |  |  [optional] |
 | **courseCategoryName** | **kotlin.String** |  |  [optional] |
-| **instructorProfileID** | **kotlin.String** |  |  [optional] |
+| **instructorProfileId** | **kotlin.String** |  |  [optional] |
 | **instructorProfileName** | **kotlin.String** |  |  [optional] |
 | **maxCourseEnrollments** | **kotlin.Int** |  |  [optional] |
 | **totalEffortInWeeks** | **kotlin.Int** |  |  [optional] |

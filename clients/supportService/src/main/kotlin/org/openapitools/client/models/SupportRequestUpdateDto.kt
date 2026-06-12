@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param approved 
  * @param approvedTimestamp 
- * @param supportEntitlementID 
+ * @param supportEntitlementId 
  */
 
 
@@ -44,8 +44,8 @@ data class SupportRequestUpdateDto (
     @Json(name = "approvedTimestamp")
     val approvedTimestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "supportEntitlementID")
-    val supportEntitlementID: kotlin.String? = null
+    @Json(name = "supportEntitlementId")
+    val supportEntitlementId: kotlin.String? = null
 
 ) {
 

@@ -117,8 +117,6 @@
 | **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
 | **parentBillingItemRecordId** | **kotlin.String** |  |  [optional] |
 | **cartId** | **kotlin.String** |  |  [optional] |
-| **itemID** | **kotlin.String** |  |  [optional] |
-| **shippingAddressID** | **kotlin.String** |  |  [optional] |
 
 
 <a id="TaxCalculationMethod"></a>

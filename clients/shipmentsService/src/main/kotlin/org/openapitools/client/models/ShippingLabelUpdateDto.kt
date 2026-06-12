@@ -24,9 +24,9 @@ import com.squareup.moshi.JsonClass
  *
  * @param trackingCode 
  * @param expectedDelivery 
- * @param locationID 
- * @param shipmentID 
- * @param shippingCourierID 
+ * @param locationId 
+ * @param shipmentId 
+ * @param shippingCourierId 
  */
 
 
@@ -38,14 +38,14 @@ data class ShippingLabelUpdateDto (
     @Json(name = "expectedDelivery")
     val expectedDelivery: java.time.OffsetDateTime? = null,
 
-    @Json(name = "locationID")
-    val locationID: kotlin.String? = null,
+    @Json(name = "locationId")
+    val locationId: kotlin.String? = null,
 
-    @Json(name = "shipmentID")
-    val shipmentID: kotlin.String? = null,
+    @Json(name = "shipmentId")
+    val shipmentId: kotlin.String? = null,
 
-    @Json(name = "shippingCourierID")
-    val shippingCourierID: kotlin.String? = null
+    @Json(name = "shippingCourierId")
+    val shippingCourierId: kotlin.String? = null
 
 ) {
 

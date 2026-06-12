@@ -11,7 +11,7 @@
 | **everywhere** | **kotlin.Boolean** |  |  [optional] |
 | **postalCodes** | **kotlin.String** |  |  [optional] |
 | **countryCodes** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -24,7 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param title 
  * @param description 
- * @param courseUnitID 
+ * @param courseUnitId 
  * @param releaseDateTime 
  */
 
@@ -37,8 +37,8 @@ data class CourseWikiUpdateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "courseUnitID")
-    val courseUnitID: kotlin.String? = null,
+    @Json(name = "courseUnitId")
+    val courseUnitId: kotlin.String? = null,
 
     @Json(name = "releaseDateTime")
     val releaseDateTime: java.time.OffsetDateTime? = null

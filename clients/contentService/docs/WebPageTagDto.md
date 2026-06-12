@@ -17,9 +17,9 @@
 | **canonicalUrl** | **kotlin.String** |  |  [optional] |
 | **imageURL** | **kotlin.String** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
-| **webPortalID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

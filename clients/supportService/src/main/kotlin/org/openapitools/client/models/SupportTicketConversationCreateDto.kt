@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param topic 
  * @param closed 
  * @param closedTimestamp 
- * @param socialProfileID 
+ * @param socialProfileId 
  */
 
 
@@ -48,8 +48,8 @@ data class SupportTicketConversationCreateDto (
     @Json(name = "closedTimestamp")
     val closedTimestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null
 
 ) {
 

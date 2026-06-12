@@ -10,8 +10,9 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **content** | **kotlin.String** |  |  [optional] |
 | **slug** | **kotlin.String** |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 
 
 

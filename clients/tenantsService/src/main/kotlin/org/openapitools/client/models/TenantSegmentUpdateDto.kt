@@ -22,16 +22,12 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param revenue 
  * @param minEmployees 
  * @param maxEmployees 
  */
 
 
 data class TenantSegmentUpdateDto (
-
-    @Json(name = "revenue")
-    val revenue: kotlin.String? = null,
 
     @Json(name = "minEmployees")
     val minEmployees: kotlin.Double? = null,

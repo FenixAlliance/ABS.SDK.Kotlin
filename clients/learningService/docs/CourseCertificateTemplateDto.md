@@ -6,14 +6,14 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **courseID** | **kotlin.String** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **webPortalID** | **kotlin.String** |  |  [optional] |
-| **websiteThemeID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
-| **parentWebContentID** | **kotlin.String** |  |  [optional] |
-| **parentWebContentVersionID** | **kotlin.String** |  |  [optional] |
+| **courseId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
+| **websiteThemeId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentVersionId** | **kotlin.String** |  |  [optional] |
 
 
 

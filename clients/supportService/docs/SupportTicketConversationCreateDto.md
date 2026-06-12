@@ -9,7 +9,7 @@
 | **topic** | **kotlin.String** |  |  [optional] |
 | **closed** | **kotlin.Boolean** |  |  [optional] |
 | **closedTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

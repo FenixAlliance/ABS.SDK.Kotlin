@@ -8,7 +8,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **businessName** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **assetClass** | [**inline**](#AssetClass) |  |  [optional] |
@@ -23,6 +23,8 @@
 | **currencyCode** | **kotlin.String** |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
 | **itemName** | **kotlin.String** |  |  [optional] |
+| **assetTypeId** | **kotlin.String** |  |  [optional] |
+| **assetTypeName** | **kotlin.String** |  |  [optional] |
 | **assetCategoryId** | **kotlin.String** |  |  [optional] |
 | **assetCategoryName** | **kotlin.String** |  |  [optional] |
 | **purchaseInvoiceId** | **kotlin.String** |  |  [optional] |

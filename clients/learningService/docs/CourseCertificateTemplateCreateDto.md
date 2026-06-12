@@ -4,14 +4,14 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **courseID** | **kotlin.String** |  |  |
+| **courseId** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **webPortalID** | **kotlin.String** |  |  [optional] |
-| **websiteThemeID** | **kotlin.String** |  |  [optional] |
-| **socialProfileID** | **kotlin.String** |  |  [optional] |
-| **parentWebContentID** | **kotlin.String** |  |  [optional] |
-| **parentWebContentVersionID** | **kotlin.String** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
+| **websiteThemeId** | **kotlin.String** |  |  [optional] |
+| **socialProfileId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentId** | **kotlin.String** |  |  [optional] |
+| **parentWebContentVersionId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -8,7 +8,7 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **content** | **kotlin.String** |  |  [optional] |
 | **order** | **kotlin.Int** |  |  [optional] |
-| **courseAssignmentID** | **kotlin.String** |  |  [optional] |
+| **courseAssignmentId** | **kotlin.String** |  |  [optional] |
 
 
 

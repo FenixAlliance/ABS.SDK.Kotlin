@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **title** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
+| **supportEntitlementId** | **kotlin.String** |  |  [optional] |
 
 
 

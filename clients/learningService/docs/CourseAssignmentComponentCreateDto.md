@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **title** | **kotlin.String** |  |  |
-| **courseAssignmentID** | **kotlin.String** |  |  |
-| **courseID** | **kotlin.String** |  |  |
+| **courseAssignmentId** | **kotlin.String** |  |  |
+| **courseId** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |

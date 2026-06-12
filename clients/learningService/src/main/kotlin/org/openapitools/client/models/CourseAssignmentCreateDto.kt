@@ -23,15 +23,15 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
- * @param courseID 
+ * @param courseId 
  * @param id 
  * @param timestamp 
  * @param description 
  * @param instructions 
  * @param points 
- * @param courseUnitID 
- * @param courseCohortID 
- * @param courseAssignmentTypeID 
+ * @param courseUnitId 
+ * @param courseCohortId 
+ * @param courseAssignmentTypeId 
  * @param dueDateTime 
  * @param asignToAllCohorts 
  * @param resources 
@@ -43,8 +43,8 @@ data class CourseAssignmentCreateDto (
     @Json(name = "title")
     val title: kotlin.String,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String,
+    @Json(name = "courseId")
+    val courseId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -61,14 +61,14 @@ data class CourseAssignmentCreateDto (
     @Json(name = "points")
     val points: kotlin.Double? = null,
 
-    @Json(name = "courseUnitID")
-    val courseUnitID: kotlin.String? = null,
+    @Json(name = "courseUnitId")
+    val courseUnitId: kotlin.String? = null,
 
-    @Json(name = "courseCohortID")
-    val courseCohortID: kotlin.String? = null,
+    @Json(name = "courseCohortId")
+    val courseCohortId: kotlin.String? = null,
 
-    @Json(name = "courseAssignmentTypeID")
-    val courseAssignmentTypeID: kotlin.String? = null,
+    @Json(name = "courseAssignmentTypeId")
+    val courseAssignmentTypeId: kotlin.String? = null,
 
     @Json(name = "dueDateTime")
     val dueDateTime: java.time.OffsetDateTime? = null,

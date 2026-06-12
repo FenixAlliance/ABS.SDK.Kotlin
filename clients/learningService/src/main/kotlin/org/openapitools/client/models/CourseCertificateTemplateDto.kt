@@ -24,14 +24,14 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param courseID 
- * @param businessID 
- * @param webPortalID 
- * @param websiteThemeID 
- * @param businessProfileRecordID 
- * @param socialProfileID 
- * @param parentWebContentID 
- * @param parentWebContentVersionID 
+ * @param courseId 
+ * @param tenantId 
+ * @param webPortalId 
+ * @param websiteThemeId 
+ * @param enrollmentId 
+ * @param socialProfileId 
+ * @param parentWebContentId 
+ * @param parentWebContentVersionId 
  */
 
 
@@ -43,29 +43,29 @@ data class CourseCertificateTemplateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
-    @Json(name = "businessID")
-    val businessID: kotlin.String? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "webPortalID")
-    val webPortalID: kotlin.String? = null,
+    @Json(name = "webPortalId")
+    val webPortalId: kotlin.String? = null,
 
-    @Json(name = "websiteThemeID")
-    val websiteThemeID: kotlin.String? = null,
+    @Json(name = "websiteThemeId")
+    val websiteThemeId: kotlin.String? = null,
 
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
-    @Json(name = "socialProfileID")
-    val socialProfileID: kotlin.String? = null,
+    @Json(name = "socialProfileId")
+    val socialProfileId: kotlin.String? = null,
 
-    @Json(name = "parentWebContentID")
-    val parentWebContentID: kotlin.String? = null,
+    @Json(name = "parentWebContentId")
+    val parentWebContentId: kotlin.String? = null,
 
-    @Json(name = "parentWebContentVersionID")
-    val parentWebContentVersionID: kotlin.String? = null
+    @Json(name = "parentWebContentVersionId")
+    val parentWebContentVersionId: kotlin.String? = null
 
 ) {
 

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseProblemSetByIdAsync**](CourseProblemSetsApi.md#getCourseProblemSetByIdAsync) | **GET** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Get course problem set by ID |
 | [**getCourseProblemSetsAsync**](CourseProblemSetsApi.md#getCourseProblemSetsAsync) | **GET** /api/v2/LearningService/CourseProblemSets | Get all course problem sets |
 | [**getCourseProblemSetsCountAsync**](CourseProblemSetsApi.md#getCourseProblemSetsCountAsync) | **GET** /api/v2/LearningService/CourseProblemSets/Count | Get course problem sets count |
+| [**patchCourseProblemSetAsync**](CourseProblemSetsApi.md#patchCourseProblemSetAsync) | **PATCH** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Patch a course problem set |
 | [**updateCourseProblemSetAsync**](CourseProblemSetsApi.md#updateCourseProblemSetAsync) | **PUT** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Update a course problem set |
 
 
@@ -262,6 +263,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseProblemSetAsync"></a>
+# **patchCourseProblemSetAsync**
+> EmptyEnvelope patchCourseProblemSetAsync(problemSetId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course problem set
+
+Partially updates a course problem set for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseProblemSetsApi()
+val problemSetId : kotlin.String = problemSetId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseProblemSetAsync(problemSetId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseProblemSetsApi#patchCourseProblemSetAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseProblemSetsApi#patchCourseProblemSetAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **problemSetId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseProblemSetAsync"></a>

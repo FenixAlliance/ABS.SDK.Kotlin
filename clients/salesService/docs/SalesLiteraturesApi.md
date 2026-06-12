@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 | [**getExtendedSalesLiteraturesAsync**](SalesLiteraturesApi.md#getExtendedSalesLiteraturesAsync) | **GET** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures |
 | [**getSalesLiteratureAsync**](SalesLiteraturesApi.md#getSalesLiteratureAsync) | **GET** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID |
 | [**getSalesLiteraturesAsync**](SalesLiteraturesApi.md#getSalesLiteraturesAsync) | **GET** /api/v2/SalesService/SalesLiteratures | Get sales literatures |
+| [**patchSalesLiteratureAsync**](SalesLiteraturesApi.md#patchSalesLiteratureAsync) | **PATCH** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Patch a sales literature |
 | [**updateSalesLiteratureAsync**](SalesLiteraturesApi.md#updateSalesLiteratureAsync) | **PUT** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature |
 
 
@@ -293,6 +294,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSalesLiteratureAsync"></a>
+# **patchSalesLiteratureAsync**
+> EmptyEnvelope patchSalesLiteratureAsync(salesLiteratureId, tenantId, operation)
+
+Patch a sales literature
+
+Partially updates an existing sales literature using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SalesLiteraturesApi()
+val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSalesLiteratureAsync(salesLiteratureId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SalesLiteraturesApi#patchSalesLiteratureAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SalesLiteraturesApi#patchSalesLiteratureAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **salesLiteratureId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSalesLiteratureAsync"></a>

@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2LearningServiceStudentProfilesStudentProfileIdDelete**](StudentProfilesApi.md#apiV2LearningServiceStudentProfilesStudentProfileIdDelete) | **DELETE** /api/v2/LearningService/StudentProfiles/{studentProfileId} |  |
 | [**apiV2LearningServiceStudentProfilesStudentProfileIdGet**](StudentProfilesApi.md#apiV2LearningServiceStudentProfilesStudentProfileIdGet) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId} |  |
 | [**apiV2LearningServiceStudentProfilesStudentProfileIdHoursCompletedGet**](StudentProfilesApi.md#apiV2LearningServiceStudentProfilesStudentProfileIdHoursCompletedGet) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId}/HoursCompleted |  |
+| [**apiV2LearningServiceStudentProfilesStudentProfileIdPatch**](StudentProfilesApi.md#apiV2LearningServiceStudentProfilesStudentProfileIdPatch) | **PATCH** /api/v2/LearningService/StudentProfiles/{studentProfileId} |  |
 | [**apiV2LearningServiceStudentProfilesStudentProfileIdPut**](StudentProfilesApi.md#apiV2LearningServiceStudentProfilesStudentProfileIdPut) | **PUT** /api/v2/LearningService/StudentProfiles/{studentProfileId} |  |
 
 
@@ -356,6 +357,58 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="apiV2LearningServiceStudentProfilesStudentProfileIdPatch"></a>
+# **apiV2LearningServiceStudentProfilesStudentProfileIdPatch**
+> EmptyEnvelope apiV2LearningServiceStudentProfilesStudentProfileIdPatch(studentProfileId, tenantId, apiVersion, xApiVersion, operation)
+
+
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = StudentProfilesApi()
+val studentProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.apiV2LearningServiceStudentProfilesStudentProfileIdPatch(studentProfileId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StudentProfilesApi#apiV2LearningServiceStudentProfilesStudentProfileIdPatch")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StudentProfilesApi#apiV2LearningServiceStudentProfilesStudentProfileIdPatch")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **studentProfileId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="apiV2LearningServiceStudentProfilesStudentProfileIdPut"></a>

@@ -13,7 +13,7 @@
 | **logoURL** | **kotlin.String** |  |  [optional] |
 | **featured** | **kotlin.Boolean** |  |  [optional] |
 | **trending** | **kotlin.Boolean** |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
 
 
 

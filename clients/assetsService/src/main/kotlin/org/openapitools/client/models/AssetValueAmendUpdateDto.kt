@@ -25,8 +25,6 @@ import com.squareup.moshi.JsonClass
  * @param newValue 
  * @param reason 
  * @param amendmentDate 
- * @param approvedBy 
- * @param approvalDate 
  */
 
 
@@ -39,13 +37,7 @@ data class AssetValueAmendUpdateDto (
     val reason: kotlin.String? = null,
 
     @Json(name = "amendmentDate")
-    val amendmentDate: java.time.OffsetDateTime? = null,
-
-    @Json(name = "approvedBy")
-    val approvedBy: kotlin.String? = null,
-
-    @Json(name = "approvalDate")
-    val approvalDate: java.time.OffsetDateTime? = null
+    val amendmentDate: java.time.OffsetDateTime? = null
 
 ) {
 

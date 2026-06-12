@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param name 
+ * @param code 
  * @param description 
  */
 
@@ -31,6 +32,9 @@ data class ItemFamilyUpdateDto (
 
     @Json(name = "name")
     val name: kotlin.String,
+
+    @Json(name = "code")
+    val code: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null

@@ -187,9 +187,9 @@ import com.squareup.moshi.JsonClass
  * @param selectedSellingMarginPolicies 
  * @param code 
  * @param version 
- * @param courseCategoryID 
+ * @param courseCategoryId 
  * @param courseCategoryName 
- * @param instructorProfileID 
+ * @param instructorProfileId 
  * @param instructorProfileName 
  * @param maxCourseEnrollments 
  * @param totalEffortInWeeks 
@@ -699,14 +699,14 @@ data class CourseDto (
     @Json(name = "version")
     val version: kotlin.String? = null,
 
-    @Json(name = "courseCategoryID")
-    val courseCategoryID: kotlin.String? = null,
+    @Json(name = "courseCategoryId")
+    val courseCategoryId: kotlin.String? = null,
 
     @Json(name = "courseCategoryName")
     val courseCategoryName: kotlin.String? = null,
 
-    @Json(name = "instructorProfileID")
-    val instructorProfileID: kotlin.String? = null,
+    @Json(name = "instructorProfileId")
+    val instructorProfileId: kotlin.String? = null,
 
     @Json(name = "instructorProfileName")
     val instructorProfileName: kotlin.String? = null,

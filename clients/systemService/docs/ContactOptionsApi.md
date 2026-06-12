@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getSystemContactOptionById**](ContactOptionsApi.md#getSystemContactOptionById) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Retrieve a single contact option by its ID (admin) |
 | [**getSystemContactOptions**](ContactOptionsApi.md#getSystemContactOptions) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options | Retrieve a list of contact options (admin) |
 | [**getSystemContactOptionsCount**](ContactOptionsApi.md#getSystemContactOptionsCount) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/Count | Get the count of contact options (admin) |
+| [**patchSystemContactOption**](ContactOptionsApi.md#patchSystemContactOption) | **PATCH** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Partially update a contact option (admin) |
 | [**updateSystemContactOption**](ContactOptionsApi.md#updateSystemContactOption) | **PUT** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Update a contact option (admin) |
 
 
@@ -274,6 +275,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchSystemContactOption"></a>
+# **patchSystemContactOption**
+> EmptyEnvelope patchSystemContactOption(contactId, optionId, apiVersion, xApiVersion, operation)
+
+Partially update a contact option (admin)
+
+Admin endpoint to partially update an option for any contact using a JSON Patch document
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ContactOptionsApi()
+val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchSystemContactOption(contactId, optionId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ContactOptionsApi#patchSystemContactOption")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ContactOptionsApi#patchSystemContactOption")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **contactId** | **java.util.UUID**|  | |
+| **optionId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateSystemContactOption"></a>

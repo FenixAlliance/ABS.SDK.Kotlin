@@ -1,6 +1,8 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
+docs/BatchStockItemUpdateRequest.md
+docs/BulkProduct.md
 docs/CatalogItemCreateDto.md
 docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
@@ -122,6 +124,7 @@ docs/MerchantDtoListEnvelope.md
 docs/MerchantsApi.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PricingRuleDto.md
 docs/PricingRuleDtoEnvelope.md
 docs/PricingRuleDtoListEnvelope.md
@@ -177,6 +180,8 @@ src/main/kotlin/org/openapitools/client/infrastructure/Serializer.kt
 src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
+src/main/kotlin/org/openapitools/client/models/BatchStockItemUpdateRequest.kt
+src/main/kotlin/org/openapitools/client/models/BulkProduct.kt
 src/main/kotlin/org/openapitools/client/models/CatalogItemCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/CatalogItemDto.kt
 src/main/kotlin/org/openapitools/client/models/CatalogItemDtoEnvelope.kt
@@ -276,6 +281,7 @@ src/main/kotlin/org/openapitools/client/models/MerchantDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/MerchantDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/Money.kt
 src/main/kotlin/org/openapitools/client/models/MoneyEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/PricingRuleDto.kt
 src/main/kotlin/org/openapitools/client/models/PricingRuleDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/PricingRuleDtoListEnvelope.kt
@@ -286,20 +292,6 @@ src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/UpdateProductPrimaryImageAsyncRequest.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/ItemAttributeOptionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/ItemBundlesApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/ItemFamiliesApiTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemAttributeOptionCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemAttributeOptionUpdateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemBundleCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemBundleDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemBundleDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemBundleDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemBundleUpdateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemFamilyCreateDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemFamilyDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemFamilyDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemFamilyDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/ItemFamilyUpdateDtoTest.kt
+src/test/kotlin/org/openapitools/client/models/BatchStockItemUpdateRequestTest.kt
+src/test/kotlin/org/openapitools/client/models/BulkProductTest.kt
+src/test/kotlin/org/openapitools/client/models/OperationTest.kt

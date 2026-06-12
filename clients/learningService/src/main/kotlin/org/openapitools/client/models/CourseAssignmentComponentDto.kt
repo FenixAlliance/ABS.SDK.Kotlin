@@ -28,9 +28,10 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param content 
  * @param order 
- * @param courseAssignmentID 
- * @param courseID 
+ * @param courseAssignmentId 
+ * @param courseId 
  * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -54,14 +55,17 @@ data class CourseAssignmentComponentDto (
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
-    @Json(name = "courseAssignmentID")
-    val courseAssignmentID: kotlin.String? = null,
+    @Json(name = "courseAssignmentId")
+    val courseAssignmentId: kotlin.String? = null,
 
-    @Json(name = "courseID")
-    val courseID: kotlin.String? = null,
+    @Json(name = "courseId")
+    val courseId: kotlin.String? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

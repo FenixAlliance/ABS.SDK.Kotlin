@@ -28,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param parentBusinessProcessId 
  * @param tenantId 
- * @param tenantEnrollmentId 
+ * @param enrollmentId 
  */
 
 
@@ -52,8 +52,8 @@ data class DealUnitFlowDto (
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
 
-    @Json(name = "tenantEnrollmentId")
-    val tenantEnrollmentId: kotlin.String? = null
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

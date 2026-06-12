@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**batchUpdateStockItems**](ItemsApi.md#batchUpdateStockItems) | **POST** /api/v2/CatalogService/Items/Batch | Bulk-update stock items |
+| [**bulkUpsertStockItems**](ItemsApi.md#bulkUpsertStockItems) | **POST** /api/v2/CatalogService/Items/BulkUpsert | Bulk upsert stock items from rows |
 | [**countStockItemTagsByItemId**](ItemsApi.md#countStockItemTagsByItemId) | **GET** /api/v2/CatalogService/Items/{itemId}/Tags/Count | Count tags for a stock item |
 | [**countStockItemsByBusiness**](ItemsApi.md#countStockItemsByBusiness) | **GET** /api/v2/CatalogService/Items/Count | Count stock items by business |
 | [**createStockItem**](ItemsApi.md#createStockItem) | **POST** /api/v2/CatalogService/Items | Create a new stock item |
@@ -46,6 +48,8 @@ All URIs are relative to *http://localhost*
 | [**getStockItemsOdataMaxPrice**](ItemsApi.md#getStockItemsOdataMaxPrice) | **GET** /api/v2/CatalogService/Items/MaxPrice | Get max price of stock items |
 | [**getStockItemsOdataMinPrice**](ItemsApi.md#getStockItemsOdataMinPrice) | **GET** /api/v2/CatalogService/Items/MinPrice | Get min price of stock items |
 | [**getStockItemsQuery**](ItemsApi.md#getStockItemsQuery) | **GET** /api/v2/CatalogService/Items | Get all stock items |
+| [**patchStockItem**](ItemsApi.md#patchStockItem) | **PATCH** /api/v2/CatalogService/Items/{itemId} | Patch a stock item |
+| [**recalculateStockItemPrices**](ItemsApi.md#recalculateStockItemPrices) | **POST** /api/v2/CatalogService/Items/RecalculatePrices | Recalculate stock item prices |
 | [**relateAttachmentToStockItem**](ItemsApi.md#relateAttachmentToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Attachments/{itemAttachmentId} | Relate attachment to stock item |
 | [**relateAttributeOptionToStockItem**](ItemsApi.md#relateAttributeOptionToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/AttributeOptions/{itemAttributeOptionId} | Relate attribute option to stock item |
 | [**relateBrandToStockItem**](ItemsApi.md#relateBrandToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Brands/{itemBrandId} | Relate brand to stock item |
@@ -81,6 +85,108 @@ All URIs are relative to *http://localhost*
 | [**updateProductPrimaryImageAsync**](ItemsApi.md#updateProductPrimaryImageAsync) | **POST** /api/v2/CatalogService/Items/{itemId}/Images/Primary | Update item primary image |
 | [**updateStockItem**](ItemsApi.md#updateStockItem) | **PUT** /api/v2/CatalogService/Items/{itemId} | Update a stock item |
 
+
+<a id="batchUpdateStockItems"></a>
+# **batchUpdateStockItems**
+> batchUpdateStockItems(tenantId, apiVersion, xApiVersion, batchStockItemUpdateRequest)
+
+Bulk-update stock items
+
+Applies a targeted bulk operation (set flags, add/remove tax policies) to many items atomically.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val batchStockItemUpdateRequest : BatchStockItemUpdateRequest =  // BatchStockItemUpdateRequest | 
+try {
+    apiInstance.batchUpdateStockItems(tenantId, apiVersion, xApiVersion, batchStockItemUpdateRequest)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#batchUpdateStockItems")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#batchUpdateStockItems")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **batchStockItemUpdateRequest** | [**BatchStockItemUpdateRequest**](BatchStockItemUpdateRequest.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="bulkUpsertStockItems"></a>
+# **bulkUpsertStockItems**
+> bulkUpsertStockItems(tenantId, apiVersion, xApiVersion, bulkProduct)
+
+Bulk upsert stock items from rows
+
+Updates scalar fields of matching tenant-owned items or creates new ones, all in one transaction.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bulkProduct : kotlin.collections.List<BulkProduct> =  // kotlin.collections.List<BulkProduct> | 
+try {
+    apiInstance.bulkUpsertStockItems(tenantId, apiVersion, xApiVersion, bulkProduct)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#bulkUpsertStockItems")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#bulkUpsertStockItems")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **bulkProduct** | [**kotlin.collections.List&lt;BulkProduct&gt;**](BulkProduct.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a id="countStockItemTagsByItemId"></a>
 # **countStockItemTagsByItemId**
@@ -2224,6 +2330,110 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchStockItem"></a>
+# **patchStockItem**
+> patchStockItem(itemId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a stock item
+
+Partially updates an existing stock item for the specified tenant and item ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchStockItem(itemId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#patchStockItem")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#patchStockItem")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="recalculateStockItemPrices"></a>
+# **recalculateStockItemPrices**
+> recalculateStockItemPrices(tenantId, apiVersion, xApiVersion, javaUtilUUID)
+
+Recalculate stock item prices
+
+Recomputes derived prices for the given tenant-owned items via the pricing service, atomically.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val javaUtilUUID : kotlin.collections.List<java.util.UUID> =  // kotlin.collections.List<java.util.UUID> | 
+try {
+    apiInstance.recalculateStockItemPrices(tenantId, apiVersion, xApiVersion, javaUtilUUID)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#recalculateStockItemPrices")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#recalculateStockItemPrices")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **javaUtilUUID** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="relateAttachmentToStockItem"></a>

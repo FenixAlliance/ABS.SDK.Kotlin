@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getTrainingProgramCourseByIdAsync**](TrainingProgramCoursesApi.md#getTrainingProgramCourseByIdAsync) | **GET** /api/v2/HrmsService/TrainingProgramCourses/{courseId} | Get training program course by ID |
 | [**getTrainingProgramCoursesAsync**](TrainingProgramCoursesApi.md#getTrainingProgramCoursesAsync) | **GET** /api/v2/HrmsService/TrainingProgramCourses | Get training program courses |
 | [**getTrainingProgramCoursesCountAsync**](TrainingProgramCoursesApi.md#getTrainingProgramCoursesCountAsync) | **GET** /api/v2/HrmsService/TrainingProgramCourses/Count | Count training program courses |
+| [**patchTrainingProgramCourseAsync**](TrainingProgramCoursesApi.md#patchTrainingProgramCourseAsync) | **PATCH** /api/v2/HrmsService/TrainingProgramCourses/{courseId} | Patch a training program course |
 | [**updateTrainingProgramCourseAsync**](TrainingProgramCoursesApi.md#updateTrainingProgramCourseAsync) | **PUT** /api/v2/HrmsService/TrainingProgramCourses/{courseId} | Update a training program course |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTrainingProgramCourseAsync"></a>
+# **patchTrainingProgramCourseAsync**
+> EmptyEnvelope patchTrainingProgramCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a training program course
+
+Partially updates an existing training program course for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TrainingProgramCoursesApi()
+val courseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTrainingProgramCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TrainingProgramCoursesApi#patchTrainingProgramCourseAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TrainingProgramCoursesApi#patchTrainingProgramCourseAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **courseId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTrainingProgramCourseAsync"></a>

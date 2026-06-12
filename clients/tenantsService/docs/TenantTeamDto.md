@@ -6,14 +6,14 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **businessID** | **kotlin.String** |  |  [optional] |
-| **businessProfileRecordID** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
-| **avatarURL** | **kotlin.String** |  |  [optional] |
+| **avatarUrl** | **kotlin.String** |  |  [optional] |
 | **isPublic** | **kotlin.Boolean** |  |  [optional] |
-| **businessUnitID** | **kotlin.String** |  |  [optional] |
-| **organizationProfileID** | **kotlin.String** |  |  [optional] |
+| **businessUnitId** | **kotlin.String** |  |  [optional] |
+| **organizationProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

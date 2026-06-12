@@ -17,7 +17,7 @@
 | **parentFileUploadId** | **kotlin.String** |  |  [optional] |
 | **filePath** | **kotlin.String** |  |  [optional] |
 | **metadata** | **kotlin.String** |  |  [optional] |
-| **supportRequestID** | **kotlin.String** |  |  [optional] |
+| **supportRequestId** | **kotlin.String** |  |  [optional] |
 
 
 

@@ -9,7 +9,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **imageURL** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
-| **parentItemCategoryID** | **kotlin.String** |  |  [optional] |
+| **parentItemCategoryId** | **kotlin.String** |  |  [optional] |
 
 
 

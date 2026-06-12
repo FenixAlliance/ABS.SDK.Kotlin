@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseUnitComponentByIdAsync**](CourseUnitComponentsApi.md#getCourseUnitComponentByIdAsync) | **GET** /api/v2/LearningService/CourseUnitComponents/{componentId} | Get course unit component by ID |
 | [**getCourseUnitComponentsAsync**](CourseUnitComponentsApi.md#getCourseUnitComponentsAsync) | **GET** /api/v2/LearningService/CourseUnitComponents | Get all course unit components |
 | [**getCourseUnitComponentsCountAsync**](CourseUnitComponentsApi.md#getCourseUnitComponentsCountAsync) | **GET** /api/v2/LearningService/CourseUnitComponents/Count | Get course unit components count |
+| [**patchCourseUnitComponentAsync**](CourseUnitComponentsApi.md#patchCourseUnitComponentAsync) | **PATCH** /api/v2/LearningService/CourseUnitComponents/{componentId} | Patch a course unit component |
 | [**updateCourseUnitComponentAsync**](CourseUnitComponentsApi.md#updateCourseUnitComponentAsync) | **PUT** /api/v2/LearningService/CourseUnitComponents/{componentId} | Update a course unit component |
 
 
@@ -262,6 +263,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCourseUnitComponentAsync"></a>
+# **patchCourseUnitComponentAsync**
+> EmptyEnvelope patchCourseUnitComponentAsync(componentId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a course unit component
+
+Partially updates a course unit component for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CourseUnitComponentsApi()
+val componentId : kotlin.String = componentId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCourseUnitComponentAsync(componentId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CourseUnitComponentsApi#patchCourseUnitComponentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CourseUnitComponentsApi#patchCourseUnitComponentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **componentId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCourseUnitComponentAsync"></a>

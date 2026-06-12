@@ -18,12 +18,20 @@
 | **duns** | **kotlin.String** |  |  [optional] |
 | **isPublicCompany** | **kotlin.Boolean** |  |  [optional] |
 | **isFactaCustomer** | **kotlin.Boolean** |  |  [optional] |
+| **taxPayerType** | [**inline**](#TaxPayerType) |  |  [optional] |
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
 | **fiscalIdentificationTypeId** | **kotlin.String** |  |  [optional] |
 | **fiscalAuthorityId** | **kotlin.String** |  |  [optional] |
 | **fiscalRegimeId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="TaxPayerType"></a>
+## Enum: taxPayerType
+| Name | Value |
+| ---- | ----- |
+| taxPayerType | Individual, Business |
 
 
 

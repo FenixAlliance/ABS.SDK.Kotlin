@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**deleteItemReviewAsync**](ItemReviewsApi.md#deleteItemReviewAsync) | **DELETE** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Delete an item review |
 | [**getItemReviewByIdAsync**](ItemReviewsApi.md#getItemReviewByIdAsync) | **GET** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Get item review by ID |
 | [**getItemReviewsAsync**](ItemReviewsApi.md#getItemReviewsAsync) | **GET** /api/v2/CatalogService/ItemReviews | Get all item reviews |
+| [**patchItemReviewAsync**](ItemReviewsApi.md#patchItemReviewAsync) | **PATCH** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Patch an item review |
 | [**updateItemReviewAsync**](ItemReviewsApi.md#updateItemReviewAsync) | **PUT** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Update an item review |
 
 
@@ -214,6 +215,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchItemReviewAsync"></a>
+# **patchItemReviewAsync**
+> patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item review
+
+Partially updates an existing item review for the specified tenant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemReviewsApi()
+val itemReviewId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    apiInstance.patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, operation)
+} catch (e: ClientException) {
+    println("4xx response calling ItemReviewsApi#patchItemReviewAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemReviewsApi#patchItemReviewAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **itemReviewId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateItemReviewAsync"></a>

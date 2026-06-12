@@ -10,6 +10,7 @@
 | **startDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **endDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
+| **context** | [**inline**](#Context) |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **unitId** | **kotlin.String** |  |  [optional] |
@@ -17,6 +18,13 @@
 | **partnerVisible** | **kotlin.Boolean** |  |  [optional] |
 | **unitOfMeasureDependant** | **kotlin.Boolean** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="Context"></a>
+## Enum: context
+| Name | Value |
+| ---- | ----- |
+| context | Sales, Purchase, Cost |
 
 
 

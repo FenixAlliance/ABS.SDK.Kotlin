@@ -31,7 +31,9 @@ import com.squareup.moshi.JsonClass
  * @param markup 
  * @param featuredImageUrl 
  * @param codeType 
- * @param webTemplateID 
+ * @param slug 
+ * @param webTemplateId 
+ * @param parentWebContentId 
  */
 
 
@@ -64,8 +66,14 @@ data class WebPageCreateDto (
     @Json(name = "codeType")
     val codeType: WebPageCreateDto.CodeType? = null,
 
-    @Json(name = "webTemplateID")
-    val webTemplateID: kotlin.String? = null
+    @Json(name = "slug")
+    val slug: kotlin.String? = null,
+
+    @Json(name = "webTemplateId")
+    val webTemplateId: kotlin.String? = null,
+
+    @Json(name = "parentWebContentId")
+    val parentWebContentId: kotlin.String? = null
 
 ) {
 

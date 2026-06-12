@@ -11,6 +11,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/PaymentCreateDto.md
 docs/PaymentDto.md
 docs/PaymentDtoListEnvelope.md
@@ -77,6 +78,7 @@ src/main/kotlin/org/openapitools/client/models/InfoRequest.kt
 src/main/kotlin/org/openapitools/client/models/InfoResponse.kt
 src/main/kotlin/org/openapitools/client/models/Int32Envelope.kt
 src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
+src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/PaymentCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/PaymentDto.kt
 src/main/kotlin/org/openapitools/client/models/PaymentDtoListEnvelope.kt
@@ -102,5 +104,3 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/CompletionsApiTest.kt
-src/test/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApiTest.kt

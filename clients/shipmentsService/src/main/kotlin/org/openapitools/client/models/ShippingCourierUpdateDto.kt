@@ -24,8 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param logoURL 
- * @param countryID 
- * @param businessProfileRecordID 
+ * @param countryId 
  */
 
 
@@ -37,11 +36,8 @@ data class ShippingCourierUpdateDto (
     @Json(name = "logoURL")
     val logoURL: kotlin.String? = null,
 
-    @Json(name = "countryID")
-    val countryID: kotlin.String? = null,
-
-    @Json(name = "businessProfileRecordID")
-    val businessProfileRecordID: kotlin.String? = null
+    @Json(name = "countryId")
+    val countryId: kotlin.String? = null
 
 ) {
 
