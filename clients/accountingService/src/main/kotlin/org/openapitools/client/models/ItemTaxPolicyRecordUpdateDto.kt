@@ -22,8 +22,6 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param timestamp 
  * @param taxPolicyId 
  * @param itemPriceId 
  * @param itemId 
@@ -31,12 +29,6 @@ import com.squareup.moshi.JsonClass
 
 
 data class ItemTaxPolicyRecordUpdateDto (
-
-    @Json(name = "id")
-    val id: java.util.UUID? = null,
-
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "taxPolicyId")
     val taxPolicyId: kotlin.String? = null,

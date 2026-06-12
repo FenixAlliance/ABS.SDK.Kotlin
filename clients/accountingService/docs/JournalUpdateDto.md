@@ -7,9 +7,9 @@
 | **name** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
 | **dateTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **parentJournalID** | **kotlin.String** |  |  [optional] |
-| **journalTypeID** | **kotlin.String** |  |  [optional] |
-| **ledgerID** | **kotlin.String** |  |  [optional] |
+| **parentJournalId** | **kotlin.String** |  |  [optional] |
+| **journalTypeId** | **kotlin.String** |  |  [optional] |
+| **ledgerId** | **kotlin.String** |  |  [optional] |
 
 
 

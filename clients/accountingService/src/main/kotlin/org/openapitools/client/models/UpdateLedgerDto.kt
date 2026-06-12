@@ -24,8 +24,6 @@ import com.squareup.moshi.JsonClass
  *
  * @param name 
  * @param description 
- * @param tenantId 
- * @param enrollmentId 
  * @param ledgerTypeId 
  */
 
@@ -37,12 +35,6 @@ data class UpdateLedgerDto (
 
     @Json(name = "description")
     val description: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "ledgerTypeId")
     val ledgerTypeId: kotlin.String? = null

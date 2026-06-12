@@ -142,4 +142,3 @@ src/main/kotlin/org/openapitools/client/models/WalletWithdrawDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WalletWithdrawRequestCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletWithdrawRequestDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletWithdrawRequestDtoListEnvelope.kt
-src/test/kotlin/org/openapitools/client/models/OperationTest.kt

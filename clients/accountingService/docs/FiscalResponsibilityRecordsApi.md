@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getFiscalResponsibilityRecord**](FiscalResponsibilityRecordsApi.md#getFiscalResponsibilityRecord) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Get fiscal responsibility record by ID |
 | [**getFiscalResponsibilityRecords**](FiscalResponsibilityRecordsApi.md#getFiscalResponsibilityRecords) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords | Get fiscal responsibility records |
 | [**getFiscalResponsibilityRecordsCount**](FiscalResponsibilityRecordsApi.md#getFiscalResponsibilityRecordsCount) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords/Count | Get fiscal responsibility records count |
+| [**patchFiscalResponsibilityRecordAsync**](FiscalResponsibilityRecordsApi.md#patchFiscalResponsibilityRecordAsync) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Patch a fiscal responsibility record |
 | [**updateFiscalResponsibilityRecord**](FiscalResponsibilityRecordsApi.md#updateFiscalResponsibilityRecord) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Update a fiscal responsibility record |
 
 
@@ -278,6 +279,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchFiscalResponsibilityRecordAsync"></a>
+# **patchFiscalResponsibilityRecordAsync**
+> EmptyEnvelope patchFiscalResponsibilityRecordAsync(fiscalResponsibilityRecordId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a fiscal responsibility record
+
+Partially updates a fiscal responsibility record.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = FiscalResponsibilityRecordsApi()
+val fiscalResponsibilityRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchFiscalResponsibilityRecordAsync(fiscalResponsibilityRecordId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling FiscalResponsibilityRecordsApi#patchFiscalResponsibilityRecordAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling FiscalResponsibilityRecordsApi#patchFiscalResponsibilityRecordAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **fiscalResponsibilityRecordId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateFiscalResponsibilityRecord"></a>

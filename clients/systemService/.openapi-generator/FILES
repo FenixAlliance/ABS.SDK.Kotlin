@@ -228,8 +228,3 @@ src/main/kotlin/org/openapitools/client/models/WebPortalDto.kt
 src/main/kotlin/org/openapitools/client/models/WebPortalDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WebPortalDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WebPortalUpdateDto.kt
-src/test/kotlin/org/openapitools/client/apis/BusinessDomainsApiTest.kt
-src/test/kotlin/org/openapitools/client/models/BusinessDomainDtoEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/BusinessDomainDtoListEnvelopeTest.kt
-src/test/kotlin/org/openapitools/client/models/BusinessDomainDtoTest.kt
-src/test/kotlin/org/openapitools/client/models/OperationTest.kt

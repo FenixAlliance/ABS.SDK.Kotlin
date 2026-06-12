@@ -38,6 +38,9 @@ All URIs are relative to *http://localhost*
 | [**getDebitAccountEntriesAsync**](AccountsApi.md#getDebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries |
 | [**getRootAccountsAsync**](AccountsApi.md#getRootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts |
 | [**patchAccountAsync**](AccountsApi.md#patchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account |
+| [**patchAccountEntryAsync**](AccountsApi.md#patchAccountEntryAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Patch account entry |
+| [**patchAccountRelationAsync**](AccountsApi.md#patchAccountRelationAsync) | **PATCH** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Patch account relation |
+| [**patchAccountTypeAsync**](AccountsApi.md#patchAccountTypeAsync) | **PATCH** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Patch account type |
 | [**seedChartOfAccountsAsync**](AccountsApi.md#seedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts |
 | [**updateAccountAsync**](AccountsApi.md#updateAccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account |
 | [**updateAccountEntryAsync**](AccountsApi.md#updateAccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry |
@@ -1795,6 +1798,172 @@ try {
 
 ### Parameters
 | **accountId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAccountEntryAsync"></a>
+# **patchAccountEntryAsync**
+> EmptyEnvelope patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch account entry
+
+Patch account entry.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#patchAccountEntryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#patchAccountEntryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountId** | **java.util.UUID**|  | |
+| **entryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAccountRelationAsync"></a>
+# **patchAccountRelationAsync**
+> EmptyEnvelope patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, operation)
+
+Patch account relation
+
+Patch account relation.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val accountRelationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#patchAccountRelationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#patchAccountRelationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountRelationId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **accountId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchAccountTypeAsync"></a>
+# **patchAccountTypeAsync**
+> EmptyEnvelope patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch account type
+
+Patch account type.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountsApi()
+val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountsApi#patchAccountTypeAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountsApi#patchAccountTypeAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountTypeId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getFinancialBookDetailsAsync**](FinancialBooksApi.md#getFinancialBookDetailsAsync) | **GET** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book |
 | [**getFinancialBooksAsync**](FinancialBooksApi.md#getFinancialBooksAsync) | **GET** /api/v2/AccountingService/FinancialBooks | Get all financial books for a tenant |
 | [**getFinancialBooksCountAsync**](FinancialBooksApi.md#getFinancialBooksCountAsync) | **GET** /api/v2/AccountingService/FinancialBooks/Count | Get the count of financial books |
+| [**patchFinancialBookAsync**](FinancialBooksApi.md#patchFinancialBookAsync) | **PATCH** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Patch a financial book |
 | [**updateFinancialBookAsync**](FinancialBooksApi.md#updateFinancialBookAsync) | **PUT** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Updates an existing financial book |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchFinancialBookAsync"></a>
+# **patchFinancialBookAsync**
+> EmptyEnvelope patchFinancialBookAsync(financialBookId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a financial book
+
+Partially updates a financial book.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = FinancialBooksApi()
+val financialBookId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchFinancialBookAsync(financialBookId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling FinancialBooksApi#patchFinancialBookAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling FinancialBooksApi#patchFinancialBookAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **financialBookId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateFinancialBookAsync"></a>

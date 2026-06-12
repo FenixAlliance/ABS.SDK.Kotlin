@@ -9,7 +9,7 @@
 | **paymentId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **closed** | **kotlin.Boolean** |  |  [optional] |
-| **accountHolderId** | **kotlin.String** |  |  [optional] |
+| **userId** | **kotlin.String** |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **receiptType** | [**inline**](#ReceiptType) |  |  [optional] |

@@ -27,7 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param paymentId 
  * @param tenantId 
  * @param closed 
- * @param accountHolderId 
+ * @param userId 
  * @param contactId 
  * @param enrollmentId 
  * @param receiptType 
@@ -53,8 +53,8 @@ data class ReceiptDto (
     @Json(name = "closed")
     val closed: kotlin.Boolean? = null,
 
-    @Json(name = "accountHolderId")
-    val accountHolderId: kotlin.String? = null,
+    @Json(name = "userId")
+    val userId: kotlin.String? = null,
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,

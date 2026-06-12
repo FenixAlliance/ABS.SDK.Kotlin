@@ -32,7 +32,7 @@
 | **zero** | **kotlin.Boolean** |  |  [optional] |
 | **reduced** | **kotlin.Boolean** |  |  [optional] |
 | **withholding** | **kotlin.Boolean** |  |  [optional] |
-| **fiscalAuthorityID** | **kotlin.String** |  |  [optional] |
+| **fiscalAuthorityId** | **kotlin.String** |  |  [optional] |
 
 
 

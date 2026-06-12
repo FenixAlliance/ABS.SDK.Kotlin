@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getReceiptDetailsAsync**](ReceiptsApi.md#getReceiptDetailsAsync) | **GET** /api/v2/AccountingService/Receipts/{receiptId} | Gets details of a receipt |
 | [**getReceiptsAsync**](ReceiptsApi.md#getReceiptsAsync) | **GET** /api/v2/AccountingService/Receipts | Retrieves tenant receipts |
 | [**getReceiptsCountAsync**](ReceiptsApi.md#getReceiptsCountAsync) | **GET** /api/v2/AccountingService/Receipts/Count | Gets count of tenant receipts |
+| [**patchReceiptAsync**](ReceiptsApi.md#patchReceiptAsync) | **PATCH** /api/v2/AccountingService/Receipts/{receiptId} | Patches a receipt |
 | [**updateReceiptAsync**](ReceiptsApi.md#updateReceiptAsync) | **PUT** /api/v2/AccountingService/Receipts/{receiptId} | Updates a receipt |
 
 
@@ -246,6 +247,56 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchReceiptAsync"></a>
+# **patchReceiptAsync**
+> EmptyEnvelope patchReceiptAsync(receiptId, tenantId, operation)
+
+Patches a receipt
+
+Partially updates the specified receipt using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ReceiptsApi()
+val receiptId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchReceiptAsync(receiptId, tenantId, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ReceiptsApi#patchReceiptAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ReceiptsApi#patchReceiptAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **receiptId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateReceiptAsync"></a>

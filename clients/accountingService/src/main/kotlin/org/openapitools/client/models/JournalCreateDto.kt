@@ -27,9 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param description 
  * @param dateTime 
- * @param parentJournalID 
- * @param journalTypeID 
- * @param ledgerID 
+ * @param parentJournalId 
+ * @param journalTypeId 
+ * @param ledgerId 
  */
 
 
@@ -50,14 +50,14 @@ data class JournalCreateDto (
     @Json(name = "dateTime")
     val dateTime: java.time.OffsetDateTime? = null,
 
-    @Json(name = "parentJournalID")
-    val parentJournalID: kotlin.String? = null,
+    @Json(name = "parentJournalId")
+    val parentJournalId: kotlin.String? = null,
 
-    @Json(name = "journalTypeID")
-    val journalTypeID: kotlin.String? = null,
+    @Json(name = "journalTypeId")
+    val journalTypeId: kotlin.String? = null,
 
-    @Json(name = "ledgerID")
-    val ledgerID: kotlin.String? = null
+    @Json(name = "ledgerId")
+    val ledgerId: kotlin.String? = null
 
 ) {
 

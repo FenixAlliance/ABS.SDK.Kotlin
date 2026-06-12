@@ -24,6 +24,10 @@ All URIs are relative to *http://localhost*
 | [**getShareTransferReasonsCount**](SharesApi.md#getShareTransferReasonsCount) | **GET** /api/v2/AccountingService/Shares/TransferReasons/Count | Gets the current tenant share transfer reasons count |
 | [**getShareTransfers**](SharesApi.md#getShareTransfers) | **GET** /api/v2/AccountingService/Shares/Transfers | Gets the current tenant share transfers |
 | [**getShareTransfersCount**](SharesApi.md#getShareTransfersCount) | **GET** /api/v2/AccountingService/Shares/Transfers/Count | Gets the current tenant share transfers count |
+| [**patchShareClass**](SharesApi.md#patchShareClass) | **PATCH** /api/v2/AccountingService/Shares/Classes/{shareClassId} | Patches a share class |
+| [**patchShareIssuance**](SharesApi.md#patchShareIssuance) | **PATCH** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Patches a share issuance |
+| [**patchShareTransfer**](SharesApi.md#patchShareTransfer) | **PATCH** /api/v2/AccountingService/Shares/Transfers/{transferId} | Patches a share transfer |
+| [**patchShareTransferReason**](SharesApi.md#patchShareTransferReason) | **PATCH** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Patches a share transfer reason |
 | [**updateShareClass**](SharesApi.md#updateShareClass) | **PUT** /api/v2/AccountingService/Shares/Classes/{shareClassId} | Updates an existing share class |
 | [**updateShareIssuance**](SharesApi.md#updateShareIssuance) | **PUT** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Updates an existing share issuance |
 | [**updateShareTransfer**](SharesApi.md#updateShareTransfer) | **PUT** /api/v2/AccountingService/Shares/Transfers/{transferId} | Updates an existing share transfer |
@@ -1048,6 +1052,222 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchShareClass"></a>
+# **patchShareClass**
+> EmptyEnvelope patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a share class
+
+Partially updates a share class using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SharesApi()
+val shareClassId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SharesApi#patchShareClass")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SharesApi#patchShareClass")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **shareClassId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchShareIssuance"></a>
+# **patchShareIssuance**
+> EmptyEnvelope patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a share issuance
+
+Partially updates a share issuance using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SharesApi()
+val issuanceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SharesApi#patchShareIssuance")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SharesApi#patchShareIssuance")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **issuanceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchShareTransfer"></a>
+# **patchShareTransfer**
+> EmptyEnvelope patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a share transfer
+
+Partially updates a share transfer using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SharesApi()
+val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SharesApi#patchShareTransfer")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SharesApi#patchShareTransfer")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **transferId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchShareTransferReason"></a>
+# **patchShareTransferReason**
+> EmptyEnvelope patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a share transfer reason
+
+Partially updates a share transfer reason using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SharesApi()
+val reasonId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SharesApi#patchShareTransferReason")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SharesApi#patchShareTransferReason")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **reasonId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateShareClass"></a>

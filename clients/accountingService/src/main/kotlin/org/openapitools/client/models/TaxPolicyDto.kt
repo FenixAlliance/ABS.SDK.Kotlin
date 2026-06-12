@@ -50,7 +50,7 @@ import com.squareup.moshi.JsonClass
  * @param zero 
  * @param reduced 
  * @param withholding 
- * @param fiscalAuthorityID 
+ * @param fiscalAuthorityId 
  */
 
 
@@ -140,8 +140,8 @@ data class TaxPolicyDto (
     @Json(name = "withholding")
     val withholding: kotlin.Boolean? = null,
 
-    @Json(name = "fiscalAuthorityID")
-    val fiscalAuthorityID: kotlin.String? = null
+    @Json(name = "fiscalAuthorityId")
+    val fiscalAuthorityId: kotlin.String? = null
 
 ) {
 

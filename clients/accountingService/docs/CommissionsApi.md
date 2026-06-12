@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getPaymentCommissionAsync**](CommissionsApi.md#getPaymentCommissionAsync) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Get a payment commission by id |
 | [**getPaymentCommissionsAsync**](CommissionsApi.md#getPaymentCommissionsAsync) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions | Get all payment commissions for a tenant |
 | [**getPaymentCommissionsCountAsync**](CommissionsApi.md#getPaymentCommissionsCountAsync) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions/Count | Get the count of payment commissions for a tenant |
+| [**patchCommissionAsync**](CommissionsApi.md#patchCommissionAsync) | **PATCH** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Patch a commission |
+| [**patchPaymentCommissionAsync**](CommissionsApi.md#patchPaymentCommissionAsync) | **PATCH** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Patch a payment commission |
 | [**updateCommissionAsync**](CommissionsApi.md#updateCommissionAsync) | **PUT** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Update a commission |
 | [**updatePaymentCommissionAsync**](CommissionsApi.md#updatePaymentCommissionAsync) | **PUT** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Update a payment commission |
 
@@ -528,6 +530,114 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCommissionAsync"></a>
+# **patchCommissionAsync**
+> EmptyEnvelope patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a commission
+
+Partially updates an existing commission.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CommissionsApi()
+val commissionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CommissionsApi#patchCommissionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CommissionsApi#patchCommissionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **commissionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchPaymentCommissionAsync"></a>
+# **patchPaymentCommissionAsync**
+> EmptyEnvelope patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a payment commission
+
+Partially updates an existing payment commission.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CommissionsApi()
+val paymentCommissionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CommissionsApi#patchPaymentCommissionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CommissionsApi#patchPaymentCommissionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **paymentCommissionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCommissionAsync"></a>

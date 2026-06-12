@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 | [**getTransactionCategory**](TransactionsApi.md#getTransactionCategory) | **GET** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Get transaction category by ID |
 | [**getTransactions**](TransactionsApi.md#getTransactions) | **GET** /api/v2/AccountingService/Transactions | Get all transactions for a tenant |
 | [**getTransactionsCount**](TransactionsApi.md#getTransactionsCount) | **GET** /api/v2/AccountingService/Transactions/Count | Get transactions count |
+| [**patchTransaction**](TransactionsApi.md#patchTransaction) | **PATCH** /api/v2/AccountingService/Transactions/{transactionId} | Patch a transaction |
+| [**patchTransactionCategory**](TransactionsApi.md#patchTransactionCategory) | **PATCH** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Patch a transaction category |
 | [**updateTransaction**](TransactionsApi.md#updateTransaction) | **PUT** /api/v2/AccountingService/Transactions/{transactionId} | Update a transaction |
 | [**updateTransactionCategory**](TransactionsApi.md#updateTransactionCategory) | **PUT** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Update a transaction category |
 
@@ -528,6 +530,114 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchTransaction"></a>
+# **patchTransaction**
+> EmptyEnvelope patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a transaction
+
+Partially updates an existing transaction identified by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TransactionsApi()
+val transactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TransactionsApi#patchTransaction")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TransactionsApi#patchTransaction")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **transactionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchTransactionCategory"></a>
+# **patchTransactionCategory**
+> EmptyEnvelope patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a transaction category
+
+Partially updates an existing transaction category identified by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TransactionsApi()
+val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TransactionsApi#patchTransactionCategory")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TransactionsApi#patchTransactionCategory")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **categoryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTransaction"></a>

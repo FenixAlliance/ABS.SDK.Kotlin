@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getExpenseClaim**](ExpenseClaimsApi.md#getExpenseClaim) | **GET** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Get an expense claim by id |
 | [**getExpenseClaims**](ExpenseClaimsApi.md#getExpenseClaims) | **GET** /api/v2/AccountingService/ExpenseClaims | Get all expense claims for a tenant |
 | [**getExpenseClaimsCount**](ExpenseClaimsApi.md#getExpenseClaimsCount) | **GET** /api/v2/AccountingService/ExpenseClaims/Count | Get the count of expense claims for a tenant |
+| [**patchExpenseClaim**](ExpenseClaimsApi.md#patchExpenseClaim) | **PATCH** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Patch an expense claim |
 | [**updateExpenseClaim**](ExpenseClaimsApi.md#updateExpenseClaim) | **PUT** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Update an expense claim |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchExpenseClaim"></a>
+# **patchExpenseClaim**
+> EmptyEnvelope patchExpenseClaim(expenseClaimId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an expense claim
+
+Partially updates an existing expense claim.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ExpenseClaimsApi()
+val expenseClaimId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchExpenseClaim(expenseClaimId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ExpenseClaimsApi#patchExpenseClaim")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ExpenseClaimsApi#patchExpenseClaim")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **expenseClaimId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateExpenseClaim"></a>

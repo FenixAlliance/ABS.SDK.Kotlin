@@ -27,8 +27,6 @@ import com.squareup.moshi.JsonClass
  * @param name 
  * @param description 
  * @param dateTime 
- * @param tenantId 
- * @param enrollmentId 
  * @param ledgerTypeId 
  */
 
@@ -49,12 +47,6 @@ data class CreateLedgerDto (
 
     @Json(name = "dateTime")
     val dateTime: java.time.OffsetDateTime? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "ledgerTypeId")
     val ledgerTypeId: kotlin.String? = null

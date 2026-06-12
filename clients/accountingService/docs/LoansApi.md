@@ -19,6 +19,9 @@ All URIs are relative to *http://localhost*
 | [**getLoanTypesCountAsync**](LoansApi.md#getLoanTypesCountAsync) | **GET** /api/v2/AccountingService/Loans/Types/Count | Counts loan types |
 | [**getLoansAsync**](LoansApi.md#getLoansAsync) | **GET** /api/v2/AccountingService/Loans | Gets all loans |
 | [**getLoansCountAsync**](LoansApi.md#getLoansCountAsync) | **GET** /api/v2/AccountingService/Loans/Count | Counts loans |
+| [**patchLoanApplicationAsync**](LoansApi.md#patchLoanApplicationAsync) | **PATCH** /api/v2/AccountingService/Loans/Applications/{applicationId} | Patches a loan application |
+| [**patchLoanAsync**](LoansApi.md#patchLoanAsync) | **PATCH** /api/v2/AccountingService/Loans/{loanId} | Patches a loan |
+| [**patchLoanTypeAsync**](LoansApi.md#patchLoanTypeAsync) | **PATCH** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Patches a loan type |
 | [**updateLoanApplicationAsync**](LoansApi.md#updateLoanApplicationAsync) | **PUT** /api/v2/AccountingService/Loans/Applications/{applicationId} | Updates a loan application |
 | [**updateLoanAsync**](LoansApi.md#updateLoanAsync) | **PUT** /api/v2/AccountingService/Loans/{loanId} | Updates a loan |
 | [**updateLoanTypeAsync**](LoansApi.md#updateLoanTypeAsync) | **PUT** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Updates a loan type |
@@ -790,6 +793,168 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchLoanApplicationAsync"></a>
+# **patchLoanApplicationAsync**
+> EmptyEnvelope patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a loan application
+
+Partially updates the specified loan application using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = LoansApi()
+val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling LoansApi#patchLoanApplicationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling LoansApi#patchLoanApplicationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **applicationId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchLoanAsync"></a>
+# **patchLoanAsync**
+> EmptyEnvelope patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a loan
+
+Partially updates the specified loan using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = LoansApi()
+val loanId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling LoansApi#patchLoanAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling LoansApi#patchLoanAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **loanId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchLoanTypeAsync"></a>
+# **patchLoanTypeAsync**
+> EmptyEnvelope patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a loan type
+
+Partially updates the specified loan type using a JSON Patch document.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = LoansApi()
+val loanTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling LoansApi#patchLoanTypeAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling LoansApi#patchLoanTypeAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **loanTypeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateLoanApplicationAsync"></a>

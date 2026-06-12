@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getFiscalAuthorities**](FiscalAuthoritiesApi.md#getFiscalAuthorities) | **GET** /api/v2/AccountingService/Fiscals/Authorities | Get fiscal authorities |
 | [**getFiscalAuthoritiesCount**](FiscalAuthoritiesApi.md#getFiscalAuthoritiesCount) | **GET** /api/v2/AccountingService/Fiscals/Authorities/Count | Get fiscal authorities count |
 | [**getFiscalAuthority**](FiscalAuthoritiesApi.md#getFiscalAuthority) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Get fiscal authority by ID |
+| [**patchFiscalAuthorityAsync**](FiscalAuthoritiesApi.md#patchFiscalAuthorityAsync) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Patch a fiscal authority |
 | [**updateFiscalAuthority**](FiscalAuthoritiesApi.md#updateFiscalAuthority) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Update a fiscal authority |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchFiscalAuthorityAsync"></a>
+# **patchFiscalAuthorityAsync**
+> EmptyEnvelope patchFiscalAuthorityAsync(authorityId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a fiscal authority
+
+Partially updates a fiscal authority.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = FiscalAuthoritiesApi()
+val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchFiscalAuthorityAsync(authorityId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling FiscalAuthoritiesApi#patchFiscalAuthorityAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling FiscalAuthoritiesApi#patchFiscalAuthorityAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **authorityId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateFiscalAuthority"></a>

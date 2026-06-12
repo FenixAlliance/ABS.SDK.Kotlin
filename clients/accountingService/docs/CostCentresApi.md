@@ -18,6 +18,9 @@ All URIs are relative to *http://localhost*
 | [**getCostCentreGroupsCount**](CostCentresApi.md#getCostCentreGroupsCount) | **GET** /api/v2/AccountingService/CostCentres/CostCentreGroups/Count | Get the count of cost centre groups for a tenant |
 | [**getCostCentres**](CostCentresApi.md#getCostCentres) | **GET** /api/v2/AccountingService/CostCentres | Get all cost centres for a tenant |
 | [**getCostCentresCount**](CostCentresApi.md#getCostCentresCount) | **GET** /api/v2/AccountingService/CostCentres/Count | Get the count of cost centres for a tenant |
+| [**patchCostCentre**](CostCentresApi.md#patchCostCentre) | **PATCH** /api/v2/AccountingService/CostCentres/{costCentreId} | Patch a cost centre |
+| [**patchCostCentreBudget**](CostCentresApi.md#patchCostCentreBudget) | **PATCH** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Patch a cost centre budget |
+| [**patchCostCentreGroup**](CostCentresApi.md#patchCostCentreGroup) | **PATCH** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Patch a cost centre group |
 | [**updateCostCentre**](CostCentresApi.md#updateCostCentre) | **PUT** /api/v2/AccountingService/CostCentres/{costCentreId} | Update a cost centre |
 | [**updateCostCentreBudget**](CostCentresApi.md#updateCostCentreBudget) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Update a cost centre budget |
 | [**updateCostCentreGroup**](CostCentresApi.md#updateCostCentreGroup) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Update a cost centre group |
@@ -739,6 +742,168 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchCostCentre"></a>
+# **patchCostCentre**
+> EmptyEnvelope patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a cost centre
+
+Partially updates an existing cost centre.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CostCentresApi()
+val costCentreId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CostCentresApi#patchCostCentre")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CostCentresApi#patchCostCentre")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **costCentreId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchCostCentreBudget"></a>
+# **patchCostCentreBudget**
+> EmptyEnvelope patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a cost centre budget
+
+Partially updates an existing cost centre budget.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CostCentresApi()
+val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CostCentresApi#patchCostCentreBudget")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CostCentresApi#patchCostCentreBudget")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **budgetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchCostCentreGroup"></a>
+# **patchCostCentreGroup**
+> EmptyEnvelope patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a cost centre group
+
+Partially updates an existing cost centre group.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CostCentresApi()
+val groupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CostCentresApi#patchCostCentreGroup")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CostCentresApi#patchCostCentreGroup")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **groupId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateCostCentre"></a>

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getGrantDetailsAsync**](GrantsApi.md#getGrantDetailsAsync) | **GET** /api/v2/AccountingService/Grants/{grantId} | Get grant by ID |
 | [**getGrantsAsync**](GrantsApi.md#getGrantsAsync) | **GET** /api/v2/AccountingService/Grants | Get all grants |
 | [**getGrantsCountAsync**](GrantsApi.md#getGrantsCountAsync) | **GET** /api/v2/AccountingService/Grants/Count | Count grants |
+| [**patchGrantAsync**](GrantsApi.md#patchGrantAsync) | **PATCH** /api/v2/AccountingService/Grants/{grantId} | Patch a grant |
 | [**updateGrantAsync**](GrantsApi.md#updateGrantAsync) | **PUT** /api/v2/AccountingService/Grants/{grantId} | Update grant |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchGrantAsync"></a>
+# **patchGrantAsync**
+> EmptyEnvelope patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a grant
+
+Partially updates a grant.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = GrantsApi()
+val grantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling GrantsApi#patchGrantAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling GrantsApi#patchGrantAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **grantId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateGrantAsync"></a>

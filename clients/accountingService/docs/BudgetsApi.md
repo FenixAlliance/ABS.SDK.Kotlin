@@ -13,6 +13,8 @@ All URIs are relative to *http://localhost*
 | [**getBudgetDetailsAsync**](BudgetsApi.md#getBudgetDetailsAsync) | **GET** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id |
 | [**getBudgetsAsync**](BudgetsApi.md#getBudgetsAsync) | **GET** /api/v2/AccountingService/Budgets | Gets all budgets |
 | [**getBudgetsCountAsync**](BudgetsApi.md#getBudgetsCountAsync) | **GET** /api/v2/AccountingService/Budgets/Count | Get the count of budgets |
+| [**patchBudgetAccountEntryAsync**](BudgetsApi.md#patchBudgetAccountEntryAsync) | **PATCH** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Patches a budget account entry |
+| [**patchBudgetAsync**](BudgetsApi.md#patchBudgetAsync) | **PATCH** /api/v2/AccountingService/Budgets/{budgetId} | Patches a budget |
 | [**updateBudgetAccountEntryAsync**](BudgetsApi.md#updateBudgetAccountEntryAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry |
 | [**updateBudgetAsync**](BudgetsApi.md#updateBudgetAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget |
 
@@ -485,6 +487,116 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchBudgetAccountEntryAsync"></a>
+# **patchBudgetAccountEntryAsync**
+> EmptyEnvelope patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a budget account entry
+
+Partially update a budget account entry using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BudgetsApi()
+val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BudgetsApi#patchBudgetAccountEntryAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BudgetsApi#patchBudgetAccountEntryAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **budgetId** | **java.util.UUID**|  | |
+| **entryId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchBudgetAsync"></a>
+# **patchBudgetAsync**
+> EmptyEnvelope patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a budget
+
+Partially update a budget using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BudgetsApi()
+val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BudgetsApi#patchBudgetAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BudgetsApi#patchBudgetAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **budgetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateBudgetAccountEntryAsync"></a>

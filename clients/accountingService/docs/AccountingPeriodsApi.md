@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getAccountingPeriod**](AccountingPeriodsApi.md#getAccountingPeriod) | **GET** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Gets the current tenant accounting period |
 | [**getAccountingPeriods**](AccountingPeriodsApi.md#getAccountingPeriods) | **GET** /api/v2/AccountingService/AccountingPeriods | Get all accounting periods for a tenant |
 | [**getAccountingPeriodsCountAsync**](AccountingPeriodsApi.md#getAccountingPeriodsCountAsync) | **GET** /api/v2/AccountingService/AccountingPeriods/Count | Gets the current tenant accounting periods count |
+| [**patchAccountingPeriodAsync**](AccountingPeriodsApi.md#patchAccountingPeriodAsync) | **PATCH** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Patch an accounting period |
 | [**updateAccountingPeriod**](AccountingPeriodsApi.md#updateAccountingPeriod) | **PUT** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Updates an existing accounting period |
 
 
@@ -266,6 +267,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAccountingPeriodAsync"></a>
+# **patchAccountingPeriodAsync**
+> EmptyEnvelope patchAccountingPeriodAsync(accountingPeriodId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an accounting period
+
+Partially updates an accounting period.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = AccountingPeriodsApi()
+val accountingPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAccountingPeriodAsync(accountingPeriodId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AccountingPeriodsApi#patchAccountingPeriodAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AccountingPeriodsApi#patchAccountingPeriodAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountingPeriodId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAccountingPeriod"></a>

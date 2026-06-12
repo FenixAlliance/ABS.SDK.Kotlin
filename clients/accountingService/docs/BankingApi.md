@@ -24,6 +24,10 @@ All URIs are relative to *http://localhost*
 | [**getBankTransactionsCount**](BankingApi.md#getBankTransactionsCount) | **GET** /api/v2/AccountingService/Banking/{bankId}/Transactions/Count | Gets the current tenant bank transactions count |
 | [**getBanks**](BankingApi.md#getBanks) | **GET** /api/v2/AccountingService/Banking | Gets the current tenant banks |
 | [**getBanksCount**](BankingApi.md#getBanksCount) | **GET** /api/v2/AccountingService/Banking/Count | Gets the current tenant banks count |
+| [**patchBank**](BankingApi.md#patchBank) | **PATCH** /api/v2/AccountingService/Banking/{bankId} | Patches a bank |
+| [**patchBankAccount**](BankingApi.md#patchBankAccount) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Patches a bank account |
+| [**patchBankGuarantee**](BankingApi.md#patchBankGuarantee) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Patches a bank guarantee |
+| [**patchBankTransaction**](BankingApi.md#patchBankTransaction) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Transactions/{transactionId} | Patches a bank transaction |
 | [**updateBank**](BankingApi.md#updateBank) | **PUT** /api/v2/AccountingService/Banking/{bankId} | Updates a bank |
 | [**updateBankAccount**](BankingApi.md#updateBankAccount) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Updates a bank account |
 | [**updateBankGuarantee**](BankingApi.md#updateBankGuarantee) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Updates a bank guarantee |
@@ -1078,6 +1082,228 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchBank"></a>
+# **patchBank**
+> EmptyEnvelope patchBank(bankId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a bank
+
+Partially update a bank using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BankingApi()
+val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBank(bankId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BankingApi#patchBank")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BankingApi#patchBank")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **bankId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchBankAccount"></a>
+# **patchBankAccount**
+> EmptyEnvelope patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a bank account
+
+Partially update a bank account using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BankingApi()
+val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BankingApi#patchBankAccount")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BankingApi#patchBankAccount")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **bankId** | **java.util.UUID**|  | |
+| **accountId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchBankGuarantee"></a>
+# **patchBankGuarantee**
+> EmptyEnvelope patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a bank guarantee
+
+Partially update a bank guarantee using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BankingApi()
+val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val guaranteeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BankingApi#patchBankGuarantee")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BankingApi#patchBankGuarantee")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **bankId** | **java.util.UUID**|  | |
+| **guaranteeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchBankTransaction"></a>
+# **patchBankTransaction**
+> EmptyEnvelope patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, operation)
+
+Patches a bank transaction
+
+Partially update a bank transaction using JSON Patch.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = BankingApi()
+val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val transactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling BankingApi#patchBankTransaction")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling BankingApi#patchBankTransaction")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **bankId** | **java.util.UUID**|  | |
+| **transactionId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateBank"></a>

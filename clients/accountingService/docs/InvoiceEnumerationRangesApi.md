@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**deleteInvoiceEnumerationRangeAsync**](InvoiceEnumerationRangesApi.md#deleteInvoiceEnumerationRangeAsync) | **DELETE** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Delete an invoice enumeration range |
 | [**getInvoiceEnumerationRangeDetailsAsync**](InvoiceEnumerationRangesApi.md#getInvoiceEnumerationRangeDetailsAsync) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Get invoice enumeration range by ID |
 | [**getInvoiceEnumerationRangesAsync**](InvoiceEnumerationRangesApi.md#getInvoiceEnumerationRangesAsync) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges | Get all invoice enumeration ranges |
+| [**patchInvoiceEnumerationRangeAsync**](InvoiceEnumerationRangesApi.md#patchInvoiceEnumerationRangeAsync) | **PATCH** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Patch an invoice enumeration range |
 | [**updateInvoiceEnumerationRangeAsync**](InvoiceEnumerationRangesApi.md#updateInvoiceEnumerationRangeAsync) | **PUT** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Update an invoice enumeration range |
 
 
@@ -215,6 +216,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchInvoiceEnumerationRangeAsync"></a>
+# **patchInvoiceEnumerationRangeAsync**
+> EmptyEnvelope patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an invoice enumeration range
+
+Partially updates an invoice enumeration range.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoiceEnumerationRangesApi()
+val rangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoiceEnumerationRangesApi#patchInvoiceEnumerationRangeAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoiceEnumerationRangesApi#patchInvoiceEnumerationRangeAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **rangeId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateInvoiceEnumerationRangeAsync"></a>

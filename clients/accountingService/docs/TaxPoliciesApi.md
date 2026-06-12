@@ -19,6 +19,9 @@ All URIs are relative to *http://localhost*
 | [**getTaxPoliciesByAuthority**](TaxPoliciesApi.md#getTaxPoliciesByAuthority) | **GET** /api/v2/AccountingService/TaxPolicies/ByAuthority/{authorityId} | Get tax policies by fiscal authority |
 | [**getTaxPoliciesCount**](TaxPoliciesApi.md#getTaxPoliciesCount) | **GET** /api/v2/AccountingService/TaxPolicies/Count | Get tax policies count |
 | [**getTaxPolicy**](TaxPoliciesApi.md#getTaxPolicy) | **GET** /api/v2/AccountingService/TaxPolicies/{id} | Get tax policy by ID |
+| [**patchAppliedTaxPolicyRecord**](TaxPoliciesApi.md#patchAppliedTaxPolicyRecord) | **PATCH** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/{appliedTaxPolicyRecordId} | Patch an applied tax policy record |
+| [**patchItemTaxPolicyRecord**](TaxPoliciesApi.md#patchItemTaxPolicyRecord) | **PATCH** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords/{itemTaxPolicyRecordId} | Patch an item tax policy record |
+| [**patchTaxPolicy**](TaxPoliciesApi.md#patchTaxPolicy) | **PATCH** /api/v2/AccountingService/TaxPolicies/{id} | Patch a tax policy |
 | [**updateAppliedTaxPolicyRecord**](TaxPoliciesApi.md#updateAppliedTaxPolicyRecord) | **PUT** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/{appliedTaxPolicyRecordId} | Update an applied tax policy record |
 | [**updateItemTaxPolicyRecord**](TaxPoliciesApi.md#updateItemTaxPolicyRecord) | **PUT** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords/{itemTaxPolicyRecordId} | Update an item tax policy record |
 | [**updateTaxPolicy**](TaxPoliciesApi.md#updateTaxPolicy) | **PUT** /api/v2/AccountingService/TaxPolicies/{id} | Update a tax policy |
@@ -810,6 +813,172 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="patchAppliedTaxPolicyRecord"></a>
+# **patchAppliedTaxPolicyRecord**
+> EmptyEnvelope patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an applied tax policy record
+
+Partially updates an existing applied tax policy record identified by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TaxPoliciesApi()
+val taxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val appliedTaxPolicyRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TaxPoliciesApi#patchAppliedTaxPolicyRecord")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TaxPoliciesApi#patchAppliedTaxPolicyRecord")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **taxPolicyId** | **java.util.UUID**|  | |
+| **appliedTaxPolicyRecordId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchItemTaxPolicyRecord"></a>
+# **patchItemTaxPolicyRecord**
+> EmptyEnvelope patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+
+Patch an item tax policy record
+
+Partially updates an existing item tax policy record identified by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TaxPoliciesApi()
+val taxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val itemTaxPolicyRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TaxPoliciesApi#patchItemTaxPolicyRecord")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TaxPoliciesApi#patchItemTaxPolicyRecord")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **taxPolicyId** | **java.util.UUID**|  | |
+| **itemTaxPolicyRecordId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="patchTaxPolicy"></a>
+# **patchTaxPolicy**
+> EmptyEnvelope patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, operation)
+
+Patch a tax policy
+
+Partially updates an existing tax policy identified by its unique identifier.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TaxPoliciesApi()
+val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+try {
+    val result : EmptyEnvelope = apiInstance.patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, operation)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TaxPoliciesApi#patchTaxPolicy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TaxPoliciesApi#patchTaxPolicy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **id** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAppliedTaxPolicyRecord"></a>

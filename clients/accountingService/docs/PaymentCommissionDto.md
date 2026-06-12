@@ -19,7 +19,7 @@
 | **receiverWalletAccountId** | **kotlin.String** |  |  [optional] |
 | **emisorContactId** | **kotlin.String** |  |  [optional] |
 | **receiverContactId** | **kotlin.String** |  |  [optional] |
-| **paymentID** | **kotlin.String** |  |  [optional] |
+| **paymentId** | **kotlin.String** |  |  [optional] |
 
 
 
