@@ -99,6 +99,8 @@ import com.squareup.moshi.JsonClass
  * @param billingLocationId 
  * @param shippingLocationId 
  * @param qualifiedIdentifier 
+ * @param sellerBillingProfileId 
+ * @param buyerBillingProfileId 
  * @param costCalculationMethod 
  * @param freightTerms 
  * @param orderStatus 
@@ -341,6 +343,12 @@ data class ExtendedOrderDto (
 
     @Json(name = "qualifiedIdentifier")
     val qualifiedIdentifier: kotlin.String? = null,
+
+    @Json(name = "sellerBillingProfileId")
+    val sellerBillingProfileId: kotlin.String? = null,
+
+    @Json(name = "buyerBillingProfileId")
+    val buyerBillingProfileId: kotlin.String? = null,
 
     @Json(name = "costCalculationMethod")
     val costCalculationMethod: ExtendedOrderDto.CostCalculationMethod? = null,

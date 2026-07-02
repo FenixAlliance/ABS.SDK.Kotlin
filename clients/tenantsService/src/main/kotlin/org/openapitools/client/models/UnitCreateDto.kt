@@ -27,6 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param baseUnitAmount 
  * @param baseUnitId 
+ * @param unECECode 
  */
 
 
@@ -45,7 +46,10 @@ data class UnitCreateDto (
     val baseUnitAmount: kotlin.Double? = null,
 
     @Json(name = "baseUnitId")
-    val baseUnitId: kotlin.String? = null
+    val baseUnitId: kotlin.String? = null,
+
+    @Json(name = "unECECode")
+    val unECECode: kotlin.String? = null
 
 ) {
 

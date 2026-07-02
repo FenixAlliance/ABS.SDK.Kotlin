@@ -9,6 +9,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **baseUnitAmount** | **kotlin.Double** |  |  [optional] |
 | **baseUnitId** | **kotlin.String** |  |  [optional] |
+| **unECECode** | **kotlin.String** |  |  [optional] |
 
 
 

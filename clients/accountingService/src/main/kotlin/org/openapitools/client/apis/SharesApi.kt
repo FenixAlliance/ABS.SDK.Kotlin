@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.DecimalEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
@@ -60,7 +61,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
     }
 
@@ -1259,6 +1260,90 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/AccountingService/Shares/Issuances/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Sum tenant share issuance quantities
+     * Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return DecimalEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getShareIssuancesSum(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DecimalEnvelope {
+        val localVarResponse = getShareIssuancesSumWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Sum tenant share issuance quantities
+     * Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<DecimalEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getShareIssuancesSumWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getShareIssuancesSumRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, DecimalEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getShareIssuancesSum
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getShareIssuancesSumRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/AccountingService/Shares/Issuances/Sum",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

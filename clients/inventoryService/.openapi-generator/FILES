@@ -1,9 +1,7 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
-docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -21,8 +19,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/InventoryApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiClient.kt
@@ -42,7 +39,6 @@ src/main/kotlin/org/openapitools/client/infrastructure/Serializer.kt
 src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
-src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
 src/main/kotlin/org/openapitools/client/models/InfoRequest.kt

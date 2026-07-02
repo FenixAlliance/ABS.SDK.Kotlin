@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param email 
  * @param currencyId 
  * @param countryId 
+ * @param kind 
  * @param legalName 
  * @param phone 
  * @param webUrl 
@@ -64,6 +65,9 @@ data class TenantUpdateDto (
 
     @Json(name = "countryId")
     val countryId: kotlin.String,
+
+    @Json(name = "kind")
+    val kind: TenantUpdateDto.Kind? = null,
 
     @Json(name = "legalName")
     val legalName: kotlin.String? = null,
@@ -133,6 +137,16 @@ data class TenantUpdateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Organization,Individual
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Kind(val value: kotlin.String) {
+        @Json(name = "Organization") Organization("Organization"),
+        @Json(name = "Individual") Individual("Individual");
+    }
 
 }
 

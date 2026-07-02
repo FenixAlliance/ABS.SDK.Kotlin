@@ -1,6 +1,6 @@
 # PriceListsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID |
 | [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID |
 | [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
+| [**getPriceListPricesCountAsync**](PriceListsApi.md#getPriceListPricesCountAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/Count | Counts prices in a price list |
 | [**getPriceListsAsync**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
 | [**getPriceListsCountAsync**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
 | [**patchPriceListAsync**](PriceListsApi.md#patchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list |
@@ -353,6 +354,54 @@ try {
 ### Return type
 
 [**ItemPriceDtoListEnvelope**](ItemPriceDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getPriceListPricesCountAsync"></a>
+# **getPriceListPricesCountAsync**
+> Int32Envelope getPriceListPricesCountAsync(priceListId, tenantId)
+
+Counts prices in a price list
+
+Gets the count of price entries for a specific price list.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = PriceListsApi()
+val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : Int32Envelope = apiInstance.getPriceListPricesCountAsync(priceListId, tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PriceListsApi#getPriceListPricesCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PriceListsApi#getPriceListPricesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **priceListId** | **java.util.UUID**|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 

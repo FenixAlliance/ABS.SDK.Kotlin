@@ -1,6 +1,6 @@
 # UnitGroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -35,7 +35,7 @@ Creates a new unit within a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -53,7 +53,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
@@ -141,8 +141,8 @@ Deletes a unit from a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val unitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
+val unitId : kotlin.String = unitId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -159,8 +159,8 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
-| **unitId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
+| **unitId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -195,7 +195,7 @@ Deletes a unit group by its unique identifier.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -212,7 +212,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -247,8 +247,8 @@ Retrieves a single unit by its unique identifier within a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val unitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
+val unitId : kotlin.String = unitId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -265,8 +265,8 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
-| **unitId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
+| **unitId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -301,7 +301,7 @@ Retrieves a single unit group by its unique identifier.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -318,7 +318,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -453,7 +453,7 @@ Retrieves a list of units belonging to a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -470,7 +470,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -505,7 +505,7 @@ Returns the total count of units in a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -522,7 +522,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
@@ -557,8 +557,8 @@ Partially updates an existing unit within a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val unitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
+val unitId : kotlin.String = unitId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -576,8 +576,8 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
-| **unitId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
+| **unitId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
@@ -613,7 +613,7 @@ Partially updates an existing unit group by its unique identifier.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -631,7 +631,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
@@ -667,8 +667,8 @@ Updates an existing unit within a specific unit group.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val unitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
+val unitId : kotlin.String = unitId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -686,8 +686,8 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
-| **unitId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
+| **unitId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
@@ -723,7 +723,7 @@ Updates an existing unit group by its unique identifier.
 //import org.openapitools.client.models.*
 
 val apiInstance = UnitGroupsApi()
-val unitGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
@@ -741,7 +741,7 @@ try {
 ```
 
 ### Parameters
-| **unitGroupId** | **java.util.UUID**|  | |
+| **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |

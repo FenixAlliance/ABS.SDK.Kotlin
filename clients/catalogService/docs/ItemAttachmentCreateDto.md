@@ -16,7 +16,15 @@
 | **validResponse** | **kotlin.Boolean** |  |  [optional] |
 | **parentFileUploadId** | **kotlin.String** |  |  [optional] |
 | **filePath** | **kotlin.String** |  |  [optional] |
+| **publicAccessType** | [**inline**](#PublicAccessType) |  |  [optional] |
 | **itemId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="PublicAccessType"></a>
+## Enum: publicAccessType
+| Name | Value |
+| ---- | ----- |
+| publicAccessType | false, Container, Blob, Unknown |
 
 
 

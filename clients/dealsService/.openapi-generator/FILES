@@ -1,7 +1,6 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/ContactDto.md
 docs/DealUnitCreateDto.md
 docs/DealUnitDto.md
@@ -30,7 +29,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedDealUnitDto.md
 docs/ExtendedDealUnitDtoEnvelope.md
 docs/ExtendedDealUnitDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -52,10 +51,9 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/DealUnitFlowsApi.kt
 src/main/kotlin/org/openapitools/client/apis/DealUnitsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiClient.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiResponse.kt

@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.ContactCreateDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -26,6 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param type 
  * @param contactId 
+ * @param contact 
  * @param about 
  * @param avatarUrl 
  * @param `data` 
@@ -70,6 +72,9 @@ data class EmployeeProfileCreateDto (
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,
+
+    @Json(name = "contact")
+    val contact: ContactCreateDto? = null,
 
     @Json(name = "about")
     val about: kotlin.String? = null,

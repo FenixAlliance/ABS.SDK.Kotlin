@@ -10,16 +10,16 @@ docs/ActivityRecordDto.md
 docs/ActivityRecordDtoEnvelope.md
 docs/ActivityRecordDtoListEnvelope.md
 docs/ActivityRecordUpdateDto.md
+docs/ActivityRecordsApi.md
 docs/ActivityTypeCreateDto.md
 docs/ActivityTypeDto.md
 docs/ActivityTypeDtoEnvelope.md
 docs/ActivityTypeDtoListEnvelope.md
 docs/ActivityTypeUpdateDto.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -39,8 +39,8 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/ActivityFeedsApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/ActivityRecordsApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiClient.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiResponse.kt
@@ -88,3 +88,5 @@ src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/apis/ActivityRecordsApiTest.kt
+src/test/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApiTest.kt

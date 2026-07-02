@@ -17,6 +17,8 @@
 | **shippingTerms** | [**inline**](#ShippingTerms) |  |  [optional] |
 | **orderId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
+| **sellerBillingProfileId** | **kotlin.String** |  |  [optional] |
+| **buyerBillingProfileId** | **kotlin.String** |  |  [optional] |
 
 
 <a id="ShippingTerms"></a>

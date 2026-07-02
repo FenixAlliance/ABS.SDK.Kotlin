@@ -7,6 +7,7 @@
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **name** | **kotlin.String** |  |  [optional] |
+| **unECECode** | **kotlin.String** |  |  [optional] |
 | **unitGroupId** | **kotlin.String** |  |  [optional] |
 | **baseUnitAmount** | **kotlin.Double** |  |  [optional] |
 | **baseUnitId** | **kotlin.String** |  |  [optional] |

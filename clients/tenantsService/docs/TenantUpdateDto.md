@@ -8,6 +8,7 @@
 | **email** | **kotlin.String** |  |  |
 | **currencyId** | **kotlin.String** |  |  |
 | **countryId** | **kotlin.String** |  |  |
+| **kind** | [**inline**](#Kind) |  |  [optional] |
 | **legalName** | **kotlin.String** |  |  [optional] |
 | **phone** | **kotlin.String** |  |  [optional] |
 | **webUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
@@ -30,6 +31,13 @@
 | **languageId** | **kotlin.String** |  |  [optional] |
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="Kind"></a>
+## Enum: kind
+| Name | Value |
+| ---- | ----- |
+| kind | Organization, Individual |
 
 
 

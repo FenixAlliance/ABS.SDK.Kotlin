@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **status** | [**inline**](#Status) |  |  [optional] |
 | **remote** | **kotlin.Boolean** |  |  [optional] |
 | **expectedHireDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
@@ -56,6 +57,13 @@
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **countryStateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="Status"></a>
+## Enum: status
+| Name | Value |
+| ---- | ----- |
+| status | Draft, Published, Closed, Filled |
 
 
 

@@ -1,10 +1,9 @@
 README.md
 build.gradle
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -118,8 +117,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/InquiryRequestsApi.kt
 src/main/kotlin/org/openapitools/client/apis/KnowledgeArticlesApi.kt
 src/main/kotlin/org/openapitools/client/apis/MaintenanceVisitsApi.kt

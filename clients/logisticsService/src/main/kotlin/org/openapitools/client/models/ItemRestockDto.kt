@@ -28,6 +28,8 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param tenantId 
  * @param entryCount 
+ * @param sellerBillingProfileId 
+ * @param buyerBillingProfileId 
  */
 
 
@@ -49,7 +51,13 @@ data class ItemRestockDto (
     val tenantId: kotlin.String? = null,
 
     @Json(name = "entryCount")
-    val entryCount: kotlin.Int? = null
+    val entryCount: kotlin.Int? = null,
+
+    @Json(name = "sellerBillingProfileId")
+    val sellerBillingProfileId: kotlin.String? = null,
+
+    @Json(name = "buyerBillingProfileId")
+    val buyerBillingProfileId: kotlin.String? = null
 
 ) {
 

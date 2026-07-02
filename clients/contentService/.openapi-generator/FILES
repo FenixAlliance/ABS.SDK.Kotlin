@@ -56,7 +56,6 @@ docs/ClaimsIdentity.md
 docs/ClaimsPrincipal.md
 docs/ColorOptions.md
 docs/ColorScheme.md
-docs/CompletionsApi.md
 docs/ComputeClause.md
 docs/ComputeExpression.md
 docs/ComputeQueryOption.md
@@ -84,8 +83,8 @@ docs/ErrorEnvelope.md
 docs/EventInfo.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
+docs/FenixAllianceABSWebApi.md
 docs/FenixAllianceIntegrationsOptions.md
-docs/FenixAlliancePortalsWebsiteApi.md
 docs/FieldInfo.md
 docs/FilterClause.md
 docs/FilterQueryOption.md
@@ -296,8 +295,7 @@ src/main/kotlin/org/openapitools/client/apis/BlogPostCategoriesApi.kt
 src/main/kotlin/org/openapitools/client/apis/BlogPostTagsApi.kt
 src/main/kotlin/org/openapitools/client/apis/BlogPostsApi.kt
 src/main/kotlin/org/openapitools/client/apis/BusinessDomainsApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/LocalizationStringsApi.kt
 src/main/kotlin/org/openapitools/client/apis/MenuContextsApi.kt
 src/main/kotlin/org/openapitools/client/apis/PortalsApi.kt

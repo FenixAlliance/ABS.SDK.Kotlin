@@ -32,6 +32,11 @@ import com.squareup.moshi.JsonClass
  * @param postalCode 
  * @param businessName 
  * @param commercialName 
+ * @param verificationDigit 
+ * @param economicActivityCode 
+ * @param economicActivityScheme 
+ * @param isPrimary 
+ * @param establishmentCode 
  * @param ticker 
  * @param duns 
  * @param isPublicCompany 
@@ -77,6 +82,21 @@ data class BillingProfileUpdateDto (
 
     @Json(name = "commercialName")
     val commercialName: kotlin.String? = null,
+
+    @Json(name = "verificationDigit")
+    val verificationDigit: kotlin.String? = null,
+
+    @Json(name = "economicActivityCode")
+    val economicActivityCode: kotlin.String? = null,
+
+    @Json(name = "economicActivityScheme")
+    val economicActivityScheme: kotlin.String? = null,
+
+    @Json(name = "isPrimary")
+    val isPrimary: kotlin.Boolean? = null,
+
+    @Json(name = "establishmentCode")
+    val establishmentCode: kotlin.String? = null,
 
     @Json(name = "ticker")
     val ticker: kotlin.String? = null,

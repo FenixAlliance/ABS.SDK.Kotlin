@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param status 
  * @param remote 
  * @param expectedHireDate 
  * @param title 
@@ -84,6 +85,9 @@ data class JobOfferDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "status")
+    val status: JobOfferDto.Status? = null,
 
     @Json(name = "remote")
     val remote: kotlin.Boolean? = null,
@@ -237,6 +241,18 @@ data class JobOfferDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Draft,Published,Closed,Filled
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Status(val value: kotlin.String) {
+        @Json(name = "Draft") Draft("Draft"),
+        @Json(name = "Published") Published("Published"),
+        @Json(name = "Closed") Closed("Closed"),
+        @Json(name = "Filled") Filled("Filled");
+    }
 
 }
 

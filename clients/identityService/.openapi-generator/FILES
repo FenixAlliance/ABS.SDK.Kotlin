@@ -5,9 +5,8 @@ docs/ApplicationsApi.md
 docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
-docs/CompletionsApi.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -43,8 +42,7 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/ApplicationsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CheckerApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/OAuthApi.kt
 src/main/kotlin/org/openapitools/client/apis/ResourceApi.kt
 src/main/kotlin/org/openapitools/client/apis/UserInfoApi.kt

@@ -3,7 +3,7 @@ build.gradle
 docs/AccessTokenResponse.md
 docs/AverageDto.md
 docs/AverageDtoEnvelope.md
-docs/CompletionsApi.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/CountDto.md
 docs/CountDtoEnvelope.md
@@ -107,7 +107,7 @@ docs/CourseWikisApi.md
 docs/CoursesApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -136,7 +136,6 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 settings.gradle
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseArticlesApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseAssignmentComponentsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseAssignmentTypesApi.kt
@@ -160,7 +159,7 @@ src/main/kotlin/org/openapitools/client/apis/CourseUnitsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseUpdatesApi.kt
 src/main/kotlin/org/openapitools/client/apis/CourseWikisApi.kt
 src/main/kotlin/org/openapitools/client/apis/CoursesApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/InstructorProfilesApi.kt
 src/main/kotlin/org/openapitools/client/apis/MeApi.kt
 src/main/kotlin/org/openapitools/client/apis/StudentProfilesApi.kt
@@ -184,6 +183,7 @@ src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
 src/main/kotlin/org/openapitools/client/models/AverageDto.kt
 src/main/kotlin/org/openapitools/client/models/AverageDtoEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/ContactCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/ContactDto.kt
 src/main/kotlin/org/openapitools/client/models/CountDto.kt
 src/main/kotlin/org/openapitools/client/models/CountDtoEnvelope.kt
@@ -284,3 +284,4 @@ src/main/kotlin/org/openapitools/client/models/StudentProfileDtoIReadOnlyListEnv
 src/main/kotlin/org/openapitools/client/models/StudentProfileUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
+src/test/kotlin/org/openapitools/client/models/ContactCreateDtoTest.kt

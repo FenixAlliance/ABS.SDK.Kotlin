@@ -77,6 +77,8 @@
 | **billingLocationId** | **kotlin.String** |  |  [optional] |
 | **shippingLocationId** | **kotlin.String** |  |  [optional] |
 | **qualifiedIdentifier** | **kotlin.String** |  |  [optional] |
+| **sellerBillingProfileId** | **kotlin.String** |  |  [optional] |
+| **buyerBillingProfileId** | **kotlin.String** |  |  [optional] |
 | **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **freightTerms** | [**inline**](#FreightTerms) |  |  [optional] |
 | **orderStatus** | [**inline**](#OrderStatus) |  |  [optional] |

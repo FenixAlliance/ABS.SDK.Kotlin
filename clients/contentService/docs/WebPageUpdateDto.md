@@ -58,6 +58,7 @@
 | **cornerstoneContent** | **kotlin.Boolean** |  |  [optional] |
 | **isEssentialContent** | **kotlin.Boolean** |  |  [optional] |
 | **allowSearchEngineIndexing** | **kotlin.Boolean** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
 | **webTemplateId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentId** | **kotlin.String** |  |  [optional] |
 | **isHomePage** | **kotlin.Boolean** |  |  [optional] |

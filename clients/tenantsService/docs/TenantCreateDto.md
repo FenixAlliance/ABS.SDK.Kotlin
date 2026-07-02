@@ -10,6 +10,7 @@
 | **countryId** | **kotlin.String** |  |  |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **kind** | [**inline**](#Kind) |  |  [optional] |
 | **legalName** | **kotlin.String** |  |  [optional] |
 | **phone** | **kotlin.String** |  |  [optional] |
 | **webUrl** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
@@ -27,6 +28,13 @@
 | **businessSegmentId** | **kotlin.String** |  |  [optional] |
 | **businessIndustryId** | **kotlin.String** |  |  [optional] |
 | **businessSizeId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="Kind"></a>
+## Enum: kind
+| Name | Value |
+| ---- | ----- |
+| kind | Organization, Individual |
 
 
 

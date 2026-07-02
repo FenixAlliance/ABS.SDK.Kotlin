@@ -31,6 +31,8 @@ import com.squareup.moshi.JsonClass
  * @param hash 
  * @param fileUrl 
  * @param filePath 
+ * @param storageKey 
+ * @param storageProviderKey 
  * @param fileName 
  * @param `abstract` 
  * @param keyWords 
@@ -44,6 +46,14 @@ import com.squareup.moshi.JsonClass
  * @param enrollmentId 
  * @param socialProfileId 
  * @param folderPath 
+ * @param scanStatus 
+ * @param thumbnailStatus 
+ * @param hasThumbnail 
+ * @param thumbnailStorageKey 
+ * @param thumbnailContentType 
+ * @param thumbnailWidth 
+ * @param thumbnailHeight 
+ * @param publicAccessType 
  * @param supportRequestId 
  */
 
@@ -76,6 +86,12 @@ data class SupportRequestAttachmentDto (
 
     @Json(name = "filePath")
     val filePath: kotlin.String? = null,
+
+    @Json(name = "storageKey")
+    val storageKey: kotlin.String? = null,
+
+    @Json(name = "storageProviderKey")
+    val storageProviderKey: kotlin.String? = null,
 
     @Json(name = "fileName")
     val fileName: kotlin.String? = null,
@@ -116,11 +132,74 @@ data class SupportRequestAttachmentDto (
     @Json(name = "folderPath")
     val folderPath: kotlin.String? = null,
 
+    @Json(name = "scanStatus")
+    val scanStatus: SupportRequestAttachmentDto.ScanStatus? = null,
+
+    @Json(name = "thumbnailStatus")
+    val thumbnailStatus: SupportRequestAttachmentDto.ThumbnailStatus? = null,
+
+    @Json(name = "hasThumbnail")
+    val hasThumbnail: kotlin.Boolean? = null,
+
+    @Json(name = "thumbnailStorageKey")
+    val thumbnailStorageKey: kotlin.String? = null,
+
+    @Json(name = "thumbnailContentType")
+    val thumbnailContentType: kotlin.String? = null,
+
+    @Json(name = "thumbnailWidth")
+    val thumbnailWidth: kotlin.Int? = null,
+
+    @Json(name = "thumbnailHeight")
+    val thumbnailHeight: kotlin.Int? = null,
+
+    @Json(name = "publicAccessType")
+    val publicAccessType: SupportRequestAttachmentDto.PublicAccessType? = null,
+
     @Json(name = "supportRequestId")
     val supportRequestId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: NotRequired,Pending,Clean,Infected,Failed,Quarantined
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ScanStatus(val value: kotlin.String) {
+        @Json(name = "NotRequired") NotRequired("NotRequired"),
+        @Json(name = "Pending") Pending("Pending"),
+        @Json(name = "Clean") Clean("Clean"),
+        @Json(name = "Infected") Infected("Infected"),
+        @Json(name = "Failed") Failed("Failed"),
+        @Json(name = "Quarantined") Quarantined("Quarantined");
+    }
+    /**
+     * 
+     *
+     * Values: NotRequired,Pending,Ready,Failed,Unsupported
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ThumbnailStatus(val value: kotlin.String) {
+        @Json(name = "NotRequired") NotRequired("NotRequired"),
+        @Json(name = "Pending") Pending("Pending"),
+        @Json(name = "Ready") Ready("Ready"),
+        @Json(name = "Failed") Failed("Failed"),
+        @Json(name = "Unsupported") Unsupported("Unsupported");
+    }
+    /**
+     * 
+     *
+     * Values: `false`,Container,Blob,Unknown
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PublicAccessType(val value: kotlin.String) {
+        @Json(name = "false") `false`("false"),
+        @Json(name = "Container") Container("Container"),
+        @Json(name = "Blob") Blob("Blob"),
+        @Json(name = "Unknown") Unknown("Unknown");
+    }
 
 }
 

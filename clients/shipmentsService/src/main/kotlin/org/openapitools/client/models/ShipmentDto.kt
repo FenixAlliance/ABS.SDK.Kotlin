@@ -35,6 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param shippingTerms 
  * @param orderId 
  * @param tenantId 
+ * @param sellerBillingProfileId 
+ * @param buyerBillingProfileId 
  */
 
 
@@ -77,7 +79,13 @@ data class ShipmentDto (
     val orderId: kotlin.String? = null,
 
     @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "sellerBillingProfileId")
+    val sellerBillingProfileId: kotlin.String? = null,
+
+    @Json(name = "buyerBillingProfileId")
+    val buyerBillingProfileId: kotlin.String? = null
 
 ) {
 

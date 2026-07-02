@@ -47,6 +47,11 @@
 | **postalCode** | **kotlin.String** |  |  [optional] |
 | **businessName** | **kotlin.String** |  |  [optional] |
 | **commercialName** | **kotlin.String** |  |  [optional] |
+| **verificationDigit** | **kotlin.String** |  |  [optional] |
+| **economicActivityCode** | **kotlin.String** |  |  [optional] |
+| **economicActivityScheme** | **kotlin.String** |  |  [optional] |
+| **isPrimary** | **kotlin.Boolean** |  |  [optional] |
+| **establishmentCode** | **kotlin.String** |  |  [optional] |
 | **ticker** | **kotlin.String** |  |  [optional] |
 | **duns** | **kotlin.String** |  |  [optional] |
 | **isPublicCompany** | **kotlin.Boolean** |  |  [optional] |

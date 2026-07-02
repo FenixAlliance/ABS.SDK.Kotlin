@@ -7,6 +7,7 @@
 | **name** | **kotlin.String** |  |  [optional] |
 | **baseUnitAmount** | **kotlin.Double** |  |  [optional] |
 | **baseUnitId** | **kotlin.String** |  |  [optional] |
+| **unECECode** | **kotlin.String** |  |  [optional] |
 
 
 

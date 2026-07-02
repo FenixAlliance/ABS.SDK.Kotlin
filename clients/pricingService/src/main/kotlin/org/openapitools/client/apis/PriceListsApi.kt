@@ -52,7 +52,7 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
     }
 
@@ -605,6 +605,83 @@ class PriceListsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Counts prices in a price list
+     * Gets the count of price entries for a specific price list.
+     * @param priceListId 
+     * @param tenantId 
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPriceListPricesCountAsync(priceListId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
+        val localVarResponse = getPriceListPricesCountAsyncWithHttpInfo(priceListId = priceListId, tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Counts prices in a price list
+     * Gets the count of price entries for a specific price list.
+     * @param priceListId 
+     * @param tenantId 
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPriceListPricesCountAsyncWithHttpInfo(priceListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPriceListPricesCountAsyncRequestConfig(priceListId = priceListId, tenantId = tenantId)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPriceListPricesCountAsync
+     *
+     * @param priceListId 
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getPriceListPricesCountAsyncRequestConfig(priceListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/Count".replace("{"+"priceListId"+"}", encodeURIComponent(priceListId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

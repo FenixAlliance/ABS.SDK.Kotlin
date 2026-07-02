@@ -22,6 +22,11 @@
 | **contactId** | **kotlin.String** |  |  [optional] |
 | **address1** | **kotlin.String** |  |  [optional] |
 | **address2** | **kotlin.String** |  |  [optional] |
+| **verificationDigit** | **kotlin.String** |  |  [optional] |
+| **economicActivityCode** | **kotlin.String** |  |  [optional] |
+| **economicActivityScheme** | **kotlin.String** |  |  [optional] |
+| **isPrimary** | **kotlin.Boolean** |  |  [optional] |
+| **establishmentCode** | **kotlin.String** |  |  [optional] |
 | **ticker** | **kotlin.String** |  |  [optional] |
 | **duns** | **kotlin.String** |  |  [optional] |
 | **isPublicCompany** | **kotlin.Boolean** |  |  [optional] |

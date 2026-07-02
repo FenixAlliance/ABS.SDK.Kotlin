@@ -28,6 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param countryId 
  * @param id 
  * @param timestamp 
+ * @param kind 
  * @param legalName 
  * @param phone 
  * @param webUrl 
@@ -67,6 +68,9 @@ data class TenantCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "kind")
+    val kind: TenantCreateDto.Kind? = null,
 
     @Json(name = "legalName")
     val legalName: kotlin.String? = null,
@@ -121,6 +125,16 @@ data class TenantCreateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Organization,Individual
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Kind(val value: kotlin.String) {
+        @Json(name = "Organization") Organization("Organization"),
+        @Json(name = "Individual") Individual("Individual");
+    }
 
 }
 

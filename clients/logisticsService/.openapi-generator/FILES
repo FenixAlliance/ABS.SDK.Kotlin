@@ -7,7 +7,7 @@ docs/AirwayBillDtoEnvelope.md
 docs/AirwayBillDtoListEnvelope.md
 docs/AirwayBillUpdateDto.md
 docs/AirwayBillsApi.md
-docs/CompletionsApi.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/DeliveryNoteCreateDto.md
 docs/DeliveryNoteDto.md
@@ -18,7 +18,7 @@ docs/DeliveryNotesApi.md
 docs/DisputeProofOfDeliveryRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -161,9 +161,8 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/AirwayBillsApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
 src/main/kotlin/org/openapitools/client/apis/DeliveryNotesApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/ItemPackingSlipsApi.kt
 src/main/kotlin/org/openapitools/client/apis/ItemPickListsApi.kt
 src/main/kotlin/org/openapitools/client/apis/ItemRestocksApi.kt
@@ -202,6 +201,7 @@ src/main/kotlin/org/openapitools/client/models/AirwayBillDto.kt
 src/main/kotlin/org/openapitools/client/models/AirwayBillDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/AirwayBillDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/AirwayBillUpdateDto.kt
+src/main/kotlin/org/openapitools/client/models/ContactCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/ContactDto.kt
 src/main/kotlin/org/openapitools/client/models/DeliveryNoteCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/DeliveryNoteDto.kt
@@ -332,3 +332,4 @@ src/main/kotlin/org/openapitools/client/models/WaybillLineCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineDto.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineUpdateDto.kt
+src/test/kotlin/org/openapitools/client/models/ContactCreateDtoTest.kt

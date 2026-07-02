@@ -34,6 +34,7 @@ import com.squareup.moshi.JsonClass
  * @param validResponse 
  * @param parentFileUploadId 
  * @param filePath 
+ * @param publicAccessType 
  * @param metadata 
  * @param supportRequestId 
  */
@@ -77,6 +78,9 @@ data class SupportRequestAttachmentCreateDto (
     @Json(name = "filePath")
     val filePath: kotlin.String? = null,
 
+    @Json(name = "publicAccessType")
+    val publicAccessType: SupportRequestAttachmentCreateDto.PublicAccessType? = null,
+
     @Json(name = "metadata")
     val metadata: kotlin.String? = null,
 
@@ -85,6 +89,18 @@ data class SupportRequestAttachmentCreateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: `false`,Container,Blob,Unknown
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PublicAccessType(val value: kotlin.String) {
+        @Json(name = "false") `false`("false"),
+        @Json(name = "Container") Container("Container"),
+        @Json(name = "Blob") Blob("Blob"),
+        @Json(name = "Unknown") Unknown("Unknown");
+    }
 
 }
 

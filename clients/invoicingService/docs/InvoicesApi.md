@@ -1,6 +1,6 @@
 # InvoicesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -40,6 +40,8 @@ All URIs are relative to *http://localhost*
 | [**getInvoiceReferencesCount**](InvoicesApi.md#getInvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references. |
 | [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices. |
 | [**getInvoicesCount**](InvoicesApi.md#getInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices. |
+| [**getPurchaseInvoicesSum**](InvoicesApi.md#getPurchaseInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals. |
+| [**getSalesInvoicesSum**](InvoicesApi.md#getSalesInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals. |
 | [**patchInvoice**](InvoicesApi.md#patchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice. |
 | [**patchInvoiceAdjustment**](InvoicesApi.md#patchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment. |
 | [**patchInvoiceLine**](InvoicesApi.md#patchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line. |
@@ -1808,6 +1810,98 @@ try {
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getPurchaseInvoicesSum"></a>
+# **getPurchaseInvoicesSum**
+> DecimalEnvelope getPurchaseInvoicesSum(tenantId)
+
+Sum tenant purchase-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DecimalEnvelope = apiInstance.getPurchaseInvoicesSum(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#getPurchaseInvoicesSum")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#getPurchaseInvoicesSum")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSalesInvoicesSum"></a>
+# **getSalesInvoicesSum**
+> DecimalEnvelope getSalesInvoicesSum(tenantId)
+
+Sum tenant sales-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = InvoicesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : DecimalEnvelope = apiInstance.getSalesInvoicesSum(tenantId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InvoicesApi#getSalesInvoicesSum")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InvoicesApi#getSalesInvoicesSum")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **java.util.UUID**|  | |
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
 
 ### Authorization
 

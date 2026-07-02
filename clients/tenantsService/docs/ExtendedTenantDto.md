@@ -7,6 +7,7 @@
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **qualifiedName** | **kotlin.String** |  |  [optional] [readonly] |
+| **kind** | [**inline**](#Kind) |  |  [optional] |
 | **taxId** | **kotlin.String** |  |  [optional] |
 | **about** | **kotlin.String** |  |  [optional] |
 | **walletId** | **kotlin.String** |  |  [optional] |
@@ -45,6 +46,13 @@
 | **cart** | [**CartDto**](CartDto.md) |  |  [optional] |
 | **wallet** | [**WalletDto**](WalletDto.md) |  |  [optional] |
 | **socialProfile** | [**SocialProfileDto**](SocialProfileDto.md) |  |  [optional] |
+
+
+<a id="Kind"></a>
+## Enum: kind
+| Name | Value |
+| ---- | ----- |
+| kind | Organization, Individual |
 
 
 

@@ -10,6 +10,8 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **entryCount** | **kotlin.Int** |  |  [optional] |
+| **sellerBillingProfileId** | **kotlin.String** |  |  [optional] |
+| **buyerBillingProfileId** | **kotlin.String** |  |  [optional] |
 
 
 

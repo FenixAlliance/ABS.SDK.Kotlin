@@ -14,6 +14,7 @@
 | **featuredImageUrl** | **kotlin.String** |  |  [optional] |
 | **codeType** | [**inline**](#CodeType) |  |  [optional] |
 | **slug** | **kotlin.String** |  |  [optional] |
+| **webPortalId** | **kotlin.String** |  |  [optional] |
 | **webTemplateId** | **kotlin.String** |  |  [optional] |
 | **parentWebContentId** | **kotlin.String** |  |  [optional] |
 

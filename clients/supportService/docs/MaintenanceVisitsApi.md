@@ -1,6 +1,6 @@
 # MaintenanceVisitsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.DecimalEnvelope
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.Envelope
@@ -69,7 +70,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
     }
 
@@ -2920,6 +2921,154 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/InvoicingService/Invoices/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Sum tenant purchase-invoice totals.
+     * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @return DecimalEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getPurchaseInvoicesSum(tenantId: java.util.UUID) : DecimalEnvelope {
+        val localVarResponse = getPurchaseInvoicesSumWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Sum tenant purchase-invoice totals.
+     * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @return ApiResponse<DecimalEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getPurchaseInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getPurchaseInvoicesSumRequestConfig(tenantId = tenantId)
+
+        return request<Unit, DecimalEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getPurchaseInvoicesSum
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getPurchaseInvoicesSumRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Sum tenant sales-invoice totals.
+     * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @return DecimalEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSalesInvoicesSum(tenantId: java.util.UUID) : DecimalEnvelope {
+        val localVarResponse = getSalesInvoicesSumWithHttpInfo(tenantId = tenantId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Sum tenant sales-invoice totals.
+     * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
+     * @param tenantId 
+     * @return ApiResponse<DecimalEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSalesInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getSalesInvoicesSumRequestConfig(tenantId = tenantId)
+
+        return request<Unit, DecimalEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSalesInvoicesSum
+     *
+     * @param tenantId 
+     * @return RequestConfig
+     */
+    fun getSalesInvoicesSumRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/InvoicingService/Invoices/SalesInvoices/Sum",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -1,6 +1,6 @@
 # SharesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -18,6 +18,7 @@ All URIs are relative to *http://localhost*
 | [**getShareIssuance**](SharesApi.md#getShareIssuance) | **GET** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Gets a share issuance by id |
 | [**getShareIssuances**](SharesApi.md#getShareIssuances) | **GET** /api/v2/AccountingService/Shares/Issuances | Gets the current tenant share issuances |
 | [**getShareIssuancesCount**](SharesApi.md#getShareIssuancesCount) | **GET** /api/v2/AccountingService/Shares/Issuances/Count | Gets the current tenant share issuances count |
+| [**getShareIssuancesSum**](SharesApi.md#getShareIssuancesSum) | **GET** /api/v2/AccountingService/Shares/Issuances/Sum | Sum tenant share issuance quantities |
 | [**getShareTransfer**](SharesApi.md#getShareTransfer) | **GET** /api/v2/AccountingService/Shares/Transfers/{transferId} | Gets a share transfer by id |
 | [**getShareTransferReason**](SharesApi.md#getShareTransferReason) | **GET** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Gets a share transfer reason by id |
 | [**getShareTransferReasons**](SharesApi.md#getShareTransferReasons) | **GET** /api/v2/AccountingService/Shares/TransferReasons | Gets the current tenant share transfer reasons |
@@ -740,6 +741,56 @@ try {
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getShareIssuancesSum"></a>
+# **getShareIssuancesSum**
+> DecimalEnvelope getShareIssuancesSum(tenantId, apiVersion, xApiVersion)
+
+Sum tenant share issuance quantities
+
+Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SharesApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : DecimalEnvelope = apiInstance.getShareIssuancesSum(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SharesApi#getShareIssuancesSum")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SharesApi#getShareIssuancesSum")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
 
 ### Authorization
 

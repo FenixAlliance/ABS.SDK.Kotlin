@@ -32,6 +32,8 @@
 | **zero** | **kotlin.Boolean** |  |  [optional] |
 | **reduced** | **kotlin.Boolean** |  |  [optional] |
 | **withholding** | **kotlin.Boolean** |  |  [optional] |
+| **taxSchemeCode** | **kotlin.String** |  |  [optional] |
+| **taxCategoryCode** | **kotlin.String** |  |  [optional] |
 | **fiscalAuthorityId** | **kotlin.String** |  |  [optional] |
 
 

@@ -11,10 +11,9 @@ docs/BusinessApplicationSimpleDtoListEnvelope.md
 docs/BusinessApplicationUpdateDto.md
 docs/BusinessSecurityLogDto.md
 docs/BusinessSecurityLogDtoListEnvelope.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -67,8 +66,7 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/ApplicationsApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/LogsApi.kt
 src/main/kotlin/org/openapitools/client/apis/OAuthApplicationsApi.kt
 src/main/kotlin/org/openapitools/client/apis/PermissionsApi.kt

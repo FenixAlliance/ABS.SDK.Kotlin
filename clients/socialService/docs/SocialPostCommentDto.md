@@ -12,7 +12,16 @@
 | **socialFeedPostId** | **kotlin.String** |  |  [optional] |
 | **socialProfileName** | **kotlin.String** |  |  [optional] |
 | **socialProfileAvatarUrl** | **kotlin.String** |  |  [optional] |
+| **bodyHtml** | **kotlin.String** |  |  [optional] |
+| **bodyFormat** | [**inline**](#BodyFormat) |  |  [optional] |
 | **socialPostId** | **kotlin.String** |  |  [optional] |
+
+
+<a id="BodyFormat"></a>
+## Enum: bodyFormat
+| Name | Value |
+| ---- | ----- |
+| bodyFormat | PlainText, Html |
 
 
 

@@ -8,6 +8,7 @@
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **type** | **kotlin.String** |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
+| **contact** | [**ContactCreateDto**](ContactCreateDto.md) |  |  [optional] |
 | **about** | **kotlin.String** |  |  [optional] |
 | **avatarUrl** | **kotlin.String** |  |  [optional] |
 | **&#x60;data&#x60;** | **kotlin.String** |  |  [optional] |

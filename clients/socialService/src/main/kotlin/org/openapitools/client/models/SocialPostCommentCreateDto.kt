@@ -25,6 +25,8 @@ import com.squareup.moshi.JsonClass
  * @param message 
  * @param id 
  * @param timestamp 
+ * @param bodyHtml 
+ * @param bodyFormat 
  * @param parentCommentId 
  * @param socialProfileId 
  * @param socialFeedPostId 
@@ -43,6 +45,12 @@ data class SocialPostCommentCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "bodyHtml")
+    val bodyHtml: kotlin.String? = null,
+
+    @Json(name = "bodyFormat")
+    val bodyFormat: SocialPostCommentCreateDto.BodyFormat? = null,
+
     @Json(name = "parentCommentId")
     val parentCommentId: kotlin.String? = null,
 
@@ -57,6 +65,16 @@ data class SocialPostCommentCreateDto (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: PlainText,Html
+     */
+    @JsonClass(generateAdapter = false)
+    enum class BodyFormat(val value: kotlin.String) {
+        @Json(name = "PlainText") PlainText("PlainText"),
+        @Json(name = "Html") Html("Html");
+    }
 
 }
 

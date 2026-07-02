@@ -8,7 +8,6 @@ docs/CartDtoEnvelope.md
 docs/CartUpdateRequest.md
 docs/CartsApi.md
 docs/CompareApi.md
-docs/CompletionsApi.md
 docs/CountryDto.md
 docs/CountryDtoEnvelope.md
 docs/CountrySwitchRequest.md
@@ -17,7 +16,7 @@ docs/CurrencyDtoEnvelope.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -53,8 +52,7 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/org/openapitools/client/apis/CartsApi.kt
 src/main/kotlin/org/openapitools/client/apis/CompareApi.kt
-src/main/kotlin/org/openapitools/client/apis/CompletionsApi.kt
-src/main/kotlin/org/openapitools/client/apis/FenixAlliancePortalsWebsiteApi.kt
+src/main/kotlin/org/openapitools/client/apis/FenixAllianceABSWebApi.kt
 src/main/kotlin/org/openapitools/client/apis/RecordsApi.kt
 src/main/kotlin/org/openapitools/client/apis/WishListsApi.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ApiAbstractions.kt
