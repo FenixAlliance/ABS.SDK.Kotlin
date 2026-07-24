@@ -14,7 +14,7 @@
 ## Enum: ledgerClass
 | Name | Value |
 | ---- | ----- |
-| ledgerClass | Assets, Equity, Gains, Losses, Revenue, Expenses, Liabilities |
+| ledgerClass | Assets, Equity, Revenue, Expense, Liabilities |
 
 
 

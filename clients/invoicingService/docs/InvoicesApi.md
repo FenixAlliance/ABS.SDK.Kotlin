@@ -1822,7 +1822,7 @@ No authorization required
 
 <a id="getPurchaseInvoicesSum"></a>
 # **getPurchaseInvoicesSum**
-> DecimalEnvelope getPurchaseInvoicesSum(tenantId)
+> MoneyEnvelope getPurchaseInvoicesSum(tenantId)
 
 Sum tenant purchase-invoice totals.
 
@@ -1837,7 +1837,7 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D;
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : DecimalEnvelope = apiInstance.getPurchaseInvoicesSum(tenantId)
+    val result : MoneyEnvelope = apiInstance.getPurchaseInvoicesSum(tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getPurchaseInvoicesSum")
@@ -1855,7 +1855,7 @@ try {
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
@@ -1868,7 +1868,7 @@ No authorization required
 
 <a id="getSalesInvoicesSum"></a>
 # **getSalesInvoicesSum**
-> DecimalEnvelope getSalesInvoicesSum(tenantId)
+> MoneyEnvelope getSalesInvoicesSum(tenantId)
 
 Sum tenant sales-invoice totals.
 
@@ -1883,7 +1883,7 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D;
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : DecimalEnvelope = apiInstance.getSalesInvoicesSum(tenantId)
+    val result : MoneyEnvelope = apiInstance.getSalesInvoicesSum(tenantId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getSalesInvoicesSum")
@@ -1901,7 +1901,7 @@ try {
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 

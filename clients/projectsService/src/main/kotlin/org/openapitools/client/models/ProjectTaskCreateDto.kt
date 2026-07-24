@@ -28,7 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param startDate 
  * @param dueLine 
- * @param projectID 
+ * @param projectId 
  */
 
 
@@ -52,8 +52,8 @@ data class ProjectTaskCreateDto (
     @Json(name = "dueLine")
     val dueLine: java.time.OffsetDateTime? = null,
 
-    @Json(name = "projectID")
-    val projectID: kotlin.String? = null
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null
 
 ) {
 

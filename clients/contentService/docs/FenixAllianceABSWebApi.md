@@ -8,6 +8,7 @@ All URIs are relative to *https://absuite.net*
 | [**accountManageDownloadPersonalDataPost**](FenixAllianceABSWebApi.md#accountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | [**accountManageLinkExternalLoginPost**](FenixAllianceABSWebApi.md#accountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | [**accountPerformExternalLoginPost**](FenixAllianceABSWebApi.md#accountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin |  |
+| [**apiV2AIServiceAgentsAgentIdAguiPost**](FenixAllianceABSWebApi.md#apiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | [**forgotPasswordPost**](FenixAllianceABSWebApi.md#forgotPasswordPost) | **POST** /forgotPassword |  |
 | [**healthGet**](FenixAllianceABSWebApi.md#healthGet) | **GET** /health |  |
 | [**helloGet**](FenixAllianceABSWebApi.md#helloGet) | **GET** /hello |  |
@@ -192,6 +193,49 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: Not defined
+
+<a id="apiV2AIServiceAgentsAgentIdAguiPost"></a>
+# **apiV2AIServiceAgentsAgentIdAguiPost**
+> apiV2AIServiceAgentsAgentIdAguiPost(agentId)
+
+
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = FenixAllianceABSWebApi()
+val agentId : kotlin.String = agentId_example // kotlin.String | 
+try {
+    apiInstance.apiV2AIServiceAgentsAgentIdAguiPost(agentId)
+} catch (e: ClientException) {
+    println("4xx response calling FenixAllianceABSWebApi#apiV2AIServiceAgentsAgentIdAguiPost")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling FenixAllianceABSWebApi#apiV2AIServiceAgentsAgentIdAguiPost")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **agentId** | **kotlin.String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 <a id="forgotPasswordPost"></a>

@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.AccountingEntryDto
 import org.openapitools.client.models.Money
 
 import com.squareup.moshi.Json
@@ -24,33 +25,34 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
- * @param timestamp 
- * @param group 
- * @param opening 
- * @param description 
- * @param date 
- * @param forexRatesSnapshot 
- * @param forexRate 
- * @param credit 
- * @param debit 
- * @param creditInUsd 
- * @param debitInUsd 
- * @param currencyId 
  * @param tenantId 
  * @param enrollmentId 
  * @param journalId 
  * @param journalName 
  * @param journalCode 
- * @param creditAccountId 
- * @param creditAccountName 
- * @param debitAccountId 
- * @param debitAccountName 
- * @param invoiceCode 
- * @param parentJournalEntryId 
- * @param creditAmount 
- * @param debitAmount 
- * @param creditAmountInUsd 
- * @param debitAmountInUsd 
+ * @param fiscalPeriodId 
+ * @param financialBookId 
+ * @param description 
+ * @param entryType 
+ * @param status 
+ * @param postingDate 
+ * @param isOpeningBalance 
+ * @param transactionCurrencyId 
+ * @param sourceDocumentType 
+ * @param sourceDocumentId 
+ * @param idempotencyKey 
+ * @param reversalOfJournalEntryId 
+ * @param postedBy 
+ * @param forexRate 
+ * @param forexRatesSnapshot 
+ * @param timestamp 
+ * @param debitInUsd 
+ * @param creditInUsd 
+ * @param accountingEntries 
+ * @param totalDebit 
+ * @param totalCredit 
+ * @param totalDebitAmount 
+ * @param totalCreditAmount 
  */
 
 
@@ -58,42 +60,6 @@ data class JournalEntryDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
-
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
-
-    @Json(name = "group")
-    val group: kotlin.Boolean? = null,
-
-    @Json(name = "opening")
-    val opening: kotlin.Boolean? = null,
-
-    @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime? = null,
-
-    @Json(name = "forexRatesSnapshot")
-    val forexRatesSnapshot: kotlin.String? = null,
-
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
-    @Json(name = "credit")
-    val credit: kotlin.Double? = null,
-
-    @Json(name = "debit")
-    val debit: kotlin.Double? = null,
-
-    @Json(name = "creditInUsd")
-    val creditInUsd: kotlin.Double? = null,
-
-    @Json(name = "debitInUsd")
-    val debitInUsd: kotlin.Double? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
 
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
@@ -110,38 +76,101 @@ data class JournalEntryDto (
     @Json(name = "journalCode")
     val journalCode: kotlin.String? = null,
 
-    @Json(name = "creditAccountId")
-    val creditAccountId: kotlin.String? = null,
+    @Json(name = "fiscalPeriodId")
+    val fiscalPeriodId: kotlin.String? = null,
 
-    @Json(name = "creditAccountName")
-    val creditAccountName: kotlin.String? = null,
+    @Json(name = "financialBookId")
+    val financialBookId: kotlin.String? = null,
 
-    @Json(name = "debitAccountId")
-    val debitAccountId: kotlin.String? = null,
+    @Json(name = "description")
+    val description: kotlin.String? = null,
 
-    @Json(name = "debitAccountName")
-    val debitAccountName: kotlin.String? = null,
+    @Json(name = "entryType")
+    val entryType: JournalEntryDto.EntryType? = null,
 
-    @Json(name = "invoiceCode")
-    val invoiceCode: kotlin.String? = null,
+    @Json(name = "status")
+    val status: JournalEntryDto.Status? = null,
 
-    @Json(name = "parentJournalEntryId")
-    val parentJournalEntryId: kotlin.String? = null,
+    @Json(name = "postingDate")
+    val postingDate: java.time.OffsetDateTime? = null,
 
-    @Json(name = "creditAmount")
-    val creditAmount: Money? = null,
+    @Json(name = "isOpeningBalance")
+    val isOpeningBalance: kotlin.Boolean? = null,
 
-    @Json(name = "debitAmount")
-    val debitAmount: Money? = null,
+    @Json(name = "transactionCurrencyId")
+    val transactionCurrencyId: kotlin.String? = null,
 
-    @Json(name = "creditAmountInUsd")
-    val creditAmountInUsd: Money? = null,
+    @Json(name = "sourceDocumentType")
+    val sourceDocumentType: kotlin.String? = null,
 
-    @Json(name = "debitAmountInUsd")
-    val debitAmountInUsd: Money? = null
+    @Json(name = "sourceDocumentId")
+    val sourceDocumentId: kotlin.String? = null,
+
+    @Json(name = "idempotencyKey")
+    val idempotencyKey: kotlin.String? = null,
+
+    @Json(name = "reversalOfJournalEntryId")
+    val reversalOfJournalEntryId: kotlin.String? = null,
+
+    @Json(name = "postedBy")
+    val postedBy: kotlin.String? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
+
+    @Json(name = "forexRatesSnapshot")
+    val forexRatesSnapshot: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "debitInUsd")
+    val debitInUsd: kotlin.Double? = null,
+
+    @Json(name = "creditInUsd")
+    val creditInUsd: kotlin.Double? = null,
+
+    @Json(name = "accountingEntries")
+    val accountingEntries: kotlin.collections.List<AccountingEntryDto>? = null,
+
+    @Json(name = "totalDebit")
+    val totalDebit: kotlin.Double? = null,
+
+    @Json(name = "totalCredit")
+    val totalCredit: kotlin.Double? = null,
+
+    @Json(name = "totalDebitAmount")
+    val totalDebitAmount: Money? = null,
+
+    @Json(name = "totalCreditAmount")
+    val totalCreditAmount: Money? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Simple,Compound,Adjusting,Reversing
+     */
+    @JsonClass(generateAdapter = false)
+    enum class EntryType(val value: kotlin.String) {
+        @Json(name = "Simple") Simple("Simple"),
+        @Json(name = "Compound") Compound("Compound"),
+        @Json(name = "Adjusting") Adjusting("Adjusting"),
+        @Json(name = "Reversing") Reversing("Reversing");
+    }
+    /**
+     * 
+     *
+     * Values: Draft,Posted,Reversed,Voided
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Status(val value: kotlin.String) {
+        @Json(name = "Draft") Draft("Draft"),
+        @Json(name = "Posted") Posted("Posted"),
+        @Json(name = "Reversed") Reversed("Reversed"),
+        @Json(name = "Voided") Voided("Voided");
+    }
 
 }
 

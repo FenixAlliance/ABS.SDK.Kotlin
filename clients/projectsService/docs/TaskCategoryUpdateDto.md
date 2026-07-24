@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **title** | **kotlin.String** |  |  [optional] |
+| **projectId** | **kotlin.String** |  |  [optional] |
 
 
 

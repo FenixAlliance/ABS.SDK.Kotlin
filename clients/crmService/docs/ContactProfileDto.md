@@ -6,14 +6,16 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **tenantId** | **kotlin.String** |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
+| **tenantId** | **kotlin.String** |  |  [optional] |
+| **type** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **about** | **kotlin.String** |  |  [optional] |
 | **verified** | **kotlin.Boolean** |  |  [optional] |
 | **submitted** | **kotlin.Boolean** |  |  [optional] |
 | **avatarUrl** | **kotlin.String** |  |  [optional] |
-| **qualifiedName** | **kotlin.String** |  |  [optional] |
+| **contact** | [**ContactDto**](ContactDto.md) |  |  [optional] |
+| **qualifiedName** | **kotlin.String** |  |  [optional] [readonly] |
 | **verificationTimestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **&#x60;data&#x60;** | **kotlin.String** |  |  [optional] |
 | **dataLabel** | **kotlin.String** |  |  [optional] |

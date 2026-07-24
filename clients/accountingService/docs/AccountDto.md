@@ -30,6 +30,10 @@
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **childrenAccountsCount** | **kotlin.Int** |  |  [optional] |
 | **accountCategory** | [**inline**](#AccountCategory) |  |  [optional] |
+| **isContra** | **kotlin.Boolean** |  |  [optional] |
+| **isMonetary** | **kotlin.Boolean** |  |  [optional] |
+| **incomeStatementSubType** | [**inline**](#IncomeStatementSubType) |  |  [optional] |
+| **normalBalance** | [**inline**](#NormalBalance) |  |  [optional] |
 | **balanceAmount** | [**Money**](Money.md) |  |  [optional] |
 | **creditsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
 | **debitsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
@@ -43,6 +47,20 @@
 | Name | Value |
 | ---- | ----- |
 | accountCategory | Assets, Equity, Revenue, Expense, Liabilities |
+
+
+<a id="IncomeStatementSubType"></a>
+## Enum: incomeStatementSubType
+| Name | Value |
+| ---- | ----- |
+| incomeStatementSubType | OperatingRevenue, Gain, OperatingExpense, Loss |
+
+
+<a id="NormalBalance"></a>
+## Enum: normalBalance
+| Name | Value |
+| ---- | ----- |
+| normalBalance | Debit, Credit |
 
 
 

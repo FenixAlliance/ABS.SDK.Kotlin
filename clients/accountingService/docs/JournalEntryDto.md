@@ -5,33 +5,48 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **group** | **kotlin.Boolean** |  |  [optional] |
-| **opening** | **kotlin.Boolean** |  |  [optional] |
-| **description** | **kotlin.String** |  |  [optional] |
-| **date** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
-| **forexRate** | **kotlin.Double** |  |  [optional] |
-| **credit** | **kotlin.Double** |  |  [optional] |
-| **debit** | **kotlin.Double** |  |  [optional] |
-| **creditInUsd** | **kotlin.Double** |  |  [optional] |
-| **debitInUsd** | **kotlin.Double** |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **journalId** | **kotlin.String** |  |  [optional] |
 | **journalName** | **kotlin.String** |  |  [optional] |
 | **journalCode** | **kotlin.String** |  |  [optional] |
-| **creditAccountId** | **kotlin.String** |  |  [optional] |
-| **creditAccountName** | **kotlin.String** |  |  [optional] |
-| **debitAccountId** | **kotlin.String** |  |  [optional] |
-| **debitAccountName** | **kotlin.String** |  |  [optional] |
-| **invoiceCode** | **kotlin.String** |  |  [optional] |
-| **parentJournalEntryId** | **kotlin.String** |  |  [optional] |
-| **creditAmount** | [**Money**](Money.md) |  |  [optional] |
-| **debitAmount** | [**Money**](Money.md) |  |  [optional] |
-| **creditAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-| **debitAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
+| **fiscalPeriodId** | **kotlin.String** |  |  [optional] |
+| **financialBookId** | **kotlin.String** |  |  [optional] |
+| **description** | **kotlin.String** |  |  [optional] |
+| **entryType** | [**inline**](#EntryType) |  |  [optional] |
+| **status** | [**inline**](#Status) |  |  [optional] |
+| **postingDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **isOpeningBalance** | **kotlin.Boolean** |  |  [optional] |
+| **transactionCurrencyId** | **kotlin.String** |  |  [optional] |
+| **sourceDocumentType** | **kotlin.String** |  |  [optional] |
+| **sourceDocumentId** | **kotlin.String** |  |  [optional] |
+| **idempotencyKey** | **kotlin.String** |  |  [optional] |
+| **reversalOfJournalEntryId** | **kotlin.String** |  |  [optional] |
+| **postedBy** | **kotlin.String** |  |  [optional] |
+| **forexRate** | **kotlin.Double** |  |  [optional] |
+| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **debitInUsd** | **kotlin.Double** |  |  [optional] |
+| **creditInUsd** | **kotlin.Double** |  |  [optional] |
+| **accountingEntries** | [**kotlin.collections.List&lt;AccountingEntryDto&gt;**](AccountingEntryDto.md) |  |  [optional] |
+| **totalDebit** | **kotlin.Double** |  |  [optional] [readonly] |
+| **totalCredit** | **kotlin.Double** |  |  [optional] [readonly] |
+| **totalDebitAmount** | [**Money**](Money.md) |  |  [optional] |
+| **totalCreditAmount** | [**Money**](Money.md) |  |  [optional] |
+
+
+<a id="EntryType"></a>
+## Enum: entryType
+| Name | Value |
+| ---- | ----- |
+| entryType | Simple, Compound, Adjusting, Reversing |
+
+
+<a id="Status"></a>
+## Enum: status
+| Name | Value |
+| ---- | ----- |
+| status | Draft, Posted, Reversed, Voided |
 
 
 

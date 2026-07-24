@@ -26,7 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param periodStartDate 
  * @param periodEndDate 
- * @param projectID 
+ * @param projectId 
  */
 
 
@@ -44,8 +44,8 @@ data class ProjectPeriodCreateDto (
     @Json(name = "periodEndDate")
     val periodEndDate: java.time.OffsetDateTime? = null,
 
-    @Json(name = "projectID")
-    val projectID: kotlin.String? = null
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null
 
 ) {
 

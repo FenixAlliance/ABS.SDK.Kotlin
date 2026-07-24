@@ -35,6 +35,9 @@ import com.squareup.moshi.JsonClass
  * @param contactId 
  * @param accountTypeId 
  * @param parentAccountId 
+ * @param isContra 
+ * @param isMonetary 
+ * @param incomeStatementSubType 
  */
 
 
@@ -77,7 +80,16 @@ data class AccountCreateDto (
     val accountTypeId: kotlin.String? = null,
 
     @Json(name = "parentAccountId")
-    val parentAccountId: kotlin.String? = null
+    val parentAccountId: kotlin.String? = null,
+
+    @Json(name = "isContra")
+    val isContra: kotlin.Boolean? = null,
+
+    @Json(name = "isMonetary")
+    val isMonetary: kotlin.Boolean? = null,
+
+    @Json(name = "incomeStatementSubType")
+    val incomeStatementSubType: AccountCreateDto.IncomeStatementSubType? = null
 
 ) {
 
@@ -93,6 +105,18 @@ data class AccountCreateDto (
         @Json(name = "Revenue") Revenue("Revenue"),
         @Json(name = "Expense") Expense("Expense"),
         @Json(name = "Liabilities") Liabilities("Liabilities");
+    }
+    /**
+     * 
+     *
+     * Values: OperatingRevenue,Gain,OperatingExpense,Loss
+     */
+    @JsonClass(generateAdapter = false)
+    enum class IncomeStatementSubType(val value: kotlin.String) {
+        @Json(name = "OperatingRevenue") OperatingRevenue("OperatingRevenue"),
+        @Json(name = "Gain") Gain("Gain"),
+        @Json(name = "OperatingExpense") OperatingExpense("OperatingExpense"),
+        @Json(name = "Loss") Loss("Loss");
     }
 
 }

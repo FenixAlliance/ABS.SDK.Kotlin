@@ -73,6 +73,93 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * Create Wallet Location
+     * Create a new location for a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createLocationForWalletAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationCreateDto: LocationCreateDto? = null) : EmptyEnvelope {
+        val localVarResponse = createLocationForWalletAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationCreateDto = locationCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create Wallet Location
+     * Create a new location for a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createLocationForWalletAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationCreateDto: LocationCreateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createLocationForWalletAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationCreateDto = locationCreateDto)
+
+        return request<LocationCreateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createLocationForWalletAsync
+     *
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createLocationForWalletAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationCreateDto: LocationCreateDto?) : RequestConfig<LocationCreateDto> {
+        val localVariableBody = locationCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Create Wallet Bank Account
      * Create a new bank account for a specific wallet by ID.
      * @param walletId 
@@ -152,93 +239,6 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Create Wallet Location
-     * Create a new location for a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createWalletLocationAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationCreateDto: LocationCreateDto? = null) : EmptyEnvelope {
-        val localVarResponse = createWalletLocationAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationCreateDto = locationCreateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Create Wallet Location
-     * Create a new location for a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun createWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationCreateDto: LocationCreateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = createWalletLocationAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationCreateDto = locationCreateDto)
-
-        return request<LocationCreateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation createWalletLocationAsync
-     *
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @return RequestConfig
-     */
-    fun createWalletLocationAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationCreateDto: LocationCreateDto?) : RequestConfig<LocationCreateDto> {
-        val localVariableBody = locationCreateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -508,6 +508,92 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * Delete Wallet Location
+     * Delete a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteLocationForWalletAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteLocationForWalletAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete Wallet Location
+     * Delete a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteLocationForWalletAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteLocationForWalletAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteLocationForWalletAsync
+     *
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun deleteLocationForWalletAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Delete Wallet Bank Account
      * Delete a specific bank account of a specific wallet by ID.
      * @param walletId 
@@ -586,92 +672,6 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.DELETE,
             path = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"bankAccountId"+"}", encodeURIComponent(bankAccountId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Delete Wallet Location
-     * Delete a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteWalletLocationAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = deleteWalletLocationAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Delete Wallet Location
-     * Delete a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun deleteWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = deleteWalletLocationAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation deleteWalletLocationAsync
-     *
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun deleteWalletLocationAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1090,6 +1090,258 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get Wallet Location
+     * Get a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return LocationDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getLocationForWalletAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocationDtoEnvelope {
+        val localVarResponse = getLocationForWalletAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get Wallet Location
+     * Get a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<LocationDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getLocationForWalletAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocationDtoEnvelope?> {
+        val localVariableConfig = getLocationForWalletAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, LocationDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getLocationForWalletAsync
+     *
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getLocationForWalletAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get Wallet Locations
+     * Get locations of a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return LocationDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getLocationsForWalletAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocationDtoListEnvelope {
+        val localVarResponse = getLocationsForWalletAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get Wallet Locations
+     * Get locations of a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<LocationDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getLocationsForWalletAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocationDtoListEnvelope?> {
+        val localVariableConfig = getLocationsForWalletAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, LocationDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getLocationsForWalletAsync
+     *
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getLocationsForWalletAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get Wallet Locations Count
+     * Get locations count of a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getLocationsForWalletCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getLocationsForWalletCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get Wallet Locations Count
+     * Get locations count of a specific wallet by ID.
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getLocationsForWalletCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLocationsForWalletCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getLocationsForWalletCountAsync
+     *
+     * @param walletId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getLocationsForWalletCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2172,258 +2424,6 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Get Wallet Location
-     * Get a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return LocationDtoEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletLocationAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocationDtoEnvelope {
-        val localVarResponse = getWalletLocationAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Get Wallet Location
-     * Get a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<LocationDtoEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocationDtoEnvelope?> {
-        val localVariableConfig = getWalletLocationAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, LocationDtoEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation getWalletLocationAsync
-     *
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun getWalletLocationAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Get Wallet Locations
-     * Get locations of a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return LocationDtoListEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletLocationsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocationDtoListEnvelope {
-        val localVarResponse = getWalletLocationsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoListEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Get Wallet Locations
-     * Get locations of a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<LocationDtoListEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletLocationsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocationDtoListEnvelope?> {
-        val localVariableConfig = getWalletLocationsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, LocationDtoListEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation getWalletLocationsAsync
-     *
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun getWalletLocationsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Get Wallet Locations Count
-     * Get locations count of a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletLocationsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletLocationsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Get Wallet Locations Count
-     * Get locations count of a specific wallet by ID.
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse<Int32Envelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletLocationsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletLocationsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
-
-        return request<Unit, Int32Envelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation getWalletLocationsCountAsync
-     *
-     * @param walletId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return RequestConfig
-     */
-    fun getWalletLocationsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -3860,6 +3860,96 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * Update Wallet Location
+     * Update a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateLocationForWalletAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationUpdateDto: LocationUpdateDto? = null) : EmptyEnvelope {
+        val localVarResponse = updateLocationForWalletAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationUpdateDto = locationUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update Wallet Location
+     * Update a specific location of a specific wallet by ID.
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateLocationForWalletAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationUpdateDto: LocationUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateLocationForWalletAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationUpdateDto = locationUpdateDto)
+
+        return request<LocationUpdateDto, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateLocationForWalletAsync
+     *
+     * @param walletId 
+     * @param locationId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateLocationForWalletAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationUpdateDto: LocationUpdateDto?) : RequestConfig<LocationUpdateDto> {
+        val localVariableBody = locationUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Update Wallet Bank Account
      * Update a specific bank account of a specific wallet by ID.
      * @param walletId 
@@ -3942,96 +4032,6 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.PUT,
             path = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"bankAccountId"+"}", encodeURIComponent(bankAccountId.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = false,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * Update Wallet Location
-     * Update a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateWalletLocationAsync(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationUpdateDto: LocationUpdateDto? = null) : EmptyEnvelope {
-        val localVarResponse = updateWalletLocationAsyncWithHttpInfo(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationUpdateDto = locationUpdateDto)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * Update Wallet Location
-     * Update a specific location of a specific wallet by ID.
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun updateWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationUpdateDto: LocationUpdateDto?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = updateWalletLocationAsyncRequestConfig(walletId = walletId, locationId = locationId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationUpdateDto = locationUpdateDto)
-
-        return request<LocationUpdateDto, EmptyEnvelope>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation updateWalletLocationAsync
-     *
-     * @param walletId 
-     * @param locationId 
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @return RequestConfig
-     */
-    fun updateWalletLocationAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationUpdateDto: LocationUpdateDto?) : RequestConfig<LocationUpdateDto> {
-        val localVariableBody = locationUpdateDto
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (apiVersion != null) {
-                    put("api-version", listOf(apiVersion.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}".replace("{"+"walletId"+"}", encodeURIComponent(walletId.toString())).replace("{"+"locationId"+"}", encodeURIComponent(locationId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

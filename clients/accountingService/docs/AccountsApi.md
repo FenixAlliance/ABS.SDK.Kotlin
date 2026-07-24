@@ -81,7 +81,7 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **currencyId** | **kotlin.String**|  | [optional] |
+| **currencyId** | **kotlin.String**|  | [optional] [default to &quot;USD.USA&quot;] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -768,7 +768,7 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **currencyId** | **kotlin.String**|  | [optional] |
+| **currencyId** | **kotlin.String**|  | [optional] [default to &quot;USD.USA&quot;] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |

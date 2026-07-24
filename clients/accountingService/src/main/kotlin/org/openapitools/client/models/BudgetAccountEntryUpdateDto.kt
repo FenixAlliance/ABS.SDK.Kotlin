@@ -23,13 +23,10 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param description 
- * @param amount 
- * @param date 
+ * @param plannedAmount 
  * @param currencyId 
  * @param debitAccountId 
  * @param creditAccountId 
- * @param journalEntryId 
- * @param accountingEntryType 
  * @param budgetId 
  */
 
@@ -39,11 +36,8 @@ data class BudgetAccountEntryUpdateDto (
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "amount")
-    val amount: kotlin.Double? = null,
-
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime? = null,
+    @Json(name = "plannedAmount")
+    val plannedAmount: kotlin.Double? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -54,28 +48,11 @@ data class BudgetAccountEntryUpdateDto (
     @Json(name = "creditAccountId")
     val creditAccountId: kotlin.String? = null,
 
-    @Json(name = "journalEntryId")
-    val journalEntryId: kotlin.String? = null,
-
-    @Json(name = "accountingEntryType")
-    val accountingEntryType: BudgetAccountEntryUpdateDto.AccountingEntryType? = null,
-
     @Json(name = "budgetId")
     val budgetId: kotlin.String? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: None,Debit,Credit
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AccountingEntryType(val value: kotlin.String) {
-        @Json(name = "None") None("None"),
-        @Json(name = "Debit") Debit("Debit"),
-        @Json(name = "Credit") Credit("Credit");
-    }
 
 }
 

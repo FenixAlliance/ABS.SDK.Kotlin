@@ -24,10 +24,14 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param title 
+ * @param description 
  * @param startDate 
  * @param dueLine 
- * @param projectID 
- * @param projectTaskBucketID 
+ * @param projectId 
+ * @param projectTaskBucketId 
+ * @param tenantId 
+ * @param enrollmentId 
  */
 
 
@@ -39,17 +43,29 @@ data class ProjectTaskDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
+
     @Json(name = "startDate")
     val startDate: java.time.OffsetDateTime? = null,
 
     @Json(name = "dueLine")
     val dueLine: java.time.OffsetDateTime? = null,
 
-    @Json(name = "projectID")
-    val projectID: kotlin.String? = null,
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null,
 
-    @Json(name = "projectTaskBucketID")
-    val projectTaskBucketID: kotlin.String? = null
+    @Json(name = "projectTaskBucketId")
+    val projectTaskBucketId: kotlin.String? = null,
+
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
+
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null
 
 ) {
 

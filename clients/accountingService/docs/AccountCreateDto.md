@@ -17,6 +17,9 @@
 | **contactId** | **kotlin.String** |  |  [optional] |
 | **accountTypeId** | **kotlin.String** |  |  [optional] |
 | **parentAccountId** | **kotlin.String** |  |  [optional] |
+| **isContra** | **kotlin.Boolean** |  |  [optional] |
+| **isMonetary** | **kotlin.Boolean** |  |  [optional] |
+| **incomeStatementSubType** | [**inline**](#IncomeStatementSubType) |  |  [optional] |
 
 
 <a id="AccountCategory"></a>
@@ -24,6 +27,13 @@
 | Name | Value |
 | ---- | ----- |
 | accountCategory | Assets, Equity, Revenue, Expense, Liabilities |
+
+
+<a id="IncomeStatementSubType"></a>
+## Enum: incomeStatementSubType
+| Name | Value |
+| ---- | ----- |
+| incomeStatementSubType | OperatingRevenue, Gain, OperatingExpense, Loss |
 
 
 

@@ -71,7 +71,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Aggregate accounts balance
      * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return MoneyEnvelope
@@ -83,7 +83,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateAccountsBalanceAsync(tenantId: java.util.UUID, currencyId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
+    fun aggregateAccountsBalanceAsync(tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
         val localVarResponse = aggregateAccountsBalanceAsyncWithHttpInfo(tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
@@ -105,7 +105,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Aggregate accounts balance
      * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<MoneyEnvelope?>
@@ -126,7 +126,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation aggregateAccountsBalanceAsync
      *
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
@@ -1228,7 +1228,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get account aggregate
      * Get account aggregate.
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)
@@ -1241,7 +1241,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccountAggregateAsync(tenantId: java.util.UUID, currencyId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountDto: kotlin.collections.List<AccountDto>? = null) : AccountingEntryDtoListEnvelope {
+    fun getAccountAggregateAsync(tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountDto: kotlin.collections.List<AccountDto>? = null) : AccountingEntryDtoListEnvelope {
         val localVarResponse = getAccountAggregateAsyncWithHttpInfo(tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountDto = accountDto)
 
         return when (localVarResponse.responseType) {
@@ -1263,7 +1263,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get account aggregate
      * Get account aggregate.
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)
@@ -1285,7 +1285,7 @@ class AccountsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getAccountAggregateAsync
      *
      * @param tenantId 
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)

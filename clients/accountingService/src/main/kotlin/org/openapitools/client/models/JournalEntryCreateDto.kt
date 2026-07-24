@@ -15,6 +15,7 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.AccountingEntryCreateDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,42 +23,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param description 
- * @param date 
  * @param journalId 
- * @param currencyId 
- * @param debitAccountId 
- * @param creditAccountId 
+ * @param fiscalPeriodId 
+ * @param transactionCurrencyId 
+ * @param description 
  * @param id 
  * @param timestamp 
- * @param group 
- * @param opening 
- * @param debit 
- * @param credit 
- * @param parentJournalEntryId 
- * @param invoiceCode 
+ * @param sourceDocumentType 
+ * @param sourceDocumentId 
+ * @param idempotencyKey 
+ * @param isOpeningBalance 
+ * @param accountingEntries 
  */
 
 
 data class JournalEntryCreateDto (
 
-    @Json(name = "description")
-    val description: kotlin.String,
-
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime,
-
     @Json(name = "journalId")
     val journalId: kotlin.String,
 
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String,
+    @Json(name = "fiscalPeriodId")
+    val fiscalPeriodId: kotlin.String,
 
-    @Json(name = "debitAccountId")
-    val debitAccountId: kotlin.String,
+    @Json(name = "transactionCurrencyId")
+    val transactionCurrencyId: kotlin.String,
 
-    @Json(name = "creditAccountId")
-    val creditAccountId: kotlin.String,
+    @Json(name = "description")
+    val description: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -65,23 +57,20 @@ data class JournalEntryCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "group")
-    val group: kotlin.Boolean? = null,
+    @Json(name = "sourceDocumentType")
+    val sourceDocumentType: kotlin.String? = null,
 
-    @Json(name = "opening")
-    val opening: kotlin.Boolean? = null,
+    @Json(name = "sourceDocumentId")
+    val sourceDocumentId: kotlin.String? = null,
 
-    @Json(name = "debit")
-    val debit: kotlin.Double? = null,
+    @Json(name = "idempotencyKey")
+    val idempotencyKey: kotlin.String? = null,
 
-    @Json(name = "credit")
-    val credit: kotlin.Double? = null,
+    @Json(name = "isOpeningBalance")
+    val isOpeningBalance: kotlin.Boolean? = null,
 
-    @Json(name = "parentJournalEntryId")
-    val parentJournalEntryId: kotlin.String? = null,
-
-    @Json(name = "invoiceCode")
-    val invoiceCode: kotlin.String? = null
+    @Json(name = "accountingEntries")
+    val accountingEntries: kotlin.collections.List<AccountingEntryCreateDto>? = null
 
 ) {
 

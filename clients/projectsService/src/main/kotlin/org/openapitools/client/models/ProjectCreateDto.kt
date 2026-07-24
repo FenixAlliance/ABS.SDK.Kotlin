@@ -26,6 +26,8 @@ import com.squareup.moshi.JsonClass
  * @param timestamp 
  * @param title 
  * @param description 
+ * @param individualId 
+ * @param organizationId 
  * @param projectStartDate 
  * @param projectEndDate 
  */
@@ -44,6 +46,12 @@ data class ProjectCreateDto (
 
     @Json(name = "description")
     val description: kotlin.String? = null,
+
+    @Json(name = "individualId")
+    val individualId: kotlin.String? = null,
+
+    @Json(name = "organizationId")
+    val organizationId: kotlin.String? = null,
 
     @Json(name = "projectStartDate")
     val projectStartDate: java.time.OffsetDateTime? = null,

@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param id 
  * @param timestamp 
  * @param title 
+ * @param projectId 
  */
 
 
@@ -37,7 +38,10 @@ data class TaskCategoryCreateDto (
     val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "title")
-    val title: kotlin.String? = null
+    val title: kotlin.String? = null,
+
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null
 
 ) {
 

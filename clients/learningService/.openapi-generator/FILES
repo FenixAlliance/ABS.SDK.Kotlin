@@ -284,4 +284,3 @@ src/main/kotlin/org/openapitools/client/models/StudentProfileDtoIReadOnlyListEnv
 src/main/kotlin/org/openapitools/client/models/StudentProfileUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/models/ContactCreateDtoTest.kt

@@ -5,31 +5,36 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **debit** | **kotlin.Double** |  |  [optional] |
-| **credit** | **kotlin.Double** |  |  [optional] |
-| **description** | **kotlin.String** |  |  [optional] |
-| **forexRate** | **kotlin.Double** |  |  [optional] |
-| **accountId** | **kotlin.String** |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
-| **date** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
-| **debitAccountId** | **kotlin.String** |  |  [optional] |
-| **creditAccountId** | **kotlin.String** |  |  [optional] |
 | **journalEntryId** | **kotlin.String** |  |  [optional] |
-| **debitAccountName** | **kotlin.String** |  |  [optional] |
-| **creditAccountName** | **kotlin.String** |  |  [optional] |
-| **accountingEntryType** | [**inline**](#AccountingEntryType) |  |  [optional] |
-| **debitAmount** | [**Money**](Money.md) |  |  [optional] |
-| **creditAmount** | [**Money**](Money.md) |  |  [optional] |
+| **accountId** | **kotlin.String** |  |  [optional] |
+| **accountName** | **kotlin.String** |  |  [optional] |
+| **direction** | [**inline**](#Direction) |  |  [optional] |
+| **description** | **kotlin.String** |  |  [optional] |
+| **transactionAmount** | **kotlin.Double** |  |  [optional] |
+| **transactionCurrencyId** | **kotlin.String** |  |  [optional] |
+| **functionalAmount** | **kotlin.Double** |  |  [optional] |
+| **functionalCurrencyId** | **kotlin.String** |  |  [optional] |
+| **accountAmount** | **kotlin.Double** |  |  [optional] |
+| **accountCurrencyId** | **kotlin.String** |  |  [optional] |
+| **reportingAmountInUsd** | **kotlin.Double** |  |  [optional] |
+| **forexRate** | **kotlin.Double** |  |  [optional] |
+| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
+| **costCentreId** | **kotlin.String** |  |  [optional] |
+| **projectId** | **kotlin.String** |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **debit** | **kotlin.Double** |  |  [optional] [readonly] |
+| **credit** | **kotlin.Double** |  |  [optional] [readonly] |
+| **amount** | [**Money**](Money.md) |  |  [optional] |
+| **amountInUsd** | [**Money**](Money.md) |  |  [optional] |
 
 
-<a id="AccountingEntryType"></a>
-## Enum: accountingEntryType
+<a id="Direction"></a>
+## Enum: direction
 | Name | Value |
 | ---- | ----- |
-| accountingEntryType | None, Debit, Credit |
+| direction | Debit, Credit |
 
 
 

@@ -48,16 +48,14 @@ data class LedgerTypeCreateDto (
     /**
      * 
      *
-     * Values: Assets,Equity,Gains,Losses,Revenue,Expenses,Liabilities
+     * Values: Assets,Equity,Revenue,Expense,Liabilities
      */
     @JsonClass(generateAdapter = false)
     enum class LedgerClass(val value: kotlin.String) {
         @Json(name = "Assets") Assets("Assets"),
         @Json(name = "Equity") Equity("Equity"),
-        @Json(name = "Gains") Gains("Gains"),
-        @Json(name = "Losses") Losses("Losses"),
         @Json(name = "Revenue") Revenue("Revenue"),
-        @Json(name = "Expenses") Expenses("Expenses"),
+        @Json(name = "Expense") Expense("Expense"),
         @Json(name = "Liabilities") Liabilities("Liabilities");
     }
 

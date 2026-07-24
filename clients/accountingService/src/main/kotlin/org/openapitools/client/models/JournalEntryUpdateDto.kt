@@ -22,58 +22,34 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param fiscalPeriodId 
+ * @param transactionCurrencyId 
  * @param description 
- * @param date 
- * @param journalId 
- * @param currencyId 
- * @param debitAccountId 
- * @param creditAccountId 
- * @param group 
- * @param opening 
- * @param debit 
- * @param credit 
- * @param invoiceCode 
- * @param parentJournalEntryId 
+ * @param sourceDocumentType 
+ * @param sourceDocumentId 
+ * @param isOpeningBalance 
  */
 
 
 data class JournalEntryUpdateDto (
 
+    @Json(name = "fiscalPeriodId")
+    val fiscalPeriodId: kotlin.String,
+
+    @Json(name = "transactionCurrencyId")
+    val transactionCurrencyId: kotlin.String,
+
     @Json(name = "description")
     val description: kotlin.String,
 
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime,
+    @Json(name = "sourceDocumentType")
+    val sourceDocumentType: kotlin.String? = null,
 
-    @Json(name = "journalId")
-    val journalId: kotlin.String,
+    @Json(name = "sourceDocumentId")
+    val sourceDocumentId: kotlin.String? = null,
 
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String,
-
-    @Json(name = "debitAccountId")
-    val debitAccountId: kotlin.String,
-
-    @Json(name = "creditAccountId")
-    val creditAccountId: kotlin.String,
-
-    @Json(name = "group")
-    val group: kotlin.Boolean? = null,
-
-    @Json(name = "opening")
-    val opening: kotlin.Boolean? = null,
-
-    @Json(name = "debit")
-    val debit: kotlin.Double? = null,
-
-    @Json(name = "credit")
-    val credit: kotlin.Double? = null,
-
-    @Json(name = "invoiceCode")
-    val invoiceCode: kotlin.String? = null,
-
-    @Json(name = "parentJournalEntryId")
-    val parentJournalEntryId: kotlin.String? = null
+    @Json(name = "isOpeningBalance")
+    val isOpeningBalance: kotlin.Boolean? = null
 
 ) {
 

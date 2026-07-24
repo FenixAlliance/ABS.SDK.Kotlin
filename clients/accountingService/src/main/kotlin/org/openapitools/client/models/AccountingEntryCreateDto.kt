@@ -22,26 +22,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param journalEntryId 
+ * @param accountId 
+ * @param direction 
+ * @param transactionCurrencyId 
  * @param description 
- * @param currencyId 
  * @param id 
  * @param timestamp 
- * @param date 
- * @param amount 
- * @param debitAccountId 
- * @param creditAccountId 
- * @param journalEntryId 
- * @param accountingEntryType 
+ * @param transactionAmount 
  */
 
 
 data class AccountingEntryCreateDto (
 
+    @Json(name = "journalEntryId")
+    val journalEntryId: kotlin.String,
+
+    @Json(name = "accountId")
+    val accountId: kotlin.String,
+
+    @Json(name = "direction")
+    val direction: AccountingEntryCreateDto.Direction,
+
+    @Json(name = "transactionCurrencyId")
+    val transactionCurrencyId: kotlin.String,
+
     @Json(name = "description")
     val description: kotlin.String,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -49,34 +56,18 @@ data class AccountingEntryCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime? = null,
-
-    @Json(name = "amount")
-    val amount: kotlin.Double? = null,
-
-    @Json(name = "debitAccountId")
-    val debitAccountId: kotlin.String? = null,
-
-    @Json(name = "creditAccountId")
-    val creditAccountId: kotlin.String? = null,
-
-    @Json(name = "journalEntryId")
-    val journalEntryId: kotlin.String? = null,
-
-    @Json(name = "accountingEntryType")
-    val accountingEntryType: AccountingEntryCreateDto.AccountingEntryType? = null
+    @Json(name = "transactionAmount")
+    val transactionAmount: kotlin.Double? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: None,Debit,Credit
+     * Values: Debit,Credit
      */
     @JsonClass(generateAdapter = false)
-    enum class AccountingEntryType(val value: kotlin.String) {
-        @Json(name = "None") None("None"),
+    enum class Direction(val value: kotlin.String) {
         @Json(name = "Debit") Debit("Debit"),
         @Json(name = "Credit") Credit("Credit");
     }

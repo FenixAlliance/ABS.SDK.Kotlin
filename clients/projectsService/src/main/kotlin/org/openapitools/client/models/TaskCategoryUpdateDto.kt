@@ -23,13 +23,17 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
+ * @param projectId 
  */
 
 
 data class TaskCategoryUpdateDto (
 
     @Json(name = "title")
-    val title: kotlin.String? = null
+    val title: kotlin.String? = null,
+
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null
 
 ) {
 

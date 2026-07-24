@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getNonFungibleTokensAsync"></a>
 # **getNonFungibleTokensAsync**
-> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion)
 
 Get all non-fungible tokens
 
@@ -183,11 +183,10 @@ Retrieves all NFTs for the specified tenant.
 
 val apiInstance = NonFungibleTokensApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : NonFungibleTokenDtoODataQueryOptions =  // NonFungibleTokenDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : NonFungibleTokenDtoListEnvelope = apiInstance.getNonFungibleTokensAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : NonFungibleTokenDtoListEnvelope = apiInstance.getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NonFungibleTokensApi#getNonFungibleTokensAsync")
@@ -200,7 +199,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**NonFungibleTokenDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -221,7 +219,7 @@ No authorization required
 
 <a id="getNonFungibleTokensCountAsync"></a>
 # **getNonFungibleTokensCountAsync**
-> Int32Envelope getNonFungibleTokensCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get NFTs count
 
@@ -235,11 +233,10 @@ Returns the count of NFTs for the specified tenant.
 
 val apiInstance = NonFungibleTokensApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : NonFungibleTokenDtoODataQueryOptions =  // NonFungibleTokenDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getNonFungibleTokensCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NonFungibleTokensApi#getNonFungibleTokensCountAsync")
@@ -252,7 +249,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**NonFungibleTokenDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

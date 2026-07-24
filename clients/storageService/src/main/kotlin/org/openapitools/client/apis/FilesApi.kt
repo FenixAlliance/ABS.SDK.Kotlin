@@ -43,9 +43,76 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "http://localhost")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
     }
+
+    /**
+     * enum for parameter publicAccessType
+     */
+     enum class PublicAccessTypeCreateFileAsync(val value: kotlin.String) {
+         @Json(name = "false") `false`("false"),
+         @Json(name = "Container") Container("Container"),
+         @Json(name = "Blob") Blob("Blob"),
+         @Json(name = "Unknown") Unknown("Unknown");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * enum for parameter purpose
+     */
+     enum class PurposeCreateFileAsync(val value: kotlin.String) {
+         @Json(name = "Unknown") Unknown("Unknown"),
+         @Json(name = "IdentityAvatar") IdentityAvatar("IdentityAvatar"),
+         @Json(name = "IdentityBanner") IdentityBanner("IdentityBanner"),
+         @Json(name = "ProfileAsset") ProfileAsset("ProfileAsset"),
+         @Json(name = "EngagementInline") EngagementInline("EngagementInline"),
+         @Json(name = "EngagementAttachment") EngagementAttachment("EngagementAttachment"),
+         @Json(name = "MessageAttachment") MessageAttachment("MessageAttachment"),
+         @Json(name = "SocialPost") SocialPost("SocialPost"),
+         @Json(name = "RecordAttachment") RecordAttachment("RecordAttachment"),
+         @Json(name = "AiGenerated") AiGenerated("AiGenerated"),
+         @Json(name = "SystemArtifact") SystemArtifact("SystemArtifact"),
+         @Json(name = "Temporary") Temporary("Temporary");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * enum for parameter appFileSource
+     */
+     enum class AppFileSourceCreateFileAsync(val value: kotlin.String) {
+         @Json(name = "Unknown") Unknown("Unknown"),
+         @Json(name = "HttpUpload") HttpUpload("HttpUpload"),
+         @Json(name = "Integration") Integration("Integration"),
+         @Json(name = "InternalProcess") InternalProcess("InternalProcess"),
+         @Json(name = "ApiClient") ApiClient("ApiClient"),
+         @Json(name = "WorkflowEngine") WorkflowEngine("WorkflowEngine");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
 
     /**
      * 
@@ -53,8 +120,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param id  (optional)
-     * @param timestamp  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param title  (optional)
      * @param author  (optional)
@@ -65,7 +131,26 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
+     * @param publicAccessType  (optional)
+     * @param purpose  (optional)
+     * @param socialProfileIdValue  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
+     * @param timestamp  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -75,8 +160,8 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFileAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, id: java.util.UUID? = null, timestamp: java.time.OffsetDateTime? = null, notes: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadId: kotlin.String? = null, filePath: kotlin.String? = null, file: java.io.File? = null) : EmptyEnvelope {
-        val localVarResponse = createFileAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, id = id, timestamp = timestamp, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, file = file)
+    fun createFileAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null, notes: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadId: kotlin.String? = null, filePath: kotlin.String? = null, publicAccessType: PublicAccessTypeCreateFileAsync? = null, purpose: PurposeCreateFileAsync? = null, socialProfileIdValue: java.util.UUID? = null, appFileContent: kotlin.ByteArray? = null, appFileSha256: kotlin.String? = null, appFileCreatedAtUtc: java.time.OffsetDateTime? = null, appFileUserIdValue: java.util.UUID? = null, appFileTenantIdValue: java.util.UUID? = null, appFileEnrollmentIdValue: java.util.UUID? = null, appFileSource: AppFileSourceCreateFileAsync? = null, appFileLength: kotlin.Long? = null, appFileName: kotlin.String? = null, appFileFileName: kotlin.String? = null, appFileLastModified: java.time.OffsetDateTime? = null, appFileSize: kotlin.Long? = null, appFileContentType: kotlin.String? = null, appFileContentDisposition: kotlin.String? = null, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>? = null, id: java.util.UUID? = null, timestamp: java.time.OffsetDateTime? = null) : EmptyEnvelope {
+        val localVarResponse = createFileAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, publicAccessType = publicAccessType, purpose = purpose, socialProfileIdValue = socialProfileIdValue, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders, id = id, timestamp = timestamp)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -99,8 +184,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param id  (optional)
-     * @param timestamp  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param title  (optional)
      * @param author  (optional)
@@ -111,15 +195,34 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
+     * @param publicAccessType  (optional)
+     * @param purpose  (optional)
+     * @param socialProfileIdValue  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
+     * @param timestamp  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFileAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, file: java.io.File?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = createFileAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, id = id, timestamp = timestamp, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, file = file)
+    fun createFileAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, publicAccessType: PublicAccessTypeCreateFileAsync?, purpose: PurposeCreateFileAsync?, socialProfileIdValue: java.util.UUID?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceCreateFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = createFileAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file, notes = notes, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadId = parentFileUploadId, filePath = filePath, publicAccessType = publicAccessType, purpose = purpose, socialProfileIdValue = socialProfileIdValue, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders, id = id, timestamp = timestamp)
 
         return request<Map<String, PartConfig<*>>, EmptyEnvelope>(
             localVariableConfig
@@ -132,8 +235,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param id  (optional)
-     * @param timestamp  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param title  (optional)
      * @param author  (optional)
@@ -144,13 +246,31 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadId  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
+     * @param publicAccessType  (optional)
+     * @param purpose  (optional)
+     * @param socialProfileIdValue  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @param id  (optional)
+     * @param timestamp  (optional)
      * @return RequestConfig
      */
-    fun createFileAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun createFileAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?, notes: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadId: kotlin.String?, filePath: kotlin.String?, publicAccessType: PublicAccessTypeCreateFileAsync?, purpose: PurposeCreateFileAsync?, socialProfileIdValue: java.util.UUID?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceCreateFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?, id: java.util.UUID?, timestamp: java.time.OffsetDateTime?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
-            "id" to PartConfig(body = id, headers = mutableMapOf()),
-            "timestamp" to PartConfig(body = timestamp, headers = mutableMapOf()),
+            "file" to PartConfig(body = file, headers = mutableMapOf()),
             "notes" to PartConfig(body = notes, headers = mutableMapOf()),
             "title" to PartConfig(body = title, headers = mutableMapOf()),
             "author" to PartConfig(body = author, headers = mutableMapOf()),
@@ -161,7 +281,26 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             "validResponse" to PartConfig(body = validResponse, headers = mutableMapOf()),
             "parentFileUploadId" to PartConfig(body = parentFileUploadId, headers = mutableMapOf()),
             "filePath" to PartConfig(body = filePath, headers = mutableMapOf()),
-            "file" to PartConfig(body = file, headers = mutableMapOf()),)
+            "publicAccessType" to PartConfig(body = publicAccessType?.value, headers = mutableMapOf()),
+            "purpose" to PartConfig(body = purpose?.value, headers = mutableMapOf()),
+            "socialProfileId.value" to PartConfig(body = socialProfileIdValue, headers = mutableMapOf()),
+            "appFile.content" to PartConfig(body = appFileContent, headers = mutableMapOf()),
+            "appFile.sha256" to PartConfig(body = appFileSha256, headers = mutableMapOf()),
+            "appFile.createdAtUtc" to PartConfig(body = appFileCreatedAtUtc, headers = mutableMapOf()),
+            "appFile.userId.value" to PartConfig(body = appFileUserIdValue, headers = mutableMapOf()),
+            "appFile.tenantId.value" to PartConfig(body = appFileTenantIdValue, headers = mutableMapOf()),
+            "appFile.enrollmentId.value" to PartConfig(body = appFileEnrollmentIdValue, headers = mutableMapOf()),
+            "appFile.source" to PartConfig(body = appFileSource?.value, headers = mutableMapOf()),
+            "appFile.length" to PartConfig(body = appFileLength, headers = mutableMapOf()),
+            "appFile.name" to PartConfig(body = appFileName, headers = mutableMapOf()),
+            "appFile.fileName" to PartConfig(body = appFileFileName, headers = mutableMapOf()),
+            "appFile.lastModified" to PartConfig(body = appFileLastModified, headers = mutableMapOf()),
+            "appFile.size" to PartConfig(body = appFileSize, headers = mutableMapOf()),
+            "appFile.contentType" to PartConfig(body = appFileContentType, headers = mutableMapOf()),
+            "appFile.contentDisposition" to PartConfig(body = appFileContentDisposition, headers = mutableMapOf()),
+            "appFile.headers" to PartConfig(body = appFileHeaders, headers = mutableMapOf()),
+            "id" to PartConfig(body = id, headers = mutableMapOf()),
+            "timestamp" to PartConfig(body = timestamp, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -192,7 +331,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return FileUploadDtoEnvelope
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -201,11 +340,11 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFileAsync(fileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FileUploadDtoEnvelope {
+    fun deleteFileAsync(fileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
         val localVarResponse = deleteFileAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as FileUploadDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -226,16 +365,16 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<FileUploadDtoEnvelope?>
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFileAsyncWithHttpInfo(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FileUploadDtoEnvelope?> {
+    fun deleteFileAsyncWithHttpInfo(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
         val localVariableConfig = deleteFileAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, FileUploadDtoEnvelope>(
+        return request<Unit, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -455,6 +594,95 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     /**
      * 
      * 
+     * @param fileId 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return java.io.File
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getFileThumbnailAsync(fileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : java.io.File {
+        val localVarResponse = getFileThumbnailAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param fileId 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<java.io.File?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getFileThumbnailAsyncWithHttpInfo(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<java.io.File?> {
+        val localVariableConfig = getFileThumbnailAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, java.io.File>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getFileThumbnailAsync
+     *
+     * @param fileId 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getFileThumbnailAsyncRequestConfig(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/StorageService/Files/{fileId}/Thumbnail".replace("{"+"fileId"+"}", encodeURIComponent(fileId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * 
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
@@ -541,10 +769,118 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
     /**
      * 
      * 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return kotlin.Long
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getFilesCountAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Long {
+        val localVarResponse = getFilesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Long
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<kotlin.Long?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getFilesCountAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Long?> {
+        val localVariableConfig = getFilesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, kotlin.Long>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getFilesCountAsync
+     *
+     * @param tenantId  (optional)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getFilesCountAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (tenantId != null) {
+                    put("tenantId", listOf(tenantId.toString()))
+                }
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/StorageService/Files/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter appFileSource
+     */
+     enum class AppFileSourceUpdateFileAsync(val value: kotlin.String) {
+         @Json(name = "Unknown") Unknown("Unknown"),
+         @Json(name = "HttpUpload") HttpUpload("HttpUpload"),
+         @Json(name = "Integration") Integration("Integration"),
+         @Json(name = "InternalProcess") InternalProcess("InternalProcess"),
+         @Json(name = "ApiClient") ApiClient("ApiClient"),
+         @Json(name = "WorkflowEngine") WorkflowEngine("WorkflowEngine");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * 
+     * 
      * @param fileId 
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param metadata  (optional)
      * @param title  (optional)
@@ -556,8 +892,22 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadID  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
-     * @return FileUploadDtoEnvelope
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -566,11 +916,11 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateFileAsync(fileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notes: kotlin.String? = null, metadata: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadID: kotlin.String? = null, filePath: kotlin.String? = null, file: java.io.File? = null) : FileUploadDtoEnvelope {
-        val localVarResponse = updateFileAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, metadata = metadata, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadID = parentFileUploadID, filePath = filePath, file = file)
+    fun updateFileAsync(fileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null, notes: kotlin.String? = null, metadata: kotlin.String? = null, title: kotlin.String? = null, author: kotlin.String? = null, isFolder: kotlin.Boolean? = null, fileName: kotlin.String? = null, `abstract`: kotlin.String? = null, keyWords: kotlin.String? = null, validResponse: kotlin.Boolean? = null, parentFileUploadID: kotlin.String? = null, filePath: kotlin.String? = null, appFileContent: kotlin.ByteArray? = null, appFileSha256: kotlin.String? = null, appFileCreatedAtUtc: java.time.OffsetDateTime? = null, appFileUserIdValue: java.util.UUID? = null, appFileTenantIdValue: java.util.UUID? = null, appFileEnrollmentIdValue: java.util.UUID? = null, appFileSource: AppFileSourceUpdateFileAsync? = null, appFileLength: kotlin.Long? = null, appFileName: kotlin.String? = null, appFileFileName: kotlin.String? = null, appFileLastModified: java.time.OffsetDateTime? = null, appFileSize: kotlin.Long? = null, appFileContentType: kotlin.String? = null, appFileContentDisposition: kotlin.String? = null, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>? = null) : EmptyEnvelope {
+        val localVarResponse = updateFileAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file, notes = notes, metadata = metadata, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadID = parentFileUploadID, filePath = filePath, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as FileUploadDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -591,6 +941,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param metadata  (optional)
      * @param title  (optional)
@@ -602,17 +953,31 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadID  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
-     * @return ApiResponse<FileUploadDtoEnvelope?>
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateFileAsyncWithHttpInfo(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, metadata: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadID: kotlin.String?, filePath: kotlin.String?, file: java.io.File?) : ApiResponse<FileUploadDtoEnvelope?> {
-        val localVariableConfig = updateFileAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, notes = notes, metadata = metadata, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadID = parentFileUploadID, filePath = filePath, file = file)
+    fun updateFileAsyncWithHttpInfo(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?, notes: kotlin.String?, metadata: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadID: kotlin.String?, filePath: kotlin.String?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceUpdateFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = updateFileAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file, notes = notes, metadata = metadata, title = title, author = author, isFolder = isFolder, fileName = fileName, `abstract` = `abstract`, keyWords = keyWords, validResponse = validResponse, parentFileUploadID = parentFileUploadID, filePath = filePath, appFileContent = appFileContent, appFileSha256 = appFileSha256, appFileCreatedAtUtc = appFileCreatedAtUtc, appFileUserIdValue = appFileUserIdValue, appFileTenantIdValue = appFileTenantIdValue, appFileEnrollmentIdValue = appFileEnrollmentIdValue, appFileSource = appFileSource, appFileLength = appFileLength, appFileName = appFileName, appFileFileName = appFileFileName, appFileLastModified = appFileLastModified, appFileSize = appFileSize, appFileContentType = appFileContentType, appFileContentDisposition = appFileContentDisposition, appFileHeaders = appFileHeaders)
 
-        return request<Map<String, PartConfig<*>>, FileUploadDtoEnvelope>(
+        return request<Map<String, PartConfig<*>>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -624,6 +989,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param file  (optional)
      * @param notes  (optional)
      * @param metadata  (optional)
      * @param title  (optional)
@@ -635,11 +1001,26 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param validResponse  (optional)
      * @param parentFileUploadID  (optional)
      * @param filePath  (optional)
-     * @param file  (optional)
+     * @param appFileContent  (optional)
+     * @param appFileSha256  (optional)
+     * @param appFileCreatedAtUtc  (optional)
+     * @param appFileUserIdValue  (optional)
+     * @param appFileTenantIdValue  (optional)
+     * @param appFileEnrollmentIdValue  (optional)
+     * @param appFileSource  (optional)
+     * @param appFileLength  (optional)
+     * @param appFileName  (optional)
+     * @param appFileFileName  (optional)
+     * @param appFileLastModified  (optional)
+     * @param appFileSize  (optional)
+     * @param appFileContentType  (optional)
+     * @param appFileContentDisposition  (optional)
+     * @param appFileHeaders  (optional)
      * @return RequestConfig
      */
-    fun updateFileAsyncRequestConfig(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notes: kotlin.String?, metadata: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadID: kotlin.String?, filePath: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+    fun updateFileAsyncRequestConfig(fileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?, notes: kotlin.String?, metadata: kotlin.String?, title: kotlin.String?, author: kotlin.String?, isFolder: kotlin.Boolean?, fileName: kotlin.String?, `abstract`: kotlin.String?, keyWords: kotlin.String?, validResponse: kotlin.Boolean?, parentFileUploadID: kotlin.String?, filePath: kotlin.String?, appFileContent: kotlin.ByteArray?, appFileSha256: kotlin.String?, appFileCreatedAtUtc: java.time.OffsetDateTime?, appFileUserIdValue: java.util.UUID?, appFileTenantIdValue: java.util.UUID?, appFileEnrollmentIdValue: java.util.UUID?, appFileSource: AppFileSourceUpdateFileAsync?, appFileLength: kotlin.Long?, appFileName: kotlin.String?, appFileFileName: kotlin.String?, appFileLastModified: java.time.OffsetDateTime?, appFileSize: kotlin.Long?, appFileContentType: kotlin.String?, appFileContentDisposition: kotlin.String?, appFileHeaders: kotlin.collections.Map<kotlin.String, kotlin.String>?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
+            "file" to PartConfig(body = file, headers = mutableMapOf()),
             "notes" to PartConfig(body = notes, headers = mutableMapOf()),
             "metadata" to PartConfig(body = metadata, headers = mutableMapOf()),
             "title" to PartConfig(body = title, headers = mutableMapOf()),
@@ -651,7 +1032,21 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             "validResponse" to PartConfig(body = validResponse, headers = mutableMapOf()),
             "parentFileUploadID" to PartConfig(body = parentFileUploadID, headers = mutableMapOf()),
             "filePath" to PartConfig(body = filePath, headers = mutableMapOf()),
-            "file" to PartConfig(body = file, headers = mutableMapOf()),)
+            "appFile.content" to PartConfig(body = appFileContent, headers = mutableMapOf()),
+            "appFile.sha256" to PartConfig(body = appFileSha256, headers = mutableMapOf()),
+            "appFile.createdAtUtc" to PartConfig(body = appFileCreatedAtUtc, headers = mutableMapOf()),
+            "appFile.userId.value" to PartConfig(body = appFileUserIdValue, headers = mutableMapOf()),
+            "appFile.tenantId.value" to PartConfig(body = appFileTenantIdValue, headers = mutableMapOf()),
+            "appFile.enrollmentId.value" to PartConfig(body = appFileEnrollmentIdValue, headers = mutableMapOf()),
+            "appFile.source" to PartConfig(body = appFileSource?.value, headers = mutableMapOf()),
+            "appFile.length" to PartConfig(body = appFileLength, headers = mutableMapOf()),
+            "appFile.name" to PartConfig(body = appFileName, headers = mutableMapOf()),
+            "appFile.fileName" to PartConfig(body = appFileFileName, headers = mutableMapOf()),
+            "appFile.lastModified" to PartConfig(body = appFileLastModified, headers = mutableMapOf()),
+            "appFile.size" to PartConfig(body = appFileSize, headers = mutableMapOf()),
+            "appFile.contentType" to PartConfig(body = appFileContentType, headers = mutableMapOf()),
+            "appFile.contentDisposition" to PartConfig(body = appFileContentDisposition, headers = mutableMapOf()),
+            "appFile.headers" to PartConfig(body = appFileHeaders, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {

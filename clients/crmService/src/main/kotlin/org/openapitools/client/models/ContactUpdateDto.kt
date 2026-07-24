@@ -37,8 +37,6 @@ import com.squareup.moshi.JsonClass
  * @param jobTitle 
  * @param countryId 
  * @param parentContactId 
- * @param addressLine1 
- * @param addressLine2 
  * @param postalCode 
  * @param stateId 
  * @param cityId 
@@ -113,12 +111,6 @@ data class ContactUpdateDto (
 
     @Json(name = "parentContactId")
     val parentContactId: kotlin.String? = null,
-
-    @Json(name = "addressLine1")
-    val addressLine1: kotlin.String? = null,
-
-    @Json(name = "addressLine2")
-    val addressLine2: kotlin.String? = null,
 
     @Json(name = "postalCode")
     val postalCode: kotlin.String? = null,

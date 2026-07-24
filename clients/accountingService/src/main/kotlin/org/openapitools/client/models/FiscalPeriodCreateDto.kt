@@ -22,16 +22,22 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param name 
+ * @param fiscalYearId 
  * @param id 
  * @param timestamp 
- * @param name 
  * @param fromDate 
  * @param toDate 
- * @param fiscalYearId 
  */
 
 
 data class FiscalPeriodCreateDto (
+
+    @Json(name = "name")
+    val name: kotlin.String,
+
+    @Json(name = "fiscalYearId")
+    val fiscalYearId: kotlin.String,
 
     @Json(name = "id")
     val id: java.util.UUID? = null,
@@ -39,17 +45,11 @@ data class FiscalPeriodCreateDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
     @Json(name = "fromDate")
     val fromDate: java.time.OffsetDateTime? = null,
 
     @Json(name = "toDate")
-    val toDate: java.time.OffsetDateTime? = null,
-
-    @Json(name = "fiscalYearId")
-    val fiscalYearId: kotlin.String? = null
+    val toDate: java.time.OffsetDateTime? = null
 
 ) {
 

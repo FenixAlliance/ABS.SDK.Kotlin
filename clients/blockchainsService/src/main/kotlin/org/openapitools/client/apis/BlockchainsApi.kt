@@ -22,12 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.BlockchainBlockCreateDto
 import org.openapitools.client.models.BlockchainBlockDto
 import org.openapitools.client.models.BlockchainBlockDtoListEnvelope
-import org.openapitools.client.models.BlockchainBlockDtoODataQueryOptions
 import org.openapitools.client.models.BlockchainBlockUpdateDto
 import org.openapitools.client.models.BlockchainCreateDto
 import org.openapitools.client.models.BlockchainDto
 import org.openapitools.client.models.BlockchainDtoListEnvelope
-import org.openapitools.client.models.BlockchainDtoODataQueryOptions
 import org.openapitools.client.models.BlockchainUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
@@ -499,7 +497,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * 
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return BlockchainBlockDtoListEnvelope
@@ -511,8 +508,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainBlocksAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainBlockDtoListEnvelope {
-        val localVarResponse = getBlockchainBlocksAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainBlockDtoListEnvelope {
+        val localVarResponse = getBlockchainBlocksAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockchainBlockDtoListEnvelope
@@ -534,7 +531,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * 
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<BlockchainBlockDtoListEnvelope?>
@@ -543,8 +539,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainBlocksAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainBlockDtoListEnvelope?> {
-        val localVariableConfig = getBlockchainBlocksAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainBlockDtoListEnvelope?> {
+        val localVariableConfig = getBlockchainBlocksAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, BlockchainBlockDtoListEnvelope>(
             localVariableConfig
@@ -556,19 +552,15 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      *
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainBlocksAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getBlockchainBlocksAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -592,7 +584,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * 
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -604,8 +595,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainBlocksCountAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksCountAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -627,7 +618,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * 
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -636,8 +626,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBlockchainBlocksCountAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBlockchainBlocksCountAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -649,19 +639,15 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      *
      * @param blockchainId 
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainBlocksCountAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, oDataQueryOptions: BlockchainBlockDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getBlockchainBlocksCountAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -771,7 +757,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get all blockchains
      * Retrieves all blockchains for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return BlockchainDtoListEnvelope
@@ -783,8 +768,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainsAsync(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainDtoListEnvelope {
-        val localVarResponse = getBlockchainsAsyncWithHttpInfo(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainDtoListEnvelope {
+        val localVarResponse = getBlockchainsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockchainDtoListEnvelope
@@ -805,7 +790,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get all blockchains
      * Retrieves all blockchains for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<BlockchainDtoListEnvelope?>
@@ -814,8 +798,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainsAsyncWithHttpInfo(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainDtoListEnvelope?> {
-        val localVariableConfig = getBlockchainsAsyncRequestConfig(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainDtoListEnvelope?> {
+        val localVariableConfig = getBlockchainsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, BlockchainDtoListEnvelope>(
             localVariableConfig
@@ -826,19 +810,15 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * To obtain the request config of the operation getBlockchainsAsync
      *
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainsAsyncRequestConfig(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getBlockchainsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -861,7 +841,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get blockchains count
      * Returns the count of blockchains for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -873,8 +852,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainsCountAsync(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBlockchainsCountAsyncWithHttpInfo(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getBlockchainsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -895,7 +874,6 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Get blockchains count
      * Returns the count of blockchains for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -904,8 +882,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBlockchainsCountAsyncRequestConfig(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBlockchainsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -916,19 +894,15 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * To obtain the request config of the operation getBlockchainsCountAsync
      *
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainsCountAsyncRequestConfig(tenantId: java.util.UUID, oDataQueryOptions: BlockchainDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getBlockchainsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

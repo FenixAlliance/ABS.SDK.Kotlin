@@ -4,12 +4,12 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getLatestCurrencyRatesModelAsync**](ThemesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
+| [**updateThemesAsync**](ThemesApi.md#updateThemesAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
 
 
-<a id="getLatestCurrencyRatesModelAsync"></a>
-# **getLatestCurrencyRatesModelAsync**
-> getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
+<a id="updateThemesAsync"></a>
+# **updateThemesAsync**
+> updateThemesAsync(apiVersion, xApiVersion)
 
 Update base web content themes
 
@@ -25,12 +25,12 @@ val apiInstance = ThemesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    apiInstance.getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
+    apiInstance.updateThemesAsync(apiVersion, xApiVersion)
 } catch (e: ClientException) {
-    println("4xx response calling ThemesApi#getLatestCurrencyRatesModelAsync")
+    println("4xx response calling ThemesApi#updateThemesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ThemesApi#getLatestCurrencyRatesModelAsync")
+    println("5xx response calling ThemesApi#updateThemesAsync")
     e.printStackTrace()
 }
 ```

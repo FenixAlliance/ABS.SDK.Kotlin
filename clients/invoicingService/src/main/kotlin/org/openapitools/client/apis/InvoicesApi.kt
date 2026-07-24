@@ -19,7 +19,6 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import org.openapitools.client.models.DecimalEnvelope
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.Envelope
@@ -2932,7 +2931,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId 
-     * @return DecimalEnvelope
+     * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -2941,11 +2940,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPurchaseInvoicesSum(tenantId: java.util.UUID) : DecimalEnvelope {
+    fun getPurchaseInvoicesSum(tenantId: java.util.UUID) : MoneyEnvelope {
         val localVarResponse = getPurchaseInvoicesSumWithHttpInfo(tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -2963,16 +2962,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId 
-     * @return ApiResponse<DecimalEnvelope?>
+     * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPurchaseInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DecimalEnvelope?> {
+    fun getPurchaseInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<MoneyEnvelope?> {
         val localVariableConfig = getPurchaseInvoicesSumRequestConfig(tenantId = tenantId)
 
-        return request<Unit, DecimalEnvelope>(
+        return request<Unit, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -3006,7 +3005,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId 
-     * @return DecimalEnvelope
+     * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -3015,11 +3014,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSalesInvoicesSum(tenantId: java.util.UUID) : DecimalEnvelope {
+    fun getSalesInvoicesSum(tenantId: java.util.UUID) : MoneyEnvelope {
         val localVarResponse = getSalesInvoicesSumWithHttpInfo(tenantId = tenantId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -3037,16 +3036,16 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId 
-     * @return ApiResponse<DecimalEnvelope?>
+     * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSalesInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DecimalEnvelope?> {
+    fun getSalesInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<MoneyEnvelope?> {
         val localVariableConfig = getSalesInvoicesSumRequestConfig(tenantId = tenantId)
 
-        return request<Unit, DecimalEnvelope>(
+        return request<Unit, MoneyEnvelope>(
             localVariableConfig
         )
     }

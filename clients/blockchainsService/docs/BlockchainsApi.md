@@ -278,7 +278,7 @@ No authorization required
 
 <a id="getBlockchainBlocksAsync"></a>
 # **getBlockchainBlocksAsync**
-> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(blockchainId, tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion)
 
 Get blocks for a blockchain
 
@@ -291,11 +291,10 @@ Get blocks for a blockchain
 val apiInstance = BlockchainsApi()
 val blockchainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : BlockchainBlockDtoODataQueryOptions =  // BlockchainBlockDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : BlockchainBlockDtoListEnvelope = apiInstance.getBlockchainBlocksAsync(blockchainId, tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : BlockchainBlockDtoListEnvelope = apiInstance.getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainBlocksAsync")
@@ -309,7 +308,6 @@ try {
 ### Parameters
 | **blockchainId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainBlockDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -330,7 +328,7 @@ No authorization required
 
 <a id="getBlockchainBlocksCountAsync"></a>
 # **getBlockchainBlocksCountAsync**
-> Int32Envelope getBlockchainBlocksCountAsync(blockchainId, tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion)
 
 Get block count for a blockchain
 
@@ -343,11 +341,10 @@ Get block count for a blockchain
 val apiInstance = BlockchainsApi()
 val blockchainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : BlockchainBlockDtoODataQueryOptions =  // BlockchainBlockDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getBlockchainBlocksCountAsync(blockchainId, tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainBlocksCountAsync")
@@ -361,7 +358,6 @@ try {
 ### Parameters
 | **blockchainId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainBlockDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -434,7 +430,7 @@ No authorization required
 
 <a id="getBlockchainsAsync"></a>
 # **getBlockchainsAsync**
-> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
 
 Get all blockchains
 
@@ -448,11 +444,10 @@ Retrieves all blockchains for the specified tenant.
 
 val apiInstance = BlockchainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : BlockchainDtoODataQueryOptions =  // BlockchainDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : BlockchainDtoListEnvelope = apiInstance.getBlockchainsAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : BlockchainDtoListEnvelope = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainsAsync")
@@ -465,7 +460,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -486,7 +480,7 @@ No authorization required
 
 <a id="getBlockchainsCountAsync"></a>
 # **getBlockchainsCountAsync**
-> Int32Envelope getBlockchainsCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get blockchains count
 
@@ -500,11 +494,10 @@ Returns the count of blockchains for the specified tenant.
 
 val apiInstance = BlockchainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val oDataQueryOptions : BlockchainDtoODataQueryOptions =  // BlockchainDtoODataQueryOptions | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : Int32Envelope = apiInstance.getBlockchainsCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainsCountAsync")
@@ -517,7 +510,6 @@ try {
 
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

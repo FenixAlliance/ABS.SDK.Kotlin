@@ -49,6 +49,10 @@ import com.squareup.moshi.JsonClass
  * @param enrollmentId 
  * @param childrenAccountsCount 
  * @param accountCategory 
+ * @param isContra 
+ * @param isMonetary 
+ * @param incomeStatementSubType 
+ * @param normalBalance 
  * @param balanceAmount 
  * @param creditsBalanceAmount 
  * @param debitsBalanceAmount 
@@ -138,6 +142,18 @@ data class AccountDto (
     @Json(name = "accountCategory")
     val accountCategory: AccountDto.AccountCategory? = null,
 
+    @Json(name = "isContra")
+    val isContra: kotlin.Boolean? = null,
+
+    @Json(name = "isMonetary")
+    val isMonetary: kotlin.Boolean? = null,
+
+    @Json(name = "incomeStatementSubType")
+    val incomeStatementSubType: AccountDto.IncomeStatementSubType? = null,
+
+    @Json(name = "normalBalance")
+    val normalBalance: AccountDto.NormalBalance? = null,
+
     @Json(name = "balanceAmount")
     val balanceAmount: Money? = null,
 
@@ -170,6 +186,28 @@ data class AccountDto (
         @Json(name = "Revenue") Revenue("Revenue"),
         @Json(name = "Expense") Expense("Expense"),
         @Json(name = "Liabilities") Liabilities("Liabilities");
+    }
+    /**
+     * 
+     *
+     * Values: OperatingRevenue,Gain,OperatingExpense,Loss
+     */
+    @JsonClass(generateAdapter = false)
+    enum class IncomeStatementSubType(val value: kotlin.String) {
+        @Json(name = "OperatingRevenue") OperatingRevenue("OperatingRevenue"),
+        @Json(name = "Gain") Gain("Gain"),
+        @Json(name = "OperatingExpense") OperatingExpense("OperatingExpense"),
+        @Json(name = "Loss") Loss("Loss");
+    }
+    /**
+     * 
+     *
+     * Values: Debit,Credit
+     */
+    @JsonClass(generateAdapter = false)
+    enum class NormalBalance(val value: kotlin.String) {
+        @Json(name = "Debit") Debit("Debit"),
+        @Json(name = "Credit") Credit("Credit");
     }
 
 }

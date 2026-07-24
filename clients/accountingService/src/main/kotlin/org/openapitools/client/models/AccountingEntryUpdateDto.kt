@@ -22,53 +22,44 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param description 
- * @param amount 
- * @param date 
- * @param currencyId 
- * @param debitAccountId 
- * @param creditAccountId 
  * @param journalEntryId 
- * @param accountingEntryType 
+ * @param accountId 
+ * @param direction 
+ * @param transactionAmount 
+ * @param transactionCurrencyId 
+ * @param description 
  */
 
 
 data class AccountingEntryUpdateDto (
 
-    @Json(name = "description")
-    val description: kotlin.String? = null,
-
-    @Json(name = "amount")
-    val amount: kotlin.Double? = null,
-
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime? = null,
-
-    @Json(name = "currencyId")
-    val currencyId: kotlin.String? = null,
-
-    @Json(name = "debitAccountId")
-    val debitAccountId: kotlin.String? = null,
-
-    @Json(name = "creditAccountId")
-    val creditAccountId: kotlin.String? = null,
-
     @Json(name = "journalEntryId")
     val journalEntryId: kotlin.String? = null,
 
-    @Json(name = "accountingEntryType")
-    val accountingEntryType: AccountingEntryUpdateDto.AccountingEntryType? = null
+    @Json(name = "accountId")
+    val accountId: kotlin.String? = null,
+
+    @Json(name = "direction")
+    val direction: AccountingEntryUpdateDto.Direction? = null,
+
+    @Json(name = "transactionAmount")
+    val transactionAmount: kotlin.Double? = null,
+
+    @Json(name = "transactionCurrencyId")
+    val transactionCurrencyId: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: None,Debit,Credit
+     * Values: Debit,Credit
      */
     @JsonClass(generateAdapter = false)
-    enum class AccountingEntryType(val value: kotlin.String) {
-        @Json(name = "None") None("None"),
+    enum class Direction(val value: kotlin.String) {
         @Json(name = "Debit") Debit("Debit"),
         @Json(name = "Credit") Credit("Credit");
     }

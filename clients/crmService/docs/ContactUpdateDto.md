@@ -19,8 +19,6 @@
 | **jobTitle** | **kotlin.String** |  |  [optional] |
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **parentContactId** | **kotlin.String** |  |  [optional] |
-| **addressLine1** | **kotlin.String** |  |  [optional] |
-| **addressLine2** | **kotlin.String** |  |  [optional] |
 | **postalCode** | **kotlin.String** |  |  [optional] |
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |

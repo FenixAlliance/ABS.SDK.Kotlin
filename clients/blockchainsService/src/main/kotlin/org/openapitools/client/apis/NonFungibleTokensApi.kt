@@ -25,7 +25,6 @@ import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.NonFungibleTokenCreateDto
 import org.openapitools.client.models.NonFungibleTokenDto
 import org.openapitools.client.models.NonFungibleTokenDtoListEnvelope
-import org.openapitools.client.models.NonFungibleTokenDtoODataQueryOptions
 import org.openapitools.client.models.NonFungibleTokenUpdateDto
 import org.openapitools.client.models.Operation
 
@@ -315,7 +314,6 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Get all non-fungible tokens
      * Retrieves all NFTs for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return NonFungibleTokenDtoListEnvelope
@@ -327,8 +325,8 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNonFungibleTokensAsync(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : NonFungibleTokenDtoListEnvelope {
-        val localVarResponse = getNonFungibleTokensAsyncWithHttpInfo(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNonFungibleTokensAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : NonFungibleTokenDtoListEnvelope {
+        val localVarResponse = getNonFungibleTokensAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NonFungibleTokenDtoListEnvelope
@@ -349,7 +347,6 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Get all non-fungible tokens
      * Retrieves all NFTs for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<NonFungibleTokenDtoListEnvelope?>
@@ -358,8 +355,8 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNonFungibleTokensAsyncWithHttpInfo(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<NonFungibleTokenDtoListEnvelope?> {
-        val localVariableConfig = getNonFungibleTokensAsyncRequestConfig(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNonFungibleTokensAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<NonFungibleTokenDtoListEnvelope?> {
+        val localVariableConfig = getNonFungibleTokensAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, NonFungibleTokenDtoListEnvelope>(
             localVariableConfig
@@ -370,19 +367,15 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * To obtain the request config of the operation getNonFungibleTokensAsync
      *
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getNonFungibleTokensAsyncRequestConfig(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getNonFungibleTokensAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
@@ -405,7 +398,6 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Get NFTs count
      * Returns the count of NFTs for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -417,8 +409,8 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNonFungibleTokensCountAsync(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getNonFungibleTokensCountAsyncWithHttpInfo(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNonFungibleTokensCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
+        val localVarResponse = getNonFungibleTokensCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -439,7 +431,6 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Get NFTs count
      * Returns the count of NFTs for the specified tenant.
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<Int32Envelope?>
@@ -448,8 +439,8 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNonFungibleTokensCountAsyncWithHttpInfo(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getNonFungibleTokensCountAsyncRequestConfig(tenantId = tenantId, oDataQueryOptions = oDataQueryOptions, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNonFungibleTokensCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getNonFungibleTokensCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Int32Envelope>(
             localVariableConfig
@@ -460,19 +451,15 @@ class NonFungibleTokensApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * To obtain the request config of the operation getNonFungibleTokensCountAsync
      *
      * @param tenantId 
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getNonFungibleTokensCountAsyncRequestConfig(tenantId: java.util.UUID, oDataQueryOptions: NonFungibleTokenDtoODataQueryOptions?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getNonFungibleTokensCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
-                if (oDataQueryOptions != null) {
-                    put("oDataQueryOptions", listOf(oDataQueryOptions.toString()))
-                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }

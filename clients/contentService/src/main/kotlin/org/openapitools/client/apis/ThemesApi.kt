@@ -58,8 +58,8 @@ class ThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLatestCurrencyRatesModelAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
-        val localVarResponse = getLatestCurrencyRatesModelAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateThemesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Unit {
+        val localVarResponse = updateThemesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -86,8 +86,8 @@ class ThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLatestCurrencyRatesModelAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
-        val localVariableConfig = getLatestCurrencyRatesModelAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun updateThemesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = updateThemesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -95,13 +95,13 @@ class ThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
     }
 
     /**
-     * To obtain the request config of the operation getLatestCurrencyRatesModelAsync
+     * To obtain the request config of the operation updateThemesAsync
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun getLatestCurrencyRatesModelAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun updateThemesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

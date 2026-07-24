@@ -25,24 +25,16 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
- * @param debit 
- * @param credit 
- * @param description 
- * @param forexRate 
- * @param accountId 
  * @param tenantId 
- * @param date 
  * @param enrollmentId 
+ * @param description 
+ * @param plannedAmount 
  * @param currencyId 
  * @param debitAccountId 
  * @param creditAccountId 
- * @param journalEntryId 
- * @param debitAccountName 
- * @param creditAccountName 
- * @param accountingEntryType 
- * @param debitAmount 
- * @param creditAmount 
  * @param budgetId 
+ * @param date 
+ * @param plannedAmountMoney 
  */
 
 
@@ -54,29 +46,17 @@ data class BudgetAccountEntryDto (
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
 
-    @Json(name = "debit")
-    val debit: kotlin.Double? = null,
+    @Json(name = "tenantId")
+    val tenantId: kotlin.String? = null,
 
-    @Json(name = "credit")
-    val credit: kotlin.Double? = null,
+    @Json(name = "enrollmentId")
+    val enrollmentId: kotlin.String? = null,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
 
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
-    @Json(name = "accountId")
-    val accountId: kotlin.String? = null,
-
-    @Json(name = "tenantId")
-    val tenantId: kotlin.String? = null,
-
-    @Json(name = "date")
-    val date: java.time.OffsetDateTime? = null,
-
-    @Json(name = "enrollmentId")
-    val enrollmentId: kotlin.String? = null,
+    @Json(name = "plannedAmount")
+    val plannedAmount: kotlin.Double? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -87,40 +67,17 @@ data class BudgetAccountEntryDto (
     @Json(name = "creditAccountId")
     val creditAccountId: kotlin.String? = null,
 
-    @Json(name = "journalEntryId")
-    val journalEntryId: kotlin.String? = null,
-
-    @Json(name = "debitAccountName")
-    val debitAccountName: kotlin.String? = null,
-
-    @Json(name = "creditAccountName")
-    val creditAccountName: kotlin.String? = null,
-
-    @Json(name = "accountingEntryType")
-    val accountingEntryType: BudgetAccountEntryDto.AccountingEntryType? = null,
-
-    @Json(name = "debitAmount")
-    val debitAmount: Money? = null,
-
-    @Json(name = "creditAmount")
-    val creditAmount: Money? = null,
-
     @Json(name = "budgetId")
-    val budgetId: kotlin.String? = null
+    val budgetId: kotlin.String? = null,
+
+    @Json(name = "date")
+    val date: java.time.OffsetDateTime? = null,
+
+    @Json(name = "plannedAmountMoney")
+    val plannedAmountMoney: Money? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: None,Debit,Credit
-     */
-    @JsonClass(generateAdapter = false)
-    enum class AccountingEntryType(val value: kotlin.String) {
-        @Json(name = "None") None("None"),
-        @Json(name = "Debit") Debit("Debit"),
-        @Json(name = "Credit") Credit("Credit");
-    }
 
 }
 

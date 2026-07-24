@@ -10,7 +10,7 @@
 | **description** | **kotlin.String** |  |  [optional] |
 | **startDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **dueLine** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **projectID** | **kotlin.String** |  |  [optional] |
+| **projectId** | **kotlin.String** |  |  [optional] |
 
 
 

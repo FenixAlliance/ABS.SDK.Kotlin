@@ -22,12 +22,20 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param title 
+ * @param description 
  * @param startDate 
  * @param dueLine 
  */
 
 
 data class ProjectTaskUpdateDto (
+
+    @Json(name = "title")
+    val title: kotlin.String? = null,
+
+    @Json(name = "description")
+    val description: kotlin.String? = null,
 
     @Json(name = "startDate")
     val startDate: java.time.OffsetDateTime? = null,

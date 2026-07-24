@@ -58,7 +58,7 @@ No authorization required
 
 <a id="getAvailableModules"></a>
 # **getAvailableModules**
-> ModuleListEnvelope getAvailableModules(tenantId, apiVersion, xApiVersion)
+> SuiteModuleListEnvelope getAvailableModules(tenantId, apiVersion, xApiVersion)
 
 Get all modules available to a tenant user.
 
@@ -73,7 +73,7 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ModuleListEnvelope = apiInstance.getAvailableModules(tenantId, apiVersion, xApiVersion)
+    val result : SuiteModuleListEnvelope = apiInstance.getAvailableModules(tenantId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ModulesApi#getAvailableModules")
@@ -93,7 +93,7 @@ try {
 
 ### Return type
 
-[**ModuleListEnvelope**](ModuleListEnvelope.md)
+[**SuiteModuleListEnvelope**](SuiteModuleListEnvelope.md)
 
 ### Authorization
 

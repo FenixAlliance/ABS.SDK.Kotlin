@@ -7,7 +7,7 @@
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
-| **taskCategoryID** | **kotlin.String** |  |  [optional] |
+| **taskCategoryId** | **kotlin.String** |  |  [optional] |
 | **displayInTimeTracker** | **kotlin.Boolean** |  |  [optional] |
 | **requiresDescription** | **kotlin.Boolean** |  |  [optional] |
 

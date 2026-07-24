@@ -54,6 +54,11 @@ docs/MarketingListsApi.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionCreateDto.md
+docs/NewsletterSubscriptionDto.md
+docs/NewsletterSubscriptionDtoEnvelope.md
+docs/NewsletterSubscriptionDtoListEnvelope.md
+docs/NewsletterSubscriptionUpdateDto.md
 docs/NewsletterSubscriptionsApi.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
@@ -160,6 +165,11 @@ src/main/kotlin/org/openapitools/client/models/MarketingListUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterDtoEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/NewsletterSubscriptionCreateDto.kt
+src/main/kotlin/org/openapitools/client/models/NewsletterSubscriptionDto.kt
+src/main/kotlin/org/openapitools/client/models/NewsletterSubscriptionDtoEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/NewsletterSubscriptionDtoListEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/NewsletterSubscriptionUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/NewsletterUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/OrderDto.kt
@@ -180,4 +190,8 @@ src/main/kotlin/org/openapitools/client/models/SocialPostBucketDtoListEnvelope.k
 src/main/kotlin/org/openapitools/client/models/SocialPostBucketUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/apis/NewsletterSubscriptionsApiTest.kt
+src/test/kotlin/org/openapitools/client/models/NewsletterSubscriptionCreateDtoTest.kt
+src/test/kotlin/org/openapitools/client/models/NewsletterSubscriptionDtoEnvelopeTest.kt
+src/test/kotlin/org/openapitools/client/models/NewsletterSubscriptionDtoListEnvelopeTest.kt
+src/test/kotlin/org/openapitools/client/models/NewsletterSubscriptionDtoTest.kt
+src/test/kotlin/org/openapitools/client/models/NewsletterSubscriptionUpdateDtoTest.kt

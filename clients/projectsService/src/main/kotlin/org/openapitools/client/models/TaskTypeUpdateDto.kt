@@ -23,6 +23,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param title 
+ * @param taskCategoryId 
  * @param displayInTimeTracker 
  * @param requiresDescription 
  */
@@ -32,6 +33,9 @@ data class TaskTypeUpdateDto (
 
     @Json(name = "title")
     val title: kotlin.String? = null,
+
+    @Json(name = "taskCategoryId")
+    val taskCategoryId: kotlin.String? = null,
 
     @Json(name = "displayInTimeTracker")
     val displayInTimeTracker: kotlin.Boolean? = null,

@@ -4,21 +4,19 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **description** | **kotlin.String** |  |  [optional] |
-| **amount** | **kotlin.Double** |  |  [optional] |
-| **date** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
-| **currencyId** | **kotlin.String** |  |  [optional] |
-| **debitAccountId** | **kotlin.String** |  |  [optional] |
-| **creditAccountId** | **kotlin.String** |  |  [optional] |
 | **journalEntryId** | **kotlin.String** |  |  [optional] |
-| **accountingEntryType** | [**inline**](#AccountingEntryType) |  |  [optional] |
+| **accountId** | **kotlin.String** |  |  [optional] |
+| **direction** | [**inline**](#Direction) |  |  [optional] |
+| **transactionAmount** | **kotlin.Double** |  |  [optional] |
+| **transactionCurrencyId** | **kotlin.String** |  |  [optional] |
+| **description** | **kotlin.String** |  |  [optional] |
 
 
-<a id="AccountingEntryType"></a>
-## Enum: accountingEntryType
+<a id="Direction"></a>
+## Enum: direction
 | Name | Value |
 | ---- | ----- |
-| accountingEntryType | None, Debit, Credit |
+| direction | Debit, Credit |
 
 
 

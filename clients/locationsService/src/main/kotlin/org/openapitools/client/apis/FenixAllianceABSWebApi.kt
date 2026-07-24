@@ -335,6 +335,74 @@ class FenixAllianceABSWebApi(basePath: kotlin.String = defaultBasePath, client: 
     /**
      * 
      * 
+     * @param agentId 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun apiV2AIServiceAgentsAgentIdAguiPost(agentId: kotlin.String) : Unit {
+        val localVarResponse = apiV2AIServiceAgentsAgentIdAguiPostWithHttpInfo(agentId = agentId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param agentId 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun apiV2AIServiceAgentsAgentIdAguiPostWithHttpInfo(agentId: kotlin.String) : ApiResponse<Unit?> {
+        val localVariableConfig = apiV2AIServiceAgentsAgentIdAguiPostRequestConfig(agentId = agentId)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation apiV2AIServiceAgentsAgentIdAguiPost
+     *
+     * @param agentId 
+     * @return RequestConfig
+     */
+    fun apiV2AIServiceAgentsAgentIdAguiPostRequestConfig(agentId: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/AIService/Agents/{agentId}/agui".replace("{"+"agentId"+"}", encodeURIComponent(agentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * 
      * @param forgotPasswordRequest 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured

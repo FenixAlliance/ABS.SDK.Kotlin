@@ -4,18 +4,21 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createLocationForWalletAsync**](WalletsApi.md#createLocationForWalletAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location |
 | [**createWalletBankAccountAsync**](WalletsApi.md#createWalletBankAccountAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Create Wallet Bank Account |
-| [**createWalletLocationAsync**](WalletsApi.md#createWalletLocationAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location |
 | [**createWalletPaymentAsync**](WalletsApi.md#createWalletPaymentAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Payments | Create Wallet Payment |
 | [**createWalletTokenAsync**](WalletsApi.md#createWalletTokenAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Create Wallet Token |
 | [**createWalletWithdrawRequestAsync**](WalletsApi.md#createWalletWithdrawRequestAsync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Create Wallet Withdraw Request |
+| [**deleteLocationForWalletAsync**](WalletsApi.md#deleteLocationForWalletAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location |
 | [**deleteWalletBankAccountAsync**](WalletsApi.md#deleteWalletBankAccountAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Delete Wallet Bank Account |
-| [**deleteWalletLocationAsync**](WalletsApi.md#deleteWalletLocationAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location |
 | [**deleteWalletTokenAsync**](WalletsApi.md#deleteWalletTokenAsync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Delete Wallet Token |
 | [**getIncomingPaymentsAsync**](WalletsApi.md#getIncomingPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming | Get Incoming Payments |
 | [**getIncomingPaymentsCountAsync**](WalletsApi.md#getIncomingPaymentsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count | Get Incoming Payments Count |
 | [**getIncomingWalletInvoicesAsync**](WalletsApi.md#getIncomingWalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming | Get Incoming Wallet Invoices |
 | [**getIncomingWalletInvoicesCountAsync**](WalletsApi.md#getIncomingWalletInvoicesCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count | Get Incoming Wallet Invoices Count |
+| [**getLocationForWalletAsync**](WalletsApi.md#getLocationForWalletAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location |
+| [**getLocationsForWalletAsync**](WalletsApi.md#getLocationsForWalletAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations |
+| [**getLocationsForWalletCountAsync**](WalletsApi.md#getLocationsForWalletCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count |
 | [**getOutgoingPaymentsAsync**](WalletsApi.md#getOutgoingPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing | Get Outgoing Payments |
 | [**getOutgoingPaymentsCountAsync**](WalletsApi.md#getOutgoingPaymentsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count | Get Outgoing Payments Count |
 | [**getOutgoingWalletInvoicesAsync**](WalletsApi.md#getOutgoingWalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing | Get Outgoing Wallet Invoices |
@@ -29,9 +32,6 @@ All URIs are relative to *https://absuite.net*
 | [**getWalletExtendedOrdersAsync**](WalletsApi.md#getWalletExtendedOrdersAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended | Get Wallet Extended Orders |
 | [**getWalletInvoicesAsync**](WalletsApi.md#getWalletInvoicesAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices | Get Wallet Invoices |
 | [**getWalletInvoicesCountAsync**](WalletsApi.md#getWalletInvoicesCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Count | Get Wallet Invoices Count |
-| [**getWalletLocationAsync**](WalletsApi.md#getWalletLocationAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location |
-| [**getWalletLocationsAsync**](WalletsApi.md#getWalletLocationsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations |
-| [**getWalletLocationsCountAsync**](WalletsApi.md#getWalletLocationsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count |
 | [**getWalletOrdersAsync**](WalletsApi.md#getWalletOrdersAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders | Get Wallet Orders |
 | [**getWalletOrdersCountAsync**](WalletsApi.md#getWalletOrdersCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Count | Get Wallet Orders Count |
 | [**getWalletPaymentsAsync**](WalletsApi.md#getWalletPaymentsAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments | Get Wallet Payments |
@@ -49,10 +49,62 @@ All URIs are relative to *https://absuite.net*
 | [**getWalletWithdrawsCountAsync**](WalletsApi.md#getWalletWithdrawsCountAsync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count | Get Wallet Withdraws Count |
 | [**patchWalletBankAccountAsync**](WalletsApi.md#patchWalletBankAccountAsync) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Patch Wallet Bank Account |
 | [**patchWalletTokenAsync**](WalletsApi.md#patchWalletTokenAsync) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Patch Wallet Token |
+| [**updateLocationForWalletAsync**](WalletsApi.md#updateLocationForWalletAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location |
 | [**updateWalletBankAccountAsync**](WalletsApi.md#updateWalletBankAccountAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Update Wallet Bank Account |
-| [**updateWalletLocationAsync**](WalletsApi.md#updateWalletLocationAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location |
 | [**updateWalletTokenAsync**](WalletsApi.md#updateWalletTokenAsync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Update Wallet Token |
 
+
+<a id="createLocationForWalletAsync"></a>
+# **createLocationForWalletAsync**
+> EmptyEnvelope createLocationForWalletAsync(walletId, apiVersion, xApiVersion, locationCreateDto)
+
+Create Wallet Location
+
+Create a new location for a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val locationCreateDto : LocationCreateDto =  // LocationCreateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.createLocationForWalletAsync(walletId, apiVersion, xApiVersion, locationCreateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#createLocationForWalletAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#createLocationForWalletAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **locationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a id="createWalletBankAccountAsync"></a>
 # **createWalletBankAccountAsync**
@@ -92,58 +144,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bankAccountCreateDto** | [**BankAccountCreateDto**](BankAccountCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="createWalletLocationAsync"></a>
-# **createWalletLocationAsync**
-> EmptyEnvelope createWalletLocationAsync(walletId, apiVersion, xApiVersion, locationCreateDto)
-
-Create Wallet Location
-
-Create a new location for a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val locationCreateDto : LocationCreateDto =  // LocationCreateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.createWalletLocationAsync(walletId, apiVersion, xApiVersion, locationCreateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#createWalletLocationAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#createWalletLocationAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **locationCreateDto** | [**LocationCreateDto**](LocationCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -314,6 +314,58 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a id="deleteLocationForWalletAsync"></a>
+# **deleteLocationForWalletAsync**
+> EmptyEnvelope deleteLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion)
+
+Delete Wallet Location
+
+Delete a specific location of a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#deleteLocationForWalletAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#deleteLocationForWalletAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **locationId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="deleteWalletBankAccountAsync"></a>
 # **deleteWalletBankAccountAsync**
 > EmptyEnvelope deleteWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion)
@@ -348,58 +400,6 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **bankAccountId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="deleteWalletLocationAsync"></a>
-# **deleteWalletLocationAsync**
-> EmptyEnvelope deleteWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion)
-
-Delete Wallet Location
-
-Delete a specific location of a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : EmptyEnvelope = apiInstance.deleteWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#deleteWalletLocationAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#deleteWalletLocationAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **locationId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -646,6 +646,158 @@ try {
     e.printStackTrace()
 } catch (e: ServerException) {
     println("5xx response calling WalletsApi#getIncomingWalletInvoicesCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getLocationForWalletAsync"></a>
+# **getLocationForWalletAsync**
+> LocationDtoEnvelope getLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion)
+
+Get Wallet Location
+
+Get a specific location of a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : LocationDtoEnvelope = apiInstance.getLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#getLocationForWalletAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#getLocationForWalletAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **locationId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**LocationDtoEnvelope**](LocationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getLocationsForWalletAsync"></a>
+# **getLocationsForWalletAsync**
+> LocationDtoListEnvelope getLocationsForWalletAsync(walletId, apiVersion, xApiVersion)
+
+Get Wallet Locations
+
+Get locations of a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : LocationDtoListEnvelope = apiInstance.getLocationsForWalletAsync(walletId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#getLocationsForWalletAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#getLocationsForWalletAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getLocationsForWalletCountAsync"></a>
+# **getLocationsForWalletCountAsync**
+> Int32Envelope getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion)
+
+Get Wallet Locations Count
+
+Get locations count of a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : Int32Envelope = apiInstance.getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#getLocationsForWalletCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#getLocationsForWalletCountAsync")
     e.printStackTrace()
 }
 ```
@@ -1298,158 +1450,6 @@ try {
     e.printStackTrace()
 } catch (e: ServerException) {
     println("5xx response calling WalletsApi#getWalletInvoicesCountAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="getWalletLocationAsync"></a>
-# **getWalletLocationAsync**
-> LocationDtoEnvelope getWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion)
-
-Get Wallet Location
-
-Get a specific location of a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : LocationDtoEnvelope = apiInstance.getWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#getWalletLocationAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#getWalletLocationAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **locationId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**LocationDtoEnvelope**](LocationDtoEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="getWalletLocationsAsync"></a>
-# **getWalletLocationsAsync**
-> LocationDtoListEnvelope getWalletLocationsAsync(walletId, apiVersion, xApiVersion)
-
-Get Wallet Locations
-
-Get locations of a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : LocationDtoListEnvelope = apiInstance.getWalletLocationsAsync(walletId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#getWalletLocationsAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#getWalletLocationsAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-
-### Return type
-
-[**LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="getWalletLocationsCountAsync"></a>
-# **getWalletLocationsCountAsync**
-> Int32Envelope getWalletLocationsCountAsync(walletId, apiVersion, xApiVersion)
-
-Get Wallet Locations Count
-
-Get locations count of a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-try {
-    val result : Int32Envelope = apiInstance.getWalletLocationsCountAsync(walletId, apiVersion, xApiVersion)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#getWalletLocationsCountAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#getWalletLocationsCountAsync")
     e.printStackTrace()
 }
 ```
@@ -2334,6 +2334,60 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a id="updateLocationForWalletAsync"></a>
+# **updateLocationForWalletAsync**
+> EmptyEnvelope updateLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto)
+
+Update Wallet Location
+
+Update a specific location of a specific wallet by ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = WalletsApi()
+val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val locationUpdateDto : LocationUpdateDto =  // LocationUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateLocationForWalletAsync(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling WalletsApi#updateLocationForWalletAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling WalletsApi#updateLocationForWalletAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **walletId** | **java.util.UUID**|  | |
+| **locationId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **locationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a id="updateWalletBankAccountAsync"></a>
 # **updateWalletBankAccountAsync**
 > EmptyEnvelope updateWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, bankAccountUpdateDto)
@@ -2374,60 +2428,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bankAccountUpdateDto** | [**BankAccountUpdateDto**](BankAccountUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="updateWalletLocationAsync"></a>
-# **updateWalletLocationAsync**
-> EmptyEnvelope updateWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto)
-
-Update Wallet Location
-
-Update a specific location of a specific wallet by ID.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = WalletsApi()
-val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
-val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val locationUpdateDto : LocationUpdateDto =  // LocationUpdateDto | 
-try {
-    val result : EmptyEnvelope = apiInstance.updateWalletLocationAsync(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling WalletsApi#updateWalletLocationAsync")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling WalletsApi#updateWalletLocationAsync")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **walletId** | **java.util.UUID**|  | |
-| **locationId** | **java.util.UUID**|  | |
-| **apiVersion** | **kotlin.String**|  | [optional] |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **locationUpdateDto** | [**LocationUpdateDto**](LocationUpdateDto.md)|  | [optional] |
 
 ### Return type
 

@@ -20,8 +20,8 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.ModuleListEnvelope
 import org.openapitools.client.models.StudioModuleListEnvelope
+import org.openapitools.client.models.SuiteModuleListEnvelope
 
 import com.squareup.moshi.Json
 
@@ -137,7 +137,7 @@ class ModulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ModuleListEnvelope
+     * @return SuiteModuleListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -146,11 +146,11 @@ class ModulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAvailableModules(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ModuleListEnvelope {
+    fun getAvailableModules(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SuiteModuleListEnvelope {
         val localVarResponse = getAvailableModulesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ModuleListEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SuiteModuleListEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -170,16 +170,16 @@ class ModulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<ModuleListEnvelope?>
+     * @return ApiResponse<SuiteModuleListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAvailableModulesWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ModuleListEnvelope?> {
+    fun getAvailableModulesWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SuiteModuleListEnvelope?> {
         val localVariableConfig = getAvailableModulesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, ModuleListEnvelope>(
+        return request<Unit, SuiteModuleListEnvelope>(
             localVariableConfig
         )
     }

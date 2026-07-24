@@ -5,8 +5,8 @@ All URIs are relative to *https://absuite.net*
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**countItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#countItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies |
-| [**getItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#getItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
-| [**getItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#getItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
+| [**getCatalogItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#getCatalogItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
+| [**getCatalogItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#getCatalogItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
 | [**relateItemToShippingPolicyAsync**](ItemShippingPoliciesApi.md#relateItemToShippingPolicyAsync) | **POST** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy |
 | [**removeShippingPolicyFromItemAsync**](ItemShippingPoliciesApi.md#removeShippingPolicyFromItemAsync) | **DELETE** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item |
 
@@ -63,9 +63,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="getItemShippingPoliciesAsync"></a>
-# **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+<a id="getCatalogItemShippingPoliciesAsync"></a>
+# **getCatalogItemShippingPoliciesAsync**
+> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policies
 
@@ -83,13 +83,13 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync")
+    println("4xx response calling ItemShippingPoliciesApi#getCatalogItemShippingPoliciesAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync")
+    println("5xx response calling ItemShippingPoliciesApi#getCatalogItemShippingPoliciesAsync")
     e.printStackTrace()
 }
 ```
@@ -115,9 +115,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="getItemShippingPolicyByIdAsync"></a>
-# **getItemShippingPolicyByIdAsync**
-> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
+<a id="getCatalogItemShippingPolicyByIdAsync"></a>
+# **getCatalogItemShippingPolicyByIdAsync**
+> ItemShippingPolicyDtoEnvelope getCatalogItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policy by ID
 
@@ -136,13 +136,13 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : ItemShippingPolicyDtoEnvelope = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoEnvelope = apiInstance.getCatalogItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling ItemShippingPoliciesApi#getItemShippingPolicyByIdAsync")
+    println("4xx response calling ItemShippingPoliciesApi#getCatalogItemShippingPolicyByIdAsync")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling ItemShippingPoliciesApi#getItemShippingPolicyByIdAsync")
+    println("5xx response calling ItemShippingPoliciesApi#getCatalogItemShippingPolicyByIdAsync")
     e.printStackTrace()
 }
 ```

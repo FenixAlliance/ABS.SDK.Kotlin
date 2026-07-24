@@ -332,4 +332,3 @@ src/main/kotlin/org/openapitools/client/models/WaybillLineCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineDto.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/WaybillLineUpdateDto.kt
-src/test/kotlin/org/openapitools/client/models/ContactCreateDtoTest.kt

@@ -2,7 +2,6 @@ README.md
 build.gradle
 docs/AccessTokenResponse.md
 docs/CurrencyId.md
-docs/DecimalEnvelope.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
@@ -83,7 +82,6 @@ src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
 src/main/kotlin/org/openapitools/client/models/CurrencyId.kt
-src/main/kotlin/org/openapitools/client/models/DecimalEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/EmailDispatchRequest.kt
 src/main/kotlin/org/openapitools/client/models/EmptyEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/Envelope.kt
@@ -136,4 +134,3 @@ src/main/kotlin/org/openapitools/client/models/SimpleUserDto.kt
 src/main/kotlin/org/openapitools/client/models/TenantDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
-src/test/kotlin/org/openapitools/client/models/DecimalEnvelopeTest.kt
