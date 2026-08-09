@@ -121,7 +121,7 @@ class CompletionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/AiService/Completions/Complete",
+            path = "/api/v2/IntelligenceService/Completions/Complete",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
