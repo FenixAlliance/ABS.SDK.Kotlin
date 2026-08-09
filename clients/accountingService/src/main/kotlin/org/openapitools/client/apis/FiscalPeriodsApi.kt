@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.FiscalPeriodCreateDto
+import org.openapitools.client.models.FiscalPeriodDtoCollectionQueryParameters
 import org.openapitools.client.models.FiscalPeriodDtoEnvelope
 import org.openapitools.client.models.FiscalPeriodDtoListEnvelope
 import org.openapitools.client.models.FiscalPeriodUpdateDto
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -416,6 +417,7 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return FiscalPeriodDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -425,8 +427,8 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalPeriods(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalPeriodDtoListEnvelope {
-        val localVarResponse = getFiscalPeriodsWithHttpInfo(fiscalYearId = fiscalYearId, authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalPeriods(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters? = null) : FiscalPeriodDtoListEnvelope {
+        val localVarResponse = getFiscalPeriodsWithHttpInfo(fiscalYearId = fiscalYearId, authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalPeriodDtoCollectionQueryParameters = fiscalPeriodDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FiscalPeriodDtoListEnvelope
@@ -452,16 +454,17 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FiscalPeriodDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalPeriodsWithHttpInfo(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalPeriodDtoListEnvelope?> {
-        val localVariableConfig = getFiscalPeriodsRequestConfig(fiscalYearId = fiscalYearId, authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalPeriodsWithHttpInfo(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters?) : ApiResponse<FiscalPeriodDtoListEnvelope?> {
+        val localVariableConfig = getFiscalPeriodsRequestConfig(fiscalYearId = fiscalYearId, authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalPeriodDtoCollectionQueryParameters = fiscalPeriodDtoCollectionQueryParameters)
 
-        return request<Unit, FiscalPeriodDtoListEnvelope>(
+        return request<FiscalPeriodDtoCollectionQueryParameters, FiscalPeriodDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -475,10 +478,11 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalPeriodsRequestConfig(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalPeriodsRequestConfig(fiscalYearId: java.util.UUID, authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters?) : RequestConfig<FiscalPeriodDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalPeriodDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -489,6 +493,7 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -509,6 +514,7 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -518,8 +524,8 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalPeriodsCount(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getFiscalPeriodsCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, fiscalYearId = fiscalYearId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalPeriodsCount(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getFiscalPeriodsCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, fiscalYearId = fiscalYearId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalPeriodDtoCollectionQueryParameters = fiscalPeriodDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -544,16 +550,17 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalPeriodsCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getFiscalPeriodsCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, fiscalYearId = fiscalYearId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalPeriodsCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getFiscalPeriodsCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, fiscalYearId = fiscalYearId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalPeriodDtoCollectionQueryParameters = fiscalPeriodDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FiscalPeriodDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -566,10 +573,11 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalPeriodDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalPeriodsCountRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalPeriodsCountRequestConfig(fiscalAuthorityId: java.util.UUID, fiscalYearId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalPeriodDtoCollectionQueryParameters: FiscalPeriodDtoCollectionQueryParameters?) : RequestConfig<FiscalPeriodDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalPeriodDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -579,6 +587,7 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -685,7 +694,7 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -695,8 +704,8 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchFiscalPeriodAsync(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchFiscalPeriodAsyncWithHttpInfo(fiscalPeriodId = fiscalPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalPeriodAsync(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchFiscalPeriodAsyncWithHttpInfo(fiscalPeriodId = fiscalPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -720,17 +729,17 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchFiscalPeriodAsyncWithHttpInfo(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchFiscalPeriodAsyncRequestConfig(fiscalPeriodId = fiscalPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalPeriodAsyncWithHttpInfo(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchFiscalPeriodAsyncRequestConfig(fiscalPeriodId = fiscalPeriodId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -742,11 +751,11 @@ class FiscalPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchFiscalPeriodAsyncRequestConfig(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchFiscalPeriodAsyncRequestConfig(fiscalPeriodId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

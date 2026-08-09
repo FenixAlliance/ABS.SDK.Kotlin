@@ -22,9 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TaskCategoryCreateDto
 import org.openapitools.client.models.TaskCategoryDto
+import org.openapitools.client.models.TaskCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.TaskCategoryDtoListEnvelope
 import org.openapitools.client.models.TaskCategoryUpdateDto
 
@@ -56,6 +57,7 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Counts task categories
      * Gets the count of task categories for the current tenant.
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -65,8 +67,8 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countTenantTaskCategoriesAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = countTenantTaskCategoriesAsyncWithHttpInfo(tenantId = tenantId)
+    fun countTenantTaskCategoriesAsync(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countTenantTaskCategoriesAsyncWithHttpInfo(tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -87,16 +89,17 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Counts task categories
      * Gets the count of task categories for the current tenant.
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countTenantTaskCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countTenantTaskCategoriesAsyncRequestConfig(tenantId = tenantId)
+    fun countTenantTaskCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countTenantTaskCategoriesAsyncRequestConfig(tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TaskCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -105,15 +108,17 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation countTenantTaskCategoriesAsync
      *
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countTenantTaskCategoriesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countTenantTaskCategoriesAsyncRequestConfig(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : RequestConfig<TaskCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = taskCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -439,6 +444,7 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Retrieves all task categories
      * Gets all task categories for the current tenant with OData support.
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return TaskCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -448,8 +454,8 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantTaskCategoriesAsync(tenantId: java.util.UUID) : TaskCategoryDtoListEnvelope {
-        val localVarResponse = getTenantTaskCategoriesAsyncWithHttpInfo(tenantId = tenantId)
+    fun getTenantTaskCategoriesAsync(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters? = null) : TaskCategoryDtoListEnvelope {
+        val localVarResponse = getTenantTaskCategoriesAsyncWithHttpInfo(tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskCategoryDtoListEnvelope
@@ -470,16 +476,17 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Retrieves all task categories
      * Gets all task categories for the current tenant with OData support.
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TaskCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantTaskCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<TaskCategoryDtoListEnvelope?> {
-        val localVariableConfig = getTenantTaskCategoriesAsyncRequestConfig(tenantId = tenantId)
+    fun getTenantTaskCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : ApiResponse<TaskCategoryDtoListEnvelope?> {
+        val localVariableConfig = getTenantTaskCategoriesAsyncRequestConfig(tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, TaskCategoryDtoListEnvelope>(
+        return request<TaskCategoryDtoCollectionQueryParameters, TaskCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -488,15 +495,17 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation getTenantTaskCategoriesAsync
      *
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantTaskCategoriesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantTaskCategoriesAsyncRequestConfig(tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : RequestConfig<TaskCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = taskCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -514,7 +523,7 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Partially updates the specified task category.
      * @param taskCategoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -524,8 +533,8 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTaskCategoryAsync(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTaskCategoryAsyncWithHttpInfo(taskCategoryId = taskCategoryId, tenantId = tenantId, operation = operation)
+    fun patchTaskCategoryAsync(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTaskCategoryAsyncWithHttpInfo(taskCategoryId = taskCategoryId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -547,17 +556,17 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Partially updates the specified task category.
      * @param taskCategoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTaskCategoryAsyncWithHttpInfo(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTaskCategoryAsyncRequestConfig(taskCategoryId = taskCategoryId, tenantId = tenantId, operation = operation)
+    fun patchTaskCategoryAsyncWithHttpInfo(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTaskCategoryAsyncRequestConfig(taskCategoryId = taskCategoryId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -567,11 +576,11 @@ class TaskCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      *
      * @param taskCategoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTaskCategoryAsyncRequestConfig(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTaskCategoryAsyncRequestConfig(taskCategoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

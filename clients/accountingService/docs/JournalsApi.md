@@ -6,6 +6,7 @@ All URIs are relative to *https://absuite.net*
 | ------------- | ------------- | ------------- |
 | [**aggregateJournalEntryCreditsAsync**](JournalsApi.md#aggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits |
 | [**aggregateJournalEntryDebitsAsync**](JournalsApi.md#aggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits |
+| [**assignJournalToBookAsync**](JournalsApi.md#assignJournalToBookAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book |
 | [**countJournalsAsync**](JournalsApi.md#countJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals |
 | [**createJournalAsync**](JournalsApi.md#createJournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal |
 | [**createJournalEntryAsync**](JournalsApi.md#createJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry |
@@ -26,7 +27,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="aggregateJournalEntryCreditsAsync"></a>
 # **aggregateJournalEntryCreditsAsync**
-> MoneyEnvelope aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Aggregate journal entry credits
 
@@ -44,8 +45,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryCreditsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#aggregateJournalEntryCreditsAsync")
@@ -61,9 +63,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **currencyId** | **kotlin.String**|  | [optional] [default to &quot;USD.USA&quot;] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -75,12 +78,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="aggregateJournalEntryDebitsAsync"></a>
 # **aggregateJournalEntryDebitsAsync**
-> MoneyEnvelope aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Aggregate journal entry debits
 
@@ -98,8 +101,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.aggregateJournalEntryDebitsAsync(journalId, tenantId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#aggregateJournalEntryDebitsAsync")
@@ -115,9 +119,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **currencyId** | **kotlin.String**|  | [optional] [default to &quot;USD.USA&quot;] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -129,12 +134,66 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="assignJournalToBookAsync"></a>
+# **assignJournalToBookAsync**
+> EmptyEnvelope assignJournalToBookAsync(journalId, tenantId, apiVersion, xApiVersion, assignJournalToBookRequest)
+
+Bind a journal to a financial book
+
+Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = JournalsApi()
+val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val assignJournalToBookRequest : AssignJournalToBookRequest =  // AssignJournalToBookRequest | 
+try {
+    val result : EmptyEnvelope = apiInstance.assignJournalToBookAsync(journalId, tenantId, apiVersion, xApiVersion, assignJournalToBookRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling JournalsApi#assignJournalToBookAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling JournalsApi#assignJournalToBookAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **journalId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **assignJournalToBookRequest** | [**AssignJournalToBookRequest**](AssignJournalToBookRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countJournalsAsync"></a>
 # **countJournalsAsync**
-> Int32Envelope countJournalsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
 
 Count journals
 
@@ -150,8 +209,9 @@ val apiInstance = JournalsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalDtoCollectionQueryParameters : JournalDtoCollectionQueryParameters =  // JournalDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countJournalsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#countJournalsAsync")
@@ -165,9 +225,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -179,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createJournalAsync"></a>
@@ -448,7 +509,7 @@ No authorization required
 
 <a id="getJournalEntriesAsync"></a>
 # **getJournalEntriesAsync**
-> JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(journalId, tenantId, apiVersion, xApiVersion)
+> JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(journalId, tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Get journal entries
 
@@ -465,8 +526,9 @@ val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : JournalEntryDtoIReadOnlyListEnvelope = apiInstance.getJournalEntriesAsync(journalId, tenantId, apiVersion, xApiVersion)
+    val result : JournalEntryDtoIReadOnlyListEnvelope = apiInstance.getJournalEntriesAsync(journalId, tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#getJournalEntriesAsync")
@@ -481,9 +543,10 @@ try {
 | **journalId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -495,12 +558,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getJournalEntriesCountAsync"></a>
 # **getJournalEntriesCountAsync**
-> Int32Envelope getJournalEntriesCountAsync(journalId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getJournalEntriesCountAsync(journalId, tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Count journal entries
 
@@ -517,8 +580,9 @@ val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getJournalEntriesCountAsync(journalId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getJournalEntriesCountAsync(journalId, tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#getJournalEntriesCountAsync")
@@ -533,9 +597,10 @@ try {
 | **journalId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -547,7 +612,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getJournalEntryDetailsAsync"></a>
@@ -606,7 +671,7 @@ No authorization required
 
 <a id="getJournalsAsync"></a>
 # **getJournalsAsync**
-> JournalDtoIReadOnlyListEnvelope getJournalsAsync(tenantId, apiVersion, xApiVersion)
+> JournalDtoIReadOnlyListEnvelope getJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
 
 Get all journals
 
@@ -622,8 +687,9 @@ val apiInstance = JournalsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalDtoCollectionQueryParameters : JournalDtoCollectionQueryParameters =  // JournalDtoCollectionQueryParameters | 
 try {
-    val result : JournalDtoIReadOnlyListEnvelope = apiInstance.getJournalsAsync(tenantId, apiVersion, xApiVersion)
+    val result : JournalDtoIReadOnlyListEnvelope = apiInstance.getJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#getJournalsAsync")
@@ -637,9 +703,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -651,12 +718,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchJournalAsync"></a>
 # **patchJournalAsync**
-> EmptyEnvelope patchJournalAsync(journalId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJournalAsync(journalId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a journal
 
@@ -673,9 +740,9 @@ val journalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchJournalAsync(journalId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchJournalAsync(journalId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#patchJournalAsync")
@@ -693,7 +760,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -710,7 +777,7 @@ No authorization required
 
 <a id="patchJournalEntryAsync"></a>
 # **patchJournalEntryAsync**
-> EmptyEnvelope patchJournalEntryAsync(journalId, entryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJournalEntryAsync(journalId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a journal entry
 
@@ -728,9 +795,9 @@ val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchJournalEntryAsync(journalId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchJournalEntryAsync(journalId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JournalsApi#patchJournalEntryAsync")
@@ -749,7 +816,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

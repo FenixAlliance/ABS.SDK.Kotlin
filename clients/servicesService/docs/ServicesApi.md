@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getServicesAsync"></a>
 # **getServicesAsync**
-> ServiceDtoIReadOnlyListEnvelope getServicesAsync(tenantId, apiVersion, xApiVersion)
+> ServiceDtoIReadOnlyListEnvelope getServicesAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
 
 Get all services
 
@@ -187,8 +187,9 @@ val apiInstance = ServicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceDtoCollectionQueryParameters : ServiceDtoCollectionQueryParameters =  // ServiceDtoCollectionQueryParameters | 
 try {
-    val result : ServiceDtoIReadOnlyListEnvelope = apiInstance.getServicesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ServiceDtoIReadOnlyListEnvelope = apiInstance.getServicesAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServicesApi#getServicesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceDtoCollectionQueryParameters** | [**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getServicesCountAsync"></a>
 # **getServicesCountAsync**
-> Int32Envelope getServicesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServicesCountAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
 
 Get services count
 
@@ -237,8 +239,9 @@ val apiInstance = ServicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceDtoCollectionQueryParameters : ServiceDtoCollectionQueryParameters =  // ServiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getServicesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getServicesCountAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServicesApi#getServicesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceDtoCollectionQueryParameters** | [**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchServiceAsync"></a>
 # **patchServiceAsync**
-> Envelope patchServiceAsync(serviceId, tenantId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceAsync(serviceId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service
 
@@ -288,9 +292,9 @@ val serviceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : Envelope = apiInstance.patchServiceAsync(serviceId, tenantId, apiVersion, xApiVersion, operation)
+    val result : Envelope = apiInstance.patchServiceAsync(serviceId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServicesApi#patchServiceAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

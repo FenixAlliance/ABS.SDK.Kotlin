@@ -21,10 +21,11 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CourseAssignmentComponentCreateDto
 import org.openapitools.client.models.CourseAssignmentComponentDto
+import org.openapitools.client.models.CourseAssignmentComponentDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseAssignmentComponentUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -310,6 +311,7 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<CourseAssignmentComponentDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -319,8 +321,8 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseAssignmentComponentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<CourseAssignmentComponentDto> {
-        val localVarResponse = getCourseAssignmentComponentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseAssignmentComponentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters? = null) : kotlin.collections.List<CourseAssignmentComponentDto> {
+        val localVarResponse = getCourseAssignmentComponentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters = courseAssignmentComponentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CourseAssignmentComponentDto>
@@ -343,16 +345,17 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<CourseAssignmentComponentDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseAssignmentComponentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<CourseAssignmentComponentDto>?> {
-        val localVariableConfig = getCourseAssignmentComponentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseAssignmentComponentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<CourseAssignmentComponentDto>?> {
+        val localVariableConfig = getCourseAssignmentComponentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters = courseAssignmentComponentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<CourseAssignmentComponentDto>>(
+        return request<CourseAssignmentComponentDtoCollectionQueryParameters, kotlin.collections.List<CourseAssignmentComponentDto>>(
             localVariableConfig
         )
     }
@@ -363,10 +366,11 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseAssignmentComponentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseAssignmentComponentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters?) : RequestConfig<CourseAssignmentComponentDtoCollectionQueryParameters> {
+        val localVariableBody = courseAssignmentComponentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -376,6 +380,7 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -394,6 +399,7 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -403,8 +409,8 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseAssignmentComponentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getCourseAssignmentComponentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseAssignmentComponentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getCourseAssignmentComponentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters = courseAssignmentComponentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -427,16 +433,17 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseAssignmentComponentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getCourseAssignmentComponentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseAssignmentComponentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getCourseAssignmentComponentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters = courseAssignmentComponentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseAssignmentComponentDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -447,10 +454,11 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseAssignmentComponentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseAssignmentComponentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseAssignmentComponentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseAssignmentComponentDtoCollectionQueryParameters: CourseAssignmentComponentDtoCollectionQueryParameters?) : RequestConfig<CourseAssignmentComponentDtoCollectionQueryParameters> {
+        val localVariableBody = courseAssignmentComponentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -460,6 +468,7 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -479,7 +488,7 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -489,8 +498,8 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCourseAssignmentComponentAsync(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchCourseAssignmentComponentAsyncWithHttpInfo(componentId = componentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseAssignmentComponentAsync(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchCourseAssignmentComponentAsyncWithHttpInfo(componentId = componentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -514,17 +523,17 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCourseAssignmentComponentAsyncWithHttpInfo(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchCourseAssignmentComponentAsyncRequestConfig(componentId = componentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseAssignmentComponentAsyncWithHttpInfo(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchCourseAssignmentComponentAsyncRequestConfig(componentId = componentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -536,11 +545,11 @@ class CourseAssignmentComponentsApi(basePath: kotlin.String = defaultBasePath, c
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCourseAssignmentComponentAsyncRequestConfig(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCourseAssignmentComponentAsyncRequestConfig(componentId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

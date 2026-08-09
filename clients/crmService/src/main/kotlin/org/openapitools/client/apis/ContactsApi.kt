@@ -22,22 +22,26 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.CartDtoEnvelope
 import org.openapitools.client.models.ContactCreateDto
 import org.openapitools.client.models.ContactDto
+import org.openapitools.client.models.ContactDtoCollectionQueryParameters
 import org.openapitools.client.models.ContactDtoEnvelope
 import org.openapitools.client.models.ContactDtoListEnvelope
 import org.openapitools.client.models.ContactEmailCreateDto
+import org.openapitools.client.models.ContactEmailDtoCollectionQueryParameters
 import org.openapitools.client.models.ContactEmailDtoListEnvelope
 import org.openapitools.client.models.ContactEmailUpdateDto
 import org.openapitools.client.models.ContactProfileCreateDto
+import org.openapitools.client.models.ContactProfileDtoCollectionQueryParameters
 import org.openapitools.client.models.ContactProfileDtoListEnvelope
 import org.openapitools.client.models.ContactProfileUpdateDto
 import org.openapitools.client.models.ContactUpdateDto
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedContactDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedContactDtoEnvelope
 import org.openapitools.client.models.ExtendedContactDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SocialProfileDtoEnvelope
 import org.openapitools.client.models.WalletDtoEnvelope
 
@@ -689,6 +693,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -698,8 +703,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessOwnedIndividualsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = getBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedIndividualsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : ContactDtoListEnvelope {
+        val localVarResponse = getBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
@@ -722,16 +727,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = getBusinessOwnedIndividualsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<ContactDtoListEnvelope?> {
+        val localVariableConfig = getBusinessOwnedIndividualsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<ContactDtoCollectionQueryParameters, ContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -742,10 +748,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessOwnedIndividualsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessOwnedIndividualsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -755,6 +762,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -773,6 +781,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -782,8 +791,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessOwnedIndividualsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = getBusinessOwnedIndividualsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedIndividualsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : ContactDtoListEnvelope {
+        val localVarResponse = getBusinessOwnedIndividualsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
@@ -806,16 +815,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessOwnedIndividualsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = getBusinessOwnedIndividualsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedIndividualsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<ContactDtoListEnvelope?> {
+        val localVariableConfig = getBusinessOwnedIndividualsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<ContactDtoCollectionQueryParameters, ContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -826,10 +836,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessOwnedIndividualsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessOwnedIndividualsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -839,6 +850,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -944,6 +956,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<ContactDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -953,8 +966,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessOwnedOrganizationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<ContactDto> {
-        val localVarResponse = getBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedOrganizationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : kotlin.collections.List<ContactDto> {
+        val localVarResponse = getBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ContactDto>
@@ -977,16 +990,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<ContactDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<ContactDto>?> {
-        val localVariableConfig = getBusinessOwnedOrganizationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<ContactDto>?> {
+        val localVariableConfig = getBusinessOwnedOrganizationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<ContactDto>>(
+        return request<ContactDtoCollectionQueryParameters, kotlin.collections.List<ContactDto>>(
             localVariableConfig
         )
     }
@@ -997,10 +1011,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessOwnedOrganizationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessOwnedOrganizationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1010,6 +1025,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1028,6 +1044,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1037,8 +1054,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessOwnedOrganizationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = getBusinessOwnedOrganizationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedOrganizationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : ContactDtoListEnvelope {
+        val localVarResponse = getBusinessOwnedOrganizationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
@@ -1061,16 +1078,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessOwnedOrganizationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = getBusinessOwnedOrganizationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessOwnedOrganizationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<ContactDtoListEnvelope?> {
+        val localVariableConfig = getBusinessOwnedOrganizationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<ContactDtoCollectionQueryParameters, ContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1081,10 +1099,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessOwnedOrganizationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessOwnedOrganizationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1094,6 +1113,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1374,6 +1394,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return ContactEmailDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1383,8 +1404,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getContactEmailsAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactEmailDtoListEnvelope {
-        val localVarResponse = getContactEmailsAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactEmailsAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters? = null) : ContactEmailDtoListEnvelope {
+        val localVarResponse = getContactEmailsAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactEmailDtoCollectionQueryParameters = contactEmailDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactEmailDtoListEnvelope
@@ -1408,16 +1429,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactEmailDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getContactEmailsAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactEmailDtoListEnvelope?> {
-        val localVariableConfig = getContactEmailsAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactEmailsAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters?) : ApiResponse<ContactEmailDtoListEnvelope?> {
+        val localVariableConfig = getContactEmailsAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactEmailDtoCollectionQueryParameters = contactEmailDtoCollectionQueryParameters)
 
-        return request<Unit, ContactEmailDtoListEnvelope>(
+        return request<ContactEmailDtoCollectionQueryParameters, ContactEmailDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1429,10 +1451,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getContactEmailsAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getContactEmailsAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters?) : RequestConfig<ContactEmailDtoCollectionQueryParameters> {
+        val localVariableBody = contactEmailDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1442,6 +1465,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1461,6 +1485,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1470,8 +1495,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getContactEmailsCountAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getContactEmailsCountAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactEmailsCountAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getContactEmailsCountAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactEmailDtoCollectionQueryParameters = contactEmailDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1495,16 +1520,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getContactEmailsCountAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getContactEmailsCountAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactEmailsCountAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getContactEmailsCountAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactEmailDtoCollectionQueryParameters = contactEmailDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ContactEmailDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1516,10 +1542,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactEmailDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getContactEmailsCountAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getContactEmailsCountAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactEmailDtoCollectionQueryParameters: ContactEmailDtoCollectionQueryParameters?) : RequestConfig<ContactEmailDtoCollectionQueryParameters> {
+        val localVariableBody = contactEmailDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1529,6 +1556,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1721,6 +1749,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1730,8 +1759,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getContactsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = getContactsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : ContactDtoListEnvelope {
+        val localVarResponse = getContactsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
@@ -1754,16 +1783,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getContactsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = getContactsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<ContactDtoListEnvelope?> {
+        val localVariableConfig = getContactsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<ContactDtoCollectionQueryParameters, ContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1774,10 +1804,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getContactsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getContactsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1787,6 +1818,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1805,6 +1837,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1814,8 +1847,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getContactsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ContactDtoListEnvelope {
-        val localVarResponse = getContactsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters? = null) : ContactDtoListEnvelope {
+        val localVarResponse = getContactsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ContactDtoListEnvelope
@@ -1838,16 +1871,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getContactsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ContactDtoListEnvelope?> {
-        val localVariableConfig = getContactsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getContactsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : ApiResponse<ContactDtoListEnvelope?> {
+        val localVariableConfig = getContactsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactDtoCollectionQueryParameters = contactDtoCollectionQueryParameters)
 
-        return request<Unit, ContactDtoListEnvelope>(
+        return request<ContactDtoCollectionQueryParameters, ContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1858,10 +1892,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getContactsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getContactsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactDtoCollectionQueryParameters: ContactDtoCollectionQueryParameters?) : RequestConfig<ContactDtoCollectionQueryParameters> {
+        val localVariableBody = contactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1871,6 +1906,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1889,6 +1925,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ExtendedContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1898,8 +1935,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedBusinessOwnedIndividualsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedContactDtoListEnvelope {
-        val localVarResponse = getExtendedBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedBusinessOwnedIndividualsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters? = null) : ExtendedContactDtoListEnvelope {
+        val localVarResponse = getExtendedBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedContactDtoListEnvelope
@@ -1922,16 +1959,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
-        val localVariableConfig = getExtendedBusinessOwnedIndividualsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedBusinessOwnedIndividualsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
+        val localVariableConfig = getExtendedBusinessOwnedIndividualsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedContactDtoListEnvelope>(
+        return request<ExtendedContactDtoCollectionQueryParameters, ExtendedContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1942,10 +1980,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedBusinessOwnedIndividualsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedBusinessOwnedIndividualsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : RequestConfig<ExtendedContactDtoCollectionQueryParameters> {
+        val localVariableBody = extendedContactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1955,6 +1994,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1973,6 +2013,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ExtendedContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1982,8 +2023,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedBusinessOwnedOrganizationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedContactDtoListEnvelope {
-        val localVarResponse = getExtendedBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedBusinessOwnedOrganizationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters? = null) : ExtendedContactDtoListEnvelope {
+        val localVarResponse = getExtendedBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedContactDtoListEnvelope
@@ -2006,16 +2047,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
-        val localVariableConfig = getExtendedBusinessOwnedOrganizationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedBusinessOwnedOrganizationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
+        val localVariableConfig = getExtendedBusinessOwnedOrganizationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedContactDtoListEnvelope>(
+        return request<ExtendedContactDtoCollectionQueryParameters, ExtendedContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2026,10 +2068,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedBusinessOwnedOrganizationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedBusinessOwnedOrganizationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : RequestConfig<ExtendedContactDtoCollectionQueryParameters> {
+        val localVariableBody = extendedContactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2039,6 +2082,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2144,6 +2188,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ExtendedContactDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2153,8 +2198,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedContactsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedContactDtoListEnvelope {
-        val localVarResponse = getExtendedContactsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedContactsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters? = null) : ExtendedContactDtoListEnvelope {
+        val localVarResponse = getExtendedContactsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedContactDtoListEnvelope
@@ -2177,16 +2222,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedContactDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedContactsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
-        val localVariableConfig = getExtendedContactsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedContactsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : ApiResponse<ExtendedContactDtoListEnvelope?> {
+        val localVariableConfig = getExtendedContactsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedContactDtoCollectionQueryParameters = extendedContactDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedContactDtoListEnvelope>(
+        return request<ExtendedContactDtoCollectionQueryParameters, ExtendedContactDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2197,10 +2243,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedContactDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedContactsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedContactsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedContactDtoCollectionQueryParameters: ExtendedContactDtoCollectionQueryParameters?) : RequestConfig<ExtendedContactDtoCollectionQueryParameters> {
+        val localVariableBody = extendedContactDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2210,6 +2257,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2664,6 +2712,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2673,8 +2722,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProfilesForContactCountAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getProfilesForContactCountAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProfilesForContactCountAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, contactProfileDtoCollectionQueryParameters: ContactProfileDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProfilesForContactCountAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactProfileDtoCollectionQueryParameters = contactProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2698,16 +2747,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProfilesForContactCountAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProfilesForContactCountAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProfilesForContactCountAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactProfileDtoCollectionQueryParameters: ContactProfileDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProfilesForContactCountAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, contactProfileDtoCollectionQueryParameters = contactProfileDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ContactProfileDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2719,10 +2769,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProfilesForContactCountAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProfilesForContactCountAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, contactProfileDtoCollectionQueryParameters: ContactProfileDtoCollectionQueryParameters?) : RequestConfig<ContactProfileDtoCollectionQueryParameters> {
+        val localVariableBody = contactProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2732,6 +2783,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2751,7 +2803,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2761,8 +2813,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchContactAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchContactAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchContactAsync(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchContactAsyncWithHttpInfo(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2786,17 +2838,17 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchContactAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchContactAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchContactAsyncWithHttpInfo(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchContactAsyncRequestConfig(contactId = contactId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2808,11 +2860,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchContactAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchContactAsyncRequestConfig(contactId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2843,7 +2895,7 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2852,8 +2904,8 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchContactEmailAsync(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchContactEmailAsyncWithHttpInfo(contactId = contactId, emailId = emailId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchContactEmailAsync(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchContactEmailAsyncWithHttpInfo(contactId = contactId, emailId = emailId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -2878,16 +2930,16 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchContactEmailAsyncWithHttpInfo(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchContactEmailAsyncRequestConfig(contactId = contactId, emailId = emailId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchContactEmailAsyncWithHttpInfo(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchContactEmailAsyncRequestConfig(contactId = contactId, emailId = emailId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -2900,11 +2952,11 @@ class ContactsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchContactEmailAsyncRequestConfig(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchContactEmailAsyncRequestConfig(contactId: java.util.UUID, emailId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

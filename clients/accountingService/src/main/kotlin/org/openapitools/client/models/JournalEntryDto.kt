@@ -25,6 +25,7 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param id 
+ * @param timestamp 
  * @param tenantId 
  * @param enrollmentId 
  * @param journalId 
@@ -45,7 +46,6 @@ import com.squareup.moshi.JsonClass
  * @param postedBy 
  * @param forexRate 
  * @param forexRatesSnapshot 
- * @param timestamp 
  * @param debitInUsd 
  * @param creditInUsd 
  * @param accountingEntries 
@@ -53,6 +53,8 @@ import com.squareup.moshi.JsonClass
  * @param totalCredit 
  * @param totalDebitAmount 
  * @param totalCreditAmount 
+ * @param debitInUsdAmount 
+ * @param creditInUsdAmount 
  */
 
 
@@ -60,6 +62,9 @@ data class JournalEntryDto (
 
     @Json(name = "id")
     val id: kotlin.String? = null,
+
+    @Json(name = "timestamp")
+    val timestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "tenantId")
     val tenantId: kotlin.String? = null,
@@ -121,9 +126,6 @@ data class JournalEntryDto (
     @Json(name = "forexRatesSnapshot")
     val forexRatesSnapshot: kotlin.String? = null,
 
-    @Json(name = "timestamp")
-    val timestamp: java.time.OffsetDateTime? = null,
-
     @Json(name = "debitInUsd")
     val debitInUsd: kotlin.Double? = null,
 
@@ -143,7 +145,13 @@ data class JournalEntryDto (
     val totalDebitAmount: Money? = null,
 
     @Json(name = "totalCreditAmount")
-    val totalCreditAmount: Money? = null
+    val totalCreditAmount: Money? = null,
+
+    @Json(name = "debitInUsdAmount")
+    val debitInUsdAmount: Money? = null,
+
+    @Json(name = "creditInUsdAmount")
+    val creditInUsdAmount: Money? = null
 
 ) {
 

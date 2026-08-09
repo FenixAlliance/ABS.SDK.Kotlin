@@ -316,7 +316,7 @@ No authorization required
 
 <a id="getDealUnitFlowStagesAsync"></a>
 # **getDealUnitFlowStagesAsync**
-> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId)
+> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId, dealUnitFlowStageDtoCollectionQueryParameters)
 
 Get stages for a deal unit flow
 
@@ -331,8 +331,9 @@ Retrieves a list of stages for a specific deal unit flow with OData query suppor
 val apiInstance = DealUnitFlowsApi()
 val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageDtoCollectionQueryParameters : DealUnitFlowStageDtoCollectionQueryParameters =  // DealUnitFlowStageDtoCollectionQueryParameters | 
 try {
-    val result : DealUnitFlowStageDtoListEnvelope = apiInstance.getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId)
+    val result : DealUnitFlowStageDtoListEnvelope = apiInstance.getDealUnitFlowStagesAsync(dealUnitFlowId, tenantId, dealUnitFlowStageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#getDealUnitFlowStagesAsync")
@@ -345,9 +346,10 @@ try {
 
 ### Parameters
 | **dealUnitFlowId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -359,12 +361,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitFlowStagesCountAsync"></a>
 # **getDealUnitFlowStagesCountAsync**
-> Int32Envelope getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId)
+> Int32Envelope getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId, dealUnitFlowStageDtoCollectionQueryParameters)
 
 Get stages count for a deal unit flow
 
@@ -379,8 +381,9 @@ Returns the total count of stages for a specific deal unit flow with OData filte
 val apiInstance = DealUnitFlowsApi()
 val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowStageDtoCollectionQueryParameters : DealUnitFlowStageDtoCollectionQueryParameters =  // DealUnitFlowStageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId)
+    val result : Int32Envelope = apiInstance.getDealUnitFlowStagesCountAsync(dealUnitFlowId, tenantId, dealUnitFlowStageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#getDealUnitFlowStagesCountAsync")
@@ -393,9 +396,10 @@ try {
 
 ### Parameters
 | **dealUnitFlowId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -407,12 +411,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitFlowsAsync"></a>
 # **getDealUnitFlowsAsync**
-> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId)
+> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
 
 Get deal unit flows
 
@@ -426,8 +430,9 @@ Retrieves a list of deal unit flows for the specified tenant with OData query su
 
 val apiInstance = DealUnitFlowsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowDtoCollectionQueryParameters : DealUnitFlowDtoCollectionQueryParameters =  // DealUnitFlowDtoCollectionQueryParameters | 
 try {
-    val result : DealUnitFlowDtoListEnvelope = apiInstance.getDealUnitFlowsAsync(tenantId)
+    val result : DealUnitFlowDtoListEnvelope = apiInstance.getDealUnitFlowsAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#getDealUnitFlowsAsync")
@@ -439,9 +444,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,12 +459,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitFlowsCountAsync"></a>
 # **getDealUnitFlowsCountAsync**
-> Int32Envelope getDealUnitFlowsCountAsync(tenantId)
+> Int32Envelope getDealUnitFlowsCountAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
 
 Get deal unit flows count
 
@@ -472,8 +478,9 @@ Returns the total count of deal unit flows for the specified tenant with OData f
 
 val apiInstance = DealUnitFlowsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitFlowDtoCollectionQueryParameters : DealUnitFlowDtoCollectionQueryParameters =  // DealUnitFlowDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDealUnitFlowsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getDealUnitFlowsCountAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#getDealUnitFlowsCountAsync")
@@ -485,9 +492,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -499,12 +507,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchDealUnitFlowAsync"></a>
 # **patchDealUnitFlowAsync**
-> EmptyEnvelope patchDealUnitFlowAsync(dealUnitFlowId, tenantId, operation)
+> EmptyEnvelope patchDealUnitFlowAsync(dealUnitFlowId, tenantId, patchOperation)
 
 Patch a deal unit flow
 
@@ -519,9 +527,9 @@ Partially updates an existing deal unit flow by its unique identifier using a JS
 val apiInstance = DealUnitFlowsApi()
 val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowAsync(dealUnitFlowId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowAsync(dealUnitFlowId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#patchDealUnitFlowAsync")
@@ -537,7 +545,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -554,7 +562,7 @@ No authorization required
 
 <a id="patchDealUnitFlowStageAsync"></a>
 # **patchDealUnitFlowStageAsync**
-> EmptyEnvelope patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, operation)
+> EmptyEnvelope patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, patchOperation)
 
 Patch a deal unit flow stage
 
@@ -570,9 +578,9 @@ val apiInstance = DealUnitFlowsApi()
 val dealUnitFlowId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val dealUnitFlowStageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDealUnitFlowStageAsync(dealUnitFlowId, dealUnitFlowStageId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitFlowsApi#patchDealUnitFlowStageAsync")
@@ -589,7 +597,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

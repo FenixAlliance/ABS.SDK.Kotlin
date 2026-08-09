@@ -23,13 +23,16 @@ import org.openapitools.client.models.BooleanEnvelope
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedQuoteDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedQuoteDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.QuoteCreateDto
+import org.openapitools.client.models.QuoteDtoCollectionQueryParameters
 import org.openapitools.client.models.QuoteDtoEnvelope
 import org.openapitools.client.models.QuoteDtoListEnvelope
 import org.openapitools.client.models.QuoteLineCreateDto
+import org.openapitools.client.models.QuoteLineDtoCollectionQueryParameters
 import org.openapitools.client.models.QuoteLineDtoEnvelope
 import org.openapitools.client.models.QuoteLineDtoListEnvelope
 import org.openapitools.client.models.QuoteLineUpdateDto
@@ -691,6 +694,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get a list of extended quotes.
      * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @return ExtendedQuoteDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -700,8 +704,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedQuotes(tenantId: java.util.UUID) : ExtendedQuoteDtoListEnvelope {
-        val localVarResponse = getExtendedQuotesWithHttpInfo(tenantId = tenantId)
+    fun getExtendedQuotes(tenantId: java.util.UUID, extendedQuoteDtoCollectionQueryParameters: ExtendedQuoteDtoCollectionQueryParameters? = null) : ExtendedQuoteDtoListEnvelope {
+        val localVarResponse = getExtendedQuotesWithHttpInfo(tenantId = tenantId, extendedQuoteDtoCollectionQueryParameters = extendedQuoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedQuoteDtoListEnvelope
@@ -722,16 +726,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get a list of extended quotes.
      * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedQuoteDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedQuotesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedQuoteDtoListEnvelope?> {
-        val localVariableConfig = getExtendedQuotesRequestConfig(tenantId = tenantId)
+    fun getExtendedQuotesWithHttpInfo(tenantId: java.util.UUID, extendedQuoteDtoCollectionQueryParameters: ExtendedQuoteDtoCollectionQueryParameters?) : ApiResponse<ExtendedQuoteDtoListEnvelope?> {
+        val localVariableConfig = getExtendedQuotesRequestConfig(tenantId = tenantId, extendedQuoteDtoCollectionQueryParameters = extendedQuoteDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedQuoteDtoListEnvelope>(
+        return request<ExtendedQuoteDtoCollectionQueryParameters, ExtendedQuoteDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -740,15 +745,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getExtendedQuotes
      *
      * @param tenantId 
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedQuotesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedQuotesRequestConfig(tenantId: java.util.UUID, extendedQuoteDtoCollectionQueryParameters: ExtendedQuoteDtoCollectionQueryParameters?) : RequestConfig<ExtendedQuoteDtoCollectionQueryParameters> {
+        val localVariableBody = extendedQuoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -924,6 +931,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return QuoteLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -933,8 +941,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuoteLines(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : QuoteLineDtoListEnvelope {
-        val localVarResponse = getQuoteLinesWithHttpInfo(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
+    fun getQuoteLines(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters? = null) : QuoteLineDtoListEnvelope {
+        val localVarResponse = getQuoteLinesWithHttpInfo(quoteId = quoteId, tenantId = tenantId, itemId = itemId, quoteLineDtoCollectionQueryParameters = quoteLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteLineDtoListEnvelope
@@ -957,16 +965,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<QuoteLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuoteLinesWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<QuoteLineDtoListEnvelope?> {
-        val localVariableConfig = getQuoteLinesRequestConfig(quoteId = quoteId, tenantId = tenantId, itemId = itemId)
+    fun getQuoteLinesWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters?) : ApiResponse<QuoteLineDtoListEnvelope?> {
+        val localVariableConfig = getQuoteLinesRequestConfig(quoteId = quoteId, tenantId = tenantId, itemId = itemId, quoteLineDtoCollectionQueryParameters = quoteLineDtoCollectionQueryParameters)
 
-        return request<Unit, QuoteLineDtoListEnvelope>(
+        return request<QuoteLineDtoCollectionQueryParameters, QuoteLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -977,10 +986,11 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getQuoteLinesRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getQuoteLinesRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters?) : RequestConfig<QuoteLineDtoCollectionQueryParameters> {
+        val localVariableBody = quoteLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -989,6 +999,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1006,6 +1017,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves the total count of quote lines for the specified quote and tenant.
      * @param quoteId 
      * @param tenantId 
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1015,8 +1027,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuoteLinesCount(quoteId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getQuoteLinesCountWithHttpInfo(quoteId = quoteId, tenantId = tenantId)
+    fun getQuoteLinesCount(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getQuoteLinesCountWithHttpInfo(quoteId = quoteId, tenantId = tenantId, quoteLineDtoCollectionQueryParameters = quoteLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1038,16 +1050,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves the total count of quote lines for the specified quote and tenant.
      * @param quoteId 
      * @param tenantId 
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuoteLinesCountWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getQuoteLinesCountRequestConfig(quoteId = quoteId, tenantId = tenantId)
+    fun getQuoteLinesCountWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getQuoteLinesCountRequestConfig(quoteId = quoteId, tenantId = tenantId, quoteLineDtoCollectionQueryParameters = quoteLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<QuoteLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1057,15 +1070,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param quoteId 
      * @param tenantId 
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getQuoteLinesCountRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getQuoteLinesCountRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, quoteLineDtoCollectionQueryParameters: QuoteLineDtoCollectionQueryParameters?) : RequestConfig<QuoteLineDtoCollectionQueryParameters> {
+        val localVariableBody = quoteLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1082,6 +1097,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get a list of quotes.
      * Retrieves a list of quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return QuoteDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1091,8 +1107,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuotes(tenantId: java.util.UUID) : QuoteDtoListEnvelope {
-        val localVarResponse = getQuotesWithHttpInfo(tenantId = tenantId)
+    fun getQuotes(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters? = null) : QuoteDtoListEnvelope {
+        val localVarResponse = getQuotesWithHttpInfo(tenantId = tenantId, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteDtoListEnvelope
@@ -1113,16 +1129,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get a list of quotes.
      * Retrieves a list of quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<QuoteDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuotesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<QuoteDtoListEnvelope?> {
-        val localVariableConfig = getQuotesRequestConfig(tenantId = tenantId)
+    fun getQuotesWithHttpInfo(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : ApiResponse<QuoteDtoListEnvelope?> {
+        val localVariableConfig = getQuotesRequestConfig(tenantId = tenantId, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
-        return request<Unit, QuoteDtoListEnvelope>(
+        return request<QuoteDtoCollectionQueryParameters, QuoteDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1131,15 +1148,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getQuotes
      *
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getQuotesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getQuotesRequestConfig(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : RequestConfig<QuoteDtoCollectionQueryParameters> {
+        val localVariableBody = quoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1156,6 +1175,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get the count of quotes.
      * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1165,8 +1185,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getQuotesCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getQuotesCountWithHttpInfo(tenantId = tenantId)
+    fun getQuotesCount(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getQuotesCountWithHttpInfo(tenantId = tenantId, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1187,16 +1207,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get the count of quotes.
      * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getQuotesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getQuotesCountRequestConfig(tenantId = tenantId)
+    fun getQuotesCountWithHttpInfo(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getQuotesCountRequestConfig(tenantId = tenantId, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<QuoteDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1205,15 +1226,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getQuotesCount
      *
      * @param tenantId 
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getQuotesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getQuotesCountRequestConfig(tenantId: java.util.UUID, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : RequestConfig<QuoteDtoCollectionQueryParameters> {
+        val localVariableBody = quoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1231,7 +1254,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
      * @param quoteId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1241,8 +1264,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchQuoteAsync(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchQuoteAsyncWithHttpInfo(quoteId = quoteId, tenantId = tenantId, operation = operation)
+    fun patchQuoteAsync(quoteId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchQuoteAsyncWithHttpInfo(quoteId = quoteId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1264,17 +1287,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
      * @param quoteId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchQuoteAsyncWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchQuoteAsyncRequestConfig(quoteId = quoteId, tenantId = tenantId, operation = operation)
+    fun patchQuoteAsyncWithHttpInfo(quoteId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchQuoteAsyncRequestConfig(quoteId = quoteId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1284,11 +1307,11 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param quoteId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchQuoteAsyncRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchQuoteAsyncRequestConfig(quoteId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1313,7 +1336,7 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param quoteLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1323,8 +1346,8 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchQuoteLineAsync(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchQuoteLineAsyncWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, operation = operation)
+    fun patchQuoteLineAsync(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchQuoteLineAsyncWithHttpInfo(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1347,17 +1370,17 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param quoteLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchQuoteLineAsyncWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchQuoteLineAsyncRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, operation = operation)
+    fun patchQuoteLineAsyncWithHttpInfo(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchQuoteLineAsyncRequestConfig(quoteId = quoteId, quoteLineId = quoteLineId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1368,11 +1391,11 @@ class QuotesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param quoteId 
      * @param quoteLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchQuoteLineAsyncRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchQuoteLineAsyncRequestConfig(quoteId: java.util.UUID, quoteLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -6,6 +6,7 @@ docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
+docs/ExecutionProvenance.md
 docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -67,6 +68,7 @@ src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
 src/main/kotlin/org/openapitools/client/models/AuthResult.kt
 src/main/kotlin/org/openapitools/client/models/AuthResultEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
+src/main/kotlin/org/openapitools/client/models/ExecutionProvenance.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
 src/main/kotlin/org/openapitools/client/models/InfoRequest.kt
@@ -92,3 +94,4 @@ src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/UserCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/UserCreateDtoEnvelope.kt
+src/test/kotlin/org/openapitools/client/models/ExecutionProvenanceTest.kt

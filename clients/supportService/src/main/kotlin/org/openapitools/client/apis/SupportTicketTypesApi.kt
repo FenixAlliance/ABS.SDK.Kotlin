@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SupportTicketTypeCreateDto
+import org.openapitools.client.models.SupportTicketTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.SupportTicketTypeDtoEnvelope
 import org.openapitools.client.models.SupportTicketTypeDtoListEnvelope
 import org.openapitools.client.models.SupportTicketTypeUpdateDto
@@ -320,6 +321,7 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return SupportTicketTypeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSupportTicketTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SupportTicketTypeDtoListEnvelope {
-        val localVarResponse = getSupportTicketTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters? = null) : SupportTicketTypeDtoListEnvelope {
+        val localVarResponse = getSupportTicketTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketTypeDtoCollectionQueryParameters = supportTicketTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SupportTicketTypeDtoListEnvelope
@@ -353,16 +355,17 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SupportTicketTypeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSupportTicketTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SupportTicketTypeDtoListEnvelope?> {
-        val localVariableConfig = getSupportTicketTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters?) : ApiResponse<SupportTicketTypeDtoListEnvelope?> {
+        val localVariableConfig = getSupportTicketTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketTypeDtoCollectionQueryParameters = supportTicketTypeDtoCollectionQueryParameters)
 
-        return request<Unit, SupportTicketTypeDtoListEnvelope>(
+        return request<SupportTicketTypeDtoCollectionQueryParameters, SupportTicketTypeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSupportTicketTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSupportTicketTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters?) : RequestConfig<SupportTicketTypeDtoCollectionQueryParameters> {
+        val localVariableBody = supportTicketTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSupportTicketTypesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSupportTicketTypesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketTypesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSupportTicketTypesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketTypeDtoCollectionQueryParameters = supportTicketTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSupportTicketTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSupportTicketTypesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSupportTicketTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSupportTicketTypesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, supportTicketTypeDtoCollectionQueryParameters = supportTicketTypeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SupportTicketTypeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSupportTicketTypesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSupportTicketTypesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, supportTicketTypeDtoCollectionQueryParameters: SupportTicketTypeDtoCollectionQueryParameters?) : RequestConfig<SupportTicketTypeDtoCollectionQueryParameters> {
+        val localVariableBody = supportTicketTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSupportTicketTypeAsync(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSupportTicketTypeAsyncWithHttpInfo(supportTicketTypeId = supportTicketTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSupportTicketTypeAsync(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSupportTicketTypeAsyncWithHttpInfo(supportTicketTypeId = supportTicketTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSupportTicketTypeAsyncWithHttpInfo(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSupportTicketTypeAsyncRequestConfig(supportTicketTypeId = supportTicketTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSupportTicketTypeAsyncWithHttpInfo(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSupportTicketTypeAsyncRequestConfig(supportTicketTypeId = supportTicketTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class SupportTicketTypesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSupportTicketTypeAsyncRequestConfig(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSupportTicketTypeAsyncRequestConfig(supportTicketTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param id 
  * @param timestamp 
+ * @param closed 
  * @param title 
  * @param priceListId 
  * @param description 
@@ -41,6 +42,7 @@ import com.squareup.moshi.JsonClass
  * @param countryId 
  * @param stateId 
  * @param cityId 
+ * @param forexRate 
  * @param currencyId 
  * @param totalDetail 
  * @param totalDetailCurrencyId 
@@ -69,10 +71,8 @@ import com.squareup.moshi.JsonClass
  * @param costCalculationMethod 
  * @param taxCalculationMethod 
  * @param paymentId 
- * @param forexRate 
  * @param totalAmount 
  * @param totalAmountInUSD 
- * @param closed 
  * @param contactId 
  * @param receiptType 
  * @param orderId 
@@ -87,6 +87,9 @@ data class ReceiptCreateDto (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "closed")
+    val closed: kotlin.Boolean? = null,
 
     @Json(name = "title")
     val title: kotlin.String? = null,
@@ -138,6 +141,9 @@ data class ReceiptCreateDto (
 
     @Json(name = "cityId")
     val cityId: kotlin.String? = null,
+
+    @Json(name = "forexRate")
+    val forexRate: kotlin.Double? = null,
 
     @Json(name = "currencyId")
     val currencyId: kotlin.String? = null,
@@ -223,17 +229,11 @@ data class ReceiptCreateDto (
     @Json(name = "paymentId")
     val paymentId: kotlin.String? = null,
 
-    @Json(name = "forexRate")
-    val forexRate: kotlin.Double? = null,
-
     @Json(name = "totalAmount")
     val totalAmount: kotlin.Double? = null,
 
     @Json(name = "totalAmountInUSD")
     val totalAmountInUSD: kotlin.Double? = null,
-
-    @Json(name = "closed")
-    val closed: kotlin.Boolean? = null,
 
     @Json(name = "contactId")
     val contactId: kotlin.String? = null,

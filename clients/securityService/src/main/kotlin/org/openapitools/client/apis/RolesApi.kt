@@ -23,9 +23,10 @@ import org.openapitools.client.models.BusinessApplicationSimpleDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleCreateDto
+import org.openapitools.client.models.SecurityRoleDtoCollectionQueryParameters
 import org.openapitools.client.models.SecurityRoleDtoEnvelope
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleUpdateDto
@@ -854,6 +855,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return SecurityRoleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -863,8 +865,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRolesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityRoleDtoListEnvelope {
-        val localVarResponse = getRolesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters? = null) : SecurityRoleDtoListEnvelope {
+        val localVarResponse = getRolesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleDtoCollectionQueryParameters = securityRoleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityRoleDtoListEnvelope
@@ -887,16 +889,17 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SecurityRoleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRolesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
-        val localVariableConfig = getRolesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters?) : ApiResponse<SecurityRoleDtoListEnvelope?> {
+        val localVariableConfig = getRolesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleDtoCollectionQueryParameters = securityRoleDtoCollectionQueryParameters)
 
-        return request<Unit, SecurityRoleDtoListEnvelope>(
+        return request<SecurityRoleDtoCollectionQueryParameters, SecurityRoleDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -907,10 +910,11 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRolesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRolesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters?) : RequestConfig<SecurityRoleDtoCollectionQueryParameters> {
+        val localVariableBody = securityRoleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -920,6 +924,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1025,6 +1030,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1034,8 +1040,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRolesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getRolesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getRolesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleDtoCollectionQueryParameters = securityRoleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1058,16 +1064,17 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRolesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getRolesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRolesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getRolesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityRoleDtoCollectionQueryParameters = securityRoleDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SecurityRoleDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1078,10 +1085,11 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRolesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRolesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityRoleDtoCollectionQueryParameters: SecurityRoleDtoCollectionQueryParameters?) : RequestConfig<SecurityRoleDtoCollectionQueryParameters> {
+        val localVariableBody = securityRoleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1091,6 +1099,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1108,7 +1117,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Partially updates an existing security role using a JSON Patch document.
      * @param securityRoleId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -1120,8 +1129,8 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = patchRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchRoleAsync(securityRoleId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = patchRoleAsyncWithHttpInfo(securityRoleId = securityRoleId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1143,7 +1152,7 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Partially updates an existing security role using a JSON Patch document.
      * @param securityRoleId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -1152,10 +1161,10 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchRoleAsyncWithHttpInfo(securityRoleId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchRoleAsyncRequestConfig(securityRoleId = securityRoleId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1165,13 +1174,13 @@ class RolesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param securityRoleId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun patchRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchRoleAsyncRequestConfig(securityRoleId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TruckDriverCreateDto
+import org.openapitools.client.models.TruckDriverDtoCollectionQueryParameters
 import org.openapitools.client.models.TruckDriverDtoEnvelope
 import org.openapitools.client.models.TruckDriverDtoListEnvelope
 import org.openapitools.client.models.TruckDriverUpdateDto
@@ -494,6 +495,7 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return TruckDriverDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -503,8 +505,8 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTruckDriversAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TruckDriverDtoListEnvelope {
-        val localVarResponse = getTruckDriversAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTruckDriversAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters? = null) : TruckDriverDtoListEnvelope {
+        val localVarResponse = getTruckDriversAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, truckDriverDtoCollectionQueryParameters = truckDriverDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TruckDriverDtoListEnvelope
@@ -527,16 +529,17 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TruckDriverDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTruckDriversAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TruckDriverDtoListEnvelope?> {
-        val localVariableConfig = getTruckDriversAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTruckDriversAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters?) : ApiResponse<TruckDriverDtoListEnvelope?> {
+        val localVariableConfig = getTruckDriversAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, truckDriverDtoCollectionQueryParameters = truckDriverDtoCollectionQueryParameters)
 
-        return request<Unit, TruckDriverDtoListEnvelope>(
+        return request<TruckDriverDtoCollectionQueryParameters, TruckDriverDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -547,10 +550,11 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTruckDriversAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTruckDriversAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters?) : RequestConfig<TruckDriverDtoCollectionQueryParameters> {
+        val localVariableBody = truckDriverDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -560,6 +564,7 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -578,6 +583,7 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -587,8 +593,8 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTruckDriversCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTruckDriversCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTruckDriversCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTruckDriversCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, truckDriverDtoCollectionQueryParameters = truckDriverDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -611,16 +617,17 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTruckDriversCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTruckDriversCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTruckDriversCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTruckDriversCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, truckDriverDtoCollectionQueryParameters = truckDriverDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TruckDriverDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -631,10 +638,11 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDriverDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTruckDriversCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTruckDriversCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, truckDriverDtoCollectionQueryParameters: TruckDriverDtoCollectionQueryParameters?) : RequestConfig<TruckDriverDtoCollectionQueryParameters> {
+        val localVariableBody = truckDriverDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -644,6 +652,7 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -663,7 +672,7 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -673,8 +682,8 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTruckDriverAsync(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTruckDriverAsyncWithHttpInfo(driverId = driverId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTruckDriverAsync(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTruckDriverAsyncWithHttpInfo(driverId = driverId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -698,17 +707,17 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTruckDriverAsyncWithHttpInfo(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTruckDriverAsyncRequestConfig(driverId = driverId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTruckDriverAsyncWithHttpInfo(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTruckDriverAsyncRequestConfig(driverId = driverId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -720,11 +729,11 @@ class TruckDriversApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTruckDriverAsyncRequestConfig(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTruckDriverAsyncRequestConfig(driverId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

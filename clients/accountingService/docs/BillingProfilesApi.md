@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getBillingProfilesAsync"></a>
 # **getBillingProfilesAsync**
-> BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(tenantId, apiVersion, xApiVersion)
+> BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
 
 Gets all billing profiles
 
@@ -187,8 +187,9 @@ val apiInstance = BillingProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billingProfileDtoCollectionQueryParameters : BillingProfileDtoCollectionQueryParameters =  // BillingProfileDtoCollectionQueryParameters | 
 try {
-    val result : BillingProfileDtoIReadOnlyListEnvelope = apiInstance.getBillingProfilesAsync(tenantId, apiVersion, xApiVersion)
+    val result : BillingProfileDtoIReadOnlyListEnvelope = apiInstance.getBillingProfilesAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillingProfilesApi#getBillingProfilesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billingProfileDtoCollectionQueryParameters** | [**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBillingProfilesCountAsync"></a>
 # **getBillingProfilesCountAsync**
-> Int32Envelope getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
 
 Gets the count of billing profiles
 
@@ -237,8 +239,9 @@ val apiInstance = BillingProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billingProfileDtoCollectionQueryParameters : BillingProfileDtoCollectionQueryParameters =  // BillingProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillingProfilesApi#getBillingProfilesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billingProfileDtoCollectionQueryParameters** | [**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBillingProfileAsync"></a>
 # **patchBillingProfileAsync**
-> EmptyEnvelope patchBillingProfileAsync(billingProfileId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillingProfileAsync(billingProfileId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a billing profile
 
@@ -288,9 +292,9 @@ val billingProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBillingProfileAsync(billingProfileId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBillingProfileAsync(billingProfileId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillingProfilesApi#patchBillingProfileAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

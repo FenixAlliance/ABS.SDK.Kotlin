@@ -340,7 +340,7 @@ No authorization required
 
 <a id="getRoadWaybillLinesAsync"></a>
 # **getRoadWaybillLinesAsync**
-> WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get road waybill lines
 
@@ -357,8 +357,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : WaybillLineDtoListEnvelope = apiInstance.getRoadWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion)
+    val result : WaybillLineDtoListEnvelope = apiInstance.getRoadWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#getRoadWaybillLinesAsync")
@@ -373,9 +374,10 @@ try {
 | **waybillId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -387,12 +389,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRoadWaybillLinesCountAsync"></a>
 # **getRoadWaybillLinesCountAsync**
-> Int32Envelope getRoadWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRoadWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get road waybill lines count
 
@@ -409,8 +411,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getRoadWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getRoadWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#getRoadWaybillLinesCountAsync")
@@ -425,9 +428,10 @@ try {
 | **waybillId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -439,12 +443,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRoadWaybillsAsync"></a>
 # **getRoadWaybillsAsync**
-> RoadWaybillDtoListEnvelope getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion)
+> RoadWaybillDtoListEnvelope getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
 
 Get all road waybills
 
@@ -460,8 +464,9 @@ val apiInstance = RoadWaybillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val roadWaybillDtoCollectionQueryParameters : RoadWaybillDtoCollectionQueryParameters =  // RoadWaybillDtoCollectionQueryParameters | 
 try {
-    val result : RoadWaybillDtoListEnvelope = apiInstance.getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion)
+    val result : RoadWaybillDtoListEnvelope = apiInstance.getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#getRoadWaybillsAsync")
@@ -475,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRoadWaybillsCountAsync"></a>
 # **getRoadWaybillsCountAsync**
-> Int32Envelope getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
 
 Get road waybills count
 
@@ -510,8 +516,9 @@ val apiInstance = RoadWaybillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val roadWaybillDtoCollectionQueryParameters : RoadWaybillDtoCollectionQueryParameters =  // RoadWaybillDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#getRoadWaybillsCountAsync")
@@ -525,9 +532,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +547,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="issueRoadWaybillAsync"></a>
@@ -700,7 +708,7 @@ No authorization required
 
 <a id="patchRoadWaybillAsync"></a>
 # **patchRoadWaybillAsync**
-> EmptyEnvelope patchRoadWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRoadWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a road waybill
 
@@ -717,9 +725,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchRoadWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchRoadWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#patchRoadWaybillAsync")
@@ -737,7 +745,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -754,7 +762,7 @@ No authorization required
 
 <a id="patchRoadWaybillLineAsync"></a>
 # **patchRoadWaybillLineAsync**
-> EmptyEnvelope patchRoadWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRoadWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a road waybill line
 
@@ -772,9 +780,9 @@ val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchRoadWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchRoadWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RoadWaybillsApi#patchRoadWaybillLineAsync")
@@ -793,7 +801,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

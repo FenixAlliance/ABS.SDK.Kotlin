@@ -21,7 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TaskTypeCreateDto
 import org.openapitools.client.models.TaskTypeDto
 import org.openapitools.client.models.TaskTypeUpdateDto
@@ -287,7 +287,7 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Partially updates the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -297,8 +297,8 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTaskTypeAsync(taskTypeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTaskTypeAsyncWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, operation = operation)
+    fun patchTaskTypeAsync(taskTypeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTaskTypeAsyncWithHttpInfo(taskTypeId = taskTypeId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -320,17 +320,17 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Partially updates the specified task type.
      * @param taskTypeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTaskTypeAsyncWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTaskTypeAsyncRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, operation = operation)
+    fun patchTaskTypeAsyncWithHttpInfo(taskTypeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTaskTypeAsyncRequestConfig(taskTypeId = taskTypeId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -340,11 +340,11 @@ class TaskTypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param taskTypeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTaskTypeAsyncRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTaskTypeAsyncRequestConfig(taskTypeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

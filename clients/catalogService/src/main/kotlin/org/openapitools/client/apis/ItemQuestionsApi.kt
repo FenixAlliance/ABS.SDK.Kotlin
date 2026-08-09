@@ -21,10 +21,11 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ItemQuestionCreateDto
+import org.openapitools.client.models.ItemQuestionDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemQuestionDtoEnvelope
 import org.openapitools.client.models.ItemQuestionDtoListEnvelope
 import org.openapitools.client.models.ItemQuestionUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -318,6 +319,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return ItemQuestionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -327,8 +329,8 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemQuestionsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoListEnvelope {
-        val localVarResponse = getItemQuestionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemQuestionsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters? = null) : ItemQuestionDtoListEnvelope {
+        val localVarResponse = getItemQuestionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemQuestionDtoCollectionQueryParameters = itemQuestionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemQuestionDtoListEnvelope
@@ -351,16 +353,17 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemQuestionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemQuestionsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
-        val localVariableConfig = getItemQuestionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemQuestionsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
+        val localVariableConfig = getItemQuestionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemQuestionDtoCollectionQueryParameters = itemQuestionDtoCollectionQueryParameters)
 
-        return request<Unit, ItemQuestionDtoListEnvelope>(
+        return request<ItemQuestionDtoCollectionQueryParameters, ItemQuestionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -371,10 +374,11 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemQuestionsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemQuestionsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters?) : RequestConfig<ItemQuestionDtoCollectionQueryParameters> {
+        val localVariableBody = itemQuestionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -386,6 +390,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -405,7 +410,7 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -414,8 +419,8 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemQuestionAsync(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchItemQuestionAsyncWithHttpInfo(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemQuestionAsync(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchItemQuestionAsyncWithHttpInfo(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -439,16 +444,16 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemQuestionAsyncWithHttpInfo(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchItemQuestionAsyncRequestConfig(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemQuestionAsyncWithHttpInfo(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchItemQuestionAsyncRequestConfig(itemQuestionId = itemQuestionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -460,11 +465,11 @@ class ItemQuestionsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemQuestionAsyncRequestConfig(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemQuestionAsyncRequestConfig(itemQuestionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

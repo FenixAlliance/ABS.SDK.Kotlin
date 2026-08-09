@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.StoreCreateDto
+import org.openapitools.client.models.StoreDtoCollectionQueryParameters
 import org.openapitools.client.models.StoreDtoEnvelope
 import org.openapitools.client.models.StoreDtoListEnvelope
 import org.openapitools.client.models.StoreUpdateDto
@@ -56,6 +57,7 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get stores count
      * Returns the total count of stores for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -65,8 +67,8 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countStoresAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = countStoresAsyncWithHttpInfo(tenantId = tenantId)
+    fun countStoresAsync(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countStoresAsyncWithHttpInfo(tenantId = tenantId, storeDtoCollectionQueryParameters = storeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -87,16 +89,17 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get stores count
      * Returns the total count of stores for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countStoresAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countStoresAsyncRequestConfig(tenantId = tenantId)
+    fun countStoresAsyncWithHttpInfo(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countStoresAsyncRequestConfig(tenantId = tenantId, storeDtoCollectionQueryParameters = storeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<StoreDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -105,15 +108,17 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation countStoresAsync
      *
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countStoresAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countStoresAsyncRequestConfig(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters?) : RequestConfig<StoreDtoCollectionQueryParameters> {
+        val localVariableBody = storeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -362,6 +367,7 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get stores
      * Retrieves a list of stores for the specified tenant with OData query support.
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return StoreDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -371,8 +377,8 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStoresAsync(tenantId: java.util.UUID) : StoreDtoListEnvelope {
-        val localVarResponse = getStoresAsyncWithHttpInfo(tenantId = tenantId)
+    fun getStoresAsync(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters? = null) : StoreDtoListEnvelope {
+        val localVarResponse = getStoresAsyncWithHttpInfo(tenantId = tenantId, storeDtoCollectionQueryParameters = storeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as StoreDtoListEnvelope
@@ -393,16 +399,17 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Get stores
      * Retrieves a list of stores for the specified tenant with OData query support.
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<StoreDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStoresAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<StoreDtoListEnvelope?> {
-        val localVariableConfig = getStoresAsyncRequestConfig(tenantId = tenantId)
+    fun getStoresAsyncWithHttpInfo(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters?) : ApiResponse<StoreDtoListEnvelope?> {
+        val localVariableConfig = getStoresAsyncRequestConfig(tenantId = tenantId, storeDtoCollectionQueryParameters = storeDtoCollectionQueryParameters)
 
-        return request<Unit, StoreDtoListEnvelope>(
+        return request<StoreDtoCollectionQueryParameters, StoreDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -411,15 +418,17 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getStoresAsync
      *
      * @param tenantId 
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStoresAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStoresAsyncRequestConfig(tenantId: java.util.UUID, storeDtoCollectionQueryParameters: StoreDtoCollectionQueryParameters?) : RequestConfig<StoreDtoCollectionQueryParameters> {
+        val localVariableBody = storeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -437,7 +446,7 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Partially updates an existing store using a JSON Patch document.
      * @param storeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -447,8 +456,8 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchStoreAsync(storeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchStoreAsyncWithHttpInfo(storeId = storeId, tenantId = tenantId, operation = operation)
+    fun patchStoreAsync(storeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchStoreAsyncWithHttpInfo(storeId = storeId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -470,17 +479,17 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Partially updates an existing store using a JSON Patch document.
      * @param storeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchStoreAsyncWithHttpInfo(storeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchStoreAsyncRequestConfig(storeId = storeId, tenantId = tenantId, operation = operation)
+    fun patchStoreAsyncWithHttpInfo(storeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchStoreAsyncRequestConfig(storeId = storeId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -490,11 +499,11 @@ class StoresApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param storeId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchStoreAsyncRequestConfig(storeId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchStoreAsyncRequestConfig(storeId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

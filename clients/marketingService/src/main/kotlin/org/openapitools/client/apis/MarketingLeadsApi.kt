@@ -23,10 +23,11 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.MarketingLeadCreateDto
+import org.openapitools.client.models.MarketingLeadDtoCollectionQueryParameters
 import org.openapitools.client.models.MarketingLeadDtoEnvelope
 import org.openapitools.client.models.MarketingLeadDtoListEnvelope
 import org.openapitools.client.models.MarketingLeadUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -320,6 +321,7 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMarketingLeadsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getMarketingLeadsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMarketingLeadsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getMarketingLeadsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, marketingLeadDtoCollectionQueryParameters = marketingLeadDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -353,16 +355,17 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMarketingLeadsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getMarketingLeadsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMarketingLeadsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getMarketingLeadsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, marketingLeadDtoCollectionQueryParameters = marketingLeadDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<MarketingLeadDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMarketingLeadsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMarketingLeadsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters?) : RequestConfig<MarketingLeadDtoCollectionQueryParameters> {
+        val localVariableBody = marketingLeadDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return MarketingLeadDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMarketingLeadsODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MarketingLeadDtoListEnvelope {
-        val localVarResponse = getMarketingLeadsODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMarketingLeadsODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters? = null) : MarketingLeadDtoListEnvelope {
+        val localVarResponse = getMarketingLeadsODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, marketingLeadDtoCollectionQueryParameters = marketingLeadDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MarketingLeadDtoListEnvelope
@@ -437,16 +443,17 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MarketingLeadDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMarketingLeadsODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MarketingLeadDtoListEnvelope?> {
-        val localVariableConfig = getMarketingLeadsODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMarketingLeadsODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters?) : ApiResponse<MarketingLeadDtoListEnvelope?> {
+        val localVariableConfig = getMarketingLeadsODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, marketingLeadDtoCollectionQueryParameters = marketingLeadDtoCollectionQueryParameters)
 
-        return request<Unit, MarketingLeadDtoListEnvelope>(
+        return request<MarketingLeadDtoCollectionQueryParameters, MarketingLeadDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingLeadDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMarketingLeadsODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMarketingLeadsODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, marketingLeadDtoCollectionQueryParameters: MarketingLeadDtoCollectionQueryParameters?) : RequestConfig<MarketingLeadDtoCollectionQueryParameters> {
+        val localVariableBody = marketingLeadDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchMarketingLeadAsync(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchMarketingLeadAsyncWithHttpInfo(marketingLeadId = marketingLeadId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchMarketingLeadAsync(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchMarketingLeadAsyncWithHttpInfo(marketingLeadId = marketingLeadId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchMarketingLeadAsyncWithHttpInfo(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchMarketingLeadAsyncRequestConfig(marketingLeadId = marketingLeadId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchMarketingLeadAsyncWithHttpInfo(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchMarketingLeadAsyncRequestConfig(marketingLeadId = marketingLeadId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class MarketingLeadsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchMarketingLeadAsyncRequestConfig(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchMarketingLeadAsyncRequestConfig(marketingLeadId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

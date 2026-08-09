@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PaymentModeCreateDto
+import org.openapitools.client.models.PaymentModeDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentModeDtoEnvelope
 import org.openapitools.client.models.PaymentModeDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.PaymentModeUpdateDto
@@ -320,6 +321,7 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return PaymentModeDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPaymentModesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentModeDtoIReadOnlyListEnvelope {
-        val localVarResponse = getPaymentModesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPaymentModesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters? = null) : PaymentModeDtoIReadOnlyListEnvelope {
+        val localVarResponse = getPaymentModesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentModeDtoCollectionQueryParameters = paymentModeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentModeDtoIReadOnlyListEnvelope
@@ -353,16 +355,17 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentModeDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPaymentModesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentModeDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getPaymentModesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPaymentModesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters?) : ApiResponse<PaymentModeDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getPaymentModesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentModeDtoCollectionQueryParameters = paymentModeDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentModeDtoIReadOnlyListEnvelope>(
+        return request<PaymentModeDtoCollectionQueryParameters, PaymentModeDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPaymentModesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPaymentModesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters?) : RequestConfig<PaymentModeDtoCollectionQueryParameters> {
+        val localVariableBody = paymentModeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPaymentModesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getPaymentModesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPaymentModesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getPaymentModesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentModeDtoCollectionQueryParameters = paymentModeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPaymentModesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getPaymentModesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPaymentModesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPaymentModesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentModeDtoCollectionQueryParameters = paymentModeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentModeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentModeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPaymentModesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPaymentModesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentModeDtoCollectionQueryParameters: PaymentModeDtoCollectionQueryParameters?) : RequestConfig<PaymentModeDtoCollectionQueryParameters> {
+        val localVariableBody = paymentModeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchPaymentModeAsync(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchPaymentModeAsyncWithHttpInfo(paymentModeId = paymentModeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchPaymentModeAsync(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchPaymentModeAsyncWithHttpInfo(paymentModeId = paymentModeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchPaymentModeAsyncWithHttpInfo(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchPaymentModeAsyncRequestConfig(paymentModeId = paymentModeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchPaymentModeAsyncWithHttpInfo(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchPaymentModeAsyncRequestConfig(paymentModeId = paymentModeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class PaymentModesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchPaymentModeAsyncRequestConfig(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchPaymentModeAsyncRequestConfig(paymentModeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

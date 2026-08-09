@@ -63,7 +63,7 @@ No authorization required
 
 <a id="getSignaturesAsync"></a>
 # **getSignaturesAsync**
-> SignatureDtoListEnvelope getSignaturesAsync(tenantId, apiVersion, xApiVersion)
+> SignatureDtoListEnvelope getSignaturesAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
 
 Get all signatures
 
@@ -79,8 +79,9 @@ val apiInstance = SignaturesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signatureDtoCollectionQueryParameters : SignatureDtoCollectionQueryParameters =  // SignatureDtoCollectionQueryParameters | 
 try {
-    val result : SignatureDtoListEnvelope = apiInstance.getSignaturesAsync(tenantId, apiVersion, xApiVersion)
+    val result : SignatureDtoListEnvelope = apiInstance.getSignaturesAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SignaturesApi#getSignaturesAsync")
@@ -94,9 +95,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signatureDtoCollectionQueryParameters** | [**SignatureDtoCollectionQueryParameters**](SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -108,12 +110,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSignaturesCountAsync"></a>
 # **getSignaturesCountAsync**
-> Int32Envelope getSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSignaturesCountAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
 
 Get signatures count
 
@@ -129,8 +131,9 @@ val apiInstance = SignaturesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signatureDtoCollectionQueryParameters : SignatureDtoCollectionQueryParameters =  // SignatureDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSignaturesCountAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SignaturesApi#getSignaturesCountAsync")
@@ -144,9 +147,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signatureDtoCollectionQueryParameters** | [**SignatureDtoCollectionQueryParameters**](SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -158,6 +162,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

@@ -19,8 +19,10 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.AccountingEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.DecimalEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.JournalEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.MoneyEnvelope
 
 import com.squareup.moshi.Json
@@ -53,6 +55,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +65,8 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCreditsSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DecimalEnvelope {
-        val localVarResponse = getCreditsSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCreditsSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters? = null) : DecimalEnvelope {
+        val localVarResponse = getCreditsSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountingEntryDtoCollectionQueryParameters = accountingEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
@@ -86,16 +89,17 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DecimalEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCreditsSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DecimalEnvelope?> {
-        val localVariableConfig = getCreditsSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCreditsSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters?) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getCreditsSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountingEntryDtoCollectionQueryParameters = accountingEntryDtoCollectionQueryParameters)
 
-        return request<Unit, DecimalEnvelope>(
+        return request<AccountingEntryDtoCollectionQueryParameters, DecimalEnvelope>(
             localVariableConfig
         )
     }
@@ -106,10 +110,11 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCreditsSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCreditsSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters?) : RequestConfig<AccountingEntryDtoCollectionQueryParameters> {
+        val localVariableBody = accountingEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -119,6 +124,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -137,6 +143,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,8 +153,8 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDebitsSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DecimalEnvelope {
-        val localVarResponse = getDebitsSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDebitsSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters? = null) : DecimalEnvelope {
+        val localVarResponse = getDebitsSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountingEntryDtoCollectionQueryParameters = accountingEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
@@ -170,16 +177,17 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DecimalEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDebitsSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DecimalEnvelope?> {
-        val localVariableConfig = getDebitsSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDebitsSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters?) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getDebitsSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, accountingEntryDtoCollectionQueryParameters = accountingEntryDtoCollectionQueryParameters)
 
-        return request<Unit, DecimalEnvelope>(
+        return request<AccountingEntryDtoCollectionQueryParameters, DecimalEnvelope>(
             localVariableConfig
         )
     }
@@ -190,10 +198,11 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDebitsSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDebitsSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, accountingEntryDtoCollectionQueryParameters: AccountingEntryDtoCollectionQueryParameters?) : RequestConfig<AccountingEntryDtoCollectionQueryParameters> {
+        val localVariableBody = accountingEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -203,6 +212,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -221,6 +231,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -230,8 +241,8 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExpensesSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = getExpensesSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExpensesSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getExpensesSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -254,16 +265,17 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExpensesSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getExpensesSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExpensesSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getExpensesSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -274,10 +286,11 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExpensesSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExpensesSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -287,6 +300,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -305,6 +319,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -314,8 +329,8 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIncomesSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = getIncomesSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomesSumAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getIncomesSumAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -338,16 +353,17 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIncomesSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getIncomesSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomesSumAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getIncomesSumAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -358,10 +374,11 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getIncomesSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getIncomesSumAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -371,6 +388,7 @@ class AccountingSummaryApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

@@ -18,7 +18,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countProjectPeriodTimeLogsAsync"></a>
 # **countProjectPeriodTimeLogsAsync**
-> Int32Envelope countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+> Int32Envelope countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
 
 Get the count of project period time logs
 
@@ -35,8 +35,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val projectTimeLogDtoCollectionQueryParameters : ProjectTimeLogDtoCollectionQueryParameters =  // ProjectTimeLogDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TimeLogsApi#countProjectPeriodTimeLogsAsync")
@@ -51,9 +52,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **projectPeriodId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createProjectTimeLogAsync"></a>
@@ -172,7 +174,7 @@ No authorization required
 
 <a id="getProjectPeriodTimeLogsAsync"></a>
 # **getProjectPeriodTimeLogsAsync**
-> ProjectTimeLogDtoListEnvelope getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+> ProjectTimeLogDtoListEnvelope getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
 
 Retrieve project period time logs
 
@@ -189,8 +191,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val projectTimeLogDtoCollectionQueryParameters : ProjectTimeLogDtoCollectionQueryParameters =  // ProjectTimeLogDtoCollectionQueryParameters | 
 try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TimeLogsApi#getProjectPeriodTimeLogsAsync")
@@ -205,9 +208,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **projectPeriodId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -219,7 +223,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProjectTimeLogByIdAsync"></a>
@@ -432,7 +436,7 @@ No authorization required
 
 <a id="patchProjectTimeLogAsync"></a>
 # **patchProjectTimeLogAsync**
-> patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, operation)
+> patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a project time log
 
@@ -449,9 +453,9 @@ val timeLogId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling TimeLogsApi#patchProjectTimeLogAsync")
     e.printStackTrace()
@@ -468,7 +472,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.ItemGoogleCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemGoogleCategoryDtoEnvelope
 import org.openapitools.client.models.ItemGoogleCategoryDtoListEnvelope
 
@@ -216,6 +217,7 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      * Retrieves all Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ItemGoogleCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -225,8 +227,8 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemGoogleCategoriesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemGoogleCategoryDtoListEnvelope {
-        val localVarResponse = getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemGoogleCategoriesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters? = null) : ItemGoogleCategoryDtoListEnvelope {
+        val localVarResponse = getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemGoogleCategoryDtoListEnvelope
@@ -248,16 +250,17 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      * Retrieves all Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemGoogleCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemGoogleCategoryDtoListEnvelope?> {
-        val localVariableConfig = getItemGoogleCategoriesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : ApiResponse<ItemGoogleCategoryDtoListEnvelope?> {
+        val localVariableConfig = getItemGoogleCategoriesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemGoogleCategoryDtoListEnvelope>(
+        return request<ItemGoogleCategoryDtoCollectionQueryParameters, ItemGoogleCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -267,10 +270,11 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemGoogleCategoriesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemGoogleCategoriesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : RequestConfig<ItemGoogleCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = itemGoogleCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -279,6 +283,7 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -296,6 +301,7 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      * Retrieves the count of Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -305,8 +311,8 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemGoogleCategoriesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemGoogleCategoriesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -328,16 +334,17 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      * Retrieves the count of Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemGoogleCategoriesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemGoogleCategoriesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemGoogleCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -347,10 +354,11 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemGoogleCategoriesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemGoogleCategoriesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : RequestConfig<ItemGoogleCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = itemGoogleCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -359,6 +367,7 @@ class ItemGoogleCategoriesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

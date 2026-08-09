@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -95,6 +94,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedOrderDto](docs/ExtendedOrderDto.md)
+ - [org.openapitools.client.models.ExtendedOrderDtoCollectionQueryParameters](docs/ExtendedOrderDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedOrderDtoListEnvelope](docs/ExtendedOrderDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -102,17 +102,19 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
  - [org.openapitools.client.models.OrderCreateDto](docs/OrderCreateDto.md)
  - [org.openapitools.client.models.OrderDto](docs/OrderDto.md)
+ - [org.openapitools.client.models.OrderDtoCollectionQueryParameters](docs/OrderDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.OrderDtoEnvelope](docs/OrderDtoEnvelope.md)
  - [org.openapitools.client.models.OrderDtoListEnvelope](docs/OrderDtoListEnvelope.md)
  - [org.openapitools.client.models.OrderLineCreateDto](docs/OrderLineCreateDto.md)
  - [org.openapitools.client.models.OrderLineDto](docs/OrderLineDto.md)
+ - [org.openapitools.client.models.OrderLineDtoCollectionQueryParameters](docs/OrderLineDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.OrderLineDtoEnvelope](docs/OrderLineDtoEnvelope.md)
  - [org.openapitools.client.models.OrderLineDtoListEnvelope](docs/OrderLineDtoListEnvelope.md)
  - [org.openapitools.client.models.OrderLineUpdateDto](docs/OrderLineUpdateDto.md)
  - [org.openapitools.client.models.OrderUpdateDto](docs/OrderUpdateDto.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

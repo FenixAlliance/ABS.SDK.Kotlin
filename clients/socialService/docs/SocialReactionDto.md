@@ -11,6 +11,7 @@
 | **socialProfileId** | **kotlin.String** |  |  [optional] |
 | **socialProfileName** | **kotlin.String** |  |  [optional] |
 | **socialProfileAvatarUrl** | **kotlin.String** |  |  [optional] |
+| **socialProfileType** | [**inline**](#SocialProfileType) |  |  [optional] |
 
 
 <a id="Reaction"></a>
@@ -18,6 +19,13 @@
 | Name | Value |
 | ---- | ----- |
 | reaction | Like, Happy, HaHa, Love, Sad, Angry, Wow, Afraid |
+
+
+<a id="SocialProfileType"></a>
+## Enum: socialProfileType
+| Name | Value |
+| ---- | ----- |
+| socialProfileType | User, Tenant, Contact |
 
 
 

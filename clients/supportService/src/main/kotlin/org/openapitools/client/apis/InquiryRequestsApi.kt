@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.InquiryRequestCreateDto
+import org.openapitools.client.models.InquiryRequestDtoCollectionQueryParameters
 import org.openapitools.client.models.InquiryRequestDtoEnvelope
 import org.openapitools.client.models.InquiryRequestDtoListEnvelope
 import org.openapitools.client.models.InquiryRequestUpdateDto
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -320,6 +321,7 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return InquiryRequestDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInquiryRequestsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InquiryRequestDtoListEnvelope {
-        val localVarResponse = getInquiryRequestsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInquiryRequestsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters? = null) : InquiryRequestDtoListEnvelope {
+        val localVarResponse = getInquiryRequestsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, inquiryRequestDtoCollectionQueryParameters = inquiryRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InquiryRequestDtoListEnvelope
@@ -353,16 +355,17 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InquiryRequestDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInquiryRequestsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InquiryRequestDtoListEnvelope?> {
-        val localVariableConfig = getInquiryRequestsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInquiryRequestsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters?) : ApiResponse<InquiryRequestDtoListEnvelope?> {
+        val localVariableConfig = getInquiryRequestsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, inquiryRequestDtoCollectionQueryParameters = inquiryRequestDtoCollectionQueryParameters)
 
-        return request<Unit, InquiryRequestDtoListEnvelope>(
+        return request<InquiryRequestDtoCollectionQueryParameters, InquiryRequestDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInquiryRequestsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInquiryRequestsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters?) : RequestConfig<InquiryRequestDtoCollectionQueryParameters> {
+        val localVariableBody = inquiryRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInquiryRequestsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getInquiryRequestsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInquiryRequestsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInquiryRequestsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, inquiryRequestDtoCollectionQueryParameters = inquiryRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInquiryRequestsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInquiryRequestsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInquiryRequestsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInquiryRequestsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, inquiryRequestDtoCollectionQueryParameters = inquiryRequestDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InquiryRequestDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param inquiryRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInquiryRequestsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInquiryRequestsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, inquiryRequestDtoCollectionQueryParameters: InquiryRequestDtoCollectionQueryParameters?) : RequestConfig<InquiryRequestDtoCollectionQueryParameters> {
+        val localVariableBody = inquiryRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInquiryRequestAsync(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInquiryRequestAsyncWithHttpInfo(inquiryRequestId = inquiryRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchInquiryRequestAsync(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInquiryRequestAsyncWithHttpInfo(inquiryRequestId = inquiryRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInquiryRequestAsyncWithHttpInfo(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInquiryRequestAsyncRequestConfig(inquiryRequestId = inquiryRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchInquiryRequestAsyncWithHttpInfo(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInquiryRequestAsyncRequestConfig(inquiryRequestId = inquiryRequestId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class InquiryRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInquiryRequestAsyncRequestConfig(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInquiryRequestAsyncRequestConfig(inquiryRequestId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

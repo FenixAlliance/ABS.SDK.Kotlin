@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getTenantTypes"></a>
 # **getTenantTypes**
-> TenantTypeDtoListEnvelope getTenantTypes(tenantId, apiVersion, xApiVersion)
+> TenantTypeDtoListEnvelope getTenantTypes(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
 
 Retrieve a list of tenant types
 
@@ -187,8 +187,9 @@ val apiInstance = TypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantTypeDtoCollectionQueryParameters : TenantTypeDtoCollectionQueryParameters =  // TenantTypeDtoCollectionQueryParameters | 
 try {
-    val result : TenantTypeDtoListEnvelope = apiInstance.getTenantTypes(tenantId, apiVersion, xApiVersion)
+    val result : TenantTypeDtoListEnvelope = apiInstance.getTenantTypes(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TypesApi#getTenantTypes")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantTypeDtoCollectionQueryParameters** | [**TenantTypeDtoCollectionQueryParameters**](TenantTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantTypesCount"></a>
 # **getTenantTypesCount**
-> Int32Envelope getTenantTypesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantTypesCount(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
 
 Get the count of tenant types
 
@@ -237,8 +239,9 @@ val apiInstance = TypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantTypeDtoCollectionQueryParameters : TenantTypeDtoCollectionQueryParameters =  // TenantTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantTypesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantTypesCount(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TypesApi#getTenantTypesCount")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantTypeDtoCollectionQueryParameters** | [**TenantTypeDtoCollectionQueryParameters**](TenantTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTenantType"></a>
 # **patchTenantType**
-> EmptyEnvelope patchTenantType(tenantTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantType(tenantTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant type
 
@@ -288,9 +292,9 @@ val tenantTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTenantType(tenantTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTenantType(tenantTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TypesApi#patchTenantType")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

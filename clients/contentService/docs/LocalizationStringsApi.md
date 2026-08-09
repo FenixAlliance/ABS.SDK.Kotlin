@@ -14,7 +14,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLocalizationStringsAsync"></a>
 # **countLocalizationStringsAsync**
-> Int32Envelope countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
 
 Count localization strings
 
@@ -30,8 +30,9 @@ val apiInstance = LocalizationStringsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val localizationStringDtoCollectionQueryParameters : LocalizationStringDtoCollectionQueryParameters =  // LocalizationStringDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocalizationStringsApi#countLocalizationStringsAsync")
@@ -45,9 +46,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -59,7 +61,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createLocalizationStringAsync"></a>
@@ -220,7 +222,7 @@ No authorization required
 
 <a id="getLocalizationStringsAsync"></a>
 # **getLocalizationStringsAsync**
-> LocalizationStringDtoListEnvelope getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+> LocalizationStringDtoListEnvelope getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
 
 Get localization strings
 
@@ -236,8 +238,9 @@ val apiInstance = LocalizationStringsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val localizationStringDtoCollectionQueryParameters : LocalizationStringDtoCollectionQueryParameters =  // LocalizationStringDtoCollectionQueryParameters | 
 try {
-    val result : LocalizationStringDtoListEnvelope = apiInstance.getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+    val result : LocalizationStringDtoListEnvelope = apiInstance.getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocalizationStringsApi#getLocalizationStringsAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateLocalizationStringAsync"></a>

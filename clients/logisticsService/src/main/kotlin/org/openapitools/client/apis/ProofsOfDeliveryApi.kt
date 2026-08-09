@@ -24,11 +24,13 @@ import org.openapitools.client.models.DisputeProofOfDeliveryRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ProofOfDeliveryCreateDto
+import org.openapitools.client.models.ProofOfDeliveryDtoCollectionQueryParameters
 import org.openapitools.client.models.ProofOfDeliveryDtoEnvelope
 import org.openapitools.client.models.ProofOfDeliveryDtoListEnvelope
 import org.openapitools.client.models.ProofOfDeliveryLineCreateDto
+import org.openapitools.client.models.ProofOfDeliveryLineDtoCollectionQueryParameters
 import org.openapitools.client.models.ProofOfDeliveryLineDtoListEnvelope
 import org.openapitools.client.models.ProofOfDeliveryLineUpdateDto
 import org.openapitools.client.models.ProofOfDeliveryUpdateDto
@@ -864,6 +866,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ProofOfDeliveryLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -873,8 +876,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProofOfDeliveryLinesAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProofOfDeliveryLineDtoListEnvelope {
-        val localVarResponse = getProofOfDeliveryLinesAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofOfDeliveryLinesAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters? = null) : ProofOfDeliveryLineDtoListEnvelope {
+        val localVarResponse = getProofOfDeliveryLinesAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters = proofOfDeliveryLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProofOfDeliveryLineDtoListEnvelope
@@ -898,16 +901,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProofOfDeliveryLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProofOfDeliveryLinesAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProofOfDeliveryLineDtoListEnvelope?> {
-        val localVariableConfig = getProofOfDeliveryLinesAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofOfDeliveryLinesAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters?) : ApiResponse<ProofOfDeliveryLineDtoListEnvelope?> {
+        val localVariableConfig = getProofOfDeliveryLinesAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters = proofOfDeliveryLineDtoCollectionQueryParameters)
 
-        return request<Unit, ProofOfDeliveryLineDtoListEnvelope>(
+        return request<ProofOfDeliveryLineDtoCollectionQueryParameters, ProofOfDeliveryLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -919,10 +923,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProofOfDeliveryLinesAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProofOfDeliveryLinesAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters?) : RequestConfig<ProofOfDeliveryLineDtoCollectionQueryParameters> {
+        val localVariableBody = proofOfDeliveryLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -932,6 +937,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -951,6 +957,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -960,8 +967,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProofOfDeliveryLinesCountAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getProofOfDeliveryLinesCountAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofOfDeliveryLinesCountAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProofOfDeliveryLinesCountAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters = proofOfDeliveryLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -985,16 +992,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProofOfDeliveryLinesCountAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProofOfDeliveryLinesCountAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofOfDeliveryLinesCountAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProofOfDeliveryLinesCountAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters = proofOfDeliveryLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProofOfDeliveryLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1006,10 +1014,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProofOfDeliveryLinesCountAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProofOfDeliveryLinesCountAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryLineDtoCollectionQueryParameters: ProofOfDeliveryLineDtoCollectionQueryParameters?) : RequestConfig<ProofOfDeliveryLineDtoCollectionQueryParameters> {
+        val localVariableBody = proofOfDeliveryLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1019,6 +1028,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1037,6 +1047,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ProofOfDeliveryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1046,8 +1057,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProofsOfDeliveryAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProofOfDeliveryDtoListEnvelope {
-        val localVarResponse = getProofsOfDeliveryAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofsOfDeliveryAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters? = null) : ProofOfDeliveryDtoListEnvelope {
+        val localVarResponse = getProofsOfDeliveryAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryDtoCollectionQueryParameters = proofOfDeliveryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProofOfDeliveryDtoListEnvelope
@@ -1070,16 +1081,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProofOfDeliveryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProofsOfDeliveryAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProofOfDeliveryDtoListEnvelope?> {
-        val localVariableConfig = getProofsOfDeliveryAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofsOfDeliveryAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters?) : ApiResponse<ProofOfDeliveryDtoListEnvelope?> {
+        val localVariableConfig = getProofsOfDeliveryAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryDtoCollectionQueryParameters = proofOfDeliveryDtoCollectionQueryParameters)
 
-        return request<Unit, ProofOfDeliveryDtoListEnvelope>(
+        return request<ProofOfDeliveryDtoCollectionQueryParameters, ProofOfDeliveryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1090,10 +1102,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProofsOfDeliveryAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProofsOfDeliveryAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters?) : RequestConfig<ProofOfDeliveryDtoCollectionQueryParameters> {
+        val localVariableBody = proofOfDeliveryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1103,6 +1116,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1121,6 +1135,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1130,8 +1145,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProofsOfDeliveryCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofsOfDeliveryCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryDtoCollectionQueryParameters = proofOfDeliveryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1154,16 +1169,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProofsOfDeliveryCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProofsOfDeliveryCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, proofOfDeliveryDtoCollectionQueryParameters = proofOfDeliveryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProofOfDeliveryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1174,10 +1190,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProofsOfDeliveryCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProofsOfDeliveryCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, proofOfDeliveryDtoCollectionQueryParameters: ProofOfDeliveryDtoCollectionQueryParameters?) : RequestConfig<ProofOfDeliveryDtoCollectionQueryParameters> {
+        val localVariableBody = proofOfDeliveryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1187,6 +1204,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1206,7 +1224,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1216,8 +1234,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchProofOfDeliveryAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchProofOfDeliveryAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProofOfDeliveryAsync(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchProofOfDeliveryAsyncWithHttpInfo(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1241,17 +1259,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchProofOfDeliveryAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchProofOfDeliveryAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProofOfDeliveryAsyncWithHttpInfo(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchProofOfDeliveryAsyncRequestConfig(podId = podId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1263,11 +1281,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchProofOfDeliveryAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchProofOfDeliveryAsyncRequestConfig(podId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1298,7 +1316,7 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1308,8 +1326,8 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchProofOfDeliveryLineAsync(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchProofOfDeliveryLineAsyncWithHttpInfo(podId = podId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProofOfDeliveryLineAsync(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchProofOfDeliveryLineAsyncWithHttpInfo(podId = podId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1334,17 +1352,17 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchProofOfDeliveryLineAsyncWithHttpInfo(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchProofOfDeliveryLineAsyncRequestConfig(podId = podId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProofOfDeliveryLineAsyncWithHttpInfo(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchProofOfDeliveryLineAsyncRequestConfig(podId = podId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1357,11 +1375,11 @@ class ProofsOfDeliveryApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchProofOfDeliveryLineAsyncRequestConfig(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchProofOfDeliveryLineAsyncRequestConfig(podId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

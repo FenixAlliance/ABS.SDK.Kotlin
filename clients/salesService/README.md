@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -103,6 +102,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedSalesLiteratureDto](docs/ExtendedSalesLiteratureDto.md)
+ - [org.openapitools.client.models.ExtendedSalesLiteratureDtoCollectionQueryParameters](docs/ExtendedSalesLiteratureDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedSalesLiteratureDtoListEnvelope](docs/ExtendedSalesLiteratureDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -112,12 +112,14 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.LoyaltyProgramCreateDto](docs/LoyaltyProgramCreateDto.md)
  - [org.openapitools.client.models.LoyaltyProgramDto](docs/LoyaltyProgramDto.md)
+ - [org.openapitools.client.models.LoyaltyProgramDtoCollectionQueryParameters](docs/LoyaltyProgramDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LoyaltyProgramDtoEnvelope](docs/LoyaltyProgramDtoEnvelope.md)
  - [org.openapitools.client.models.LoyaltyProgramDtoListEnvelope](docs/LoyaltyProgramDtoListEnvelope.md)
  - [org.openapitools.client.models.LoyaltyProgramUpdateDto](docs/LoyaltyProgramUpdateDto.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.PointOfSaleCreateDto](docs/PointOfSaleCreateDto.md)
  - [org.openapitools.client.models.PointOfSaleDto](docs/PointOfSaleDto.md)
+ - [org.openapitools.client.models.PointOfSaleDtoCollectionQueryParameters](docs/PointOfSaleDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PointOfSaleDtoEnvelope](docs/PointOfSaleDtoEnvelope.md)
  - [org.openapitools.client.models.PointOfSaleDtoListEnvelope](docs/PointOfSaleDtoListEnvelope.md)
  - [org.openapitools.client.models.PointOfSaleUpdateDto](docs/PointOfSaleUpdateDto.md)
@@ -127,12 +129,14 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.SalesLiteratureCreateDto](docs/SalesLiteratureCreateDto.md)
  - [org.openapitools.client.models.SalesLiteratureDto](docs/SalesLiteratureDto.md)
+ - [org.openapitools.client.models.SalesLiteratureDtoCollectionQueryParameters](docs/SalesLiteratureDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SalesLiteratureDtoEnvelope](docs/SalesLiteratureDtoEnvelope.md)
  - [org.openapitools.client.models.SalesLiteratureDtoListEnvelope](docs/SalesLiteratureDtoListEnvelope.md)
  - [org.openapitools.client.models.SalesLiteratureTypeDto](docs/SalesLiteratureTypeDto.md)
  - [org.openapitools.client.models.SalesLiteratureUpdateDto](docs/SalesLiteratureUpdateDto.md)
  - [org.openapitools.client.models.StoreCreateDto](docs/StoreCreateDto.md)
  - [org.openapitools.client.models.StoreDto](docs/StoreDto.md)
+ - [org.openapitools.client.models.StoreDtoCollectionQueryParameters](docs/StoreDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.StoreDtoEnvelope](docs/StoreDtoEnvelope.md)
  - [org.openapitools.client.models.StoreDtoListEnvelope](docs/StoreDtoListEnvelope.md)
  - [org.openapitools.client.models.StoreUpdateDto](docs/StoreUpdateDto.md)

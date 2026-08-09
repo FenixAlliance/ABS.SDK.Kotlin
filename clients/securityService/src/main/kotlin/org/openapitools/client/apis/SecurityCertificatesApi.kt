@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.SecurityCertificateDtoCollectionQueryParameters
 import org.openapitools.client.models.SecurityCertificateDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -53,6 +54,7 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return SecurityCertificateDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSecurityCertificatesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SecurityCertificateDtoListEnvelope {
-        val localVarResponse = getSecurityCertificatesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityCertificatesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters? = null) : SecurityCertificateDtoListEnvelope {
+        val localVarResponse = getSecurityCertificatesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityCertificateDtoCollectionQueryParameters = securityCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SecurityCertificateDtoListEnvelope
@@ -86,16 +88,17 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SecurityCertificateDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSecurityCertificatesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SecurityCertificateDtoListEnvelope?> {
-        val localVariableConfig = getSecurityCertificatesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityCertificatesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters?) : ApiResponse<SecurityCertificateDtoListEnvelope?> {
+        val localVariableConfig = getSecurityCertificatesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityCertificateDtoCollectionQueryParameters = securityCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, SecurityCertificateDtoListEnvelope>(
+        return request<SecurityCertificateDtoCollectionQueryParameters, SecurityCertificateDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -106,10 +109,11 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSecurityCertificatesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSecurityCertificatesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters?) : RequestConfig<SecurityCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = securityCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -119,6 +123,7 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -137,6 +142,7 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,8 +152,8 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSecurityCertificatesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSecurityCertificatesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityCertificatesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSecurityCertificatesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityCertificateDtoCollectionQueryParameters = securityCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -170,16 +176,17 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSecurityCertificatesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSecurityCertificatesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityCertificatesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSecurityCertificatesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, securityCertificateDtoCollectionQueryParameters = securityCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SecurityCertificateDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -190,10 +197,11 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSecurityCertificatesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSecurityCertificatesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, securityCertificateDtoCollectionQueryParameters: SecurityCertificateDtoCollectionQueryParameters?) : RequestConfig<SecurityCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = securityCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -203,6 +211,7 @@ class SecurityCertificatesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

@@ -20,17 +20,21 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BankAccountCreateDto
+import org.openapitools.client.models.BankAccountDtoCollectionQueryParameters
 import org.openapitools.client.models.BankAccountDtoEnvelope
 import org.openapitools.client.models.BankAccountDtoListEnvelope
 import org.openapitools.client.models.BankAccountUpdateDto
 import org.openapitools.client.models.BankCreateDto
+import org.openapitools.client.models.BankDtoCollectionQueryParameters
 import org.openapitools.client.models.BankDtoEnvelope
 import org.openapitools.client.models.BankDtoListEnvelope
 import org.openapitools.client.models.BankGuaranteeCreateDto
+import org.openapitools.client.models.BankGuaranteeDtoCollectionQueryParameters
 import org.openapitools.client.models.BankGuaranteeDtoEnvelope
 import org.openapitools.client.models.BankGuaranteeDtoListEnvelope
 import org.openapitools.client.models.BankGuaranteeUpdateDto
 import org.openapitools.client.models.BankTransactionCreateDto
+import org.openapitools.client.models.BankTransactionDtoCollectionQueryParameters
 import org.openapitools.client.models.BankTransactionDtoEnvelope
 import org.openapitools.client.models.BankTransactionDtoListEnvelope
 import org.openapitools.client.models.BankTransactionUpdateDto
@@ -38,7 +42,7 @@ import org.openapitools.client.models.BankUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -958,6 +962,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return BankAccountDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -967,8 +972,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankAccounts(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BankAccountDtoListEnvelope {
-        val localVarResponse = getBankAccountsWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankAccounts(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters? = null) : BankAccountDtoListEnvelope {
+        val localVarResponse = getBankAccountsWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BankAccountDtoListEnvelope
@@ -992,16 +997,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BankAccountDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankAccountsWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BankAccountDtoListEnvelope?> {
-        val localVariableConfig = getBankAccountsRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankAccountsWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : ApiResponse<BankAccountDtoListEnvelope?> {
+        val localVariableConfig = getBankAccountsRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
-        return request<Unit, BankAccountDtoListEnvelope>(
+        return request<BankAccountDtoCollectionQueryParameters, BankAccountDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1013,10 +1019,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankAccountsRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankAccountsRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : RequestConfig<BankAccountDtoCollectionQueryParameters> {
+        val localVariableBody = bankAccountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1026,6 +1033,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1045,6 +1053,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1054,8 +1063,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankAccountsCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBankAccountsCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankAccountsCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBankAccountsCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1079,16 +1088,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankAccountsCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBankAccountsCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankAccountsCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBankAccountsCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BankAccountDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1100,10 +1110,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankAccountsCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankAccountsCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : RequestConfig<BankAccountDtoCollectionQueryParameters> {
+        val localVariableBody = bankAccountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1113,6 +1124,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1222,6 +1234,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return BankGuaranteeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1231,8 +1244,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankGuarantees(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BankGuaranteeDtoListEnvelope {
-        val localVarResponse = getBankGuaranteesWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankGuarantees(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters? = null) : BankGuaranteeDtoListEnvelope {
+        val localVarResponse = getBankGuaranteesWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankGuaranteeDtoCollectionQueryParameters = bankGuaranteeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BankGuaranteeDtoListEnvelope
@@ -1256,16 +1269,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BankGuaranteeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankGuaranteesWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BankGuaranteeDtoListEnvelope?> {
-        val localVariableConfig = getBankGuaranteesRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankGuaranteesWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters?) : ApiResponse<BankGuaranteeDtoListEnvelope?> {
+        val localVariableConfig = getBankGuaranteesRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankGuaranteeDtoCollectionQueryParameters = bankGuaranteeDtoCollectionQueryParameters)
 
-        return request<Unit, BankGuaranteeDtoListEnvelope>(
+        return request<BankGuaranteeDtoCollectionQueryParameters, BankGuaranteeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1277,10 +1291,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankGuaranteesRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankGuaranteesRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters?) : RequestConfig<BankGuaranteeDtoCollectionQueryParameters> {
+        val localVariableBody = bankGuaranteeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1290,6 +1305,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1309,6 +1325,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1318,8 +1335,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankGuaranteesCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBankGuaranteesCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankGuaranteesCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBankGuaranteesCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankGuaranteeDtoCollectionQueryParameters = bankGuaranteeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1343,16 +1360,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankGuaranteesCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBankGuaranteesCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankGuaranteesCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBankGuaranteesCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankGuaranteeDtoCollectionQueryParameters = bankGuaranteeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BankGuaranteeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1364,10 +1382,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankGuaranteesCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankGuaranteesCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankGuaranteeDtoCollectionQueryParameters: BankGuaranteeDtoCollectionQueryParameters?) : RequestConfig<BankGuaranteeDtoCollectionQueryParameters> {
+        val localVariableBody = bankGuaranteeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1377,6 +1396,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1486,6 +1506,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return BankTransactionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1495,8 +1516,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankTransactions(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BankTransactionDtoListEnvelope {
-        val localVarResponse = getBankTransactionsWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankTransactions(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters? = null) : BankTransactionDtoListEnvelope {
+        val localVarResponse = getBankTransactionsWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankTransactionDtoCollectionQueryParameters = bankTransactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BankTransactionDtoListEnvelope
@@ -1520,16 +1541,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BankTransactionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankTransactionsWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BankTransactionDtoListEnvelope?> {
-        val localVariableConfig = getBankTransactionsRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankTransactionsWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters?) : ApiResponse<BankTransactionDtoListEnvelope?> {
+        val localVariableConfig = getBankTransactionsRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankTransactionDtoCollectionQueryParameters = bankTransactionDtoCollectionQueryParameters)
 
-        return request<Unit, BankTransactionDtoListEnvelope>(
+        return request<BankTransactionDtoCollectionQueryParameters, BankTransactionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1541,10 +1563,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankTransactionsRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankTransactionsRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters?) : RequestConfig<BankTransactionDtoCollectionQueryParameters> {
+        val localVariableBody = bankTransactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1554,6 +1577,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1573,6 +1597,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1582,8 +1607,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBankTransactionsCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBankTransactionsCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankTransactionsCount(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBankTransactionsCountWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankTransactionDtoCollectionQueryParameters = bankTransactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1607,16 +1632,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBankTransactionsCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBankTransactionsCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBankTransactionsCountWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBankTransactionsCountRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankTransactionDtoCollectionQueryParameters = bankTransactionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BankTransactionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1628,10 +1654,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBankTransactionsCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBankTransactionsCountRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankTransactionDtoCollectionQueryParameters: BankTransactionDtoCollectionQueryParameters?) : RequestConfig<BankTransactionDtoCollectionQueryParameters> {
+        val localVariableBody = bankTransactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1641,6 +1668,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1659,6 +1687,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return BankDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1668,8 +1697,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBanks(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BankDtoListEnvelope {
-        val localVarResponse = getBanksWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBanks(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters? = null) : BankDtoListEnvelope {
+        val localVarResponse = getBanksWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankDtoCollectionQueryParameters = bankDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BankDtoListEnvelope
@@ -1692,16 +1721,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BankDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBanksWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BankDtoListEnvelope?> {
-        val localVariableConfig = getBanksRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBanksWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters?) : ApiResponse<BankDtoListEnvelope?> {
+        val localVariableConfig = getBanksRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankDtoCollectionQueryParameters = bankDtoCollectionQueryParameters)
 
-        return request<Unit, BankDtoListEnvelope>(
+        return request<BankDtoCollectionQueryParameters, BankDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1712,10 +1742,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBanksRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBanksRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters?) : RequestConfig<BankDtoCollectionQueryParameters> {
+        val localVariableBody = bankDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1725,6 +1756,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1743,6 +1775,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1752,8 +1785,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBanksCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBanksCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBanksCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBanksCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankDtoCollectionQueryParameters = bankDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1776,16 +1809,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBanksCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBanksCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBanksCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBanksCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankDtoCollectionQueryParameters = bankDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BankDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1796,10 +1830,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBanksCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBanksCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankDtoCollectionQueryParameters: BankDtoCollectionQueryParameters?) : RequestConfig<BankDtoCollectionQueryParameters> {
+        val localVariableBody = bankDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1809,6 +1844,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1828,7 +1864,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1838,8 +1874,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBank(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBankWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBank(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBankWithHttpInfo(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1863,17 +1899,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBankWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBankRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankWithHttpInfo(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBankRequestConfig(bankId = bankId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1885,11 +1921,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBankRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBankRequestConfig(bankId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1920,7 +1956,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1930,8 +1966,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBankAccount(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBankAccountWithHttpInfo(bankId = bankId, accountId = accountId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankAccount(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBankAccountWithHttpInfo(bankId = bankId, accountId = accountId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1956,17 +1992,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBankAccountWithHttpInfo(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBankAccountRequestConfig(bankId = bankId, accountId = accountId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankAccountWithHttpInfo(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBankAccountRequestConfig(bankId = bankId, accountId = accountId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1979,11 +2015,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBankAccountRequestConfig(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBankAccountRequestConfig(bankId: java.util.UUID, accountId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2014,7 +2050,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2024,8 +2060,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBankGuarantee(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBankGuaranteeWithHttpInfo(bankId = bankId, guaranteeId = guaranteeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankGuarantee(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBankGuaranteeWithHttpInfo(bankId = bankId, guaranteeId = guaranteeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2050,17 +2086,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBankGuaranteeWithHttpInfo(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBankGuaranteeRequestConfig(bankId = bankId, guaranteeId = guaranteeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankGuaranteeWithHttpInfo(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBankGuaranteeRequestConfig(bankId = bankId, guaranteeId = guaranteeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2073,11 +2109,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBankGuaranteeRequestConfig(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBankGuaranteeRequestConfig(bankId: java.util.UUID, guaranteeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2108,7 +2144,7 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2118,8 +2154,8 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBankTransaction(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBankTransactionWithHttpInfo(bankId = bankId, transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankTransaction(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBankTransactionWithHttpInfo(bankId = bankId, transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2144,17 +2180,17 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBankTransactionWithHttpInfo(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBankTransactionRequestConfig(bankId = bankId, transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBankTransactionWithHttpInfo(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBankTransactionRequestConfig(bankId = bankId, transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2167,11 +2203,11 @@ class BankingApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBankTransactionRequestConfig(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBankTransactionRequestConfig(bankId: java.util.UUID, transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

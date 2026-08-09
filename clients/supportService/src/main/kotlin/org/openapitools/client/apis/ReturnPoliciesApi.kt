@@ -23,10 +23,11 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemReturnPolicyCreateDto
+import org.openapitools.client.models.ItemReturnPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemReturnPolicyDtoEnvelope
 import org.openapitools.client.models.ItemReturnPolicyDtoListEnvelope
 import org.openapitools.client.models.ItemReturnPolicyUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -233,6 +234,7 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemReturnPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -242,8 +244,8 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReturnPoliciesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReturnPolicyDtoListEnvelope {
-        val localVarResponse = getReturnPoliciesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getReturnPoliciesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters? = null) : ItemReturnPolicyDtoListEnvelope {
+        val localVarResponse = getReturnPoliciesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemReturnPolicyDtoListEnvelope
@@ -266,16 +268,17 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemReturnPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReturnPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReturnPolicyDtoListEnvelope?> {
-        val localVariableConfig = getReturnPoliciesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getReturnPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemReturnPolicyDtoListEnvelope?> {
+        val localVariableConfig = getReturnPoliciesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemReturnPolicyDtoListEnvelope>(
+        return request<ItemReturnPolicyDtoCollectionQueryParameters, ItemReturnPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -286,10 +289,11 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getReturnPoliciesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getReturnPoliciesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemReturnPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemReturnPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -299,6 +303,7 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -317,6 +322,7 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +332,8 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReturnPoliciesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getReturnPoliciesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getReturnPoliciesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getReturnPoliciesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -350,16 +356,17 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReturnPoliciesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getReturnPoliciesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getReturnPoliciesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getReturnPoliciesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemReturnPolicyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -370,10 +377,11 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getReturnPoliciesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getReturnPoliciesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemReturnPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemReturnPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -383,6 +391,7 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchReturnPolicyAsync(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchReturnPolicyAsyncWithHttpInfo(returnPolicyId = returnPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchReturnPolicyAsync(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchReturnPolicyAsyncWithHttpInfo(returnPolicyId = returnPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchReturnPolicyAsyncWithHttpInfo(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchReturnPolicyAsyncRequestConfig(returnPolicyId = returnPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchReturnPolicyAsyncWithHttpInfo(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchReturnPolicyAsyncRequestConfig(returnPolicyId = returnPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class ReturnPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchReturnPolicyAsyncRequestConfig(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchReturnPolicyAsyncRequestConfig(returnPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

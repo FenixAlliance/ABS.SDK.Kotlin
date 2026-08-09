@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -113,26 +112,31 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LicenseAttributeCreateDto](docs/LicenseAttributeCreateDto.md)
  - [org.openapitools.client.models.LicenseAttributeDto](docs/LicenseAttributeDto.md)
+ - [org.openapitools.client.models.LicenseAttributeDtoCollectionQueryParameters](docs/LicenseAttributeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LicenseAttributeDtoListEnvelope](docs/LicenseAttributeDtoListEnvelope.md)
  - [org.openapitools.client.models.LicenseAttributeUpdateDto](docs/LicenseAttributeUpdateDto.md)
  - [org.openapitools.client.models.LicenseCreateDto](docs/LicenseCreateDto.md)
  - [org.openapitools.client.models.LicenseDto](docs/LicenseDto.md)
+ - [org.openapitools.client.models.LicenseDtoCollectionQueryParameters](docs/LicenseDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LicenseDtoListEnvelope](docs/LicenseDtoListEnvelope.md)
  - [org.openapitools.client.models.LicenseFeatureCreateDto](docs/LicenseFeatureCreateDto.md)
  - [org.openapitools.client.models.LicenseFeatureDto](docs/LicenseFeatureDto.md)
+ - [org.openapitools.client.models.LicenseFeatureDtoCollectionQueryParameters](docs/LicenseFeatureDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LicenseFeatureDtoListEnvelope](docs/LicenseFeatureDtoListEnvelope.md)
  - [org.openapitools.client.models.LicenseFeatureUpdateDto](docs/LicenseFeatureUpdateDto.md)
  - [org.openapitools.client.models.LicenseTypeCreateDto](docs/LicenseTypeCreateDto.md)
  - [org.openapitools.client.models.LicenseTypeDto](docs/LicenseTypeDto.md)
+ - [org.openapitools.client.models.LicenseTypeDtoCollectionQueryParameters](docs/LicenseTypeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LicenseTypeDtoListEnvelope](docs/LicenseTypeDtoListEnvelope.md)
  - [org.openapitools.client.models.LicenseTypeUpdateDto](docs/LicenseTypeUpdateDto.md)
  - [org.openapitools.client.models.LicenseUpdateDto](docs/LicenseUpdateDto.md)
  - [org.openapitools.client.models.LicensingCertificateCreateDto](docs/LicensingCertificateCreateDto.md)
  - [org.openapitools.client.models.LicensingCertificateDto](docs/LicensingCertificateDto.md)
+ - [org.openapitools.client.models.LicensingCertificateDtoCollectionQueryParameters](docs/LicensingCertificateDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LicensingCertificateDtoListEnvelope](docs/LicensingCertificateDtoListEnvelope.md)
  - [org.openapitools.client.models.LicensingCertificateUpdateDto](docs/LicensingCertificateUpdateDto.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

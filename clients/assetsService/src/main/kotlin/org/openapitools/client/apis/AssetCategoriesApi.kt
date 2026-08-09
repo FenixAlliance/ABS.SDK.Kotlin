@@ -20,13 +20,14 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AssetCategoryCreateDto
+import org.openapitools.client.models.AssetCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetCategoryDtoEnvelope
 import org.openapitools.client.models.AssetCategoryDtoListEnvelope
 import org.openapitools.client.models.AssetCategoryUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -209,6 +210,7 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Gets all asset categories for the current tenant
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return AssetCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -218,8 +220,8 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetCategories(tenantId: java.util.UUID) : AssetCategoryDtoListEnvelope {
-        val localVarResponse = getAssetCategoriesWithHttpInfo(tenantId = tenantId)
+    fun getAssetCategories(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters? = null) : AssetCategoryDtoListEnvelope {
+        val localVarResponse = getAssetCategoriesWithHttpInfo(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetCategoryDtoListEnvelope
@@ -240,16 +242,17 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Gets all asset categories for the current tenant
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetCategoriesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<AssetCategoryDtoListEnvelope?> {
-        val localVariableConfig = getAssetCategoriesRequestConfig(tenantId = tenantId)
+    fun getAssetCategoriesWithHttpInfo(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : ApiResponse<AssetCategoryDtoListEnvelope?> {
+        val localVariableConfig = getAssetCategoriesRequestConfig(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, AssetCategoryDtoListEnvelope>(
+        return request<AssetCategoryDtoCollectionQueryParameters, AssetCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -258,15 +261,17 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * To obtain the request config of the operation getAssetCategories
      *
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetCategoriesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetCategoriesRequestConfig(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : RequestConfig<AssetCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = assetCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -283,6 +288,7 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -292,8 +298,8 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetCategoriesCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetCategoriesCountWithHttpInfo(tenantId = tenantId)
+    fun getAssetCategoriesCount(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetCategoriesCountWithHttpInfo(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -314,16 +320,17 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetCategoriesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetCategoriesCountRequestConfig(tenantId = tenantId)
+    fun getAssetCategoriesCountWithHttpInfo(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetCategoriesCountRequestConfig(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -332,15 +339,17 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * To obtain the request config of the operation getAssetCategoriesCount
      *
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetCategoriesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetCategoriesCountRequestConfig(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : RequestConfig<AssetCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = assetCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -435,7 +444,7 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -445,8 +454,8 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, operation = operation)
+    fun patchAssetCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -468,17 +477,17 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, operation = operation)
+    fun patchAssetCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -488,11 +497,11 @@ class AssetCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Call
      *
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

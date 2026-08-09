@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BusinessRelationshipCreateDto
+import org.openapitools.client.models.BusinessRelationshipDtoCollectionQueryParameters
 import org.openapitools.client.models.BusinessRelationshipDtoEnvelope
 import org.openapitools.client.models.BusinessRelationshipDtoListEnvelope
 import org.openapitools.client.models.BusinessRelationshipUpdateDto
@@ -319,6 +320,7 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return BusinessRelationshipDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessRelationshipsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessRelationshipDtoListEnvelope {
-        val localVarResponse = getBusinessRelationshipsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessRelationshipsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters? = null) : BusinessRelationshipDtoListEnvelope {
+        val localVarResponse = getBusinessRelationshipsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessRelationshipDtoCollectionQueryParameters = businessRelationshipDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessRelationshipDtoListEnvelope
@@ -352,16 +354,17 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BusinessRelationshipDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessRelationshipsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessRelationshipDtoListEnvelope?> {
-        val localVariableConfig = getBusinessRelationshipsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessRelationshipsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters?) : ApiResponse<BusinessRelationshipDtoListEnvelope?> {
+        val localVariableConfig = getBusinessRelationshipsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessRelationshipDtoCollectionQueryParameters = businessRelationshipDtoCollectionQueryParameters)
 
-        return request<Unit, BusinessRelationshipDtoListEnvelope>(
+        return request<BusinessRelationshipDtoCollectionQueryParameters, BusinessRelationshipDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessRelationshipsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessRelationshipsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters?) : RequestConfig<BusinessRelationshipDtoCollectionQueryParameters> {
+        val localVariableBody = businessRelationshipDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessRelationshipsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessRelationshipsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessRelationshipDtoCollectionQueryParameters = businessRelationshipDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBusinessRelationshipsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBusinessRelationshipsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessRelationshipDtoCollectionQueryParameters = businessRelationshipDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BusinessRelationshipDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessRelationshipsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessRelationshipsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessRelationshipDtoCollectionQueryParameters: BusinessRelationshipDtoCollectionQueryParameters?) : RequestConfig<BusinessRelationshipDtoCollectionQueryParameters> {
+        val localVariableBody = businessRelationshipDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class BusinessRelationshipsApi(basePath: kotlin.String = defaultBasePath, client
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

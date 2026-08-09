@@ -21,11 +21,16 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AverageDtoEnvelope
 import org.openapitools.client.models.CountDtoEnvelope
+import org.openapitools.client.models.CourseCompletionCertificateDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseCompletionCertificateDtoIReadOnlyListEnvelope
+import org.openapitools.client.models.CourseDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseDtoIReadOnlyListEnvelope
+import org.openapitools.client.models.CourseEnrollmentDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseEnrollmentDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.InstructorProfileDtoCollectionQueryParameters
 import org.openapitools.client.models.InstructorProfileDtoIReadOnlyListEnvelope
+import org.openapitools.client.models.StudentProfileDtoCollectionQueryParameters
 import org.openapitools.client.models.StudentProfileDtoIReadOnlyListEnvelope
 
 import com.squareup.moshi.Json
@@ -137,6 +142,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return CourseCompletionCertificateDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,8 +152,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyCertificatesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseCompletionCertificateDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyCertificatesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyCertificatesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters? = null) : CourseCompletionCertificateDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyCertificatesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters = courseCompletionCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CourseCompletionCertificateDtoIReadOnlyListEnvelope
@@ -169,16 +175,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyCertificatesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyCertificatesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyCertificatesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters?) : ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyCertificatesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters = courseCompletionCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, CourseCompletionCertificateDtoIReadOnlyListEnvelope>(
+        return request<CourseCompletionCertificateDtoCollectionQueryParameters, CourseCompletionCertificateDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -188,10 +195,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyCertificatesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyCertificatesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters?) : RequestConfig<CourseCompletionCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = courseCompletionCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -200,6 +208,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -217,6 +226,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -226,8 +236,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyCertificatesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyCertificatesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyCertificatesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyCertificatesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters = courseCompletionCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -249,16 +259,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyCertificatesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyCertificatesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyCertificatesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyCertificatesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters = courseCompletionCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseCompletionCertificateDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -268,10 +279,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyCertificatesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyCertificatesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseCompletionCertificateDtoCollectionQueryParameters: CourseCompletionCertificateDtoCollectionQueryParameters?) : RequestConfig<CourseCompletionCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = courseCompletionCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -280,6 +292,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -297,6 +310,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return CourseEnrollmentDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -306,8 +320,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyEnrollmentsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseEnrollmentDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyEnrollmentsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyEnrollmentsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters? = null) : CourseEnrollmentDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyEnrollmentsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CourseEnrollmentDtoIReadOnlyListEnvelope
@@ -329,16 +343,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyEnrollmentsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyEnrollmentsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyEnrollmentsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyEnrollmentsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, CourseEnrollmentDtoIReadOnlyListEnvelope>(
+        return request<CourseEnrollmentDtoCollectionQueryParameters, CourseEnrollmentDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -348,10 +363,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyEnrollmentsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyEnrollmentsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : RequestConfig<CourseEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = courseEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -360,6 +376,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -377,6 +394,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -386,8 +404,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyEnrollmentsCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyEnrollmentsCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -409,16 +427,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyEnrollmentsCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyEnrollmentsCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseEnrollmentDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -428,10 +447,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyEnrollmentsCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyEnrollmentsCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : RequestConfig<CourseEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = courseEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -440,6 +460,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -537,6 +558,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return CourseDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -546,8 +568,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyInstructorCoursesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyInstructorCoursesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorCoursesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters? = null) : CourseDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyInstructorCoursesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CourseDtoIReadOnlyListEnvelope
@@ -569,16 +591,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CourseDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyInstructorCoursesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyInstructorCoursesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorCoursesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : ApiResponse<CourseDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyInstructorCoursesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
-        return request<Unit, CourseDtoIReadOnlyListEnvelope>(
+        return request<CourseDtoCollectionQueryParameters, CourseDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -588,10 +611,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyInstructorCoursesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyInstructorCoursesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : RequestConfig<CourseDtoCollectionQueryParameters> {
+        val localVariableBody = courseDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -600,6 +624,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -617,6 +642,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -626,8 +652,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyInstructorCoursesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorCoursesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -649,16 +675,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyInstructorCoursesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyInstructorCoursesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -668,10 +695,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyInstructorCoursesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyInstructorCoursesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : RequestConfig<CourseDtoCollectionQueryParameters> {
+        val localVariableBody = courseDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -680,6 +708,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -697,6 +726,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return InstructorProfileDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -706,8 +736,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyInstructorProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InstructorProfileDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyInstructorProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters? = null) : InstructorProfileDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyInstructorProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, instructorProfileDtoCollectionQueryParameters = instructorProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InstructorProfileDtoIReadOnlyListEnvelope
@@ -729,16 +759,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyInstructorProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyInstructorProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters?) : ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyInstructorProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, instructorProfileDtoCollectionQueryParameters = instructorProfileDtoCollectionQueryParameters)
 
-        return request<Unit, InstructorProfileDtoIReadOnlyListEnvelope>(
+        return request<InstructorProfileDtoCollectionQueryParameters, InstructorProfileDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -748,10 +779,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyInstructorProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyInstructorProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters?) : RequestConfig<InstructorProfileDtoCollectionQueryParameters> {
+        val localVariableBody = instructorProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -760,6 +792,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -777,6 +810,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -786,8 +820,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyInstructorProfilesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorProfilesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, instructorProfileDtoCollectionQueryParameters = instructorProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -809,16 +843,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyInstructorProfilesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyInstructorProfilesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, instructorProfileDtoCollectionQueryParameters = instructorProfileDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<InstructorProfileDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -828,10 +863,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyInstructorProfilesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyInstructorProfilesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, instructorProfileDtoCollectionQueryParameters: InstructorProfileDtoCollectionQueryParameters?) : RequestConfig<InstructorProfileDtoCollectionQueryParameters> {
+        val localVariableBody = instructorProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -840,6 +876,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -937,6 +974,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return CourseDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -946,8 +984,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyStudentCoursesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CourseDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyStudentCoursesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentCoursesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters? = null) : CourseDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyStudentCoursesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CourseDtoIReadOnlyListEnvelope
@@ -969,16 +1007,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CourseDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyStudentCoursesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CourseDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyStudentCoursesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentCoursesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : ApiResponse<CourseDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyStudentCoursesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
-        return request<Unit, CourseDtoIReadOnlyListEnvelope>(
+        return request<CourseDtoCollectionQueryParameters, CourseDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -988,10 +1027,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyStudentCoursesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyStudentCoursesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : RequestConfig<CourseDtoCollectionQueryParameters> {
+        val localVariableBody = courseDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1000,6 +1040,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1017,6 +1058,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1026,8 +1068,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyStudentCoursesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentCoursesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -1049,16 +1091,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyStudentCoursesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyStudentCoursesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, courseDtoCollectionQueryParameters = courseDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -1068,10 +1111,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyStudentCoursesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyStudentCoursesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseDtoCollectionQueryParameters: CourseDtoCollectionQueryParameters?) : RequestConfig<CourseDtoCollectionQueryParameters> {
+        val localVariableBody = courseDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1080,6 +1124,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1097,6 +1142,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return StudentProfileDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1106,8 +1152,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyStudentProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : StudentProfileDtoIReadOnlyListEnvelope {
-        val localVarResponse = getMyStudentProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters? = null) : StudentProfileDtoIReadOnlyListEnvelope {
+        val localVarResponse = getMyStudentProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, studentProfileDtoCollectionQueryParameters = studentProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as StudentProfileDtoIReadOnlyListEnvelope
@@ -1129,16 +1175,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<StudentProfileDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyStudentProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<StudentProfileDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getMyStudentProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters?) : ApiResponse<StudentProfileDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getMyStudentProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, studentProfileDtoCollectionQueryParameters = studentProfileDtoCollectionQueryParameters)
 
-        return request<Unit, StudentProfileDtoIReadOnlyListEnvelope>(
+        return request<StudentProfileDtoCollectionQueryParameters, StudentProfileDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -1148,10 +1195,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyStudentProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyStudentProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters?) : RequestConfig<StudentProfileDtoCollectionQueryParameters> {
+        val localVariableBody = studentProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1160,6 +1208,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1177,6 +1226,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1186,8 +1236,8 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMyStudentProfilesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentProfilesCountAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, studentProfileDtoCollectionQueryParameters = studentProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -1209,16 +1259,17 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getMyStudentProfilesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getMyStudentProfilesCountAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, studentProfileDtoCollectionQueryParameters = studentProfileDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<StudentProfileDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -1228,10 +1279,11 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMyStudentProfilesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMyStudentProfilesCountAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, studentProfileDtoCollectionQueryParameters: StudentProfileDtoCollectionQueryParameters?) : RequestConfig<StudentProfileDtoCollectionQueryParameters> {
+        val localVariableBody = studentProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1240,6 +1292,7 @@ class MeApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = Ap
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

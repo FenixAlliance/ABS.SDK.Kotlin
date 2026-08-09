@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getSupplierProfilesAsync"></a>
 # **getSupplierProfilesAsync**
-> SupplierProfileDtoListEnvelope getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion)
+> SupplierProfileDtoListEnvelope getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
 
 Get all supplier profiles
 
@@ -187,8 +187,9 @@ val apiInstance = SupplierProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supplierProfileDtoCollectionQueryParameters : SupplierProfileDtoCollectionQueryParameters =  // SupplierProfileDtoCollectionQueryParameters | 
 try {
-    val result : SupplierProfileDtoListEnvelope = apiInstance.getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion)
+    val result : SupplierProfileDtoListEnvelope = apiInstance.getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupplierProfilesApi#getSupplierProfilesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supplierProfileDtoCollectionQueryParameters** | [**SupplierProfileDtoCollectionQueryParameters**](SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupplierProfilesCountAsync"></a>
 # **getSupplierProfilesCountAsync**
-> Int32Envelope getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
 
 Get supplier profiles count
 
@@ -237,8 +239,9 @@ val apiInstance = SupplierProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supplierProfileDtoCollectionQueryParameters : SupplierProfileDtoCollectionQueryParameters =  // SupplierProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupplierProfilesApi#getSupplierProfilesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supplierProfileDtoCollectionQueryParameters** | [**SupplierProfileDtoCollectionQueryParameters**](SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSupplierProfileAsync"></a>
 # **patchSupplierProfileAsync**
-> EmptyEnvelope patchSupplierProfileAsync(supplierProfileId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupplierProfileAsync(supplierProfileId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a supplier profile
 
@@ -288,9 +292,9 @@ val supplierProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d //
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSupplierProfileAsync(supplierProfileId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSupplierProfileAsync(supplierProfileId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupplierProfilesApi#patchSupplierProfileAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

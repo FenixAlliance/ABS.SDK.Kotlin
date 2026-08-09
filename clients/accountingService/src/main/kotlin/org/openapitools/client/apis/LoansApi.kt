@@ -23,17 +23,20 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.LoanApplicationCreateDto
+import org.openapitools.client.models.LoanApplicationDtoCollectionQueryParameters
 import org.openapitools.client.models.LoanApplicationDtoEnvelope
 import org.openapitools.client.models.LoanApplicationDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.LoanCreateDto
+import org.openapitools.client.models.LoanDtoCollectionQueryParameters
 import org.openapitools.client.models.LoanDtoEnvelope
 import org.openapitools.client.models.LoanDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.LoanTypeCreateDto
+import org.openapitools.client.models.LoanTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.LoanTypeDtoEnvelope
 import org.openapitools.client.models.LoanTypeDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.LoanTypeUpdateDto
 import org.openapitools.client.models.LoanUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -677,6 +680,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return LoanApplicationDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -686,8 +690,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoanApplicationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LoanApplicationDtoIReadOnlyListEnvelope {
-        val localVarResponse = getLoanApplicationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanApplicationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters? = null) : LoanApplicationDtoIReadOnlyListEnvelope {
+        val localVarResponse = getLoanApplicationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanApplicationDtoCollectionQueryParameters = loanApplicationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LoanApplicationDtoIReadOnlyListEnvelope
@@ -710,16 +714,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoanApplicationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getLoanApplicationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanApplicationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters?) : ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getLoanApplicationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanApplicationDtoCollectionQueryParameters = loanApplicationDtoCollectionQueryParameters)
 
-        return request<Unit, LoanApplicationDtoIReadOnlyListEnvelope>(
+        return request<LoanApplicationDtoCollectionQueryParameters, LoanApplicationDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -730,10 +735,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoanApplicationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoanApplicationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters?) : RequestConfig<LoanApplicationDtoCollectionQueryParameters> {
+        val localVariableBody = loanApplicationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -743,6 +749,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -761,6 +768,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -770,8 +778,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoanApplicationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLoanApplicationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanApplicationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLoanApplicationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanApplicationDtoCollectionQueryParameters = loanApplicationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -794,16 +802,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoanApplicationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLoanApplicationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanApplicationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLoanApplicationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanApplicationDtoCollectionQueryParameters = loanApplicationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LoanApplicationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -814,10 +823,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoanApplicationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoanApplicationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanApplicationDtoCollectionQueryParameters: LoanApplicationDtoCollectionQueryParameters?) : RequestConfig<LoanApplicationDtoCollectionQueryParameters> {
+        val localVariableBody = loanApplicationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -827,6 +837,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1019,6 +1030,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return LoanTypeDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1028,8 +1040,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoanTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LoanTypeDtoIReadOnlyListEnvelope {
-        val localVarResponse = getLoanTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters? = null) : LoanTypeDtoIReadOnlyListEnvelope {
+        val localVarResponse = getLoanTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanTypeDtoCollectionQueryParameters = loanTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LoanTypeDtoIReadOnlyListEnvelope
@@ -1052,16 +1064,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LoanTypeDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoanTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LoanTypeDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getLoanTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters?) : ApiResponse<LoanTypeDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getLoanTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanTypeDtoCollectionQueryParameters = loanTypeDtoCollectionQueryParameters)
 
-        return request<Unit, LoanTypeDtoIReadOnlyListEnvelope>(
+        return request<LoanTypeDtoCollectionQueryParameters, LoanTypeDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -1072,10 +1085,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoanTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoanTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters?) : RequestConfig<LoanTypeDtoCollectionQueryParameters> {
+        val localVariableBody = loanTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1085,6 +1099,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1103,6 +1118,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1112,8 +1128,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoanTypesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLoanTypesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanTypesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLoanTypesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanTypeDtoCollectionQueryParameters = loanTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1136,16 +1152,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoanTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLoanTypesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoanTypesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLoanTypesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanTypeDtoCollectionQueryParameters = loanTypeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LoanTypeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1156,10 +1173,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoanTypesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoanTypesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanTypeDtoCollectionQueryParameters: LoanTypeDtoCollectionQueryParameters?) : RequestConfig<LoanTypeDtoCollectionQueryParameters> {
+        val localVariableBody = loanTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1169,6 +1187,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1187,6 +1206,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return LoanDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1196,8 +1216,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoansAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LoanDtoIReadOnlyListEnvelope {
-        val localVarResponse = getLoansAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoansAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters? = null) : LoanDtoIReadOnlyListEnvelope {
+        val localVarResponse = getLoansAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanDtoCollectionQueryParameters = loanDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LoanDtoIReadOnlyListEnvelope
@@ -1220,16 +1240,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LoanDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoansAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LoanDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getLoansAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoansAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters?) : ApiResponse<LoanDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getLoansAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanDtoCollectionQueryParameters = loanDtoCollectionQueryParameters)
 
-        return request<Unit, LoanDtoIReadOnlyListEnvelope>(
+        return request<LoanDtoCollectionQueryParameters, LoanDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -1240,10 +1261,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoansAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoansAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters?) : RequestConfig<LoanDtoCollectionQueryParameters> {
+        val localVariableBody = loanDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1253,6 +1275,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1271,6 +1294,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1280,8 +1304,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLoansCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLoansCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoansCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLoansCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanDtoCollectionQueryParameters = loanDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1304,16 +1328,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLoansCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLoansCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLoansCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLoansCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, loanDtoCollectionQueryParameters = loanDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LoanDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1324,10 +1349,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLoansCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLoansCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, loanDtoCollectionQueryParameters: LoanDtoCollectionQueryParameters?) : RequestConfig<LoanDtoCollectionQueryParameters> {
+        val localVariableBody = loanDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1337,6 +1363,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1356,7 +1383,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1366,8 +1393,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchLoanApplicationAsync(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchLoanApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanApplicationAsync(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchLoanApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1391,17 +1418,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchLoanApplicationAsyncWithHttpInfo(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchLoanApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanApplicationAsyncWithHttpInfo(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchLoanApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1413,11 +1440,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchLoanApplicationAsyncRequestConfig(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchLoanApplicationAsyncRequestConfig(applicationId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1447,7 +1474,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1457,8 +1484,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchLoanAsync(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchLoanAsyncWithHttpInfo(loanId = loanId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanAsync(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchLoanAsyncWithHttpInfo(loanId = loanId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1482,17 +1509,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchLoanAsyncWithHttpInfo(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchLoanAsyncRequestConfig(loanId = loanId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanAsyncWithHttpInfo(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchLoanAsyncRequestConfig(loanId = loanId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1504,11 +1531,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchLoanAsyncRequestConfig(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchLoanAsyncRequestConfig(loanId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1538,7 +1565,7 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1548,8 +1575,8 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchLoanTypeAsync(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchLoanTypeAsyncWithHttpInfo(loanTypeId = loanTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanTypeAsync(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchLoanTypeAsyncWithHttpInfo(loanTypeId = loanTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1573,17 +1600,17 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchLoanTypeAsyncWithHttpInfo(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchLoanTypeAsyncRequestConfig(loanTypeId = loanTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLoanTypeAsyncWithHttpInfo(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchLoanTypeAsyncRequestConfig(loanTypeId = loanTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1595,11 +1622,11 @@ class LoansApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchLoanTypeAsyncRequestConfig(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchLoanTypeAsyncRequestConfig(loanTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

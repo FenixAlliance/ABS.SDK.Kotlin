@@ -19,13 +19,16 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.ActivityFeedDtoCollectionQueryParameters
 import org.openapitools.client.models.ActivityFeedDtoEnvelope
 import org.openapitools.client.models.ActivityFeedDtoListEnvelope
 import org.openapitools.client.models.ActivityRecordCreateDto
+import org.openapitools.client.models.ActivityRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.ActivityRecordDtoEnvelope
 import org.openapitools.client.models.ActivityRecordDtoListEnvelope
 import org.openapitools.client.models.ActivityRecordUpdateDto
 import org.openapitools.client.models.ActivityTypeCreateDto
+import org.openapitools.client.models.ActivityTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.ActivityTypeDtoEnvelope
 import org.openapitools.client.models.ActivityTypeDtoListEnvelope
 import org.openapitools.client.models.ActivityTypeUpdateDto
@@ -33,7 +36,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -65,6 +68,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -74,8 +78,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countActivityTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countActivityTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countActivityTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countActivityTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityTypeDtoCollectionQueryParameters = activityTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -98,16 +102,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countActivityTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countActivityTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countActivityTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countActivityTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityTypeDtoCollectionQueryParameters = activityTypeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ActivityTypeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -118,10 +123,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countActivityTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countActivityTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters?) : RequestConfig<ActivityTypeDtoCollectionQueryParameters> {
+        val localVariableBody = activityTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -131,6 +137,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -506,6 +513,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ActivityRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -515,8 +523,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivitiesAsync(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ActivityRecordDtoListEnvelope {
-        val localVarResponse = getActivitiesAsyncWithHttpInfo(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivitiesAsync(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters? = null) : ActivityRecordDtoListEnvelope {
+        val localVarResponse = getActivitiesAsyncWithHttpInfo(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ActivityRecordDtoListEnvelope
@@ -540,16 +548,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ActivityRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivitiesAsyncWithHttpInfo(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ActivityRecordDtoListEnvelope?> {
-        val localVariableConfig = getActivitiesAsyncRequestConfig(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivitiesAsyncWithHttpInfo(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : ApiResponse<ActivityRecordDtoListEnvelope?> {
+        val localVariableConfig = getActivitiesAsyncRequestConfig(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
-        return request<Unit, ActivityRecordDtoListEnvelope>(
+        return request<ActivityRecordDtoCollectionQueryParameters, ActivityRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -561,10 +570,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivitiesAsyncRequestConfig(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivitiesAsyncRequestConfig(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : RequestConfig<ActivityRecordDtoCollectionQueryParameters> {
+        val localVariableBody = activityRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -574,6 +584,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -593,6 +604,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -602,8 +614,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivitiesCountAsync(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getActivitiesCountAsyncWithHttpInfo(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivitiesCountAsync(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getActivitiesCountAsyncWithHttpInfo(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -627,16 +639,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivitiesCountAsyncWithHttpInfo(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getActivitiesCountAsyncRequestConfig(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivitiesCountAsyncWithHttpInfo(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getActivitiesCountAsyncRequestConfig(activityFeedId = activityFeedId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ActivityRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -648,10 +661,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivitiesCountAsyncRequestConfig(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivitiesCountAsyncRequestConfig(activityFeedId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : RequestConfig<ActivityRecordDtoCollectionQueryParameters> {
+        val localVariableBody = activityRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -661,6 +675,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -856,6 +871,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ActivityFeedDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -865,8 +881,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivityFeedsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ActivityFeedDtoListEnvelope {
-        val localVarResponse = getActivityFeedsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityFeedsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters? = null) : ActivityFeedDtoListEnvelope {
+        val localVarResponse = getActivityFeedsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityFeedDtoCollectionQueryParameters = activityFeedDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ActivityFeedDtoListEnvelope
@@ -889,16 +905,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ActivityFeedDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivityFeedsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ActivityFeedDtoListEnvelope?> {
-        val localVariableConfig = getActivityFeedsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityFeedsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters?) : ApiResponse<ActivityFeedDtoListEnvelope?> {
+        val localVariableConfig = getActivityFeedsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityFeedDtoCollectionQueryParameters = activityFeedDtoCollectionQueryParameters)
 
-        return request<Unit, ActivityFeedDtoListEnvelope>(
+        return request<ActivityFeedDtoCollectionQueryParameters, ActivityFeedDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -909,10 +926,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivityFeedsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivityFeedsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters?) : RequestConfig<ActivityFeedDtoCollectionQueryParameters> {
+        val localVariableBody = activityFeedDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -922,6 +940,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -940,6 +959,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -949,8 +969,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivityFeedsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getActivityFeedsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityFeedsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getActivityFeedsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityFeedDtoCollectionQueryParameters = activityFeedDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -973,16 +993,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivityFeedsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getActivityFeedsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityFeedsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getActivityFeedsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityFeedDtoCollectionQueryParameters = activityFeedDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ActivityFeedDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -993,10 +1014,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivityFeedsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivityFeedsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityFeedDtoCollectionQueryParameters: ActivityFeedDtoCollectionQueryParameters?) : RequestConfig<ActivityFeedDtoCollectionQueryParameters> {
+        val localVariableBody = activityFeedDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1006,6 +1028,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1024,6 +1047,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1033,8 +1057,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivityRecordsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getActivityRecordsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityRecordsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getActivityRecordsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1057,16 +1081,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivityRecordsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getActivityRecordsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityRecordsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getActivityRecordsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityRecordDtoCollectionQueryParameters = activityRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ActivityRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1077,10 +1102,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivityRecordsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivityRecordsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityRecordDtoCollectionQueryParameters: ActivityRecordDtoCollectionQueryParameters?) : RequestConfig<ActivityRecordDtoCollectionQueryParameters> {
+        val localVariableBody = activityRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1090,6 +1116,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1195,6 +1222,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ActivityTypeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1204,8 +1232,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getActivityTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ActivityTypeDtoListEnvelope {
-        val localVarResponse = getActivityTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityTypesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters? = null) : ActivityTypeDtoListEnvelope {
+        val localVarResponse = getActivityTypesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityTypeDtoCollectionQueryParameters = activityTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ActivityTypeDtoListEnvelope
@@ -1228,16 +1256,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ActivityTypeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getActivityTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ActivityTypeDtoListEnvelope?> {
-        val localVariableConfig = getActivityTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getActivityTypesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters?) : ApiResponse<ActivityTypeDtoListEnvelope?> {
+        val localVariableConfig = getActivityTypesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, activityTypeDtoCollectionQueryParameters = activityTypeDtoCollectionQueryParameters)
 
-        return request<Unit, ActivityTypeDtoListEnvelope>(
+        return request<ActivityTypeDtoCollectionQueryParameters, ActivityTypeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1248,10 +1277,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getActivityTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getActivityTypesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, activityTypeDtoCollectionQueryParameters: ActivityTypeDtoCollectionQueryParameters?) : RequestConfig<ActivityTypeDtoCollectionQueryParameters> {
+        val localVariableBody = activityTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1261,6 +1291,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1281,7 +1312,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1291,8 +1322,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchActivityAsync(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchActivityAsyncWithHttpInfo(activityFeedId = activityFeedId, activityId = activityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchActivityAsync(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchActivityAsyncWithHttpInfo(activityFeedId = activityFeedId, activityId = activityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1317,17 +1348,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchActivityAsyncWithHttpInfo(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchActivityAsyncRequestConfig(activityFeedId = activityFeedId, activityId = activityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchActivityAsyncWithHttpInfo(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchActivityAsyncRequestConfig(activityFeedId = activityFeedId, activityId = activityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1340,11 +1371,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchActivityAsyncRequestConfig(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchActivityAsyncRequestConfig(activityFeedId: java.util.UUID, activityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1374,7 +1405,7 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1384,8 +1415,8 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchActivityTypeAsync(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchActivityTypeAsyncWithHttpInfo(activityTypeId = activityTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchActivityTypeAsync(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchActivityTypeAsyncWithHttpInfo(activityTypeId = activityTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1409,17 +1440,17 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchActivityTypeAsyncWithHttpInfo(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchActivityTypeAsyncRequestConfig(activityTypeId = activityTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchActivityTypeAsyncWithHttpInfo(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchActivityTypeAsyncRequestConfig(activityTypeId = activityTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1431,11 +1462,11 @@ class ActivityFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchActivityTypeAsyncRequestConfig(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchActivityTypeAsyncRequestConfig(activityTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

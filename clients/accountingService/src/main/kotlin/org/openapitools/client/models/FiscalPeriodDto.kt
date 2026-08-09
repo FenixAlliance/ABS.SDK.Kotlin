@@ -30,6 +30,7 @@ import com.squareup.moshi.JsonClass
  * @param tenantId 
  * @param enrollmentId 
  * @param fiscalYearId 
+ * @param status 
  */
 
 
@@ -57,10 +58,24 @@ data class FiscalPeriodDto (
     val enrollmentId: kotlin.String? = null,
 
     @Json(name = "fiscalYearId")
-    val fiscalYearId: kotlin.String? = null
+    val fiscalYearId: kotlin.String? = null,
+
+    @Json(name = "status")
+    val status: FiscalPeriodDto.Status? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: Open,Closed,Locked
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Status(val value: kotlin.String) {
+        @Json(name = "Open") Open("Open"),
+        @Json(name = "Closed") Closed("Closed"),
+        @Json(name = "Locked") Locked("Locked");
+    }
 
 }
 

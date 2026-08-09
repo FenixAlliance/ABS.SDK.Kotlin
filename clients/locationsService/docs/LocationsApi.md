@@ -262,7 +262,7 @@ No authorization required
 
 <a id="getLocationsAsync"></a>
 # **getLocationsAsync**
-> LocationDtoIReadOnlyListEnvelope getLocationsAsync(tenantId)
+> LocationDtoIReadOnlyListEnvelope getLocationsAsync(tenantId, locationDtoCollectionQueryParameters)
 
 Get Locations
 
@@ -276,8 +276,9 @@ Get all locations with OData query support.
 
 val apiInstance = LocationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : LocationDtoIReadOnlyListEnvelope = apiInstance.getLocationsAsync(tenantId)
+    val result : LocationDtoIReadOnlyListEnvelope = apiInstance.getLocationsAsync(tenantId, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#getLocationsAsync")
@@ -289,9 +290,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -303,12 +305,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLocationsCountAsync"></a>
 # **getLocationsCountAsync**
-> Int32Envelope getLocationsCountAsync(tenantId)
+> Int32Envelope getLocationsCountAsync(tenantId, locationDtoCollectionQueryParameters)
 
 Get Locations Count
 
@@ -322,8 +324,9 @@ Get the count of locations with OData query support.
 
 val apiInstance = LocationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLocationsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getLocationsCountAsync(tenantId, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#getLocationsCountAsync")
@@ -335,9 +338,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletLocationAsync"></a>
@@ -402,7 +406,7 @@ No authorization required
 
 <a id="getWalletLocationsAsync"></a>
 # **getWalletLocationsAsync**
-> LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(walletId)
+> LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(walletId, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations
 
@@ -416,8 +420,9 @@ Get locations for a specific wallet by ID.
 
 val apiInstance = LocationsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : LocationDtoIReadOnlyListEnvelope = apiInstance.getWalletLocationsAsync(walletId)
+    val result : LocationDtoIReadOnlyListEnvelope = apiInstance.getWalletLocationsAsync(walletId, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#getWalletLocationsAsync")
@@ -429,9 +434,10 @@ try {
 ```
 
 ### Parameters
+| **walletId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **walletId** | **java.util.UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -443,12 +449,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletLocationsCountAsync"></a>
 # **getWalletLocationsCountAsync**
-> Int32Envelope getWalletLocationsCountAsync(walletId)
+> Int32Envelope getWalletLocationsCountAsync(walletId, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations Count
 
@@ -462,8 +468,9 @@ Get the count of locations for a specific wallet by ID.
 
 val apiInstance = LocationsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletLocationsCountAsync(walletId)
+    val result : Int32Envelope = apiInstance.getWalletLocationsCountAsync(walletId, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#getWalletLocationsCountAsync")
@@ -475,9 +482,10 @@ try {
 ```
 
 ### Parameters
+| **walletId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **walletId** | **java.util.UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +497,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchLocationAsync"></a>
 # **patchLocationAsync**
-> EmptyEnvelope patchLocationAsync(locationId, tenantId, operation)
+> EmptyEnvelope patchLocationAsync(locationId, tenantId, patchOperation)
 
 Patch a location
 
@@ -509,9 +517,9 @@ Patch a location
 val apiInstance = LocationsApi()
 val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLocationAsync(locationId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchLocationAsync(locationId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#patchLocationAsync")
@@ -527,7 +535,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -544,7 +552,7 @@ No authorization required
 
 <a id="patchWalletLocationAsync"></a>
 # **patchWalletLocationAsync**
-> EmptyEnvelope patchWalletLocationAsync(walletId, locationId, operation)
+> EmptyEnvelope patchWalletLocationAsync(walletId, locationId, patchOperation)
 
 Patch a wallet location
 
@@ -559,9 +567,9 @@ Patch a wallet location
 val apiInstance = LocationsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val locationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWalletLocationAsync(walletId, locationId, operation)
+    val result : EmptyEnvelope = apiInstance.patchWalletLocationAsync(walletId, locationId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LocationsApi#patchWalletLocationAsync")
@@ -577,7 +585,7 @@ try {
 | **locationId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

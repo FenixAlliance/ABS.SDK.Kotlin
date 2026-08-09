@@ -22,9 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.WorkOrderCreateDto
 import org.openapitools.client.models.WorkOrderDto
+import org.openapitools.client.models.WorkOrderDtoCollectionQueryParameters
 import org.openapitools.client.models.WorkOrderDtoListEnvelope
 import org.openapitools.client.models.WorkOrderUpdateDto
 
@@ -316,6 +317,7 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return WorkOrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,8 +327,8 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWorkOrdersAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WorkOrderDtoListEnvelope {
-        val localVarResponse = getWorkOrdersAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWorkOrdersAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters? = null) : WorkOrderDtoListEnvelope {
+        val localVarResponse = getWorkOrdersAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, workOrderDtoCollectionQueryParameters = workOrderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WorkOrderDtoListEnvelope
@@ -349,16 +351,17 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WorkOrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWorkOrdersAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WorkOrderDtoListEnvelope?> {
-        val localVariableConfig = getWorkOrdersAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWorkOrdersAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters?) : ApiResponse<WorkOrderDtoListEnvelope?> {
+        val localVariableConfig = getWorkOrdersAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, workOrderDtoCollectionQueryParameters = workOrderDtoCollectionQueryParameters)
 
-        return request<Unit, WorkOrderDtoListEnvelope>(
+        return request<WorkOrderDtoCollectionQueryParameters, WorkOrderDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -369,10 +372,11 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWorkOrdersAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWorkOrdersAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters?) : RequestConfig<WorkOrderDtoCollectionQueryParameters> {
+        val localVariableBody = workOrderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -382,6 +386,7 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -400,6 +405,7 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -409,8 +415,8 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWorkOrdersCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWorkOrdersCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWorkOrdersCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWorkOrdersCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, workOrderDtoCollectionQueryParameters = workOrderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -433,16 +439,17 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWorkOrdersCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWorkOrdersCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWorkOrdersCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWorkOrdersCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, workOrderDtoCollectionQueryParameters = workOrderDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WorkOrderDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -453,10 +460,11 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWorkOrdersCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWorkOrdersCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, workOrderDtoCollectionQueryParameters: WorkOrderDtoCollectionQueryParameters?) : RequestConfig<WorkOrderDtoCollectionQueryParameters> {
+        val localVariableBody = workOrderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -466,6 +474,7 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -485,7 +494,7 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -495,8 +504,8 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWorkOrderAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWorkOrderAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWorkOrderAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWorkOrderAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -520,17 +529,17 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWorkOrderAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWorkOrderAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWorkOrderAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWorkOrderAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -542,11 +551,11 @@ class WorkOrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWorkOrderAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWorkOrderAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

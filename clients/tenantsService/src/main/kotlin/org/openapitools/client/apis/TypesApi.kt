@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TenantTypeCreateDto
+import org.openapitools.client.models.TenantTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.TenantTypeDtoEnvelope
 import org.openapitools.client.models.TenantTypeDtoListEnvelope
 import org.openapitools.client.models.TenantTypeUpdateDto
@@ -320,6 +321,7 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return TenantTypeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantTypes(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantTypeDtoListEnvelope {
-        val localVarResponse = getTenantTypesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantTypes(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters? = null) : TenantTypeDtoListEnvelope {
+        val localVarResponse = getTenantTypesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantTypeDtoCollectionQueryParameters = tenantTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantTypeDtoListEnvelope
@@ -353,16 +355,17 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantTypeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantTypesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantTypeDtoListEnvelope?> {
-        val localVariableConfig = getTenantTypesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantTypesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters?) : ApiResponse<TenantTypeDtoListEnvelope?> {
+        val localVariableConfig = getTenantTypesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantTypeDtoCollectionQueryParameters = tenantTypeDtoCollectionQueryParameters)
 
-        return request<Unit, TenantTypeDtoListEnvelope>(
+        return request<TenantTypeDtoCollectionQueryParameters, TenantTypeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantTypesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantTypesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters?) : RequestConfig<TenantTypeDtoCollectionQueryParameters> {
+        val localVariableBody = tenantTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantTypesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTenantTypesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantTypesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTenantTypesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantTypeDtoCollectionQueryParameters = tenantTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantTypesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTenantTypesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantTypesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTenantTypesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantTypeDtoCollectionQueryParameters = tenantTypeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TenantTypeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantTypesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantTypesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantTypeDtoCollectionQueryParameters: TenantTypeDtoCollectionQueryParameters?) : RequestConfig<TenantTypeDtoCollectionQueryParameters> {
+        val localVariableBody = tenantTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTenantType(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTenantTypeWithHttpInfo(tenantTypeId = tenantTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantType(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTenantTypeWithHttpInfo(tenantTypeId = tenantTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTenantTypeWithHttpInfo(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTenantTypeRequestConfig(tenantTypeId = tenantTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantTypeWithHttpInfo(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTenantTypeRequestConfig(tenantTypeId = tenantTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class TypesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTenantTypeRequestConfig(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTenantTypeRequestConfig(tenantTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

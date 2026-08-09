@@ -21,10 +21,11 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ItemReviewCreateDto
+import org.openapitools.client.models.ItemReviewDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemReviewDtoEnvelope
 import org.openapitools.client.models.ItemReviewDtoListEnvelope
 import org.openapitools.client.models.ItemReviewUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -318,6 +319,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ItemReviewDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -327,8 +329,8 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemReviewsAsync(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReviewDtoListEnvelope {
-        val localVarResponse = getItemReviewsAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemReviewsAsync(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters? = null) : ItemReviewDtoListEnvelope {
+        val localVarResponse = getItemReviewsAsyncWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReviewDtoCollectionQueryParameters = itemReviewDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemReviewDtoListEnvelope
@@ -351,16 +353,17 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemReviewDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemReviewsAsyncWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReviewDtoListEnvelope?> {
-        val localVariableConfig = getItemReviewsAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemReviewsAsyncWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters?) : ApiResponse<ItemReviewDtoListEnvelope?> {
+        val localVariableConfig = getItemReviewsAsyncRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReviewDtoCollectionQueryParameters = itemReviewDtoCollectionQueryParameters)
 
-        return request<Unit, ItemReviewDtoListEnvelope>(
+        return request<ItemReviewDtoCollectionQueryParameters, ItemReviewDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -371,10 +374,11 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemReviewsAsyncRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemReviewsAsyncRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters?) : RequestConfig<ItemReviewDtoCollectionQueryParameters> {
+        val localVariableBody = itemReviewDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("itemId", listOf(itemId.toString()))
@@ -384,6 +388,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,7 +408,7 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +417,8 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemReviewAsync(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchItemReviewAsyncWithHttpInfo(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemReviewAsync(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchItemReviewAsyncWithHttpInfo(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -437,16 +442,16 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemReviewAsyncWithHttpInfo(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchItemReviewAsyncRequestConfig(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemReviewAsyncWithHttpInfo(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchItemReviewAsyncRequestConfig(itemReviewId = itemReviewId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -458,11 +463,11 @@ class ItemReviewsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemReviewAsyncRequestConfig(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemReviewAsyncRequestConfig(itemReviewId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -22,12 +22,14 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TransactionCategoryCreateDto
+import org.openapitools.client.models.TransactionCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.TransactionCategoryDtoEnvelope
 import org.openapitools.client.models.TransactionCategoryDtoListEnvelope
 import org.openapitools.client.models.TransactionCategoryUpdateDto
 import org.openapitools.client.models.TransactionCreateDto
+import org.openapitools.client.models.TransactionDtoCollectionQueryParameters
 import org.openapitools.client.models.TransactionDtoEnvelope
 import org.openapitools.client.models.TransactionDtoListEnvelope
 import org.openapitools.client.models.TransactionUpdateDto
@@ -499,6 +501,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return TransactionCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -508,8 +511,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTransactionCategories(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TransactionCategoryDtoListEnvelope {
-        val localVarResponse = getTransactionCategoriesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionCategories(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters? = null) : TransactionCategoryDtoListEnvelope {
+        val localVarResponse = getTransactionCategoriesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionCategoryDtoCollectionQueryParameters = transactionCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TransactionCategoryDtoListEnvelope
@@ -532,16 +535,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TransactionCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTransactionCategoriesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TransactionCategoryDtoListEnvelope?> {
-        val localVariableConfig = getTransactionCategoriesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionCategoriesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters?) : ApiResponse<TransactionCategoryDtoListEnvelope?> {
+        val localVariableConfig = getTransactionCategoriesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionCategoryDtoCollectionQueryParameters = transactionCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, TransactionCategoryDtoListEnvelope>(
+        return request<TransactionCategoryDtoCollectionQueryParameters, TransactionCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -552,10 +556,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTransactionCategoriesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTransactionCategoriesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters?) : RequestConfig<TransactionCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = transactionCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -565,6 +570,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -583,6 +589,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -592,8 +599,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTransactionCategoriesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTransactionCategoriesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionCategoriesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTransactionCategoriesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionCategoryDtoCollectionQueryParameters = transactionCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -616,16 +623,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTransactionCategoriesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTransactionCategoriesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionCategoriesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTransactionCategoriesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionCategoryDtoCollectionQueryParameters = transactionCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TransactionCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -636,10 +644,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTransactionCategoriesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTransactionCategoriesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionCategoryDtoCollectionQueryParameters: TransactionCategoryDtoCollectionQueryParameters?) : RequestConfig<TransactionCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = transactionCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -649,6 +658,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -754,6 +764,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return TransactionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -763,8 +774,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTransactions(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TransactionDtoListEnvelope {
-        val localVarResponse = getTransactionsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactions(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters? = null) : TransactionDtoListEnvelope {
+        val localVarResponse = getTransactionsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionDtoCollectionQueryParameters = transactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TransactionDtoListEnvelope
@@ -787,16 +798,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TransactionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTransactionsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TransactionDtoListEnvelope?> {
-        val localVariableConfig = getTransactionsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters?) : ApiResponse<TransactionDtoListEnvelope?> {
+        val localVariableConfig = getTransactionsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionDtoCollectionQueryParameters = transactionDtoCollectionQueryParameters)
 
-        return request<Unit, TransactionDtoListEnvelope>(
+        return request<TransactionDtoCollectionQueryParameters, TransactionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -807,10 +819,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTransactionsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTransactionsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters?) : RequestConfig<TransactionDtoCollectionQueryParameters> {
+        val localVariableBody = transactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -820,6 +833,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -838,6 +852,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -847,8 +862,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTransactionsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTransactionsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTransactionsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionDtoCollectionQueryParameters = transactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -871,16 +886,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTransactionsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTransactionsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTransactionsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTransactionsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, transactionDtoCollectionQueryParameters = transactionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TransactionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -891,10 +907,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTransactionsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTransactionsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, transactionDtoCollectionQueryParameters: TransactionDtoCollectionQueryParameters?) : RequestConfig<TransactionDtoCollectionQueryParameters> {
+        val localVariableBody = transactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -904,6 +921,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -923,7 +941,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -933,8 +951,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTransaction(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTransactionWithHttpInfo(transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTransaction(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTransactionWithHttpInfo(transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -958,17 +976,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTransactionWithHttpInfo(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTransactionRequestConfig(transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTransactionWithHttpInfo(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTransactionRequestConfig(transactionId = transactionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -980,11 +998,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTransactionRequestConfig(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTransactionRequestConfig(transactionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1014,7 +1032,7 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1024,8 +1042,8 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTransactionCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTransactionCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTransactionCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTransactionCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1049,17 +1067,17 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTransactionCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTransactionCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTransactionCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTransactionCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1071,11 +1089,11 @@ class TransactionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTransactionCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTransactionCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

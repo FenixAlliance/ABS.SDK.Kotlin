@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -78,6 +77,10 @@ All URIs are relative to *https://absuite.net*
 | *PaymentModesApi* | [**getPaymentModesCountAsync**](docs/PaymentModesApi.md#getpaymentmodescountasync) | **GET** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes |
 | *PaymentModesApi* | [**patchPaymentModeAsync**](docs/PaymentModesApi.md#patchpaymentmodeasync) | **PATCH** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Patch a payment mode |
 | *PaymentModesApi* | [**updatePaymentModeAsync**](docs/PaymentModesApi.md#updatepaymentmodeasync) | **PUT** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode |
+| *PaymentProviderRegistrationsApi* | [**createAsync**](docs/PaymentProviderRegistrationsApi.md#createasync) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations | Provisions a provider webhook registration |
+| *PaymentProviderRegistrationsApi* | [**getAsync**](docs/PaymentProviderRegistrationsApi.md#getasync) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations | Lists the tenant's provider registrations |
+| *PaymentProviderRegistrationsApi* | [**getCountAsync**](docs/PaymentProviderRegistrationsApi.md#getcountasync) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations/Count | Counts the tenant's provider registrations |
+| *PaymentProviderRegistrationsApi* | [**rotateKeyAsync**](docs/PaymentProviderRegistrationsApi.md#rotatekeyasync) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations/{registrationId}/RotateKey | Rotates a registration's webhook key |
 | *PaymentTermsApi* | [**createPaymentTermAsync**](docs/PaymentTermsApi.md#createpaymenttermasync) | **POST** /api/v2/PaymentsService/PaymentTerms | Creates a new payment term |
 | *PaymentTermsApi* | [**deletePaymentTermAsync**](docs/PaymentTermsApi.md#deletepaymenttermasync) | **DELETE** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Deletes a payment term |
 | *PaymentTermsApi* | [**getPaymentTermDetailsAsync**](docs/PaymentTermsApi.md#getpaymenttermdetailsasync) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID |
@@ -98,6 +101,7 @@ All URIs are relative to *https://absuite.net*
 ## Documentation for Models
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [org.openapitools.client.models.CreateProviderWebhookRegistrationRequest](docs/CreateProviderWebhookRegistrationRequest.md)
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -106,26 +110,35 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.PaymentCreateDto](docs/PaymentCreateDto.md)
  - [org.openapitools.client.models.PaymentDto](docs/PaymentDto.md)
+ - [org.openapitools.client.models.PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PaymentDtoListEnvelope](docs/PaymentDtoListEnvelope.md)
  - [org.openapitools.client.models.PaymentMethodCreateDto](docs/PaymentMethodCreateDto.md)
  - [org.openapitools.client.models.PaymentMethodDto](docs/PaymentMethodDto.md)
+ - [org.openapitools.client.models.PaymentMethodDtoCollectionQueryParameters](docs/PaymentMethodDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PaymentMethodDtoEnvelope](docs/PaymentMethodDtoEnvelope.md)
  - [org.openapitools.client.models.PaymentMethodDtoIReadOnlyListEnvelope](docs/PaymentMethodDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.PaymentMethodUpdateDto](docs/PaymentMethodUpdateDto.md)
  - [org.openapitools.client.models.PaymentModeCreateDto](docs/PaymentModeCreateDto.md)
  - [org.openapitools.client.models.PaymentModeDto](docs/PaymentModeDto.md)
+ - [org.openapitools.client.models.PaymentModeDtoCollectionQueryParameters](docs/PaymentModeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PaymentModeDtoEnvelope](docs/PaymentModeDtoEnvelope.md)
  - [org.openapitools.client.models.PaymentModeDtoIReadOnlyListEnvelope](docs/PaymentModeDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.PaymentModeUpdateDto](docs/PaymentModeUpdateDto.md)
+ - [org.openapitools.client.models.PaymentProviderRegistrationDto](docs/PaymentProviderRegistrationDto.md)
+ - [org.openapitools.client.models.PaymentProviderRegistrationDtoCollectionQueryParameters](docs/PaymentProviderRegistrationDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.PaymentProviderRegistrationDtoListEnvelope](docs/PaymentProviderRegistrationDtoListEnvelope.md)
  - [org.openapitools.client.models.PaymentTermCreateDto](docs/PaymentTermCreateDto.md)
  - [org.openapitools.client.models.PaymentTermDto](docs/PaymentTermDto.md)
+ - [org.openapitools.client.models.PaymentTermDtoCollectionQueryParameters](docs/PaymentTermDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PaymentTermDtoEnvelope](docs/PaymentTermDtoEnvelope.md)
  - [org.openapitools.client.models.PaymentTermDtoIReadOnlyListEnvelope](docs/PaymentTermDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.PaymentTermUpdateDto](docs/PaymentTermUpdateDto.md)
  - [org.openapitools.client.models.PaymentUpdateDto](docs/PaymentUpdateDto.md)
+ - [org.openapitools.client.models.ProviderWebhookRegistrationCreatedDto](docs/ProviderWebhookRegistrationCreatedDto.md)
+ - [org.openapitools.client.models.ProviderWebhookRegistrationCreatedDtoEnvelope](docs/ProviderWebhookRegistrationCreatedDtoEnvelope.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

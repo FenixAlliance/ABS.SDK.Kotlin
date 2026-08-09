@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemShippingPoliciesAsync"></a>
 # **countItemShippingPoliciesAsync**
-> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Count item shipping policies
 
@@ -30,8 +30,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemShippingPolicyDtoCollectionQueryParameters : ItemShippingPolicyDtoCollectionQueryParameters =  // ItemShippingPolicyDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#countItemShippingPoliciesAsync")
@@ -46,9 +47,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,12 +62,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCatalogItemShippingPoliciesAsync"></a>
 # **getCatalogItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get item shipping policies
 
@@ -82,8 +84,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemShippingPolicyDtoCollectionQueryParameters : ItemShippingPolicyDtoCollectionQueryParameters =  // ItemShippingPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#getCatalogItemShippingPoliciesAsync")
@@ -98,9 +101,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -112,7 +116,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCatalogItemShippingPolicyByIdAsync"></a>

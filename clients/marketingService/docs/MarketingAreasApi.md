@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getMarketingAreasAsync"></a>
 # **getMarketingAreasAsync**
-> MarketingAreaDtoListEnvelope getMarketingAreasAsync(tenantId, apiVersion, xApiVersion)
+> MarketingAreaDtoListEnvelope getMarketingAreasAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
 
 Get marketing areas
 
@@ -187,8 +187,9 @@ val apiInstance = MarketingAreasApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val marketingAreaDtoCollectionQueryParameters : MarketingAreaDtoCollectionQueryParameters =  // MarketingAreaDtoCollectionQueryParameters | 
 try {
-    val result : MarketingAreaDtoListEnvelope = apiInstance.getMarketingAreasAsync(tenantId, apiVersion, xApiVersion)
+    val result : MarketingAreaDtoListEnvelope = apiInstance.getMarketingAreasAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MarketingAreasApi#getMarketingAreasAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **marketingAreaDtoCollectionQueryParameters** | [**MarketingAreaDtoCollectionQueryParameters**](MarketingAreaDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMarketingAreasCountAsync"></a>
 # **getMarketingAreasCountAsync**
-> Int32Envelope getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
 
 Count marketing areas
 
@@ -237,8 +239,9 @@ val apiInstance = MarketingAreasApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val marketingAreaDtoCollectionQueryParameters : MarketingAreaDtoCollectionQueryParameters =  // MarketingAreaDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MarketingAreasApi#getMarketingAreasCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **marketingAreaDtoCollectionQueryParameters** | [**MarketingAreaDtoCollectionQueryParameters**](MarketingAreaDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchMarketingAreaAsync"></a>
 # **patchMarketingAreaAsync**
-> EmptyEnvelope patchMarketingAreaAsync(marketingAreaId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchMarketingAreaAsync(marketingAreaId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a marketing area
 
@@ -288,9 +292,9 @@ val marketingAreaId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // j
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchMarketingAreaAsync(marketingAreaId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchMarketingAreaAsync(marketingAreaId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MarketingAreasApi#patchMarketingAreaAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

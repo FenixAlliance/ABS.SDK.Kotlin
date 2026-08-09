@@ -69,7 +69,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -96,21 +95,28 @@ All URIs are relative to *https://absuite.net*
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [org.openapitools.client.models.CityDto](docs/CityDto.md)
+ - [org.openapitools.client.models.CityDtoCollectionQueryParameters](docs/CityDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CityDtoListEnvelope](docs/CityDtoListEnvelope.md)
  - [org.openapitools.client.models.CountryCallingCodeDto](docs/CountryCallingCodeDto.md)
+ - [org.openapitools.client.models.CountryCallingCodeDtoCollectionQueryParameters](docs/CountryCallingCodeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CountryCallingCodeDtoListEnvelope](docs/CountryCallingCodeDtoListEnvelope.md)
  - [org.openapitools.client.models.CountryDto](docs/CountryDto.md)
+ - [org.openapitools.client.models.CountryDtoCollectionQueryParameters](docs/CountryDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CountryDtoEnvelope](docs/CountryDtoEnvelope.md)
  - [org.openapitools.client.models.CountryDtoListEnvelope](docs/CountryDtoListEnvelope.md)
  - [org.openapitools.client.models.CountryLanguageDto](docs/CountryLanguageDto.md)
+ - [org.openapitools.client.models.CountryLanguageDtoCollectionQueryParameters](docs/CountryLanguageDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CountryLanguageDtoEnvelope](docs/CountryLanguageDtoEnvelope.md)
  - [org.openapitools.client.models.CountryLanguageDtoListEnvelope](docs/CountryLanguageDtoListEnvelope.md)
  - [org.openapitools.client.models.CountryStateDto](docs/CountryStateDto.md)
+ - [org.openapitools.client.models.CountryStateDtoCollectionQueryParameters](docs/CountryStateDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CountryStateDtoEnvelope](docs/CountryStateDtoEnvelope.md)
  - [org.openapitools.client.models.CountryStateDtoListEnvelope](docs/CountryStateDtoListEnvelope.md)
  - [org.openapitools.client.models.CountryTopLevelDomainDto](docs/CountryTopLevelDomainDto.md)
+ - [org.openapitools.client.models.CountryTopLevelDomainDtoCollectionQueryParameters](docs/CountryTopLevelDomainDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CountryTopLevelDomainDtoListEnvelope](docs/CountryTopLevelDomainDtoListEnvelope.md)
  - [org.openapitools.client.models.CurrencyDto](docs/CurrencyDto.md)
+ - [org.openapitools.client.models.CurrencyDtoCollectionQueryParameters](docs/CurrencyDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CurrencyDtoEnvelope](docs/CurrencyDtoEnvelope.md)
  - [org.openapitools.client.models.CurrencyDtoListEnvelope](docs/CurrencyDtoListEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -125,6 +131,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.TimezoneDto](docs/TimezoneDto.md)
+ - [org.openapitools.client.models.TimezoneDtoCollectionQueryParameters](docs/TimezoneDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.TimezoneDtoEnvelope](docs/TimezoneDtoEnvelope.md)
  - [org.openapitools.client.models.TimezoneDtoListEnvelope](docs/TimezoneDtoListEnvelope.md)
  - [org.openapitools.client.models.TwoFactorRequest](docs/TwoFactorRequest.md)

@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -126,6 +125,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Envelope](docs/Envelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedInvoiceDto](docs/ExtendedInvoiceDto.md)
+ - [org.openapitools.client.models.ExtendedInvoiceDtoCollectionQueryParameters](docs/ExtendedInvoiceDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedInvoiceDtoListEnvelope](docs/ExtendedInvoiceDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -134,25 +134,30 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.InvoiceAdjustmentCreateDto](docs/InvoiceAdjustmentCreateDto.md)
  - [org.openapitools.client.models.InvoiceAdjustmentDto](docs/InvoiceAdjustmentDto.md)
+ - [org.openapitools.client.models.InvoiceAdjustmentDtoCollectionQueryParameters](docs/InvoiceAdjustmentDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.InvoiceAdjustmentDtoEnvelope](docs/InvoiceAdjustmentDtoEnvelope.md)
  - [org.openapitools.client.models.InvoiceAdjustmentDtoIReadOnlyListEnvelope](docs/InvoiceAdjustmentDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.InvoiceAdjustmentUpdateDto](docs/InvoiceAdjustmentUpdateDto.md)
  - [org.openapitools.client.models.InvoiceCreateDto](docs/InvoiceCreateDto.md)
  - [org.openapitools.client.models.InvoiceDto](docs/InvoiceDto.md)
+ - [org.openapitools.client.models.InvoiceDtoCollectionQueryParameters](docs/InvoiceDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.InvoiceDtoEnvelope](docs/InvoiceDtoEnvelope.md)
  - [org.openapitools.client.models.InvoiceDtoListEnvelope](docs/InvoiceDtoListEnvelope.md)
  - [org.openapitools.client.models.InvoiceLineAppliedTaxCreateDto](docs/InvoiceLineAppliedTaxCreateDto.md)
  - [org.openapitools.client.models.InvoiceLineAppliedTaxDto](docs/InvoiceLineAppliedTaxDto.md)
+ - [org.openapitools.client.models.InvoiceLineAppliedTaxDtoCollectionQueryParameters](docs/InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope](docs/InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.InvoiceLineAppliedTaxUpdateDto](docs/InvoiceLineAppliedTaxUpdateDto.md)
  - [org.openapitools.client.models.InvoiceLineCreateDto](docs/InvoiceLineCreateDto.md)
  - [org.openapitools.client.models.InvoiceLineDto](docs/InvoiceLineDto.md)
+ - [org.openapitools.client.models.InvoiceLineDtoCollectionQueryParameters](docs/InvoiceLineDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.InvoiceLineDtoEnvelope](docs/InvoiceLineDtoEnvelope.md)
  - [org.openapitools.client.models.InvoiceLineDtoIReadOnlyListEnvelope](docs/InvoiceLineDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.InvoiceLineDtoListEnvelope](docs/InvoiceLineDtoListEnvelope.md)
  - [org.openapitools.client.models.InvoiceLineUpdateDto](docs/InvoiceLineUpdateDto.md)
  - [org.openapitools.client.models.InvoiceReferenceCreateDto](docs/InvoiceReferenceCreateDto.md)
  - [org.openapitools.client.models.InvoiceReferenceDto](docs/InvoiceReferenceDto.md)
+ - [org.openapitools.client.models.InvoiceReferenceDtoCollectionQueryParameters](docs/InvoiceReferenceDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.InvoiceReferenceDtoEnvelope](docs/InvoiceReferenceDtoEnvelope.md)
  - [org.openapitools.client.models.InvoiceReferenceDtoIReadOnlyListEnvelope](docs/InvoiceReferenceDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.InvoiceReferenceUpdateDto](docs/InvoiceReferenceUpdateDto.md)
@@ -160,8 +165,9 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.Money](docs/Money.md)
  - [org.openapitools.client.models.MoneyEnvelope](docs/MoneyEnvelope.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.PaymentDto](docs/PaymentDto.md)
+ - [org.openapitools.client.models.PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PaymentDtoIReadOnlyListEnvelope](docs/PaymentDtoIReadOnlyListEnvelope.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)

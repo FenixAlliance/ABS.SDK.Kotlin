@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BusinessDomainCreateDto
+import org.openapitools.client.models.BusinessDomainDtoCollectionQueryParameters
 import org.openapitools.client.models.BusinessDomainDtoEnvelope
 import org.openapitools.client.models.BusinessDomainDtoListEnvelope
 import org.openapitools.client.models.BusinessDomainUpdateDto
@@ -319,6 +320,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return BusinessDomainDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessDomainsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessDomainDtoListEnvelope {
-        val localVarResponse = getBusinessDomainsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessDomainsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters? = null) : BusinessDomainDtoListEnvelope {
+        val localVarResponse = getBusinessDomainsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessDomainDtoListEnvelope
@@ -352,16 +354,17 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BusinessDomainDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessDomainsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessDomainDtoListEnvelope?> {
-        val localVariableConfig = getBusinessDomainsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessDomainsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : ApiResponse<BusinessDomainDtoListEnvelope?> {
+        val localVariableConfig = getBusinessDomainsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
-        return request<Unit, BusinessDomainDtoListEnvelope>(
+        return request<BusinessDomainDtoCollectionQueryParameters, BusinessDomainDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessDomainsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessDomainsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : RequestConfig<BusinessDomainDtoCollectionQueryParameters> {
+        val localVariableBody = businessDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessDomainsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBusinessDomainsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessDomainsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBusinessDomainsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessDomainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBusinessDomainsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessDomainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBusinessDomainsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BusinessDomainDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessDomainsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessDomainsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : RequestConfig<BusinessDomainDtoCollectionQueryParameters> {
+        val localVariableBody = businessDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

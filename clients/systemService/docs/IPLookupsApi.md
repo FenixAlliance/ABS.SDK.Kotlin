@@ -112,7 +112,7 @@ No authorization required
 
 <a id="getSystemIPLookups"></a>
 # **getSystemIPLookups**
-> IPLookupDtoListEnvelope getSystemIPLookups(apiVersion, xApiVersion)
+> IPLookupDtoListEnvelope getSystemIPLookups(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
 
 Retrieve a list of system IP lookups
 
@@ -127,8 +127,9 @@ Retrieve a list of all IP lookups in the system
 val apiInstance = IPLookupsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val ipLookupDtoCollectionQueryParameters : IPLookupDtoCollectionQueryParameters =  // IPLookupDtoCollectionQueryParameters | 
 try {
-    val result : IPLookupDtoListEnvelope = apiInstance.getSystemIPLookups(apiVersion, xApiVersion)
+    val result : IPLookupDtoListEnvelope = apiInstance.getSystemIPLookups(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling IPLookupsApi#getSystemIPLookups")
@@ -141,9 +142,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **ipLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -155,12 +157,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSystemIPLookupsCount"></a>
 # **getSystemIPLookupsCount**
-> Int32Envelope getSystemIPLookupsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemIPLookupsCount(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
 
 Get the count of system IP lookups
 
@@ -175,8 +177,9 @@ Get the count of all IP lookups in the system
 val apiInstance = IPLookupsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val ipLookupDtoCollectionQueryParameters : IPLookupDtoCollectionQueryParameters =  // IPLookupDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSystemIPLookupsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSystemIPLookupsCount(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling IPLookupsApi#getSystemIPLookupsCount")
@@ -189,9 +192,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **ipLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -203,6 +207,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

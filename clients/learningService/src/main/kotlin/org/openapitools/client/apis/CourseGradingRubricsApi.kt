@@ -21,9 +21,10 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CourseGradingRubricCreateDto
 import org.openapitools.client.models.CourseGradingRubricDto
+import org.openapitools.client.models.CourseGradingRubricDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseGradingRubricUpdateDto
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -309,6 +310,7 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<CourseGradingRubricDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -318,8 +320,8 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseGradingRubricsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<CourseGradingRubricDto> {
-        val localVarResponse = getCourseGradingRubricsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseGradingRubricsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters? = null) : kotlin.collections.List<CourseGradingRubricDto> {
+        val localVarResponse = getCourseGradingRubricsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseGradingRubricDtoCollectionQueryParameters = courseGradingRubricDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CourseGradingRubricDto>
@@ -342,16 +344,17 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<CourseGradingRubricDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseGradingRubricsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<CourseGradingRubricDto>?> {
-        val localVariableConfig = getCourseGradingRubricsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseGradingRubricsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<CourseGradingRubricDto>?> {
+        val localVariableConfig = getCourseGradingRubricsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseGradingRubricDtoCollectionQueryParameters = courseGradingRubricDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<CourseGradingRubricDto>>(
+        return request<CourseGradingRubricDtoCollectionQueryParameters, kotlin.collections.List<CourseGradingRubricDto>>(
             localVariableConfig
         )
     }
@@ -362,10 +365,11 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseGradingRubricsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseGradingRubricsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters?) : RequestConfig<CourseGradingRubricDtoCollectionQueryParameters> {
+        val localVariableBody = courseGradingRubricDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -375,6 +379,7 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -393,6 +398,7 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -402,8 +408,8 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseGradingRubricsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getCourseGradingRubricsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseGradingRubricsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getCourseGradingRubricsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseGradingRubricDtoCollectionQueryParameters = courseGradingRubricDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -426,16 +432,17 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseGradingRubricsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getCourseGradingRubricsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseGradingRubricsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getCourseGradingRubricsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseGradingRubricDtoCollectionQueryParameters = courseGradingRubricDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseGradingRubricDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -446,10 +453,11 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseGradingRubricDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseGradingRubricsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseGradingRubricsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseGradingRubricDtoCollectionQueryParameters: CourseGradingRubricDtoCollectionQueryParameters?) : RequestConfig<CourseGradingRubricDtoCollectionQueryParameters> {
+        val localVariableBody = courseGradingRubricDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -459,6 +467,7 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -478,7 +487,7 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -487,8 +496,8 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCourseGradingRubricAsync(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchCourseGradingRubricAsyncWithHttpInfo(rubricId = rubricId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseGradingRubricAsync(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchCourseGradingRubricAsyncWithHttpInfo(rubricId = rubricId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -512,16 +521,16 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCourseGradingRubricAsyncWithHttpInfo(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchCourseGradingRubricAsyncRequestConfig(rubricId = rubricId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseGradingRubricAsyncWithHttpInfo(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchCourseGradingRubricAsyncRequestConfig(rubricId = rubricId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -533,11 +542,11 @@ class CourseGradingRubricsApi(basePath: kotlin.String = defaultBasePath, client:
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCourseGradingRubricAsyncRequestConfig(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCourseGradingRubricAsyncRequestConfig(rubricId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

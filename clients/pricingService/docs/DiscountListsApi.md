@@ -266,7 +266,7 @@ No authorization required
 
 <a id="getDiscountListEntries"></a>
 # **getDiscountListEntries**
-> DiscountDtoListEnvelope getDiscountListEntries(discountListId, tenantId)
+> DiscountDtoListEnvelope getDiscountListEntries(discountListId, tenantId, discountDtoCollectionQueryParameters)
 
 Retrieves discounts in a discount list
 
@@ -281,8 +281,9 @@ Gets all discount entries for a specific discount list with OData support.
 val apiInstance = DiscountListsApi()
 val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val discountDtoCollectionQueryParameters : DiscountDtoCollectionQueryParameters =  // DiscountDtoCollectionQueryParameters | 
 try {
-    val result : DiscountDtoListEnvelope = apiInstance.getDiscountListEntries(discountListId, tenantId)
+    val result : DiscountDtoListEnvelope = apiInstance.getDiscountListEntries(discountListId, tenantId, discountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#getDiscountListEntries")
@@ -295,9 +296,10 @@ try {
 
 ### Parameters
 | **discountListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -309,12 +311,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDiscountListEntriesCount"></a>
 # **getDiscountListEntriesCount**
-> Int32Envelope getDiscountListEntriesCount(discountListId, tenantId)
+> Int32Envelope getDiscountListEntriesCount(discountListId, tenantId, discountDtoCollectionQueryParameters)
 
 Counts discounts in a discount list
 
@@ -329,8 +331,9 @@ Gets the count of discount entries for a specific discount list.
 val apiInstance = DiscountListsApi()
 val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val discountDtoCollectionQueryParameters : DiscountDtoCollectionQueryParameters =  // DiscountDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDiscountListEntriesCount(discountListId, tenantId)
+    val result : Int32Envelope = apiInstance.getDiscountListEntriesCount(discountListId, tenantId, discountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#getDiscountListEntriesCount")
@@ -343,9 +346,10 @@ try {
 
 ### Parameters
 | **discountListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDiscountListEntry"></a>
@@ -412,7 +416,7 @@ No authorization required
 
 <a id="getDiscountLists"></a>
 # **getDiscountLists**
-> DiscountListDtoListEnvelope getDiscountLists(tenantId)
+> DiscountListDtoListEnvelope getDiscountLists(tenantId, discountListDtoCollectionQueryParameters)
 
 Retrieves all discount lists
 
@@ -426,8 +430,9 @@ Gets all discount lists for the current tenant with OData support.
 
 val apiInstance = DiscountListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val discountListDtoCollectionQueryParameters : DiscountListDtoCollectionQueryParameters =  // DiscountListDtoCollectionQueryParameters | 
 try {
-    val result : DiscountListDtoListEnvelope = apiInstance.getDiscountLists(tenantId)
+    val result : DiscountListDtoListEnvelope = apiInstance.getDiscountLists(tenantId, discountListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#getDiscountLists")
@@ -439,9 +444,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,12 +459,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDiscountListsCount"></a>
 # **getDiscountListsCount**
-> Int32Envelope getDiscountListsCount(tenantId)
+> Int32Envelope getDiscountListsCount(tenantId, discountListDtoCollectionQueryParameters)
 
 Counts discount lists
 
@@ -472,8 +478,9 @@ Gets the count of discount lists for the current tenant.
 
 val apiInstance = DiscountListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val discountListDtoCollectionQueryParameters : DiscountListDtoCollectionQueryParameters =  // DiscountListDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDiscountListsCount(tenantId)
+    val result : Int32Envelope = apiInstance.getDiscountListsCount(tenantId, discountListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#getDiscountListsCount")
@@ -485,9 +492,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -499,12 +507,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchDiscountList"></a>
 # **patchDiscountList**
-> EmptyEnvelope patchDiscountList(discountListId, tenantId, operation)
+> EmptyEnvelope patchDiscountList(discountListId, tenantId, patchOperation)
 
 Patches a discount list
 
@@ -519,9 +527,9 @@ Partially updates the specified discount list using a JSON Patch document.
 val apiInstance = DiscountListsApi()
 val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDiscountList(discountListId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDiscountList(discountListId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#patchDiscountList")
@@ -537,7 +545,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -554,7 +562,7 @@ No authorization required
 
 <a id="patchDiscountListEntry"></a>
 # **patchDiscountListEntry**
-> EmptyEnvelope patchDiscountListEntry(discountListId, discountListEntryId, tenantId, operation)
+> EmptyEnvelope patchDiscountListEntry(discountListId, discountListEntryId, tenantId, patchOperation)
 
 Patches a discount list entry
 
@@ -570,9 +578,9 @@ val apiInstance = DiscountListsApi()
 val discountListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val discountListEntryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDiscountListEntry(discountListId, discountListEntryId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDiscountListEntry(discountListId, discountListEntryId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DiscountListsApi#patchDiscountListEntry")
@@ -589,7 +597,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

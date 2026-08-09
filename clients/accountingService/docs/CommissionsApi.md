@@ -282,7 +282,7 @@ No authorization required
 
 <a id="getCommissionsAsync"></a>
 # **getCommissionsAsync**
-> CommissionDtoListEnvelope getCommissionsAsync(tenantId, apiVersion, xApiVersion)
+> CommissionDtoListEnvelope getCommissionsAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
 
 Get all commissions for a tenant
 
@@ -298,8 +298,9 @@ val apiInstance = CommissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val commissionDtoCollectionQueryParameters : CommissionDtoCollectionQueryParameters =  // CommissionDtoCollectionQueryParameters | 
 try {
-    val result : CommissionDtoListEnvelope = apiInstance.getCommissionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : CommissionDtoListEnvelope = apiInstance.getCommissionsAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#getCommissionsAsync")
@@ -313,9 +314,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **commissionDtoCollectionQueryParameters** | [**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -327,12 +329,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCommissionsCountAsync"></a>
 # **getCommissionsCountAsync**
-> Int32Envelope getCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCommissionsCountAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
 
 Get the count of commissions for a tenant
 
@@ -348,8 +350,9 @@ val apiInstance = CommissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val commissionDtoCollectionQueryParameters : CommissionDtoCollectionQueryParameters =  // CommissionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getCommissionsCountAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#getCommissionsCountAsync")
@@ -363,9 +366,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **commissionDtoCollectionQueryParameters** | [**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -377,7 +381,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPaymentCommissionAsync"></a>
@@ -434,7 +438,7 @@ No authorization required
 
 <a id="getPaymentCommissionsAsync"></a>
 # **getPaymentCommissionsAsync**
-> PaymentCommissionDtoListEnvelope getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion)
+> PaymentCommissionDtoListEnvelope getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
 
 Get all payment commissions for a tenant
 
@@ -450,8 +454,9 @@ val apiInstance = CommissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentCommissionDtoCollectionQueryParameters : PaymentCommissionDtoCollectionQueryParameters =  // PaymentCommissionDtoCollectionQueryParameters | 
 try {
-    val result : PaymentCommissionDtoListEnvelope = apiInstance.getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : PaymentCommissionDtoListEnvelope = apiInstance.getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#getPaymentCommissionsAsync")
@@ -465,9 +470,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentCommissionDtoCollectionQueryParameters** | [**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -479,12 +485,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPaymentCommissionsCountAsync"></a>
 # **getPaymentCommissionsCountAsync**
-> Int32Envelope getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
 
 Get the count of payment commissions for a tenant
 
@@ -500,8 +506,9 @@ val apiInstance = CommissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentCommissionDtoCollectionQueryParameters : PaymentCommissionDtoCollectionQueryParameters =  // PaymentCommissionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#getPaymentCommissionsCountAsync")
@@ -515,9 +522,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentCommissionDtoCollectionQueryParameters** | [**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -529,12 +537,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCommissionAsync"></a>
 # **patchCommissionAsync**
-> EmptyEnvelope patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a commission
 
@@ -551,9 +559,9 @@ val commissionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCommissionAsync(commissionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#patchCommissionAsync")
@@ -571,7 +579,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -588,7 +596,7 @@ No authorization required
 
 <a id="patchPaymentCommissionAsync"></a>
 # **patchPaymentCommissionAsync**
-> EmptyEnvelope patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a payment commission
 
@@ -605,9 +613,9 @@ val paymentCommissionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchPaymentCommissionAsync(paymentCommissionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CommissionsApi#patchPaymentCommissionAsync")
@@ -625,7 +633,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

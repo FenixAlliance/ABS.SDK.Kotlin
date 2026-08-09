@@ -50,7 +50,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="aggregateAccountsBalanceAsync"></a>
 # **aggregateAccountsBalanceAsync**
-> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Aggregate accounts balance
 
@@ -67,8 +67,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val currencyId : kotlin.String = currencyId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountDtoCollectionQueryParameters : AccountDtoCollectionQueryParameters =  // AccountDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#aggregateAccountsBalanceAsync")
@@ -83,9 +84,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **currencyId** | **kotlin.String**|  | [optional] [default to &quot;USD.USA&quot;] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -97,7 +99,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="balanceAccountAsync"></a>
@@ -790,7 +792,7 @@ No authorization required
 
 <a id="getAccountCreditsAsync"></a>
 # **getAccountCreditsAsync**
-> AccountingEntryDtoListEnvelope getAccountCreditsAsync(accountId, tenantId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountCreditsAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account credits
 
@@ -807,8 +809,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountCreditsAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountCreditsAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountCreditsAsync")
@@ -823,9 +826,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -837,12 +841,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountCreditsCountAsync"></a>
 # **getAccountCreditsCountAsync**
-> Int32Envelope getAccountCreditsCountAsync(accountId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountCreditsCountAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account credits count
 
@@ -859,8 +863,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountCreditsCountAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountCreditsCountAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountCreditsCountAsync")
@@ -875,9 +880,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -889,12 +895,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountDebitsAsync"></a>
 # **getAccountDebitsAsync**
-> AccountingEntryDtoListEnvelope getAccountDebitsAsync(accountId, tenantId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountDebitsAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account debits
 
@@ -911,8 +917,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountDebitsAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountDebitsAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountDebitsAsync")
@@ -927,9 +934,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -941,12 +949,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountDebitsCountAsync"></a>
 # **getAccountDebitsCountAsync**
-> Int32Envelope getAccountDebitsCountAsync(accountId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountDebitsCountAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account debits count
 
@@ -963,8 +971,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountDebitsCountAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountDebitsCountAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountDebitsCountAsync")
@@ -979,9 +988,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -993,7 +1003,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountDetailsAsync"></a>
@@ -1050,7 +1060,7 @@ No authorization required
 
 <a id="getAccountEntriesAsync"></a>
 # **getAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account entries
 
@@ -1067,8 +1077,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : AccountingEntryDtoListEnvelope = apiInstance.getAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountEntriesAsync")
@@ -1083,9 +1094,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1097,7 +1109,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountEntryAsync"></a>
@@ -1156,7 +1168,7 @@ No authorization required
 
 <a id="getAccountRelationsAsync"></a>
 # **getAccountRelationsAsync**
-> AccountRelationDtoListEnvelope getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountRelationDtoListEnvelope getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
 
 Get account relations
 
@@ -1173,8 +1185,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountRelationDtoCollectionQueryParameters : AccountRelationDtoCollectionQueryParameters =  // AccountRelationDtoCollectionQueryParameters | 
 try {
-    val result : AccountRelationDtoListEnvelope = apiInstance.getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion)
+    val result : AccountRelationDtoListEnvelope = apiInstance.getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountRelationsAsync")
@@ -1189,9 +1202,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **accountId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1203,12 +1217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountRelationsCountAsync"></a>
 # **getAccountRelationsCountAsync**
-> Int32Envelope getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion)
+> Int32Envelope getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
 
 Get account relations count
 
@@ -1225,8 +1239,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountRelationDtoCollectionQueryParameters : AccountRelationDtoCollectionQueryParameters =  // AccountRelationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountRelationsCountAsync")
@@ -1241,9 +1256,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **accountId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1255,7 +1271,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountTypeByIdAsync"></a>
@@ -1312,7 +1328,7 @@ No authorization required
 
 <a id="getAccountTypesAsync"></a>
 # **getAccountTypesAsync**
-> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
+> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
 
 Get account types
 
@@ -1328,8 +1344,9 @@ val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountTypeDtoCollectionQueryParameters : AccountTypeDtoCollectionQueryParameters =  // AccountTypeDtoCollectionQueryParameters | 
 try {
-    val result : AccountTypeDtoListEnvelope = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : AccountTypeDtoListEnvelope = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountTypesAsync")
@@ -1343,9 +1360,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1357,12 +1375,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountTypesCountAsync"></a>
 # **getAccountTypesCountAsync**
-> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
 
 Get account types count
 
@@ -1378,8 +1396,9 @@ val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountTypeDtoCollectionQueryParameters : AccountTypeDtoCollectionQueryParameters =  // AccountTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountTypesCountAsync")
@@ -1393,9 +1412,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1407,12 +1427,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountsAsync"></a>
 # **getAccountsAsync**
-> AccountDtoListEnvelope getAccountsAsync(tenantId, apiVersion, xApiVersion)
+> AccountDtoListEnvelope getAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Creates a new account
 
@@ -1428,8 +1448,9 @@ val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountDtoCollectionQueryParameters : AccountDtoCollectionQueryParameters =  // AccountDtoCollectionQueryParameters | 
 try {
-    val result : AccountDtoListEnvelope = apiInstance.getAccountsAsync(tenantId, apiVersion, xApiVersion)
+    val result : AccountDtoListEnvelope = apiInstance.getAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountsAsync")
@@ -1443,9 +1464,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1457,12 +1479,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountsCountAsync"></a>
 # **getAccountsCountAsync**
-> Int32Envelope getAccountsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountsCountAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Get the number of accounts
 
@@ -1478,8 +1500,9 @@ val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountDtoCollectionQueryParameters : AccountDtoCollectionQueryParameters =  // AccountDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountsCountAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getAccountsCountAsync")
@@ -1493,9 +1516,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,7 +1531,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getChartsOfAccountsAsync"></a>
@@ -1612,7 +1636,7 @@ No authorization required
 
 <a id="getCreditAccountEntriesAsync"></a>
 # **getCreditAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getCreditAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getCreditAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get credit account entries
 
@@ -1629,8 +1653,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : AccountingEntryDtoListEnvelope = apiInstance.getCreditAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : AccountingEntryDtoListEnvelope = apiInstance.getCreditAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getCreditAccountEntriesAsync")
@@ -1645,9 +1670,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1659,12 +1685,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDebitAccountEntriesAsync"></a>
 # **getDebitAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getDebitAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getDebitAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get debit account entries
 
@@ -1681,8 +1707,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : AccountingEntryDtoListEnvelope = apiInstance.getDebitAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion)
+    val result : AccountingEntryDtoListEnvelope = apiInstance.getDebitAccountEntriesAsync(accountId, tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getDebitAccountEntriesAsync")
@@ -1697,9 +1724,10 @@ try {
 | **accountId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1711,12 +1739,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRootAccountsAsync"></a>
 # **getRootAccountsAsync**
-> AccountDtoListEnvelope getRootAccountsAsync(tenantId, apiVersion, xApiVersion)
+> AccountDtoListEnvelope getRootAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Get root accounts
 
@@ -1732,8 +1760,9 @@ val apiInstance = AccountsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountDtoCollectionQueryParameters : AccountDtoCollectionQueryParameters =  // AccountDtoCollectionQueryParameters | 
 try {
-    val result : AccountDtoListEnvelope = apiInstance.getRootAccountsAsync(tenantId, apiVersion, xApiVersion)
+    val result : AccountDtoListEnvelope = apiInstance.getRootAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#getRootAccountsAsync")
@@ -1747,9 +1776,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1761,12 +1791,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAccountAsync"></a>
 # **patchAccountAsync**
-> EmptyEnvelope patchAccountAsync(accountId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountAsync(accountId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an account
 
@@ -1783,9 +1813,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountAsync(accountId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountAsync(accountId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#patchAccountAsync")
@@ -1803,7 +1833,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1820,7 +1850,7 @@ No authorization required
 
 <a id="patchAccountEntryAsync"></a>
 # **patchAccountEntryAsync**
-> EmptyEnvelope patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch account entry
 
@@ -1838,9 +1868,9 @@ val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountEntryAsync(accountId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#patchAccountEntryAsync")
@@ -1859,7 +1889,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1876,7 +1906,7 @@ No authorization required
 
 <a id="patchAccountRelationAsync"></a>
 # **patchAccountRelationAsync**
-> EmptyEnvelope patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, patchOperation)
 
 Patch account relation
 
@@ -1894,9 +1924,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountRelationAsync(accountRelationId, tenantId, accountId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#patchAccountRelationAsync")
@@ -1915,7 +1945,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1932,7 +1962,7 @@ No authorization required
 
 <a id="patchAccountTypeAsync"></a>
 # **patchAccountTypeAsync**
-> EmptyEnvelope patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch account type
 
@@ -1949,9 +1979,9 @@ val accountTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountTypeAsync(accountTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountsApi#patchAccountTypeAsync")
@@ -1969,7 +1999,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

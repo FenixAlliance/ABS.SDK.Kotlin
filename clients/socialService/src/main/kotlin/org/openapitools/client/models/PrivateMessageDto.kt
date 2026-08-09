@@ -33,6 +33,9 @@ import com.squareup.moshi.JsonClass
  * @param sentTimestamp 
  * @param readTimestamp 
  * @param receivedTimestamp 
+ * @param socialProfileName 
+ * @param socialProfileAvatarUrl 
+ * @param socialProfileType 
  */
 
 
@@ -69,10 +72,30 @@ data class PrivateMessageDto (
     val readTimestamp: java.time.OffsetDateTime? = null,
 
     @Json(name = "receivedTimestamp")
-    val receivedTimestamp: java.time.OffsetDateTime? = null
+    val receivedTimestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "socialProfileName")
+    val socialProfileName: kotlin.String? = null,
+
+    @Json(name = "socialProfileAvatarUrl")
+    val socialProfileAvatarUrl: kotlin.String? = null,
+
+    @Json(name = "socialProfileType")
+    val socialProfileType: PrivateMessageDto.SocialProfileType? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: User,Tenant,Contact
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SocialProfileType(val value: kotlin.String) {
+        @Json(name = "User") User("User"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Contact") Contact("Contact");
+    }
 
 }
 

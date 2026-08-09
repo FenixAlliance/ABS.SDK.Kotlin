@@ -316,7 +316,7 @@ No authorization required
 
 <a id="getPriceListPricesAsync"></a>
 # **getPriceListPricesAsync**
-> ItemPriceDtoListEnvelope getPriceListPricesAsync(priceListId, tenantId, itemId)
+> ItemPriceDtoListEnvelope getPriceListPricesAsync(priceListId, tenantId, itemId, itemPriceDtoCollectionQueryParameters)
 
 Retrieves prices in a price list
 
@@ -332,8 +332,9 @@ val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val itemPriceDtoCollectionQueryParameters : ItemPriceDtoCollectionQueryParameters =  // ItemPriceDtoCollectionQueryParameters | 
 try {
-    val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId)
+    val result : ItemPriceDtoListEnvelope = apiInstance.getPriceListPricesAsync(priceListId, tenantId, itemId, itemPriceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListPricesAsync")
@@ -347,9 +348,10 @@ try {
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **itemId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
+| **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -361,12 +363,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPriceListPricesCountAsync"></a>
 # **getPriceListPricesCountAsync**
-> Int32Envelope getPriceListPricesCountAsync(priceListId, tenantId)
+> Int32Envelope getPriceListPricesCountAsync(priceListId, tenantId, itemPriceDtoCollectionQueryParameters)
 
 Counts prices in a price list
 
@@ -381,8 +383,9 @@ Gets the count of price entries for a specific price list.
 val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val itemPriceDtoCollectionQueryParameters : ItemPriceDtoCollectionQueryParameters =  // ItemPriceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPriceListPricesCountAsync(priceListId, tenantId)
+    val result : Int32Envelope = apiInstance.getPriceListPricesCountAsync(priceListId, tenantId, itemPriceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListPricesCountAsync")
@@ -395,9 +398,10 @@ try {
 
 ### Parameters
 | **priceListId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -409,12 +413,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPriceListsAsync"></a>
 # **getPriceListsAsync**
-> PriceListDtoListEnvelope getPriceListsAsync(tenantId)
+> PriceListDtoListEnvelope getPriceListsAsync(tenantId, priceListDtoCollectionQueryParameters)
 
 Retrieves all price lists
 
@@ -428,8 +432,9 @@ Gets all price lists for the current tenant with OData support.
 
 val apiInstance = PriceListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val priceListDtoCollectionQueryParameters : PriceListDtoCollectionQueryParameters =  // PriceListDtoCollectionQueryParameters | 
 try {
-    val result : PriceListDtoListEnvelope = apiInstance.getPriceListsAsync(tenantId)
+    val result : PriceListDtoListEnvelope = apiInstance.getPriceListsAsync(tenantId, priceListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListsAsync")
@@ -441,9 +446,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -455,12 +461,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPriceListsCountAsync"></a>
 # **getPriceListsCountAsync**
-> Int32Envelope getPriceListsCountAsync(tenantId)
+> Int32Envelope getPriceListsCountAsync(tenantId, priceListDtoCollectionQueryParameters)
 
 Counts price lists
 
@@ -474,8 +480,9 @@ Gets the count of price lists for the current tenant.
 
 val apiInstance = PriceListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val priceListDtoCollectionQueryParameters : PriceListDtoCollectionQueryParameters =  // PriceListDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPriceListsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getPriceListsCountAsync(tenantId, priceListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#getPriceListsCountAsync")
@@ -487,9 +494,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -501,12 +509,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchPriceListAsync"></a>
 # **patchPriceListAsync**
-> EmptyEnvelope patchPriceListAsync(priceListId, tenantId, operation)
+> EmptyEnvelope patchPriceListAsync(priceListId, tenantId, patchOperation)
 
 Patches a price list
 
@@ -521,9 +529,9 @@ Partially updates the specified price list using a JSON Patch document.
 val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPriceListAsync(priceListId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchPriceListAsync(priceListId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#patchPriceListAsync")
@@ -539,7 +547,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -556,7 +564,7 @@ No authorization required
 
 <a id="patchPriceListPriceAsync"></a>
 # **patchPriceListPriceAsync**
-> EmptyEnvelope patchPriceListPriceAsync(priceListId, priceId, tenantId, operation)
+> EmptyEnvelope patchPriceListPriceAsync(priceListId, priceId, tenantId, patchOperation)
 
 Patches a price list entry
 
@@ -572,9 +580,9 @@ val apiInstance = PriceListsApi()
 val priceListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val priceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPriceListPriceAsync(priceListId, priceId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchPriceListPriceAsync(priceListId, priceId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PriceListsApi#patchPriceListPriceAsync")
@@ -591,7 +599,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

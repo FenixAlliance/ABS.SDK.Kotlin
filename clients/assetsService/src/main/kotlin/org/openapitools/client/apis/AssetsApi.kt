@@ -20,33 +20,39 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AssetCategoryCreateDto
+import org.openapitools.client.models.AssetCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetCategoryDtoEnvelope
 import org.openapitools.client.models.AssetCategoryDtoListEnvelope
 import org.openapitools.client.models.AssetCategoryUpdateDto
 import org.openapitools.client.models.AssetCreateDto
 import org.openapitools.client.models.AssetDepreciationRecordCreateDto
+import org.openapitools.client.models.AssetDepreciationRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetDepreciationRecordDtoEnvelope
 import org.openapitools.client.models.AssetDepreciationRecordDtoListEnvelope
 import org.openapitools.client.models.AssetDepreciationRecordUpdateDto
+import org.openapitools.client.models.AssetDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetDtoEnvelope
 import org.openapitools.client.models.AssetDtoListEnvelope
 import org.openapitools.client.models.AssetRepairCreateDto
+import org.openapitools.client.models.AssetRepairDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetRepairDtoEnvelope
 import org.openapitools.client.models.AssetRepairDtoListEnvelope
 import org.openapitools.client.models.AssetRepairUpdateDto
 import org.openapitools.client.models.AssetTransferCreateDto
+import org.openapitools.client.models.AssetTransferDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetTransferDtoEnvelope
 import org.openapitools.client.models.AssetTransferDtoListEnvelope
 import org.openapitools.client.models.AssetTransferUpdateDto
 import org.openapitools.client.models.AssetUpdateDto
 import org.openapitools.client.models.AssetValueAmendCreateDto
+import org.openapitools.client.models.AssetValueAmendDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetValueAmendDtoEnvelope
 import org.openapitools.client.models.AssetValueAmendDtoListEnvelope
 import org.openapitools.client.models.AssetValueAmendUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -1103,6 +1109,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets all asset categories
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return AssetCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1112,8 +1119,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetAssetCategories(tenantId: java.util.UUID) : AssetCategoryDtoListEnvelope {
-        val localVarResponse = getAssetAssetCategoriesWithHttpInfo(tenantId = tenantId)
+    fun getAssetAssetCategories(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters? = null) : AssetCategoryDtoListEnvelope {
+        val localVarResponse = getAssetAssetCategoriesWithHttpInfo(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetCategoryDtoListEnvelope
@@ -1134,16 +1141,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets all asset categories
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetAssetCategoriesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<AssetCategoryDtoListEnvelope?> {
-        val localVariableConfig = getAssetAssetCategoriesRequestConfig(tenantId = tenantId)
+    fun getAssetAssetCategoriesWithHttpInfo(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : ApiResponse<AssetCategoryDtoListEnvelope?> {
+        val localVariableConfig = getAssetAssetCategoriesRequestConfig(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, AssetCategoryDtoListEnvelope>(
+        return request<AssetCategoryDtoCollectionQueryParameters, AssetCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1152,15 +1160,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getAssetAssetCategories
      *
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetAssetCategoriesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetAssetCategoriesRequestConfig(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : RequestConfig<AssetCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = assetCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1177,6 +1187,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1186,8 +1197,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetAssetCategoriesCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetAssetCategoriesCountWithHttpInfo(tenantId = tenantId)
+    fun getAssetAssetCategoriesCount(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetAssetCategoriesCountWithHttpInfo(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1208,16 +1219,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetAssetCategoriesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetAssetCategoriesCountRequestConfig(tenantId = tenantId)
+    fun getAssetAssetCategoriesCountWithHttpInfo(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetAssetCategoriesCountRequestConfig(tenantId = tenantId, assetCategoryDtoCollectionQueryParameters = assetCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1226,15 +1238,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getAssetAssetCategoriesCount
      *
      * @param tenantId 
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetAssetCategoriesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetAssetCategoriesCountRequestConfig(tenantId: java.util.UUID, assetCategoryDtoCollectionQueryParameters: AssetCategoryDtoCollectionQueryParameters?) : RequestConfig<AssetCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = assetCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1409,6 +1423,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all depreciation records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return AssetDepreciationRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1418,8 +1433,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetDepreciationRecords(assetId: java.util.UUID, tenantId: java.util.UUID) : AssetDepreciationRecordDtoListEnvelope {
-        val localVarResponse = getAssetDepreciationRecordsWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetDepreciationRecords(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters? = null) : AssetDepreciationRecordDtoListEnvelope {
+        val localVarResponse = getAssetDepreciationRecordsWithHttpInfo(assetId = assetId, tenantId = tenantId, assetDepreciationRecordDtoCollectionQueryParameters = assetDepreciationRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetDepreciationRecordDtoListEnvelope
@@ -1441,16 +1456,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all depreciation records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetDepreciationRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetDepreciationRecordsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<AssetDepreciationRecordDtoListEnvelope?> {
-        val localVariableConfig = getAssetDepreciationRecordsRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetDepreciationRecordsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters?) : ApiResponse<AssetDepreciationRecordDtoListEnvelope?> {
+        val localVariableConfig = getAssetDepreciationRecordsRequestConfig(assetId = assetId, tenantId = tenantId, assetDepreciationRecordDtoCollectionQueryParameters = assetDepreciationRecordDtoCollectionQueryParameters)
 
-        return request<Unit, AssetDepreciationRecordDtoListEnvelope>(
+        return request<AssetDepreciationRecordDtoCollectionQueryParameters, AssetDepreciationRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1460,15 +1476,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetDepreciationRecordsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetDepreciationRecordsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters?) : RequestConfig<AssetDepreciationRecordDtoCollectionQueryParameters> {
+        val localVariableBody = assetDepreciationRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1486,6 +1504,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of depreciation records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1495,8 +1514,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetDepreciationRecordsCount(assetId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetDepreciationRecordsCountWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetDepreciationRecordsCount(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetDepreciationRecordsCountWithHttpInfo(assetId = assetId, tenantId = tenantId, assetDepreciationRecordDtoCollectionQueryParameters = assetDepreciationRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1518,16 +1537,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of depreciation records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetDepreciationRecordsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetDepreciationRecordsCountRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetDepreciationRecordsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetDepreciationRecordsCountRequestConfig(assetId = assetId, tenantId = tenantId, assetDepreciationRecordDtoCollectionQueryParameters = assetDepreciationRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetDepreciationRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1537,15 +1557,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetDepreciationRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetDepreciationRecordsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetDepreciationRecordsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetDepreciationRecordDtoCollectionQueryParameters: AssetDepreciationRecordDtoCollectionQueryParameters?) : RequestConfig<AssetDepreciationRecordDtoCollectionQueryParameters> {
+        val localVariableBody = assetDepreciationRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1643,6 +1665,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all repair records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return AssetRepairDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1652,8 +1675,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetRepairs(assetId: java.util.UUID, tenantId: java.util.UUID) : AssetRepairDtoListEnvelope {
-        val localVarResponse = getAssetRepairsWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetRepairs(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters? = null) : AssetRepairDtoListEnvelope {
+        val localVarResponse = getAssetRepairsWithHttpInfo(assetId = assetId, tenantId = tenantId, assetRepairDtoCollectionQueryParameters = assetRepairDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetRepairDtoListEnvelope
@@ -1675,16 +1698,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all repair records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetRepairDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetRepairsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<AssetRepairDtoListEnvelope?> {
-        val localVariableConfig = getAssetRepairsRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetRepairsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters?) : ApiResponse<AssetRepairDtoListEnvelope?> {
+        val localVariableConfig = getAssetRepairsRequestConfig(assetId = assetId, tenantId = tenantId, assetRepairDtoCollectionQueryParameters = assetRepairDtoCollectionQueryParameters)
 
-        return request<Unit, AssetRepairDtoListEnvelope>(
+        return request<AssetRepairDtoCollectionQueryParameters, AssetRepairDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1694,15 +1718,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetRepairsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetRepairsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters?) : RequestConfig<AssetRepairDtoCollectionQueryParameters> {
+        val localVariableBody = assetRepairDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1720,6 +1746,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of repair records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1729,8 +1756,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetRepairsCount(assetId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetRepairsCountWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetRepairsCount(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetRepairsCountWithHttpInfo(assetId = assetId, tenantId = tenantId, assetRepairDtoCollectionQueryParameters = assetRepairDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1752,16 +1779,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of repair records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetRepairsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetRepairsCountRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetRepairsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetRepairsCountRequestConfig(assetId = assetId, tenantId = tenantId, assetRepairDtoCollectionQueryParameters = assetRepairDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetRepairDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1771,15 +1799,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetRepairDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetRepairsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetRepairsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetRepairDtoCollectionQueryParameters: AssetRepairDtoCollectionQueryParameters?) : RequestConfig<AssetRepairDtoCollectionQueryParameters> {
+        val localVariableBody = assetRepairDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1877,6 +1907,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all transfer records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return AssetTransferDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1886,8 +1917,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetTransfers(assetId: java.util.UUID, tenantId: java.util.UUID) : AssetTransferDtoListEnvelope {
-        val localVarResponse = getAssetTransfersWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetTransfers(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters? = null) : AssetTransferDtoListEnvelope {
+        val localVarResponse = getAssetTransfersWithHttpInfo(assetId = assetId, tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetTransferDtoListEnvelope
@@ -1909,16 +1940,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all transfer records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetTransferDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetTransfersWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<AssetTransferDtoListEnvelope?> {
-        val localVariableConfig = getAssetTransfersRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetTransfersWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : ApiResponse<AssetTransferDtoListEnvelope?> {
+        val localVariableConfig = getAssetTransfersRequestConfig(assetId = assetId, tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
-        return request<Unit, AssetTransferDtoListEnvelope>(
+        return request<AssetTransferDtoCollectionQueryParameters, AssetTransferDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1928,15 +1960,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetTransfersRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetTransfersRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : RequestConfig<AssetTransferDtoCollectionQueryParameters> {
+        val localVariableBody = assetTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1954,6 +1988,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of transfer records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1963,8 +1998,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetTransfersCount(assetId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetTransfersCountWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetTransfersCount(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetTransfersCountWithHttpInfo(assetId = assetId, tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1986,16 +2021,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of transfer records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetTransfersCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetTransfersCountRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetTransfersCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetTransfersCountRequestConfig(assetId = assetId, tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetTransferDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2005,15 +2041,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetTransfersCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetTransfersCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : RequestConfig<AssetTransferDtoCollectionQueryParameters> {
+        val localVariableBody = assetTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2111,6 +2149,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all value amendment records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return AssetValueAmendDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2120,8 +2159,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetValueAmends(assetId: java.util.UUID, tenantId: java.util.UUID) : AssetValueAmendDtoListEnvelope {
-        val localVarResponse = getAssetValueAmendsWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetValueAmends(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters? = null) : AssetValueAmendDtoListEnvelope {
+        val localVarResponse = getAssetValueAmendsWithHttpInfo(assetId = assetId, tenantId = tenantId, assetValueAmendDtoCollectionQueryParameters = assetValueAmendDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetValueAmendDtoListEnvelope
@@ -2143,16 +2182,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves all value amendment records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetValueAmendDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetValueAmendsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<AssetValueAmendDtoListEnvelope?> {
-        val localVariableConfig = getAssetValueAmendsRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetValueAmendsWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters?) : ApiResponse<AssetValueAmendDtoListEnvelope?> {
+        val localVariableConfig = getAssetValueAmendsRequestConfig(assetId = assetId, tenantId = tenantId, assetValueAmendDtoCollectionQueryParameters = assetValueAmendDtoCollectionQueryParameters)
 
-        return request<Unit, AssetValueAmendDtoListEnvelope>(
+        return request<AssetValueAmendDtoCollectionQueryParameters, AssetValueAmendDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2162,15 +2202,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetValueAmendsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetValueAmendsRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters?) : RequestConfig<AssetValueAmendDtoCollectionQueryParameters> {
+        val localVariableBody = assetValueAmendDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2188,6 +2230,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of value amendment records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2197,8 +2240,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetValueAmendsCount(assetId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetValueAmendsCountWithHttpInfo(assetId = assetId, tenantId = tenantId)
+    fun getAssetValueAmendsCount(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetValueAmendsCountWithHttpInfo(assetId = assetId, tenantId = tenantId, assetValueAmendDtoCollectionQueryParameters = assetValueAmendDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2220,16 +2263,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Returns the total number of value amendment records for the specified asset.
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetValueAmendsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetValueAmendsCountRequestConfig(assetId = assetId, tenantId = tenantId)
+    fun getAssetValueAmendsCountWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetValueAmendsCountRequestConfig(assetId = assetId, tenantId = tenantId, assetValueAmendDtoCollectionQueryParameters = assetValueAmendDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetValueAmendDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2239,15 +2283,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
+     * @param assetValueAmendDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetValueAmendsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetValueAmendsCountRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, assetValueAmendDtoCollectionQueryParameters: AssetValueAmendDtoCollectionQueryParameters?) : RequestConfig<AssetValueAmendDtoCollectionQueryParameters> {
+        val localVariableBody = assetValueAmendDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2264,6 +2310,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets all assets for the current tenant
      * Retrieves all assets for the authenticated tenant with optional filtering.
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return AssetDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2273,8 +2320,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssets(tenantId: java.util.UUID) : AssetDtoListEnvelope {
-        val localVarResponse = getAssetsWithHttpInfo(tenantId = tenantId)
+    fun getAssets(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters? = null) : AssetDtoListEnvelope {
+        val localVarResponse = getAssetsWithHttpInfo(tenantId = tenantId, assetDtoCollectionQueryParameters = assetDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetDtoListEnvelope
@@ -2295,16 +2342,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets all assets for the current tenant
      * Retrieves all assets for the authenticated tenant with optional filtering.
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetsWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<AssetDtoListEnvelope?> {
-        val localVariableConfig = getAssetsRequestConfig(tenantId = tenantId)
+    fun getAssetsWithHttpInfo(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters?) : ApiResponse<AssetDtoListEnvelope?> {
+        val localVariableConfig = getAssetsRequestConfig(tenantId = tenantId, assetDtoCollectionQueryParameters = assetDtoCollectionQueryParameters)
 
-        return request<Unit, AssetDtoListEnvelope>(
+        return request<AssetDtoCollectionQueryParameters, AssetDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2313,15 +2361,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getAssets
      *
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetsRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetsRequestConfig(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters?) : RequestConfig<AssetDtoCollectionQueryParameters> {
+        val localVariableBody = assetDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2338,6 +2388,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of assets
      * Returns the total number of assets for the authenticated tenant.
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2347,8 +2398,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetsCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetsCountWithHttpInfo(tenantId = tenantId)
+    fun getAssetsCount(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetsCountWithHttpInfo(tenantId = tenantId, assetDtoCollectionQueryParameters = assetDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2369,16 +2420,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of assets
      * Returns the total number of assets for the authenticated tenant.
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetsCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetsCountRequestConfig(tenantId = tenantId)
+    fun getAssetsCountWithHttpInfo(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetsCountRequestConfig(tenantId = tenantId, assetDtoCollectionQueryParameters = assetDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2387,15 +2439,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getAssetsCount
      *
      * @param tenantId 
+     * @param assetDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetsCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetsCountRequestConfig(tenantId: java.util.UUID, assetDtoCollectionQueryParameters: AssetDtoCollectionQueryParameters?) : RequestConfig<AssetDtoCollectionQueryParameters> {
+        val localVariableBody = assetDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2413,7 +2467,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to an existing asset for the authenticated tenant.
      * @param assetId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2423,8 +2477,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAsset(assetId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetWithHttpInfo(assetId = assetId, tenantId = tenantId, operation = operation)
+    fun patchAsset(assetId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetWithHttpInfo(assetId = assetId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2446,17 +2500,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to an existing asset for the authenticated tenant.
      * @param assetId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetRequestConfig(assetId = assetId, tenantId = tenantId, operation = operation)
+    fun patchAssetWithHttpInfo(assetId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetRequestConfig(assetId = assetId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2466,11 +2520,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param assetId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetRequestConfig(assetId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2494,7 +2548,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2504,8 +2558,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetAssetCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetAssetCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, operation = operation)
+    fun patchAssetAssetCategory(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetAssetCategoryWithHttpInfo(categoryId = categoryId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2527,17 +2581,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetAssetCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetAssetCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, operation = operation)
+    fun patchAssetAssetCategoryWithHttpInfo(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetAssetCategoryRequestConfig(categoryId = categoryId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2547,11 +2601,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param categoryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetAssetCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetAssetCategoryRequestConfig(categoryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2576,7 +2630,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param recordId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2586,8 +2640,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetDepreciationRecord(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetDepreciationRecordWithHttpInfo(assetId = assetId, recordId = recordId, tenantId = tenantId, operation = operation)
+    fun patchAssetDepreciationRecord(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetDepreciationRecordWithHttpInfo(assetId = assetId, recordId = recordId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2610,17 +2664,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param recordId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetDepreciationRecordWithHttpInfo(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetDepreciationRecordRequestConfig(assetId = assetId, recordId = recordId, tenantId = tenantId, operation = operation)
+    fun patchAssetDepreciationRecordWithHttpInfo(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetDepreciationRecordRequestConfig(assetId = assetId, recordId = recordId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2631,11 +2685,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param recordId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetDepreciationRecordRequestConfig(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetDepreciationRecordRequestConfig(assetId: java.util.UUID, recordId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2660,7 +2714,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param repairId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2670,8 +2724,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetRepair(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetRepairWithHttpInfo(assetId = assetId, repairId = repairId, tenantId = tenantId, operation = operation)
+    fun patchAssetRepair(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetRepairWithHttpInfo(assetId = assetId, repairId = repairId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2694,17 +2748,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param repairId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetRepairWithHttpInfo(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetRepairRequestConfig(assetId = assetId, repairId = repairId, tenantId = tenantId, operation = operation)
+    fun patchAssetRepairWithHttpInfo(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetRepairRequestConfig(assetId = assetId, repairId = repairId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2715,11 +2769,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param repairId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetRepairRequestConfig(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetRepairRequestConfig(assetId: java.util.UUID, repairId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2744,7 +2798,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2754,8 +2808,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetTransfer(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetTransferWithHttpInfo(assetId = assetId, transferId = transferId, tenantId = tenantId, operation = operation)
+    fun patchAssetTransfer(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetTransferWithHttpInfo(assetId = assetId, transferId = transferId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2778,17 +2832,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetTransferWithHttpInfo(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetTransferRequestConfig(assetId = assetId, transferId = transferId, tenantId = tenantId, operation = operation)
+    fun patchAssetTransferWithHttpInfo(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetTransferRequestConfig(assetId = assetId, transferId = transferId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2799,11 +2853,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetTransferRequestConfig(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetTransferRequestConfig(assetId: java.util.UUID, transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2828,7 +2882,7 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param amendId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2838,8 +2892,8 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetValueAmend(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetValueAmendWithHttpInfo(assetId = assetId, amendId = amendId, tenantId = tenantId, operation = operation)
+    fun patchAssetValueAmend(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetValueAmendWithHttpInfo(assetId = assetId, amendId = amendId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2862,17 +2916,17 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param amendId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetValueAmendWithHttpInfo(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetValueAmendRequestConfig(assetId = assetId, amendId = amendId, tenantId = tenantId, operation = operation)
+    fun patchAssetValueAmendWithHttpInfo(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetValueAmendRequestConfig(assetId = assetId, amendId = amendId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2883,11 +2937,11 @@ class AssetsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param assetId 
      * @param amendId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetValueAmendRequestConfig(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetValueAmendRequestConfig(assetId: java.util.UUID, amendId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

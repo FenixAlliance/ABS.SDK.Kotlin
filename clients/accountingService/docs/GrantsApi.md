@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getGrantsAsync"></a>
 # **getGrantsAsync**
-> GrantDtoIReadOnlyListEnvelope getGrantsAsync(tenantId, apiVersion, xApiVersion)
+> GrantDtoIReadOnlyListEnvelope getGrantsAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
 
 Get all grants
 
@@ -187,8 +187,9 @@ val apiInstance = GrantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val grantDtoCollectionQueryParameters : GrantDtoCollectionQueryParameters =  // GrantDtoCollectionQueryParameters | 
 try {
-    val result : GrantDtoIReadOnlyListEnvelope = apiInstance.getGrantsAsync(tenantId, apiVersion, xApiVersion)
+    val result : GrantDtoIReadOnlyListEnvelope = apiInstance.getGrantsAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GrantsApi#getGrantsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **grantDtoCollectionQueryParameters** | [**GrantDtoCollectionQueryParameters**](GrantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getGrantsCountAsync"></a>
 # **getGrantsCountAsync**
-> Int32Envelope getGrantsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getGrantsCountAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
 
 Count grants
 
@@ -237,8 +239,9 @@ val apiInstance = GrantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val grantDtoCollectionQueryParameters : GrantDtoCollectionQueryParameters =  // GrantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getGrantsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getGrantsCountAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GrantsApi#getGrantsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **grantDtoCollectionQueryParameters** | [**GrantDtoCollectionQueryParameters**](GrantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchGrantAsync"></a>
 # **patchGrantAsync**
-> EmptyEnvelope patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a grant
 
@@ -288,9 +292,9 @@ val grantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchGrantAsync(grantId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GrantsApi#patchGrantAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

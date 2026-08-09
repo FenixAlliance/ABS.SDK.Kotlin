@@ -11,10 +11,13 @@ All URIs are relative to *https://absuite.net*
 | [**getExtendedAccountHolderAsync**](UsersApi.md#getExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
 | [**getExtendedUsersAsync**](UsersApi.md#getExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
 | [**getExtendedUsersCountAsync**](UsersApi.md#getExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| [**getUserAdminDetailAsync**](UsersApi.md#getUserAdminDetailAsync) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user |
 | [**getUserAsync**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
 | [**getUsersAsync**](UsersApi.md#getUsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
 | [**getUsersCountAsync**](UsersApi.md#getUsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
 | [**patchAccountHolderAsync**](UsersApi.md#patchAccountHolderAsync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user |
+| [**setUserPasswordAsync**](UsersApi.md#setUserPasswordAsync) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user&#39;s password |
+| [**updateAccountHolderAdminProfileAsync**](UsersApi.md#updateAccountHolderAdminProfileAsync) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user&#39;s admin-managed profile |
 | [**updateAccountHolderAsync**](UsersApi.md#updateAccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
@@ -273,7 +276,7 @@ No authorization required
 
 <a id="getExtendedUsersAsync"></a>
 # **getExtendedUsersAsync**
-> ExtendedUserDtoListEnvelope getExtendedUsersAsync(apiVersion, xApiVersion)
+> ExtendedUserDtoListEnvelope getExtendedUsersAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
 
 Retrieve a list of extended users
 
@@ -288,8 +291,9 @@ This action is only available for global administrators.
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedUserDtoCollectionQueryParameters : ExtendedUserDtoCollectionQueryParameters =  // ExtendedUserDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedUserDtoListEnvelope = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion)
+    val result : ExtendedUserDtoListEnvelope = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getExtendedUsersAsync")
@@ -302,9 +306,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -316,12 +321,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedUsersCountAsync"></a>
 # **getExtendedUsersCountAsync**
-> Int32Envelope getExtendedUsersCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getExtendedUsersCountAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
 
 Get the count of extended users
 
@@ -336,8 +341,9 @@ This action is only available for global administrators.
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedUserDtoCollectionQueryParameters : ExtendedUserDtoCollectionQueryParameters =  // ExtendedUserDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getExtendedUsersCountAsync")
@@ -350,13 +356,66 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="getUserAdminDetailAsync"></a>
+# **getUserAdminDetailAsync**
+> UserAdminDetailDtoEnvelope getUserAdminDetailAsync(userId, tenantId, apiVersion, xApiVersion)
+
+Retrieve the admin detail aggregate for a user
+
+Returns the user&#39;s orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val userId : kotlin.String = userId_example // kotlin.String | 
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : UserAdminDetailDtoEnvelope = apiInstance.getUserAdminDetailAsync(userId, tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#getUserAdminDetailAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#getUserAdminDetailAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **kotlin.String**|  | |
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**UserAdminDetailDtoEnvelope**](UserAdminDetailDtoEnvelope.md)
 
 ### Authorization
 
@@ -419,7 +478,7 @@ No authorization required
 
 <a id="getUsersAsync"></a>
 # **getUsersAsync**
-> UserDtoListEnvelope getUsersAsync(apiVersion, xApiVersion)
+> UserDtoListEnvelope getUsersAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
 
 Retrieve a list of users
 
@@ -434,8 +493,9 @@ This action is only available for global administrators.
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val userDtoCollectionQueryParameters : UserDtoCollectionQueryParameters =  // UserDtoCollectionQueryParameters | 
 try {
-    val result : UserDtoListEnvelope = apiInstance.getUsersAsync(apiVersion, xApiVersion)
+    val result : UserDtoListEnvelope = apiInstance.getUsersAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getUsersAsync")
@@ -448,9 +508,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -462,12 +523,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getUsersCountAsync"></a>
 # **getUsersCountAsync**
-> Int32Envelope getUsersCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getUsersCountAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
 
 Get the count of users
 
@@ -482,8 +543,9 @@ This action is only available for global administrators.
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val userDtoCollectionQueryParameters : UserDtoCollectionQueryParameters =  // UserDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getUsersCountAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getUsersCountAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getUsersCountAsync")
@@ -496,9 +558,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -510,12 +573,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAccountHolderAsync"></a>
 # **patchAccountHolderAsync**
-> EmptyEnvelope patchAccountHolderAsync(userId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountHolderAsync(userId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a user
 
@@ -531,9 +594,9 @@ val apiInstance = UsersApi()
 val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountHolderAsync(userId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountHolderAsync(userId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#patchAccountHolderAsync")
@@ -550,7 +613,111 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="setUserPasswordAsync"></a>
+# **setUserPasswordAsync**
+> EmptyEnvelope setUserPasswordAsync(userId, apiVersion, xApiVersion, setUserPasswordDto)
+
+Set a user&#39;s password
+
+Replaces the user&#39;s password with the supplied value. Global administrators only.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val setUserPasswordDto : SetUserPasswordDto =  // SetUserPasswordDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.setUserPasswordAsync(userId, apiVersion, xApiVersion, setUserPasswordDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#setUserPasswordAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#setUserPasswordAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **setUserPasswordDto** | [**SetUserPasswordDto**](SetUserPasswordDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateAccountHolderAdminProfileAsync"></a>
+# **updateAccountHolderAdminProfileAsync**
+> EmptyEnvelope updateAccountHolderAdminProfileAsync(userId, apiVersion, xApiVersion, userAdminUpdateDto)
+
+Update a user&#39;s admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UsersApi()
+val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val userAdminUpdateDto : UserAdminUpdateDto =  // UserAdminUpdateDto | 
+try {
+    val result : EmptyEnvelope = apiInstance.updateAccountHolderAdminProfileAsync(userId, apiVersion, xApiVersion, userAdminUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UsersApi#updateAccountHolderAdminProfileAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UsersApi#updateAccountHolderAdminProfileAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **userId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **userAdminUpdateDto** | [**UserAdminUpdateDto**](UserAdminUpdateDto.md)|  | [optional] |
 
 ### Return type
 

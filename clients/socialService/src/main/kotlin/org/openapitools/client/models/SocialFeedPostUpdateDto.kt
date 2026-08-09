@@ -24,6 +24,9 @@ import com.squareup.moshi.JsonClass
  *
  * @param title 
  * @param message 
+ * @param bodyHtml 
+ * @param bodyFormat 
+ * @param backgroundStyle 
  */
 
 
@@ -33,10 +36,29 @@ data class SocialFeedPostUpdateDto (
     val title: kotlin.String? = null,
 
     @Json(name = "message")
-    val message: kotlin.String? = null
+    val message: kotlin.String? = null,
+
+    @Json(name = "bodyHtml")
+    val bodyHtml: kotlin.String? = null,
+
+    @Json(name = "bodyFormat")
+    val bodyFormat: SocialFeedPostUpdateDto.BodyFormat? = null,
+
+    @Json(name = "backgroundStyle")
+    val backgroundStyle: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: PlainText,Html
+     */
+    @JsonClass(generateAdapter = false)
+    enum class BodyFormat(val value: kotlin.String) {
+        @Json(name = "PlainText") PlainText("PlainText"),
+        @Json(name = "Html") Html("Html");
+    }
 
 }
 

@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countBlogPostTagsAsync"></a>
 # **countBlogPostTagsAsync**
-> Int32Envelope countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
 
 Count blog post tags
 
@@ -31,8 +31,9 @@ val apiInstance = BlogPostTagsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blogPostTagDtoCollectionQueryParameters : BlogPostTagDtoCollectionQueryParameters =  // BlogPostTagDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostTagsApi#countBlogPostTagsAsync")
@@ -46,9 +47,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createBlogPostTagAsync"></a>
@@ -221,7 +223,7 @@ No authorization required
 
 <a id="getBlogPostTagsAsync"></a>
 # **getBlogPostTagsAsync**
-> BlogPostTagDtoListEnvelope getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+> BlogPostTagDtoListEnvelope getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
 
 Get blog post tags
 
@@ -237,8 +239,9 @@ val apiInstance = BlogPostTagsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blogPostTagDtoCollectionQueryParameters : BlogPostTagDtoCollectionQueryParameters =  // BlogPostTagDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostTagDtoListEnvelope = apiInstance.getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BlogPostTagDtoListEnvelope = apiInstance.getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostTagsApi#getBlogPostTagsAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBlogPostTagAsync"></a>
 # **patchBlogPostTagAsync**
-> EmptyEnvelope patchBlogPostTagAsync(blogPostTagId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlogPostTagAsync(blogPostTagId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blog post tag
 
@@ -288,9 +292,9 @@ val blogPostTagId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBlogPostTagAsync(blogPostTagId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBlogPostTagAsync(blogPostTagId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostTagsApi#patchBlogPostTagAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

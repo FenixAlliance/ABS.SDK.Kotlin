@@ -23,7 +23,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebPagesAsync"></a>
 # **countWebPagesAsync**
-> Int32Envelope countWebPagesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
 
 Count web pages
 
@@ -39,8 +39,9 @@ val apiInstance = WebPagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageDtoCollectionQueryParameters : WebPageDtoCollectionQueryParameters =  // WebPageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countWebPagesAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPagesApi#countWebPagesAsync")
@@ -54,9 +55,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createWebPageAsync"></a>
@@ -281,7 +283,7 @@ No authorization required
 
 <a id="getCategoriesByWebPageAsync"></a>
 # **getCategoriesByWebPageAsync**
-> WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion)
+> WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters)
 
 Get categories by web page
 
@@ -297,8 +299,9 @@ val apiInstance = WebPagesApi()
 val webPageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageCategoryDtoCollectionQueryParameters : WebPageCategoryDtoCollectionQueryParameters =  // WebPageCategoryDtoCollectionQueryParameters | 
 try {
-    val result : WebPageCategoryDtoListEnvelope = apiInstance.getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion)
+    val result : WebPageCategoryDtoListEnvelope = apiInstance.getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPagesApi#getCategoriesByWebPageAsync")
@@ -312,9 +315,10 @@ try {
 ### Parameters
 | **webPageId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageCategoryDtoCollectionQueryParameters** | [**WebPageCategoryDtoCollectionQueryParameters**](WebPageCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -326,12 +330,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTagsByWebPageAsync"></a>
 # **getTagsByWebPageAsync**
-> WebPageTagDtoListEnvelope getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion)
+> WebPageTagDtoListEnvelope getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Get tags by web page
 
@@ -347,8 +351,9 @@ val apiInstance = WebPagesApi()
 val webPageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageTagDtoCollectionQueryParameters : WebPageTagDtoCollectionQueryParameters =  // WebPageTagDtoCollectionQueryParameters | 
 try {
-    val result : WebPageTagDtoListEnvelope = apiInstance.getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion)
+    val result : WebPageTagDtoListEnvelope = apiInstance.getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPagesApi#getTagsByWebPageAsync")
@@ -362,9 +367,10 @@ try {
 ### Parameters
 | **webPageId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -376,7 +382,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWebPageByIdAsync"></a>
@@ -433,7 +439,7 @@ No authorization required
 
 <a id="getWebPagesAsync"></a>
 # **getWebPagesAsync**
-> WebPageDtoListEnvelope getWebPagesAsync(tenantId, apiVersion, xApiVersion)
+> WebPageDtoListEnvelope getWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
 
 Get web pages
 
@@ -449,8 +455,9 @@ val apiInstance = WebPagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageDtoCollectionQueryParameters : WebPageDtoCollectionQueryParameters =  // WebPageDtoCollectionQueryParameters | 
 try {
-    val result : WebPageDtoListEnvelope = apiInstance.getWebPagesAsync(tenantId, apiVersion, xApiVersion)
+    val result : WebPageDtoListEnvelope = apiInstance.getWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPagesApi#getWebPagesAsync")
@@ -464,9 +471,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -478,12 +486,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchWebPageAsync"></a>
 # **patchWebPageAsync**
-> patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, operation)
+> patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web page
 
@@ -500,9 +508,9 @@ val webPageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchWebPageAsync(webPageId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling WebPagesApi#patchWebPageAsync")
     e.printStackTrace()
@@ -519,7 +527,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

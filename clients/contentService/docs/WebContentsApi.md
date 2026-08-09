@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebContentsAsync"></a>
 # **countWebContentsAsync**
-> Int32Envelope countWebContentsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
 
 Count web contents
 
@@ -31,8 +31,9 @@ val apiInstance = WebContentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webContentDtoCollectionQueryParameters : WebContentDtoCollectionQueryParameters =  // WebContentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countWebContentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebContentsApi#countWebContentsAsync")
@@ -46,9 +47,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webContentDtoCollectionQueryParameters** | [**WebContentDtoCollectionQueryParameters**](WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createWebContentAsync"></a>
@@ -221,7 +223,7 @@ No authorization required
 
 <a id="getWebContentsAsync"></a>
 # **getWebContentsAsync**
-> WebContentDtoListEnvelope getWebContentsAsync(tenantId, apiVersion, xApiVersion)
+> WebContentDtoListEnvelope getWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
 
 Get web contents
 
@@ -237,8 +239,9 @@ val apiInstance = WebContentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webContentDtoCollectionQueryParameters : WebContentDtoCollectionQueryParameters =  // WebContentDtoCollectionQueryParameters | 
 try {
-    val result : WebContentDtoListEnvelope = apiInstance.getWebContentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : WebContentDtoListEnvelope = apiInstance.getWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebContentsApi#getWebContentsAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webContentDtoCollectionQueryParameters** | [**WebContentDtoCollectionQueryParameters**](WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchWebContentAsync"></a>
 # **patchWebContentAsync**
-> EmptyEnvelope patchWebContentAsync(webContentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebContentAsync(webContentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web content
 
@@ -288,9 +292,9 @@ val webContentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWebContentAsync(webContentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWebContentAsync(webContentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebContentsApi#patchWebContentAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

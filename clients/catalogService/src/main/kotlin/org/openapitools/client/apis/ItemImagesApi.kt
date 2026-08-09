@@ -21,10 +21,11 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ItemImageCreateDto
+import org.openapitools.client.models.ItemImageDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemImageDtoEnvelope
 import org.openapitools.client.models.ItemImageDtoListEnvelope
 import org.openapitools.client.models.ItemImageUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -318,6 +319,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ItemImageDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -327,8 +329,8 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemImagesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoListEnvelope {
-        val localVarResponse = getItemImagesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemImagesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters? = null) : ItemImageDtoListEnvelope {
+        val localVarResponse = getItemImagesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemImageDtoCollectionQueryParameters = itemImageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemImageDtoListEnvelope
@@ -351,16 +353,17 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemImageDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemImagesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoListEnvelope?> {
-        val localVariableConfig = getItemImagesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemImagesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters?) : ApiResponse<ItemImageDtoListEnvelope?> {
+        val localVariableConfig = getItemImagesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemImageDtoCollectionQueryParameters = itemImageDtoCollectionQueryParameters)
 
-        return request<Unit, ItemImageDtoListEnvelope>(
+        return request<ItemImageDtoCollectionQueryParameters, ItemImageDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -371,10 +374,11 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemImagesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemImagesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters?) : RequestConfig<ItemImageDtoCollectionQueryParameters> {
+        val localVariableBody = itemImageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -386,6 +390,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -405,7 +410,7 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -414,8 +419,8 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemImageAsync(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchItemImageAsyncWithHttpInfo(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemImageAsync(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchItemImageAsyncWithHttpInfo(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -439,16 +444,16 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemImageAsyncWithHttpInfo(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchItemImageAsyncRequestConfig(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemImageAsyncWithHttpInfo(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchItemImageAsyncRequestConfig(itemImageId = itemImageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -460,11 +465,11 @@ class ItemImagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemImageAsyncRequestConfig(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemImageAsyncRequestConfig(itemImageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

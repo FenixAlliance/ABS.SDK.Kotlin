@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.TimezoneDtoCollectionQueryParameters
 import org.openapitools.client.models.TimezoneDtoEnvelope
 import org.openapitools.client.models.TimezoneDtoListEnvelope
 
@@ -53,6 +54,7 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of supported timezones, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countTimezonesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countTimezonesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTimezonesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countTimezonesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -85,16 +87,17 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of supported timezones, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countTimezonesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countTimezonesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTimezonesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countTimezonesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TimezoneDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -104,10 +107,11 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countTimezonesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countTimezonesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : RequestConfig<TimezoneDtoCollectionQueryParameters> {
+        val localVariableBody = timezoneDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -116,6 +120,7 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -216,6 +221,7 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves the list of all supported timezones with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return TimezoneDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -225,8 +231,8 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTimeZonesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TimezoneDtoListEnvelope {
-        val localVarResponse = getTimeZonesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTimeZonesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters? = null) : TimezoneDtoListEnvelope {
+        val localVarResponse = getTimeZonesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TimezoneDtoListEnvelope
@@ -248,16 +254,17 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves the list of all supported timezones with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TimezoneDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTimeZonesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TimezoneDtoListEnvelope?> {
-        val localVariableConfig = getTimeZonesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTimeZonesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : ApiResponse<TimezoneDtoListEnvelope?> {
+        val localVariableConfig = getTimeZonesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
-        return request<Unit, TimezoneDtoListEnvelope>(
+        return request<TimezoneDtoCollectionQueryParameters, TimezoneDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -267,10 +274,11 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTimeZonesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTimeZonesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : RequestConfig<TimezoneDtoCollectionQueryParameters> {
+        val localVariableBody = timezoneDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -279,6 +287,7 @@ class TimezonesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

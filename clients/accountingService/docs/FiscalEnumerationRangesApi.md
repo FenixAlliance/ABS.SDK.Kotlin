@@ -173,7 +173,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRanges"></a>
 # **getInvoiceEnumerationRanges**
-> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
 
 Get invoice enumeration ranges for an authority
 
@@ -191,8 +191,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceEnumerationRangeDtoCollectionQueryParameters : InvoiceEnumerationRangeDtoCollectionQueryParameters =  // InvoiceEnumerationRangeDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRanges(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalEnumerationRangesApi#getInvoiceEnumerationRanges")
@@ -208,9 +209,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -222,12 +224,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceEnumerationRangesCount"></a>
 # **getInvoiceEnumerationRangesCount**
-> Int32Envelope getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
 
 Get invoice enumeration ranges count
 
@@ -244,8 +246,9 @@ val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d //
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceEnumerationRangeDtoCollectionQueryParameters : InvoiceEnumerationRangeDtoCollectionQueryParameters =  // InvoiceEnumerationRangeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getInvoiceEnumerationRangesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalEnumerationRangesApi#getInvoiceEnumerationRangesCount")
@@ -260,9 +263,10 @@ try {
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,12 +278,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchFiscalEnumerationRangeAsync"></a>
 # **patchFiscalEnumerationRangeAsync**
-> EmptyEnvelope patchFiscalEnumerationRangeAsync(enumerationRangeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalEnumerationRangeAsync(enumerationRangeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an invoice enumeration range
 
@@ -296,9 +300,9 @@ val enumerationRangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d /
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalEnumerationRangeAsync(enumerationRangeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalEnumerationRangeAsync(enumerationRangeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalEnumerationRangesApi#patchFiscalEnumerationRangeAsync")
@@ -316,7 +320,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

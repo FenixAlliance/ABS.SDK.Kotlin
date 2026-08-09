@@ -686,6 +686,15 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return FileUploadDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -695,8 +704,8 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFilesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FileUploadDtoEnvelope {
-        val localVarResponse = getFilesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFilesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, top: kotlin.Int? = null, skip: kotlin.Int? = null, count: kotlin.Boolean? = null, filter: kotlin.String? = null, orderBy: kotlin.String? = null, search: kotlin.String? = null, select: kotlin.String? = null, expand: kotlin.String? = null, isEmpty: kotlin.Boolean? = null) : FileUploadDtoEnvelope {
+        val localVarResponse = getFilesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, top = top, skip = skip, count = count, filter = filter, orderBy = orderBy, search = search, select = select, expand = expand, isEmpty = isEmpty)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FileUploadDtoEnvelope
@@ -719,16 +728,25 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return ApiResponse<FileUploadDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFilesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FileUploadDtoEnvelope?> {
-        val localVariableConfig = getFilesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFilesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, top: kotlin.Int?, skip: kotlin.Int?, count: kotlin.Boolean?, filter: kotlin.String?, orderBy: kotlin.String?, search: kotlin.String?, select: kotlin.String?, expand: kotlin.String?, isEmpty: kotlin.Boolean?) : ApiResponse<FileUploadDtoEnvelope?> {
+        val localVariableConfig = getFilesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, top = top, skip = skip, count = count, filter = filter, orderBy = orderBy, search = search, select = select, expand = expand, isEmpty = isEmpty)
 
-        return request<Unit, FileUploadDtoEnvelope>(
+        return request<Map<String, PartConfig<*>>, FileUploadDtoEnvelope>(
             localVariableConfig
         )
     }
@@ -739,10 +757,28 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return RequestConfig
      */
-    fun getFilesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFilesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, top: kotlin.Int?, skip: kotlin.Int?, count: kotlin.Boolean?, filter: kotlin.String?, orderBy: kotlin.String?, search: kotlin.String?, select: kotlin.String?, expand: kotlin.String?, isEmpty: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "top" to PartConfig(body = top, headers = mutableMapOf()),
+            "skip" to PartConfig(body = skip, headers = mutableMapOf()),
+            "count" to PartConfig(body = count, headers = mutableMapOf()),
+            "filter" to PartConfig(body = filter, headers = mutableMapOf()),
+            "orderBy" to PartConfig(body = orderBy, headers = mutableMapOf()),
+            "search" to PartConfig(body = search, headers = mutableMapOf()),
+            "select" to PartConfig(body = select, headers = mutableMapOf()),
+            "expand" to PartConfig(body = expand, headers = mutableMapOf()),
+            "isEmpty" to PartConfig(body = isEmpty, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -752,7 +788,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
                     put("api-version", listOf(apiVersion.toString()))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
@@ -772,6 +808,15 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return kotlin.Long
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -781,8 +826,8 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFilesCountAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Long {
-        val localVarResponse = getFilesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFilesCountAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, top: kotlin.Int? = null, skip: kotlin.Int? = null, count: kotlin.Boolean? = null, filter: kotlin.String? = null, orderBy: kotlin.String? = null, search: kotlin.String? = null, select: kotlin.String? = null, expand: kotlin.String? = null, isEmpty: kotlin.Boolean? = null) : kotlin.Long {
+        val localVarResponse = getFilesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, top = top, skip = skip, count = count, filter = filter, orderBy = orderBy, search = search, select = select, expand = expand, isEmpty = isEmpty)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Long
@@ -805,16 +850,25 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return ApiResponse<kotlin.Long?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFilesCountAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Long?> {
-        val localVariableConfig = getFilesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFilesCountAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, top: kotlin.Int?, skip: kotlin.Int?, count: kotlin.Boolean?, filter: kotlin.String?, orderBy: kotlin.String?, search: kotlin.String?, select: kotlin.String?, expand: kotlin.String?, isEmpty: kotlin.Boolean?) : ApiResponse<kotlin.Long?> {
+        val localVariableConfig = getFilesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, top = top, skip = skip, count = count, filter = filter, orderBy = orderBy, search = search, select = select, expand = expand, isEmpty = isEmpty)
 
-        return request<Unit, kotlin.Long>(
+        return request<Map<String, PartConfig<*>>, kotlin.Long>(
             localVariableConfig
         )
     }
@@ -825,10 +879,28 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return RequestConfig
      */
-    fun getFilesCountAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFilesCountAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, top: kotlin.Int?, skip: kotlin.Int?, count: kotlin.Boolean?, filter: kotlin.String?, orderBy: kotlin.String?, search: kotlin.String?, select: kotlin.String?, expand: kotlin.String?, isEmpty: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "top" to PartConfig(body = top, headers = mutableMapOf()),
+            "skip" to PartConfig(body = skip, headers = mutableMapOf()),
+            "count" to PartConfig(body = count, headers = mutableMapOf()),
+            "filter" to PartConfig(body = filter, headers = mutableMapOf()),
+            "orderBy" to PartConfig(body = orderBy, headers = mutableMapOf()),
+            "search" to PartConfig(body = search, headers = mutableMapOf()),
+            "select" to PartConfig(body = select, headers = mutableMapOf()),
+            "expand" to PartConfig(body = expand, headers = mutableMapOf()),
+            "isEmpty" to PartConfig(body = isEmpty, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -838,7 +910,7 @@ class FilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
                     put("api-version", listOf(apiVersion.toString()))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 

@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.AddressDtoCollectionQueryParameters
 import org.openapitools.client.models.AddressDtoListEnvelope
 import org.openapitools.client.models.CartDtoEnvelope
 import org.openapitools.client.models.EmptyEnvelope
@@ -26,11 +27,14 @@ import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.ExtendedTenantDtoListEnvelope
 import org.openapitools.client.models.ExtendedTenantEnrollmentDtoListEnvelope
 import org.openapitools.client.models.ExtendedUserDtoEnvelope
+import org.openapitools.client.models.FollowRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.FollowRecordDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.NotificationDtoCollectionQueryParameters
 import org.openapitools.client.models.NotificationDtoListEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SocialProfileDtoEnvelope
+import org.openapitools.client.models.TenantDtoCollectionQueryParameters
 import org.openapitools.client.models.TenantDtoListEnvelope
 import org.openapitools.client.models.TenantEnrollmentDtoEnvelope
 import org.openapitools.client.models.TenantEnrollmentDtoListEnvelope
@@ -70,6 +74,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -79,8 +84,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCurrentUserFollowersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCurrentUserFollowersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserFollowersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCurrentUserFollowersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -102,16 +107,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCurrentUserFollowersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCurrentUserFollowersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserFollowersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrentUserFollowersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -121,10 +127,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCurrentUserFollowersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCurrentUserFollowersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -133,6 +140,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -150,6 +158,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -159,8 +168,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCurrentUserFollowsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCurrentUserFollowsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserFollowsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCurrentUserFollowsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -182,16 +191,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCurrentUserFollowsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCurrentUserFollowsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserFollowsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrentUserFollowsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -201,10 +211,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCurrentUserFollowsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCurrentUserFollowsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -213,6 +224,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -230,6 +242,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -239,8 +252,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCurrentUserNotificationsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserNotificationsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -262,16 +275,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCurrentUserNotificationsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrentUserNotificationsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<NotificationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -281,10 +295,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCurrentUserNotificationsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCurrentUserNotificationsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : RequestConfig<NotificationDtoCollectionQueryParameters> {
+        val localVariableBody = notificationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -293,6 +308,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -310,6 +326,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -319,8 +336,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCurrentUserTenantsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCurrentUserTenantsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserTenantsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCurrentUserTenantsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -342,16 +359,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Count the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCurrentUserTenantsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCurrentUserTenantsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrentUserTenantsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrentUserTenantsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TenantDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -361,10 +379,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCurrentUserTenantsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCurrentUserTenantsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : RequestConfig<TenantDtoCollectionQueryParameters> {
+        val localVariableBody = tenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -373,6 +392,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -390,6 +410,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the list of addresses for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @return AddressDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -399,8 +420,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurrentUserAddressesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AddressDtoListEnvelope {
-        val localVarResponse = getCurrentUserAddressesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserAddressesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, addressDtoCollectionQueryParameters: AddressDtoCollectionQueryParameters? = null) : AddressDtoListEnvelope {
+        val localVarResponse = getCurrentUserAddressesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, addressDtoCollectionQueryParameters = addressDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AddressDtoListEnvelope
@@ -422,16 +443,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the list of addresses for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AddressDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurrentUserAddressesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AddressDtoListEnvelope?> {
-        val localVariableConfig = getCurrentUserAddressesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserAddressesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, addressDtoCollectionQueryParameters: AddressDtoCollectionQueryParameters?) : ApiResponse<AddressDtoListEnvelope?> {
+        val localVariableConfig = getCurrentUserAddressesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, addressDtoCollectionQueryParameters = addressDtoCollectionQueryParameters)
 
-        return request<Unit, AddressDtoListEnvelope>(
+        return request<AddressDtoCollectionQueryParameters, AddressDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -441,10 +463,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurrentUserAddressesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurrentUserAddressesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, addressDtoCollectionQueryParameters: AddressDtoCollectionQueryParameters?) : RequestConfig<AddressDtoCollectionQueryParameters> {
+        val localVariableBody = addressDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -453,6 +476,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -870,6 +894,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -879,8 +904,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurrentUserFollowersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FollowRecordDtoListEnvelope {
-        val localVarResponse = getCurrentUserFollowersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserFollowersAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : FollowRecordDtoListEnvelope {
+        val localVarResponse = getCurrentUserFollowersAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FollowRecordDtoListEnvelope
@@ -902,16 +927,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FollowRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurrentUserFollowersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FollowRecordDtoListEnvelope?> {
-        val localVariableConfig = getCurrentUserFollowersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserFollowersAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<FollowRecordDtoListEnvelope?> {
+        val localVariableConfig = getCurrentUserFollowersAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, FollowRecordDtoListEnvelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, FollowRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -921,10 +947,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurrentUserFollowersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurrentUserFollowersAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -933,6 +960,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -950,6 +978,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -959,8 +988,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurrentUserFollowsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FollowRecordDtoListEnvelope {
-        val localVarResponse = getCurrentUserFollowsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserFollowsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : FollowRecordDtoListEnvelope {
+        val localVarResponse = getCurrentUserFollowsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FollowRecordDtoListEnvelope
@@ -982,16 +1011,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FollowRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurrentUserFollowsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FollowRecordDtoListEnvelope?> {
-        val localVariableConfig = getCurrentUserFollowsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserFollowsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<FollowRecordDtoListEnvelope?> {
+        val localVariableConfig = getCurrentUserFollowsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, FollowRecordDtoListEnvelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, FollowRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1001,10 +1031,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurrentUserFollowsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurrentUserFollowsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1013,6 +1044,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -1110,6 +1142,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the list of notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return NotificationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1119,8 +1152,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurrentUserNotificationsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : NotificationDtoListEnvelope {
-        val localVarResponse = getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserNotificationsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters? = null) : NotificationDtoListEnvelope {
+        val localVarResponse = getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationDtoListEnvelope
@@ -1142,16 +1175,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the list of notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<NotificationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<NotificationDtoListEnvelope?> {
-        val localVariableConfig = getCurrentUserNotificationsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : ApiResponse<NotificationDtoListEnvelope?> {
+        val localVariableConfig = getCurrentUserNotificationsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
-        return request<Unit, NotificationDtoListEnvelope>(
+        return request<NotificationDtoCollectionQueryParameters, NotificationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1161,10 +1195,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurrentUserNotificationsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurrentUserNotificationsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : RequestConfig<NotificationDtoCollectionQueryParameters> {
+        val localVariableBody = notificationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1173,6 +1208,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -1350,6 +1386,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return TenantDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1359,8 +1396,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurrentUserTenantsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantDtoListEnvelope {
-        val localVarResponse = getCurrentUserTenantsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserTenantsAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters? = null) : TenantDtoListEnvelope {
+        val localVarResponse = getCurrentUserTenantsAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantDtoListEnvelope
@@ -1382,16 +1419,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurrentUserTenantsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantDtoListEnvelope?> {
-        val localVariableConfig = getCurrentUserTenantsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurrentUserTenantsAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : ApiResponse<TenantDtoListEnvelope?> {
+        val localVariableConfig = getCurrentUserTenantsAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
-        return request<Unit, TenantDtoListEnvelope>(
+        return request<TenantDtoCollectionQueryParameters, TenantDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1401,10 +1439,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurrentUserTenantsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurrentUserTenantsAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : RequestConfig<TenantDtoCollectionQueryParameters> {
+        val localVariableBody = tenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1413,6 +1452,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json, multipart/form-data"
 
         return RequestConfig(
@@ -1753,7 +1793,7 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Partially update the current user&#39;s profile
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1763,8 +1803,8 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCurrentUserAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchCurrentUserAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCurrentUserAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchCurrentUserAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1786,17 +1826,17 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Partially update the current user&#39;s profile
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCurrentUserAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchCurrentUserAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCurrentUserAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchCurrentUserAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1806,11 +1846,11 @@ class UsersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCurrentUserAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCurrentUserAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {

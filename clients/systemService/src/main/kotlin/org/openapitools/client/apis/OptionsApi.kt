@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
 import org.openapitools.client.models.OptionCreateDto
+import org.openapitools.client.models.OptionDtoCollectionQueryParameters
 import org.openapitools.client.models.OptionDtoEnvelope
 import org.openapitools.client.models.OptionDtoListEnvelope
 import org.openapitools.client.models.OptionUpdateDto
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -405,6 +406,7 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return OptionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -414,8 +416,8 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemOptions(portalId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : OptionDtoListEnvelope {
-        val localVarResponse = getSystemOptionsWithHttpInfo(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemOptions(portalId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters? = null) : OptionDtoListEnvelope {
+        val localVarResponse = getSystemOptionsWithHttpInfo(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OptionDtoListEnvelope
@@ -438,16 +440,17 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<OptionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemOptionsWithHttpInfo(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<OptionDtoListEnvelope?> {
-        val localVariableConfig = getSystemOptionsRequestConfig(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemOptionsWithHttpInfo(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : ApiResponse<OptionDtoListEnvelope?> {
+        val localVariableConfig = getSystemOptionsRequestConfig(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
-        return request<Unit, OptionDtoListEnvelope>(
+        return request<OptionDtoCollectionQueryParameters, OptionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -458,10 +461,11 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemOptionsRequestConfig(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemOptionsRequestConfig(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : RequestConfig<OptionDtoCollectionQueryParameters> {
+        val localVariableBody = optionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("portalId", listOf(portalId.toString()))
@@ -471,6 +475,7 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,6 +494,7 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -498,8 +504,8 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemOptionsCount(portalId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSystemOptionsCountWithHttpInfo(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemOptionsCount(portalId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSystemOptionsCountWithHttpInfo(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -522,16 +528,17 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemOptionsCountWithHttpInfo(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSystemOptionsCountRequestConfig(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemOptionsCountWithHttpInfo(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSystemOptionsCountRequestConfig(portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<OptionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -542,10 +549,11 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param portalId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemOptionsCountRequestConfig(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemOptionsCountRequestConfig(portalId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : RequestConfig<OptionDtoCollectionQueryParameters> {
+        val localVariableBody = optionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("portalId", listOf(portalId.toString()))
@@ -555,6 +563,7 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -573,7 +582,7 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -583,8 +592,8 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSystemOption(optionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSystemOptionWithHttpInfo(optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSystemOption(optionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSystemOptionWithHttpInfo(optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -607,17 +616,17 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSystemOptionWithHttpInfo(optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSystemOptionRequestConfig(optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSystemOptionWithHttpInfo(optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSystemOptionRequestConfig(optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -628,11 +637,11 @@ class OptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSystemOptionRequestConfig(optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSystemOptionRequestConfig(optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {

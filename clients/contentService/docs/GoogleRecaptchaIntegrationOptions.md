@@ -9,6 +9,9 @@
 | **siteKey** | **kotlin.String** |  |  [optional] |
 | **secretKey** | **kotlin.String** |  |  [optional] |
 | **version** | **kotlin.String** |  |  [optional] |
+| **projectId** | **kotlin.String** |  |  [optional] |
+| **apiKey** | **kotlin.String** |  |  [optional] |
+| **scoreThreshold** | **kotlin.Double** |  |  [optional] |
 
 
 

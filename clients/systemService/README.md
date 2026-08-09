@@ -48,6 +48,16 @@ All URIs are relative to *https://absuite.net*
 | ------------ | ------------- | ------------- | ------------- |
 | *AntiforgeryApi* | [**getAndStoreTokens**](docs/AntiforgeryApi.md#getandstoretokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens |
 | *AntiforgeryApi* | [**isRequestValidAsync**](docs/AntiforgeryApi.md#isrequestvalidasync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request |
+| *ApplicationPrincipalsApi* | [**disableGlobalApplicationPrincipal**](docs/ApplicationPrincipalsApi.md#disableglobalapplicationprincipal) | **POST** /api/v2/SystemService/ApplicationPrincipals/{principalId}/Disable | Disable an application principal (global) |
+| *ApplicationPrincipalsApi* | [**enableGlobalApplicationPrincipal**](docs/ApplicationPrincipalsApi.md#enableglobalapplicationprincipal) | **POST** /api/v2/SystemService/ApplicationPrincipals/{principalId}/Enable | Enable an application principal (global) |
+| *ApplicationPrincipalsApi* | [**getGlobalApplicationPrincipal**](docs/ApplicationPrincipalsApi.md#getglobalapplicationprincipal) | **GET** /api/v2/SystemService/ApplicationPrincipals/{principalId} | Get one application principal (any tenant) |
+| *ApplicationPrincipalsApi* | [**getGlobalApplicationPrincipals**](docs/ApplicationPrincipalsApi.md#getglobalapplicationprincipals) | **GET** /api/v2/SystemService/ApplicationPrincipals | List application principals across all tenants |
+| *ApplicationPrincipalsApi* | [**getGlobalApplicationPrincipalsCount**](docs/ApplicationPrincipalsApi.md#getglobalapplicationprincipalscount) | **GET** /api/v2/SystemService/ApplicationPrincipals/Count | Count application principals across all tenants |
+| *ApplicationPrincipalsApi* | [**grantGlobalApplicationPrincipalPermission**](docs/ApplicationPrincipalsApi.md#grantglobalapplicationprincipalpermission) | **POST** /api/v2/SystemService/ApplicationPrincipals/{principalId}/Permissions | Grant a permission to an application principal (any tenant) |
+| *ApplicationPrincipalsApi* | [**provisionGlobalApplicationPrincipal**](docs/ApplicationPrincipalsApi.md#provisionglobalapplicationprincipal) | **POST** /api/v2/SystemService/ApplicationPrincipals/Provision | Provision an application principal (any tenant, incl. system-locked) |
+| *ApplicationPrincipalsApi* | [**provisionPaymentsConnector**](docs/ApplicationPrincipalsApi.md#provisionpaymentsconnector) | **POST** /api/v2/SystemService/ApplicationPrincipals/PaymentsConnector | Provision the platform payments-connector identity |
+| *ApplicationPrincipalsApi* | [**revokeGlobalApplicationPrincipalPermission**](docs/ApplicationPrincipalsApi.md#revokeglobalapplicationprincipalpermission) | **DELETE** /api/v2/SystemService/ApplicationPrincipals/{principalId}/Permissions/{permission} | Revoke a permission from an application principal (any tenant) |
+| *ApplicationPrincipalsApi* | [**suspendGlobalApplicationPrincipal**](docs/ApplicationPrincipalsApi.md#suspendglobalapplicationprincipal) | **POST** /api/v2/SystemService/ApplicationPrincipals/{principalId}/Suspend | Suspend an application principal (global) |
 | *BusinessDomainsApi* | [**deleteSystemBusinessDomain**](docs/BusinessDomainsApi.md#deletesystembusinessdomain) | **DELETE** /api/v2/SystemService/BusinessDomains/{businessDomainId} | Delete a business domain |
 | *BusinessDomainsApi* | [**getSystemBusinessDomainById**](docs/BusinessDomainsApi.md#getsystembusinessdomainbyid) | **GET** /api/v2/SystemService/BusinessDomains/{businessDomainId} | Retrieve a business domain by its ID |
 | *BusinessDomainsApi* | [**getSystemBusinessDomains**](docs/BusinessDomainsApi.md#getsystembusinessdomains) | **GET** /api/v2/SystemService/BusinessDomains | Retrieve all business domains in the system |
@@ -57,6 +67,7 @@ All URIs are relative to *https://absuite.net*
 | *CartsApi* | [**getSystemCartById**](docs/CartsApi.md#getsystemcartbyid) | **GET** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID |
 | *CartsApi* | [**getSystemCarts**](docs/CartsApi.md#getsystemcarts) | **GET** /api/v2/SystemService/Carts | Retrieve a list of system carts |
 | *CartsApi* | [**getSystemCartsCount**](docs/CartsApi.md#getsystemcartscount) | **GET** /api/v2/SystemService/Carts/Count | Get the count of system carts |
+| *CartsApi* | [**purgeSystemGuestCarts**](docs/CartsApi.md#purgesystemguestcarts) | **DELETE** /api/v2/SystemService/Carts/Guests | Purge all guest carts |
 | *ContactOptionsApi* | [**createSystemContactOption**](docs/ContactOptionsApi.md#createsystemcontactoption) | **POST** /api/v2/SystemService/Contacts/{contactId}/Options | Create a new contact option (admin) |
 | *ContactOptionsApi* | [**deleteSystemContactOption**](docs/ContactOptionsApi.md#deletesystemcontactoption) | **DELETE** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Delete a contact option (admin) |
 | *ContactOptionsApi* | [**getSystemContactOptionById**](docs/ContactOptionsApi.md#getsystemcontactoptionbyid) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Retrieve a single contact option by its ID (admin) |
@@ -70,7 +81,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -88,6 +98,19 @@ All URIs are relative to *https://absuite.net*
 | *IPLookupsApi* | [**getSystemIPLookupById**](docs/IPLookupsApi.md#getsystemiplookupbyid) | **GET** /api/v2/SystemService/IPLookups/{ipLookupId} | Retrieve a single system IP lookup by its ID |
 | *IPLookupsApi* | [**getSystemIPLookups**](docs/IPLookupsApi.md#getsystemiplookups) | **GET** /api/v2/SystemService/IPLookups | Retrieve a list of system IP lookups |
 | *IPLookupsApi* | [**getSystemIPLookupsCount**](docs/IPLookupsApi.md#getsystemiplookupscount) | **GET** /api/v2/SystemService/IPLookups/Count | Get the count of system IP lookups |
+| *InboxApi* | [**cancelInboxMessageRetry**](docs/InboxApi.md#cancelinboxmessageretry) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/CancelRetry | Cancel a scheduled inbox retry |
+| *InboxApi* | [**deadLetterInboxMessage**](docs/InboxApi.md#deadletterinboxmessage) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/DeadLetter | Manually dead-letter an inbox message |
+| *InboxApi* | [**expediteInboxMessage**](docs/InboxApi.md#expediteinboxmessage) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/Expedite | Expedite a retry-scheduled inbox message |
+| *InboxApi* | [**getDuplicateInboxMessages**](docs/InboxApi.md#getduplicateinboxmessages) | **GET** /api/v2/SystemService/Inbox/Duplicates | List duplicate-bearing inbox messages |
+| *InboxApi* | [**getDuplicateInboxMessagesCount**](docs/InboxApi.md#getduplicateinboxmessagescount) | **GET** /api/v2/SystemService/Inbox/Duplicates/Count | Count duplicate-bearing inbox messages |
+| *InboxApi* | [**getInboxCorrelationChain**](docs/InboxApi.md#getinboxcorrelationchain) | **GET** /api/v2/SystemService/Inbox/Correlations/{correlationId} | Get an inbox correlation chain |
+| *InboxApi* | [**getInboxHealth**](docs/InboxApi.md#getinboxhealth) | **GET** /api/v2/SystemService/Inbox/Health | Get durable-inbox processor health |
+| *InboxApi* | [**getInboxMessage**](docs/InboxApi.md#getinboxmessage) | **GET** /api/v2/SystemService/Inbox/Messages/{id} | Get one inbox message |
+| *InboxApi* | [**getInboxMessages**](docs/InboxApi.md#getinboxmessages) | **GET** /api/v2/SystemService/Inbox/Messages | List inbox messages |
+| *InboxApi* | [**getInboxMessagesCount**](docs/InboxApi.md#getinboxmessagescount) | **GET** /api/v2/SystemService/Inbox/Messages/Count | Count inbox messages |
+| *InboxApi* | [**quarantineInboxMessage**](docs/InboxApi.md#quarantineinboxmessage) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/Quarantine | Manually quarantine an inbox message |
+| *InboxApi* | [**releaseInboxMessageLease**](docs/InboxApi.md#releaseinboxmessagelease) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/ReleaseLease | Release a stuck inbox lease |
+| *InboxApi* | [**replayInboxMessage**](docs/InboxApi.md#replayinboxmessage) | **POST** /api/v2/SystemService/Inbox/Messages/{id}/Replay | Replay a terminal inbox message as a new generation |
 | *LicensingApi* | [**getAttributesForLicenseAsync**](docs/LicensingApi.md#getattributesforlicenseasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes |
 | *LicensingApi* | [**getFeaturesForLicenseAsync**](docs/LicensingApi.md#getfeaturesforlicenseasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features |
 | *LicensingApi* | [**getLicenseAssignmentsAsync**](docs/LicensingApi.md#getlicenseassignmentsasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | Retrieve license assignments |
@@ -109,6 +132,16 @@ All URIs are relative to *https://absuite.net*
 | *OptionsApi* | [**patchSystemOption**](docs/OptionsApi.md#patchsystemoption) | **PATCH** /api/v2/SystemService/Options/{optionId} | Partially update a system option |
 | *OptionsApi* | [**updateSystemOption**](docs/OptionsApi.md#updatesystemoption) | **PUT** /api/v2/SystemService/Options/{optionId} | Update a system option |
 | *OptionsApi* | [**upsertSystemOption**](docs/OptionsApi.md#upsertsystemoption) | **PUT** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key |
+| *OutboxApi* | [**cancelOutboxMessage**](docs/OutboxApi.md#canceloutboxmessage) | **POST** /api/v2/SystemService/Outbox/Messages/{id}/Cancel | Cancel an outbox message |
+| *OutboxApi* | [**deadLetterOutboxMessage**](docs/OutboxApi.md#deadletteroutboxmessage) | **POST** /api/v2/SystemService/Outbox/Messages/{id}/DeadLetter | Manually dead-letter an outbox message |
+| *OutboxApi* | [**expediteOutboxMessage**](docs/OutboxApi.md#expediteoutboxmessage) | **POST** /api/v2/SystemService/Outbox/Messages/{id}/Expedite | Expedite a failed (retry-eligible) outbox message |
+| *OutboxApi* | [**getOutboxCorrelationChain**](docs/OutboxApi.md#getoutboxcorrelationchain) | **GET** /api/v2/SystemService/Outbox/Correlations/{correlationId} | Get an outbox correlation chain |
+| *OutboxApi* | [**getOutboxHealth**](docs/OutboxApi.md#getoutboxhealth) | **GET** /api/v2/SystemService/Outbox/Health | Get durable-outbox relay health |
+| *OutboxApi* | [**getOutboxMessage**](docs/OutboxApi.md#getoutboxmessage) | **GET** /api/v2/SystemService/Outbox/Messages/{id} | Get one outbox message |
+| *OutboxApi* | [**getOutboxMessages**](docs/OutboxApi.md#getoutboxmessages) | **GET** /api/v2/SystemService/Outbox/Messages | List outbox messages |
+| *OutboxApi* | [**getOutboxMessagesCount**](docs/OutboxApi.md#getoutboxmessagescount) | **GET** /api/v2/SystemService/Outbox/Messages/Count | Count outbox messages |
+| *OutboxApi* | [**releaseOutboxMessageLease**](docs/OutboxApi.md#releaseoutboxmessagelease) | **POST** /api/v2/SystemService/Outbox/Messages/{id}/ReleaseLease | Release a stuck outbox lease |
+| *OutboxApi* | [**replayOutboxMessage**](docs/OutboxApi.md#replayoutboxmessage) | **POST** /api/v2/SystemService/Outbox/Messages/{id}/Replay | Replay a dead-lettered or failed outbox message |
 | *OverviewApi* | [**getSystemOverview**](docs/OverviewApi.md#getsystemoverview) | **GET** /api/v2/SystemService/Overview | Get system overview information |
 | *PortalsApi* | [**createSystemPortal**](docs/PortalsApi.md#createsystemportal) | **POST** /api/v2/SystemService/Portals | Create a new system portal |
 | *PortalsApi* | [**deleteSystemPortal**](docs/PortalsApi.md#deletesystemportal) | **DELETE** /api/v2/SystemService/Portals/{portalId} | Delete a system portal |
@@ -132,8 +165,10 @@ All URIs are relative to *https://absuite.net*
 | *TenantsApi* | [**getAllTenants**](docs/TenantsApi.md#getalltenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance. |
 | *TenantsApi* | [**getExtendedTenantsCount**](docs/TenantsApi.md#getextendedtenantscount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance. |
 | *TenantsApi* | [**getTenant**](docs/TenantsApi.md#gettenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID. |
+| *TenantsApi* | [**getTenantModuleGrants**](docs/TenantsApi.md#gettenantmodulegrants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant. |
 | *TenantsApi* | [**getTenantsCount**](docs/TenantsApi.md#gettenantscount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance. |
 | *TenantsApi* | [**patchTenant**](docs/TenantsApi.md#patchtenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID. |
+| *TenantsApi* | [**setTenantModuleGrants**](docs/TenantsApi.md#settenantmodulegrants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant. |
 | *TenantsApi* | [**updateTenant**](docs/TenantsApi.md#updatetenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID. |
 | *UserOptionsApi* | [**createSystemUserOption**](docs/UserOptionsApi.md#createsystemuseroption) | **POST** /api/v2/SystemService/Users/{userId}/Options | Create a new user option (admin) |
 | *UserOptionsApi* | [**deleteSystemUserOption**](docs/UserOptionsApi.md#deletesystemuseroption) | **DELETE** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Delete a user option (admin) |
@@ -149,10 +184,13 @@ All URIs are relative to *https://absuite.net*
 | *UsersApi* | [**getExtendedAccountHolderAsync**](docs/UsersApi.md#getextendedaccountholderasync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
 | *UsersApi* | [**getExtendedUsersAsync**](docs/UsersApi.md#getextendedusersasync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
 | *UsersApi* | [**getExtendedUsersCountAsync**](docs/UsersApi.md#getextendeduserscountasync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| *UsersApi* | [**getUserAdminDetailAsync**](docs/UsersApi.md#getuseradmindetailasync) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user |
 | *UsersApi* | [**getUserAsync**](docs/UsersApi.md#getuserasync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
 | *UsersApi* | [**getUsersAsync**](docs/UsersApi.md#getusersasync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
 | *UsersApi* | [**getUsersCountAsync**](docs/UsersApi.md#getuserscountasync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
 | *UsersApi* | [**patchAccountHolderAsync**](docs/UsersApi.md#patchaccountholderasync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user |
+| *UsersApi* | [**setUserPasswordAsync**](docs/UsersApi.md#setuserpasswordasync) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user's password |
+| *UsersApi* | [**updateAccountHolderAdminProfileAsync**](docs/UsersApi.md#updateaccountholderadminprofileasync) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user's admin-managed profile |
 | *UsersApi* | [**updateAccountHolderAsync**](docs/UsersApi.md#updateaccountholderasync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
@@ -160,11 +198,22 @@ All URIs are relative to *https://absuite.net*
 ## Documentation for Models
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDetailDto](docs/ApplicationPrincipalDetailDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDetailDtoEnvelope](docs/ApplicationPrincipalDetailDtoEnvelope.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDto](docs/ApplicationPrincipalDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDtoCollectionQueryParameters](docs/ApplicationPrincipalDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDtoIReadOnlyListEnvelope](docs/ApplicationPrincipalDtoIReadOnlyListEnvelope.md)
+ - [org.openapitools.client.models.ApplicationPrincipalPermissionRequestDto](docs/ApplicationPrincipalPermissionRequestDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisionRequestDto](docs/ApplicationPrincipalProvisionRequestDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisioningResultDto](docs/ApplicationPrincipalProvisioningResultDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisioningResultDtoEnvelope](docs/ApplicationPrincipalProvisioningResultDtoEnvelope.md)
  - [org.openapitools.client.models.BooleanEnvelope](docs/BooleanEnvelope.md)
  - [org.openapitools.client.models.BusinessDomainDto](docs/BusinessDomainDto.md)
+ - [org.openapitools.client.models.BusinessDomainDtoCollectionQueryParameters](docs/BusinessDomainDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.BusinessDomainDtoEnvelope](docs/BusinessDomainDtoEnvelope.md)
  - [org.openapitools.client.models.BusinessDomainDtoListEnvelope](docs/BusinessDomainDtoListEnvelope.md)
  - [org.openapitools.client.models.CartDto](docs/CartDto.md)
+ - [org.openapitools.client.models.CartDtoCollectionQueryParameters](docs/CartDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CartDtoEnvelope](docs/CartDtoEnvelope.md)
  - [org.openapitools.client.models.CartDtoListEnvelope](docs/CartDtoListEnvelope.md)
  - [org.openapitools.client.models.EmailDispatchRequest](docs/EmailDispatchRequest.md)
@@ -172,37 +221,64 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Envelope](docs/Envelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedTenantDto](docs/ExtendedTenantDto.md)
+ - [org.openapitools.client.models.ExtendedTenantDtoCollectionQueryParameters](docs/ExtendedTenantDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedTenantDtoListEnvelope](docs/ExtendedTenantDtoListEnvelope.md)
  - [org.openapitools.client.models.ExtendedUserDto](docs/ExtendedUserDto.md)
+ - [org.openapitools.client.models.ExtendedUserDtoCollectionQueryParameters](docs/ExtendedUserDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedUserDtoEnvelope](docs/ExtendedUserDtoEnvelope.md)
  - [org.openapitools.client.models.ExtendedUserDtoListEnvelope](docs/ExtendedUserDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
+ - [org.openapitools.client.models.GuestCartPurgeResultDto](docs/GuestCartPurgeResultDto.md)
+ - [org.openapitools.client.models.GuestCartPurgeResultDtoEnvelope](docs/GuestCartPurgeResultDtoEnvelope.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
  - [org.openapitools.client.models.IOpenApiContact](docs/IOpenApiContact.md)
  - [org.openapitools.client.models.IOpenApiDefinitionSpec](docs/IOpenApiDefinitionSpec.md)
  - [org.openapitools.client.models.IOpenApiEndpoint](docs/IOpenApiEndpoint.md)
  - [org.openapitools.client.models.IOpenApiLicense](docs/IOpenApiLicense.md)
  - [org.openapitools.client.models.IPLookupDto](docs/IPLookupDto.md)
+ - [org.openapitools.client.models.IPLookupDtoCollectionQueryParameters](docs/IPLookupDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.IPLookupDtoEnvelope](docs/IPLookupDtoEnvelope.md)
  - [org.openapitools.client.models.IPLookupDtoListEnvelope](docs/IPLookupDtoListEnvelope.md)
  - [org.openapitools.client.models.IValidationFailure](docs/IValidationFailure.md)
  - [org.openapitools.client.models.IValidationFailureListEnvelope](docs/IValidationFailureListEnvelope.md)
+ - [org.openapitools.client.models.InboxAdminReasonDto](docs/InboxAdminReasonDto.md)
+ - [org.openapitools.client.models.InboxHealthDto](docs/InboxHealthDto.md)
+ - [org.openapitools.client.models.InboxHealthDtoEnvelope](docs/InboxHealthDtoEnvelope.md)
+ - [org.openapitools.client.models.InboxMessageDto](docs/InboxMessageDto.md)
+ - [org.openapitools.client.models.InboxMessageDtoCollectionQueryParameters](docs/InboxMessageDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.InboxMessageDtoEnvelope](docs/InboxMessageDtoEnvelope.md)
+ - [org.openapitools.client.models.InboxMessageDtoIReadOnlyListEnvelope](docs/InboxMessageDtoIReadOnlyListEnvelope.md)
+ - [org.openapitools.client.models.InboxReplayResultDto](docs/InboxReplayResultDto.md)
+ - [org.openapitools.client.models.InboxReplayResultDtoEnvelope](docs/InboxReplayResultDtoEnvelope.md)
  - [org.openapitools.client.models.InfoRequest](docs/InfoRequest.md)
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LicenseValidationRequest](docs/LicenseValidationRequest.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
+ - [org.openapitools.client.models.ModuleGrantDto](docs/ModuleGrantDto.md)
+ - [org.openapitools.client.models.ModuleGrantDtoListEnvelope](docs/ModuleGrantDtoListEnvelope.md)
  - [org.openapitools.client.models.ObjectEmailDispatchRequest](docs/ObjectEmailDispatchRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
  - [org.openapitools.client.models.OptionCreateDto](docs/OptionCreateDto.md)
  - [org.openapitools.client.models.OptionDto](docs/OptionDto.md)
+ - [org.openapitools.client.models.OptionDtoCollectionQueryParameters](docs/OptionDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.OptionDtoEnvelope](docs/OptionDtoEnvelope.md)
  - [org.openapitools.client.models.OptionDtoListEnvelope](docs/OptionDtoListEnvelope.md)
  - [org.openapitools.client.models.OptionUpdateDto](docs/OptionUpdateDto.md)
+ - [org.openapitools.client.models.OutboxAdminReasonDto](docs/OutboxAdminReasonDto.md)
+ - [org.openapitools.client.models.OutboxHealthDto](docs/OutboxHealthDto.md)
+ - [org.openapitools.client.models.OutboxHealthDtoEnvelope](docs/OutboxHealthDtoEnvelope.md)
+ - [org.openapitools.client.models.OutboxMessageDto](docs/OutboxMessageDto.md)
+ - [org.openapitools.client.models.OutboxMessageDtoCollectionQueryParameters](docs/OutboxMessageDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.OutboxMessageDtoEnvelope](docs/OutboxMessageDtoEnvelope.md)
+ - [org.openapitools.client.models.OutboxMessageDtoIReadOnlyListEnvelope](docs/OutboxMessageDtoIReadOnlyListEnvelope.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
+ - [org.openapitools.client.models.SecurityPermissionDto](docs/SecurityPermissionDto.md)
+ - [org.openapitools.client.models.SecurityRoleDto](docs/SecurityRoleDto.md)
+ - [org.openapitools.client.models.SetUserPasswordDto](docs/SetUserPasswordDto.md)
  - [org.openapitools.client.models.SocialProfileDto](docs/SocialProfileDto.md)
  - [org.openapitools.client.models.StringListEnvelope](docs/StringListEnvelope.md)
  - [org.openapitools.client.models.StudioModule](docs/StudioModule.md)
@@ -218,20 +294,29 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.SystemOverviewDtoEnvelope](docs/SystemOverviewDtoEnvelope.md)
  - [org.openapitools.client.models.TenantCreateDto](docs/TenantCreateDto.md)
  - [org.openapitools.client.models.TenantDto](docs/TenantDto.md)
+ - [org.openapitools.client.models.TenantDtoCollectionQueryParameters](docs/TenantDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.TenantDtoEnvelope](docs/TenantDtoEnvelope.md)
  - [org.openapitools.client.models.TenantDtoListEnvelope](docs/TenantDtoListEnvelope.md)
+ - [org.openapitools.client.models.TenantEnrollmentDto](docs/TenantEnrollmentDto.md)
  - [org.openapitools.client.models.TenantUpdateDto](docs/TenantUpdateDto.md)
  - [org.openapitools.client.models.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [org.openapitools.client.models.TwoFactorResponse](docs/TwoFactorResponse.md)
+ - [org.openapitools.client.models.UserAdminDetailDto](docs/UserAdminDetailDto.md)
+ - [org.openapitools.client.models.UserAdminDetailDtoEnvelope](docs/UserAdminDetailDtoEnvelope.md)
+ - [org.openapitools.client.models.UserAdminUpdateDto](docs/UserAdminUpdateDto.md)
  - [org.openapitools.client.models.UserCreateDto](docs/UserCreateDto.md)
  - [org.openapitools.client.models.UserDto](docs/UserDto.md)
+ - [org.openapitools.client.models.UserDtoCollectionQueryParameters](docs/UserDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.UserDtoEnvelope](docs/UserDtoEnvelope.md)
  - [org.openapitools.client.models.UserDtoListEnvelope](docs/UserDtoListEnvelope.md)
+ - [org.openapitools.client.models.UserExternalLoginDto](docs/UserExternalLoginDto.md)
+ - [org.openapitools.client.models.UserOrderSummaryDto](docs/UserOrderSummaryDto.md)
  - [org.openapitools.client.models.UserSettingsDto](docs/UserSettingsDto.md)
  - [org.openapitools.client.models.UserUpdateDto](docs/UserUpdateDto.md)
  - [org.openapitools.client.models.WalletDto](docs/WalletDto.md)
  - [org.openapitools.client.models.WebPortalCreateDto](docs/WebPortalCreateDto.md)
  - [org.openapitools.client.models.WebPortalDto](docs/WebPortalDto.md)
+ - [org.openapitools.client.models.WebPortalDtoCollectionQueryParameters](docs/WebPortalDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.WebPortalDtoEnvelope](docs/WebPortalDtoEnvelope.md)
  - [org.openapitools.client.models.WebPortalDtoListEnvelope](docs/WebPortalDtoListEnvelope.md)
  - [org.openapitools.client.models.WebPortalUpdateDto](docs/WebPortalUpdateDto.md)

@@ -28,6 +28,7 @@ import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SigningParticipantDto
 import org.openapitools.client.models.SigningParticipantDtoListEnvelope
 import org.openapitools.client.models.SigningRequestDto
+import org.openapitools.client.models.SigningRequestDtoCollectionQueryParameters
 import org.openapitools.client.models.SigningRequestDtoListEnvelope
 import org.openapitools.client.models.VoidSigningRequestDto
 
@@ -679,6 +680,7 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return SigningRequestDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -688,8 +690,8 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningRequestsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SigningRequestDtoListEnvelope {
-        val localVarResponse = getSigningRequestsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningRequestsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters? = null) : SigningRequestDtoListEnvelope {
+        val localVarResponse = getSigningRequestsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingRequestDtoCollectionQueryParameters = signingRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SigningRequestDtoListEnvelope
@@ -712,16 +714,17 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SigningRequestDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningRequestsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SigningRequestDtoListEnvelope?> {
-        val localVariableConfig = getSigningRequestsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningRequestsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters?) : ApiResponse<SigningRequestDtoListEnvelope?> {
+        val localVariableConfig = getSigningRequestsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingRequestDtoCollectionQueryParameters = signingRequestDtoCollectionQueryParameters)
 
-        return request<Unit, SigningRequestDtoListEnvelope>(
+        return request<SigningRequestDtoCollectionQueryParameters, SigningRequestDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -732,10 +735,11 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningRequestsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningRequestsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters?) : RequestConfig<SigningRequestDtoCollectionQueryParameters> {
+        val localVariableBody = signingRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -745,6 +749,7 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -763,6 +768,7 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -772,8 +778,8 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningRequestsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSigningRequestsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningRequestsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSigningRequestsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingRequestDtoCollectionQueryParameters = signingRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -796,16 +802,17 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningRequestsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSigningRequestsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningRequestsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSigningRequestsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingRequestDtoCollectionQueryParameters = signingRequestDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SigningRequestDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -816,10 +823,11 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningRequestsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningRequestsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingRequestDtoCollectionQueryParameters: SigningRequestDtoCollectionQueryParameters?) : RequestConfig<SigningRequestDtoCollectionQueryParameters> {
+        val localVariableBody = signingRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -829,6 +837,7 @@ class SigningRequestsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

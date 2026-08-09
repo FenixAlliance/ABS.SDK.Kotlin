@@ -23,10 +23,11 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.LocationCreateDto
+import org.openapitools.client.models.LocationDtoCollectionQueryParameters
 import org.openapitools.client.models.LocationDtoEnvelope
 import org.openapitools.client.models.LocationDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.LocationUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -437,6 +438,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Locations
      * Get all locations with OData query support.
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -446,8 +448,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationsAsync(tenantId: java.util.UUID) : LocationDtoIReadOnlyListEnvelope {
-        val localVarResponse = getLocationsAsyncWithHttpInfo(tenantId = tenantId)
+    fun getLocationsAsync(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : LocationDtoIReadOnlyListEnvelope {
+        val localVarResponse = getLocationsAsyncWithHttpInfo(tenantId = tenantId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoIReadOnlyListEnvelope
@@ -468,16 +470,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Locations
      * Get all locations with OData query support.
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LocationDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<LocationDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getLocationsAsyncRequestConfig(tenantId = tenantId)
+    fun getLocationsAsyncWithHttpInfo(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<LocationDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getLocationsAsyncRequestConfig(tenantId = tenantId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, LocationDtoIReadOnlyListEnvelope>(
+        return request<LocationDtoCollectionQueryParameters, LocationDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -486,15 +489,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getLocationsAsync
      *
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLocationsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLocationsAsyncRequestConfig(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -511,6 +516,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Locations Count
      * Get the count of locations with OData query support.
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -520,8 +526,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationsCountAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getLocationsCountAsyncWithHttpInfo(tenantId = tenantId)
+    fun getLocationsCountAsync(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLocationsCountAsyncWithHttpInfo(tenantId = tenantId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -542,16 +548,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Locations Count
      * Get the count of locations with OData query support.
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationsCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLocationsCountAsyncRequestConfig(tenantId = tenantId)
+    fun getLocationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLocationsCountAsyncRequestConfig(tenantId = tenantId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LocationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -560,15 +567,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getLocationsCountAsync
      *
      * @param tenantId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLocationsCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLocationsCountAsyncRequestConfig(tenantId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -659,6 +668,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Wallet Locations
      * Get locations for a specific wallet by ID.
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -668,8 +678,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletLocationsAsync(walletId: java.util.UUID) : LocationDtoIReadOnlyListEnvelope {
-        val localVarResponse = getWalletLocationsAsyncWithHttpInfo(walletId = walletId)
+    fun getWalletLocationsAsync(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : LocationDtoIReadOnlyListEnvelope {
+        val localVarResponse = getWalletLocationsAsyncWithHttpInfo(walletId = walletId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoIReadOnlyListEnvelope
@@ -690,16 +700,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Wallet Locations
      * Get locations for a specific wallet by ID.
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LocationDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletLocationsAsyncWithHttpInfo(walletId: java.util.UUID) : ApiResponse<LocationDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getWalletLocationsAsyncRequestConfig(walletId = walletId)
+    fun getWalletLocationsAsyncWithHttpInfo(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<LocationDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getWalletLocationsAsyncRequestConfig(walletId = walletId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, LocationDtoIReadOnlyListEnvelope>(
+        return request<LocationDtoCollectionQueryParameters, LocationDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -708,12 +719,14 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getWalletLocationsAsync
      *
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletLocationsAsyncRequestConfig(walletId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletLocationsAsyncRequestConfig(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -730,6 +743,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Wallet Locations Count
      * Get the count of locations for a specific wallet by ID.
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -739,8 +753,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletLocationsCountAsync(walletId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getWalletLocationsCountAsyncWithHttpInfo(walletId = walletId)
+    fun getWalletLocationsCountAsync(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletLocationsCountAsyncWithHttpInfo(walletId = walletId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -761,16 +775,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get Wallet Locations Count
      * Get the count of locations for a specific wallet by ID.
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletLocationsCountAsyncWithHttpInfo(walletId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletLocationsCountAsyncRequestConfig(walletId = walletId)
+    fun getWalletLocationsCountAsyncWithHttpInfo(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletLocationsCountAsyncRequestConfig(walletId = walletId, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LocationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -779,12 +794,14 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getWalletLocationsCountAsync
      *
      * @param walletId 
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletLocationsCountAsyncRequestConfig(walletId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletLocationsCountAsyncRequestConfig(walletId: java.util.UUID, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -802,7 +819,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Patch a location
      * @param locationId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -812,8 +829,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchLocationAsync(locationId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchLocationAsyncWithHttpInfo(locationId = locationId, tenantId = tenantId, operation = operation)
+    fun patchLocationAsync(locationId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchLocationAsyncWithHttpInfo(locationId = locationId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -835,17 +852,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Patch a location
      * @param locationId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchLocationAsyncWithHttpInfo(locationId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchLocationAsyncRequestConfig(locationId = locationId, tenantId = tenantId, operation = operation)
+    fun patchLocationAsyncWithHttpInfo(locationId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchLocationAsyncRequestConfig(locationId = locationId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -855,11 +872,11 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param locationId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchLocationAsyncRequestConfig(locationId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchLocationAsyncRequestConfig(locationId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -883,7 +900,7 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Patch a wallet location
      * @param walletId 
      * @param locationId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -893,8 +910,8 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWalletLocationAsync(walletId: java.util.UUID, locationId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWalletLocationAsyncWithHttpInfo(walletId = walletId, locationId = locationId, operation = operation)
+    fun patchWalletLocationAsync(walletId: java.util.UUID, locationId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWalletLocationAsyncWithHttpInfo(walletId = walletId, locationId = locationId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -916,17 +933,17 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Patch a wallet location
      * @param walletId 
      * @param locationId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWalletLocationAsyncRequestConfig(walletId = walletId, locationId = locationId, operation = operation)
+    fun patchWalletLocationAsyncWithHttpInfo(walletId: java.util.UUID, locationId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWalletLocationAsyncRequestConfig(walletId = walletId, locationId = locationId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -936,11 +953,11 @@ class LocationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param walletId 
      * @param locationId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWalletLocationAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWalletLocationAsyncRequestConfig(walletId: java.util.UUID, locationId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Content-Type"] = "application/json"

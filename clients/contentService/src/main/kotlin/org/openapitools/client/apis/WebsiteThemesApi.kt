@@ -21,9 +21,10 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.WebsiteThemeCreateDto
 import org.openapitools.client.models.WebsiteThemeDto
+import org.openapitools.client.models.WebsiteThemeDtoCollectionQueryParameters
 import org.openapitools.client.models.WebsiteThemeDtoListEnvelope
 import org.openapitools.client.models.WebsiteThemeUpdateDto
 
@@ -315,6 +316,7 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return WebsiteThemeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -324,8 +326,8 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWebsiteThemesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WebsiteThemeDtoListEnvelope {
-        val localVarResponse = getWebsiteThemesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebsiteThemesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters? = null) : WebsiteThemeDtoListEnvelope {
+        val localVarResponse = getWebsiteThemesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, websiteThemeDtoCollectionQueryParameters = websiteThemeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WebsiteThemeDtoListEnvelope
@@ -348,16 +350,17 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WebsiteThemeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWebsiteThemesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WebsiteThemeDtoListEnvelope?> {
-        val localVariableConfig = getWebsiteThemesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebsiteThemesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters?) : ApiResponse<WebsiteThemeDtoListEnvelope?> {
+        val localVariableConfig = getWebsiteThemesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, websiteThemeDtoCollectionQueryParameters = websiteThemeDtoCollectionQueryParameters)
 
-        return request<Unit, WebsiteThemeDtoListEnvelope>(
+        return request<WebsiteThemeDtoCollectionQueryParameters, WebsiteThemeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -368,10 +371,11 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWebsiteThemesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWebsiteThemesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters?) : RequestConfig<WebsiteThemeDtoCollectionQueryParameters> {
+        val localVariableBody = websiteThemeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -381,6 +385,7 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -399,6 +404,7 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -408,8 +414,8 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWebsiteThemesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWebsiteThemesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebsiteThemesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWebsiteThemesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, websiteThemeDtoCollectionQueryParameters = websiteThemeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -432,16 +438,17 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWebsiteThemesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWebsiteThemesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebsiteThemesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWebsiteThemesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, websiteThemeDtoCollectionQueryParameters = websiteThemeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WebsiteThemeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -452,10 +459,11 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param websiteThemeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWebsiteThemesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWebsiteThemesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, websiteThemeDtoCollectionQueryParameters: WebsiteThemeDtoCollectionQueryParameters?) : RequestConfig<WebsiteThemeDtoCollectionQueryParameters> {
+        val localVariableBody = websiteThemeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -465,6 +473,7 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -484,7 +493,7 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -493,8 +502,8 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWebsiteThemeAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchWebsiteThemeAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebsiteThemeAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchWebsiteThemeAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -518,16 +527,16 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWebsiteThemeAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchWebsiteThemeAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebsiteThemeAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchWebsiteThemeAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -539,11 +548,11 @@ class WebsiteThemesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWebsiteThemeAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWebsiteThemeAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -22,12 +22,14 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.RailWaybillCreateDto
+import org.openapitools.client.models.RailWaybillDtoCollectionQueryParameters
 import org.openapitools.client.models.RailWaybillDtoEnvelope
 import org.openapitools.client.models.RailWaybillDtoListEnvelope
 import org.openapitools.client.models.RailWaybillUpdateDto
 import org.openapitools.client.models.WaybillLineCreateDto
+import org.openapitools.client.models.WaybillLineDtoCollectionQueryParameters
 import org.openapitools.client.models.WaybillLineDtoListEnvelope
 import org.openapitools.client.models.WaybillLineUpdateDto
 
@@ -502,6 +504,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -511,8 +514,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRailWaybillLinesAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WaybillLineDtoListEnvelope {
-        val localVarResponse = getRailWaybillLinesAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillLinesAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : WaybillLineDtoListEnvelope {
+        val localVarResponse = getRailWaybillLinesAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WaybillLineDtoListEnvelope
@@ -536,16 +539,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WaybillLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRailWaybillLinesAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WaybillLineDtoListEnvelope?> {
-        val localVariableConfig = getRailWaybillLinesAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillLinesAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<WaybillLineDtoListEnvelope?> {
+        val localVariableConfig = getRailWaybillLinesAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, WaybillLineDtoListEnvelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, WaybillLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -557,10 +561,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRailWaybillLinesAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRailWaybillLinesAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -570,6 +575,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -589,6 +595,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -598,8 +605,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRailWaybillLinesCountAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getRailWaybillLinesCountAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillLinesCountAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getRailWaybillLinesCountAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -623,16 +630,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRailWaybillLinesCountAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getRailWaybillLinesCountAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillLinesCountAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getRailWaybillLinesCountAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -644,10 +652,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRailWaybillLinesCountAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRailWaybillLinesCountAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -657,6 +666,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -675,6 +685,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return RailWaybillDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -684,8 +695,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRailWaybillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : RailWaybillDtoListEnvelope {
-        val localVarResponse = getRailWaybillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters? = null) : RailWaybillDtoListEnvelope {
+        val localVarResponse = getRailWaybillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, railWaybillDtoCollectionQueryParameters = railWaybillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as RailWaybillDtoListEnvelope
@@ -708,16 +719,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<RailWaybillDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRailWaybillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<RailWaybillDtoListEnvelope?> {
-        val localVariableConfig = getRailWaybillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters?) : ApiResponse<RailWaybillDtoListEnvelope?> {
+        val localVariableConfig = getRailWaybillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, railWaybillDtoCollectionQueryParameters = railWaybillDtoCollectionQueryParameters)
 
-        return request<Unit, RailWaybillDtoListEnvelope>(
+        return request<RailWaybillDtoCollectionQueryParameters, RailWaybillDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -728,10 +740,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRailWaybillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRailWaybillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters?) : RequestConfig<RailWaybillDtoCollectionQueryParameters> {
+        val localVariableBody = railWaybillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -741,6 +754,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -759,6 +773,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -768,8 +783,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRailWaybillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getRailWaybillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getRailWaybillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, railWaybillDtoCollectionQueryParameters = railWaybillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -792,16 +807,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRailWaybillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getRailWaybillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getRailWaybillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getRailWaybillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, railWaybillDtoCollectionQueryParameters = railWaybillDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<RailWaybillDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -812,10 +828,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getRailWaybillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getRailWaybillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, railWaybillDtoCollectionQueryParameters: RailWaybillDtoCollectionQueryParameters?) : RequestConfig<RailWaybillDtoCollectionQueryParameters> {
+        val localVariableBody = railWaybillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -825,6 +842,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1105,7 +1123,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1115,8 +1133,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchRailWaybillAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchRailWaybillAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchRailWaybillAsync(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchRailWaybillAsyncWithHttpInfo(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1140,17 +1158,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchRailWaybillAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchRailWaybillAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchRailWaybillAsyncWithHttpInfo(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchRailWaybillAsyncRequestConfig(waybillId = waybillId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1162,11 +1180,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchRailWaybillAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchRailWaybillAsyncRequestConfig(waybillId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1197,7 +1215,7 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1207,8 +1225,8 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchRailWaybillLineAsync(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchRailWaybillLineAsyncWithHttpInfo(waybillId = waybillId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchRailWaybillLineAsync(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchRailWaybillLineAsyncWithHttpInfo(waybillId = waybillId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1233,17 +1251,17 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchRailWaybillLineAsyncWithHttpInfo(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchRailWaybillLineAsyncRequestConfig(waybillId = waybillId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchRailWaybillLineAsyncWithHttpInfo(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchRailWaybillLineAsyncRequestConfig(waybillId = waybillId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1256,11 +1274,11 @@ class RailWaybillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchRailWaybillLineAsyncRequestConfig(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchRailWaybillLineAsyncRequestConfig(waybillId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

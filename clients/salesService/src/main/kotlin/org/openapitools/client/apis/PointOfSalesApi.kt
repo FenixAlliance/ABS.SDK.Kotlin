@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PointOfSaleCreateDto
+import org.openapitools.client.models.PointOfSaleDtoCollectionQueryParameters
 import org.openapitools.client.models.PointOfSaleDtoEnvelope
 import org.openapitools.client.models.PointOfSaleDtoListEnvelope
 import org.openapitools.client.models.PointOfSaleUpdateDto
@@ -56,6 +57,7 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get point of sales count
      * Returns the total count of point of sales for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -65,8 +67,8 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countPointOfSalesAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = countPointOfSalesAsyncWithHttpInfo(tenantId = tenantId)
+    fun countPointOfSalesAsync(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countPointOfSalesAsyncWithHttpInfo(tenantId = tenantId, pointOfSaleDtoCollectionQueryParameters = pointOfSaleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -87,16 +89,17 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get point of sales count
      * Returns the total count of point of sales for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countPointOfSalesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countPointOfSalesAsyncRequestConfig(tenantId = tenantId)
+    fun countPointOfSalesAsyncWithHttpInfo(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countPointOfSalesAsyncRequestConfig(tenantId = tenantId, pointOfSaleDtoCollectionQueryParameters = pointOfSaleDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PointOfSaleDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -105,15 +108,17 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation countPointOfSalesAsync
      *
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countPointOfSalesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countPointOfSalesAsyncRequestConfig(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters?) : RequestConfig<PointOfSaleDtoCollectionQueryParameters> {
+        val localVariableBody = pointOfSaleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -362,6 +367,7 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get point of sales
      * Retrieves a list of point of sales for the specified tenant with OData query support.
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return PointOfSaleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -371,8 +377,8 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPointOfSalesAsync(tenantId: java.util.UUID) : PointOfSaleDtoListEnvelope {
-        val localVarResponse = getPointOfSalesAsyncWithHttpInfo(tenantId = tenantId)
+    fun getPointOfSalesAsync(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters? = null) : PointOfSaleDtoListEnvelope {
+        val localVarResponse = getPointOfSalesAsyncWithHttpInfo(tenantId = tenantId, pointOfSaleDtoCollectionQueryParameters = pointOfSaleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PointOfSaleDtoListEnvelope
@@ -393,16 +399,17 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Get point of sales
      * Retrieves a list of point of sales for the specified tenant with OData query support.
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PointOfSaleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPointOfSalesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<PointOfSaleDtoListEnvelope?> {
-        val localVariableConfig = getPointOfSalesAsyncRequestConfig(tenantId = tenantId)
+    fun getPointOfSalesAsyncWithHttpInfo(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters?) : ApiResponse<PointOfSaleDtoListEnvelope?> {
+        val localVariableConfig = getPointOfSalesAsyncRequestConfig(tenantId = tenantId, pointOfSaleDtoCollectionQueryParameters = pointOfSaleDtoCollectionQueryParameters)
 
-        return request<Unit, PointOfSaleDtoListEnvelope>(
+        return request<PointOfSaleDtoCollectionQueryParameters, PointOfSaleDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -411,15 +418,17 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation getPointOfSalesAsync
      *
      * @param tenantId 
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPointOfSalesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPointOfSalesAsyncRequestConfig(tenantId: java.util.UUID, pointOfSaleDtoCollectionQueryParameters: PointOfSaleDtoCollectionQueryParameters?) : RequestConfig<PointOfSaleDtoCollectionQueryParameters> {
+        val localVariableBody = pointOfSaleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -437,7 +446,7 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Partially updates an existing point of sale using a JSON Patch document.
      * @param pointOfSaleId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -447,8 +456,8 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchPointOfSaleAsync(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchPointOfSaleAsyncWithHttpInfo(pointOfSaleId = pointOfSaleId, tenantId = tenantId, operation = operation)
+    fun patchPointOfSaleAsync(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchPointOfSaleAsyncWithHttpInfo(pointOfSaleId = pointOfSaleId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -470,17 +479,17 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Partially updates an existing point of sale using a JSON Patch document.
      * @param pointOfSaleId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchPointOfSaleAsyncWithHttpInfo(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchPointOfSaleAsyncRequestConfig(pointOfSaleId = pointOfSaleId, tenantId = tenantId, operation = operation)
+    fun patchPointOfSaleAsyncWithHttpInfo(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchPointOfSaleAsyncRequestConfig(pointOfSaleId = pointOfSaleId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -490,11 +499,11 @@ class PointOfSalesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param pointOfSaleId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchPointOfSaleAsyncRequestConfig(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchPointOfSaleAsyncRequestConfig(pointOfSaleId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

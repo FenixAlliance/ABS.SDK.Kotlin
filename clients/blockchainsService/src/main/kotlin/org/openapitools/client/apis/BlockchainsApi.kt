@@ -21,16 +21,18 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BlockchainBlockCreateDto
 import org.openapitools.client.models.BlockchainBlockDto
+import org.openapitools.client.models.BlockchainBlockDtoCollectionQueryParameters
 import org.openapitools.client.models.BlockchainBlockDtoListEnvelope
 import org.openapitools.client.models.BlockchainBlockUpdateDto
 import org.openapitools.client.models.BlockchainCreateDto
 import org.openapitools.client.models.BlockchainDto
+import org.openapitools.client.models.BlockchainDtoCollectionQueryParameters
 import org.openapitools.client.models.BlockchainDtoListEnvelope
 import org.openapitools.client.models.BlockchainUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -499,6 +501,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return BlockchainBlockDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -508,8 +511,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainBlocksAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainBlockDtoListEnvelope {
-        val localVarResponse = getBlockchainBlocksAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters? = null) : BlockchainBlockDtoListEnvelope {
+        val localVarResponse = getBlockchainBlocksAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainBlockDtoCollectionQueryParameters = blockchainBlockDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockchainBlockDtoListEnvelope
@@ -533,16 +536,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BlockchainBlockDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainBlocksAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainBlockDtoListEnvelope?> {
-        val localVariableConfig = getBlockchainBlocksAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters?) : ApiResponse<BlockchainBlockDtoListEnvelope?> {
+        val localVariableConfig = getBlockchainBlocksAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainBlockDtoCollectionQueryParameters = blockchainBlockDtoCollectionQueryParameters)
 
-        return request<Unit, BlockchainBlockDtoListEnvelope>(
+        return request<BlockchainBlockDtoCollectionQueryParameters, BlockchainBlockDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -554,10 +558,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainBlocksAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlockchainBlocksAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters?) : RequestConfig<BlockchainBlockDtoCollectionQueryParameters> {
+        val localVariableBody = blockchainBlockDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -567,6 +572,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -586,6 +592,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -595,8 +602,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainBlocksCountAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksCountAsync(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainBlockDtoCollectionQueryParameters = blockchainBlockDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -620,16 +627,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBlockchainBlocksCountAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainBlocksCountAsyncWithHttpInfo(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBlockchainBlocksCountAsyncRequestConfig(blockchainId = blockchainId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainBlockDtoCollectionQueryParameters = blockchainBlockDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BlockchainBlockDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -641,10 +649,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainBlocksCountAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlockchainBlocksCountAsyncRequestConfig(blockchainId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainBlockDtoCollectionQueryParameters: BlockchainBlockDtoCollectionQueryParameters?) : RequestConfig<BlockchainBlockDtoCollectionQueryParameters> {
+        val localVariableBody = blockchainBlockDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -654,6 +663,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -759,6 +769,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return BlockchainDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -768,8 +779,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlockchainDtoListEnvelope {
-        val localVarResponse = getBlockchainsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters? = null) : BlockchainDtoListEnvelope {
+        val localVarResponse = getBlockchainsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainDtoCollectionQueryParameters = blockchainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlockchainDtoListEnvelope
@@ -792,16 +803,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BlockchainDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlockchainDtoListEnvelope?> {
-        val localVariableConfig = getBlockchainsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters?) : ApiResponse<BlockchainDtoListEnvelope?> {
+        val localVariableConfig = getBlockchainsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainDtoCollectionQueryParameters = blockchainDtoCollectionQueryParameters)
 
-        return request<Unit, BlockchainDtoListEnvelope>(
+        return request<BlockchainDtoCollectionQueryParameters, BlockchainDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -812,10 +824,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlockchainsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters?) : RequestConfig<BlockchainDtoCollectionQueryParameters> {
+        val localVariableBody = blockchainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -825,6 +838,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -843,6 +857,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -852,8 +867,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlockchainsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBlockchainsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBlockchainsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainDtoCollectionQueryParameters = blockchainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -876,16 +891,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlockchainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBlockchainsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlockchainsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBlockchainsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blockchainDtoCollectionQueryParameters = blockchainDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BlockchainDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -896,10 +912,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlockchainsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlockchainsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blockchainDtoCollectionQueryParameters: BlockchainDtoCollectionQueryParameters?) : RequestConfig<BlockchainDtoCollectionQueryParameters> {
+        val localVariableBody = blockchainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -909,6 +926,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -928,7 +946,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -938,8 +956,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBlockchainAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBlockchainAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBlockchainAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBlockchainAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -963,17 +981,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBlockchainAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBlockchainAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBlockchainAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBlockchainAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -985,11 +1003,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBlockchainAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBlockchainAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1020,7 +1038,7 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1030,8 +1048,8 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBlockchainBlockAsync(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBlockchainBlockAsyncWithHttpInfo(blockchainId = blockchainId, blockId = blockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBlockchainBlockAsync(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBlockchainBlockAsyncWithHttpInfo(blockchainId = blockchainId, blockId = blockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1056,17 +1074,17 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBlockchainBlockAsyncWithHttpInfo(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBlockchainBlockAsyncRequestConfig(blockchainId = blockchainId, blockId = blockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBlockchainBlockAsyncWithHttpInfo(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBlockchainBlockAsyncRequestConfig(blockchainId = blockchainId, blockId = blockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1079,11 +1097,11 @@ class BlockchainsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBlockchainBlockAsyncRequestConfig(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBlockchainBlockAsyncRequestConfig(blockchainId: java.util.UUID, blockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

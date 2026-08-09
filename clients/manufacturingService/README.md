@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -106,9 +105,10 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.ProductionPlanCreateDto](docs/ProductionPlanCreateDto.md)
  - [org.openapitools.client.models.ProductionPlanDto](docs/ProductionPlanDto.md)
+ - [org.openapitools.client.models.ProductionPlanDtoCollectionQueryParameters](docs/ProductionPlanDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ProductionPlanDtoListEnvelope](docs/ProductionPlanDtoListEnvelope.md)
  - [org.openapitools.client.models.ProductionPlanUpdateDto](docs/ProductionPlanUpdateDto.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
@@ -119,14 +119,17 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.TwoFactorResponse](docs/TwoFactorResponse.md)
  - [org.openapitools.client.models.WorkOrderCreateDto](docs/WorkOrderCreateDto.md)
  - [org.openapitools.client.models.WorkOrderDto](docs/WorkOrderDto.md)
+ - [org.openapitools.client.models.WorkOrderDtoCollectionQueryParameters](docs/WorkOrderDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.WorkOrderDtoListEnvelope](docs/WorkOrderDtoListEnvelope.md)
  - [org.openapitools.client.models.WorkOrderTypeCreateDto](docs/WorkOrderTypeCreateDto.md)
  - [org.openapitools.client.models.WorkOrderTypeDto](docs/WorkOrderTypeDto.md)
+ - [org.openapitools.client.models.WorkOrderTypeDtoCollectionQueryParameters](docs/WorkOrderTypeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.WorkOrderTypeDtoListEnvelope](docs/WorkOrderTypeDtoListEnvelope.md)
  - [org.openapitools.client.models.WorkOrderTypeUpdateDto](docs/WorkOrderTypeUpdateDto.md)
  - [org.openapitools.client.models.WorkOrderUpdateDto](docs/WorkOrderUpdateDto.md)
  - [org.openapitools.client.models.WorkstationCreateDto](docs/WorkstationCreateDto.md)
  - [org.openapitools.client.models.WorkstationDto](docs/WorkstationDto.md)
+ - [org.openapitools.client.models.WorkstationDtoCollectionQueryParameters](docs/WorkstationDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.WorkstationDtoListEnvelope](docs/WorkstationDtoListEnvelope.md)
  - [org.openapitools.client.models.WorkstationUpdateDto](docs/WorkstationUpdateDto.md)
 

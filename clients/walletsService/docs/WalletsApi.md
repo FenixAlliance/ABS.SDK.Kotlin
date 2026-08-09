@@ -472,7 +472,7 @@ No authorization required
 
 <a id="getIncomingPaymentsAsync"></a>
 # **getIncomingPaymentsAsync**
-> PaymentDtoListEnvelope getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Incoming Payments
 
@@ -488,8 +488,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentDtoListEnvelope = apiInstance.getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getIncomingPaymentsAsync")
@@ -503,9 +504,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -517,12 +519,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getIncomingPaymentsCountAsync"></a>
 # **getIncomingPaymentsCountAsync**
-> Int32Envelope getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Incoming Payments Count
 
@@ -538,8 +540,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getIncomingPaymentsCountAsync")
@@ -553,9 +556,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -567,12 +571,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getIncomingWalletInvoicesAsync"></a>
 # **getIncomingWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Incoming Wallet Invoices
 
@@ -588,8 +592,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceDtoListEnvelope = apiInstance.getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+    val result : InvoiceDtoListEnvelope = apiInstance.getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getIncomingWalletInvoicesAsync")
@@ -603,9 +608,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -617,12 +623,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getIncomingWalletInvoicesCountAsync"></a>
 # **getIncomingWalletInvoicesCountAsync**
-> Int32Envelope getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Incoming Wallet Invoices Count
 
@@ -638,8 +644,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getIncomingWalletInvoicesCountAsync")
@@ -653,9 +660,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -667,7 +675,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLocationForWalletAsync"></a>
@@ -724,7 +732,7 @@ No authorization required
 
 <a id="getLocationsForWalletAsync"></a>
 # **getLocationsForWalletAsync**
-> LocationDtoListEnvelope getLocationsForWalletAsync(walletId, apiVersion, xApiVersion)
+> LocationDtoListEnvelope getLocationsForWalletAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations
 
@@ -740,8 +748,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : LocationDtoListEnvelope = apiInstance.getLocationsForWalletAsync(walletId, apiVersion, xApiVersion)
+    val result : LocationDtoListEnvelope = apiInstance.getLocationsForWalletAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getLocationsForWalletAsync")
@@ -755,9 +764,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -769,12 +779,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLocationsForWalletCountAsync"></a>
 # **getLocationsForWalletCountAsync**
-> Int32Envelope getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations Count
 
@@ -790,8 +800,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val locationDtoCollectionQueryParameters : LocationDtoCollectionQueryParameters =  // LocationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getLocationsForWalletCountAsync")
@@ -805,9 +816,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -819,12 +831,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOutgoingPaymentsAsync"></a>
 # **getOutgoingPaymentsAsync**
-> PaymentDtoListEnvelope getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Outgoing Payments
 
@@ -840,8 +852,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentDtoListEnvelope = apiInstance.getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getOutgoingPaymentsAsync")
@@ -855,9 +868,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -869,12 +883,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOutgoingPaymentsCountAsync"></a>
 # **getOutgoingPaymentsCountAsync**
-> Int32Envelope getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Outgoing Payments Count
 
@@ -890,8 +904,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getOutgoingPaymentsCountAsync")
@@ -905,9 +920,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -919,12 +935,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOutgoingWalletInvoicesAsync"></a>
 # **getOutgoingWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Outgoing Wallet Invoices
 
@@ -940,8 +956,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceDtoListEnvelope = apiInstance.getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+    val result : InvoiceDtoListEnvelope = apiInstance.getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getOutgoingWalletInvoicesAsync")
@@ -955,9 +972,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -969,12 +987,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOutgoingWalletInvoicesCountAsync"></a>
 # **getOutgoingWalletInvoicesCountAsync**
-> Int32Envelope getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Outgoing Wallet Invoices Count
 
@@ -990,8 +1008,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getOutgoingWalletInvoicesCountAsync")
@@ -1005,9 +1024,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1019,7 +1039,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletBankAccountAsync"></a>
@@ -1076,7 +1096,7 @@ No authorization required
 
 <a id="getWalletBankAccountsAsync"></a>
 # **getWalletBankAccountsAsync**
-> BankAccountDtoListEnvelope getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion)
+> BankAccountDtoListEnvelope getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Get Wallet Bank Accounts
 
@@ -1092,8 +1112,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankAccountDtoCollectionQueryParameters : BankAccountDtoCollectionQueryParameters =  // BankAccountDtoCollectionQueryParameters | 
 try {
-    val result : BankAccountDtoListEnvelope = apiInstance.getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion)
+    val result : BankAccountDtoListEnvelope = apiInstance.getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletBankAccountsAsync")
@@ -1107,9 +1128,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1121,12 +1143,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletBankAccountsCountAsync"></a>
 # **getWalletBankAccountsCountAsync**
-> Int32Envelope getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Get Wallet Bank Accounts Count
 
@@ -1142,8 +1164,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankAccountDtoCollectionQueryParameters : BankAccountDtoCollectionQueryParameters =  // BankAccountDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletBankAccountsCountAsync")
@@ -1157,9 +1180,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1171,12 +1195,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletChargebacksAsync"></a>
 # **getWalletChargebacksAsync**
-> PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(walletId, apiVersion, xApiVersion)
+> PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
 
 Get Wallet Chargebacks
 
@@ -1192,8 +1216,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentChargebackDtoCollectionQueryParameters : PaymentChargebackDtoCollectionQueryParameters =  // PaymentChargebackDtoCollectionQueryParameters | 
 try {
-    val result : PaymentChargebackDtoListEnvelope = apiInstance.getWalletChargebacksAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentChargebackDtoListEnvelope = apiInstance.getWalletChargebacksAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletChargebacksAsync")
@@ -1207,9 +1232,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1221,12 +1247,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletChargebacksCountAsync"></a>
 # **getWalletChargebacksCountAsync**
-> Int32Envelope getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
 
 Get Wallet Chargebacks Count
 
@@ -1242,8 +1268,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentChargebackDtoCollectionQueryParameters : PaymentChargebackDtoCollectionQueryParameters =  // PaymentChargebackDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletChargebacksCountAsync")
@@ -1257,9 +1284,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1271,7 +1299,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletDetailsAsync"></a>
@@ -1326,7 +1354,7 @@ No authorization required
 
 <a id="getWalletExtendedOrdersAsync"></a>
 # **getWalletExtendedOrdersAsync**
-> ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion)
+> ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters)
 
 Get Wallet Extended Orders
 
@@ -1342,8 +1370,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedOrderDtoCollectionQueryParameters : ExtendedOrderDtoCollectionQueryParameters =  // ExtendedOrderDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedOrderDtoListEnvelope = apiInstance.getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion)
+    val result : ExtendedOrderDtoListEnvelope = apiInstance.getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletExtendedOrdersAsync")
@@ -1357,9 +1386,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1371,12 +1401,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletInvoicesAsync"></a>
 # **getWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Wallet Invoices
 
@@ -1392,8 +1422,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceDtoListEnvelope = apiInstance.getWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+    val result : InvoiceDtoListEnvelope = apiInstance.getWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletInvoicesAsync")
@@ -1407,9 +1438,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1421,12 +1453,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletInvoicesCountAsync"></a>
 # **getWalletInvoicesCountAsync**
-> Int32Envelope getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Wallet Invoices Count
 
@@ -1442,8 +1474,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletInvoicesCountAsync")
@@ -1457,9 +1490,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1471,12 +1505,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletOrdersAsync"></a>
 # **getWalletOrdersAsync**
-> OrderDtoListEnvelope getWalletOrdersAsync(walletId, apiVersion, xApiVersion)
+> OrderDtoListEnvelope getWalletOrdersAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
 
 Get Wallet Orders
 
@@ -1492,8 +1526,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val orderDtoCollectionQueryParameters : OrderDtoCollectionQueryParameters =  // OrderDtoCollectionQueryParameters | 
 try {
-    val result : OrderDtoListEnvelope = apiInstance.getWalletOrdersAsync(walletId, apiVersion, xApiVersion)
+    val result : OrderDtoListEnvelope = apiInstance.getWalletOrdersAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletOrdersAsync")
@@ -1507,9 +1542,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1521,12 +1557,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletOrdersCountAsync"></a>
 # **getWalletOrdersCountAsync**
-> Int32Envelope getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
 
 Get Wallet Orders Count
 
@@ -1542,8 +1578,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val orderDtoCollectionQueryParameters : OrderDtoCollectionQueryParameters =  // OrderDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletOrdersCountAsync")
@@ -1557,9 +1594,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1571,12 +1609,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletPaymentsAsync"></a>
 # **getWalletPaymentsAsync**
-> PaymentDtoListEnvelope getWalletPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getWalletPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Wallet Payments
 
@@ -1592,8 +1630,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getWalletPaymentsAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentDtoListEnvelope = apiInstance.getWalletPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletPaymentsAsync")
@@ -1607,9 +1646,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1621,12 +1661,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletPaymentsCountAsync"></a>
 # **getWalletPaymentsCountAsync**
-> Int32Envelope getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Wallet Payments Count
 
@@ -1642,8 +1682,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletPaymentsCountAsync")
@@ -1657,9 +1698,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1671,12 +1713,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletQuotesAsync"></a>
 # **getWalletQuotesAsync**
-> QuoteDtoListEnvelope getWalletQuotesAsync(walletId, apiVersion, xApiVersion)
+> QuoteDtoListEnvelope getWalletQuotesAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
 
 Get Wallet Quotes
 
@@ -1692,8 +1734,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val quoteDtoCollectionQueryParameters : QuoteDtoCollectionQueryParameters =  // QuoteDtoCollectionQueryParameters | 
 try {
-    val result : QuoteDtoListEnvelope = apiInstance.getWalletQuotesAsync(walletId, apiVersion, xApiVersion)
+    val result : QuoteDtoListEnvelope = apiInstance.getWalletQuotesAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletQuotesAsync")
@@ -1707,9 +1750,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1721,12 +1765,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletQuotesCountAsync"></a>
 # **getWalletQuotesCountAsync**
-> Int32Envelope getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
 
 Get Wallet Quotes Count
 
@@ -1742,8 +1786,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val quoteDtoCollectionQueryParameters : QuoteDtoCollectionQueryParameters =  // QuoteDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletQuotesCountAsync")
@@ -1757,9 +1802,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1771,12 +1817,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletRefundsAsync"></a>
 # **getWalletRefundsAsync**
-> PaymentRefundDtoListEnvelope getWalletRefundsAsync(walletId, apiVersion, xApiVersion)
+> PaymentRefundDtoListEnvelope getWalletRefundsAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
 
 Get Wallet Refunds
 
@@ -1792,8 +1838,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentRefundDtoCollectionQueryParameters : PaymentRefundDtoCollectionQueryParameters =  // PaymentRefundDtoCollectionQueryParameters | 
 try {
-    val result : PaymentRefundDtoListEnvelope = apiInstance.getWalletRefundsAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentRefundDtoListEnvelope = apiInstance.getWalletRefundsAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletRefundsAsync")
@@ -1807,9 +1854,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1821,12 +1869,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletRefundsCountAsync"></a>
 # **getWalletRefundsCountAsync**
-> Int32Envelope getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
 
 Get Wallet Refunds Count
 
@@ -1842,8 +1890,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentRefundDtoCollectionQueryParameters : PaymentRefundDtoCollectionQueryParameters =  // PaymentRefundDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletRefundsCountAsync")
@@ -1857,9 +1906,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1871,7 +1921,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletTokenAsync"></a>
@@ -1928,7 +1978,7 @@ No authorization required
 
 <a id="getWalletTokensAsync"></a>
 # **getWalletTokensAsync**
-> PaymentTokenDtoListEnvelope getWalletTokensAsync(walletId, apiVersion, xApiVersion)
+> PaymentTokenDtoListEnvelope getWalletTokensAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
 
 Get Wallet Tokens
 
@@ -1944,8 +1994,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentTokenDtoCollectionQueryParameters : PaymentTokenDtoCollectionQueryParameters =  // PaymentTokenDtoCollectionQueryParameters | 
 try {
-    val result : PaymentTokenDtoListEnvelope = apiInstance.getWalletTokensAsync(walletId, apiVersion, xApiVersion)
+    val result : PaymentTokenDtoListEnvelope = apiInstance.getWalletTokensAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletTokensAsync")
@@ -1959,9 +2010,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1973,12 +2025,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletTokensCountAsync"></a>
 # **getWalletTokensCountAsync**
-> Int32Envelope getWalletTokensCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletTokensCountAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
 
 Get Wallet Tokens Count
 
@@ -1994,8 +2046,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentTokenDtoCollectionQueryParameters : PaymentTokenDtoCollectionQueryParameters =  // PaymentTokenDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletTokensCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletTokensCountAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletTokensCountAsync")
@@ -2009,9 +2062,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2023,12 +2077,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletWithdrawRequestsAsync"></a>
 # **getWalletWithdrawRequestsAsync**
-> WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion)
+> WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
 
 Get Wallet Withdraw Requests
 
@@ -2044,8 +2098,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val walletWithdrawRequestDtoCollectionQueryParameters : WalletWithdrawRequestDtoCollectionQueryParameters =  // WalletWithdrawRequestDtoCollectionQueryParameters | 
 try {
-    val result : WalletWithdrawRequestDtoListEnvelope = apiInstance.getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion)
+    val result : WalletWithdrawRequestDtoListEnvelope = apiInstance.getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletWithdrawRequestsAsync")
@@ -2059,9 +2114,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2073,12 +2129,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletWithdrawRequestsCountAsync"></a>
 # **getWalletWithdrawRequestsCountAsync**
-> Int32Envelope getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
 
 Get Wallet Withdraw Requests Count
 
@@ -2094,8 +2150,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val walletWithdrawRequestDtoCollectionQueryParameters : WalletWithdrawRequestDtoCollectionQueryParameters =  // WalletWithdrawRequestDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletWithdrawRequestsCountAsync")
@@ -2109,9 +2166,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2123,12 +2181,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletWithdrawsAsync"></a>
 # **getWalletWithdrawsAsync**
-> WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion)
+> WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
 
 Get Wallet Withdraws
 
@@ -2144,8 +2202,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val walletWithdrawDtoCollectionQueryParameters : WalletWithdrawDtoCollectionQueryParameters =  // WalletWithdrawDtoCollectionQueryParameters | 
 try {
-    val result : WalletWithdrawDtoListEnvelope = apiInstance.getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion)
+    val result : WalletWithdrawDtoListEnvelope = apiInstance.getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletWithdrawsAsync")
@@ -2159,9 +2218,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2173,12 +2233,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWalletWithdrawsCountAsync"></a>
 # **getWalletWithdrawsCountAsync**
-> Int32Envelope getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
 
 Get Wallet Withdraws Count
 
@@ -2194,8 +2254,9 @@ val apiInstance = WalletsApi()
 val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val walletWithdrawDtoCollectionQueryParameters : WalletWithdrawDtoCollectionQueryParameters =  // WalletWithdrawDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#getWalletWithdrawsCountAsync")
@@ -2209,9 +2270,10 @@ try {
 ### Parameters
 | **walletId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2223,12 +2285,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchWalletBankAccountAsync"></a>
 # **patchWalletBankAccountAsync**
-> EmptyEnvelope patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation)
 
 Patch Wallet Bank Account
 
@@ -2245,9 +2307,9 @@ val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val bankAccountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#patchWalletBankAccountAsync")
@@ -2265,7 +2327,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2282,7 +2344,7 @@ No authorization required
 
 <a id="patchWalletTokenAsync"></a>
 # **patchWalletTokenAsync**
-> EmptyEnvelope patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, patchOperation)
 
 Patch Wallet Token
 
@@ -2299,9 +2361,9 @@ val walletId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tokenId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WalletsApi#patchWalletTokenAsync")
@@ -2319,7 +2381,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

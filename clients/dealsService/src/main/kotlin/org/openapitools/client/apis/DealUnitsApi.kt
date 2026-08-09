@@ -20,19 +20,22 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.DealUnitCreateDto
+import org.openapitools.client.models.DealUnitDtoCollectionQueryParameters
 import org.openapitools.client.models.DealUnitDtoEnvelope
 import org.openapitools.client.models.DealUnitDtoListEnvelope
 import org.openapitools.client.models.DealUnitLineCreateDto
+import org.openapitools.client.models.DealUnitLineDtoCollectionQueryParameters
 import org.openapitools.client.models.DealUnitLineDtoEnvelope
 import org.openapitools.client.models.DealUnitLineDtoListEnvelope
 import org.openapitools.client.models.DealUnitLineUpdateDto
 import org.openapitools.client.models.DealUnitUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedDealUnitDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedDealUnitDtoEnvelope
 import org.openapitools.client.models.ExtendedDealUnitDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -614,6 +617,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return DealUnitLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -623,8 +627,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDealUnitLinesAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : DealUnitLineDtoListEnvelope {
-        val localVarResponse = getDealUnitLinesAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
+    fun getDealUnitLinesAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters? = null) : DealUnitLineDtoListEnvelope {
+        val localVarResponse = getDealUnitLinesAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId, dealUnitLineDtoCollectionQueryParameters = dealUnitLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitLineDtoListEnvelope
@@ -647,16 +651,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DealUnitLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDealUnitLinesAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<DealUnitLineDtoListEnvelope?> {
-        val localVariableConfig = getDealUnitLinesAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId)
+    fun getDealUnitLinesAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters?) : ApiResponse<DealUnitLineDtoListEnvelope?> {
+        val localVariableConfig = getDealUnitLinesAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, itemId = itemId, dealUnitLineDtoCollectionQueryParameters = dealUnitLineDtoCollectionQueryParameters)
 
-        return request<Unit, DealUnitLineDtoListEnvelope>(
+        return request<DealUnitLineDtoCollectionQueryParameters, DealUnitLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -667,10 +672,11 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDealUnitLinesAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDealUnitLinesAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters?) : RequestConfig<DealUnitLineDtoCollectionQueryParameters> {
+        val localVariableBody = dealUnitLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -679,6 +685,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -696,6 +703,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total count of lines for a specific deal unit with OData filter support.
      * @param dealUnitId 
      * @param tenantId 
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -705,8 +713,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDealUnitLinesCountAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId)
+    fun getDealUnitLinesCountAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineDtoCollectionQueryParameters = dealUnitLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -728,16 +736,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total count of lines for a specific deal unit with OData filter support.
      * @param dealUnitId 
      * @param tenantId 
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getDealUnitLinesCountAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId)
+    fun getDealUnitLinesCountAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDealUnitLinesCountAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, dealUnitLineDtoCollectionQueryParameters = dealUnitLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<DealUnitLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -747,15 +756,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param dealUnitId 
      * @param tenantId 
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDealUnitLinesCountAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDealUnitLinesCountAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, dealUnitLineDtoCollectionQueryParameters: DealUnitLineDtoCollectionQueryParameters?) : RequestConfig<DealUnitLineDtoCollectionQueryParameters> {
+        val localVariableBody = dealUnitLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -852,6 +863,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get deal units
      * Retrieves a list of deal units for the specified tenant with OData query support.
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return DealUnitDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -861,8 +873,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDealUnitsAsync(tenantId: java.util.UUID) : DealUnitDtoListEnvelope {
-        val localVarResponse = getDealUnitsAsyncWithHttpInfo(tenantId = tenantId)
+    fun getDealUnitsAsync(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters? = null) : DealUnitDtoListEnvelope {
+        val localVarResponse = getDealUnitsAsyncWithHttpInfo(tenantId = tenantId, dealUnitDtoCollectionQueryParameters = dealUnitDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DealUnitDtoListEnvelope
@@ -883,16 +895,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get deal units
      * Retrieves a list of deal units for the specified tenant with OData query support.
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DealUnitDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DealUnitDtoListEnvelope?> {
-        val localVariableConfig = getDealUnitsAsyncRequestConfig(tenantId = tenantId)
+    fun getDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters?) : ApiResponse<DealUnitDtoListEnvelope?> {
+        val localVariableConfig = getDealUnitsAsyncRequestConfig(tenantId = tenantId, dealUnitDtoCollectionQueryParameters = dealUnitDtoCollectionQueryParameters)
 
-        return request<Unit, DealUnitDtoListEnvelope>(
+        return request<DealUnitDtoCollectionQueryParameters, DealUnitDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -901,15 +914,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getDealUnitsAsync
      *
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDealUnitsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDealUnitsAsyncRequestConfig(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters?) : RequestConfig<DealUnitDtoCollectionQueryParameters> {
+        val localVariableBody = dealUnitDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -926,6 +941,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get deal units count
      * Returns the total count of deal units for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -935,8 +951,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDealUnitsCountAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getDealUnitsCountAsyncWithHttpInfo(tenantId = tenantId)
+    fun getDealUnitsCountAsync(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getDealUnitsCountAsyncWithHttpInfo(tenantId = tenantId, dealUnitDtoCollectionQueryParameters = dealUnitDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -957,16 +973,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get deal units count
      * Returns the total count of deal units for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDealUnitsCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getDealUnitsCountAsyncRequestConfig(tenantId = tenantId)
+    fun getDealUnitsCountAsyncWithHttpInfo(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDealUnitsCountAsyncRequestConfig(tenantId = tenantId, dealUnitDtoCollectionQueryParameters = dealUnitDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<DealUnitDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -975,15 +992,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getDealUnitsCountAsync
      *
      * @param tenantId 
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDealUnitsCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDealUnitsCountAsyncRequestConfig(tenantId: java.util.UUID, dealUnitDtoCollectionQueryParameters: DealUnitDtoCollectionQueryParameters?) : RequestConfig<DealUnitDtoCollectionQueryParameters> {
+        val localVariableBody = dealUnitDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1077,6 +1096,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get extended deal units
      * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
      * @param tenantId 
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @return ExtendedDealUnitDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1086,8 +1106,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedDealUnitsAsync(tenantId: java.util.UUID) : ExtendedDealUnitDtoListEnvelope {
-        val localVarResponse = getExtendedDealUnitsAsyncWithHttpInfo(tenantId = tenantId)
+    fun getExtendedDealUnitsAsync(tenantId: java.util.UUID, extendedDealUnitDtoCollectionQueryParameters: ExtendedDealUnitDtoCollectionQueryParameters? = null) : ExtendedDealUnitDtoListEnvelope {
+        val localVarResponse = getExtendedDealUnitsAsyncWithHttpInfo(tenantId = tenantId, extendedDealUnitDtoCollectionQueryParameters = extendedDealUnitDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedDealUnitDtoListEnvelope
@@ -1108,16 +1128,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get extended deal units
      * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
      * @param tenantId 
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedDealUnitDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedDealUnitDtoListEnvelope?> {
-        val localVariableConfig = getExtendedDealUnitsAsyncRequestConfig(tenantId = tenantId)
+    fun getExtendedDealUnitsAsyncWithHttpInfo(tenantId: java.util.UUID, extendedDealUnitDtoCollectionQueryParameters: ExtendedDealUnitDtoCollectionQueryParameters?) : ApiResponse<ExtendedDealUnitDtoListEnvelope?> {
+        val localVariableConfig = getExtendedDealUnitsAsyncRequestConfig(tenantId = tenantId, extendedDealUnitDtoCollectionQueryParameters = extendedDealUnitDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedDealUnitDtoListEnvelope>(
+        return request<ExtendedDealUnitDtoCollectionQueryParameters, ExtendedDealUnitDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1126,15 +1147,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * To obtain the request config of the operation getExtendedDealUnitsAsync
      *
      * @param tenantId 
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedDealUnitsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedDealUnitsAsyncRequestConfig(tenantId: java.util.UUID, extendedDealUnitDtoCollectionQueryParameters: ExtendedDealUnitDtoCollectionQueryParameters?) : RequestConfig<ExtendedDealUnitDtoCollectionQueryParameters> {
+        val localVariableBody = extendedDealUnitDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1152,7 +1175,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
      * @param dealUnitId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1162,8 +1185,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, operation = operation)
+    fun patchDealUnitAsync(dealUnitId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchDealUnitAsyncWithHttpInfo(dealUnitId = dealUnitId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1185,17 +1208,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
      * @param dealUnitId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, operation = operation)
+    fun patchDealUnitAsyncWithHttpInfo(dealUnitId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchDealUnitAsyncRequestConfig(dealUnitId = dealUnitId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1205,11 +1228,11 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param dealUnitId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchDealUnitAsyncRequestConfig(dealUnitId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1234,7 +1257,7 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param dealUnitLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1244,8 +1267,8 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchDealUnitLineAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchDealUnitLineAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, operation = operation)
+    fun patchDealUnitLineAsync(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchDealUnitLineAsyncWithHttpInfo(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1268,17 +1291,17 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param dealUnitLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchDealUnitLineAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchDealUnitLineAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, operation = operation)
+    fun patchDealUnitLineAsyncWithHttpInfo(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchDealUnitLineAsyncRequestConfig(dealUnitId = dealUnitId, dealUnitLineId = dealUnitLineId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1289,11 +1312,11 @@ class DealUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param dealUnitId 
      * @param dealUnitLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchDealUnitLineAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchDealUnitLineAsyncRequestConfig(dealUnitId: java.util.UUID, dealUnitLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getItemReviewsAsync"></a>
 # **getItemReviewsAsync**
-> ItemReviewDtoListEnvelope getItemReviewsAsync(itemId, apiVersion, xApiVersion)
+> ItemReviewDtoListEnvelope getItemReviewsAsync(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
 
 Get all item reviews
 
@@ -185,8 +185,9 @@ val apiInstance = ItemReviewsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemReviewDtoCollectionQueryParameters : ItemReviewDtoCollectionQueryParameters =  // ItemReviewDtoCollectionQueryParameters | 
 try {
-    val result : ItemReviewDtoListEnvelope = apiInstance.getItemReviewsAsync(itemId, apiVersion, xApiVersion)
+    val result : ItemReviewDtoListEnvelope = apiInstance.getItemReviewsAsync(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemReviewsApi#getItemReviewsAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemReviewAsync"></a>
 # **patchItemReviewAsync**
-> patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, operation)
+> patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item review
 
@@ -236,9 +238,9 @@ val itemReviewId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchItemReviewAsync(itemReviewId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling ItemReviewsApi#patchItemReviewAsync")
     e.printStackTrace()
@@ -255,7 +257,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

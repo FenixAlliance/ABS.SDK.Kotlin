@@ -21,8 +21,9 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PricingRuleCreateDto
+import org.openapitools.client.models.PricingRuleDtoCollectionQueryParameters
 import org.openapitools.client.models.PricingRuleDtoEnvelope
 import org.openapitools.client.models.PricingRuleDtoListEnvelope
 import org.openapitools.client.models.PricingRuleUpdateDto
@@ -317,6 +318,7 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return PricingRuleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +328,8 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPricingRules(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PricingRuleDtoListEnvelope {
-        val localVarResponse = getPricingRulesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPricingRules(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters? = null) : PricingRuleDtoListEnvelope {
+        val localVarResponse = getPricingRulesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, pricingRuleDtoCollectionQueryParameters = pricingRuleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PricingRuleDtoListEnvelope
@@ -350,16 +352,17 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PricingRuleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPricingRulesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PricingRuleDtoListEnvelope?> {
-        val localVariableConfig = getPricingRulesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPricingRulesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters?) : ApiResponse<PricingRuleDtoListEnvelope?> {
+        val localVariableConfig = getPricingRulesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, pricingRuleDtoCollectionQueryParameters = pricingRuleDtoCollectionQueryParameters)
 
-        return request<Unit, PricingRuleDtoListEnvelope>(
+        return request<PricingRuleDtoCollectionQueryParameters, PricingRuleDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -370,10 +373,11 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPricingRulesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPricingRulesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters?) : RequestConfig<PricingRuleDtoCollectionQueryParameters> {
+        val localVariableBody = pricingRuleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -383,6 +387,7 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -401,6 +406,7 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -410,8 +416,8 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPricingRulesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getPricingRulesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPricingRulesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getPricingRulesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, pricingRuleDtoCollectionQueryParameters = pricingRuleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -434,16 +440,17 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPricingRulesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getPricingRulesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPricingRulesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPricingRulesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, pricingRuleDtoCollectionQueryParameters = pricingRuleDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PricingRuleDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -454,10 +461,11 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPricingRulesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPricingRulesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, pricingRuleDtoCollectionQueryParameters: PricingRuleDtoCollectionQueryParameters?) : RequestConfig<PricingRuleDtoCollectionQueryParameters> {
+        val localVariableBody = pricingRuleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -467,6 +475,7 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -486,7 +495,7 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -495,8 +504,8 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchPricingRule(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchPricingRuleWithHttpInfo(pricingRuleId = pricingRuleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchPricingRule(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchPricingRuleWithHttpInfo(pricingRuleId = pricingRuleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -520,16 +529,16 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchPricingRuleWithHttpInfo(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchPricingRuleRequestConfig(pricingRuleId = pricingRuleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchPricingRuleWithHttpInfo(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchPricingRuleRequestConfig(pricingRuleId = pricingRuleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -541,11 +550,11 @@ class PricingRulesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchPricingRuleRequestConfig(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchPricingRuleRequestConfig(pricingRuleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

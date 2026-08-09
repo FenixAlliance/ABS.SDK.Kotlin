@@ -21,8 +21,9 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PaymentCreateDto
+import org.openapitools.client.models.PaymentDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentDtoListEnvelope
 import org.openapitools.client.models.PaymentUpdateDto
 
@@ -368,6 +369,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves all payments
      * Gets all payments for the current tenant with OData support.
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -377,8 +379,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPaymentsAsync(tenantId: java.util.UUID) : PaymentDtoListEnvelope {
-        val localVarResponse = getPaymentsAsyncWithHttpInfo(tenantId = tenantId)
+    fun getPaymentsAsync(tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : PaymentDtoListEnvelope {
+        val localVarResponse = getPaymentsAsyncWithHttpInfo(tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -399,16 +401,17 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves all payments
      * Gets all payments for the current tenant with OData support.
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPaymentsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = getPaymentsAsyncRequestConfig(tenantId = tenantId)
+    fun getPaymentsAsyncWithHttpInfo(tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getPaymentsAsyncRequestConfig(tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentDtoListEnvelope>(
+        return request<PaymentDtoCollectionQueryParameters, PaymentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -417,15 +420,17 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getPaymentsAsync
      *
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPaymentsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPaymentsAsyncRequestConfig(tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -443,7 +448,7 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Patch a payment
      * @param paymentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -453,8 +458,8 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchPaymentAsync(paymentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchPaymentAsyncWithHttpInfo(paymentId = paymentId, tenantId = tenantId, operation = operation)
+    fun patchPaymentAsync(paymentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchPaymentAsyncWithHttpInfo(paymentId = paymentId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -476,17 +481,17 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Patch a payment
      * @param paymentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchPaymentAsyncWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchPaymentAsyncRequestConfig(paymentId = paymentId, tenantId = tenantId, operation = operation)
+    fun patchPaymentAsyncWithHttpInfo(paymentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchPaymentAsyncRequestConfig(paymentId = paymentId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -496,11 +501,11 @@ class PaymentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param paymentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchPaymentAsyncRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchPaymentAsyncRequestConfig(paymentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

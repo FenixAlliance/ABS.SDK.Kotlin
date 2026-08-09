@@ -12,7 +12,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getCreditsSumAsync"></a>
 # **getCreditsSumAsync**
-> DecimalEnvelope getCreditsSumAsync(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getCreditsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Sum tenant accounting-entry credits
 
@@ -28,8 +28,9 @@ val apiInstance = AccountingSummaryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : DecimalEnvelope = apiInstance.getCreditsSumAsync(tenantId, apiVersion, xApiVersion)
+    val result : DecimalEnvelope = apiInstance.getCreditsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountingSummaryApi#getCreditsSumAsync")
@@ -43,9 +44,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -57,12 +59,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDebitsSumAsync"></a>
 # **getDebitsSumAsync**
-> DecimalEnvelope getDebitsSumAsync(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getDebitsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Sum tenant accounting-entry debits
 
@@ -78,8 +80,9 @@ val apiInstance = AccountingSummaryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountingEntryDtoCollectionQueryParameters : AccountingEntryDtoCollectionQueryParameters =  // AccountingEntryDtoCollectionQueryParameters | 
 try {
-    val result : DecimalEnvelope = apiInstance.getDebitsSumAsync(tenantId, apiVersion, xApiVersion)
+    val result : DecimalEnvelope = apiInstance.getDebitsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountingSummaryApi#getDebitsSumAsync")
@@ -93,9 +96,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -107,12 +111,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExpensesSumAsync"></a>
 # **getExpensesSumAsync**
-> MoneyEnvelope getExpensesSumAsync(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getExpensesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Sum tenant expenses
 
@@ -128,8 +132,9 @@ val apiInstance = AccountingSummaryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getExpensesSumAsync(tenantId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.getExpensesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountingSummaryApi#getExpensesSumAsync")
@@ -143,9 +148,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -157,12 +163,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getIncomesSumAsync"></a>
 # **getIncomesSumAsync**
-> MoneyEnvelope getIncomesSumAsync(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getIncomesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Sum tenant incomes
 
@@ -178,8 +184,9 @@ val apiInstance = AccountingSummaryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val journalEntryDtoCollectionQueryParameters : JournalEntryDtoCollectionQueryParameters =  // JournalEntryDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getIncomesSumAsync(tenantId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.getIncomesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountingSummaryApi#getIncomesSumAsync")
@@ -193,9 +200,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -207,6 +215,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

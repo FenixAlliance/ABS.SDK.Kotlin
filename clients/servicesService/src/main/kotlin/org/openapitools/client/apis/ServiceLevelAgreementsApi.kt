@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ServiceLevelAgreementCreateDto
+import org.openapitools.client.models.ServiceLevelAgreementDtoCollectionQueryParameters
 import org.openapitools.client.models.ServiceLevelAgreementDtoEnvelope
 import org.openapitools.client.models.ServiceLevelAgreementDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.ServiceLevelAgreementUpdateDto
@@ -320,6 +321,7 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return ServiceLevelAgreementDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getServiceLevelAgreementsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ServiceLevelAgreementDtoIReadOnlyListEnvelope {
-        val localVarResponse = getServiceLevelAgreementsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getServiceLevelAgreementsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters? = null) : ServiceLevelAgreementDtoIReadOnlyListEnvelope {
+        val localVarResponse = getServiceLevelAgreementsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters = serviceLevelAgreementDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceLevelAgreementDtoIReadOnlyListEnvelope
@@ -353,16 +355,17 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ServiceLevelAgreementDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getServiceLevelAgreementsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ServiceLevelAgreementDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getServiceLevelAgreementsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getServiceLevelAgreementsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters?) : ApiResponse<ServiceLevelAgreementDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getServiceLevelAgreementsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters = serviceLevelAgreementDtoCollectionQueryParameters)
 
-        return request<Unit, ServiceLevelAgreementDtoIReadOnlyListEnvelope>(
+        return request<ServiceLevelAgreementDtoCollectionQueryParameters, ServiceLevelAgreementDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getServiceLevelAgreementsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getServiceLevelAgreementsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters?) : RequestConfig<ServiceLevelAgreementDtoCollectionQueryParameters> {
+        val localVariableBody = serviceLevelAgreementDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getServiceLevelAgreementsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getServiceLevelAgreementsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getServiceLevelAgreementsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getServiceLevelAgreementsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters = serviceLevelAgreementDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getServiceLevelAgreementsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getServiceLevelAgreementsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getServiceLevelAgreementsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getServiceLevelAgreementsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters = serviceLevelAgreementDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ServiceLevelAgreementDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelAgreementDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getServiceLevelAgreementsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getServiceLevelAgreementsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, serviceLevelAgreementDtoCollectionQueryParameters: ServiceLevelAgreementDtoCollectionQueryParameters?) : RequestConfig<ServiceLevelAgreementDtoCollectionQueryParameters> {
+        val localVariableBody = serviceLevelAgreementDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchServiceLevelAgreementAsync(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Envelope {
-        val localVarResponse = patchServiceLevelAgreementAsyncWithHttpInfo(serviceLevelAgreementId = serviceLevelAgreementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchServiceLevelAgreementAsync(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Envelope {
+        val localVarResponse = patchServiceLevelAgreementAsyncWithHttpInfo(serviceLevelAgreementId = serviceLevelAgreementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Envelope
@@ -524,17 +533,17 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchServiceLevelAgreementAsyncWithHttpInfo(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Envelope?> {
-        val localVariableConfig = patchServiceLevelAgreementAsyncRequestConfig(serviceLevelAgreementId = serviceLevelAgreementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchServiceLevelAgreementAsyncWithHttpInfo(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Envelope?> {
+        val localVariableConfig = patchServiceLevelAgreementAsyncRequestConfig(serviceLevelAgreementId = serviceLevelAgreementId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Envelope>(
+        return request<kotlin.collections.List<PatchOperation>, Envelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class ServiceLevelAgreementsApi(basePath: kotlin.String = defaultBasePath, clien
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchServiceLevelAgreementAsyncRequestConfig(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchServiceLevelAgreementAsyncRequestConfig(serviceLevelAgreementId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

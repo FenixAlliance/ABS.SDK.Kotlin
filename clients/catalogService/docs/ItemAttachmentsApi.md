@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getItemAttachmentsAsync"></a>
 # **getItemAttachmentsAsync**
-> ItemAttachmentDtoListEnvelope getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion)
+> ItemAttachmentDtoListEnvelope getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
 
 Get all item attachments
 
@@ -186,8 +186,9 @@ val apiInstance = ItemAttachmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemAttachmentDtoCollectionQueryParameters : ItemAttachmentDtoCollectionQueryParameters =  // ItemAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : ItemAttachmentDtoListEnvelope = apiInstance.getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemAttachmentDtoListEnvelope = apiInstance.getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttachmentsApi#getItemAttachmentsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemAttachmentAsync"></a>
 # **patchItemAttachmentAsync**
-> EmptyEnvelope patchItemAttachmentAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemAttachmentAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item attachment
 
@@ -237,9 +239,9 @@ val itemAttachmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemAttachmentAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemAttachmentAsync(itemAttachmentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttachmentsApi#patchItemAttachmentAsync")
@@ -257,7 +259,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

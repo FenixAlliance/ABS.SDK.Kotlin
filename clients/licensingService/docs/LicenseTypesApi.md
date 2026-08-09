@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getLicenseTypesAsync"></a>
 # **getLicenseTypesAsync**
-> LicenseTypeDtoListEnvelope getLicenseTypesAsync(tenantId, apiVersion, xApiVersion)
+> LicenseTypeDtoListEnvelope getLicenseTypesAsync(tenantId, apiVersion, xApiVersion, licenseTypeDtoCollectionQueryParameters)
 
 Get all license types
 
@@ -185,8 +185,9 @@ val apiInstance = LicenseTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val licenseTypeDtoCollectionQueryParameters : LicenseTypeDtoCollectionQueryParameters =  // LicenseTypeDtoCollectionQueryParameters | 
 try {
-    val result : LicenseTypeDtoListEnvelope = apiInstance.getLicenseTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : LicenseTypeDtoListEnvelope = apiInstance.getLicenseTypesAsync(tenantId, apiVersion, xApiVersion, licenseTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LicenseTypesApi#getLicenseTypesAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **licenseTypeDtoCollectionQueryParameters** | [**LicenseTypeDtoCollectionQueryParameters**](LicenseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLicenseTypesCountAsync"></a>
 # **getLicenseTypesCountAsync**
-> Int32Envelope getLicenseTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLicenseTypesCountAsync(tenantId, apiVersion, xApiVersion, licenseTypeDtoCollectionQueryParameters)
 
 Get license types count
 
@@ -235,8 +237,9 @@ val apiInstance = LicenseTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val licenseTypeDtoCollectionQueryParameters : LicenseTypeDtoCollectionQueryParameters =  // LicenseTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLicenseTypesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLicenseTypesCountAsync(tenantId, apiVersion, xApiVersion, licenseTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LicenseTypesApi#getLicenseTypesCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **licenseTypeDtoCollectionQueryParameters** | [**LicenseTypeDtoCollectionQueryParameters**](LicenseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchLicenseTypeAsync"></a>
 # **patchLicenseTypeAsync**
-> EmptyEnvelope patchLicenseTypeAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLicenseTypeAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a license type
 
@@ -286,9 +290,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLicenseTypeAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchLicenseTypeAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LicenseTypesApi#patchLicenseTypeAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

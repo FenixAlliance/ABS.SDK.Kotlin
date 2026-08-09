@@ -113,7 +113,7 @@ No authorization required
 
 <a id="getSystemBusinessDomains"></a>
 # **getSystemBusinessDomains**
-> BusinessDomainDtoListEnvelope getSystemBusinessDomains(apiVersion, xApiVersion)
+> BusinessDomainDtoListEnvelope getSystemBusinessDomains(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Retrieve all business domains in the system
 
@@ -128,8 +128,9 @@ Retrieve all registered business domains across every tenant (global administrat
 val apiInstance = BusinessDomainsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessDomainDtoCollectionQueryParameters : BusinessDomainDtoCollectionQueryParameters =  // BusinessDomainDtoCollectionQueryParameters | 
 try {
-    val result : BusinessDomainDtoListEnvelope = apiInstance.getSystemBusinessDomains(apiVersion, xApiVersion)
+    val result : BusinessDomainDtoListEnvelope = apiInstance.getSystemBusinessDomains(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessDomainsApi#getSystemBusinessDomains")
@@ -142,9 +143,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -156,12 +158,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSystemBusinessDomainsCount"></a>
 # **getSystemBusinessDomainsCount**
-> Int32Envelope getSystemBusinessDomainsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemBusinessDomainsCount(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get the count of all business domains in the system
 
@@ -176,8 +178,9 @@ Get the count of all registered business domains across every tenant.
 val apiInstance = BusinessDomainsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessDomainDtoCollectionQueryParameters : BusinessDomainDtoCollectionQueryParameters =  // BusinessDomainDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSystemBusinessDomainsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSystemBusinessDomainsCount(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessDomainsApi#getSystemBusinessDomainsCount")
@@ -190,9 +193,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="verifySystemBusinessDomain"></a>

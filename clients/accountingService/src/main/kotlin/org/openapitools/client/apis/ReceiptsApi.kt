@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ReceiptCreateDto
+import org.openapitools.client.models.ReceiptDtoCollectionQueryParameters
 import org.openapitools.client.models.ReceiptDtoEnvelope
 import org.openapitools.client.models.ReceiptDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.ReceiptUpdateDto
@@ -288,6 +289,7 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves tenant receipts
      * Fetches all receipts for a given tenant with OData support.
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ReceiptDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -297,8 +299,8 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReceiptsAsync(tenantId: java.util.UUID) : ReceiptDtoIReadOnlyListEnvelope {
-        val localVarResponse = getReceiptsAsyncWithHttpInfo(tenantId = tenantId)
+    fun getReceiptsAsync(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters? = null) : ReceiptDtoIReadOnlyListEnvelope {
+        val localVarResponse = getReceiptsAsyncWithHttpInfo(tenantId = tenantId, receiptDtoCollectionQueryParameters = receiptDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ReceiptDtoIReadOnlyListEnvelope
@@ -319,16 +321,17 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves tenant receipts
      * Fetches all receipts for a given tenant with OData support.
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ReceiptDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReceiptsAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ReceiptDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getReceiptsAsyncRequestConfig(tenantId = tenantId)
+    fun getReceiptsAsyncWithHttpInfo(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters?) : ApiResponse<ReceiptDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getReceiptsAsyncRequestConfig(tenantId = tenantId, receiptDtoCollectionQueryParameters = receiptDtoCollectionQueryParameters)
 
-        return request<Unit, ReceiptDtoIReadOnlyListEnvelope>(
+        return request<ReceiptDtoCollectionQueryParameters, ReceiptDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -337,15 +340,17 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getReceiptsAsync
      *
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getReceiptsAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getReceiptsAsyncRequestConfig(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters?) : RequestConfig<ReceiptDtoCollectionQueryParameters> {
+        val localVariableBody = receiptDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -362,6 +367,7 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets count of tenant receipts
      * Returns total number of receipts for the tenant with OData filter support.
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -371,8 +377,8 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getReceiptsCountAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getReceiptsCountAsyncWithHttpInfo(tenantId = tenantId)
+    fun getReceiptsCountAsync(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getReceiptsCountAsyncWithHttpInfo(tenantId = tenantId, receiptDtoCollectionQueryParameters = receiptDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -393,16 +399,17 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets count of tenant receipts
      * Returns total number of receipts for the tenant with OData filter support.
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getReceiptsCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getReceiptsCountAsyncRequestConfig(tenantId = tenantId)
+    fun getReceiptsCountAsyncWithHttpInfo(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getReceiptsCountAsyncRequestConfig(tenantId = tenantId, receiptDtoCollectionQueryParameters = receiptDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ReceiptDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -411,15 +418,17 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getReceiptsCountAsync
      *
      * @param tenantId 
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getReceiptsCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getReceiptsCountAsyncRequestConfig(tenantId: java.util.UUID, receiptDtoCollectionQueryParameters: ReceiptDtoCollectionQueryParameters?) : RequestConfig<ReceiptDtoCollectionQueryParameters> {
+        val localVariableBody = receiptDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -437,7 +446,7 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified receipt using a JSON Patch document.
      * @param receiptId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -447,8 +456,8 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchReceiptAsync(receiptId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchReceiptAsyncWithHttpInfo(receiptId = receiptId, tenantId = tenantId, operation = operation)
+    fun patchReceiptAsync(receiptId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchReceiptAsyncWithHttpInfo(receiptId = receiptId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -470,17 +479,17 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified receipt using a JSON Patch document.
      * @param receiptId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchReceiptAsyncWithHttpInfo(receiptId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchReceiptAsyncRequestConfig(receiptId = receiptId, tenantId = tenantId, operation = operation)
+    fun patchReceiptAsyncWithHttpInfo(receiptId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchReceiptAsyncRequestConfig(receiptId = receiptId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -490,11 +499,11 @@ class ReceiptsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param receiptId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchReceiptAsyncRequestConfig(receiptId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchReceiptAsyncRequestConfig(receiptId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

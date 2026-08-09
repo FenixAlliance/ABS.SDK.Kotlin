@@ -22,9 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SigningCertificateCreateDto
 import org.openapitools.client.models.SigningCertificateDto
+import org.openapitools.client.models.SigningCertificateDtoCollectionQueryParameters
 import org.openapitools.client.models.SigningCertificateDtoListEnvelope
 import org.openapitools.client.models.SigningCertificateUpdateDto
 
@@ -316,6 +317,7 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return SigningCertificateDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,8 +327,8 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningCertificatesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SigningCertificateDtoListEnvelope {
-        val localVarResponse = getSigningCertificatesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningCertificatesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters? = null) : SigningCertificateDtoListEnvelope {
+        val localVarResponse = getSigningCertificatesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingCertificateDtoCollectionQueryParameters = signingCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SigningCertificateDtoListEnvelope
@@ -349,16 +351,17 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SigningCertificateDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningCertificatesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SigningCertificateDtoListEnvelope?> {
-        val localVariableConfig = getSigningCertificatesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningCertificatesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters?) : ApiResponse<SigningCertificateDtoListEnvelope?> {
+        val localVariableConfig = getSigningCertificatesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingCertificateDtoCollectionQueryParameters = signingCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, SigningCertificateDtoListEnvelope>(
+        return request<SigningCertificateDtoCollectionQueryParameters, SigningCertificateDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -369,10 +372,11 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningCertificatesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningCertificatesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters?) : RequestConfig<SigningCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = signingCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -382,6 +386,7 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -400,6 +405,7 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -409,8 +415,8 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningCertificatesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSigningCertificatesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningCertificatesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSigningCertificatesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingCertificateDtoCollectionQueryParameters = signingCertificateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -433,16 +439,17 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningCertificatesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSigningCertificatesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningCertificatesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSigningCertificatesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingCertificateDtoCollectionQueryParameters = signingCertificateDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SigningCertificateDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -453,10 +460,11 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingCertificateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningCertificatesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningCertificatesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingCertificateDtoCollectionQueryParameters: SigningCertificateDtoCollectionQueryParameters?) : RequestConfig<SigningCertificateDtoCollectionQueryParameters> {
+        val localVariableBody = signingCertificateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -466,6 +474,7 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -587,7 +596,7 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -597,8 +606,8 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSigningCertificateAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSigningCertificateAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSigningCertificateAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSigningCertificateAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -622,17 +631,17 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSigningCertificateAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSigningCertificateAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSigningCertificateAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSigningCertificateAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -644,11 +653,11 @@ class SigningCertificatesApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSigningCertificateAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSigningCertificateAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

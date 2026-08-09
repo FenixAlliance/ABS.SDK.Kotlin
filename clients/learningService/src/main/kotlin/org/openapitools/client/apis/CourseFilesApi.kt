@@ -21,9 +21,10 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CourseFileCreateDto
 import org.openapitools.client.models.CourseFileDto
+import org.openapitools.client.models.CourseFileDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseFileUpdateDto
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -309,6 +310,7 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<CourseFileDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -318,8 +320,8 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseFilesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<CourseFileDto> {
-        val localVarResponse = getCourseFilesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseFilesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters? = null) : kotlin.collections.List<CourseFileDto> {
+        val localVarResponse = getCourseFilesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseFileDtoCollectionQueryParameters = courseFileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CourseFileDto>
@@ -342,16 +344,17 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<CourseFileDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseFilesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<CourseFileDto>?> {
-        val localVariableConfig = getCourseFilesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseFilesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<CourseFileDto>?> {
+        val localVariableConfig = getCourseFilesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseFileDtoCollectionQueryParameters = courseFileDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<CourseFileDto>>(
+        return request<CourseFileDtoCollectionQueryParameters, kotlin.collections.List<CourseFileDto>>(
             localVariableConfig
         )
     }
@@ -362,10 +365,11 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseFilesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseFilesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters?) : RequestConfig<CourseFileDtoCollectionQueryParameters> {
+        val localVariableBody = courseFileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -375,6 +379,7 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -393,6 +398,7 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -402,8 +408,8 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCourseFilesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getCourseFilesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseFilesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getCourseFilesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseFileDtoCollectionQueryParameters = courseFileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -426,16 +432,17 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCourseFilesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getCourseFilesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCourseFilesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getCourseFilesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseFileDtoCollectionQueryParameters = courseFileDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseFileDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -446,10 +453,11 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseFileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCourseFilesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCourseFilesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseFileDtoCollectionQueryParameters: CourseFileDtoCollectionQueryParameters?) : RequestConfig<CourseFileDtoCollectionQueryParameters> {
+        val localVariableBody = courseFileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -459,6 +467,7 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -478,7 +487,7 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -487,8 +496,8 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCourseFileAsync(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchCourseFileAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseFileAsync(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchCourseFileAsyncWithHttpInfo(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -512,16 +521,16 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCourseFileAsyncWithHttpInfo(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchCourseFileAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseFileAsyncWithHttpInfo(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchCourseFileAsyncRequestConfig(fileId = fileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -533,11 +542,11 @@ class CourseFilesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCourseFileAsyncRequestConfig(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCourseFileAsyncRequestConfig(fileId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

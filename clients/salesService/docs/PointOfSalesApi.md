@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countPointOfSalesAsync"></a>
 # **countPointOfSalesAsync**
-> Int32Envelope countPointOfSalesAsync(tenantId)
+> Int32Envelope countPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
 
 Get point of sales count
 
@@ -29,8 +29,9 @@ Returns the total count of point of sales for the specified tenant with OData fi
 
 val apiInstance = PointOfSalesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val pointOfSaleDtoCollectionQueryParameters : PointOfSaleDtoCollectionQueryParameters =  // PointOfSaleDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countPointOfSalesAsync(tenantId)
+    val result : Int32Envelope = apiInstance.countPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PointOfSalesApi#countPointOfSalesAsync")
@@ -42,9 +43,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **pointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -56,7 +58,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createPointOfSaleAsync"></a>
@@ -205,7 +207,7 @@ No authorization required
 
 <a id="getPointOfSalesAsync"></a>
 # **getPointOfSalesAsync**
-> PointOfSaleDtoListEnvelope getPointOfSalesAsync(tenantId)
+> PointOfSaleDtoListEnvelope getPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
 
 Get point of sales
 
@@ -219,8 +221,9 @@ Retrieves a list of point of sales for the specified tenant with OData query sup
 
 val apiInstance = PointOfSalesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val pointOfSaleDtoCollectionQueryParameters : PointOfSaleDtoCollectionQueryParameters =  // PointOfSaleDtoCollectionQueryParameters | 
 try {
-    val result : PointOfSaleDtoListEnvelope = apiInstance.getPointOfSalesAsync(tenantId)
+    val result : PointOfSaleDtoListEnvelope = apiInstance.getPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PointOfSalesApi#getPointOfSalesAsync")
@@ -232,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **pointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -246,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchPointOfSaleAsync"></a>
 # **patchPointOfSaleAsync**
-> EmptyEnvelope patchPointOfSaleAsync(pointOfSaleId, tenantId, operation)
+> EmptyEnvelope patchPointOfSaleAsync(pointOfSaleId, tenantId, patchOperation)
 
 Patch a point of sale
 
@@ -266,9 +270,9 @@ Partially updates an existing point of sale using a JSON Patch document.
 val apiInstance = PointOfSalesApi()
 val pointOfSaleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPointOfSaleAsync(pointOfSaleId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchPointOfSaleAsync(pointOfSaleId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PointOfSalesApi#patchPointOfSaleAsync")
@@ -284,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

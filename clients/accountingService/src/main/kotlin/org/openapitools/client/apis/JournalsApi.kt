@@ -19,19 +19,22 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.AssignJournalToBookRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.JournalCreateDto
+import org.openapitools.client.models.JournalDtoCollectionQueryParameters
 import org.openapitools.client.models.JournalDtoEnvelope
 import org.openapitools.client.models.JournalDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.JournalEntryCreateDto
+import org.openapitools.client.models.JournalEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.JournalEntryDtoEnvelope
 import org.openapitools.client.models.JournalEntryDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.JournalEntryUpdateDto
 import org.openapitools.client.models.JournalUpdateDto
 import org.openapitools.client.models.MoneyEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ReverseJournalEntryRequest
 
 import com.squareup.moshi.Json
@@ -66,6 +69,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -75,8 +79,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateJournalEntryCreditsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun aggregateJournalEntryCreditsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -101,16 +105,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateJournalEntryCreditsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun aggregateJournalEntryCreditsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateJournalEntryCreditsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -123,10 +128,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun aggregateJournalEntryCreditsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun aggregateJournalEntryCreditsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -139,6 +145,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -159,6 +166,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -168,8 +176,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun aggregateJournalEntryDebitsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun aggregateJournalEntryDebitsAsync(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String? = "USD.USA", apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -194,16 +202,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = aggregateJournalEntryDebitsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun aggregateJournalEntryDebitsAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = aggregateJournalEntryDebitsAsyncRequestConfig(journalId = journalId, tenantId = tenantId, currencyId = currencyId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -216,10 +225,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param currencyId  (optional, default to "USD.USA")
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun aggregateJournalEntryDebitsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun aggregateJournalEntryDebitsAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, currencyId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -232,6 +242,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -245,11 +256,103 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
+     * Bind a journal to a financial book
+     * Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+     * @param journalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assignJournalToBookAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, assignJournalToBookRequest: AssignJournalToBookRequest? = null) : EmptyEnvelope {
+        val localVarResponse = assignJournalToBookAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, assignJournalToBookRequest = assignJournalToBookRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Bind a journal to a financial book
+     * Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+     * @param journalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun assignJournalToBookAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, assignJournalToBookRequest: AssignJournalToBookRequest?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = assignJournalToBookAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, assignJournalToBookRequest = assignJournalToBookRequest)
+
+        return request<AssignJournalToBookRequest, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation assignJournalToBookAsync
+     *
+     * @param journalId 
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @return RequestConfig
+     */
+    fun assignJournalToBookAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, assignJournalToBookRequest: AssignJournalToBookRequest?) : RequestConfig<AssignJournalToBookRequest> {
+        val localVariableBody = assignJournalToBookRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("tenantId", listOf(tenantId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/AccountingService/Journals/{journalId}/AssignToBook".replace("{"+"journalId"+"}", encodeURIComponent(journalId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Count journals
      * Returns the count of journals for the tenant.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -259,8 +362,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countJournalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countJournalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countJournalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countJournalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalDtoCollectionQueryParameters = journalDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -283,16 +386,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countJournalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countJournalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countJournalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countJournalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalDtoCollectionQueryParameters = journalDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<JournalDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -303,10 +407,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countJournalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countJournalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters?) : RequestConfig<JournalDtoCollectionQueryParameters> {
+        val localVariableBody = journalDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -316,6 +421,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -778,6 +884,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return JournalEntryDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -787,8 +894,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getJournalEntriesAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : JournalEntryDtoIReadOnlyListEnvelope {
-        val localVarResponse = getJournalEntriesAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalEntriesAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : JournalEntryDtoIReadOnlyListEnvelope {
+        val localVarResponse = getJournalEntriesAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as JournalEntryDtoIReadOnlyListEnvelope
@@ -812,16 +919,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<JournalEntryDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getJournalEntriesAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<JournalEntryDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getJournalEntriesAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalEntriesAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<JournalEntryDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getJournalEntriesAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, JournalEntryDtoIReadOnlyListEnvelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, JournalEntryDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -833,10 +941,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getJournalEntriesAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getJournalEntriesAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -846,6 +955,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -865,6 +975,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -874,8 +985,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getJournalEntriesCountAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getJournalEntriesCountAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalEntriesCountAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getJournalEntriesCountAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -899,16 +1010,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getJournalEntriesCountAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getJournalEntriesCountAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalEntriesCountAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getJournalEntriesCountAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalEntryDtoCollectionQueryParameters = journalEntryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<JournalEntryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -920,10 +1032,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getJournalEntriesCountAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getJournalEntriesCountAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalEntryDtoCollectionQueryParameters: JournalEntryDtoCollectionQueryParameters?) : RequestConfig<JournalEntryDtoCollectionQueryParameters> {
+        val localVariableBody = journalEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -933,6 +1046,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1041,6 +1155,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return JournalDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1050,8 +1165,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getJournalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : JournalDtoIReadOnlyListEnvelope {
-        val localVarResponse = getJournalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters? = null) : JournalDtoIReadOnlyListEnvelope {
+        val localVarResponse = getJournalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalDtoCollectionQueryParameters = journalDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as JournalDtoIReadOnlyListEnvelope
@@ -1074,16 +1189,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<JournalDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getJournalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<JournalDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getJournalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getJournalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters?) : ApiResponse<JournalDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getJournalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, journalDtoCollectionQueryParameters = journalDtoCollectionQueryParameters)
 
-        return request<Unit, JournalDtoIReadOnlyListEnvelope>(
+        return request<JournalDtoCollectionQueryParameters, JournalDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -1094,10 +1210,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getJournalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getJournalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, journalDtoCollectionQueryParameters: JournalDtoCollectionQueryParameters?) : RequestConfig<JournalDtoCollectionQueryParameters> {
+        val localVariableBody = journalDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1107,6 +1224,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1126,7 +1244,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1136,8 +1254,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchJournalAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchJournalAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchJournalAsync(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchJournalAsyncWithHttpInfo(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1161,17 +1279,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchJournalAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchJournalAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchJournalAsyncWithHttpInfo(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchJournalAsyncRequestConfig(journalId = journalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1183,11 +1301,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchJournalAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchJournalAsyncRequestConfig(journalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1218,7 +1336,7 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1228,8 +1346,8 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchJournalEntryAsync(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchJournalEntryAsyncWithHttpInfo(journalId = journalId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchJournalEntryAsync(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchJournalEntryAsyncWithHttpInfo(journalId = journalId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1254,17 +1372,17 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchJournalEntryAsyncWithHttpInfo(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchJournalEntryAsyncRequestConfig(journalId = journalId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchJournalEntryAsyncWithHttpInfo(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchJournalEntryAsyncRequestConfig(journalId = journalId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1277,11 +1395,11 @@ class JournalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchJournalEntryAsyncRequestConfig(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchJournalEntryAsyncRequestConfig(journalId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

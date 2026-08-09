@@ -20,13 +20,14 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AssetTransferCreateDto
+import org.openapitools.client.models.AssetTransferDtoCollectionQueryParameters
 import org.openapitools.client.models.AssetTransferDtoEnvelope
 import org.openapitools.client.models.AssetTransferDtoListEnvelope
 import org.openapitools.client.models.AssetTransferUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -288,6 +289,7 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Gets a list of asset transfers
      * Retrieves all asset transfers for the authenticated tenant.
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return AssetTransferDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -297,8 +299,8 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetTransfersAsync(tenantId: java.util.UUID) : AssetTransferDtoListEnvelope {
-        val localVarResponse = getAssetTransfersAsyncWithHttpInfo(tenantId = tenantId)
+    fun getAssetTransfersAsync(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters? = null) : AssetTransferDtoListEnvelope {
+        val localVarResponse = getAssetTransfersAsyncWithHttpInfo(tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AssetTransferDtoListEnvelope
@@ -319,16 +321,17 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Gets a list of asset transfers
      * Retrieves all asset transfers for the authenticated tenant.
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AssetTransferDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetTransfersAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<AssetTransferDtoListEnvelope?> {
-        val localVariableConfig = getAssetTransfersAsyncRequestConfig(tenantId = tenantId)
+    fun getAssetTransfersAsyncWithHttpInfo(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : ApiResponse<AssetTransferDtoListEnvelope?> {
+        val localVariableConfig = getAssetTransfersAsyncRequestConfig(tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
-        return request<Unit, AssetTransferDtoListEnvelope>(
+        return request<AssetTransferDtoCollectionQueryParameters, AssetTransferDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -337,15 +340,17 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation getAssetTransfersAsync
      *
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetTransfersAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetTransfersAsyncRequestConfig(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : RequestConfig<AssetTransferDtoCollectionQueryParameters> {
+        val localVariableBody = assetTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -362,6 +367,7 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Gets the count of asset transfers
      * Returns the total number of asset transfers for the authenticated tenant.
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -371,8 +377,8 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAssetTransfersCountAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getAssetTransfersCountAsyncWithHttpInfo(tenantId = tenantId)
+    fun getAssetTransfersCountAsync(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAssetTransfersCountAsyncWithHttpInfo(tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -393,16 +399,17 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Gets the count of asset transfers
      * Returns the total number of asset transfers for the authenticated tenant.
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAssetTransfersCountAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAssetTransfersCountAsyncRequestConfig(tenantId = tenantId)
+    fun getAssetTransfersCountAsyncWithHttpInfo(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAssetTransfersCountAsyncRequestConfig(tenantId = tenantId, assetTransferDtoCollectionQueryParameters = assetTransferDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AssetTransferDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -411,15 +418,17 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * To obtain the request config of the operation getAssetTransfersCountAsync
      *
      * @param tenantId 
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAssetTransfersCountAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAssetTransfersCountAsyncRequestConfig(tenantId: java.util.UUID, assetTransferDtoCollectionQueryParameters: AssetTransferDtoCollectionQueryParameters?) : RequestConfig<AssetTransferDtoCollectionQueryParameters> {
+        val localVariableBody = assetTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -437,7 +446,7 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -447,8 +456,8 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAssetTransferAsync(transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAssetTransferAsyncWithHttpInfo(transferId = transferId, tenantId = tenantId, operation = operation)
+    fun patchAssetTransferAsync(transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAssetTransferAsyncWithHttpInfo(transferId = transferId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -470,17 +479,17 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAssetTransferAsyncWithHttpInfo(transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAssetTransferAsyncRequestConfig(transferId = transferId, tenantId = tenantId, operation = operation)
+    fun patchAssetTransferAsyncWithHttpInfo(transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAssetTransferAsyncRequestConfig(transferId = transferId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -490,11 +499,11 @@ class AssetTransfersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      *
      * @param transferId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAssetTransferAsyncRequestConfig(transferId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAssetTransferAsyncRequestConfig(transferId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

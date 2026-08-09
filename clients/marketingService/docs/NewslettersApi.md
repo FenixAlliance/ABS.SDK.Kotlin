@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getNewsletterODataAsync"></a>
 # **getNewsletterODataAsync**
-> getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
+> getNewsletterODataAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
 
 Get newsletters
 
@@ -187,8 +187,9 @@ val apiInstance = NewslettersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val newsletterDtoCollectionQueryParameters : NewsletterDtoCollectionQueryParameters =  // NewsletterDtoCollectionQueryParameters | 
 try {
-    apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
+    apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
 } catch (e: ClientException) {
     println("4xx response calling NewslettersApi#getNewsletterODataAsync")
     e.printStackTrace()
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **newsletterDtoCollectionQueryParameters** | [**NewsletterDtoCollectionQueryParameters**](NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getNewslettersCountAsync"></a>
 # **getNewslettersCountAsync**
-> Int32Envelope getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getNewslettersCountAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
 
 Get newsletters count
 
@@ -236,8 +238,9 @@ val apiInstance = NewslettersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val newsletterDtoCollectionQueryParameters : NewsletterDtoCollectionQueryParameters =  // NewsletterDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NewslettersApi#getNewslettersCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **newsletterDtoCollectionQueryParameters** | [**NewsletterDtoCollectionQueryParameters**](NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,12 +269,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchNewsletterAsync"></a>
 # **patchNewsletterAsync**
-> EmptyEnvelope patchNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a newsletter
 
@@ -287,9 +291,9 @@ val newsletterId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchNewsletterAsync(newsletterId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NewslettersApi#patchNewsletterAsync")
@@ -307,7 +311,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

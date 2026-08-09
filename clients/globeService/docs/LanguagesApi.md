@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLanguagesAsync"></a>
 # **countLanguagesAsync**
-> Int32Envelope countLanguagesAsync(apiVersion, xApiVersion)
+> Int32Envelope countLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
 
 Count languages
 
@@ -26,8 +26,9 @@ Returns the total number of supported languages, with optional OData filtering.
 val apiInstance = LanguagesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryLanguageDtoCollectionQueryParameters : CountryLanguageDtoCollectionQueryParameters =  // CountryLanguageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countLanguagesAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LanguagesApi#countLanguagesAsync")
@@ -40,9 +41,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -54,7 +56,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLanguageByIdAsync"></a>
@@ -109,7 +111,7 @@ No authorization required
 
 <a id="getLanguagesAsync"></a>
 # **getLanguagesAsync**
-> CountryLanguageDtoListEnvelope getLanguagesAsync(apiVersion, xApiVersion)
+> CountryLanguageDtoListEnvelope getLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
 
 Get all languages
 
@@ -124,8 +126,9 @@ Retrieves the list of all supported languages with optional OData pagination and
 val apiInstance = LanguagesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryLanguageDtoCollectionQueryParameters : CountryLanguageDtoCollectionQueryParameters =  // CountryLanguageDtoCollectionQueryParameters | 
 try {
-    val result : CountryLanguageDtoListEnvelope = apiInstance.getLanguagesAsync(apiVersion, xApiVersion)
+    val result : CountryLanguageDtoListEnvelope = apiInstance.getLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LanguagesApi#getLanguagesAsync")
@@ -138,9 +141,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -152,6 +156,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

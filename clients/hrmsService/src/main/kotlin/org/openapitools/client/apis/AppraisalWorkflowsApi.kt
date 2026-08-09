@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AppraisalWorkflowCreateDto
+import org.openapitools.client.models.AppraisalWorkflowDtoCollectionQueryParameters
 import org.openapitools.client.models.AppraisalWorkflowDtoEnvelope
 import org.openapitools.client.models.AppraisalWorkflowDtoListEnvelope
 import org.openapitools.client.models.AppraisalWorkflowUpdateDto
@@ -319,6 +320,7 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return AppraisalWorkflowDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAppraisalWorkflowsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AppraisalWorkflowDtoListEnvelope {
-        val localVarResponse = getAppraisalWorkflowsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppraisalWorkflowsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters? = null) : AppraisalWorkflowDtoListEnvelope {
+        val localVarResponse = getAppraisalWorkflowsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appraisalWorkflowDtoCollectionQueryParameters = appraisalWorkflowDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AppraisalWorkflowDtoListEnvelope
@@ -352,16 +354,17 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AppraisalWorkflowDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAppraisalWorkflowsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AppraisalWorkflowDtoListEnvelope?> {
-        val localVariableConfig = getAppraisalWorkflowsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppraisalWorkflowsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters?) : ApiResponse<AppraisalWorkflowDtoListEnvelope?> {
+        val localVariableConfig = getAppraisalWorkflowsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appraisalWorkflowDtoCollectionQueryParameters = appraisalWorkflowDtoCollectionQueryParameters)
 
-        return request<Unit, AppraisalWorkflowDtoListEnvelope>(
+        return request<AppraisalWorkflowDtoCollectionQueryParameters, AppraisalWorkflowDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAppraisalWorkflowsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAppraisalWorkflowsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters?) : RequestConfig<AppraisalWorkflowDtoCollectionQueryParameters> {
+        val localVariableBody = appraisalWorkflowDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAppraisalWorkflowsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getAppraisalWorkflowsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppraisalWorkflowsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAppraisalWorkflowsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appraisalWorkflowDtoCollectionQueryParameters = appraisalWorkflowDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAppraisalWorkflowsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAppraisalWorkflowsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppraisalWorkflowsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAppraisalWorkflowsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appraisalWorkflowDtoCollectionQueryParameters = appraisalWorkflowDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AppraisalWorkflowDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalWorkflowDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAppraisalWorkflowsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAppraisalWorkflowsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appraisalWorkflowDtoCollectionQueryParameters: AppraisalWorkflowDtoCollectionQueryParameters?) : RequestConfig<AppraisalWorkflowDtoCollectionQueryParameters> {
+        val localVariableBody = appraisalWorkflowDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class AppraisalWorkflowsApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

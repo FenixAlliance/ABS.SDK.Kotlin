@@ -118,7 +118,7 @@ No authorization required
 
 <a id="getCourseLibrariesAsync"></a>
 # **getCourseLibrariesAsync**
-> kotlin.collections.List&lt;CourseLibraryDto&gt; getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseLibraryDto&gt; getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get all course libraries
 
@@ -134,8 +134,9 @@ val apiInstance = CourseLibrariesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseLibraryDtoCollectionQueryParameters : CourseLibraryDtoCollectionQueryParameters =  // CourseLibraryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseLibraryDto> = apiInstance.getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseLibraryDto> = apiInstance.getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseLibrariesApi#getCourseLibrariesAsync")
@@ -149,9 +150,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -163,12 +165,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseLibrariesCountAsync"></a>
 # **getCourseLibrariesCountAsync**
-> kotlin.Int getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries count
 
@@ -184,8 +186,9 @@ val apiInstance = CourseLibrariesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseLibraryDtoCollectionQueryParameters : CourseLibraryDtoCollectionQueryParameters =  // CourseLibraryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseLibrariesApi#getCourseLibrariesCountAsync")
@@ -199,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -213,7 +217,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseLibraryByIdAsync"></a>
@@ -268,7 +272,7 @@ No authorization required
 
 <a id="patchCourseLibraryAsync"></a>
 # **patchCourseLibraryAsync**
-> patchCourseLibraryAsync(libraryId, tenantId, apiVersion, xApiVersion, operation)
+> patchCourseLibraryAsync(libraryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course library
 
@@ -285,9 +289,9 @@ val libraryId : kotlin.String = libraryId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchCourseLibraryAsync(libraryId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchCourseLibraryAsync(libraryId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling CourseLibrariesApi#patchCourseLibraryAsync")
     e.printStackTrace()
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

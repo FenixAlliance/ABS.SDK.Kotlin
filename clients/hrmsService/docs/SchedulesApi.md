@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getSchedulesAsync"></a>
 # **getSchedulesAsync**
-> ScheduleDtoListEnvelope getSchedulesAsync(tenantId, apiVersion, xApiVersion)
+> ScheduleDtoListEnvelope getSchedulesAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
 
 Get schedules
 
@@ -187,8 +187,9 @@ val apiInstance = SchedulesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val scheduleDtoCollectionQueryParameters : ScheduleDtoCollectionQueryParameters =  // ScheduleDtoCollectionQueryParameters | 
 try {
-    val result : ScheduleDtoListEnvelope = apiInstance.getSchedulesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ScheduleDtoListEnvelope = apiInstance.getSchedulesAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SchedulesApi#getSchedulesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **scheduleDtoCollectionQueryParameters** | [**ScheduleDtoCollectionQueryParameters**](ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSchedulesCountAsync"></a>
 # **getSchedulesCountAsync**
-> Int32Envelope getSchedulesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSchedulesCountAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
 
 Count schedules
 
@@ -237,8 +239,9 @@ val apiInstance = SchedulesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val scheduleDtoCollectionQueryParameters : ScheduleDtoCollectionQueryParameters =  // ScheduleDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSchedulesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSchedulesCountAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SchedulesApi#getSchedulesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **scheduleDtoCollectionQueryParameters** | [**ScheduleDtoCollectionQueryParameters**](ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchScheduleAsync"></a>
 # **patchScheduleAsync**
-> EmptyEnvelope patchScheduleAsync(scheduleId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchScheduleAsync(scheduleId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a schedule
 
@@ -288,9 +292,9 @@ val scheduleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchScheduleAsync(scheduleId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchScheduleAsync(scheduleId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SchedulesApi#patchScheduleAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

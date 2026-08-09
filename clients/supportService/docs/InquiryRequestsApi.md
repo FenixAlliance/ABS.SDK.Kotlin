@@ -165,7 +165,7 @@ No authorization required
 
 <a id="getInquiryRequestsAsync"></a>
 # **getInquiryRequestsAsync**
-> InquiryRequestDtoListEnvelope getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion)
+> InquiryRequestDtoListEnvelope getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
 
 Retrieve inquiry requests
 
@@ -179,8 +179,9 @@ val apiInstance = InquiryRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val inquiryRequestDtoCollectionQueryParameters : InquiryRequestDtoCollectionQueryParameters =  // InquiryRequestDtoCollectionQueryParameters | 
 try {
-    val result : InquiryRequestDtoListEnvelope = apiInstance.getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion)
+    val result : InquiryRequestDtoListEnvelope = apiInstance.getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InquiryRequestsApi#getInquiryRequestsAsync")
@@ -194,9 +195,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **inquiryRequestDtoCollectionQueryParameters** | [**InquiryRequestDtoCollectionQueryParameters**](InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -208,12 +210,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInquiryRequestsCountAsync"></a>
 # **getInquiryRequestsCountAsync**
-> Int32Envelope getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
 
 Get inquiry requests count
 
@@ -227,8 +229,9 @@ val apiInstance = InquiryRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val inquiryRequestDtoCollectionQueryParameters : InquiryRequestDtoCollectionQueryParameters =  // InquiryRequestDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InquiryRequestsApi#getInquiryRequestsCountAsync")
@@ -242,9 +245,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **inquiryRequestDtoCollectionQueryParameters** | [**InquiryRequestDtoCollectionQueryParameters**](InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,12 +260,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchInquiryRequestAsync"></a>
 # **patchInquiryRequestAsync**
-> EmptyEnvelope patchInquiryRequestAsync(inquiryRequestId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchInquiryRequestAsync(inquiryRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an inquiry request
 
@@ -278,9 +282,9 @@ val inquiryRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInquiryRequestAsync(inquiryRequestId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchInquiryRequestAsync(inquiryRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InquiryRequestsApi#patchInquiryRequestAsync")
@@ -298,7 +302,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

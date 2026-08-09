@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemCategoriesAsync"></a>
 # **countItemCategoriesAsync**
-> Int32Envelope countItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Count item categories
 
@@ -31,8 +31,9 @@ val apiInstance = ItemCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemCategoryDtoCollectionQueryParameters : ItemCategoryDtoCollectionQueryParameters =  // ItemCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemCategoriesApi#countItemCategoriesAsync")
@@ -46,9 +47,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createItemCategoryAsync"></a>
@@ -168,7 +170,7 @@ No authorization required
 
 <a id="getItemCategoriesAsync"></a>
 # **getItemCategoriesAsync**
-> ItemCategoryDtoListEnvelope getItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> ItemCategoryDtoListEnvelope getItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Get all item categories
 
@@ -184,8 +186,9 @@ val apiInstance = ItemCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemCategoryDtoCollectionQueryParameters : ItemCategoryDtoCollectionQueryParameters =  // ItemCategoryDtoCollectionQueryParameters | 
 try {
-    val result : ItemCategoryDtoListEnvelope = apiInstance.getItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemCategoryDtoListEnvelope = apiInstance.getItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemCategoriesApi#getItemCategoriesAsync")
@@ -199,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -213,7 +217,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemCategoryByIdAsync"></a>
@@ -270,7 +274,7 @@ No authorization required
 
 <a id="patchItemCategoryAsync"></a>
 # **patchItemCategoryAsync**
-> patchItemCategoryAsync(itemCategoryId, tenantId, apiVersion, xApiVersion, operation)
+> patchItemCategoryAsync(itemCategoryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item category
 
@@ -287,9 +291,9 @@ val itemCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchItemCategoryAsync(itemCategoryId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchItemCategoryAsync(itemCategoryId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling ItemCategoriesApi#patchItemCategoryAsync")
     e.printStackTrace()
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

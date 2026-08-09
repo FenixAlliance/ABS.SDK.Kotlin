@@ -68,7 +68,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -89,15 +88,18 @@ All URIs are relative to *https://absuite.net*
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [org.openapitools.client.models.ActivityFeedDto](docs/ActivityFeedDto.md)
+ - [org.openapitools.client.models.ActivityFeedDtoCollectionQueryParameters](docs/ActivityFeedDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ActivityFeedDtoEnvelope](docs/ActivityFeedDtoEnvelope.md)
  - [org.openapitools.client.models.ActivityFeedDtoListEnvelope](docs/ActivityFeedDtoListEnvelope.md)
  - [org.openapitools.client.models.ActivityRecordCreateDto](docs/ActivityRecordCreateDto.md)
  - [org.openapitools.client.models.ActivityRecordDto](docs/ActivityRecordDto.md)
+ - [org.openapitools.client.models.ActivityRecordDtoCollectionQueryParameters](docs/ActivityRecordDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ActivityRecordDtoEnvelope](docs/ActivityRecordDtoEnvelope.md)
  - [org.openapitools.client.models.ActivityRecordDtoListEnvelope](docs/ActivityRecordDtoListEnvelope.md)
  - [org.openapitools.client.models.ActivityRecordUpdateDto](docs/ActivityRecordUpdateDto.md)
  - [org.openapitools.client.models.ActivityTypeCreateDto](docs/ActivityTypeCreateDto.md)
  - [org.openapitools.client.models.ActivityTypeDto](docs/ActivityTypeDto.md)
+ - [org.openapitools.client.models.ActivityTypeDtoCollectionQueryParameters](docs/ActivityTypeDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ActivityTypeDtoEnvelope](docs/ActivityTypeDtoEnvelope.md)
  - [org.openapitools.client.models.ActivityTypeDtoListEnvelope](docs/ActivityTypeDtoListEnvelope.md)
  - [org.openapitools.client.models.ActivityTypeUpdateDto](docs/ActivityTypeUpdateDto.md)
@@ -110,7 +112,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

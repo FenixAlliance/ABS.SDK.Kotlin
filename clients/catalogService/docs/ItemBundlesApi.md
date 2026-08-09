@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getItemBundlesAsync"></a>
 # **getItemBundlesAsync**
-> ItemBundleDtoListEnvelope getItemBundlesAsync(tenantId, apiVersion, xApiVersion)
+> ItemBundleDtoListEnvelope getItemBundlesAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
 
 Get all item bundles
 
@@ -186,8 +186,9 @@ val apiInstance = ItemBundlesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemBundleDtoCollectionQueryParameters : ItemBundleDtoCollectionQueryParameters =  // ItemBundleDtoCollectionQueryParameters | 
 try {
-    val result : ItemBundleDtoListEnvelope = apiInstance.getItemBundlesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemBundleDtoListEnvelope = apiInstance.getItemBundlesAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemBundlesApi#getItemBundlesAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemBundlesCountAsync"></a>
 # **getItemBundlesCountAsync**
-> Int32Envelope getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
 
 Get item bundles count
 
@@ -236,8 +238,9 @@ val apiInstance = ItemBundlesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemBundleDtoCollectionQueryParameters : ItemBundleDtoCollectionQueryParameters =  // ItemBundleDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemBundlesApi#getItemBundlesCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,12 +269,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemBundleAsync"></a>
 # **patchItemBundleAsync**
-> EmptyEnvelope patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item bundle
 
@@ -287,9 +291,9 @@ val itemBundleId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemBundleAsync(itemBundleId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemBundlesApi#patchItemBundleAsync")
@@ -307,7 +311,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

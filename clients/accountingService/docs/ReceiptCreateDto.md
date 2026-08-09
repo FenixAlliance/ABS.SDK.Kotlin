@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional] |
 | **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
+| **closed** | **kotlin.Boolean** |  |  [optional] |
 | **title** | **kotlin.String** |  |  [optional] |
 | **priceListId** | **kotlin.String** |  |  [optional] |
 | **description** | **kotlin.String** |  |  [optional] |
@@ -23,6 +24,7 @@
 | **countryId** | **kotlin.String** |  |  [optional] |
 | **stateId** | **kotlin.String** |  |  [optional] |
 | **cityId** | **kotlin.String** |  |  [optional] |
+| **forexRate** | **kotlin.Double** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
 | **totalDetail** | **kotlin.Double** |  |  [optional] |
 | **totalDetailCurrencyId** | **kotlin.String** |  |  [optional] |
@@ -51,10 +53,8 @@
 | **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **paymentId** | **kotlin.String** |  |  [optional] |
-| **forexRate** | **kotlin.Double** |  |  [optional] |
 | **totalAmount** | **kotlin.Double** |  |  [optional] |
 | **totalAmountInUSD** | **kotlin.Double** |  |  [optional] |
-| **closed** | **kotlin.Boolean** |  |  [optional] |
 | **contactId** | **kotlin.String** |  |  [optional] |
 | **receiptType** | [**inline**](#ReceiptType) |  |  [optional] |
 | **orderId** | **kotlin.String** |  |  [optional] |

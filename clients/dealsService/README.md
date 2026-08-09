@@ -82,7 +82,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -105,20 +104,24 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ContactDto](docs/ContactDto.md)
  - [org.openapitools.client.models.DealUnitCreateDto](docs/DealUnitCreateDto.md)
  - [org.openapitools.client.models.DealUnitDto](docs/DealUnitDto.md)
+ - [org.openapitools.client.models.DealUnitDtoCollectionQueryParameters](docs/DealUnitDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DealUnitDtoEnvelope](docs/DealUnitDtoEnvelope.md)
  - [org.openapitools.client.models.DealUnitDtoListEnvelope](docs/DealUnitDtoListEnvelope.md)
  - [org.openapitools.client.models.DealUnitFlowCreateDto](docs/DealUnitFlowCreateDto.md)
  - [org.openapitools.client.models.DealUnitFlowDto](docs/DealUnitFlowDto.md)
+ - [org.openapitools.client.models.DealUnitFlowDtoCollectionQueryParameters](docs/DealUnitFlowDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DealUnitFlowDtoEnvelope](docs/DealUnitFlowDtoEnvelope.md)
  - [org.openapitools.client.models.DealUnitFlowDtoListEnvelope](docs/DealUnitFlowDtoListEnvelope.md)
  - [org.openapitools.client.models.DealUnitFlowStageCreateDto](docs/DealUnitFlowStageCreateDto.md)
  - [org.openapitools.client.models.DealUnitFlowStageDto](docs/DealUnitFlowStageDto.md)
+ - [org.openapitools.client.models.DealUnitFlowStageDtoCollectionQueryParameters](docs/DealUnitFlowStageDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DealUnitFlowStageDtoEnvelope](docs/DealUnitFlowStageDtoEnvelope.md)
  - [org.openapitools.client.models.DealUnitFlowStageDtoListEnvelope](docs/DealUnitFlowStageDtoListEnvelope.md)
  - [org.openapitools.client.models.DealUnitFlowStageUpdateDto](docs/DealUnitFlowStageUpdateDto.md)
  - [org.openapitools.client.models.DealUnitFlowUpdateDto](docs/DealUnitFlowUpdateDto.md)
  - [org.openapitools.client.models.DealUnitLineCreateDto](docs/DealUnitLineCreateDto.md)
  - [org.openapitools.client.models.DealUnitLineDto](docs/DealUnitLineDto.md)
+ - [org.openapitools.client.models.DealUnitLineDtoCollectionQueryParameters](docs/DealUnitLineDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DealUnitLineDtoEnvelope](docs/DealUnitLineDtoEnvelope.md)
  - [org.openapitools.client.models.DealUnitLineDtoListEnvelope](docs/DealUnitLineDtoListEnvelope.md)
  - [org.openapitools.client.models.DealUnitLineUpdateDto](docs/DealUnitLineUpdateDto.md)
@@ -126,6 +129,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedDealUnitDto](docs/ExtendedDealUnitDto.md)
+ - [org.openapitools.client.models.ExtendedDealUnitDtoCollectionQueryParameters](docs/ExtendedDealUnitDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedDealUnitDtoEnvelope](docs/ExtendedDealUnitDtoEnvelope.md)
  - [org.openapitools.client.models.ExtendedDealUnitDtoListEnvelope](docs/ExtendedDealUnitDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -134,7 +138,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -229,7 +229,7 @@ No authorization required
 
 <a id="getFiscalPeriods"></a>
 # **getFiscalPeriods**
-> FiscalPeriodDtoListEnvelope getFiscalPeriods(fiscalYearId, authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> FiscalPeriodDtoListEnvelope getFiscalPeriods(fiscalYearId, authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
 
 Get fiscal periods for a fiscal year
 
@@ -248,8 +248,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalPeriodDtoCollectionQueryParameters : FiscalPeriodDtoCollectionQueryParameters =  // FiscalPeriodDtoCollectionQueryParameters | 
 try {
-    val result : FiscalPeriodDtoListEnvelope = apiInstance.getFiscalPeriods(fiscalYearId, authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : FiscalPeriodDtoListEnvelope = apiInstance.getFiscalPeriods(fiscalYearId, authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalPeriodsApi#getFiscalPeriods")
@@ -266,9 +267,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,12 +282,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalPeriodsCount"></a>
 # **getFiscalPeriodsCount**
-> Int32Envelope getFiscalPeriodsCount(fiscalAuthorityId, fiscalYearId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalPeriodsCount(fiscalAuthorityId, fiscalYearId, tenantId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
 
 Get fiscal periods count
 
@@ -303,8 +305,9 @@ val fiscalYearId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalPeriodDtoCollectionQueryParameters : FiscalPeriodDtoCollectionQueryParameters =  // FiscalPeriodDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalPeriodsCount(fiscalAuthorityId, fiscalYearId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalPeriodsCount(fiscalAuthorityId, fiscalYearId, tenantId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalPeriodsApi#getFiscalPeriodsCount")
@@ -320,9 +323,10 @@ try {
 | **fiscalYearId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -334,7 +338,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="openFiscalPeriod"></a>
@@ -391,7 +395,7 @@ No authorization required
 
 <a id="patchFiscalPeriodAsync"></a>
 # **patchFiscalPeriodAsync**
-> EmptyEnvelope patchFiscalPeriodAsync(fiscalPeriodId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalPeriodAsync(fiscalPeriodId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal period
 
@@ -408,9 +412,9 @@ val fiscalPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalPeriodAsync(fiscalPeriodId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalPeriodAsync(fiscalPeriodId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalPeriodsApi#patchFiscalPeriodAsync")
@@ -428,7 +432,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

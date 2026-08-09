@@ -159,7 +159,7 @@ No authorization required
 
 <a id="getReceiptsAsync"></a>
 # **getReceiptsAsync**
-> ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(tenantId)
+> ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(tenantId, receiptDtoCollectionQueryParameters)
 
 Retrieves tenant receipts
 
@@ -173,8 +173,9 @@ Fetches all receipts for a given tenant with OData support.
 
 val apiInstance = ReceiptsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val receiptDtoCollectionQueryParameters : ReceiptDtoCollectionQueryParameters =  // ReceiptDtoCollectionQueryParameters | 
 try {
-    val result : ReceiptDtoIReadOnlyListEnvelope = apiInstance.getReceiptsAsync(tenantId)
+    val result : ReceiptDtoIReadOnlyListEnvelope = apiInstance.getReceiptsAsync(tenantId, receiptDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ReceiptsApi#getReceiptsAsync")
@@ -186,9 +187,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -200,12 +202,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getReceiptsCountAsync"></a>
 # **getReceiptsCountAsync**
-> Int32Envelope getReceiptsCountAsync(tenantId)
+> Int32Envelope getReceiptsCountAsync(tenantId, receiptDtoCollectionQueryParameters)
 
 Gets count of tenant receipts
 
@@ -219,8 +221,9 @@ Returns total number of receipts for the tenant with OData filter support.
 
 val apiInstance = ReceiptsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val receiptDtoCollectionQueryParameters : ReceiptDtoCollectionQueryParameters =  // ReceiptDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getReceiptsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getReceiptsCountAsync(tenantId, receiptDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ReceiptsApi#getReceiptsCountAsync")
@@ -232,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -246,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchReceiptAsync"></a>
 # **patchReceiptAsync**
-> EmptyEnvelope patchReceiptAsync(receiptId, tenantId, operation)
+> EmptyEnvelope patchReceiptAsync(receiptId, tenantId, patchOperation)
 
 Patches a receipt
 
@@ -266,9 +270,9 @@ Partially updates the specified receipt using a JSON Patch document.
 val apiInstance = ReceiptsApi()
 val receiptId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchReceiptAsync(receiptId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchReceiptAsync(receiptId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ReceiptsApi#patchReceiptAsync")
@@ -284,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

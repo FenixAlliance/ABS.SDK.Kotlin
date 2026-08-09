@@ -23,10 +23,11 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemBundleCreateDto
+import org.openapitools.client.models.ItemBundleDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemBundleDtoEnvelope
 import org.openapitools.client.models.ItemBundleDtoListEnvelope
 import org.openapitools.client.models.ItemBundleUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -320,6 +321,7 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ItemBundleDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemBundlesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemBundleDtoListEnvelope {
-        val localVarResponse = getItemBundlesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemBundlesAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters? = null) : ItemBundleDtoListEnvelope {
+        val localVarResponse = getItemBundlesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBundleDtoCollectionQueryParameters = itemBundleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemBundleDtoListEnvelope
@@ -353,16 +355,17 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemBundleDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemBundlesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemBundleDtoListEnvelope?> {
-        val localVariableConfig = getItemBundlesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemBundlesAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters?) : ApiResponse<ItemBundleDtoListEnvelope?> {
+        val localVariableConfig = getItemBundlesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBundleDtoCollectionQueryParameters = itemBundleDtoCollectionQueryParameters)
 
-        return request<Unit, ItemBundleDtoListEnvelope>(
+        return request<ItemBundleDtoCollectionQueryParameters, ItemBundleDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemBundlesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemBundlesAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters?) : RequestConfig<ItemBundleDtoCollectionQueryParameters> {
+        val localVariableBody = itemBundleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -388,6 +392,7 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -406,6 +411,7 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -415,8 +421,8 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemBundlesCountAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemBundlesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemBundlesCountAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemBundlesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBundleDtoCollectionQueryParameters = itemBundleDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -439,16 +445,17 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemBundlesCountAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemBundlesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemBundlesCountAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemBundlesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBundleDtoCollectionQueryParameters = itemBundleDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemBundleDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -459,10 +466,11 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemBundlesCountAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemBundlesCountAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBundleDtoCollectionQueryParameters: ItemBundleDtoCollectionQueryParameters?) : RequestConfig<ItemBundleDtoCollectionQueryParameters> {
+        val localVariableBody = itemBundleDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -474,6 +482,7 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -493,7 +502,7 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -503,8 +512,8 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemBundleAsync(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemBundleAsyncWithHttpInfo(itemBundleId = itemBundleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemBundleAsync(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemBundleAsyncWithHttpInfo(itemBundleId = itemBundleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -528,17 +537,17 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemBundleAsyncWithHttpInfo(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemBundleAsyncRequestConfig(itemBundleId = itemBundleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemBundleAsyncWithHttpInfo(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemBundleAsyncRequestConfig(itemBundleId = itemBundleId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -550,11 +559,11 @@ class ItemBundlesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemBundleAsyncRequestConfig(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemBundleAsyncRequestConfig(itemBundleId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

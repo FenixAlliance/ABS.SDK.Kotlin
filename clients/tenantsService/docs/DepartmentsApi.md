@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getTenantDepartments"></a>
 # **getTenantDepartments**
-> TenantDepartmentDtoListEnvelope getTenantDepartments(tenantId, apiVersion, xApiVersion)
+> TenantDepartmentDtoListEnvelope getTenantDepartments(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant departments
 
@@ -187,8 +187,9 @@ val apiInstance = DepartmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDepartmentDtoCollectionQueryParameters : TenantDepartmentDtoCollectionQueryParameters =  // TenantDepartmentDtoCollectionQueryParameters | 
 try {
-    val result : TenantDepartmentDtoListEnvelope = apiInstance.getTenantDepartments(tenantId, apiVersion, xApiVersion)
+    val result : TenantDepartmentDtoListEnvelope = apiInstance.getTenantDepartments(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DepartmentsApi#getTenantDepartments")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantDepartmentsCount"></a>
 # **getTenantDepartmentsCount**
-> Int32Envelope getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
 
 Get the count of tenant departments
 
@@ -237,8 +239,9 @@ val apiInstance = DepartmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDepartmentDtoCollectionQueryParameters : TenantDepartmentDtoCollectionQueryParameters =  // TenantDepartmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DepartmentsApi#getTenantDepartmentsCount")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTenantDepartmentAsync"></a>
 # **patchTenantDepartmentAsync**
-> EmptyEnvelope patchTenantDepartmentAsync(tenantDepartmentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantDepartmentAsync(tenantDepartmentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant department
 
@@ -288,9 +292,9 @@ val tenantDepartmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d /
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTenantDepartmentAsync(tenantDepartmentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTenantDepartmentAsync(tenantDepartmentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DepartmentsApi#patchTenantDepartmentAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

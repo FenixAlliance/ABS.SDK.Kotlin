@@ -1007,7 +1007,7 @@ No authorization required
 
 <a id="getTenantNotificationsAsync"></a>
 # **getTenantNotificationsAsync**
-> NotificationDtoListEnvelope getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the list of notifications for a tenant
 
@@ -1023,8 +1023,9 @@ val apiInstance = TenantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : NotificationDtoListEnvelope = apiInstance.getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : NotificationDtoListEnvelope = apiInstance.getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getTenantNotificationsAsync")
@@ -1038,9 +1039,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1052,12 +1054,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantNotificationsCountAsync"></a>
 # **getTenantNotificationsCountAsync**
-> Int32Envelope getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the count of notifications for a tenant
 
@@ -1073,8 +1075,9 @@ val apiInstance = TenantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getTenantNotificationsCountAsync")
@@ -1088,9 +1091,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1102,7 +1106,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantPendingInvitationsAsync"></a>
@@ -1457,7 +1461,7 @@ No authorization required
 
 <a id="patchTenantAsync"></a>
 # **patchTenantAsync**
-> EmptyEnvelope patchTenantAsync(tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantAsync(tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant&#39;s profile
 
@@ -1473,9 +1477,9 @@ val apiInstance = TenantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTenantAsync(tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTenantAsync(tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#patchTenantAsync")
@@ -1492,7 +1496,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

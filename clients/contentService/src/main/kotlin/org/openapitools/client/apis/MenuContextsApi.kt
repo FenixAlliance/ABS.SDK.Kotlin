@@ -23,6 +23,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.MenuContextCreateDto
+import org.openapitools.client.models.MenuContextDtoCollectionQueryParameters
 import org.openapitools.client.models.MenuContextDtoEnvelope
 import org.openapitools.client.models.MenuContextDtoListEnvelope
 import org.openapitools.client.models.MenuContextUpdateDto
@@ -57,6 +58,7 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -66,8 +68,8 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countMenuContextsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countMenuContextsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countMenuContextsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countMenuContextsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, menuContextDtoCollectionQueryParameters = menuContextDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -90,16 +92,17 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countMenuContextsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countMenuContextsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countMenuContextsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countMenuContextsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, menuContextDtoCollectionQueryParameters = menuContextDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<MenuContextDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -110,10 +113,11 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countMenuContextsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countMenuContextsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters?) : RequestConfig<MenuContextDtoCollectionQueryParameters> {
+        val localVariableBody = menuContextDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -123,6 +127,7 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return MenuContextDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMenuContextsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MenuContextDtoListEnvelope {
-        val localVarResponse = getMenuContextsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMenuContextsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters? = null) : MenuContextDtoListEnvelope {
+        val localVarResponse = getMenuContextsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, menuContextDtoCollectionQueryParameters = menuContextDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MenuContextDtoListEnvelope
@@ -436,16 +442,17 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MenuContextDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMenuContextsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MenuContextDtoListEnvelope?> {
-        val localVariableConfig = getMenuContextsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMenuContextsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters?) : ApiResponse<MenuContextDtoListEnvelope?> {
+        val localVariableConfig = getMenuContextsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, menuContextDtoCollectionQueryParameters = menuContextDtoCollectionQueryParameters)
 
-        return request<Unit, MenuContextDtoListEnvelope>(
+        return request<MenuContextDtoCollectionQueryParameters, MenuContextDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMenuContextsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMenuContextsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, menuContextDtoCollectionQueryParameters: MenuContextDtoCollectionQueryParameters?) : RequestConfig<MenuContextDtoCollectionQueryParameters> {
+        val localVariableBody = menuContextDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class MenuContextsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

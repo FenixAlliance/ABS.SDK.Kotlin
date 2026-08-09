@@ -19,10 +19,12 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.CartDtoCollectionQueryParameters
 import org.openapitools.client.models.CartDtoEnvelope
 import org.openapitools.client.models.CartDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.GuestCartPurgeResultDtoEnvelope
 import org.openapitools.client.models.Int32Envelope
 
 import com.squareup.moshi.Json
@@ -220,6 +222,7 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieve a list of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return CartDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -229,8 +232,8 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemCarts(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CartDtoListEnvelope {
-        val localVarResponse = getSystemCartsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemCarts(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters? = null) : CartDtoListEnvelope {
+        val localVarResponse = getSystemCartsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, cartDtoCollectionQueryParameters = cartDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CartDtoListEnvelope
@@ -252,16 +255,17 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Retrieve a list of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CartDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemCartsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CartDtoListEnvelope?> {
-        val localVariableConfig = getSystemCartsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemCartsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters?) : ApiResponse<CartDtoListEnvelope?> {
+        val localVariableConfig = getSystemCartsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, cartDtoCollectionQueryParameters = cartDtoCollectionQueryParameters)
 
-        return request<Unit, CartDtoListEnvelope>(
+        return request<CartDtoCollectionQueryParameters, CartDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -271,10 +275,11 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemCartsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemCartsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters?) : RequestConfig<CartDtoCollectionQueryParameters> {
+        val localVariableBody = cartDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -283,6 +288,7 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -300,6 +306,7 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the count of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -309,8 +316,8 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemCartsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSystemCartsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemCartsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSystemCartsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, cartDtoCollectionQueryParameters = cartDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -332,16 +339,17 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * Get the count of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemCartsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSystemCartsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemCartsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSystemCartsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, cartDtoCollectionQueryParameters = cartDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CartDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -351,9 +359,91 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemCartsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+    fun getSystemCartsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cartDtoCollectionQueryParameters: CartDtoCollectionQueryParameters?) : RequestConfig<CartDtoCollectionQueryParameters> {
+        val localVariableBody = cartDtoCollectionQueryParameters
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Carts/Count",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Purge all guest carts
+     * Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return GuestCartPurgeResultDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun purgeSystemGuestCarts(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : GuestCartPurgeResultDtoEnvelope {
+        val localVarResponse = purgeSystemGuestCartsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GuestCartPurgeResultDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Purge all guest carts
+     * Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<GuestCartPurgeResultDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun purgeSystemGuestCartsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<GuestCartPurgeResultDtoEnvelope?> {
+        val localVariableConfig = purgeSystemGuestCartsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, GuestCartPurgeResultDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation purgeSystemGuestCarts
+     *
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun purgeSystemGuestCartsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -366,8 +456,8 @@ class CartsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/SystemService/Carts/Count",
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SystemService/Carts/Guests",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

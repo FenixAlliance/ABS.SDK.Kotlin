@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -100,6 +99,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.ExtendedQuoteDto](docs/ExtendedQuoteDto.md)
+ - [org.openapitools.client.models.ExtendedQuoteDtoCollectionQueryParameters](docs/ExtendedQuoteDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ExtendedQuoteDtoListEnvelope](docs/ExtendedQuoteDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -107,13 +107,15 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.QuoteCreateDto](docs/QuoteCreateDto.md)
  - [org.openapitools.client.models.QuoteDto](docs/QuoteDto.md)
+ - [org.openapitools.client.models.QuoteDtoCollectionQueryParameters](docs/QuoteDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.QuoteDtoEnvelope](docs/QuoteDtoEnvelope.md)
  - [org.openapitools.client.models.QuoteDtoListEnvelope](docs/QuoteDtoListEnvelope.md)
  - [org.openapitools.client.models.QuoteLineCreateDto](docs/QuoteLineCreateDto.md)
  - [org.openapitools.client.models.QuoteLineDto](docs/QuoteLineDto.md)
+ - [org.openapitools.client.models.QuoteLineDtoCollectionQueryParameters](docs/QuoteLineDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.QuoteLineDtoEnvelope](docs/QuoteLineDtoEnvelope.md)
  - [org.openapitools.client.models.QuoteLineDtoListEnvelope](docs/QuoteLineDtoListEnvelope.md)
  - [org.openapitools.client.models.QuoteLineUpdateDto](docs/QuoteLineUpdateDto.md)

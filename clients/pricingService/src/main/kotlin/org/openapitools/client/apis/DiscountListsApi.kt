@@ -20,9 +20,11 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.DiscountCreateDto
+import org.openapitools.client.models.DiscountDtoCollectionQueryParameters
 import org.openapitools.client.models.DiscountDtoEnvelope
 import org.openapitools.client.models.DiscountDtoListEnvelope
 import org.openapitools.client.models.DiscountListCreateDto
+import org.openapitools.client.models.DiscountListDtoCollectionQueryParameters
 import org.openapitools.client.models.DiscountListDtoEnvelope
 import org.openapitools.client.models.DiscountListDtoListEnvelope
 import org.openapitools.client.models.DiscountListUpdateDto
@@ -30,7 +32,7 @@ import org.openapitools.client.models.DiscountUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -454,6 +456,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Gets all discount entries for a specific discount list with OData support.
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return DiscountDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -463,8 +466,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDiscountListEntries(discountListId: java.util.UUID, tenantId: java.util.UUID) : DiscountDtoListEnvelope {
-        val localVarResponse = getDiscountListEntriesWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
+    fun getDiscountListEntries(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters? = null) : DiscountDtoListEnvelope {
+        val localVarResponse = getDiscountListEntriesWithHttpInfo(discountListId = discountListId, tenantId = tenantId, discountDtoCollectionQueryParameters = discountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountDtoListEnvelope
@@ -486,16 +489,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Gets all discount entries for a specific discount list with OData support.
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DiscountDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDiscountListEntriesWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<DiscountDtoListEnvelope?> {
-        val localVariableConfig = getDiscountListEntriesRequestConfig(discountListId = discountListId, tenantId = tenantId)
+    fun getDiscountListEntriesWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters?) : ApiResponse<DiscountDtoListEnvelope?> {
+        val localVariableConfig = getDiscountListEntriesRequestConfig(discountListId = discountListId, tenantId = tenantId, discountDtoCollectionQueryParameters = discountDtoCollectionQueryParameters)
 
-        return request<Unit, DiscountDtoListEnvelope>(
+        return request<DiscountDtoCollectionQueryParameters, DiscountDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -505,15 +509,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDiscountListEntriesRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDiscountListEntriesRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters?) : RequestConfig<DiscountDtoCollectionQueryParameters> {
+        val localVariableBody = discountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -531,6 +537,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Gets the count of discount entries for a specific discount list.
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -540,8 +547,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDiscountListEntriesCount(discountListId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getDiscountListEntriesCountWithHttpInfo(discountListId = discountListId, tenantId = tenantId)
+    fun getDiscountListEntriesCount(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getDiscountListEntriesCountWithHttpInfo(discountListId = discountListId, tenantId = tenantId, discountDtoCollectionQueryParameters = discountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -563,16 +570,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Gets the count of discount entries for a specific discount list.
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDiscountListEntriesCountWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getDiscountListEntriesCountRequestConfig(discountListId = discountListId, tenantId = tenantId)
+    fun getDiscountListEntriesCountWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDiscountListEntriesCountRequestConfig(discountListId = discountListId, tenantId = tenantId, discountDtoCollectionQueryParameters = discountDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<DiscountDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -582,15 +590,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param discountListId 
      * @param tenantId 
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDiscountListEntriesCountRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDiscountListEntriesCountRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, discountDtoCollectionQueryParameters: DiscountDtoCollectionQueryParameters?) : RequestConfig<DiscountDtoCollectionQueryParameters> {
+        val localVariableBody = discountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -687,6 +697,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Retrieves all discount lists
      * Gets all discount lists for the current tenant with OData support.
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return DiscountListDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -696,8 +707,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDiscountLists(tenantId: java.util.UUID) : DiscountListDtoListEnvelope {
-        val localVarResponse = getDiscountListsWithHttpInfo(tenantId = tenantId)
+    fun getDiscountLists(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters? = null) : DiscountListDtoListEnvelope {
+        val localVarResponse = getDiscountListsWithHttpInfo(tenantId = tenantId, discountListDtoCollectionQueryParameters = discountListDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DiscountListDtoListEnvelope
@@ -718,16 +729,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Retrieves all discount lists
      * Gets all discount lists for the current tenant with OData support.
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DiscountListDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDiscountListsWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<DiscountListDtoListEnvelope?> {
-        val localVariableConfig = getDiscountListsRequestConfig(tenantId = tenantId)
+    fun getDiscountListsWithHttpInfo(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters?) : ApiResponse<DiscountListDtoListEnvelope?> {
+        val localVariableConfig = getDiscountListsRequestConfig(tenantId = tenantId, discountListDtoCollectionQueryParameters = discountListDtoCollectionQueryParameters)
 
-        return request<Unit, DiscountListDtoListEnvelope>(
+        return request<DiscountListDtoCollectionQueryParameters, DiscountListDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -736,15 +748,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * To obtain the request config of the operation getDiscountLists
      *
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDiscountListsRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDiscountListsRequestConfig(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters?) : RequestConfig<DiscountListDtoCollectionQueryParameters> {
+        val localVariableBody = discountListDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -761,6 +775,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Counts discount lists
      * Gets the count of discount lists for the current tenant.
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -770,8 +785,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDiscountListsCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getDiscountListsCountWithHttpInfo(tenantId = tenantId)
+    fun getDiscountListsCount(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getDiscountListsCountWithHttpInfo(tenantId = tenantId, discountListDtoCollectionQueryParameters = discountListDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -792,16 +807,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Counts discount lists
      * Gets the count of discount lists for the current tenant.
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDiscountListsCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getDiscountListsCountRequestConfig(tenantId = tenantId)
+    fun getDiscountListsCountWithHttpInfo(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDiscountListsCountRequestConfig(tenantId = tenantId, discountListDtoCollectionQueryParameters = discountListDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<DiscountListDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -810,15 +826,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * To obtain the request config of the operation getDiscountListsCount
      *
      * @param tenantId 
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDiscountListsCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDiscountListsCountRequestConfig(tenantId: java.util.UUID, discountListDtoCollectionQueryParameters: DiscountListDtoCollectionQueryParameters?) : RequestConfig<DiscountListDtoCollectionQueryParameters> {
+        val localVariableBody = discountListDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -836,7 +854,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Partially updates the specified discount list using a JSON Patch document.
      * @param discountListId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -846,8 +864,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchDiscountList(discountListId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchDiscountListWithHttpInfo(discountListId = discountListId, tenantId = tenantId, operation = operation)
+    fun patchDiscountList(discountListId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchDiscountListWithHttpInfo(discountListId = discountListId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -869,17 +887,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Partially updates the specified discount list using a JSON Patch document.
      * @param discountListId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchDiscountListWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchDiscountListRequestConfig(discountListId = discountListId, tenantId = tenantId, operation = operation)
+    fun patchDiscountListWithHttpInfo(discountListId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchDiscountListRequestConfig(discountListId = discountListId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -889,11 +907,11 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param discountListId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchDiscountListRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchDiscountListRequestConfig(discountListId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -918,7 +936,7 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -928,8 +946,8 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, operation = operation)
+    fun patchDiscountListEntry(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchDiscountListEntryWithHttpInfo(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -952,17 +970,17 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, operation = operation)
+    fun patchDiscountListEntryWithHttpInfo(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchDiscountListEntryRequestConfig(discountListId = discountListId, discountListEntryId = discountListEntryId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -973,11 +991,11 @@ class DiscountListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param discountListId 
      * @param discountListEntryId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchDiscountListEntryRequestConfig(discountListId: java.util.UUID, discountListEntryId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

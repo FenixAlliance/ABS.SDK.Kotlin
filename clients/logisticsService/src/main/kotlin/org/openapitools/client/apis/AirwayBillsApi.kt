@@ -20,14 +20,16 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AirwayBillCreateDto
+import org.openapitools.client.models.AirwayBillDtoCollectionQueryParameters
 import org.openapitools.client.models.AirwayBillDtoEnvelope
 import org.openapitools.client.models.AirwayBillDtoListEnvelope
 import org.openapitools.client.models.AirwayBillUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.WaybillLineCreateDto
+import org.openapitools.client.models.WaybillLineDtoCollectionQueryParameters
 import org.openapitools.client.models.WaybillLineDtoListEnvelope
 import org.openapitools.client.models.WaybillLineUpdateDto
 
@@ -502,6 +504,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -511,8 +514,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAirwayBillLinesAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WaybillLineDtoListEnvelope {
-        val localVarResponse = getAirwayBillLinesAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillLinesAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : WaybillLineDtoListEnvelope {
+        val localVarResponse = getAirwayBillLinesAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WaybillLineDtoListEnvelope
@@ -536,16 +539,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WaybillLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAirwayBillLinesAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WaybillLineDtoListEnvelope?> {
-        val localVariableConfig = getAirwayBillLinesAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillLinesAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<WaybillLineDtoListEnvelope?> {
+        val localVariableConfig = getAirwayBillLinesAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, WaybillLineDtoListEnvelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, WaybillLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -557,10 +561,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAirwayBillLinesAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAirwayBillLinesAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -570,6 +575,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -589,6 +595,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -598,8 +605,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAirwayBillLinesCountAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getAirwayBillLinesCountAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillLinesCountAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAirwayBillLinesCountAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -623,16 +630,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAirwayBillLinesCountAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAirwayBillLinesCountAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillLinesCountAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAirwayBillLinesCountAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -644,10 +652,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAirwayBillLinesCountAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAirwayBillLinesCountAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -657,6 +666,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -675,6 +685,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return AirwayBillDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -684,8 +695,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAirwayBillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AirwayBillDtoListEnvelope {
-        val localVarResponse = getAirwayBillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters? = null) : AirwayBillDtoListEnvelope {
+        val localVarResponse = getAirwayBillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, airwayBillDtoCollectionQueryParameters = airwayBillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AirwayBillDtoListEnvelope
@@ -708,16 +719,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AirwayBillDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAirwayBillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AirwayBillDtoListEnvelope?> {
-        val localVariableConfig = getAirwayBillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters?) : ApiResponse<AirwayBillDtoListEnvelope?> {
+        val localVariableConfig = getAirwayBillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, airwayBillDtoCollectionQueryParameters = airwayBillDtoCollectionQueryParameters)
 
-        return request<Unit, AirwayBillDtoListEnvelope>(
+        return request<AirwayBillDtoCollectionQueryParameters, AirwayBillDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -728,10 +740,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAirwayBillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAirwayBillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters?) : RequestConfig<AirwayBillDtoCollectionQueryParameters> {
+        val localVariableBody = airwayBillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -741,6 +754,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -759,6 +773,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -768,8 +783,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAirwayBillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getAirwayBillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAirwayBillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, airwayBillDtoCollectionQueryParameters = airwayBillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -792,16 +807,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAirwayBillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAirwayBillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAirwayBillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAirwayBillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, airwayBillDtoCollectionQueryParameters = airwayBillDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AirwayBillDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -812,10 +828,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAirwayBillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAirwayBillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, airwayBillDtoCollectionQueryParameters: AirwayBillDtoCollectionQueryParameters?) : RequestConfig<AirwayBillDtoCollectionQueryParameters> {
+        val localVariableBody = airwayBillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -825,6 +842,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1192,7 +1210,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1202,8 +1220,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAirwayBillAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAirwayBillAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAirwayBillAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAirwayBillAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1227,17 +1245,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAirwayBillAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAirwayBillAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAirwayBillAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAirwayBillAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1249,11 +1267,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAirwayBillAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAirwayBillAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1284,7 +1302,7 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1294,8 +1312,8 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAirwayBillLineAsync(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAirwayBillLineAsyncWithHttpInfo(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAirwayBillLineAsync(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAirwayBillLineAsyncWithHttpInfo(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1320,17 +1338,17 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAirwayBillLineAsyncWithHttpInfo(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAirwayBillLineAsyncRequestConfig(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAirwayBillLineAsyncWithHttpInfo(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAirwayBillLineAsyncRequestConfig(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1343,11 +1361,11 @@ class AirwayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAirwayBillLineAsyncRequestConfig(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAirwayBillLineAsyncRequestConfig(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

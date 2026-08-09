@@ -8,6 +8,7 @@ All URIs are relative to *https://absuite.net*
 | [**getSystemCartById**](CartsApi.md#getSystemCartById) | **GET** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID |
 | [**getSystemCarts**](CartsApi.md#getSystemCarts) | **GET** /api/v2/SystemService/Carts | Retrieve a list of system carts |
 | [**getSystemCartsCount**](CartsApi.md#getSystemCartsCount) | **GET** /api/v2/SystemService/Carts/Count | Get the count of system carts |
+| [**purgeSystemGuestCarts**](CartsApi.md#purgeSystemGuestCarts) | **DELETE** /api/v2/SystemService/Carts/Guests | Purge all guest carts |
 
 
 <a id="deleteSystemCart"></a>
@@ -112,7 +113,7 @@ No authorization required
 
 <a id="getSystemCarts"></a>
 # **getSystemCarts**
-> CartDtoListEnvelope getSystemCarts(apiVersion, xApiVersion)
+> CartDtoListEnvelope getSystemCarts(apiVersion, xApiVersion, cartDtoCollectionQueryParameters)
 
 Retrieve a list of system carts
 
@@ -127,8 +128,9 @@ Retrieve a list of all carts in the system
 val apiInstance = CartsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val cartDtoCollectionQueryParameters : CartDtoCollectionQueryParameters =  // CartDtoCollectionQueryParameters | 
 try {
-    val result : CartDtoListEnvelope = apiInstance.getSystemCarts(apiVersion, xApiVersion)
+    val result : CartDtoListEnvelope = apiInstance.getSystemCarts(apiVersion, xApiVersion, cartDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CartsApi#getSystemCarts")
@@ -141,9 +143,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **cartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -155,12 +158,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSystemCartsCount"></a>
 # **getSystemCartsCount**
-> Int32Envelope getSystemCartsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemCartsCount(apiVersion, xApiVersion, cartDtoCollectionQueryParameters)
 
 Get the count of system carts
 
@@ -175,8 +178,9 @@ Get the count of all carts in the system
 val apiInstance = CartsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val cartDtoCollectionQueryParameters : CartDtoCollectionQueryParameters =  // CartDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSystemCartsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSystemCartsCount(apiVersion, xApiVersion, cartDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CartsApi#getSystemCartsCount")
@@ -189,13 +193,62 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cartDtoCollectionQueryParameters** | [**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="purgeSystemGuestCarts"></a>
+# **purgeSystemGuestCarts**
+> GuestCartPurgeResultDtoEnvelope purgeSystemGuestCarts(apiVersion, xApiVersion)
+
+Purge all guest carts
+
+Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = CartsApi()
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : GuestCartPurgeResultDtoEnvelope = apiInstance.purgeSystemGuestCarts(apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CartsApi#purgeSystemGuestCarts")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CartsApi#purgeSystemGuestCarts")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**GuestCartPurgeResultDtoEnvelope**](GuestCartPurgeResultDtoEnvelope.md)
 
 ### Authorization
 

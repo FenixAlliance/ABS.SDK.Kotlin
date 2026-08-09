@@ -29,6 +29,7 @@
 | **cityId** | **kotlin.String** |  |  [optional] |
 | **customerNotes** | **kotlin.String** |  |  [optional] |
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
+| **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
 | **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
 | **currencyId** | **kotlin.String** |  |  [optional] |
@@ -79,7 +80,6 @@
 | **qualifiedIdentifier** | **kotlin.String** |  |  [optional] |
 | **sellerBillingProfileId** | **kotlin.String** |  |  [optional] |
 | **buyerBillingProfileId** | **kotlin.String** |  |  [optional] |
-| **costCalculationMethod** | [**inline**](#CostCalculationMethod) |  |  [optional] |
 | **freightTerms** | [**inline**](#FreightTerms) |  |  [optional] |
 | **orderStatus** | [**inline**](#OrderStatus) |  |  [optional] |
 | **requestedDeliveryDate** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |

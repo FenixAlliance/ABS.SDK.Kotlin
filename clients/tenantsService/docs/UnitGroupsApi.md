@@ -340,7 +340,7 @@ No authorization required
 
 <a id="getUnitGroupsAsync"></a>
 # **getUnitGroupsAsync**
-> UnitGroupDtoListEnvelope getUnitGroupsAsync(tenantId, apiVersion, xApiVersion)
+> UnitGroupDtoListEnvelope getUnitGroupsAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
 
 Retrieve a list of unit groups
 
@@ -356,8 +356,9 @@ val apiInstance = UnitGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val unitGroupDtoCollectionQueryParameters : UnitGroupDtoCollectionQueryParameters =  // UnitGroupDtoCollectionQueryParameters | 
 try {
-    val result : UnitGroupDtoListEnvelope = apiInstance.getUnitGroupsAsync(tenantId, apiVersion, xApiVersion)
+    val result : UnitGroupDtoListEnvelope = apiInstance.getUnitGroupsAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#getUnitGroupsAsync")
@@ -371,9 +372,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -385,12 +387,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getUnitGroupsCountAsync"></a>
 # **getUnitGroupsCountAsync**
-> Int32Envelope getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
 
 Get the count of unit groups
 
@@ -406,8 +408,9 @@ val apiInstance = UnitGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val unitGroupDtoCollectionQueryParameters : UnitGroupDtoCollectionQueryParameters =  // UnitGroupDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#getUnitGroupsCountAsync")
@@ -421,9 +424,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -435,12 +439,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getUnitsAsync"></a>
 # **getUnitsAsync**
-> UnitDtoListEnvelope getUnitsAsync(unitGroupId, tenantId, apiVersion, xApiVersion)
+> UnitDtoListEnvelope getUnitsAsync(unitGroupId, tenantId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
 
 Retrieve units for a unit group
 
@@ -457,8 +461,9 @@ val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val unitDtoCollectionQueryParameters : UnitDtoCollectionQueryParameters =  // UnitDtoCollectionQueryParameters | 
 try {
-    val result : UnitDtoListEnvelope = apiInstance.getUnitsAsync(unitGroupId, tenantId, apiVersion, xApiVersion)
+    val result : UnitDtoListEnvelope = apiInstance.getUnitsAsync(unitGroupId, tenantId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#getUnitsAsync")
@@ -473,9 +478,10 @@ try {
 | **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -487,12 +493,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getUnitsCountAsync"></a>
 # **getUnitsCountAsync**
-> Int32Envelope getUnitsCountAsync(unitGroupId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getUnitsCountAsync(unitGroupId, tenantId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
 
 Get the count of units in a unit group
 
@@ -509,8 +515,9 @@ val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val unitDtoCollectionQueryParameters : UnitDtoCollectionQueryParameters =  // UnitDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getUnitsCountAsync(unitGroupId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getUnitsCountAsync(unitGroupId, tenantId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#getUnitsCountAsync")
@@ -525,9 +532,10 @@ try {
 | **unitGroupId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,12 +547,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchUnitAsync"></a>
 # **patchUnitAsync**
-> EmptyEnvelope patchUnitAsync(unitGroupId, unitId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchUnitAsync(unitGroupId, unitId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a unit within a unit group
 
@@ -562,9 +570,9 @@ val unitId : kotlin.String = unitId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchUnitAsync(unitGroupId, unitId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchUnitAsync(unitGroupId, unitId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#patchUnitAsync")
@@ -583,7 +591,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -600,7 +608,7 @@ No authorization required
 
 <a id="patchUnitGroupAsync"></a>
 # **patchUnitGroupAsync**
-> EmptyEnvelope patchUnitGroupAsync(unitGroupId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchUnitGroupAsync(unitGroupId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a unit group
 
@@ -617,9 +625,9 @@ val unitGroupId : kotlin.String = unitGroupId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchUnitGroupAsync(unitGroupId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchUnitGroupAsync(unitGroupId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UnitGroupsApi#patchUnitGroupAsync")
@@ -637,7 +645,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

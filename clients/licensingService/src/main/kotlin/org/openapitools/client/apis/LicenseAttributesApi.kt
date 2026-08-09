@@ -24,9 +24,10 @@ import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.LicenseAttributeCreateDto
 import org.openapitools.client.models.LicenseAttributeDto
+import org.openapitools.client.models.LicenseAttributeDtoCollectionQueryParameters
 import org.openapitools.client.models.LicenseAttributeDtoListEnvelope
 import org.openapitools.client.models.LicenseAttributeUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -316,6 +317,7 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return LicenseAttributeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,8 +327,8 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLicenseAttributesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LicenseAttributeDtoListEnvelope {
-        val localVarResponse = getLicenseAttributesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseAttributesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters? = null) : LicenseAttributeDtoListEnvelope {
+        val localVarResponse = getLicenseAttributesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, licenseAttributeDtoCollectionQueryParameters = licenseAttributeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LicenseAttributeDtoListEnvelope
@@ -349,16 +351,17 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LicenseAttributeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLicenseAttributesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LicenseAttributeDtoListEnvelope?> {
-        val localVariableConfig = getLicenseAttributesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseAttributesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters?) : ApiResponse<LicenseAttributeDtoListEnvelope?> {
+        val localVariableConfig = getLicenseAttributesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, licenseAttributeDtoCollectionQueryParameters = licenseAttributeDtoCollectionQueryParameters)
 
-        return request<Unit, LicenseAttributeDtoListEnvelope>(
+        return request<LicenseAttributeDtoCollectionQueryParameters, LicenseAttributeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -369,10 +372,11 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLicenseAttributesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLicenseAttributesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters?) : RequestConfig<LicenseAttributeDtoCollectionQueryParameters> {
+        val localVariableBody = licenseAttributeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -382,6 +386,7 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -400,6 +405,7 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -409,8 +415,8 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLicenseAttributesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLicenseAttributesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseAttributesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLicenseAttributesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, licenseAttributeDtoCollectionQueryParameters = licenseAttributeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -433,16 +439,17 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLicenseAttributesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLicenseAttributesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLicenseAttributesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLicenseAttributesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, licenseAttributeDtoCollectionQueryParameters = licenseAttributeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LicenseAttributeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -453,10 +460,11 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseAttributeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLicenseAttributesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLicenseAttributesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, licenseAttributeDtoCollectionQueryParameters: LicenseAttributeDtoCollectionQueryParameters?) : RequestConfig<LicenseAttributeDtoCollectionQueryParameters> {
+        val localVariableBody = licenseAttributeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -466,6 +474,7 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -485,7 +494,7 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -495,8 +504,8 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchLicenseAttributeAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchLicenseAttributeAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLicenseAttributeAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchLicenseAttributeAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -520,17 +529,17 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchLicenseAttributeAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchLicenseAttributeAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchLicenseAttributeAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchLicenseAttributeAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -542,11 +551,11 @@ class LicenseAttributesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchLicenseAttributeAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchLicenseAttributeAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

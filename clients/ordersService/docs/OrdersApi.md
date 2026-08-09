@@ -322,7 +322,7 @@ No authorization required
 
 <a id="getExtendedOrders"></a>
 # **getExtendedOrders**
-> ExtendedOrderDtoListEnvelope getExtendedOrders(tenantId)
+> ExtendedOrderDtoListEnvelope getExtendedOrders(tenantId, extendedOrderDtoCollectionQueryParameters)
 
 Gets a list of extended orders for a tenant.
 
@@ -336,8 +336,9 @@ Retrieves a list of extended order details for the specified tenant.
 
 val apiInstance = OrdersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedOrderDtoCollectionQueryParameters : ExtendedOrderDtoCollectionQueryParameters =  // ExtendedOrderDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedOrderDtoListEnvelope = apiInstance.getExtendedOrders(tenantId)
+    val result : ExtendedOrderDtoListEnvelope = apiInstance.getExtendedOrders(tenantId, extendedOrderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#getExtendedOrders")
@@ -349,9 +350,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -363,7 +365,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOrder"></a>
@@ -466,7 +468,7 @@ No authorization required
 
 <a id="getOrderLines"></a>
 # **getOrderLines**
-> OrderLineDtoListEnvelope getOrderLines(orderId, tenantId, itemId)
+> OrderLineDtoListEnvelope getOrderLines(orderId, tenantId, itemId, orderLineDtoCollectionQueryParameters)
 
 Gets order lines for an order.
 
@@ -482,8 +484,9 @@ val apiInstance = OrdersApi()
 val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val orderLineDtoCollectionQueryParameters : OrderLineDtoCollectionQueryParameters =  // OrderLineDtoCollectionQueryParameters | 
 try {
-    val result : OrderLineDtoListEnvelope = apiInstance.getOrderLines(orderId, tenantId, itemId)
+    val result : OrderLineDtoListEnvelope = apiInstance.getOrderLines(orderId, tenantId, itemId, orderLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#getOrderLines")
@@ -497,9 +500,10 @@ try {
 ### Parameters
 | **orderId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **itemId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
+| **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -511,12 +515,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOrderLinesCount"></a>
 # **getOrderLinesCount**
-> Int32Envelope getOrderLinesCount(orderId, tenantId)
+> Int32Envelope getOrderLinesCount(orderId, tenantId, orderLineDtoCollectionQueryParameters)
 
 Gets the count of order lines for an order.
 
@@ -531,8 +535,9 @@ Retrieves the total number of lines for the specified order.
 val apiInstance = OrdersApi()
 val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val orderLineDtoCollectionQueryParameters : OrderLineDtoCollectionQueryParameters =  // OrderLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getOrderLinesCount(orderId, tenantId)
+    val result : Int32Envelope = apiInstance.getOrderLinesCount(orderId, tenantId, orderLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#getOrderLinesCount")
@@ -545,9 +550,10 @@ try {
 
 ### Parameters
 | **orderId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -559,12 +565,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOrders"></a>
 # **getOrders**
-> OrderDtoListEnvelope getOrders(tenantId)
+> OrderDtoListEnvelope getOrders(tenantId, orderDtoCollectionQueryParameters)
 
 Gets a list of orders for a tenant.
 
@@ -578,8 +584,9 @@ Retrieves a list of orders for the specified tenant.
 
 val apiInstance = OrdersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val orderDtoCollectionQueryParameters : OrderDtoCollectionQueryParameters =  // OrderDtoCollectionQueryParameters | 
 try {
-    val result : OrderDtoListEnvelope = apiInstance.getOrders(tenantId)
+    val result : OrderDtoListEnvelope = apiInstance.getOrders(tenantId, orderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#getOrders")
@@ -591,9 +598,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -605,12 +613,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getOrdersCount"></a>
 # **getOrdersCount**
-> Int32Envelope getOrdersCount(tenantId)
+> Int32Envelope getOrdersCount(tenantId, orderDtoCollectionQueryParameters)
 
 Gets the count of orders for a tenant.
 
@@ -624,8 +632,9 @@ Retrieves the total number of orders for the specified tenant.
 
 val apiInstance = OrdersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val orderDtoCollectionQueryParameters : OrderDtoCollectionQueryParameters =  // OrderDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getOrdersCount(tenantId)
+    val result : Int32Envelope = apiInstance.getOrdersCount(tenantId, orderDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#getOrdersCount")
@@ -637,9 +646,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -651,12 +661,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchOrder"></a>
 # **patchOrder**
-> EmptyEnvelope patchOrder(orderId, tenantId, operation)
+> EmptyEnvelope patchOrder(orderId, tenantId, patchOperation)
 
 Partially updates an existing order.
 
@@ -671,9 +681,9 @@ Applies a JSON Patch document to partially update an existing order.
 val apiInstance = OrdersApi()
 val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchOrder(orderId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchOrder(orderId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#patchOrder")
@@ -689,7 +699,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -706,7 +716,7 @@ No authorization required
 
 <a id="patchOrderLine"></a>
 # **patchOrderLine**
-> EmptyEnvelope patchOrderLine(orderId, orderLineId, tenantId, operation)
+> EmptyEnvelope patchOrderLine(orderId, orderLineId, tenantId, patchOperation)
 
 Partially updates an order line.
 
@@ -722,9 +732,9 @@ val apiInstance = OrdersApi()
 val orderId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val orderLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchOrderLine(orderId, orderLineId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchOrderLine(orderId, orderLineId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#patchOrderLine")
@@ -741,7 +751,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

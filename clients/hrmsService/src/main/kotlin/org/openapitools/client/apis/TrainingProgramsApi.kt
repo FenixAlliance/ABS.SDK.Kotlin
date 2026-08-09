@@ -23,6 +23,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.TrainingProgramCreateDto
+import org.openapitools.client.models.TrainingProgramDtoCollectionQueryParameters
 import org.openapitools.client.models.TrainingProgramDtoEnvelope
 import org.openapitools.client.models.TrainingProgramDtoListEnvelope
 import org.openapitools.client.models.TrainingProgramUpdateDto
@@ -319,6 +320,7 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return TrainingProgramDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTrainingProgramsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TrainingProgramDtoListEnvelope {
-        val localVarResponse = getTrainingProgramsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrainingProgramsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters? = null) : TrainingProgramDtoListEnvelope {
+        val localVarResponse = getTrainingProgramsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trainingProgramDtoCollectionQueryParameters = trainingProgramDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TrainingProgramDtoListEnvelope
@@ -352,16 +354,17 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TrainingProgramDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTrainingProgramsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TrainingProgramDtoListEnvelope?> {
-        val localVariableConfig = getTrainingProgramsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrainingProgramsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters?) : ApiResponse<TrainingProgramDtoListEnvelope?> {
+        val localVariableConfig = getTrainingProgramsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trainingProgramDtoCollectionQueryParameters = trainingProgramDtoCollectionQueryParameters)
 
-        return request<Unit, TrainingProgramDtoListEnvelope>(
+        return request<TrainingProgramDtoCollectionQueryParameters, TrainingProgramDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTrainingProgramsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTrainingProgramsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters?) : RequestConfig<TrainingProgramDtoCollectionQueryParameters> {
+        val localVariableBody = trainingProgramDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTrainingProgramsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTrainingProgramsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrainingProgramsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTrainingProgramsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trainingProgramDtoCollectionQueryParameters = trainingProgramDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTrainingProgramsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTrainingProgramsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTrainingProgramsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTrainingProgramsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trainingProgramDtoCollectionQueryParameters = trainingProgramDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TrainingProgramDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTrainingProgramsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTrainingProgramsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trainingProgramDtoCollectionQueryParameters: TrainingProgramDtoCollectionQueryParameters?) : RequestConfig<TrainingProgramDtoCollectionQueryParameters> {
+        val localVariableBody = trainingProgramDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class TrainingProgramsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

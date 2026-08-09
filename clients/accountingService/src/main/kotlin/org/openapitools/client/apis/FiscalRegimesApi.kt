@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.FiscalRegimeCreateDto
+import org.openapitools.client.models.FiscalRegimeDtoCollectionQueryParameters
 import org.openapitools.client.models.FiscalRegimeDtoEnvelope
 import org.openapitools.client.models.FiscalRegimeDtoListEnvelope
 import org.openapitools.client.models.FiscalRegimeUpdateDto
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -325,6 +326,7 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return FiscalRegimeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -334,8 +336,8 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalRegimes(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalRegimeDtoListEnvelope {
-        val localVarResponse = getFiscalRegimesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalRegimes(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters? = null) : FiscalRegimeDtoListEnvelope {
+        val localVarResponse = getFiscalRegimesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalRegimeDtoCollectionQueryParameters = fiscalRegimeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FiscalRegimeDtoListEnvelope
@@ -360,16 +362,17 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FiscalRegimeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalRegimesWithHttpInfo(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalRegimeDtoListEnvelope?> {
-        val localVariableConfig = getFiscalRegimesRequestConfig(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalRegimesWithHttpInfo(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters?) : ApiResponse<FiscalRegimeDtoListEnvelope?> {
+        val localVariableConfig = getFiscalRegimesRequestConfig(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalRegimeDtoCollectionQueryParameters = fiscalRegimeDtoCollectionQueryParameters)
 
-        return request<Unit, FiscalRegimeDtoListEnvelope>(
+        return request<FiscalRegimeDtoCollectionQueryParameters, FiscalRegimeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -382,10 +385,11 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalRegimesRequestConfig(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalRegimesRequestConfig(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters?) : RequestConfig<FiscalRegimeDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalRegimeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -396,6 +400,7 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -415,6 +420,7 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -424,8 +430,8 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalRegimesCount(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getFiscalRegimesCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalRegimesCount(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getFiscalRegimesCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalRegimeDtoCollectionQueryParameters = fiscalRegimeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -449,16 +455,17 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalRegimesCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getFiscalRegimesCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalRegimesCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getFiscalRegimesCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalRegimeDtoCollectionQueryParameters = fiscalRegimeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FiscalRegimeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -470,10 +477,11 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalRegimesCountRequestConfig(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalRegimesCountRequestConfig(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalRegimeDtoCollectionQueryParameters: FiscalRegimeDtoCollectionQueryParameters?) : RequestConfig<FiscalRegimeDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalRegimeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -483,6 +491,7 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -502,7 +511,7 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -512,8 +521,8 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchFiscalRegimeAsync(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchFiscalRegimeAsyncWithHttpInfo(regimeId = regimeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalRegimeAsync(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchFiscalRegimeAsyncWithHttpInfo(regimeId = regimeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -537,17 +546,17 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchFiscalRegimeAsyncWithHttpInfo(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchFiscalRegimeAsyncRequestConfig(regimeId = regimeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalRegimeAsyncWithHttpInfo(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchFiscalRegimeAsyncRequestConfig(regimeId = regimeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -559,11 +568,11 @@ class FiscalRegimesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchFiscalRegimeAsyncRequestConfig(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchFiscalRegimeAsyncRequestConfig(regimeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

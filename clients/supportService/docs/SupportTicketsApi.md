@@ -342,7 +342,7 @@ No authorization required
 
 <a id="getSupportTicketConversationsAsync"></a>
 # **getSupportTicketConversationsAsync**
-> SupportTicketConversationDtoListEnvelope getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
+> SupportTicketConversationDtoListEnvelope getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketConversationDtoCollectionQueryParameters)
 
 Retrieve conversations for a support ticket
 
@@ -359,8 +359,9 @@ val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // j
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportTicketConversationDtoCollectionQueryParameters : SupportTicketConversationDtoCollectionQueryParameters =  // SupportTicketConversationDtoCollectionQueryParameters | 
 try {
-    val result : SupportTicketConversationDtoListEnvelope = apiInstance.getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion)
+    val result : SupportTicketConversationDtoListEnvelope = apiInstance.getSupportTicketConversationsAsync(supportTicketId, tenantId, apiVersion, xApiVersion, supportTicketConversationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportTicketsApi#getSupportTicketConversationsAsync")
@@ -375,9 +376,10 @@ try {
 | **supportTicketId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportTicketConversationDtoCollectionQueryParameters** | [**SupportTicketConversationDtoCollectionQueryParameters**](SupportTicketConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -389,12 +391,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportTicketsAsync"></a>
 # **getSupportTicketsAsync**
-> SupportTicketDtoListEnvelope getSupportTicketsAsync(tenantId, apiVersion, xApiVersion)
+> SupportTicketDtoListEnvelope getSupportTicketsAsync(tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
 
 Retrieve a list of support tickets
 
@@ -410,8 +412,9 @@ val apiInstance = SupportTicketsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportTicketDtoCollectionQueryParameters : SupportTicketDtoCollectionQueryParameters =  // SupportTicketDtoCollectionQueryParameters | 
 try {
-    val result : SupportTicketDtoListEnvelope = apiInstance.getSupportTicketsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SupportTicketDtoListEnvelope = apiInstance.getSupportTicketsAsync(tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportTicketsApi#getSupportTicketsAsync")
@@ -425,9 +428,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -439,12 +443,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportTicketsCountAsync"></a>
 # **getSupportTicketsCountAsync**
-> Int32Envelope getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
 
 Get the count of support tickets
 
@@ -460,8 +464,9 @@ val apiInstance = SupportTicketsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportTicketDtoCollectionQueryParameters : SupportTicketDtoCollectionQueryParameters =  // SupportTicketDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSupportTicketsCountAsync(tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportTicketsApi#getSupportTicketsCountAsync")
@@ -475,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSupportTicketAsync"></a>
 # **patchSupportTicketAsync**
-> EmptyEnvelope patchSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support ticket
 
@@ -511,9 +517,9 @@ val supportTicketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // j
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSupportTicketAsync(supportTicketId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportTicketsApi#patchSupportTicketAsync")
@@ -531,7 +537,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.WebPageCategoryCreateDto
+import org.openapitools.client.models.WebPageCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.WebPageCategoryDtoEnvelope
 import org.openapitools.client.models.WebPageCategoryDtoListEnvelope
 import org.openapitools.client.models.WebPageCategoryUpdateDto
@@ -58,6 +59,7 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -67,8 +69,8 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countWebPageCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countWebPageCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countWebPageCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countWebPageCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPageCategoryDtoCollectionQueryParameters = webPageCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -91,16 +93,17 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countWebPageCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countWebPageCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countWebPageCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countWebPageCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPageCategoryDtoCollectionQueryParameters = webPageCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WebPageCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -111,10 +114,11 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countWebPageCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countWebPageCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters?) : RequestConfig<WebPageCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = webPageCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -124,6 +128,7 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -317,6 +322,7 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return WebPageCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +332,8 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWebPageCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WebPageCategoryDtoListEnvelope {
-        val localVarResponse = getWebPageCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebPageCategoriesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters? = null) : WebPageCategoryDtoListEnvelope {
+        val localVarResponse = getWebPageCategoriesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPageCategoryDtoCollectionQueryParameters = webPageCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WebPageCategoryDtoListEnvelope
@@ -350,16 +356,17 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WebPageCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWebPageCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WebPageCategoryDtoListEnvelope?> {
-        val localVariableConfig = getWebPageCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWebPageCategoriesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters?) : ApiResponse<WebPageCategoryDtoListEnvelope?> {
+        val localVariableConfig = getWebPageCategoriesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPageCategoryDtoCollectionQueryParameters = webPageCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, WebPageCategoryDtoListEnvelope>(
+        return request<WebPageCategoryDtoCollectionQueryParameters, WebPageCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -370,10 +377,11 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWebPageCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWebPageCategoriesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPageCategoryDtoCollectionQueryParameters: WebPageCategoryDtoCollectionQueryParameters?) : RequestConfig<WebPageCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = webPageCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -383,6 +391,7 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWebPageCategoryAsync(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWebPageCategoryAsyncWithHttpInfo(webPageCategoryId = webPageCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebPageCategoryAsync(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWebPageCategoryAsyncWithHttpInfo(webPageCategoryId = webPageCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWebPageCategoryAsyncWithHttpInfo(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWebPageCategoryAsyncRequestConfig(webPageCategoryId = webPageCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebPageCategoryAsyncWithHttpInfo(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWebPageCategoryAsyncRequestConfig(webPageCategoryId = webPageCategoryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class WebPageCategoriesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWebPageCategoryAsyncRequestConfig(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWebPageCategoryAsyncRequestConfig(webPageCategoryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

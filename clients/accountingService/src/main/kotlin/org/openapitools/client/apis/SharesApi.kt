@@ -23,19 +23,23 @@ import org.openapitools.client.models.DecimalEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ShareClassCreateDto
+import org.openapitools.client.models.ShareClassDtoCollectionQueryParameters
 import org.openapitools.client.models.ShareClassDtoEnvelope
 import org.openapitools.client.models.ShareClassDtoListEnvelope
 import org.openapitools.client.models.ShareClassUpdateDto
 import org.openapitools.client.models.ShareIssuanceCreateDto
+import org.openapitools.client.models.ShareIssuanceDtoCollectionQueryParameters
 import org.openapitools.client.models.ShareIssuanceDtoEnvelope
 import org.openapitools.client.models.ShareIssuanceDtoListEnvelope
 import org.openapitools.client.models.ShareIssuanceUpdateDto
 import org.openapitools.client.models.ShareTransferCreateDto
+import org.openapitools.client.models.ShareTransferDtoCollectionQueryParameters
 import org.openapitools.client.models.ShareTransferDtoEnvelope
 import org.openapitools.client.models.ShareTransferDtoListEnvelope
 import org.openapitools.client.models.ShareTransferReasonCreateDto
+import org.openapitools.client.models.ShareTransferReasonDtoCollectionQueryParameters
 import org.openapitools.client.models.ShareTransferReasonDtoEnvelope
 import org.openapitools.client.models.ShareTransferReasonDtoListEnvelope
 import org.openapitools.client.models.ShareTransferReasonUpdateDto
@@ -850,6 +854,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ShareClassDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -859,8 +864,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareClasses(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShareClassDtoListEnvelope {
-        val localVarResponse = getShareClassesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareClasses(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters? = null) : ShareClassDtoListEnvelope {
+        val localVarResponse = getShareClassesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareClassDtoCollectionQueryParameters = shareClassDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShareClassDtoListEnvelope
@@ -883,16 +888,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ShareClassDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareClassesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShareClassDtoListEnvelope?> {
-        val localVariableConfig = getShareClassesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareClassesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters?) : ApiResponse<ShareClassDtoListEnvelope?> {
+        val localVariableConfig = getShareClassesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareClassDtoCollectionQueryParameters = shareClassDtoCollectionQueryParameters)
 
-        return request<Unit, ShareClassDtoListEnvelope>(
+        return request<ShareClassDtoCollectionQueryParameters, ShareClassDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -903,10 +909,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareClassesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareClassesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters?) : RequestConfig<ShareClassDtoCollectionQueryParameters> {
+        val localVariableBody = shareClassDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -916,6 +923,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -934,6 +942,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -943,8 +952,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareClassesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getShareClassesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareClassesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getShareClassesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareClassDtoCollectionQueryParameters = shareClassDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -967,16 +976,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareClassesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getShareClassesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareClassesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getShareClassesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareClassDtoCollectionQueryParameters = shareClassDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ShareClassDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -987,10 +997,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareClassesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareClassesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareClassDtoCollectionQueryParameters: ShareClassDtoCollectionQueryParameters?) : RequestConfig<ShareClassDtoCollectionQueryParameters> {
+        val localVariableBody = shareClassDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1000,6 +1011,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1105,6 +1117,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ShareIssuanceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1114,8 +1127,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareIssuances(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShareIssuanceDtoListEnvelope {
-        val localVarResponse = getShareIssuancesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuances(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters? = null) : ShareIssuanceDtoListEnvelope {
+        val localVarResponse = getShareIssuancesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShareIssuanceDtoListEnvelope
@@ -1138,16 +1151,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ShareIssuanceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareIssuancesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShareIssuanceDtoListEnvelope?> {
-        val localVariableConfig = getShareIssuancesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuancesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : ApiResponse<ShareIssuanceDtoListEnvelope?> {
+        val localVariableConfig = getShareIssuancesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
-        return request<Unit, ShareIssuanceDtoListEnvelope>(
+        return request<ShareIssuanceDtoCollectionQueryParameters, ShareIssuanceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1158,10 +1172,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareIssuancesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareIssuancesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : RequestConfig<ShareIssuanceDtoCollectionQueryParameters> {
+        val localVariableBody = shareIssuanceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1171,6 +1186,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1189,6 +1205,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1198,8 +1215,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareIssuancesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getShareIssuancesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuancesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getShareIssuancesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1222,16 +1239,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareIssuancesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getShareIssuancesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuancesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getShareIssuancesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ShareIssuanceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1242,10 +1260,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareIssuancesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareIssuancesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : RequestConfig<ShareIssuanceDtoCollectionQueryParameters> {
+        val localVariableBody = shareIssuanceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1255,6 +1274,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1273,6 +1293,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1282,8 +1303,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareIssuancesSum(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DecimalEnvelope {
-        val localVarResponse = getShareIssuancesSumWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuancesSum(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters? = null) : DecimalEnvelope {
+        val localVarResponse = getShareIssuancesSumWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DecimalEnvelope
@@ -1306,16 +1327,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DecimalEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareIssuancesSumWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DecimalEnvelope?> {
-        val localVariableConfig = getShareIssuancesSumRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareIssuancesSumWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : ApiResponse<DecimalEnvelope?> {
+        val localVariableConfig = getShareIssuancesSumRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareIssuanceDtoCollectionQueryParameters = shareIssuanceDtoCollectionQueryParameters)
 
-        return request<Unit, DecimalEnvelope>(
+        return request<ShareIssuanceDtoCollectionQueryParameters, DecimalEnvelope>(
             localVariableConfig
         )
     }
@@ -1326,10 +1348,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareIssuancesSumRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareIssuancesSumRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareIssuanceDtoCollectionQueryParameters: ShareIssuanceDtoCollectionQueryParameters?) : RequestConfig<ShareIssuanceDtoCollectionQueryParameters> {
+        val localVariableBody = shareIssuanceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1339,6 +1362,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1531,6 +1555,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ShareTransferReasonDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1540,8 +1565,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareTransferReasons(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShareTransferReasonDtoListEnvelope {
-        val localVarResponse = getShareTransferReasonsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransferReasons(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters? = null) : ShareTransferReasonDtoListEnvelope {
+        val localVarResponse = getShareTransferReasonsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferReasonDtoCollectionQueryParameters = shareTransferReasonDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShareTransferReasonDtoListEnvelope
@@ -1564,16 +1589,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ShareTransferReasonDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareTransferReasonsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShareTransferReasonDtoListEnvelope?> {
-        val localVariableConfig = getShareTransferReasonsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransferReasonsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters?) : ApiResponse<ShareTransferReasonDtoListEnvelope?> {
+        val localVariableConfig = getShareTransferReasonsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferReasonDtoCollectionQueryParameters = shareTransferReasonDtoCollectionQueryParameters)
 
-        return request<Unit, ShareTransferReasonDtoListEnvelope>(
+        return request<ShareTransferReasonDtoCollectionQueryParameters, ShareTransferReasonDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1584,10 +1610,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareTransferReasonsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareTransferReasonsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters?) : RequestConfig<ShareTransferReasonDtoCollectionQueryParameters> {
+        val localVariableBody = shareTransferReasonDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1597,6 +1624,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1615,6 +1643,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1624,8 +1653,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareTransferReasonsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getShareTransferReasonsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransferReasonsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getShareTransferReasonsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferReasonDtoCollectionQueryParameters = shareTransferReasonDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1648,16 +1677,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareTransferReasonsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getShareTransferReasonsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransferReasonsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getShareTransferReasonsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferReasonDtoCollectionQueryParameters = shareTransferReasonDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ShareTransferReasonDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1668,10 +1698,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareTransferReasonsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareTransferReasonsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferReasonDtoCollectionQueryParameters: ShareTransferReasonDtoCollectionQueryParameters?) : RequestConfig<ShareTransferReasonDtoCollectionQueryParameters> {
+        val localVariableBody = shareTransferReasonDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1681,6 +1712,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1699,6 +1731,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ShareTransferDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1708,8 +1741,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareTransfers(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ShareTransferDtoListEnvelope {
-        val localVarResponse = getShareTransfersWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransfers(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters? = null) : ShareTransferDtoListEnvelope {
+        val localVarResponse = getShareTransfersWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferDtoCollectionQueryParameters = shareTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ShareTransferDtoListEnvelope
@@ -1732,16 +1765,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ShareTransferDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareTransfersWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ShareTransferDtoListEnvelope?> {
-        val localVariableConfig = getShareTransfersRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransfersWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters?) : ApiResponse<ShareTransferDtoListEnvelope?> {
+        val localVariableConfig = getShareTransfersRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferDtoCollectionQueryParameters = shareTransferDtoCollectionQueryParameters)
 
-        return request<Unit, ShareTransferDtoListEnvelope>(
+        return request<ShareTransferDtoCollectionQueryParameters, ShareTransferDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1752,10 +1786,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareTransfersRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareTransfersRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters?) : RequestConfig<ShareTransferDtoCollectionQueryParameters> {
+        val localVariableBody = shareTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1765,6 +1800,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1783,6 +1819,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1792,8 +1829,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getShareTransfersCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getShareTransfersCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransfersCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getShareTransfersCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferDtoCollectionQueryParameters = shareTransferDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1816,16 +1853,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getShareTransfersCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getShareTransfersCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getShareTransfersCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getShareTransfersCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, shareTransferDtoCollectionQueryParameters = shareTransferDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ShareTransferDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1836,10 +1874,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getShareTransfersCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getShareTransfersCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, shareTransferDtoCollectionQueryParameters: ShareTransferDtoCollectionQueryParameters?) : RequestConfig<ShareTransferDtoCollectionQueryParameters> {
+        val localVariableBody = shareTransferDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1849,6 +1888,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1868,7 +1908,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1878,8 +1918,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchShareClass(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchShareClassWithHttpInfo(shareClassId = shareClassId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareClass(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchShareClassWithHttpInfo(shareClassId = shareClassId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1903,17 +1943,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchShareClassWithHttpInfo(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchShareClassRequestConfig(shareClassId = shareClassId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareClassWithHttpInfo(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchShareClassRequestConfig(shareClassId = shareClassId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1925,11 +1965,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchShareClassRequestConfig(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchShareClassRequestConfig(shareClassId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1959,7 +1999,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1969,8 +2009,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchShareIssuance(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchShareIssuanceWithHttpInfo(issuanceId = issuanceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareIssuance(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchShareIssuanceWithHttpInfo(issuanceId = issuanceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1994,17 +2034,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchShareIssuanceWithHttpInfo(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchShareIssuanceRequestConfig(issuanceId = issuanceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareIssuanceWithHttpInfo(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchShareIssuanceRequestConfig(issuanceId = issuanceId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2016,11 +2056,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchShareIssuanceRequestConfig(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchShareIssuanceRequestConfig(issuanceId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2050,7 +2090,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2060,8 +2100,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchShareTransfer(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchShareTransferWithHttpInfo(transferId = transferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareTransfer(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchShareTransferWithHttpInfo(transferId = transferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2085,17 +2125,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchShareTransferWithHttpInfo(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchShareTransferRequestConfig(transferId = transferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareTransferWithHttpInfo(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchShareTransferRequestConfig(transferId = transferId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2107,11 +2147,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchShareTransferRequestConfig(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchShareTransferRequestConfig(transferId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2141,7 +2181,7 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2151,8 +2191,8 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchShareTransferReason(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchShareTransferReasonWithHttpInfo(reasonId = reasonId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareTransferReason(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchShareTransferReasonWithHttpInfo(reasonId = reasonId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -2176,17 +2216,17 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchShareTransferReasonWithHttpInfo(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchShareTransferReasonRequestConfig(reasonId = reasonId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchShareTransferReasonWithHttpInfo(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchShareTransferReasonRequestConfig(reasonId = reasonId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -2198,11 +2238,11 @@ class SharesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchShareTransferReasonRequestConfig(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchShareTransferReasonRequestConfig(reasonId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

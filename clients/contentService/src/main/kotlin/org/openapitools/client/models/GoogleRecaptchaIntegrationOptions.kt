@@ -27,6 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param siteKey 
  * @param secretKey 
  * @param version 
+ * @param projectId 
+ * @param apiKey 
+ * @param scoreThreshold 
  */
 
 
@@ -45,7 +48,16 @@ data class GoogleRecaptchaIntegrationOptions (
     val secretKey: kotlin.String? = null,
 
     @Json(name = "version")
-    val version: kotlin.String? = null
+    val version: kotlin.String? = null,
+
+    @Json(name = "projectId")
+    val projectId: kotlin.String? = null,
+
+    @Json(name = "apiKey")
+    val apiKey: kotlin.String? = null,
+
+    @Json(name = "scoreThreshold")
+    val scoreThreshold: kotlin.Double? = null
 
 ) {
 

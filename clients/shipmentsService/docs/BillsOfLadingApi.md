@@ -340,7 +340,7 @@ No authorization required
 
 <a id="getBillOfLadingLinesAsync"></a>
 # **getBillOfLadingLinesAsync**
-> BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(billOfLadingId, tenantId, apiVersion, xApiVersion)
+> BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
 
 Get bill of lading lines
 
@@ -357,8 +357,9 @@ val billOfLadingId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billOfLadingLineDtoCollectionQueryParameters : BillOfLadingLineDtoCollectionQueryParameters =  // BillOfLadingLineDtoCollectionQueryParameters | 
 try {
-    val result : BillOfLadingLineDtoListEnvelope = apiInstance.getBillOfLadingLinesAsync(billOfLadingId, tenantId, apiVersion, xApiVersion)
+    val result : BillOfLadingLineDtoListEnvelope = apiInstance.getBillOfLadingLinesAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#getBillOfLadingLinesAsync")
@@ -373,9 +374,10 @@ try {
 | **billOfLadingId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -387,12 +389,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBillOfLadingLinesCountAsync"></a>
 # **getBillOfLadingLinesCountAsync**
-> Int32Envelope getBillOfLadingLinesCountAsync(billOfLadingId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBillOfLadingLinesCountAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
 
 Get bill of lading lines count
 
@@ -409,8 +411,9 @@ val billOfLadingId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billOfLadingLineDtoCollectionQueryParameters : BillOfLadingLineDtoCollectionQueryParameters =  // BillOfLadingLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBillOfLadingLinesCountAsync(billOfLadingId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBillOfLadingLinesCountAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#getBillOfLadingLinesCountAsync")
@@ -425,9 +428,10 @@ try {
 | **billOfLadingId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -439,12 +443,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBillsOfLadingAsync"></a>
 # **getBillsOfLadingAsync**
-> BillOfLadingDtoListEnvelope getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion)
+> BillOfLadingDtoListEnvelope getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
 
 Get all bills of lading
 
@@ -460,8 +464,9 @@ val apiInstance = BillsOfLadingApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billOfLadingDtoCollectionQueryParameters : BillOfLadingDtoCollectionQueryParameters =  // BillOfLadingDtoCollectionQueryParameters | 
 try {
-    val result : BillOfLadingDtoListEnvelope = apiInstance.getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion)
+    val result : BillOfLadingDtoListEnvelope = apiInstance.getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#getBillsOfLadingAsync")
@@ -475,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBillsOfLadingCountAsync"></a>
 # **getBillsOfLadingCountAsync**
-> Int32Envelope getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
 
 Get bills of lading count
 
@@ -510,8 +516,9 @@ val apiInstance = BillsOfLadingApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val billOfLadingDtoCollectionQueryParameters : BillOfLadingDtoCollectionQueryParameters =  // BillOfLadingDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#getBillsOfLadingCountAsync")
@@ -525,9 +532,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,12 +547,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBillOfLadingAsync"></a>
 # **patchBillOfLadingAsync**
-> EmptyEnvelope patchBillOfLadingAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillOfLadingAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a bill of lading
 
@@ -561,9 +569,9 @@ val billOfLadingId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBillOfLadingAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBillOfLadingAsync(billOfLadingId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#patchBillOfLadingAsync")
@@ -581,7 +589,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -598,7 +606,7 @@ No authorization required
 
 <a id="patchBillOfLadingLineAsync"></a>
 # **patchBillOfLadingLineAsync**
-> EmptyEnvelope patchBillOfLadingLineAsync(billOfLadingId, lineId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillOfLadingLineAsync(billOfLadingId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a bill of lading line
 
@@ -616,9 +624,9 @@ val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBillOfLadingLineAsync(billOfLadingId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBillOfLadingLineAsync(billOfLadingId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BillsOfLadingApi#patchBillOfLadingLineAsync")
@@ -637,7 +645,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

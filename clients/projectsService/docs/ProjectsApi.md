@@ -422,7 +422,7 @@ No authorization required
 
 <a id="getProjectTaskCategoriesAsync"></a>
 # **getProjectTaskCategoriesAsync**
-> TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(projectId, tenantId)
+> TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Retrieves project task categories
 
@@ -437,8 +437,9 @@ Gets all task categories for a specific project with OData support.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val taskCategoryDtoCollectionQueryParameters : TaskCategoryDtoCollectionQueryParameters =  // TaskCategoryDtoCollectionQueryParameters | 
 try {
-    val result : TaskCategoryDtoListEnvelope = apiInstance.getProjectTaskCategoriesAsync(projectId, tenantId)
+    val result : TaskCategoryDtoListEnvelope = apiInstance.getProjectTaskCategoriesAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getProjectTaskCategoriesAsync")
@@ -451,9 +452,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -465,12 +467,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProjectTaskCategoriesCountAsync"></a>
 # **getProjectTaskCategoriesCountAsync**
-> Int32Envelope getProjectTaskCategoriesCountAsync(projectId, tenantId)
+> Int32Envelope getProjectTaskCategoriesCountAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Counts project task categories
 
@@ -485,8 +487,9 @@ Gets the count of task categories for a specific project.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val taskCategoryDtoCollectionQueryParameters : TaskCategoryDtoCollectionQueryParameters =  // TaskCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProjectTaskCategoriesCountAsync(projectId, tenantId)
+    val result : Int32Envelope = apiInstance.getProjectTaskCategoriesCountAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getProjectTaskCategoriesCountAsync")
@@ -499,9 +502,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -513,12 +517,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProjectTimeLogsCountAsync"></a>
 # **getProjectTimeLogsCountAsync**
-> Int32Envelope getProjectTimeLogsCountAsync(projectId, tenantId)
+> Int32Envelope getProjectTimeLogsCountAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
 
 Counts project time logs
 
@@ -533,8 +537,9 @@ Gets the count of time log entries for a specific project.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectTimeLogDtoCollectionQueryParameters : ProjectTimeLogDtoCollectionQueryParameters =  // ProjectTimeLogDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProjectTimeLogsCountAsync(projectId, tenantId)
+    val result : Int32Envelope = apiInstance.getProjectTimeLogsCountAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getProjectTimeLogsCountAsync")
@@ -547,9 +552,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -561,12 +567,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProjectsByTenantIdAsync"></a>
 # **getProjectsByTenantIdAsync**
-> ProjectDtoListEnvelope getProjectsByTenantIdAsync(tenantId)
+> ProjectDtoListEnvelope getProjectsByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
 
 Retrieves all projects
 
@@ -580,8 +586,9 @@ Gets all projects for the current tenant with OData support.
 
 val apiInstance = ProjectsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectDtoCollectionQueryParameters : ProjectDtoCollectionQueryParameters =  // ProjectDtoCollectionQueryParameters | 
 try {
-    val result : ProjectDtoListEnvelope = apiInstance.getProjectsByTenantIdAsync(tenantId)
+    val result : ProjectDtoListEnvelope = apiInstance.getProjectsByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getProjectsByTenantIdAsync")
@@ -593,9 +600,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -607,12 +615,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProjectsCountByTenantIdAsync"></a>
 # **getProjectsCountByTenantIdAsync**
-> Int32Envelope getProjectsCountByTenantIdAsync(tenantId)
+> Int32Envelope getProjectsCountByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
 
 Counts projects
 
@@ -626,8 +634,9 @@ Gets the count of projects for the current tenant.
 
 val apiInstance = ProjectsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectDtoCollectionQueryParameters : ProjectDtoCollectionQueryParameters =  // ProjectDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProjectsCountByTenantIdAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getProjectsCountByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getProjectsCountByTenantIdAsync")
@@ -639,9 +648,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -653,12 +663,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTasksForProjectAsync"></a>
 # **getTasksForProjectAsync**
-> ProjectTaskDtoListEnvelope getTasksForProjectAsync(projectId, tenantId)
+> ProjectTaskDtoListEnvelope getTasksForProjectAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
 
 Retrieves project tasks
 
@@ -673,8 +683,9 @@ Gets all tasks for a specific project with OData support.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectTaskDtoCollectionQueryParameters : ProjectTaskDtoCollectionQueryParameters =  // ProjectTaskDtoCollectionQueryParameters | 
 try {
-    val result : ProjectTaskDtoListEnvelope = apiInstance.getTasksForProjectAsync(projectId, tenantId)
+    val result : ProjectTaskDtoListEnvelope = apiInstance.getTasksForProjectAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getTasksForProjectAsync")
@@ -687,9 +698,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -701,12 +713,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTasksForProjectCountAsync"></a>
 # **getTasksForProjectCountAsync**
-> Int32Envelope getTasksForProjectCountAsync(projectId, tenantId)
+> Int32Envelope getTasksForProjectCountAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
 
 Counts project tasks
 
@@ -721,8 +733,9 @@ Gets the count of tasks for a specific project.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectTaskDtoCollectionQueryParameters : ProjectTaskDtoCollectionQueryParameters =  // ProjectTaskDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTasksForProjectCountAsync(projectId, tenantId)
+    val result : Int32Envelope = apiInstance.getTasksForProjectCountAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getTasksForProjectCountAsync")
@@ -735,9 +748,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -749,12 +763,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTimeLogsForProjectAsync"></a>
 # **getTimeLogsForProjectAsync**
-> ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(projectId, tenantId)
+> ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
 
 Retrieves project time logs
 
@@ -769,8 +783,9 @@ Gets all time log entries for a specific project with OData support.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val projectTimeLogDtoCollectionQueryParameters : ProjectTimeLogDtoCollectionQueryParameters =  // ProjectTimeLogDtoCollectionQueryParameters | 
 try {
-    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getTimeLogsForProjectAsync(projectId, tenantId)
+    val result : ProjectTimeLogDtoListEnvelope = apiInstance.getTimeLogsForProjectAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#getTimeLogsForProjectAsync")
@@ -783,9 +798,10 @@ try {
 
 ### Parameters
 | **projectId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -797,12 +813,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchProjectAsync"></a>
 # **patchProjectAsync**
-> EmptyEnvelope patchProjectAsync(projectId, tenantId, operation)
+> EmptyEnvelope patchProjectAsync(projectId, tenantId, patchOperation)
 
 Patches a project
 
@@ -817,9 +833,9 @@ Partially updates the specified project.
 val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchProjectAsync(projectId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchProjectAsync(projectId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#patchProjectAsync")
@@ -835,7 +851,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -852,7 +868,7 @@ No authorization required
 
 <a id="patchProjectPeriodAsync"></a>
 # **patchProjectPeriodAsync**
-> EmptyEnvelope patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation)
+> EmptyEnvelope patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, patchOperation)
 
 Patches a project period
 
@@ -868,9 +884,9 @@ val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val projectPeriodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#patchProjectPeriodAsync")
@@ -887,7 +903,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -904,7 +920,7 @@ No authorization required
 
 <a id="patchTaskForProjectAsync"></a>
 # **patchTaskForProjectAsync**
-> EmptyEnvelope patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation)
+> EmptyEnvelope patchTaskForProjectAsync(projectId, projectTaskId, tenantId, patchOperation)
 
 Patches a project task
 
@@ -920,9 +936,9 @@ val apiInstance = ProjectsApi()
 val projectId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val projectTaskId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchTaskForProjectAsync(projectId, projectTaskId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProjectsApi#patchTaskForProjectAsync")
@@ -939,7 +955,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

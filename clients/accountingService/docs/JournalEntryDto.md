@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **journalId** | **kotlin.String** |  |  [optional] |
@@ -25,7 +26,6 @@
 | **postedBy** | **kotlin.String** |  |  [optional] |
 | **forexRate** | **kotlin.Double** |  |  [optional] |
 | **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **debitInUsd** | **kotlin.Double** |  |  [optional] |
 | **creditInUsd** | **kotlin.Double** |  |  [optional] |
 | **accountingEntries** | [**kotlin.collections.List&lt;AccountingEntryDto&gt;**](AccountingEntryDto.md) |  |  [optional] |
@@ -33,6 +33,8 @@
 | **totalCredit** | **kotlin.Double** |  |  [optional] [readonly] |
 | **totalDebitAmount** | [**Money**](Money.md) |  |  [optional] |
 | **totalCreditAmount** | [**Money**](Money.md) |  |  [optional] |
+| **debitInUsdAmount** | [**Money**](Money.md) |  |  [optional] |
+| **creditInUsdAmount** | [**Money**](Money.md) |  |  [optional] |
 
 
 <a id="EntryType"></a>

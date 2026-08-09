@@ -278,7 +278,7 @@ No authorization required
 
 <a id="getBlockchainBlocksAsync"></a>
 # **getBlockchainBlocksAsync**
-> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion)
+> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
 
 Get blocks for a blockchain
 
@@ -293,8 +293,9 @@ val blockchainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blockchainBlockDtoCollectionQueryParameters : BlockchainBlockDtoCollectionQueryParameters =  // BlockchainBlockDtoCollectionQueryParameters | 
 try {
-    val result : BlockchainBlockDtoListEnvelope = apiInstance.getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion)
+    val result : BlockchainBlockDtoListEnvelope = apiInstance.getBlockchainBlocksAsync(blockchainId, tenantId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainBlocksAsync")
@@ -309,9 +310,10 @@ try {
 | **blockchainId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -323,12 +325,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlockchainBlocksCountAsync"></a>
 # **getBlockchainBlocksCountAsync**
-> Int32Envelope getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
 
 Get block count for a blockchain
 
@@ -343,8 +345,9 @@ val blockchainId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blockchainBlockDtoCollectionQueryParameters : BlockchainBlockDtoCollectionQueryParameters =  // BlockchainBlockDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBlockchainBlocksCountAsync(blockchainId, tenantId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainBlocksCountAsync")
@@ -359,9 +362,10 @@ try {
 | **blockchainId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -373,7 +377,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlockchainByIdAsync"></a>
@@ -430,7 +434,7 @@ No authorization required
 
 <a id="getBlockchainsAsync"></a>
 # **getBlockchainsAsync**
-> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
+> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
 
 Get all blockchains
 
@@ -446,8 +450,9 @@ val apiInstance = BlockchainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blockchainDtoCollectionQueryParameters : BlockchainDtoCollectionQueryParameters =  // BlockchainDtoCollectionQueryParameters | 
 try {
-    val result : BlockchainDtoListEnvelope = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BlockchainDtoListEnvelope = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainsAsync")
@@ -461,9 +466,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -475,12 +481,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlockchainsCountAsync"></a>
 # **getBlockchainsCountAsync**
-> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
 
 Get blockchains count
 
@@ -496,8 +502,9 @@ val apiInstance = BlockchainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blockchainDtoCollectionQueryParameters : BlockchainDtoCollectionQueryParameters =  // BlockchainDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#getBlockchainsCountAsync")
@@ -511,9 +518,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -525,12 +533,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBlockchainAsync"></a>
 # **patchBlockchainAsync**
-> EmptyEnvelope patchBlockchainAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlockchainAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blockchain
 
@@ -547,9 +555,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBlockchainAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBlockchainAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#patchBlockchainAsync")
@@ -567,7 +575,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -584,7 +592,7 @@ No authorization required
 
 <a id="patchBlockchainBlockAsync"></a>
 # **patchBlockchainBlockAsync**
-> EmptyEnvelope patchBlockchainBlockAsync(blockchainId, blockId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlockchainBlockAsync(blockchainId, blockId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blockchain block
 
@@ -602,9 +610,9 @@ val blockId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBlockchainBlockAsync(blockchainId, blockId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBlockchainBlockAsync(blockchainId, blockId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlockchainsApi#patchBlockchainBlockAsync")
@@ -623,7 +631,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

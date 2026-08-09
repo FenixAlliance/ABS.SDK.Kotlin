@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TenantIndustryCreateDto
+import org.openapitools.client.models.TenantIndustryDtoCollectionQueryParameters
 import org.openapitools.client.models.TenantIndustryDtoEnvelope
 import org.openapitools.client.models.TenantIndustryDtoListEnvelope
 import org.openapitools.client.models.TenantIndustryUpdateDto
@@ -233,6 +234,7 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return TenantIndustryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -242,8 +244,8 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantIndustries(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantIndustryDtoListEnvelope {
-        val localVarResponse = getTenantIndustriesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantIndustries(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters? = null) : TenantIndustryDtoListEnvelope {
+        val localVarResponse = getTenantIndustriesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantIndustryDtoCollectionQueryParameters = tenantIndustryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantIndustryDtoListEnvelope
@@ -266,16 +268,17 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantIndustryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantIndustriesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantIndustryDtoListEnvelope?> {
-        val localVariableConfig = getTenantIndustriesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantIndustriesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters?) : ApiResponse<TenantIndustryDtoListEnvelope?> {
+        val localVariableConfig = getTenantIndustriesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantIndustryDtoCollectionQueryParameters = tenantIndustryDtoCollectionQueryParameters)
 
-        return request<Unit, TenantIndustryDtoListEnvelope>(
+        return request<TenantIndustryDtoCollectionQueryParameters, TenantIndustryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -286,10 +289,11 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantIndustriesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantIndustriesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters?) : RequestConfig<TenantIndustryDtoCollectionQueryParameters> {
+        val localVariableBody = tenantIndustryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -299,6 +303,7 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -317,6 +322,7 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +332,8 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantIndustriesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTenantIndustriesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantIndustriesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTenantIndustriesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantIndustryDtoCollectionQueryParameters = tenantIndustryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -350,16 +356,17 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantIndustriesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTenantIndustriesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantIndustriesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTenantIndustriesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantIndustryDtoCollectionQueryParameters = tenantIndustryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TenantIndustryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -370,10 +377,11 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantIndustryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantIndustriesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantIndustriesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantIndustryDtoCollectionQueryParameters: TenantIndustryDtoCollectionQueryParameters?) : RequestConfig<TenantIndustryDtoCollectionQueryParameters> {
+        val localVariableBody = tenantIndustryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -383,6 +391,7 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTenantIndustryAsync(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTenantIndustryAsyncWithHttpInfo(tenantIndustryId = tenantIndustryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantIndustryAsync(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTenantIndustryAsyncWithHttpInfo(tenantIndustryId = tenantIndustryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTenantIndustryAsyncWithHttpInfo(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTenantIndustryAsyncRequestConfig(tenantIndustryId = tenantIndustryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantIndustryAsyncWithHttpInfo(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTenantIndustryAsyncRequestConfig(tenantIndustryId = tenantIndustryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class IndustriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTenantIndustryAsyncRequestConfig(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTenantIndustryAsyncRequestConfig(tenantIndustryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

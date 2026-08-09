@@ -23,6 +23,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.NewsletterSubscriptionCreateDto
+import org.openapitools.client.models.NewsletterSubscriptionDtoCollectionQueryParameters
 import org.openapitools.client.models.NewsletterSubscriptionDtoEnvelope
 import org.openapitools.client.models.NewsletterSubscriptionDtoListEnvelope
 import org.openapitools.client.models.NewsletterSubscriptionUpdateDto
@@ -319,6 +320,7 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return NewsletterSubscriptionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNewsletterSubscriptionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : NewsletterSubscriptionDtoListEnvelope {
-        val localVarResponse = getNewsletterSubscriptionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNewsletterSubscriptionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters? = null) : NewsletterSubscriptionDtoListEnvelope {
+        val localVarResponse = getNewsletterSubscriptionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters = newsletterSubscriptionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NewsletterSubscriptionDtoListEnvelope
@@ -352,16 +354,17 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<NewsletterSubscriptionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNewsletterSubscriptionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<NewsletterSubscriptionDtoListEnvelope?> {
-        val localVariableConfig = getNewsletterSubscriptionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNewsletterSubscriptionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters?) : ApiResponse<NewsletterSubscriptionDtoListEnvelope?> {
+        val localVariableConfig = getNewsletterSubscriptionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters = newsletterSubscriptionDtoCollectionQueryParameters)
 
-        return request<Unit, NewsletterSubscriptionDtoListEnvelope>(
+        return request<NewsletterSubscriptionDtoCollectionQueryParameters, NewsletterSubscriptionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getNewsletterSubscriptionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getNewsletterSubscriptionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters?) : RequestConfig<NewsletterSubscriptionDtoCollectionQueryParameters> {
+        val localVariableBody = newsletterSubscriptionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNewsletterSubscriptionsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getNewsletterSubscriptionsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNewsletterSubscriptionsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getNewsletterSubscriptionsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters = newsletterSubscriptionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNewsletterSubscriptionsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getNewsletterSubscriptionsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNewsletterSubscriptionsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getNewsletterSubscriptionsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters = newsletterSubscriptionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<NewsletterSubscriptionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param newsletterSubscriptionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getNewsletterSubscriptionsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getNewsletterSubscriptionsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, newsletterSubscriptionDtoCollectionQueryParameters: NewsletterSubscriptionDtoCollectionQueryParameters?) : RequestConfig<NewsletterSubscriptionDtoCollectionQueryParameters> {
+        val localVariableBody = newsletterSubscriptionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class NewsletterSubscriptionsApi(basePath: kotlin.String = defaultBasePath, clie
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

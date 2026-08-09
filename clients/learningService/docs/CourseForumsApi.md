@@ -168,7 +168,7 @@ No authorization required
 
 <a id="getCourseForumsAsync"></a>
 # **getCourseForumsAsync**
-> kotlin.collections.List&lt;CourseForumDto&gt; getCourseForumsAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseForumDto&gt; getCourseForumsAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get all course forums
 
@@ -184,8 +184,9 @@ val apiInstance = CourseForumsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseForumDtoCollectionQueryParameters : CourseForumDtoCollectionQueryParameters =  // CourseForumDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseForumDto> = apiInstance.getCourseForumsAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseForumDto> = apiInstance.getCourseForumsAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseForumsApi#getCourseForumsAsync")
@@ -199,9 +200,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -213,12 +215,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseForumsCountAsync"></a>
 # **getCourseForumsCountAsync**
-> kotlin.Int getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums count
 
@@ -234,8 +236,9 @@ val apiInstance = CourseForumsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseForumDtoCollectionQueryParameters : CourseForumDtoCollectionQueryParameters =  // CourseForumDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseForumsApi#getCourseForumsCountAsync")
@@ -249,9 +252,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -263,12 +267,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseForumAsync"></a>
 # **patchCourseForumAsync**
-> patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, operation)
+> patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course forum
 
@@ -285,9 +289,9 @@ val forumId : kotlin.String = forumId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchCourseForumAsync(forumId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling CourseForumsApi#patchCourseForumAsync")
     e.printStackTrace()
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

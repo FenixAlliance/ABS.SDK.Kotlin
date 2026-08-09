@@ -190,7 +190,7 @@ No authorization required
 
 <a id="countStockItemTagsByItemId"></a>
 # **countStockItemTagsByItemId**
-> Int32Envelope countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
 
 Count tags for a stock item
 
@@ -207,8 +207,9 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemTagDtoCollectionQueryParameters : ItemTagDtoCollectionQueryParameters =  // ItemTagDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#countStockItemTagsByItemId")
@@ -223,9 +224,10 @@ try {
 | **itemId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -237,12 +239,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countStockItemsByBusiness"></a>
 # **countStockItemsByBusiness**
-> Int32Envelope countStockItemsByBusiness(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemsByBusiness(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Count stock items by business
 
@@ -258,8 +260,9 @@ val apiInstance = ItemsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val catalogItemDtoCollectionQueryParameters : CatalogItemDtoCollectionQueryParameters =  // CatalogItemDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countStockItemsByBusiness(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countStockItemsByBusiness(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#countStockItemsByBusiness")
@@ -273,9 +276,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +291,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createStockItem"></a>
@@ -546,7 +550,7 @@ No authorization required
 
 <a id="getStockItemAttachmentsByItemId"></a>
 # **getStockItemAttachmentsByItemId**
-> ItemAttachmentDtoListEnvelope getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion)
+> ItemAttachmentDtoListEnvelope getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
 
 Get attachments for a stock item
 
@@ -562,8 +566,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemAttachmentDtoCollectionQueryParameters : ItemAttachmentDtoCollectionQueryParameters =  // ItemAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : ItemAttachmentDtoListEnvelope = apiInstance.getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemAttachmentDtoListEnvelope = apiInstance.getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemAttachmentsByItemId")
@@ -577,9 +582,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -591,7 +597,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemAttributeOptionById"></a>
@@ -750,7 +756,7 @@ No authorization required
 
 <a id="getStockItemBrandsByItemId"></a>
 # **getStockItemBrandsByItemId**
-> ItemBrandDtoListEnvelope getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion)
+> ItemBrandDtoListEnvelope getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion, itemBrandDtoCollectionQueryParameters)
 
 Get brands for a stock item
 
@@ -766,8 +772,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemBrandDtoCollectionQueryParameters : ItemBrandDtoCollectionQueryParameters =  // ItemBrandDtoCollectionQueryParameters | 
 try {
-    val result : ItemBrandDtoListEnvelope = apiInstance.getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemBrandDtoListEnvelope = apiInstance.getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion, itemBrandDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemBrandsByItemId")
@@ -781,9 +788,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemBrandDtoCollectionQueryParameters** | [**ItemBrandDtoCollectionQueryParameters**](ItemBrandDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -795,7 +803,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemById"></a>
@@ -850,7 +858,7 @@ No authorization required
 
 <a id="getStockItemCategoriesByItemId"></a>
 # **getStockItemCategoriesByItemId**
-> ItemCategoryDtoListEnvelope getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion)
+> ItemCategoryDtoListEnvelope getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Get categories for a stock item
 
@@ -866,8 +874,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemCategoryDtoCollectionQueryParameters : ItemCategoryDtoCollectionQueryParameters =  // ItemCategoryDtoCollectionQueryParameters | 
 try {
-    val result : ItemCategoryDtoListEnvelope = apiInstance.getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemCategoryDtoListEnvelope = apiInstance.getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemCategoriesByItemId")
@@ -881,9 +890,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -895,7 +905,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemCategoryById"></a>
@@ -952,7 +962,7 @@ No authorization required
 
 <a id="getStockItemGoogleCategoriesByItemId"></a>
 # **getStockItemGoogleCategoriesByItemId**
-> ItemGoogleCategoryDtoListEnvelope getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion)
+> ItemGoogleCategoryDtoListEnvelope getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get Google categories for a stock item
 
@@ -968,8 +978,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemGoogleCategoryDtoCollectionQueryParameters : ItemGoogleCategoryDtoCollectionQueryParameters =  // ItemGoogleCategoryDtoCollectionQueryParameters | 
 try {
-    val result : ItemGoogleCategoryDtoListEnvelope = apiInstance.getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemGoogleCategoryDtoListEnvelope = apiInstance.getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemGoogleCategoriesByItemId")
@@ -983,9 +994,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -997,7 +1009,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemGoogleCategoryById"></a>
@@ -1106,7 +1118,7 @@ No authorization required
 
 <a id="getStockItemImagesByItemId"></a>
 # **getStockItemImagesByItemId**
-> ItemImageDtoListEnvelope getStockItemImagesByItemId(itemId, apiVersion, xApiVersion)
+> ItemImageDtoListEnvelope getStockItemImagesByItemId(itemId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters)
 
 Get images for a stock item
 
@@ -1122,8 +1134,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemImageDtoCollectionQueryParameters : ItemImageDtoCollectionQueryParameters =  // ItemImageDtoCollectionQueryParameters | 
 try {
-    val result : ItemImageDtoListEnvelope = apiInstance.getStockItemImagesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemImageDtoListEnvelope = apiInstance.getStockItemImagesByItemId(itemId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemImagesByItemId")
@@ -1137,9 +1150,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemImageDtoCollectionQueryParameters** | [**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1151,7 +1165,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemPriceRuleById"></a>
@@ -1310,7 +1324,7 @@ No authorization required
 
 <a id="getStockItemQuestionsByItemId"></a>
 # **getStockItemQuestionsByItemId**
-> ItemQuestionDtoListEnvelope getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion)
+> ItemQuestionDtoListEnvelope getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters)
 
 Get questions for a stock item
 
@@ -1326,8 +1340,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemQuestionDtoCollectionQueryParameters : ItemQuestionDtoCollectionQueryParameters =  // ItemQuestionDtoCollectionQueryParameters | 
 try {
-    val result : ItemQuestionDtoListEnvelope = apiInstance.getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemQuestionDtoListEnvelope = apiInstance.getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemQuestionsByItemId")
@@ -1341,9 +1356,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemQuestionDtoCollectionQueryParameters** | [**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1355,12 +1371,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemRefundPoliciesByItemId"></a>
 # **getStockItemRefundPoliciesByItemId**
-> ItemRefundPolicyDtoListEnvelope getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoListEnvelope getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters)
 
 Get refund policies for a stock item
 
@@ -1376,8 +1392,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemRefundPolicyDtoCollectionQueryParameters : ItemRefundPolicyDtoCollectionQueryParameters =  // ItemRefundPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemRefundPolicyDtoListEnvelope = apiInstance.getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemRefundPolicyDtoListEnvelope = apiInstance.getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemRefundPoliciesByItemId")
@@ -1391,9 +1408,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemRefundPolicyDtoCollectionQueryParameters** | [**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1405,7 +1423,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemRefundPolicyById"></a>
@@ -1462,7 +1480,7 @@ No authorization required
 
 <a id="getStockItemReturnPoliciesByItemId"></a>
 # **getStockItemReturnPoliciesByItemId**
-> ItemReturnPolicyDtoListEnvelope getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Get return policies for a stock item
 
@@ -1478,8 +1496,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemReturnPolicyDtoCollectionQueryParameters : ItemReturnPolicyDtoCollectionQueryParameters =  // ItemReturnPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemReturnPolicyDtoListEnvelope = apiInstance.getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemReturnPolicyDtoListEnvelope = apiInstance.getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemReturnPoliciesByItemId")
@@ -1493,9 +1512,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,7 +1527,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemReturnPolicyById"></a>
@@ -1616,7 +1636,7 @@ No authorization required
 
 <a id="getStockItemReviewsByItemId"></a>
 # **getStockItemReviewsByItemId**
-> ItemReviewDtoListEnvelope getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion)
+> ItemReviewDtoListEnvelope getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
 
 Get reviews for a stock item
 
@@ -1632,8 +1652,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemReviewDtoCollectionQueryParameters : ItemReviewDtoCollectionQueryParameters =  // ItemReviewDtoCollectionQueryParameters | 
 try {
-    val result : ItemReviewDtoListEnvelope = apiInstance.getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemReviewDtoListEnvelope = apiInstance.getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemReviewsByItemId")
@@ -1647,9 +1668,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1661,12 +1683,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemShippingPoliciesByItemId"></a>
 # **getStockItemShippingPoliciesByItemId**
-> ItemShippingPolicyDtoListEnvelope getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get shipping policies for a stock item
 
@@ -1682,8 +1704,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemShippingPolicyDtoCollectionQueryParameters : ItemShippingPolicyDtoCollectionQueryParameters =  // ItemShippingPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemShippingPoliciesByItemId")
@@ -1697,9 +1720,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1711,7 +1735,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemShippingPolicyById"></a>
@@ -1822,7 +1846,7 @@ No authorization required
 
 <a id="getStockItemTagsByItemId"></a>
 # **getStockItemTagsByItemId**
-> ItemTagDtoListEnvelope getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
+> ItemTagDtoListEnvelope getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
 
 Get tags for a stock item
 
@@ -1839,8 +1863,9 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemTagDtoCollectionQueryParameters : ItemTagDtoCollectionQueryParameters =  // ItemTagDtoCollectionQueryParameters | 
 try {
-    val result : ItemTagDtoListEnvelope = apiInstance.getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion)
+    val result : ItemTagDtoListEnvelope = apiInstance.getStockItemTagsByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTagsByItemId")
@@ -1855,9 +1880,10 @@ try {
 | **itemId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1869,12 +1895,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemTaxPoliciesByItemId"></a>
 # **getStockItemTaxPoliciesByItemId**
-> ItemTaxPolicyDtoListEnvelope getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoListEnvelope getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters)
 
 Get tax policies for a stock item
 
@@ -1890,8 +1916,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemTaxPolicyDtoCollectionQueryParameters : ItemTaxPolicyDtoCollectionQueryParameters =  // ItemTaxPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemTaxPolicyDtoListEnvelope = apiInstance.getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemTaxPolicyDtoListEnvelope = apiInstance.getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTaxPoliciesByItemId")
@@ -1905,9 +1932,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1919,7 +1947,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemTaxPolicyById"></a>
@@ -2030,7 +2058,7 @@ No authorization required
 
 <a id="getStockItemTypesByItemId"></a>
 # **getStockItemTypesByItemId**
-> ItemTypeDtoListEnvelope getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion)
+> ItemTypeDtoListEnvelope getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters)
 
 Get types for a stock item
 
@@ -2047,8 +2075,9 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemTypeDtoCollectionQueryParameters : ItemTypeDtoCollectionQueryParameters =  // ItemTypeDtoCollectionQueryParameters | 
 try {
-    val result : ItemTypeDtoListEnvelope = apiInstance.getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion)
+    val result : ItemTypeDtoListEnvelope = apiInstance.getStockItemTypesByItemId(itemId, tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemTypesByItemId")
@@ -2063,9 +2092,10 @@ try {
 | **itemId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2077,12 +2107,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemWarrantyPoliciesByItemId"></a>
 # **getStockItemWarrantyPoliciesByItemId**
-> ItemWarrantyPolicyDtoListEnvelope getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoListEnvelope getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
 
 Get warranty policies for a stock item
 
@@ -2098,8 +2128,9 @@ val apiInstance = ItemsApi()
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemWarrantyPolicyDtoCollectionQueryParameters : ItemWarrantyPolicyDtoCollectionQueryParameters =  // ItemWarrantyPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion)
+    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemWarrantyPoliciesByItemId")
@@ -2113,9 +2144,10 @@ try {
 ### Parameters
 | **itemId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2127,7 +2159,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemWarrantyPolicyById"></a>
@@ -2184,7 +2216,7 @@ No authorization required
 
 <a id="getStockItemsOdataMaxPrice"></a>
 # **getStockItemsOdataMaxPrice**
-> MoneyEnvelope getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get max price of stock items
 
@@ -2200,8 +2232,9 @@ val apiInstance = ItemsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val catalogItemDtoCollectionQueryParameters : CatalogItemDtoCollectionQueryParameters =  // CatalogItemDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemsOdataMaxPrice")
@@ -2215,9 +2248,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2229,12 +2263,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemsOdataMinPrice"></a>
 # **getStockItemsOdataMinPrice**
-> MoneyEnvelope getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get min price of stock items
 
@@ -2250,8 +2284,9 @@ val apiInstance = ItemsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val catalogItemDtoCollectionQueryParameters : CatalogItemDtoCollectionQueryParameters =  // CatalogItemDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion)
+    val result : MoneyEnvelope = apiInstance.getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemsOdataMinPrice")
@@ -2265,9 +2300,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2279,12 +2315,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getStockItemsQuery"></a>
 # **getStockItemsQuery**
-> CatalogItemDtoListEnvelope getStockItemsQuery(tenantId, apiVersion, xApiVersion)
+> CatalogItemDtoListEnvelope getStockItemsQuery(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get all stock items
 
@@ -2300,8 +2336,9 @@ val apiInstance = ItemsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val catalogItemDtoCollectionQueryParameters : CatalogItemDtoCollectionQueryParameters =  // CatalogItemDtoCollectionQueryParameters | 
 try {
-    val result : CatalogItemDtoListEnvelope = apiInstance.getStockItemsQuery(tenantId, apiVersion, xApiVersion)
+    val result : CatalogItemDtoListEnvelope = apiInstance.getStockItemsQuery(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#getStockItemsQuery")
@@ -2315,9 +2352,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2329,12 +2367,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchStockItem"></a>
 # **patchStockItem**
-> patchStockItem(itemId, tenantId, apiVersion, xApiVersion, operation)
+> patchStockItem(itemId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a stock item
 
@@ -2351,9 +2389,9 @@ val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchStockItem(itemId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchStockItem(itemId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling ItemsApi#patchStockItem")
     e.printStackTrace()
@@ -2370,7 +2408,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

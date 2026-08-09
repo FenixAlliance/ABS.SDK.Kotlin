@@ -403,7 +403,7 @@ No authorization required
 
 <a id="getAppliedTaxPolicyRecords"></a>
 # **getAppliedTaxPolicyRecords**
-> AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion)
+> AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get applied tax policy records
 
@@ -420,8 +420,9 @@ val taxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appliedTaxPolicyRecordDtoCollectionQueryParameters : AppliedTaxPolicyRecordDtoCollectionQueryParameters =  // AppliedTaxPolicyRecordDtoCollectionQueryParameters | 
 try {
-    val result : AppliedTaxPolicyRecordDtoListEnvelope = apiInstance.getAppliedTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion)
+    val result : AppliedTaxPolicyRecordDtoListEnvelope = apiInstance.getAppliedTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getAppliedTaxPolicyRecords")
@@ -436,9 +437,10 @@ try {
 | **taxPolicyId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -450,12 +452,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAppliedTaxPolicyRecordsCount"></a>
 # **getAppliedTaxPolicyRecordsCount**
-> Int32Envelope getAppliedTaxPolicyRecordsCount(taxPolicyId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAppliedTaxPolicyRecordsCount(taxPolicyId, tenantId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get applied tax policy records count
 
@@ -472,8 +474,9 @@ val taxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appliedTaxPolicyRecordDtoCollectionQueryParameters : AppliedTaxPolicyRecordDtoCollectionQueryParameters =  // AppliedTaxPolicyRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAppliedTaxPolicyRecordsCount(taxPolicyId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAppliedTaxPolicyRecordsCount(taxPolicyId, tenantId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getAppliedTaxPolicyRecordsCount")
@@ -488,9 +491,10 @@ try {
 | **taxPolicyId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -502,7 +506,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemTaxPolicyRecord"></a>
@@ -561,7 +565,7 @@ No authorization required
 
 <a id="getItemTaxPolicyRecords"></a>
 # **getItemTaxPolicyRecords**
-> ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion)
+> ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get item tax policy records
 
@@ -578,8 +582,9 @@ val taxPolicyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemTaxPolicyRecordDtoCollectionQueryParameters : ItemTaxPolicyRecordDtoCollectionQueryParameters =  // ItemTaxPolicyRecordDtoCollectionQueryParameters | 
 try {
-    val result : ItemTaxPolicyRecordDtoListEnvelope = apiInstance.getItemTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion)
+    val result : ItemTaxPolicyRecordDtoListEnvelope = apiInstance.getItemTaxPolicyRecords(taxPolicyId, tenantId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getItemTaxPolicyRecords")
@@ -594,9 +599,10 @@ try {
 | **taxPolicyId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemTaxPolicyRecordDtoCollectionQueryParameters** | [**ItemTaxPolicyRecordDtoCollectionQueryParameters**](ItemTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -608,12 +614,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTaxPolicies"></a>
 # **getTaxPolicies**
-> TaxPolicyDtoListEnvelope getTaxPolicies(tenantId, apiVersion, xApiVersion)
+> TaxPolicyDtoListEnvelope getTaxPolicies(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get all tax policies for a tenant
 
@@ -629,8 +635,9 @@ val apiInstance = TaxPoliciesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val taxPolicyDtoCollectionQueryParameters : TaxPolicyDtoCollectionQueryParameters =  // TaxPolicyDtoCollectionQueryParameters | 
 try {
-    val result : TaxPolicyDtoListEnvelope = apiInstance.getTaxPolicies(tenantId, apiVersion, xApiVersion)
+    val result : TaxPolicyDtoListEnvelope = apiInstance.getTaxPolicies(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getTaxPolicies")
@@ -644,9 +651,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -658,12 +666,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTaxPoliciesByAuthority"></a>
 # **getTaxPoliciesByAuthority**
-> TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(authorityId, tenantId, apiVersion, xApiVersion)
+> TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(authorityId, tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get tax policies by fiscal authority
 
@@ -680,8 +688,9 @@ val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val taxPolicyDtoCollectionQueryParameters : TaxPolicyDtoCollectionQueryParameters =  // TaxPolicyDtoCollectionQueryParameters | 
 try {
-    val result : TaxPolicyDtoListEnvelope = apiInstance.getTaxPoliciesByAuthority(authorityId, tenantId, apiVersion, xApiVersion)
+    val result : TaxPolicyDtoListEnvelope = apiInstance.getTaxPoliciesByAuthority(authorityId, tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getTaxPoliciesByAuthority")
@@ -696,9 +705,10 @@ try {
 | **authorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -710,12 +720,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTaxPoliciesCount"></a>
 # **getTaxPoliciesCount**
-> Int32Envelope getTaxPoliciesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTaxPoliciesCount(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get tax policies count
 
@@ -731,8 +741,9 @@ val apiInstance = TaxPoliciesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val taxPolicyDtoCollectionQueryParameters : TaxPolicyDtoCollectionQueryParameters =  // TaxPolicyDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTaxPoliciesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTaxPoliciesCount(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#getTaxPoliciesCount")
@@ -746,9 +757,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -760,7 +772,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTaxPolicy"></a>
@@ -817,7 +829,7 @@ No authorization required
 
 <a id="patchAppliedTaxPolicyRecord"></a>
 # **patchAppliedTaxPolicyRecord**
-> EmptyEnvelope patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an applied tax policy record
 
@@ -835,9 +847,9 @@ val appliedTaxPolicyRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4e
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAppliedTaxPolicyRecord(taxPolicyId, appliedTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#patchAppliedTaxPolicyRecord")
@@ -856,7 +868,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -873,7 +885,7 @@ No authorization required
 
 <a id="patchItemTaxPolicyRecord"></a>
 # **patchItemTaxPolicyRecord**
-> EmptyEnvelope patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item tax policy record
 
@@ -891,9 +903,9 @@ val itemTaxPolicyRecordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemTaxPolicyRecord(taxPolicyId, itemTaxPolicyRecordId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#patchItemTaxPolicyRecord")
@@ -912,7 +924,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -929,7 +941,7 @@ No authorization required
 
 <a id="patchTaxPolicy"></a>
 # **patchTaxPolicy**
-> EmptyEnvelope patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tax policy
 
@@ -946,9 +958,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTaxPolicy(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxPoliciesApi#patchTaxPolicy")
@@ -966,7 +978,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

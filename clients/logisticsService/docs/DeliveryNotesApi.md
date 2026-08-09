@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getDeliveryNotesAsync"></a>
 # **getDeliveryNotesAsync**
-> DeliveryNoteDtoListEnvelope getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion)
+> DeliveryNoteDtoListEnvelope getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
 
 Get all delivery notes
 
@@ -186,8 +186,9 @@ val apiInstance = DeliveryNotesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val deliveryNoteDtoCollectionQueryParameters : DeliveryNoteDtoCollectionQueryParameters =  // DeliveryNoteDtoCollectionQueryParameters | 
 try {
-    val result : DeliveryNoteDtoListEnvelope = apiInstance.getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion)
+    val result : DeliveryNoteDtoListEnvelope = apiInstance.getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DeliveryNotesApi#getDeliveryNotesAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **deliveryNoteDtoCollectionQueryParameters** | [**DeliveryNoteDtoCollectionQueryParameters**](DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDeliveryNotesCountAsync"></a>
 # **getDeliveryNotesCountAsync**
-> Int32Envelope getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
 
 Get delivery notes count
 
@@ -236,8 +238,9 @@ val apiInstance = DeliveryNotesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val deliveryNoteDtoCollectionQueryParameters : DeliveryNoteDtoCollectionQueryParameters =  // DeliveryNoteDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DeliveryNotesApi#getDeliveryNotesCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **deliveryNoteDtoCollectionQueryParameters** | [**DeliveryNoteDtoCollectionQueryParameters**](DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateDeliveryNoteAsync"></a>

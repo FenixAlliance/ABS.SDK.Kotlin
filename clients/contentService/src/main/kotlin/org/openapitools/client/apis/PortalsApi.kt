@@ -22,12 +22,14 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.BusinessDomainDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExecutionContextEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PortalOptionsEnvelope
 import org.openapitools.client.models.PortalSettings
 import org.openapitools.client.models.PortalSettingsEnvelope
 import org.openapitools.client.models.WebPortalCreateDto
+import org.openapitools.client.models.WebPortalDtoCollectionQueryParameters
 import org.openapitools.client.models.WebPortalDtoEnvelope
 import org.openapitools.client.models.WebPortalDtoListEnvelope
 import org.openapitools.client.models.WebPortalUpdateDto
@@ -152,6 +154,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -161,8 +164,8 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countPortalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countPortalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countPortalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countPortalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPortalDtoCollectionQueryParameters = webPortalDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -185,16 +188,17 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countPortalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countPortalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countPortalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countPortalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPortalDtoCollectionQueryParameters = webPortalDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WebPortalDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -205,10 +209,11 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countPortalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countPortalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters?) : RequestConfig<WebPortalDtoCollectionQueryParameters> {
+        val localVariableBody = webPortalDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -218,6 +223,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -571,6 +577,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return WebPortalDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -580,8 +587,8 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPortalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WebPortalDtoListEnvelope {
-        val localVarResponse = getPortalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPortalsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters? = null) : WebPortalDtoListEnvelope {
+        val localVarResponse = getPortalsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPortalDtoCollectionQueryParameters = webPortalDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WebPortalDtoListEnvelope
@@ -604,16 +611,17 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WebPortalDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPortalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WebPortalDtoListEnvelope?> {
-        val localVariableConfig = getPortalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPortalsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters?) : ApiResponse<WebPortalDtoListEnvelope?> {
+        val localVariableConfig = getPortalsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, webPortalDtoCollectionQueryParameters = webPortalDtoCollectionQueryParameters)
 
-        return request<Unit, WebPortalDtoListEnvelope>(
+        return request<WebPortalDtoCollectionQueryParameters, WebPortalDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -624,10 +632,11 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPortalDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPortalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPortalsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, webPortalDtoCollectionQueryParameters: WebPortalDtoCollectionQueryParameters?) : RequestConfig<WebPortalDtoCollectionQueryParameters> {
+        val localVariableBody = webPortalDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -637,6 +646,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1070,7 +1080,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Initialize the current portal for the current user.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return WebPortalDtoEnvelope
+     * @return ExecutionContextEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1079,11 +1089,11 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun initializeCurrentWebPortalAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WebPortalDtoEnvelope {
+    fun initializeCurrentWebPortalAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExecutionContextEnvelope {
         val localVarResponse = initializeCurrentWebPortalAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as WebPortalDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ExecutionContextEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1102,16 +1112,16 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * Initialize the current portal for the current user.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse<WebPortalDtoEnvelope?>
+     * @return ApiResponse<ExecutionContextEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun initializeCurrentWebPortalAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WebPortalDtoEnvelope?> {
+    fun initializeCurrentWebPortalAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExecutionContextEnvelope?> {
         val localVariableConfig = initializeCurrentWebPortalAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<Unit, WebPortalDtoEnvelope>(
+        return request<Unit, ExecutionContextEnvelope>(
             localVariableConfig
         )
     }
@@ -1152,7 +1162,7 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1162,8 +1172,8 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWebPortalAsync(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWebPortalAsyncWithHttpInfo(portalId = portalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebPortalAsync(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWebPortalAsyncWithHttpInfo(portalId = portalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1187,17 +1197,17 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWebPortalAsyncWithHttpInfo(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWebPortalAsyncRequestConfig(portalId = portalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWebPortalAsyncWithHttpInfo(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWebPortalAsyncRequestConfig(portalId = portalId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1209,11 +1219,11 @@ class PortalsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWebPortalAsyncRequestConfig(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWebPortalAsyncRequestConfig(portalId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -63,7 +63,7 @@ No authorization required
 
 <a id="getSigningParticipantsAsync"></a>
 # **getSigningParticipantsAsync**
-> SigningParticipantDtoListEnvelope getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion)
+> SigningParticipantDtoListEnvelope getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
 
 Get all signing participants
 
@@ -77,8 +77,9 @@ val apiInstance = SigningParticipantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signingParticipantDtoCollectionQueryParameters : SigningParticipantDtoCollectionQueryParameters =  // SigningParticipantDtoCollectionQueryParameters | 
 try {
-    val result : SigningParticipantDtoListEnvelope = apiInstance.getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SigningParticipantDtoListEnvelope = apiInstance.getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningParticipantsApi#getSigningParticipantsAsync")
@@ -92,9 +93,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signingParticipantDtoCollectionQueryParameters** | [**SigningParticipantDtoCollectionQueryParameters**](SigningParticipantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -106,12 +108,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSigningParticipantsCountAsync"></a>
 # **getSigningParticipantsCountAsync**
-> Int32Envelope getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
 
 Get signing participants count
 
@@ -125,8 +127,9 @@ val apiInstance = SigningParticipantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signingParticipantDtoCollectionQueryParameters : SigningParticipantDtoCollectionQueryParameters =  // SigningParticipantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningParticipantsApi#getSigningParticipantsCountAsync")
@@ -140,9 +143,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signingParticipantDtoCollectionQueryParameters** | [**SigningParticipantDtoCollectionQueryParameters**](SigningParticipantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -154,7 +158,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="markViewedAsync"></a>

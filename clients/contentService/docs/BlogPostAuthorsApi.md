@@ -12,7 +12,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countBlogPostsByAuthorAsync"></a>
 # **countBlogPostsByAuthorAsync**
-> Int32Envelope countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+> Int32Envelope countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
 
 Count blog posts by author
 
@@ -28,8 +28,9 @@ val apiInstance = BlogPostAuthorsApi()
 val authorId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blogPostDtoCollectionQueryParameters : BlogPostDtoCollectionQueryParameters =  // BlogPostDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostAuthorsApi#countBlogPostsByAuthorAsync")
@@ -43,9 +44,10 @@ try {
 ### Parameters
 | **authorId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -57,7 +59,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlogAuthorByIdAsync"></a>
@@ -112,7 +114,7 @@ No authorization required
 
 <a id="getBlogAuthorsAsync"></a>
 # **getBlogAuthorsAsync**
-> BlogAuthorDtoListEnvelope getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion)
+> BlogAuthorDtoListEnvelope getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion, blogAuthorDtoCollectionQueryParameters)
 
 Get blog authors
 
@@ -128,8 +130,9 @@ val apiInstance = BlogPostAuthorsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blogAuthorDtoCollectionQueryParameters : BlogAuthorDtoCollectionQueryParameters =  // BlogAuthorDtoCollectionQueryParameters | 
 try {
-    val result : BlogAuthorDtoListEnvelope = apiInstance.getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BlogAuthorDtoListEnvelope = apiInstance.getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion, blogAuthorDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostAuthorsApi#getBlogAuthorsAsync")
@@ -143,9 +146,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blogAuthorDtoCollectionQueryParameters** | [**BlogAuthorDtoCollectionQueryParameters**](BlogAuthorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -157,12 +161,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlogPostsByAuthorAsync"></a>
 # **getBlogPostsByAuthorAsync**
-> BlogPostDtoListEnvelope getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+> BlogPostDtoListEnvelope getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
 
 Get blog posts by author
 
@@ -178,8 +182,9 @@ val apiInstance = BlogPostAuthorsApi()
 val authorId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val blogPostDtoCollectionQueryParameters : BlogPostDtoCollectionQueryParameters =  // BlogPostDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostDtoListEnvelope = apiInstance.getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+    val result : BlogPostDtoListEnvelope = apiInstance.getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostAuthorsApi#getBlogPostsByAuthorAsync")
@@ -193,9 +198,10 @@ try {
 ### Parameters
 | **authorId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -207,6 +213,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

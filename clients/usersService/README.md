@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -105,6 +104,7 @@ All URIs are relative to *https://absuite.net*
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
  - [org.openapitools.client.models.AddressDto](docs/AddressDto.md)
+ - [org.openapitools.client.models.AddressDtoCollectionQueryParameters](docs/AddressDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.AddressDtoListEnvelope](docs/AddressDtoListEnvelope.md)
  - [org.openapitools.client.models.CartDto](docs/CartDto.md)
  - [org.openapitools.client.models.CartDtoEnvelope](docs/CartDtoEnvelope.md)
@@ -117,6 +117,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ExtendedUserDto](docs/ExtendedUserDto.md)
  - [org.openapitools.client.models.ExtendedUserDtoEnvelope](docs/ExtendedUserDtoEnvelope.md)
  - [org.openapitools.client.models.FollowRecordDto](docs/FollowRecordDto.md)
+ - [org.openapitools.client.models.FollowRecordDtoCollectionQueryParameters](docs/FollowRecordDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.FollowRecordDtoListEnvelope](docs/FollowRecordDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -125,13 +126,15 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.NotificationDto](docs/NotificationDto.md)
+ - [org.openapitools.client.models.NotificationDtoCollectionQueryParameters](docs/NotificationDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.NotificationDtoListEnvelope](docs/NotificationDtoListEnvelope.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
  - [org.openapitools.client.models.OptionCreateDto](docs/OptionCreateDto.md)
  - [org.openapitools.client.models.OptionDto](docs/OptionDto.md)
+ - [org.openapitools.client.models.OptionDtoCollectionQueryParameters](docs/OptionDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.OptionDtoEnvelope](docs/OptionDtoEnvelope.md)
  - [org.openapitools.client.models.OptionDtoListEnvelope](docs/OptionDtoListEnvelope.md)
  - [org.openapitools.client.models.OptionUpdateDto](docs/OptionUpdateDto.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
@@ -139,6 +142,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.SocialProfileDto](docs/SocialProfileDto.md)
  - [org.openapitools.client.models.SocialProfileDtoEnvelope](docs/SocialProfileDtoEnvelope.md)
  - [org.openapitools.client.models.TenantDto](docs/TenantDto.md)
+ - [org.openapitools.client.models.TenantDtoCollectionQueryParameters](docs/TenantDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.TenantDtoListEnvelope](docs/TenantDtoListEnvelope.md)
  - [org.openapitools.client.models.TenantEnrollmentDto](docs/TenantEnrollmentDto.md)
  - [org.openapitools.client.models.TenantEnrollmentDtoEnvelope](docs/TenantEnrollmentDtoEnvelope.md)

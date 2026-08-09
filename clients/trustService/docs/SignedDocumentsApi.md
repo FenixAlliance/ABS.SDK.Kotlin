@@ -172,7 +172,7 @@ No authorization required
 
 <a id="getSignedDocumentsAsync"></a>
 # **getSignedDocumentsAsync**
-> SignedDocumentDtoListEnvelope getSignedDocumentsAsync(tenantId, apiVersion, xApiVersion)
+> SignedDocumentDtoListEnvelope getSignedDocumentsAsync(tenantId, apiVersion, xApiVersion, signedDocumentDtoCollectionQueryParameters)
 
 Get all signed documents
 
@@ -188,8 +188,9 @@ val apiInstance = SignedDocumentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signedDocumentDtoCollectionQueryParameters : SignedDocumentDtoCollectionQueryParameters =  // SignedDocumentDtoCollectionQueryParameters | 
 try {
-    val result : SignedDocumentDtoListEnvelope = apiInstance.getSignedDocumentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SignedDocumentDtoListEnvelope = apiInstance.getSignedDocumentsAsync(tenantId, apiVersion, xApiVersion, signedDocumentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SignedDocumentsApi#getSignedDocumentsAsync")
@@ -203,9 +204,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signedDocumentDtoCollectionQueryParameters** | [**SignedDocumentDtoCollectionQueryParameters**](SignedDocumentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -217,12 +219,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSignedDocumentsCountAsync"></a>
 # **getSignedDocumentsCountAsync**
-> Int32Envelope getSignedDocumentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSignedDocumentsCountAsync(tenantId, apiVersion, xApiVersion, signedDocumentDtoCollectionQueryParameters)
 
 Get signed documents count
 
@@ -238,8 +240,9 @@ val apiInstance = SignedDocumentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signedDocumentDtoCollectionQueryParameters : SignedDocumentDtoCollectionQueryParameters =  // SignedDocumentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSignedDocumentsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSignedDocumentsCountAsync(tenantId, apiVersion, xApiVersion, signedDocumentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SignedDocumentsApi#getSignedDocumentsCountAsync")
@@ -253,9 +256,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signedDocumentDtoCollectionQueryParameters** | [**SignedDocumentDtoCollectionQueryParameters**](SignedDocumentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,12 +271,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSignedDocumentAsync"></a>
 # **patchSignedDocumentAsync**
-> EmptyEnvelope patchSignedDocumentAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSignedDocumentAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a signed document
 
@@ -289,9 +293,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSignedDocumentAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSignedDocumentAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SignedDocumentsApi#patchSignedDocumentAsync")
@@ -309,7 +313,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

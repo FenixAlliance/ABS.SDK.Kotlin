@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getContactProfilesAsync"></a>
 # **getContactProfilesAsync**
-> ContactProfileDtoListEnvelope getContactProfilesAsync(tenantId, apiVersion, xApiVersion)
+> ContactProfileDtoListEnvelope getContactProfilesAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get all contact profiles
 
@@ -187,8 +187,9 @@ val apiInstance = ContactProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactProfileDtoCollectionQueryParameters : ContactProfileDtoCollectionQueryParameters =  // ContactProfileDtoCollectionQueryParameters | 
 try {
-    val result : ContactProfileDtoListEnvelope = apiInstance.getContactProfilesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactProfileDtoListEnvelope = apiInstance.getContactProfilesAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactProfilesApi#getContactProfilesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactProfilesCountAsync"></a>
 # **getContactProfilesCountAsync**
-> Int32Envelope getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get contact profiles count
 
@@ -237,8 +239,9 @@ val apiInstance = ContactProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactProfileDtoCollectionQueryParameters : ContactProfileDtoCollectionQueryParameters =  // ContactProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactProfilesApi#getContactProfilesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPartnerProfilesCountAsync"></a>
 # **getPartnerProfilesCountAsync**
-> Int32Envelope getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get partner profiles count
 
@@ -287,8 +291,9 @@ val apiInstance = ContactProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactProfileDtoCollectionQueryParameters : ContactProfileDtoCollectionQueryParameters =  // ContactProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactProfilesApi#getPartnerProfilesCountAsync")
@@ -302,9 +307,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -316,12 +322,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPatientProfilesCountAsync"></a>
 # **getPatientProfilesCountAsync**
-> Int32Envelope getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get patient profiles count
 
@@ -337,8 +343,9 @@ val apiInstance = ContactProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactProfileDtoCollectionQueryParameters : ContactProfileDtoCollectionQueryParameters =  // ContactProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactProfilesApi#getPatientProfilesCountAsync")
@@ -352,9 +359,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -366,12 +374,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchContactProfileAsync"></a>
 # **patchContactProfileAsync**
-> EmptyEnvelope patchContactProfileAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactProfileAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact profile
 
@@ -388,9 +396,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchContactProfileAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchContactProfileAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactProfilesApi#patchContactProfileAsync")
@@ -408,7 +416,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

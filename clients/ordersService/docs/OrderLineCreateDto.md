@@ -85,7 +85,6 @@
 | **priceListItemId** | **kotlin.String** |  |  [optional] |
 | **unitId** | **kotlin.String** |  |  [optional] |
 | **unitGroupId** | **kotlin.String** |  |  [optional] |
-| **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
 | **totalBaseAmountInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalProfitInUsd** | **kotlin.Double** |  |  [optional] |
 | **totalDetailAmountInUsd** | **kotlin.Double** |  |  [optional] |

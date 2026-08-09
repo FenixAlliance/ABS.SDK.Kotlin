@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.SignatureDto
+import org.openapitools.client.models.SignatureDtoCollectionQueryParameters
 import org.openapitools.client.models.SignatureDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -141,6 +142,7 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return SignatureDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -150,8 +152,8 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSignaturesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SignatureDtoListEnvelope {
-        val localVarResponse = getSignaturesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignaturesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters? = null) : SignatureDtoListEnvelope {
+        val localVarResponse = getSignaturesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signatureDtoCollectionQueryParameters = signatureDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SignatureDtoListEnvelope
@@ -174,16 +176,17 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SignatureDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSignaturesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SignatureDtoListEnvelope?> {
-        val localVariableConfig = getSignaturesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignaturesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters?) : ApiResponse<SignatureDtoListEnvelope?> {
+        val localVariableConfig = getSignaturesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signatureDtoCollectionQueryParameters = signatureDtoCollectionQueryParameters)
 
-        return request<Unit, SignatureDtoListEnvelope>(
+        return request<SignatureDtoCollectionQueryParameters, SignatureDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -194,10 +197,11 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSignaturesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSignaturesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters?) : RequestConfig<SignatureDtoCollectionQueryParameters> {
+        val localVariableBody = signatureDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -207,6 +211,7 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -225,6 +230,7 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -234,8 +240,8 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSignaturesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSignaturesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignaturesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSignaturesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signatureDtoCollectionQueryParameters = signatureDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -258,16 +264,17 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSignaturesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSignaturesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignaturesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSignaturesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signatureDtoCollectionQueryParameters = signatureDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SignatureDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -278,10 +285,11 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSignaturesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSignaturesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signatureDtoCollectionQueryParameters: SignatureDtoCollectionQueryParameters?) : RequestConfig<SignatureDtoCollectionQueryParameters> {
+        val localVariableBody = signatureDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -291,6 +299,7 @@ class SignaturesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

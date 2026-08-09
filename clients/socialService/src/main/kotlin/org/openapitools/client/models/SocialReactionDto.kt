@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param socialProfileId 
  * @param socialProfileName 
  * @param socialProfileAvatarUrl 
+ * @param socialProfileType 
  */
 
 
@@ -53,7 +54,10 @@ data class SocialReactionDto (
     val socialProfileName: kotlin.String? = null,
 
     @Json(name = "socialProfileAvatarUrl")
-    val socialProfileAvatarUrl: kotlin.String? = null
+    val socialProfileAvatarUrl: kotlin.String? = null,
+
+    @Json(name = "socialProfileType")
+    val socialProfileType: SocialReactionDto.SocialProfileType? = null
 
 ) {
 
@@ -72,6 +76,17 @@ data class SocialReactionDto (
         @Json(name = "Angry") Angry("Angry"),
         @Json(name = "Wow") Wow("Wow"),
         @Json(name = "Afraid") Afraid("Afraid");
+    }
+    /**
+     * 
+     *
+     * Values: User,Tenant,Contact
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SocialProfileType(val value: kotlin.String) {
+        @Json(name = "User") User("User"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Contact") Contact("Contact");
     }
 
 }

@@ -22,11 +22,13 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.VoyageCreateDto
+import org.openapitools.client.models.VoyageDtoCollectionQueryParameters
 import org.openapitools.client.models.VoyageDtoEnvelope
 import org.openapitools.client.models.VoyageDtoListEnvelope
 import org.openapitools.client.models.VoyagePortCallCreateDto
+import org.openapitools.client.models.VoyagePortCallDtoCollectionQueryParameters
 import org.openapitools.client.models.VoyagePortCallDtoListEnvelope
 import org.openapitools.client.models.VoyagePortCallUpdateDto
 import org.openapitools.client.models.VoyageUpdateDto
@@ -679,6 +681,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return VoyagePortCallDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -688,8 +691,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVoyagePortCallsAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : VoyagePortCallDtoListEnvelope {
-        val localVarResponse = getVoyagePortCallsAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagePortCallsAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters? = null) : VoyagePortCallDtoListEnvelope {
+        val localVarResponse = getVoyagePortCallsAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyagePortCallDtoCollectionQueryParameters = voyagePortCallDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as VoyagePortCallDtoListEnvelope
@@ -713,16 +716,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<VoyagePortCallDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVoyagePortCallsAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<VoyagePortCallDtoListEnvelope?> {
-        val localVariableConfig = getVoyagePortCallsAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagePortCallsAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters?) : ApiResponse<VoyagePortCallDtoListEnvelope?> {
+        val localVariableConfig = getVoyagePortCallsAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyagePortCallDtoCollectionQueryParameters = voyagePortCallDtoCollectionQueryParameters)
 
-        return request<Unit, VoyagePortCallDtoListEnvelope>(
+        return request<VoyagePortCallDtoCollectionQueryParameters, VoyagePortCallDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -734,10 +738,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getVoyagePortCallsAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getVoyagePortCallsAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters?) : RequestConfig<VoyagePortCallDtoCollectionQueryParameters> {
+        val localVariableBody = voyagePortCallDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -747,6 +752,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -766,6 +772,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -775,8 +782,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVoyagePortCallsCountAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getVoyagePortCallsCountAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagePortCallsCountAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getVoyagePortCallsCountAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyagePortCallDtoCollectionQueryParameters = voyagePortCallDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -800,16 +807,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVoyagePortCallsCountAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getVoyagePortCallsCountAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagePortCallsCountAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getVoyagePortCallsCountAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyagePortCallDtoCollectionQueryParameters = voyagePortCallDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<VoyagePortCallDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -821,10 +829,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getVoyagePortCallsCountAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getVoyagePortCallsCountAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyagePortCallDtoCollectionQueryParameters: VoyagePortCallDtoCollectionQueryParameters?) : RequestConfig<VoyagePortCallDtoCollectionQueryParameters> {
+        val localVariableBody = voyagePortCallDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -834,6 +843,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -852,6 +862,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return VoyageDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -861,8 +872,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVoyagesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : VoyageDtoListEnvelope {
-        val localVarResponse = getVoyagesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters? = null) : VoyageDtoListEnvelope {
+        val localVarResponse = getVoyagesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyageDtoCollectionQueryParameters = voyageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as VoyageDtoListEnvelope
@@ -885,16 +896,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<VoyageDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVoyagesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<VoyageDtoListEnvelope?> {
-        val localVariableConfig = getVoyagesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters?) : ApiResponse<VoyageDtoListEnvelope?> {
+        val localVariableConfig = getVoyagesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyageDtoCollectionQueryParameters = voyageDtoCollectionQueryParameters)
 
-        return request<Unit, VoyageDtoListEnvelope>(
+        return request<VoyageDtoCollectionQueryParameters, VoyageDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -905,10 +917,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getVoyagesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getVoyagesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters?) : RequestConfig<VoyageDtoCollectionQueryParameters> {
+        val localVariableBody = voyageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -918,6 +931,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -936,6 +950,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -945,8 +960,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getVoyagesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getVoyagesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getVoyagesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyageDtoCollectionQueryParameters = voyageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -969,16 +984,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getVoyagesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getVoyagesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getVoyagesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getVoyagesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, voyageDtoCollectionQueryParameters = voyageDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<VoyageDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -989,10 +1005,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getVoyagesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getVoyagesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, voyageDtoCollectionQueryParameters: VoyageDtoCollectionQueryParameters?) : RequestConfig<VoyageDtoCollectionQueryParameters> {
+        val localVariableBody = voyageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1002,6 +1019,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1021,7 +1039,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1031,8 +1049,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchVoyageAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchVoyageAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchVoyageAsync(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchVoyageAsyncWithHttpInfo(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1056,17 +1074,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchVoyageAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchVoyageAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchVoyageAsyncWithHttpInfo(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchVoyageAsyncRequestConfig(voyageId = voyageId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1078,11 +1096,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchVoyageAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchVoyageAsyncRequestConfig(voyageId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1113,7 +1131,7 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1123,8 +1141,8 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchVoyagePortCallAsync(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchVoyagePortCallAsyncWithHttpInfo(voyageId = voyageId, portCallId = portCallId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchVoyagePortCallAsync(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchVoyagePortCallAsyncWithHttpInfo(voyageId = voyageId, portCallId = portCallId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1149,17 +1167,17 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchVoyagePortCallAsyncWithHttpInfo(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchVoyagePortCallAsyncRequestConfig(voyageId = voyageId, portCallId = portCallId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchVoyagePortCallAsyncWithHttpInfo(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchVoyagePortCallAsyncRequestConfig(voyageId = voyageId, portCallId = portCallId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1172,11 +1190,11 @@ class VoyagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchVoyagePortCallAsyncRequestConfig(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchVoyagePortCallAsyncRequestConfig(voyageId: java.util.UUID, portCallId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

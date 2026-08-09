@@ -7,6 +7,7 @@ docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedQuoteDto.md
+docs/ExtendedQuoteDtoCollectionQueryParameters.md
 docs/ExtendedQuoteDtoListEnvelope.md
 docs/FenixAllianceABSWebApi.md
 docs/ForgotPasswordRequest.md
@@ -15,13 +16,15 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
-docs/Operation.md
+docs/PatchOperation.md
 docs/QuoteCreateDto.md
 docs/QuoteDto.md
+docs/QuoteDtoCollectionQueryParameters.md
 docs/QuoteDtoEnvelope.md
 docs/QuoteDtoListEnvelope.md
 docs/QuoteLineCreateDto.md
 docs/QuoteLineDto.md
+docs/QuoteLineDtoCollectionQueryParameters.md
 docs/QuoteLineDtoEnvelope.md
 docs/QuoteLineDtoListEnvelope.md
 docs/QuoteLineUpdateDto.md
@@ -68,6 +71,7 @@ src/main/kotlin/org/openapitools/client/models/EmailDispatchRequest.kt
 src/main/kotlin/org/openapitools/client/models/EmptyEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ErrorEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ExtendedQuoteDto.kt
+src/main/kotlin/org/openapitools/client/models/ExtendedQuoteDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/ExtendedQuoteDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
@@ -75,13 +79,15 @@ src/main/kotlin/org/openapitools/client/models/InfoRequest.kt
 src/main/kotlin/org/openapitools/client/models/InfoResponse.kt
 src/main/kotlin/org/openapitools/client/models/Int32Envelope.kt
 src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
-src/main/kotlin/org/openapitools/client/models/Operation.kt
+src/main/kotlin/org/openapitools/client/models/PatchOperation.kt
 src/main/kotlin/org/openapitools/client/models/QuoteCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/QuoteDto.kt
+src/main/kotlin/org/openapitools/client/models/QuoteDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/QuoteDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/QuoteDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/QuoteLineCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/QuoteLineDto.kt
+src/main/kotlin/org/openapitools/client/models/QuoteLineDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/QuoteLineDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/QuoteLineDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/QuoteLineUpdateDto.kt
@@ -96,3 +102,7 @@ src/main/kotlin/org/openapitools/client/models/TenantEnrollmentDto.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorRequest.kt
 src/main/kotlin/org/openapitools/client/models/TwoFactorResponse.kt
 src/main/kotlin/org/openapitools/client/models/UserDto.kt
+src/test/kotlin/org/openapitools/client/models/ExtendedQuoteDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/PatchOperationTest.kt
+src/test/kotlin/org/openapitools/client/models/QuoteDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/QuoteLineDtoCollectionQueryParametersTest.kt

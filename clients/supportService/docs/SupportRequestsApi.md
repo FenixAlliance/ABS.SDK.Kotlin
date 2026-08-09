@@ -230,7 +230,7 @@ No authorization required
 
 <a id="getSupportRequestAttachmentsByRequest"></a>
 # **getSupportRequestAttachmentsByRequest**
-> SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
+> SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsByRequest(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
 
 Retrieve attachments for a support request
 
@@ -247,8 +247,9 @@ val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportRequestAttachmentDtoCollectionQueryParameters : SupportRequestAttachmentDtoCollectionQueryParameters =  // SupportRequestAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : SupportRequestAttachmentDtoListEnvelope = apiInstance.getSupportRequestAttachmentsByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
+    val result : SupportRequestAttachmentDtoListEnvelope = apiInstance.getSupportRequestAttachmentsByRequest(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#getSupportRequestAttachmentsByRequest")
@@ -263,9 +264,10 @@ try {
 | **supportRequestId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -277,12 +279,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportRequestAttachmentsCountByRequest"></a>
 # **getSupportRequestAttachmentsCountByRequest**
-> Int32Envelope getSupportRequestAttachmentsCountByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportRequestAttachmentsCountByRequest(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
 
 Get the count of attachments for a support request
 
@@ -299,8 +301,9 @@ val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportRequestAttachmentDtoCollectionQueryParameters : SupportRequestAttachmentDtoCollectionQueryParameters =  // SupportRequestAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSupportRequestAttachmentsCountByRequest(supportRequestId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSupportRequestAttachmentsCountByRequest(supportRequestId, tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#getSupportRequestAttachmentsCountByRequest")
@@ -315,9 +318,10 @@ try {
 | **supportRequestId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -329,12 +333,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportRequestTicketsAsync"></a>
 # **getSupportRequestTicketsAsync**
-> SupportTicketDtoListEnvelope getSupportRequestTicketsAsync(supportRequestId, tenantId, apiVersion, xApiVersion)
+> SupportTicketDtoListEnvelope getSupportRequestTicketsAsync(supportRequestId, tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
 
 Retrieve tickets for a support request
 
@@ -351,8 +355,9 @@ val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportTicketDtoCollectionQueryParameters : SupportTicketDtoCollectionQueryParameters =  // SupportTicketDtoCollectionQueryParameters | 
 try {
-    val result : SupportTicketDtoListEnvelope = apiInstance.getSupportRequestTicketsAsync(supportRequestId, tenantId, apiVersion, xApiVersion)
+    val result : SupportTicketDtoListEnvelope = apiInstance.getSupportRequestTicketsAsync(supportRequestId, tenantId, apiVersion, xApiVersion, supportTicketDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#getSupportRequestTicketsAsync")
@@ -367,9 +372,10 @@ try {
 | **supportRequestId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportTicketDtoCollectionQueryParameters** | [**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -381,12 +387,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportRequestsAsync"></a>
 # **getSupportRequestsAsync**
-> SupportRequestDtoListEnvelope getSupportRequestsAsync(tenantId, apiVersion, xApiVersion)
+> SupportRequestDtoListEnvelope getSupportRequestsAsync(tenantId, apiVersion, xApiVersion, supportRequestDtoCollectionQueryParameters)
 
 Retrieve a list of support requests
 
@@ -402,8 +408,9 @@ val apiInstance = SupportRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportRequestDtoCollectionQueryParameters : SupportRequestDtoCollectionQueryParameters =  // SupportRequestDtoCollectionQueryParameters | 
 try {
-    val result : SupportRequestDtoListEnvelope = apiInstance.getSupportRequestsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SupportRequestDtoListEnvelope = apiInstance.getSupportRequestsAsync(tenantId, apiVersion, xApiVersion, supportRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#getSupportRequestsAsync")
@@ -417,9 +424,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -431,12 +439,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSupportRequestsCountAsync"></a>
 # **getSupportRequestsCountAsync**
-> Int32Envelope getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion, supportRequestDtoCollectionQueryParameters)
 
 Get the count of support requests
 
@@ -452,8 +460,9 @@ val apiInstance = SupportRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val supportRequestDtoCollectionQueryParameters : SupportRequestDtoCollectionQueryParameters =  // SupportRequestDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion, supportRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#getSupportRequestsCountAsync")
@@ -467,9 +476,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **supportRequestDtoCollectionQueryParameters** | [**SupportRequestDtoCollectionQueryParameters**](SupportRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -481,12 +491,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSupportRequestAsync"></a>
 # **patchSupportRequestAsync**
-> EmptyEnvelope patchSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support request
 
@@ -503,9 +513,9 @@ val supportRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSupportRequestAsync(supportRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SupportRequestsApi#patchSupportRequestAsync")
@@ -523,7 +533,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

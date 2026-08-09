@@ -167,7 +167,7 @@ No authorization required
 
 <a id="getCourseAssignmentComponentsAsync"></a>
 # **getCourseAssignmentComponentsAsync**
-> kotlin.collections.List&lt;CourseAssignmentComponentDto&gt; getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseAssignmentComponentDto&gt; getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
 
 Get all course assignment components
 
@@ -183,8 +183,9 @@ val apiInstance = CourseAssignmentComponentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseAssignmentComponentDtoCollectionQueryParameters : CourseAssignmentComponentDtoCollectionQueryParameters =  // CourseAssignmentComponentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseAssignmentComponentDto> = apiInstance.getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseAssignmentComponentDto> = apiInstance.getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseAssignmentComponentsApi#getCourseAssignmentComponentsAsync")
@@ -198,9 +199,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseAssignmentComponentDtoCollectionQueryParameters** | [**CourseAssignmentComponentDtoCollectionQueryParameters**](CourseAssignmentComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,12 +214,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseAssignmentComponentsCountAsync"></a>
 # **getCourseAssignmentComponentsCountAsync**
-> kotlin.Int getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
 
 Get course assignment components count
 
@@ -233,8 +235,9 @@ val apiInstance = CourseAssignmentComponentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseAssignmentComponentDtoCollectionQueryParameters : CourseAssignmentComponentDtoCollectionQueryParameters =  // CourseAssignmentComponentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseAssignmentComponentsApi#getCourseAssignmentComponentsCountAsync")
@@ -248,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseAssignmentComponentDtoCollectionQueryParameters** | [**CourseAssignmentComponentDtoCollectionQueryParameters**](CourseAssignmentComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -262,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseAssignmentComponentAsync"></a>
 # **patchCourseAssignmentComponentAsync**
-> EmptyEnvelope patchCourseAssignmentComponentAsync(componentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseAssignmentComponentAsync(componentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course assignment component
 
@@ -284,9 +288,9 @@ val componentId : kotlin.String = componentId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCourseAssignmentComponentAsync(componentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCourseAssignmentComponentAsync(componentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseAssignmentComponentsApi#patchCourseAssignmentComponentAsync")
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getGigApplicationsAsync"></a>
 # **getGigApplicationsAsync**
-> GigApplicationDtoListEnvelope getGigApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> GigApplicationDtoListEnvelope getGigApplicationsAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
 
 Get gig applications
 
@@ -240,8 +240,9 @@ val apiInstance = GigApplicationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val gigApplicationDtoCollectionQueryParameters : GigApplicationDtoCollectionQueryParameters =  // GigApplicationDtoCollectionQueryParameters | 
 try {
-    val result : GigApplicationDtoListEnvelope = apiInstance.getGigApplicationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : GigApplicationDtoListEnvelope = apiInstance.getGigApplicationsAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigApplicationsApi#getGigApplicationsAsync")
@@ -255,9 +256,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **gigApplicationDtoCollectionQueryParameters** | [**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -269,12 +271,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getGigApplicationsCountAsync"></a>
 # **getGigApplicationsCountAsync**
-> Int32Envelope getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
 
 Count gig applications
 
@@ -290,8 +292,9 @@ val apiInstance = GigApplicationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val gigApplicationDtoCollectionQueryParameters : GigApplicationDtoCollectionQueryParameters =  // GigApplicationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigApplicationsApi#getGigApplicationsCountAsync")
@@ -305,9 +308,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **gigApplicationDtoCollectionQueryParameters** | [**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -319,12 +323,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchGigApplicationAsync"></a>
 # **patchGigApplicationAsync**
-> EmptyEnvelope patchGigApplicationAsync(gigApplicationId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchGigApplicationAsync(gigApplicationId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a gig application
 
@@ -341,9 +345,9 @@ val gigApplicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchGigApplicationAsync(gigApplicationId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchGigApplicationAsync(gigApplicationId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GigApplicationsApi#patchGigApplicationAsync")
@@ -361,7 +365,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

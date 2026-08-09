@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.ItemRefundPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemRefundPolicyDtoEnvelope
 import org.openapitools.client.models.ItemRefundPolicyDtoListEnvelope
 
@@ -55,6 +56,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -64,8 +66,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -89,16 +91,17 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemRefundPolicyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -110,10 +113,11 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemRefundPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemRefundPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -128,6 +132,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -147,6 +152,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemRefundPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -156,8 +162,8 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoListEnvelope {
-        val localVarResponse = getItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters? = null) : ItemRefundPolicyDtoListEnvelope {
+        val localVarResponse = getItemRefundPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRefundPolicyDtoListEnvelope
@@ -181,16 +187,17 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemRefundPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRefundPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemRefundPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemRefundPolicyDtoListEnvelope>(
+        return request<ItemRefundPolicyDtoCollectionQueryParameters, ItemRefundPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -202,10 +209,11 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemRefundPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemRefundPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemRefundPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -220,6 +228,7 @@ class ItemRefundPoliciesApi(basePath: kotlin.String = defaultBasePath, client: C
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

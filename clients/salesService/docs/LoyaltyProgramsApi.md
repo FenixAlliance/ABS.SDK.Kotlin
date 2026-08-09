@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLoyaltyProgramsAsync"></a>
 # **countLoyaltyProgramsAsync**
-> Int32Envelope countLoyaltyProgramsAsync(tenantId)
+> Int32Envelope countLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
 
 Get loyalty programs count
 
@@ -29,8 +29,9 @@ Returns the total count of loyalty programs for the specified tenant with OData 
 
 val apiInstance = LoyaltyProgramsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val loyaltyProgramDtoCollectionQueryParameters : LoyaltyProgramDtoCollectionQueryParameters =  // LoyaltyProgramDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countLoyaltyProgramsAsync(tenantId)
+    val result : Int32Envelope = apiInstance.countLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoyaltyProgramsApi#countLoyaltyProgramsAsync")
@@ -42,9 +43,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -56,7 +58,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createLoyaltyProgramAsync"></a>
@@ -205,7 +207,7 @@ No authorization required
 
 <a id="getLoyaltyProgramsAsync"></a>
 # **getLoyaltyProgramsAsync**
-> LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(tenantId)
+> LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
 
 Get loyalty programs
 
@@ -219,8 +221,9 @@ Retrieves a list of loyalty programs for the specified tenant with OData query s
 
 val apiInstance = LoyaltyProgramsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val loyaltyProgramDtoCollectionQueryParameters : LoyaltyProgramDtoCollectionQueryParameters =  // LoyaltyProgramDtoCollectionQueryParameters | 
 try {
-    val result : LoyaltyProgramDtoListEnvelope = apiInstance.getLoyaltyProgramsAsync(tenantId)
+    val result : LoyaltyProgramDtoListEnvelope = apiInstance.getLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoyaltyProgramsApi#getLoyaltyProgramsAsync")
@@ -232,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -246,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchLoyaltyProgramAsync"></a>
 # **patchLoyaltyProgramAsync**
-> EmptyEnvelope patchLoyaltyProgramAsync(loyaltyProgramId, tenantId, operation)
+> EmptyEnvelope patchLoyaltyProgramAsync(loyaltyProgramId, tenantId, patchOperation)
 
 Patch a loyalty program
 
@@ -266,9 +270,9 @@ Partially updates an existing loyalty program using a JSON Patch document.
 val apiInstance = LoyaltyProgramsApi()
 val loyaltyProgramId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLoyaltyProgramAsync(loyaltyProgramId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchLoyaltyProgramAsync(loyaltyProgramId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoyaltyProgramsApi#patchLoyaltyProgramAsync")
@@ -284,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

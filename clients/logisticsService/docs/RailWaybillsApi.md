@@ -287,7 +287,7 @@ No authorization required
 
 <a id="getRailWaybillLinesAsync"></a>
 # **getRailWaybillLinesAsync**
-> WaybillLineDtoListEnvelope getRailWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getRailWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get rail waybill lines
 
@@ -304,8 +304,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : WaybillLineDtoListEnvelope = apiInstance.getRailWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion)
+    val result : WaybillLineDtoListEnvelope = apiInstance.getRailWaybillLinesAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#getRailWaybillLinesAsync")
@@ -320,9 +321,10 @@ try {
 | **waybillId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -334,12 +336,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRailWaybillLinesCountAsync"></a>
 # **getRailWaybillLinesCountAsync**
-> Int32Envelope getRailWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRailWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get rail waybill lines count
 
@@ -356,8 +358,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getRailWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getRailWaybillLinesCountAsync(waybillId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#getRailWaybillLinesCountAsync")
@@ -372,9 +375,10 @@ try {
 | **waybillId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -386,12 +390,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRailWaybillsAsync"></a>
 # **getRailWaybillsAsync**
-> RailWaybillDtoListEnvelope getRailWaybillsAsync(tenantId, apiVersion, xApiVersion)
+> RailWaybillDtoListEnvelope getRailWaybillsAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
 
 Get all rail waybills
 
@@ -407,8 +411,9 @@ val apiInstance = RailWaybillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val railWaybillDtoCollectionQueryParameters : RailWaybillDtoCollectionQueryParameters =  // RailWaybillDtoCollectionQueryParameters | 
 try {
-    val result : RailWaybillDtoListEnvelope = apiInstance.getRailWaybillsAsync(tenantId, apiVersion, xApiVersion)
+    val result : RailWaybillDtoListEnvelope = apiInstance.getRailWaybillsAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#getRailWaybillsAsync")
@@ -422,9 +427,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **railWaybillDtoCollectionQueryParameters** | [**RailWaybillDtoCollectionQueryParameters**](RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -436,12 +442,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRailWaybillsCountAsync"></a>
 # **getRailWaybillsCountAsync**
-> Int32Envelope getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
 
 Get rail waybills count
 
@@ -457,8 +463,9 @@ val apiInstance = RailWaybillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val railWaybillDtoCollectionQueryParameters : RailWaybillDtoCollectionQueryParameters =  // RailWaybillDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#getRailWaybillsCountAsync")
@@ -472,9 +479,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **railWaybillDtoCollectionQueryParameters** | [**RailWaybillDtoCollectionQueryParameters**](RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -486,7 +494,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="issueRailWaybillAsync"></a>
@@ -647,7 +655,7 @@ No authorization required
 
 <a id="patchRailWaybillAsync"></a>
 # **patchRailWaybillAsync**
-> EmptyEnvelope patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a rail waybill
 
@@ -664,9 +672,9 @@ val waybillId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchRailWaybillAsync(waybillId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#patchRailWaybillAsync")
@@ -684,7 +692,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -701,7 +709,7 @@ No authorization required
 
 <a id="patchRailWaybillLineAsync"></a>
 # **patchRailWaybillLineAsync**
-> EmptyEnvelope patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a rail waybill line
 
@@ -719,9 +727,9 @@ val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchRailWaybillLineAsync(waybillId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RailWaybillsApi#patchRailWaybillLineAsync")
@@ -740,7 +748,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

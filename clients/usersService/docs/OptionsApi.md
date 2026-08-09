@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getUserOptions"></a>
 # **getUserOptions**
-> OptionDtoListEnvelope getUserOptions(portalId, apiVersion, xApiVersion)
+> OptionDtoListEnvelope getUserOptions(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Retrieve a list of user options
 
@@ -239,8 +239,9 @@ val apiInstance = OptionsApi()
 val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val optionDtoCollectionQueryParameters : OptionDtoCollectionQueryParameters =  // OptionDtoCollectionQueryParameters | 
 try {
-    val result : OptionDtoListEnvelope = apiInstance.getUserOptions(portalId, apiVersion, xApiVersion)
+    val result : OptionDtoListEnvelope = apiInstance.getUserOptions(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OptionsApi#getUserOptions")
@@ -254,9 +255,10 @@ try {
 ### Parameters
 | **portalId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -268,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getUserOptionsCount"></a>
 # **getUserOptionsCount**
-> Int32Envelope getUserOptionsCount(portalId, apiVersion, xApiVersion)
+> Int32Envelope getUserOptionsCount(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Get the count of user options
 
@@ -289,8 +291,9 @@ val apiInstance = OptionsApi()
 val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val optionDtoCollectionQueryParameters : OptionDtoCollectionQueryParameters =  // OptionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getUserOptionsCount(portalId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getUserOptionsCount(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OptionsApi#getUserOptionsCount")
@@ -304,9 +307,10 @@ try {
 ### Parameters
 | **portalId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -318,12 +322,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchUserOption"></a>
 # **patchUserOption**
-> EmptyEnvelope patchUserOption(optionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchUserOption(optionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a user option
 
@@ -339,9 +343,9 @@ val apiInstance = OptionsApi()
 val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchUserOption(optionId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchUserOption(optionId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OptionsApi#patchUserOption")
@@ -358,7 +362,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

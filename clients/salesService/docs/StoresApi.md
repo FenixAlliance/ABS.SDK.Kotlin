@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countStoresAsync"></a>
 # **countStoresAsync**
-> Int32Envelope countStoresAsync(tenantId)
+> Int32Envelope countStoresAsync(tenantId, storeDtoCollectionQueryParameters)
 
 Get stores count
 
@@ -29,8 +29,9 @@ Returns the total count of stores for the specified tenant with OData filter sup
 
 val apiInstance = StoresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val storeDtoCollectionQueryParameters : StoreDtoCollectionQueryParameters =  // StoreDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countStoresAsync(tenantId)
+    val result : Int32Envelope = apiInstance.countStoresAsync(tenantId, storeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StoresApi#countStoresAsync")
@@ -42,9 +43,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -56,7 +58,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createStoreAsync"></a>
@@ -205,7 +207,7 @@ No authorization required
 
 <a id="getStoresAsync"></a>
 # **getStoresAsync**
-> StoreDtoListEnvelope getStoresAsync(tenantId)
+> StoreDtoListEnvelope getStoresAsync(tenantId, storeDtoCollectionQueryParameters)
 
 Get stores
 
@@ -219,8 +221,9 @@ Retrieves a list of stores for the specified tenant with OData query support.
 
 val apiInstance = StoresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val storeDtoCollectionQueryParameters : StoreDtoCollectionQueryParameters =  // StoreDtoCollectionQueryParameters | 
 try {
-    val result : StoreDtoListEnvelope = apiInstance.getStoresAsync(tenantId)
+    val result : StoreDtoListEnvelope = apiInstance.getStoresAsync(tenantId, storeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StoresApi#getStoresAsync")
@@ -232,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -246,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchStoreAsync"></a>
 # **patchStoreAsync**
-> EmptyEnvelope patchStoreAsync(storeId, tenantId, operation)
+> EmptyEnvelope patchStoreAsync(storeId, tenantId, patchOperation)
 
 Patch a store
 
@@ -266,9 +270,9 @@ Partially updates an existing store using a JSON Patch document.
 val apiInstance = StoresApi()
 val storeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchStoreAsync(storeId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchStoreAsync(storeId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StoresApi#patchStoreAsync")
@@ -284,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

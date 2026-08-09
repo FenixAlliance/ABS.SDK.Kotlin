@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getContactSourcesAsync"></a>
 # **getContactSourcesAsync**
-> ContactSourceDtoListEnvelope getContactSourcesAsync(tenantId, apiVersion, xApiVersion)
+> ContactSourceDtoListEnvelope getContactSourcesAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
 
 Get all contact sources
 
@@ -185,8 +185,9 @@ val apiInstance = ContactSourcesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactSourceDtoCollectionQueryParameters : ContactSourceDtoCollectionQueryParameters =  // ContactSourceDtoCollectionQueryParameters | 
 try {
-    val result : ContactSourceDtoListEnvelope = apiInstance.getContactSourcesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactSourceDtoListEnvelope = apiInstance.getContactSourcesAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactSourcesApi#getContactSourcesAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactSourceDtoCollectionQueryParameters** | [**ContactSourceDtoCollectionQueryParameters**](ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactSourcesCountAsync"></a>
 # **getContactSourcesCountAsync**
-> Int32Envelope getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
 
 Get contact sources count
 
@@ -235,8 +237,9 @@ val apiInstance = ContactSourcesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactSourceDtoCollectionQueryParameters : ContactSourceDtoCollectionQueryParameters =  // ContactSourceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactSourcesApi#getContactSourcesCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactSourceDtoCollectionQueryParameters** | [**ContactSourceDtoCollectionQueryParameters**](ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchContactSourceAsync"></a>
 # **patchContactSourceAsync**
-> EmptyEnvelope patchContactSourceAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactSourceAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact source
 
@@ -286,9 +290,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchContactSourceAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchContactSourceAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactSourcesApi#patchContactSourceAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

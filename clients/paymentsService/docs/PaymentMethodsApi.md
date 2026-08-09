@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getPaymentMethodsAsync"></a>
 # **getPaymentMethodsAsync**
-> PaymentMethodDtoIReadOnlyListEnvelope getPaymentMethodsAsync(tenantId, apiVersion, xApiVersion)
+> PaymentMethodDtoIReadOnlyListEnvelope getPaymentMethodsAsync(tenantId, apiVersion, xApiVersion, paymentMethodDtoCollectionQueryParameters)
 
 Retrieves all payment methods
 
@@ -187,8 +187,9 @@ val apiInstance = PaymentMethodsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentMethodDtoCollectionQueryParameters : PaymentMethodDtoCollectionQueryParameters =  // PaymentMethodDtoCollectionQueryParameters | 
 try {
-    val result : PaymentMethodDtoIReadOnlyListEnvelope = apiInstance.getPaymentMethodsAsync(tenantId, apiVersion, xApiVersion)
+    val result : PaymentMethodDtoIReadOnlyListEnvelope = apiInstance.getPaymentMethodsAsync(tenantId, apiVersion, xApiVersion, paymentMethodDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentMethodsApi#getPaymentMethodsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentMethodDtoCollectionQueryParameters** | [**PaymentMethodDtoCollectionQueryParameters**](PaymentMethodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPaymentMethodsCountAsync"></a>
 # **getPaymentMethodsCountAsync**
-> Int32Envelope getPaymentMethodsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPaymentMethodsCountAsync(tenantId, apiVersion, xApiVersion, paymentMethodDtoCollectionQueryParameters)
 
 Counts payment methods
 
@@ -237,8 +239,9 @@ val apiInstance = PaymentMethodsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val paymentMethodDtoCollectionQueryParameters : PaymentMethodDtoCollectionQueryParameters =  // PaymentMethodDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPaymentMethodsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getPaymentMethodsCountAsync(tenantId, apiVersion, xApiVersion, paymentMethodDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentMethodsApi#getPaymentMethodsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **paymentMethodDtoCollectionQueryParameters** | [**PaymentMethodDtoCollectionQueryParameters**](PaymentMethodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchPaymentMethodAsync"></a>
 # **patchPaymentMethodAsync**
-> EmptyEnvelope patchPaymentMethodAsync(paymentMethodId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPaymentMethodAsync(paymentMethodId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a payment method
 
@@ -288,9 +292,9 @@ val paymentMethodId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // j
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPaymentMethodAsync(paymentMethodId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchPaymentMethodAsync(paymentMethodId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentMethodsApi#patchPaymentMethodAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

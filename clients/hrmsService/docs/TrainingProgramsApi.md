@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getTrainingProgramsAsync"></a>
 # **getTrainingProgramsAsync**
-> TrainingProgramDtoListEnvelope getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion)
+> TrainingProgramDtoListEnvelope getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
 
 Get training programs
 
@@ -186,8 +186,9 @@ val apiInstance = TrainingProgramsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trainingProgramDtoCollectionQueryParameters : TrainingProgramDtoCollectionQueryParameters =  // TrainingProgramDtoCollectionQueryParameters | 
 try {
-    val result : TrainingProgramDtoListEnvelope = apiInstance.getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion)
+    val result : TrainingProgramDtoListEnvelope = apiInstance.getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrainingProgramsApi#getTrainingProgramsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTrainingProgramsCountAsync"></a>
 # **getTrainingProgramsCountAsync**
-> Int32Envelope getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
 
 Count training programs
 
@@ -236,8 +238,9 @@ val apiInstance = TrainingProgramsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trainingProgramDtoCollectionQueryParameters : TrainingProgramDtoCollectionQueryParameters =  // TrainingProgramDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrainingProgramsApi#getTrainingProgramsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateTrainingProgramAsync"></a>

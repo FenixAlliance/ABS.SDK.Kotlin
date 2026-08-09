@@ -21,16 +21,22 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BooleanEnvelope
 import org.openapitools.client.models.ConversationCreateDto
+import org.openapitools.client.models.ConversationDtoCollectionQueryParameters
+import org.openapitools.client.models.ConversationDtoEnvelope
 import org.openapitools.client.models.ConversationDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.FollowRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.FollowRecordDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.NotificationDtoCollectionQueryParameters
 import org.openapitools.client.models.NotificationDtoEnvelope
 import org.openapitools.client.models.NotificationDtoListEnvelope
 import org.openapitools.client.models.PrivateMessageCreateDto
+import org.openapitools.client.models.PrivateMessageDtoCollectionQueryParameters
 import org.openapitools.client.models.PrivateMessageDtoListEnvelope
 import org.openapitools.client.models.PrivateMessageUpdateDto
+import org.openapitools.client.models.SocialProfileDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialProfileDtoEnvelope
 import org.openapitools.client.models.SocialProfileDtoListEnvelope
 
@@ -64,6 +70,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -73,8 +80,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countConversationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countConversationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countConversationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countConversationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, conversationDtoCollectionQueryParameters = conversationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -97,16 +104,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countConversationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countConversationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countConversationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countConversationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, conversationDtoCollectionQueryParameters = conversationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ConversationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -117,10 +125,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countConversationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countConversationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters?) : RequestConfig<ConversationDtoCollectionQueryParameters> {
+        val localVariableBody = conversationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -129,6 +138,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -147,6 +157,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -156,8 +167,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countFollowedProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countFollowedProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowedProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countFollowedProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -180,16 +191,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countFollowedProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countFollowedProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowedProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countFollowedProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -200,10 +212,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countFollowedProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countFollowedProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -212,6 +225,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -230,6 +244,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -239,8 +254,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countFollowerProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countFollowerProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowerProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countFollowerProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -263,16 +278,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countFollowerProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countFollowerProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowerProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countFollowerProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -283,10 +299,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countFollowerProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countFollowerProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -295,6 +312,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -313,6 +331,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -322,8 +341,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countFollowersAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countFollowersAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowersAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countFollowersAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -346,16 +365,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countFollowersAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countFollowersAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowersAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countFollowersAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -366,10 +386,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countFollowersAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countFollowersAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -378,6 +399,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -396,6 +418,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -405,8 +428,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countFollowsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countFollowsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countFollowsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -429,16 +452,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countFollowsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countFollowsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countFollowsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countFollowsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -449,10 +473,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countFollowsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countFollowsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -461,6 +486,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -480,6 +506,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -489,8 +516,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countMessagesAsync(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countMessagesAsyncWithHttpInfo(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countMessagesAsync(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countMessagesAsyncWithHttpInfo(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, privateMessageDtoCollectionQueryParameters = privateMessageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -514,16 +541,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countMessagesAsyncWithHttpInfo(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countMessagesAsyncRequestConfig(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countMessagesAsyncWithHttpInfo(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countMessagesAsyncRequestConfig(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, privateMessageDtoCollectionQueryParameters = privateMessageDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PrivateMessageDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -535,10 +563,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countMessagesAsyncRequestConfig(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countMessagesAsyncRequestConfig(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters?) : RequestConfig<PrivateMessageDtoCollectionQueryParameters> {
+        val localVariableBody = privateMessageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -548,6 +577,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -566,6 +596,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -575,8 +606,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countNotificationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countNotificationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countNotificationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countNotificationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -599,16 +630,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countNotificationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countNotificationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countNotificationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countNotificationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<NotificationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -619,10 +651,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countNotificationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countNotificationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : RequestConfig<NotificationDtoCollectionQueryParameters> {
+        val localVariableBody = notificationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -631,6 +664,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -648,6 +682,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Count social profiles.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -657,8 +692,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countSocialProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countSocialProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countSocialProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countSocialProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -680,16 +715,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Count social profiles.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countSocialProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countSocialProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countSocialProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countSocialProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -699,10 +735,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countSocialProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countSocialProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -711,6 +748,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1169,6 +1207,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return ConversationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1178,8 +1217,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getConversationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ConversationDtoListEnvelope {
-        val localVarResponse = getConversationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getConversationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters? = null) : ConversationDtoListEnvelope {
+        val localVarResponse = getConversationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, conversationDtoCollectionQueryParameters = conversationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ConversationDtoListEnvelope
@@ -1202,16 +1241,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ConversationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getConversationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ConversationDtoListEnvelope?> {
-        val localVariableConfig = getConversationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getConversationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters?) : ApiResponse<ConversationDtoListEnvelope?> {
+        val localVariableConfig = getConversationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, conversationDtoCollectionQueryParameters = conversationDtoCollectionQueryParameters)
 
-        return request<Unit, ConversationDtoListEnvelope>(
+        return request<ConversationDtoCollectionQueryParameters, ConversationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1222,10 +1262,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param conversationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getConversationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getConversationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, conversationDtoCollectionQueryParameters: ConversationDtoCollectionQueryParameters?) : RequestConfig<ConversationDtoCollectionQueryParameters> {
+        val localVariableBody = conversationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1234,6 +1275,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1252,6 +1294,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return SocialProfileDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1261,8 +1304,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFollowedProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialProfileDtoListEnvelope {
-        val localVarResponse = getFollowedProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowedProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : SocialProfileDtoListEnvelope {
+        val localVarResponse = getFollowedProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialProfileDtoListEnvelope
@@ -1285,16 +1328,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialProfileDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFollowedProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialProfileDtoListEnvelope?> {
-        val localVariableConfig = getFollowedProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowedProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<SocialProfileDtoListEnvelope?> {
+        val localVariableConfig = getFollowedProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, SocialProfileDtoListEnvelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, SocialProfileDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1305,10 +1349,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFollowedProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFollowedProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1317,6 +1362,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1335,6 +1381,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return SocialProfileDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1344,8 +1391,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFollowerProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialProfileDtoListEnvelope {
-        val localVarResponse = getFollowerProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowerProfilesAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : SocialProfileDtoListEnvelope {
+        val localVarResponse = getFollowerProfilesAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialProfileDtoListEnvelope
@@ -1368,16 +1415,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialProfileDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFollowerProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialProfileDtoListEnvelope?> {
-        val localVariableConfig = getFollowerProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowerProfilesAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<SocialProfileDtoListEnvelope?> {
+        val localVariableConfig = getFollowerProfilesAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, SocialProfileDtoListEnvelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, SocialProfileDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1388,10 +1436,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFollowerProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFollowerProfilesAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1400,6 +1449,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1418,6 +1468,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1427,8 +1478,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFollowersAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FollowRecordDtoListEnvelope {
-        val localVarResponse = getFollowersAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowersAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : FollowRecordDtoListEnvelope {
+        val localVarResponse = getFollowersAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FollowRecordDtoListEnvelope
@@ -1451,16 +1502,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FollowRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFollowersAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FollowRecordDtoListEnvelope?> {
-        val localVariableConfig = getFollowersAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowersAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<FollowRecordDtoListEnvelope?> {
+        val localVariableConfig = getFollowersAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, FollowRecordDtoListEnvelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, FollowRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1471,10 +1523,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFollowersAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFollowersAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1483,6 +1536,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1501,6 +1555,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1510,8 +1565,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFollowsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FollowRecordDtoListEnvelope {
-        val localVarResponse = getFollowsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters? = null) : FollowRecordDtoListEnvelope {
+        val localVarResponse = getFollowsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FollowRecordDtoListEnvelope
@@ -1534,16 +1589,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FollowRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFollowsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FollowRecordDtoListEnvelope?> {
-        val localVariableConfig = getFollowsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFollowsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : ApiResponse<FollowRecordDtoListEnvelope?> {
+        val localVariableConfig = getFollowsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, followRecordDtoCollectionQueryParameters = followRecordDtoCollectionQueryParameters)
 
-        return request<Unit, FollowRecordDtoListEnvelope>(
+        return request<FollowRecordDtoCollectionQueryParameters, FollowRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1554,10 +1610,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFollowsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFollowsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, followRecordDtoCollectionQueryParameters: FollowRecordDtoCollectionQueryParameters?) : RequestConfig<FollowRecordDtoCollectionQueryParameters> {
+        val localVariableBody = followRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1566,6 +1623,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1585,6 +1643,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return PrivateMessageDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1594,8 +1653,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMessagesAsync(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PrivateMessageDtoListEnvelope {
-        val localVarResponse = getMessagesAsyncWithHttpInfo(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMessagesAsync(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters? = null) : PrivateMessageDtoListEnvelope {
+        val localVarResponse = getMessagesAsyncWithHttpInfo(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, privateMessageDtoCollectionQueryParameters = privateMessageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PrivateMessageDtoListEnvelope
@@ -1619,16 +1678,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PrivateMessageDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMessagesAsyncWithHttpInfo(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PrivateMessageDtoListEnvelope?> {
-        val localVariableConfig = getMessagesAsyncRequestConfig(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMessagesAsyncWithHttpInfo(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters?) : ApiResponse<PrivateMessageDtoListEnvelope?> {
+        val localVariableConfig = getMessagesAsyncRequestConfig(conversationId = conversationId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, privateMessageDtoCollectionQueryParameters = privateMessageDtoCollectionQueryParameters)
 
-        return request<Unit, PrivateMessageDtoListEnvelope>(
+        return request<PrivateMessageDtoCollectionQueryParameters, PrivateMessageDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1640,10 +1700,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param privateMessageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMessagesAsyncRequestConfig(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMessagesAsyncRequestConfig(conversationId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, privateMessageDtoCollectionQueryParameters: PrivateMessageDtoCollectionQueryParameters?) : RequestConfig<PrivateMessageDtoCollectionQueryParameters> {
+        val localVariableBody = privateMessageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1653,6 +1714,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1757,6 +1819,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return NotificationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1766,8 +1829,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNotificationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : NotificationDtoListEnvelope {
-        val localVarResponse = getNotificationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNotificationsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters? = null) : NotificationDtoListEnvelope {
+        val localVarResponse = getNotificationsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NotificationDtoListEnvelope
@@ -1790,16 +1853,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<NotificationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNotificationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<NotificationDtoListEnvelope?> {
-        val localVariableConfig = getNotificationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNotificationsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : ApiResponse<NotificationDtoListEnvelope?> {
+        val localVariableConfig = getNotificationsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, notificationDtoCollectionQueryParameters = notificationDtoCollectionQueryParameters)
 
-        return request<Unit, NotificationDtoListEnvelope>(
+        return request<NotificationDtoCollectionQueryParameters, NotificationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1810,10 +1874,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getNotificationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getNotificationsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, notificationDtoCollectionQueryParameters: NotificationDtoCollectionQueryParameters?) : RequestConfig<NotificationDtoCollectionQueryParameters> {
+        val localVariableBody = notificationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1822,11 +1887,99 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications".replace("{"+"socialProfileId"+"}", encodeURIComponent(socialProfileId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get or Create Direct Conversation
+     * Get or create the direct two-party conversation between the acting profile and a counterparty.
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param body  (optional)
+     * @return ConversationDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getOrCreateDirectConversationAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, body: java.util.UUID? = null) : ConversationDtoEnvelope {
+        val localVarResponse = getOrCreateDirectConversationAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ConversationDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get or Create Direct Conversation
+     * Get or create the direct two-party conversation between the acting profile and a counterparty.
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param body  (optional)
+     * @return ApiResponse<ConversationDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getOrCreateDirectConversationAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: java.util.UUID?) : ApiResponse<ConversationDtoEnvelope?> {
+        val localVariableConfig = getOrCreateDirectConversationAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, body = body)
+
+        return request<java.util.UUID, ConversationDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getOrCreateDirectConversationAsync
+     *
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param body  (optional)
+     * @return RequestConfig
+     */
+    fun getOrCreateDirectConversationAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, body: java.util.UUID?) : RequestConfig<java.util.UUID> {
+        val localVariableBody = body
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct".replace("{"+"socialProfileId"+"}", encodeURIComponent(socialProfileId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -1922,6 +2075,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Get a list of social profiles.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return SocialProfileDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1931,8 +2085,8 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialProfileDtoListEnvelope {
-        val localVarResponse = getSocialProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialProfilesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters? = null) : SocialProfileDtoListEnvelope {
+        val localVarResponse = getSocialProfilesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialProfileDtoListEnvelope
@@ -1954,16 +2108,17 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Get a list of social profiles.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialProfileDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialProfileDtoListEnvelope?> {
-        val localVariableConfig = getSocialProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialProfilesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : ApiResponse<SocialProfileDtoListEnvelope?> {
+        val localVariableConfig = getSocialProfilesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, socialProfileDtoCollectionQueryParameters = socialProfileDtoCollectionQueryParameters)
 
-        return request<Unit, SocialProfileDtoListEnvelope>(
+        return request<SocialProfileDtoCollectionQueryParameters, SocialProfileDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1973,10 +2128,11 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialProfileDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialProfilesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialProfileDtoCollectionQueryParameters: SocialProfileDtoCollectionQueryParameters?) : RequestConfig<SocialProfileDtoCollectionQueryParameters> {
+        val localVariableBody = socialProfileDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1985,6 +2141,7 @@ class SocialProfilesApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

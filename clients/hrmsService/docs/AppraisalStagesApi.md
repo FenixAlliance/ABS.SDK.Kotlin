@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getAppraisalStagesAsync"></a>
 # **getAppraisalStagesAsync**
-> AppraisalStageDtoListEnvelope getAppraisalStagesAsync(tenantId, apiVersion, xApiVersion)
+> AppraisalStageDtoListEnvelope getAppraisalStagesAsync(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters)
 
 Get appraisal stages
 
@@ -186,8 +186,9 @@ val apiInstance = AppraisalStagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appraisalStageDtoCollectionQueryParameters : AppraisalStageDtoCollectionQueryParameters =  // AppraisalStageDtoCollectionQueryParameters | 
 try {
-    val result : AppraisalStageDtoListEnvelope = apiInstance.getAppraisalStagesAsync(tenantId, apiVersion, xApiVersion)
+    val result : AppraisalStageDtoListEnvelope = apiInstance.getAppraisalStagesAsync(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AppraisalStagesApi#getAppraisalStagesAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appraisalStageDtoCollectionQueryParameters** | [**AppraisalStageDtoCollectionQueryParameters**](AppraisalStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAppraisalStagesCountAsync"></a>
 # **getAppraisalStagesCountAsync**
-> Int32Envelope getAppraisalStagesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAppraisalStagesCountAsync(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters)
 
 Count appraisal stages
 
@@ -236,8 +238,9 @@ val apiInstance = AppraisalStagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appraisalStageDtoCollectionQueryParameters : AppraisalStageDtoCollectionQueryParameters =  // AppraisalStageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAppraisalStagesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAppraisalStagesCountAsync(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AppraisalStagesApi#getAppraisalStagesCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appraisalStageDtoCollectionQueryParameters** | [**AppraisalStageDtoCollectionQueryParameters**](AppraisalStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAppraisalStageAsync"></a>

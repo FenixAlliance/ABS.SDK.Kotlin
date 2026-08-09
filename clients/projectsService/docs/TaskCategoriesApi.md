@@ -16,7 +16,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countTenantTaskCategoriesAsync"></a>
 # **countTenantTaskCategoriesAsync**
-> Int32Envelope countTenantTaskCategoriesAsync(tenantId)
+> Int32Envelope countTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Counts task categories
 
@@ -30,8 +30,9 @@ Gets the count of task categories for the current tenant.
 
 val apiInstance = TaskCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val taskCategoryDtoCollectionQueryParameters : TaskCategoryDtoCollectionQueryParameters =  // TaskCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countTenantTaskCategoriesAsync(tenantId)
+    val result : Int32Envelope = apiInstance.countTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaskCategoriesApi#countTenantTaskCategoriesAsync")
@@ -43,9 +44,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -57,7 +59,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createTaskCategoryAsync"></a>
@@ -254,7 +256,7 @@ No authorization required
 
 <a id="getTenantTaskCategoriesAsync"></a>
 # **getTenantTaskCategoriesAsync**
-> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId)
+> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Retrieves all task categories
 
@@ -268,8 +270,9 @@ Gets all task categories for the current tenant with OData support.
 
 val apiInstance = TaskCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val taskCategoryDtoCollectionQueryParameters : TaskCategoryDtoCollectionQueryParameters =  // TaskCategoryDtoCollectionQueryParameters | 
 try {
-    val result : TaskCategoryDtoListEnvelope = apiInstance.getTenantTaskCategoriesAsync(tenantId)
+    val result : TaskCategoryDtoListEnvelope = apiInstance.getTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaskCategoriesApi#getTenantTaskCategoriesAsync")
@@ -281,9 +284,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -295,12 +299,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTaskCategoryAsync"></a>
 # **patchTaskCategoryAsync**
-> EmptyEnvelope patchTaskCategoryAsync(taskCategoryId, tenantId, operation)
+> EmptyEnvelope patchTaskCategoryAsync(taskCategoryId, tenantId, patchOperation)
 
 Patches a task category
 
@@ -315,9 +319,9 @@ Partially updates the specified task category.
 val apiInstance = TaskCategoriesApi()
 val taskCategoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTaskCategoryAsync(taskCategoryId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchTaskCategoryAsync(taskCategoryId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaskCategoriesApi#patchTaskCategoryAsync")
@@ -333,7 +337,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

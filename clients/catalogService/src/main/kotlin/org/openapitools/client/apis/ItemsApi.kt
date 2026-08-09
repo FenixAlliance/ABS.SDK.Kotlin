@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.BatchStockItemUpdateRequest
 import org.openapitools.client.models.BulkProduct
 import org.openapitools.client.models.CatalogItemCreateDto
+import org.openapitools.client.models.CatalogItemDtoCollectionQueryParameters
 import org.openapitools.client.models.CatalogItemDtoEnvelope
 import org.openapitools.client.models.CatalogItemDtoListEnvelope
 import org.openapitools.client.models.CatalogItemUpdateDto
@@ -29,40 +30,54 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemAttachmentCreateDto
+import org.openapitools.client.models.ItemAttachmentDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemAttachmentDtoEnvelope
 import org.openapitools.client.models.ItemAttachmentDtoListEnvelope
 import org.openapitools.client.models.ItemAttributeOptionDtoEnvelope
 import org.openapitools.client.models.ItemAttributeOptionDtoListEnvelope
+import org.openapitools.client.models.ItemBrandDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemBrandDtoEnvelope
 import org.openapitools.client.models.ItemBrandDtoListEnvelope
+import org.openapitools.client.models.ItemCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemCategoryDtoEnvelope
 import org.openapitools.client.models.ItemCategoryDtoListEnvelope
+import org.openapitools.client.models.ItemGoogleCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemGoogleCategoryDtoEnvelope
 import org.openapitools.client.models.ItemGoogleCategoryDtoListEnvelope
+import org.openapitools.client.models.ItemImageDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemImageDtoEnvelope
 import org.openapitools.client.models.ItemImageDtoListEnvelope
+import org.openapitools.client.models.ItemQuestionDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemQuestionDtoEnvelope
 import org.openapitools.client.models.ItemQuestionDtoListEnvelope
 import org.openapitools.client.models.ItemQuestionRecordCreateDto
+import org.openapitools.client.models.ItemRefundPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemRefundPolicyDtoEnvelope
 import org.openapitools.client.models.ItemRefundPolicyDtoListEnvelope
+import org.openapitools.client.models.ItemReturnPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemReturnPolicyDtoEnvelope
 import org.openapitools.client.models.ItemReturnPolicyDtoListEnvelope
+import org.openapitools.client.models.ItemReviewDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemReviewDtoEnvelope
 import org.openapitools.client.models.ItemReviewDtoListEnvelope
 import org.openapitools.client.models.ItemReviewRecordCreateDto
+import org.openapitools.client.models.ItemShippingPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemShippingPolicyDtoEnvelope
 import org.openapitools.client.models.ItemShippingPolicyDtoListEnvelope
+import org.openapitools.client.models.ItemTagDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemTagDtoEnvelope
 import org.openapitools.client.models.ItemTagDtoListEnvelope
+import org.openapitools.client.models.ItemTaxPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemTaxPolicyDtoEnvelope
 import org.openapitools.client.models.ItemTaxPolicyDtoListEnvelope
+import org.openapitools.client.models.ItemTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemTypeDtoEnvelope
 import org.openapitools.client.models.ItemTypeDtoListEnvelope
+import org.openapitools.client.models.ItemWarrantyPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemWarrantyPolicyDtoEnvelope
 import org.openapitools.client.models.ItemWarrantyPolicyDtoListEnvelope
 import org.openapitools.client.models.MoneyEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.PricingRuleDtoEnvelope
 import org.openapitools.client.models.PricingRuleDtoListEnvelope
 
@@ -269,6 +284,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -278,8 +294,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTagDtoCollectionQueryParameters = itemTagDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -303,16 +319,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTagDtoCollectionQueryParameters = itemTagDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemTagDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -324,10 +341,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters?) : RequestConfig<ItemTagDtoCollectionQueryParameters> {
+        val localVariableBody = itemTagDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -337,6 +355,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -355,6 +374,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -364,8 +384,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countStockItemsByBusiness(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countStockItemsByBusinessWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemsByBusiness(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countStockItemsByBusinessWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -388,16 +408,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countStockItemsByBusinessWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countStockItemsByBusinessRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countStockItemsByBusinessWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countStockItemsByBusinessRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CatalogItemDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -408,10 +429,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countStockItemsByBusinessRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countStockItemsByBusinessRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : RequestConfig<CatalogItemDtoCollectionQueryParameters> {
+        val localVariableBody = catalogItemDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -423,6 +445,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -864,6 +887,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemAttachmentDtoCollectionQueryParameters  (optional)
      * @return ItemAttachmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -873,8 +897,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemAttachmentsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemAttachmentDtoListEnvelope {
-        val localVarResponse = getStockItemAttachmentsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemAttachmentsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemAttachmentDtoCollectionQueryParameters: ItemAttachmentDtoCollectionQueryParameters? = null) : ItemAttachmentDtoListEnvelope {
+        val localVarResponse = getStockItemAttachmentsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemAttachmentDtoCollectionQueryParameters = itemAttachmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemAttachmentDtoListEnvelope
@@ -897,16 +921,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemAttachmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemAttachmentsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemAttachmentDtoListEnvelope?> {
-        val localVariableConfig = getStockItemAttachmentsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemAttachmentsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemAttachmentDtoCollectionQueryParameters: ItemAttachmentDtoCollectionQueryParameters?) : ApiResponse<ItemAttachmentDtoListEnvelope?> {
+        val localVariableConfig = getStockItemAttachmentsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemAttachmentDtoCollectionQueryParameters = itemAttachmentDtoCollectionQueryParameters)
 
-        return request<Unit, ItemAttachmentDtoListEnvelope>(
+        return request<ItemAttachmentDtoCollectionQueryParameters, ItemAttachmentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -917,10 +942,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemAttachmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemAttachmentsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemAttachmentsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemAttachmentDtoCollectionQueryParameters: ItemAttachmentDtoCollectionQueryParameters?) : RequestConfig<ItemAttachmentDtoCollectionQueryParameters> {
+        val localVariableBody = itemAttachmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -929,6 +955,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1202,6 +1229,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBrandDtoCollectionQueryParameters  (optional)
      * @return ItemBrandDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1211,8 +1239,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemBrandsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemBrandDtoListEnvelope {
-        val localVarResponse = getStockItemBrandsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemBrandsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemBrandDtoCollectionQueryParameters: ItemBrandDtoCollectionQueryParameters? = null) : ItemBrandDtoListEnvelope {
+        val localVarResponse = getStockItemBrandsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBrandDtoCollectionQueryParameters = itemBrandDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemBrandDtoListEnvelope
@@ -1235,16 +1263,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBrandDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemBrandDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemBrandsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemBrandDtoListEnvelope?> {
-        val localVariableConfig = getStockItemBrandsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemBrandsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBrandDtoCollectionQueryParameters: ItemBrandDtoCollectionQueryParameters?) : ApiResponse<ItemBrandDtoListEnvelope?> {
+        val localVariableConfig = getStockItemBrandsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemBrandDtoCollectionQueryParameters = itemBrandDtoCollectionQueryParameters)
 
-        return request<Unit, ItemBrandDtoListEnvelope>(
+        return request<ItemBrandDtoCollectionQueryParameters, ItemBrandDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1255,10 +1284,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBrandDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemBrandsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemBrandsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemBrandDtoCollectionQueryParameters: ItemBrandDtoCollectionQueryParameters?) : RequestConfig<ItemBrandDtoCollectionQueryParameters> {
+        val localVariableBody = itemBrandDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1267,6 +1297,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1368,6 +1399,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemCategoryDtoCollectionQueryParameters  (optional)
      * @return ItemCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1377,8 +1409,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemCategoriesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemCategoryDtoListEnvelope {
-        val localVarResponse = getStockItemCategoriesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemCategoriesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemCategoryDtoCollectionQueryParameters: ItemCategoryDtoCollectionQueryParameters? = null) : ItemCategoryDtoListEnvelope {
+        val localVarResponse = getStockItemCategoriesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemCategoryDtoCollectionQueryParameters = itemCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemCategoryDtoListEnvelope
@@ -1401,16 +1433,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemCategoriesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemCategoryDtoListEnvelope?> {
-        val localVariableConfig = getStockItemCategoriesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemCategoriesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemCategoryDtoCollectionQueryParameters: ItemCategoryDtoCollectionQueryParameters?) : ApiResponse<ItemCategoryDtoListEnvelope?> {
+        val localVariableConfig = getStockItemCategoriesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemCategoryDtoCollectionQueryParameters = itemCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemCategoryDtoListEnvelope>(
+        return request<ItemCategoryDtoCollectionQueryParameters, ItemCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1421,10 +1454,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemCategoriesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemCategoriesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemCategoryDtoCollectionQueryParameters: ItemCategoryDtoCollectionQueryParameters?) : RequestConfig<ItemCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = itemCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1433,6 +1467,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1537,6 +1572,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ItemGoogleCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1546,8 +1582,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemGoogleCategoriesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemGoogleCategoryDtoListEnvelope {
-        val localVarResponse = getStockItemGoogleCategoriesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemGoogleCategoriesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters? = null) : ItemGoogleCategoryDtoListEnvelope {
+        val localVarResponse = getStockItemGoogleCategoriesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemGoogleCategoryDtoListEnvelope
@@ -1570,16 +1606,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemGoogleCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemGoogleCategoriesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemGoogleCategoryDtoListEnvelope?> {
-        val localVariableConfig = getStockItemGoogleCategoriesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemGoogleCategoriesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : ApiResponse<ItemGoogleCategoryDtoListEnvelope?> {
+        val localVariableConfig = getStockItemGoogleCategoriesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters = itemGoogleCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemGoogleCategoryDtoListEnvelope>(
+        return request<ItemGoogleCategoryDtoCollectionQueryParameters, ItemGoogleCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1590,10 +1627,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemGoogleCategoriesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemGoogleCategoriesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemGoogleCategoryDtoCollectionQueryParameters: ItemGoogleCategoryDtoCollectionQueryParameters?) : RequestConfig<ItemGoogleCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = itemGoogleCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1602,6 +1640,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1792,6 +1831,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ItemImageDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1801,8 +1841,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemImagesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemImageDtoListEnvelope {
-        val localVarResponse = getStockItemImagesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemImagesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters? = null) : ItemImageDtoListEnvelope {
+        val localVarResponse = getStockItemImagesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemImageDtoCollectionQueryParameters = itemImageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemImageDtoListEnvelope
@@ -1825,16 +1865,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemImageDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemImagesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemImageDtoListEnvelope?> {
-        val localVariableConfig = getStockItemImagesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemImagesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters?) : ApiResponse<ItemImageDtoListEnvelope?> {
+        val localVariableConfig = getStockItemImagesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemImageDtoCollectionQueryParameters = itemImageDtoCollectionQueryParameters)
 
-        return request<Unit, ItemImageDtoListEnvelope>(
+        return request<ItemImageDtoCollectionQueryParameters, ItemImageDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1845,10 +1886,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemImagesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemImagesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemImageDtoCollectionQueryParameters: ItemImageDtoCollectionQueryParameters?) : RequestConfig<ItemImageDtoCollectionQueryParameters> {
+        val localVariableBody = itemImageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1857,6 +1899,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2130,6 +2173,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return ItemQuestionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2139,8 +2183,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemQuestionsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemQuestionDtoListEnvelope {
-        val localVarResponse = getStockItemQuestionsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemQuestionsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters? = null) : ItemQuestionDtoListEnvelope {
+        val localVarResponse = getStockItemQuestionsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemQuestionDtoCollectionQueryParameters = itemQuestionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemQuestionDtoListEnvelope
@@ -2163,16 +2207,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemQuestionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemQuestionsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
-        val localVariableConfig = getStockItemQuestionsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemQuestionsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters?) : ApiResponse<ItemQuestionDtoListEnvelope?> {
+        val localVariableConfig = getStockItemQuestionsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemQuestionDtoCollectionQueryParameters = itemQuestionDtoCollectionQueryParameters)
 
-        return request<Unit, ItemQuestionDtoListEnvelope>(
+        return request<ItemQuestionDtoCollectionQueryParameters, ItemQuestionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2183,10 +2228,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemQuestionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemQuestionsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemQuestionsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemQuestionDtoCollectionQueryParameters: ItemQuestionDtoCollectionQueryParameters?) : RequestConfig<ItemQuestionDtoCollectionQueryParameters> {
+        val localVariableBody = itemQuestionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2195,6 +2241,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2213,6 +2260,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemRefundPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2222,8 +2270,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemRefundPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRefundPolicyDtoListEnvelope {
-        val localVarResponse = getStockItemRefundPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemRefundPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters? = null) : ItemRefundPolicyDtoListEnvelope {
+        val localVarResponse = getStockItemRefundPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRefundPolicyDtoListEnvelope
@@ -2246,16 +2294,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemRefundPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemRefundPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
-        val localVariableConfig = getStockItemRefundPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemRefundPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemRefundPolicyDtoListEnvelope?> {
+        val localVariableConfig = getStockItemRefundPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRefundPolicyDtoCollectionQueryParameters = itemRefundPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemRefundPolicyDtoListEnvelope>(
+        return request<ItemRefundPolicyDtoCollectionQueryParameters, ItemRefundPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2266,10 +2315,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemRefundPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemRefundPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRefundPolicyDtoCollectionQueryParameters: ItemRefundPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemRefundPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemRefundPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2278,6 +2328,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2382,6 +2433,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemReturnPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2391,8 +2443,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemReturnPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReturnPolicyDtoListEnvelope {
-        val localVarResponse = getStockItemReturnPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemReturnPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters? = null) : ItemReturnPolicyDtoListEnvelope {
+        val localVarResponse = getStockItemReturnPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemReturnPolicyDtoListEnvelope
@@ -2415,16 +2467,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemReturnPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemReturnPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReturnPolicyDtoListEnvelope?> {
-        val localVariableConfig = getStockItemReturnPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemReturnPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemReturnPolicyDtoListEnvelope?> {
+        val localVariableConfig = getStockItemReturnPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReturnPolicyDtoCollectionQueryParameters = itemReturnPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemReturnPolicyDtoListEnvelope>(
+        return request<ItemReturnPolicyDtoCollectionQueryParameters, ItemReturnPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2435,10 +2488,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemReturnPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemReturnPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReturnPolicyDtoCollectionQueryParameters: ItemReturnPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemReturnPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemReturnPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2447,6 +2501,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2637,6 +2692,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ItemReviewDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2646,8 +2702,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemReviewsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemReviewDtoListEnvelope {
-        val localVarResponse = getStockItemReviewsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemReviewsByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters? = null) : ItemReviewDtoListEnvelope {
+        val localVarResponse = getStockItemReviewsByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReviewDtoCollectionQueryParameters = itemReviewDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemReviewDtoListEnvelope
@@ -2670,16 +2726,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemReviewDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemReviewsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemReviewDtoListEnvelope?> {
-        val localVariableConfig = getStockItemReviewsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemReviewsByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters?) : ApiResponse<ItemReviewDtoListEnvelope?> {
+        val localVariableConfig = getStockItemReviewsByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemReviewDtoCollectionQueryParameters = itemReviewDtoCollectionQueryParameters)
 
-        return request<Unit, ItemReviewDtoListEnvelope>(
+        return request<ItemReviewDtoCollectionQueryParameters, ItemReviewDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2690,10 +2747,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemReviewsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemReviewsByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemReviewDtoCollectionQueryParameters: ItemReviewDtoCollectionQueryParameters?) : RequestConfig<ItemReviewDtoCollectionQueryParameters> {
+        val localVariableBody = itemReviewDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2702,6 +2760,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2720,6 +2779,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemShippingPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2729,8 +2789,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemShippingPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoListEnvelope {
-        val localVarResponse = getStockItemShippingPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemShippingPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters? = null) : ItemShippingPolicyDtoListEnvelope {
+        val localVarResponse = getStockItemShippingPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemShippingPolicyDtoListEnvelope
@@ -2753,16 +2813,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemShippingPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemShippingPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
-        val localVariableConfig = getStockItemShippingPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemShippingPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
+        val localVariableConfig = getStockItemShippingPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemShippingPolicyDtoListEnvelope>(
+        return request<ItemShippingPolicyDtoCollectionQueryParameters, ItemShippingPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2773,10 +2834,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemShippingPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemShippingPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemShippingPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemShippingPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2785,6 +2847,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2980,6 +3043,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return ItemTagDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2989,8 +3053,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTagDtoListEnvelope {
-        val localVarResponse = getStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagsByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters? = null) : ItemTagDtoListEnvelope {
+        val localVarResponse = getStockItemTagsByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTagDtoCollectionQueryParameters = itemTagDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTagDtoListEnvelope
@@ -3014,16 +3078,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemTagDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTagDtoListEnvelope?> {
-        val localVariableConfig = getStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTagsByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters?) : ApiResponse<ItemTagDtoListEnvelope?> {
+        val localVariableConfig = getStockItemTagsByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTagDtoCollectionQueryParameters = itemTagDtoCollectionQueryParameters)
 
-        return request<Unit, ItemTagDtoListEnvelope>(
+        return request<ItemTagDtoCollectionQueryParameters, ItemTagDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3035,10 +3100,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemTagsByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTagDtoCollectionQueryParameters: ItemTagDtoCollectionQueryParameters?) : RequestConfig<ItemTagDtoCollectionQueryParameters> {
+        val localVariableBody = itemTagDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3048,6 +3114,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3066,6 +3133,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemTaxPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3075,8 +3143,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTaxPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoListEnvelope {
-        val localVarResponse = getStockItemTaxPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTaxPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters? = null) : ItemTaxPolicyDtoListEnvelope {
+        val localVarResponse = getStockItemTaxPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTaxPolicyDtoListEnvelope
@@ -3099,16 +3167,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemTaxPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTaxPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
-        val localVariableConfig = getStockItemTaxPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTaxPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
+        val localVariableConfig = getStockItemTaxPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemTaxPolicyDtoListEnvelope>(
+        return request<ItemTaxPolicyDtoCollectionQueryParameters, ItemTaxPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3119,10 +3188,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTaxPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemTaxPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemTaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemTaxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3131,6 +3201,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3326,6 +3397,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTypeDtoCollectionQueryParameters  (optional)
      * @return ItemTypeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3335,8 +3407,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemTypesByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTypeDtoListEnvelope {
-        val localVarResponse = getStockItemTypesByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypesByItemId(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTypeDtoCollectionQueryParameters: ItemTypeDtoCollectionQueryParameters? = null) : ItemTypeDtoListEnvelope {
+        val localVarResponse = getStockItemTypesByItemIdWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTypeDtoCollectionQueryParameters = itemTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTypeDtoListEnvelope
@@ -3360,16 +3432,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemTypeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemTypesByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTypeDtoListEnvelope?> {
-        val localVariableConfig = getStockItemTypesByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemTypesByItemIdWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTypeDtoCollectionQueryParameters: ItemTypeDtoCollectionQueryParameters?) : ApiResponse<ItemTypeDtoListEnvelope?> {
+        val localVariableConfig = getStockItemTypesByItemIdRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTypeDtoCollectionQueryParameters = itemTypeDtoCollectionQueryParameters)
 
-        return request<Unit, ItemTypeDtoListEnvelope>(
+        return request<ItemTypeDtoCollectionQueryParameters, ItemTypeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3381,10 +3454,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemTypesByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemTypesByItemIdRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTypeDtoCollectionQueryParameters: ItemTypeDtoCollectionQueryParameters?) : RequestConfig<ItemTypeDtoCollectionQueryParameters> {
+        val localVariableBody = itemTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3394,6 +3468,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3412,6 +3487,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemWarrantyPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemWarrantyPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3421,8 +3497,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemWarrantyPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemWarrantyPolicyDtoListEnvelope {
-        val localVarResponse = getStockItemWarrantyPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemWarrantyPoliciesByItemId(itemId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemWarrantyPolicyDtoCollectionQueryParameters: ItemWarrantyPolicyDtoCollectionQueryParameters? = null) : ItemWarrantyPolicyDtoListEnvelope {
+        val localVarResponse = getStockItemWarrantyPoliciesByItemIdWithHttpInfo(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters = itemWarrantyPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemWarrantyPolicyDtoListEnvelope
@@ -3445,16 +3521,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemWarrantyPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemWarrantyPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemWarrantyPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemWarrantyPolicyDtoListEnvelope?> {
-        val localVariableConfig = getStockItemWarrantyPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemWarrantyPoliciesByItemIdWithHttpInfo(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemWarrantyPolicyDtoCollectionQueryParameters: ItemWarrantyPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemWarrantyPolicyDtoListEnvelope?> {
+        val localVariableConfig = getStockItemWarrantyPoliciesByItemIdRequestConfig(itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters = itemWarrantyPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemWarrantyPolicyDtoListEnvelope>(
+        return request<ItemWarrantyPolicyDtoCollectionQueryParameters, ItemWarrantyPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3465,10 +3542,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param itemId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemWarrantyPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemWarrantyPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemWarrantyPoliciesByItemIdRequestConfig(itemId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemWarrantyPolicyDtoCollectionQueryParameters: ItemWarrantyPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemWarrantyPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemWarrantyPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3477,6 +3555,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3581,6 +3660,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3590,8 +3670,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemsOdataMaxPrice(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = getStockItemsOdataMaxPriceWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsOdataMaxPrice(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getStockItemsOdataMaxPriceWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -3614,16 +3694,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemsOdataMaxPriceWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getStockItemsOdataMaxPriceRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsOdataMaxPriceWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getStockItemsOdataMaxPriceRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<CatalogItemDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -3634,10 +3715,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemsOdataMaxPriceRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemsOdataMaxPriceRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : RequestConfig<CatalogItemDtoCollectionQueryParameters> {
+        val localVariableBody = catalogItemDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -3649,6 +3731,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3667,6 +3750,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3676,8 +3760,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemsOdataMinPrice(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MoneyEnvelope {
-        val localVarResponse = getStockItemsOdataMinPriceWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsOdataMinPrice(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getStockItemsOdataMinPriceWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -3700,16 +3784,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemsOdataMinPriceWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getStockItemsOdataMinPriceRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsOdataMinPriceWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getStockItemsOdataMinPriceRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<CatalogItemDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -3720,10 +3805,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemsOdataMinPriceRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemsOdataMinPriceRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : RequestConfig<CatalogItemDtoCollectionQueryParameters> {
+        val localVariableBody = catalogItemDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -3735,6 +3821,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3753,6 +3840,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return CatalogItemDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3762,8 +3850,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStockItemsQuery(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CatalogItemDtoListEnvelope {
-        val localVarResponse = getStockItemsQueryWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsQuery(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters? = null) : CatalogItemDtoListEnvelope {
+        val localVarResponse = getStockItemsQueryWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CatalogItemDtoListEnvelope
@@ -3786,16 +3874,17 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CatalogItemDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStockItemsQueryWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CatalogItemDtoListEnvelope?> {
-        val localVariableConfig = getStockItemsQueryRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStockItemsQueryWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : ApiResponse<CatalogItemDtoListEnvelope?> {
+        val localVariableConfig = getStockItemsQueryRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, catalogItemDtoCollectionQueryParameters = catalogItemDtoCollectionQueryParameters)
 
-        return request<Unit, CatalogItemDtoListEnvelope>(
+        return request<CatalogItemDtoCollectionQueryParameters, CatalogItemDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3806,10 +3895,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param catalogItemDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStockItemsQueryRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStockItemsQueryRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, catalogItemDtoCollectionQueryParameters: CatalogItemDtoCollectionQueryParameters?) : RequestConfig<CatalogItemDtoCollectionQueryParameters> {
+        val localVariableBody = catalogItemDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -3821,6 +3911,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3840,7 +3931,7 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3849,8 +3940,8 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchStockItem(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchStockItemWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchStockItem(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchStockItemWithHttpInfo(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -3874,16 +3965,16 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchStockItemWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchStockItemRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchStockItemWithHttpInfo(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchStockItemRequestConfig(itemId = itemId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -3895,11 +3986,11 @@ class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory =
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchStockItemRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchStockItemRequestConfig(itemId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

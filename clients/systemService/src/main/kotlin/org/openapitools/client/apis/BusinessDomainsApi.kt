@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BusinessDomainDtoCollectionQueryParameters
 import org.openapitools.client.models.BusinessDomainDtoEnvelope
 import org.openapitools.client.models.BusinessDomainDtoListEnvelope
 import org.openapitools.client.models.EmptyEnvelope
@@ -220,6 +221,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Retrieve all registered business domains across every tenant (global administrators only).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return BusinessDomainDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -229,8 +231,8 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemBusinessDomains(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessDomainDtoListEnvelope {
-        val localVarResponse = getSystemBusinessDomainsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemBusinessDomains(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters? = null) : BusinessDomainDtoListEnvelope {
+        val localVarResponse = getSystemBusinessDomainsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessDomainDtoListEnvelope
@@ -252,16 +254,17 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Retrieve all registered business domains across every tenant (global administrators only).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BusinessDomainDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemBusinessDomainsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessDomainDtoListEnvelope?> {
-        val localVariableConfig = getSystemBusinessDomainsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemBusinessDomainsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : ApiResponse<BusinessDomainDtoListEnvelope?> {
+        val localVariableConfig = getSystemBusinessDomainsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
-        return request<Unit, BusinessDomainDtoListEnvelope>(
+        return request<BusinessDomainDtoCollectionQueryParameters, BusinessDomainDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -271,10 +274,11 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemBusinessDomainsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemBusinessDomainsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : RequestConfig<BusinessDomainDtoCollectionQueryParameters> {
+        val localVariableBody = businessDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -283,6 +287,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -300,6 +305,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get the count of all registered business domains across every tenant.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -309,8 +315,8 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemBusinessDomainsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSystemBusinessDomainsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemBusinessDomainsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSystemBusinessDomainsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -332,16 +338,17 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * Get the count of all registered business domains across every tenant.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemBusinessDomainsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSystemBusinessDomainsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemBusinessDomainsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSystemBusinessDomainsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, businessDomainDtoCollectionQueryParameters = businessDomainDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BusinessDomainDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -351,10 +358,11 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemBusinessDomainsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemBusinessDomainsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessDomainDtoCollectionQueryParameters: BusinessDomainDtoCollectionQueryParameters?) : RequestConfig<BusinessDomainDtoCollectionQueryParameters> {
+        val localVariableBody = businessDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -363,6 +371,7 @@ class BusinessDomainsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

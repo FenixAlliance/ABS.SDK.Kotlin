@@ -2,6 +2,7 @@ README.md
 build.gradle
 docs/AccessTokenResponse.md
 docs/AddressDto.md
+docs/AddressDtoCollectionQueryParameters.md
 docs/AddressDtoListEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -15,6 +16,7 @@ docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/FenixAllianceABSWebApi.md
 docs/FollowRecordDto.md
+docs/FollowRecordDtoCollectionQueryParameters.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -23,14 +25,16 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoCollectionQueryParameters.md
 docs/NotificationDtoListEnvelope.md
-docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
+docs/OptionDtoCollectionQueryParameters.md
 docs/OptionDtoEnvelope.md
 docs/OptionDtoListEnvelope.md
 docs/OptionUpdateDto.md
 docs/OptionsApi.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -38,6 +42,7 @@ docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
 docs/SocialProfileDtoEnvelope.md
 docs/TenantDto.md
+docs/TenantDtoCollectionQueryParameters.md
 docs/TenantDtoListEnvelope.md
 docs/TenantEnrollmentDto.md
 docs/TenantEnrollmentDtoEnvelope.md
@@ -83,6 +88,7 @@ src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/AccessTokenResponse.kt
 src/main/kotlin/org/openapitools/client/models/AddressDto.kt
+src/main/kotlin/org/openapitools/client/models/AddressDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/AddressDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/CartDto.kt
 src/main/kotlin/org/openapitools/client/models/CartDtoEnvelope.kt
@@ -95,6 +101,7 @@ src/main/kotlin/org/openapitools/client/models/ExtendedTenantEnrollmentDtoListEn
 src/main/kotlin/org/openapitools/client/models/ExtendedUserDto.kt
 src/main/kotlin/org/openapitools/client/models/ExtendedUserDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/FollowRecordDto.kt
+src/main/kotlin/org/openapitools/client/models/FollowRecordDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/FollowRecordDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/ForgotPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/HttpValidationProblemDetails.kt
@@ -103,13 +110,15 @@ src/main/kotlin/org/openapitools/client/models/InfoResponse.kt
 src/main/kotlin/org/openapitools/client/models/Int32Envelope.kt
 src/main/kotlin/org/openapitools/client/models/LoginRequest.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDto.kt
+src/main/kotlin/org/openapitools/client/models/NotificationDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/NotificationDtoListEnvelope.kt
-src/main/kotlin/org/openapitools/client/models/Operation.kt
 src/main/kotlin/org/openapitools/client/models/OptionCreateDto.kt
 src/main/kotlin/org/openapitools/client/models/OptionDto.kt
+src/main/kotlin/org/openapitools/client/models/OptionDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/OptionDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/OptionDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/OptionUpdateDto.kt
+src/main/kotlin/org/openapitools/client/models/PatchOperation.kt
 src/main/kotlin/org/openapitools/client/models/RefreshRequest.kt
 src/main/kotlin/org/openapitools/client/models/RegisterRequest.kt
 src/main/kotlin/org/openapitools/client/models/ResendConfirmationEmailRequest.kt
@@ -117,6 +126,7 @@ src/main/kotlin/org/openapitools/client/models/ResetPasswordRequest.kt
 src/main/kotlin/org/openapitools/client/models/SocialProfileDto.kt
 src/main/kotlin/org/openapitools/client/models/SocialProfileDtoEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/TenantDto.kt
+src/main/kotlin/org/openapitools/client/models/TenantDtoCollectionQueryParameters.kt
 src/main/kotlin/org/openapitools/client/models/TenantDtoListEnvelope.kt
 src/main/kotlin/org/openapitools/client/models/TenantEnrollmentDto.kt
 src/main/kotlin/org/openapitools/client/models/TenantEnrollmentDtoEnvelope.kt
@@ -134,3 +144,9 @@ src/main/kotlin/org/openapitools/client/models/UserSettingsUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/UserUpdateDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletDto.kt
 src/main/kotlin/org/openapitools/client/models/WalletDtoEnvelope.kt
+src/test/kotlin/org/openapitools/client/models/AddressDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/FollowRecordDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/NotificationDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/OptionDtoCollectionQueryParametersTest.kt
+src/test/kotlin/org/openapitools/client/models/PatchOperationTest.kt
+src/test/kotlin/org/openapitools/client/models/TenantDtoCollectionQueryParametersTest.kt

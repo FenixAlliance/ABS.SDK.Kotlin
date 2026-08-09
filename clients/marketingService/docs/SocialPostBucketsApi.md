@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getSocialPostBucketsCountAsync"></a>
 # **getSocialPostBucketsCountAsync**
-> Int32Envelope getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
 
 Get social post buckets count
 
@@ -187,8 +187,9 @@ val apiInstance = SocialPostBucketsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostBucketDtoCollectionQueryParameters : SocialPostBucketDtoCollectionQueryParameters =  // SocialPostBucketDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostBucketsApi#getSocialPostBucketsCountAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostBucketDtoCollectionQueryParameters** | [**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostBucketsODataAsync"></a>
 # **getSocialPostBucketsODataAsync**
-> SocialPostBucketDtoListEnvelope getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+> SocialPostBucketDtoListEnvelope getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
 
 Get social post buckets
 
@@ -237,8 +239,9 @@ val apiInstance = SocialPostBucketsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostBucketDtoCollectionQueryParameters : SocialPostBucketDtoCollectionQueryParameters =  // SocialPostBucketDtoCollectionQueryParameters | 
 try {
-    val result : SocialPostBucketDtoListEnvelope = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+    val result : SocialPostBucketDtoListEnvelope = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostBucketsApi#getSocialPostBucketsODataAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostBucketDtoCollectionQueryParameters** | [**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSocialPostBucketAsync"></a>
 # **patchSocialPostBucketAsync**
-> EmptyEnvelope patchSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social post bucket
 
@@ -288,9 +292,9 @@ val socialpostbucketId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d /
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSocialPostBucketAsync(socialpostbucketId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostBucketsApi#patchSocialPostBucketAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

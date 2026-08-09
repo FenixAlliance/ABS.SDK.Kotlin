@@ -20,13 +20,14 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CurriculumExperienceCreateDto
+import org.openapitools.client.models.CurriculumExperienceDtoCollectionQueryParameters
 import org.openapitools.client.models.CurriculumExperienceDtoEnvelope
 import org.openapitools.client.models.CurriculumExperienceDtoListEnvelope
 import org.openapitools.client.models.CurriculumExperienceUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -349,6 +350,7 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return CurriculumExperienceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -358,8 +360,8 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurriculumExperiencesAsync(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurriculumExperienceDtoListEnvelope {
-        val localVarResponse = getCurriculumExperiencesAsyncWithHttpInfo(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurriculumExperiencesAsync(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters? = null) : CurriculumExperienceDtoListEnvelope {
+        val localVarResponse = getCurriculumExperiencesAsyncWithHttpInfo(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, curriculumExperienceDtoCollectionQueryParameters = curriculumExperienceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CurriculumExperienceDtoListEnvelope
@@ -384,16 +386,17 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CurriculumExperienceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurriculumExperiencesAsyncWithHttpInfo(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurriculumExperienceDtoListEnvelope?> {
-        val localVariableConfig = getCurriculumExperiencesAsyncRequestConfig(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurriculumExperiencesAsyncWithHttpInfo(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters?) : ApiResponse<CurriculumExperienceDtoListEnvelope?> {
+        val localVariableConfig = getCurriculumExperiencesAsyncRequestConfig(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, curriculumExperienceDtoCollectionQueryParameters = curriculumExperienceDtoCollectionQueryParameters)
 
-        return request<Unit, CurriculumExperienceDtoListEnvelope>(
+        return request<CurriculumExperienceDtoCollectionQueryParameters, CurriculumExperienceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -406,10 +409,11 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurriculumExperiencesAsyncRequestConfig(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurriculumExperiencesAsyncRequestConfig(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters?) : RequestConfig<CurriculumExperienceDtoCollectionQueryParameters> {
+        val localVariableBody = curriculumExperienceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -422,6 +426,7 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -442,6 +447,7 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -451,8 +457,8 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCurriculumExperiencesCountAsync(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurriculumExperiencesCountAsync(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, curriculumExperienceDtoCollectionQueryParameters = curriculumExperienceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -477,16 +483,17 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getCurriculumExperiencesCountAsyncRequestConfig(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getCurriculumExperiencesCountAsyncRequestConfig(curriculumId = curriculumId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, curriculumExperienceDtoCollectionQueryParameters = curriculumExperienceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CurriculumExperienceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -499,10 +506,11 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCurriculumExperiencesCountAsyncRequestConfig(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCurriculumExperiencesCountAsyncRequestConfig(curriculumId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, curriculumExperienceDtoCollectionQueryParameters: CurriculumExperienceDtoCollectionQueryParameters?) : RequestConfig<CurriculumExperienceDtoCollectionQueryParameters> {
+        val localVariableBody = curriculumExperienceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -515,6 +523,7 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -536,7 +545,7 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -546,8 +555,8 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCurriculumExperienceAsync(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchCurriculumExperienceAsyncWithHttpInfo(curriculumId = curriculumId, experienceId = experienceId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCurriculumExperienceAsync(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchCurriculumExperienceAsyncWithHttpInfo(curriculumId = curriculumId, experienceId = experienceId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -573,17 +582,17 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCurriculumExperienceAsyncWithHttpInfo(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchCurriculumExperienceAsyncRequestConfig(curriculumId = curriculumId, experienceId = experienceId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCurriculumExperienceAsyncWithHttpInfo(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchCurriculumExperienceAsyncRequestConfig(curriculumId = curriculumId, experienceId = experienceId, socialProfileId = socialProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -597,11 +606,11 @@ class CurriculumExperiencesApi(basePath: kotlin.String = defaultBasePath, client
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCurriculumExperienceAsyncRequestConfig(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCurriculumExperienceAsyncRequestConfig(curriculumId: java.util.UUID, experienceId: java.util.UUID, socialProfileId: java.util.UUID, tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))

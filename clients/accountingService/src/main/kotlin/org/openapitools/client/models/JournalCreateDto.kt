@@ -30,6 +30,8 @@ import com.squareup.moshi.JsonClass
  * @param parentJournalId 
  * @param journalTypeId 
  * @param ledgerId 
+ * @param financialBookId 
+ * @param code 
  */
 
 
@@ -57,7 +59,13 @@ data class JournalCreateDto (
     val journalTypeId: kotlin.String? = null,
 
     @Json(name = "ledgerId")
-    val ledgerId: kotlin.String? = null
+    val ledgerId: kotlin.String? = null,
+
+    @Json(name = "financialBookId")
+    val financialBookId: kotlin.String? = null,
+
+    @Json(name = "code")
+    val code: kotlin.String? = null
 
 ) {
 

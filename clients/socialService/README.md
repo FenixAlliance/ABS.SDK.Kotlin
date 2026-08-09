@@ -101,14 +101,19 @@ All URIs are relative to *https://absuite.net*
 | *SocialGroupsApi* | [**getSocialGroupsAsync**](docs/SocialGroupsApi.md#getsocialgroupsasync) | **GET** /api/v2/SocialService/SocialGroups | Get social groups |
 | *SocialGroupsApi* | [**patchSocialGroupAsync**](docs/SocialGroupsApi.md#patchsocialgroupasync) | **PATCH** /api/v2/SocialService/SocialGroups/{socialGroupId} | Patch a social group |
 | *SocialGroupsApi* | [**updateSocialGroupAsync**](docs/SocialGroupsApi.md#updatesocialgroupasync) | **PUT** /api/v2/SocialService/SocialGroups/{socialGroupId} | Update a social group |
+| *SocialPostsApi* | [**createSocialCommentReactionAsync**](docs/SocialPostsApi.md#createsocialcommentreactionasync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction |
 | *SocialPostsApi* | [**createSocialPostAsync**](docs/SocialPostsApi.md#createsocialpostasync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post |
 | *SocialPostsApi* | [**createSocialPostAttachmentAsync**](docs/SocialPostsApi.md#createsocialpostattachmentasync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment |
 | *SocialPostsApi* | [**createSocialPostCommentAsync**](docs/SocialPostsApi.md#createsocialpostcommentasync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment |
 | *SocialPostsApi* | [**createSocialPostReactionAsync**](docs/SocialPostsApi.md#createsocialpostreactionasync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction |
+| *SocialPostsApi* | [**deleteSocialCommentReactionAsync**](docs/SocialPostsApi.md#deletesocialcommentreactionasync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction |
 | *SocialPostsApi* | [**deleteSocialPostAsync**](docs/SocialPostsApi.md#deletesocialpostasync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post |
 | *SocialPostsApi* | [**deleteSocialPostAttachmentAsync**](docs/SocialPostsApi.md#deletesocialpostattachmentasync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment |
 | *SocialPostsApi* | [**deleteSocialPostCommentAsync**](docs/SocialPostsApi.md#deletesocialpostcommentasync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment |
 | *SocialPostsApi* | [**deleteSocialPostReactionAsync**](docs/SocialPostsApi.md#deletesocialpostreactionasync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction |
+| *SocialPostsApi* | [**getSocialCommentReactionAsync**](docs/SocialPostsApi.md#getsocialcommentreactionasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID |
+| *SocialPostsApi* | [**getSocialCommentReactionsAsync**](docs/SocialPostsApi.md#getsocialcommentreactionsasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions |
+| *SocialPostsApi* | [**getSocialCommentReactionsCountAsync**](docs/SocialPostsApi.md#getsocialcommentreactionscountasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions |
 | *SocialPostsApi* | [**getSocialPostAsync**](docs/SocialPostsApi.md#getsocialpostasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID |
 | *SocialPostsApi* | [**getSocialPostAttachmentAsync**](docs/SocialPostsApi.md#getsocialpostattachmentasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID |
 | *SocialPostsApi* | [**getSocialPostAttachmentsAsync**](docs/SocialPostsApi.md#getsocialpostattachmentsasync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments |
@@ -122,10 +127,12 @@ All URIs are relative to *https://absuite.net*
 | *SocialPostsApi* | [**getSocialPostsAsync**](docs/SocialPostsApi.md#getsocialpostsasync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts |
 | *SocialPostsApi* | [**getSocialPostsCountAsync**](docs/SocialPostsApi.md#getsocialpostscountasync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts |
 | *SocialPostsApi* | [**patchSocialPostAsync**](docs/SocialPostsApi.md#patchsocialpostasync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post |
+| *SocialPostsApi* | [**updateSocialCommentReactionAsync**](docs/SocialPostsApi.md#updatesocialcommentreactionasync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction |
 | *SocialPostsApi* | [**updateSocialPostAsync**](docs/SocialPostsApi.md#updatesocialpostasync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post |
 | *SocialPostsApi* | [**updateSocialPostAttachmentAsync**](docs/SocialPostsApi.md#updatesocialpostattachmentasync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment |
 | *SocialPostsApi* | [**updateSocialPostCommentAsync**](docs/SocialPostsApi.md#updatesocialpostcommentasync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment |
 | *SocialPostsApi* | [**updateSocialPostReactionAsync**](docs/SocialPostsApi.md#updatesocialpostreactionasync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction |
+| *SocialPostsApi* | [**uploadSocialPostImageAttachmentAsync**](docs/SocialPostsApi.md#uploadsocialpostimageattachmentasync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment |
 | *SocialProfilesApi* | [**countConversationsAsync**](docs/SocialProfilesApi.md#countconversationsasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Count | Count Conversations |
 | *SocialProfilesApi* | [**countFollowedProfilesAsync**](docs/SocialProfilesApi.md#countfollowedprofilesasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles/Count | Count Followed Profiles |
 | *SocialProfilesApi* | [**countFollowerProfilesAsync**](docs/SocialProfilesApi.md#countfollowerprofilesasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles/Count | Count Follower Profiles |
@@ -147,6 +154,7 @@ All URIs are relative to *https://absuite.net*
 | *SocialProfilesApi* | [**getMessagesAsync**](docs/SocialProfilesApi.md#getmessagesasync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
 | *SocialProfilesApi* | [**getNotificationByIdAsync**](docs/SocialProfilesApi.md#getnotificationbyidasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | *SocialProfilesApi* | [**getNotificationsAsync**](docs/SocialProfilesApi.md#getnotificationsasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
+| *SocialProfilesApi* | [**getOrCreateDirectConversationAsync**](docs/SocialProfilesApi.md#getorcreatedirectconversationasync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation |
 | *SocialProfilesApi* | [**getSocialProfileAsync**](docs/SocialProfilesApi.md#getsocialprofileasync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | *SocialProfilesApi* | [**getSocialProfilesAsync**](docs/SocialProfilesApi.md#getsocialprofilesasync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
 | *SocialProfilesApi* | [**unfollowAsync**](docs/SocialProfilesApi.md#unfollowasync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow |
@@ -160,13 +168,17 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.BooleanEnvelope](docs/BooleanEnvelope.md)
  - [org.openapitools.client.models.ConversationCreateDto](docs/ConversationCreateDto.md)
  - [org.openapitools.client.models.ConversationDto](docs/ConversationDto.md)
+ - [org.openapitools.client.models.ConversationDtoCollectionQueryParameters](docs/ConversationDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.ConversationDtoEnvelope](docs/ConversationDtoEnvelope.md)
  - [org.openapitools.client.models.ConversationDtoListEnvelope](docs/ConversationDtoListEnvelope.md)
  - [org.openapitools.client.models.CurriculumCreateDto](docs/CurriculumCreateDto.md)
  - [org.openapitools.client.models.CurriculumDto](docs/CurriculumDto.md)
+ - [org.openapitools.client.models.CurriculumDtoCollectionQueryParameters](docs/CurriculumDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CurriculumDtoEnvelope](docs/CurriculumDtoEnvelope.md)
  - [org.openapitools.client.models.CurriculumDtoListEnvelope](docs/CurriculumDtoListEnvelope.md)
  - [org.openapitools.client.models.CurriculumExperienceCreateDto](docs/CurriculumExperienceCreateDto.md)
  - [org.openapitools.client.models.CurriculumExperienceDto](docs/CurriculumExperienceDto.md)
+ - [org.openapitools.client.models.CurriculumExperienceDtoCollectionQueryParameters](docs/CurriculumExperienceDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.CurriculumExperienceDtoEnvelope](docs/CurriculumExperienceDtoEnvelope.md)
  - [org.openapitools.client.models.CurriculumExperienceDtoListEnvelope](docs/CurriculumExperienceDtoListEnvelope.md)
  - [org.openapitools.client.models.CurriculumExperienceUpdateDto](docs/CurriculumExperienceUpdateDto.md)
@@ -174,6 +186,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
  - [org.openapitools.client.models.FollowRecordDto](docs/FollowRecordDto.md)
+ - [org.openapitools.client.models.FollowRecordDtoCollectionQueryParameters](docs/FollowRecordDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.FollowRecordDtoListEnvelope](docs/FollowRecordDtoListEnvelope.md)
  - [org.openapitools.client.models.ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [org.openapitools.client.models.HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -182,11 +195,13 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.NotificationDto](docs/NotificationDto.md)
+ - [org.openapitools.client.models.NotificationDtoCollectionQueryParameters](docs/NotificationDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.NotificationDtoEnvelope](docs/NotificationDtoEnvelope.md)
  - [org.openapitools.client.models.NotificationDtoListEnvelope](docs/NotificationDtoListEnvelope.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.PrivateMessageCreateDto](docs/PrivateMessageCreateDto.md)
  - [org.openapitools.client.models.PrivateMessageDto](docs/PrivateMessageDto.md)
+ - [org.openapitools.client.models.PrivateMessageDtoCollectionQueryParameters](docs/PrivateMessageDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PrivateMessageDtoListEnvelope](docs/PrivateMessageDtoListEnvelope.md)
  - [org.openapitools.client.models.PrivateMessageUpdateDto](docs/PrivateMessageUpdateDto.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
@@ -195,38 +210,55 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.SkillCreateDto](docs/SkillCreateDto.md)
  - [org.openapitools.client.models.SkillDto](docs/SkillDto.md)
+ - [org.openapitools.client.models.SkillDtoCollectionQueryParameters](docs/SkillDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SkillDtoEnvelope](docs/SkillDtoEnvelope.md)
  - [org.openapitools.client.models.SkillDtoListEnvelope](docs/SkillDtoListEnvelope.md)
  - [org.openapitools.client.models.SkillUpdateDto](docs/SkillUpdateDto.md)
+ - [org.openapitools.client.models.SocialCommentReactionDto](docs/SocialCommentReactionDto.md)
+ - [org.openapitools.client.models.SocialCommentReactionDtoCollectionQueryParameters](docs/SocialCommentReactionDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.SocialCommentReactionDtoEnvelope](docs/SocialCommentReactionDtoEnvelope.md)
+ - [org.openapitools.client.models.SocialCommentReactionDtoListEnvelope](docs/SocialCommentReactionDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialFeedDto](docs/SocialFeedDto.md)
+ - [org.openapitools.client.models.SocialFeedDtoCollectionQueryParameters](docs/SocialFeedDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialFeedDtoEnvelope](docs/SocialFeedDtoEnvelope.md)
  - [org.openapitools.client.models.SocialFeedDtoListEnvelope](docs/SocialFeedDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialFeedPostCreateDto](docs/SocialFeedPostCreateDto.md)
  - [org.openapitools.client.models.SocialFeedPostDto](docs/SocialFeedPostDto.md)
+ - [org.openapitools.client.models.SocialFeedPostDtoCollectionQueryParameters](docs/SocialFeedPostDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialFeedPostDtoEnvelope](docs/SocialFeedPostDtoEnvelope.md)
  - [org.openapitools.client.models.SocialFeedPostDtoListEnvelope](docs/SocialFeedPostDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialFeedPostUpdateDto](docs/SocialFeedPostUpdateDto.md)
  - [org.openapitools.client.models.SocialGroupCreateDto](docs/SocialGroupCreateDto.md)
  - [org.openapitools.client.models.SocialGroupDto](docs/SocialGroupDto.md)
+ - [org.openapitools.client.models.SocialGroupDtoCollectionQueryParameters](docs/SocialGroupDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialGroupDtoEnvelope](docs/SocialGroupDtoEnvelope.md)
  - [org.openapitools.client.models.SocialGroupDtoListEnvelope](docs/SocialGroupDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialGroupUpdateDto](docs/SocialGroupUpdateDto.md)
  - [org.openapitools.client.models.SocialPostAttachmentCreateDto](docs/SocialPostAttachmentCreateDto.md)
  - [org.openapitools.client.models.SocialPostAttachmentDto](docs/SocialPostAttachmentDto.md)
+ - [org.openapitools.client.models.SocialPostAttachmentDtoCollectionQueryParameters](docs/SocialPostAttachmentDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialPostAttachmentDtoEnvelope](docs/SocialPostAttachmentDtoEnvelope.md)
  - [org.openapitools.client.models.SocialPostAttachmentDtoListEnvelope](docs/SocialPostAttachmentDtoListEnvelope.md)
+ - [org.openapitools.client.models.SocialPostAttachmentRefDto](docs/SocialPostAttachmentRefDto.md)
  - [org.openapitools.client.models.SocialPostAttachmentUpdateDto](docs/SocialPostAttachmentUpdateDto.md)
  - [org.openapitools.client.models.SocialPostCommentCreateDto](docs/SocialPostCommentCreateDto.md)
  - [org.openapitools.client.models.SocialPostCommentDto](docs/SocialPostCommentDto.md)
+ - [org.openapitools.client.models.SocialPostCommentDtoCollectionQueryParameters](docs/SocialPostCommentDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialPostCommentDtoEnvelope](docs/SocialPostCommentDtoEnvelope.md)
  - [org.openapitools.client.models.SocialPostCommentDtoListEnvelope](docs/SocialPostCommentDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialPostCommentUpdateDto](docs/SocialPostCommentUpdateDto.md)
  - [org.openapitools.client.models.SocialPostCreateDto](docs/SocialPostCreateDto.md)
  - [org.openapitools.client.models.SocialPostDto](docs/SocialPostDto.md)
+ - [org.openapitools.client.models.SocialPostDtoCollectionQueryParameters](docs/SocialPostDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialPostDtoEnvelope](docs/SocialPostDtoEnvelope.md)
  - [org.openapitools.client.models.SocialPostDtoListEnvelope](docs/SocialPostDtoListEnvelope.md)
+ - [org.openapitools.client.models.SocialPostReactionDto](docs/SocialPostReactionDto.md)
+ - [org.openapitools.client.models.SocialPostReactionDtoCollectionQueryParameters](docs/SocialPostReactionDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.SocialPostReactionDtoEnvelope](docs/SocialPostReactionDtoEnvelope.md)
+ - [org.openapitools.client.models.SocialPostReactionFacepileDto](docs/SocialPostReactionFacepileDto.md)
  - [org.openapitools.client.models.SocialPostUpdateDto](docs/SocialPostUpdateDto.md)
  - [org.openapitools.client.models.SocialProfileDto](docs/SocialProfileDto.md)
+ - [org.openapitools.client.models.SocialProfileDtoCollectionQueryParameters](docs/SocialProfileDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SocialProfileDtoEnvelope](docs/SocialProfileDtoEnvelope.md)
  - [org.openapitools.client.models.SocialProfileDtoListEnvelope](docs/SocialProfileDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialReactionCreateDto](docs/SocialReactionCreateDto.md)
@@ -234,8 +266,10 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.SocialReactionDtoEnvelope](docs/SocialReactionDtoEnvelope.md)
  - [org.openapitools.client.models.SocialReactionDtoListEnvelope](docs/SocialReactionDtoListEnvelope.md)
  - [org.openapitools.client.models.SocialReactionUpdateDto](docs/SocialReactionUpdateDto.md)
+ - [org.openapitools.client.models.StringEnvelope](docs/StringEnvelope.md)
  - [org.openapitools.client.models.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [org.openapitools.client.models.TwoFactorResponse](docs/TwoFactorResponse.md)
+ - [org.openapitools.client.models.UploadSocialPostImageAttachmentAsyncRequest](docs/UploadSocialPostImageAttachmentAsyncRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

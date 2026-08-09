@@ -157,7 +157,7 @@ No authorization required
 
 <a id="patchTaskTypeAsync"></a>
 # **patchTaskTypeAsync**
-> EmptyEnvelope patchTaskTypeAsync(taskTypeId, tenantId, operation)
+> EmptyEnvelope patchTaskTypeAsync(taskTypeId, tenantId, patchOperation)
 
 Patches a task type
 
@@ -172,9 +172,9 @@ Partially updates the specified task type.
 val apiInstance = TaskTypesApi()
 val taskTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTaskTypeAsync(taskTypeId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchTaskTypeAsync(taskTypeId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaskTypesApi#patchTaskTypeAsync")
@@ -190,7 +190,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

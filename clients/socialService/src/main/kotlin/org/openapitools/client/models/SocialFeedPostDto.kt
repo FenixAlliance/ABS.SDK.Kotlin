@@ -15,6 +15,8 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.SocialPostAttachmentRefDto
+import org.openapitools.client.models.SocialPostReactionFacepileDto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,7 +33,15 @@ import com.squareup.moshi.JsonClass
  * @param socialProfileAvatarUrl 
  * @param commentsCount 
  * @param reactionsCount 
+ * @param socialProfileType 
+ * @param bodyHtml 
+ * @param bodyFormat 
+ * @param backgroundStyle 
  * @param socialFeedId 
+ * @param facepile 
+ * @param attachments 
+ * @param myReaction 
+ * @param myReactionId 
  */
 
 
@@ -64,11 +74,72 @@ data class SocialFeedPostDto (
     @Json(name = "reactionsCount")
     val reactionsCount: kotlin.Int? = null,
 
+    @Json(name = "socialProfileType")
+    val socialProfileType: SocialFeedPostDto.SocialProfileType? = null,
+
+    @Json(name = "bodyHtml")
+    val bodyHtml: kotlin.String? = null,
+
+    @Json(name = "bodyFormat")
+    val bodyFormat: SocialFeedPostDto.BodyFormat? = null,
+
+    @Json(name = "backgroundStyle")
+    val backgroundStyle: kotlin.String? = null,
+
     @Json(name = "socialFeedId")
-    val socialFeedId: kotlin.String? = null
+    val socialFeedId: kotlin.String? = null,
+
+    @Json(name = "facepile")
+    val facepile: kotlin.collections.List<SocialPostReactionFacepileDto>? = null,
+
+    @Json(name = "attachments")
+    val attachments: kotlin.collections.List<SocialPostAttachmentRefDto>? = null,
+
+    @Json(name = "myReaction")
+    val myReaction: SocialFeedPostDto.MyReaction? = null,
+
+    @Json(name = "myReactionId")
+    val myReactionId: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: User,Tenant,Contact
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SocialProfileType(val value: kotlin.String) {
+        @Json(name = "User") User("User"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Contact") Contact("Contact");
+    }
+    /**
+     * 
+     *
+     * Values: PlainText,Html
+     */
+    @JsonClass(generateAdapter = false)
+    enum class BodyFormat(val value: kotlin.String) {
+        @Json(name = "PlainText") PlainText("PlainText"),
+        @Json(name = "Html") Html("Html");
+    }
+    /**
+     * 
+     *
+     * Values: Like,Happy,HaHa,Love,Sad,Angry,Wow,Afraid
+     */
+    @JsonClass(generateAdapter = false)
+    enum class MyReaction(val value: kotlin.String) {
+        @Json(name = "Like") Like("Like"),
+        @Json(name = "Happy") Happy("Happy"),
+        @Json(name = "HaHa") HaHa("HaHa"),
+        @Json(name = "Love") Love("Love"),
+        @Json(name = "Sad") Sad("Sad"),
+        @Json(name = "Angry") Angry("Angry"),
+        @Json(name = "Wow") Wow("Wow"),
+        @Json(name = "Afraid") Afraid("Afraid");
+    }
 
 }
 

@@ -23,14 +23,16 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemPackingSlipCreateDto
+import org.openapitools.client.models.ItemPackingSlipDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemPackingSlipDtoEnvelope
 import org.openapitools.client.models.ItemPackingSlipDtoListEnvelope
 import org.openapitools.client.models.ItemPackingSlipEntryCreateDto
+import org.openapitools.client.models.ItemPackingSlipEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemPackingSlipEntryDtoEnvelope
 import org.openapitools.client.models.ItemPackingSlipEntryDtoListEnvelope
 import org.openapitools.client.models.ItemPackingSlipEntryUpdateDto
 import org.openapitools.client.models.ItemPackingSlipUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -506,6 +508,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ItemPackingSlipEntryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -515,8 +518,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPackingSlipEntriesAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPackingSlipEntryDtoListEnvelope {
-        val localVarResponse = getItemPackingSlipEntriesAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipEntriesAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters? = null) : ItemPackingSlipEntryDtoListEnvelope {
+        val localVarResponse = getItemPackingSlipEntriesAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters = itemPackingSlipEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPackingSlipEntryDtoListEnvelope
@@ -540,16 +543,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemPackingSlipEntryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPackingSlipEntriesAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPackingSlipEntryDtoListEnvelope?> {
-        val localVariableConfig = getItemPackingSlipEntriesAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipEntriesAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters?) : ApiResponse<ItemPackingSlipEntryDtoListEnvelope?> {
+        val localVariableConfig = getItemPackingSlipEntriesAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters = itemPackingSlipEntryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemPackingSlipEntryDtoListEnvelope>(
+        return request<ItemPackingSlipEntryDtoCollectionQueryParameters, ItemPackingSlipEntryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -561,10 +565,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPackingSlipEntriesAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPackingSlipEntriesAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters?) : RequestConfig<ItemPackingSlipEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemPackingSlipEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -574,6 +579,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -593,6 +599,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -602,8 +609,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPackingSlipEntriesCountAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemPackingSlipEntriesCountAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipEntriesCountAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemPackingSlipEntriesCountAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters = itemPackingSlipEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -627,16 +634,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPackingSlipEntriesCountAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemPackingSlipEntriesCountAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipEntriesCountAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemPackingSlipEntriesCountAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters = itemPackingSlipEntryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemPackingSlipEntryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -648,10 +656,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPackingSlipEntriesCountAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPackingSlipEntriesCountAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipEntryDtoCollectionQueryParameters: ItemPackingSlipEntryDtoCollectionQueryParameters?) : RequestConfig<ItemPackingSlipEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemPackingSlipEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -661,6 +670,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -769,6 +779,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ItemPackingSlipDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -778,8 +789,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPackingSlipsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPackingSlipDtoListEnvelope {
-        val localVarResponse = getItemPackingSlipsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters? = null) : ItemPackingSlipDtoListEnvelope {
+        val localVarResponse = getItemPackingSlipsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipDtoCollectionQueryParameters = itemPackingSlipDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPackingSlipDtoListEnvelope
@@ -802,16 +813,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemPackingSlipDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPackingSlipsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPackingSlipDtoListEnvelope?> {
-        val localVariableConfig = getItemPackingSlipsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters?) : ApiResponse<ItemPackingSlipDtoListEnvelope?> {
+        val localVariableConfig = getItemPackingSlipsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipDtoCollectionQueryParameters = itemPackingSlipDtoCollectionQueryParameters)
 
-        return request<Unit, ItemPackingSlipDtoListEnvelope>(
+        return request<ItemPackingSlipDtoCollectionQueryParameters, ItemPackingSlipDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -822,10 +834,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPackingSlipsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPackingSlipsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters?) : RequestConfig<ItemPackingSlipDtoCollectionQueryParameters> {
+        val localVariableBody = itemPackingSlipDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -835,6 +848,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -853,6 +867,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -862,8 +877,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPackingSlipsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemPackingSlipsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemPackingSlipsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipDtoCollectionQueryParameters = itemPackingSlipDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -886,16 +901,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPackingSlipsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemPackingSlipsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPackingSlipsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemPackingSlipsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPackingSlipDtoCollectionQueryParameters = itemPackingSlipDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemPackingSlipDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -906,10 +922,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPackingSlipsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPackingSlipsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPackingSlipDtoCollectionQueryParameters: ItemPackingSlipDtoCollectionQueryParameters?) : RequestConfig<ItemPackingSlipDtoCollectionQueryParameters> {
+        val localVariableBody = itemPackingSlipDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -919,6 +936,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -938,7 +956,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -948,8 +966,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemPackingSlipAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemPackingSlipAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPackingSlipAsync(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemPackingSlipAsyncWithHttpInfo(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -973,17 +991,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemPackingSlipAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemPackingSlipAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPackingSlipAsyncWithHttpInfo(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemPackingSlipAsyncRequestConfig(packingSlipId = packingSlipId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -995,11 +1013,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemPackingSlipAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemPackingSlipAsyncRequestConfig(packingSlipId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1030,7 +1048,7 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1040,8 +1058,8 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemPackingSlipEntryAsync(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemPackingSlipEntryAsyncWithHttpInfo(packingSlipId = packingSlipId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPackingSlipEntryAsync(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemPackingSlipEntryAsyncWithHttpInfo(packingSlipId = packingSlipId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1066,17 +1084,17 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemPackingSlipEntryAsyncWithHttpInfo(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemPackingSlipEntryAsyncRequestConfig(packingSlipId = packingSlipId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPackingSlipEntryAsyncWithHttpInfo(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemPackingSlipEntryAsyncRequestConfig(packingSlipId = packingSlipId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1089,11 +1107,11 @@ class ItemPackingSlipsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemPackingSlipEntryAsyncRequestConfig(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemPackingSlipEntryAsyncRequestConfig(packingSlipId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

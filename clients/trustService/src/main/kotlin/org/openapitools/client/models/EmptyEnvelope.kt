@@ -26,6 +26,9 @@ import com.squareup.moshi.JsonClass
  * @param errorMessage 
  * @param correlationId 
  * @param timestamp 
+ * @param httpStatus 
+ * @param errorCode 
+ * @param validationDetails 
  * @param activityId 
  */
 
@@ -43,6 +46,15 @@ data class EmptyEnvelope (
 
     @Json(name = "timestamp")
     val timestamp: java.time.OffsetDateTime? = null,
+
+    @Json(name = "httpStatus")
+    val httpStatus: kotlin.Int? = null,
+
+    @Json(name = "errorCode")
+    val errorCode: kotlin.String? = null,
+
+    @Json(name = "validationDetails")
+    val validationDetails: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null,
 
     @Json(name = "activityId")
     val activityId: kotlin.String? = null

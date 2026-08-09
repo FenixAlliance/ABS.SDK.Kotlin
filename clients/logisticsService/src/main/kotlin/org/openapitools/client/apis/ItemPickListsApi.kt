@@ -23,14 +23,16 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemPickListCreateDto
+import org.openapitools.client.models.ItemPickListDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemPickListDtoEnvelope
 import org.openapitools.client.models.ItemPickListDtoListEnvelope
 import org.openapitools.client.models.ItemPickListEntryCreateDto
+import org.openapitools.client.models.ItemPickListEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemPickListEntryDtoEnvelope
 import org.openapitools.client.models.ItemPickListEntryDtoListEnvelope
 import org.openapitools.client.models.ItemPickListEntryUpdateDto
 import org.openapitools.client.models.ItemPickListUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -506,6 +508,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ItemPickListEntryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -515,8 +518,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPickListEntriesAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPickListEntryDtoListEnvelope {
-        val localVarResponse = getItemPickListEntriesAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListEntriesAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters? = null) : ItemPickListEntryDtoListEnvelope {
+        val localVarResponse = getItemPickListEntriesAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListEntryDtoCollectionQueryParameters = itemPickListEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPickListEntryDtoListEnvelope
@@ -540,16 +543,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemPickListEntryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPickListEntriesAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPickListEntryDtoListEnvelope?> {
-        val localVariableConfig = getItemPickListEntriesAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListEntriesAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters?) : ApiResponse<ItemPickListEntryDtoListEnvelope?> {
+        val localVariableConfig = getItemPickListEntriesAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListEntryDtoCollectionQueryParameters = itemPickListEntryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemPickListEntryDtoListEnvelope>(
+        return request<ItemPickListEntryDtoCollectionQueryParameters, ItemPickListEntryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -561,10 +565,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPickListEntriesAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPickListEntriesAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters?) : RequestConfig<ItemPickListEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemPickListEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -574,6 +579,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -593,6 +599,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -602,8 +609,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPickListEntriesCountAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemPickListEntriesCountAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListEntriesCountAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemPickListEntriesCountAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListEntryDtoCollectionQueryParameters = itemPickListEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -627,16 +634,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPickListEntriesCountAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemPickListEntriesCountAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListEntriesCountAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemPickListEntriesCountAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListEntryDtoCollectionQueryParameters = itemPickListEntryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemPickListEntryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -648,10 +656,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPickListEntriesCountAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPickListEntriesCountAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListEntryDtoCollectionQueryParameters: ItemPickListEntryDtoCollectionQueryParameters?) : RequestConfig<ItemPickListEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemPickListEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -661,6 +670,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -769,6 +779,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ItemPickListDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -778,8 +789,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPickListsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemPickListDtoListEnvelope {
-        val localVarResponse = getItemPickListsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters? = null) : ItemPickListDtoListEnvelope {
+        val localVarResponse = getItemPickListsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListDtoCollectionQueryParameters = itemPickListDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemPickListDtoListEnvelope
@@ -802,16 +813,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemPickListDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPickListsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemPickListDtoListEnvelope?> {
-        val localVariableConfig = getItemPickListsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters?) : ApiResponse<ItemPickListDtoListEnvelope?> {
+        val localVariableConfig = getItemPickListsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListDtoCollectionQueryParameters = itemPickListDtoCollectionQueryParameters)
 
-        return request<Unit, ItemPickListDtoListEnvelope>(
+        return request<ItemPickListDtoCollectionQueryParameters, ItemPickListDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -822,10 +834,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPickListsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPickListsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters?) : RequestConfig<ItemPickListDtoCollectionQueryParameters> {
+        val localVariableBody = itemPickListDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -835,6 +848,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -853,6 +867,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -862,8 +877,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemPickListsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemPickListsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemPickListsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListDtoCollectionQueryParameters = itemPickListDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -886,16 +901,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemPickListsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemPickListsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemPickListsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemPickListsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemPickListDtoCollectionQueryParameters = itemPickListDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemPickListDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -906,10 +922,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemPickListsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemPickListsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemPickListDtoCollectionQueryParameters: ItemPickListDtoCollectionQueryParameters?) : RequestConfig<ItemPickListDtoCollectionQueryParameters> {
+        val localVariableBody = itemPickListDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -919,6 +936,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -938,7 +956,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -948,8 +966,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemPickListAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemPickListAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPickListAsync(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemPickListAsyncWithHttpInfo(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -973,17 +991,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemPickListAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemPickListAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPickListAsyncWithHttpInfo(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemPickListAsyncRequestConfig(pickListId = pickListId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -995,11 +1013,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemPickListAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemPickListAsyncRequestConfig(pickListId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1030,7 +1048,7 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1040,8 +1058,8 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemPickListEntryAsync(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemPickListEntryAsyncWithHttpInfo(pickListId = pickListId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPickListEntryAsync(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemPickListEntryAsyncWithHttpInfo(pickListId = pickListId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1066,17 +1084,17 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemPickListEntryAsyncWithHttpInfo(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemPickListEntryAsyncRequestConfig(pickListId = pickListId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemPickListEntryAsyncWithHttpInfo(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemPickListEntryAsyncRequestConfig(pickListId = pickListId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1089,11 +1107,11 @@ class ItemPickListsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemPickListEntryAsyncRequestConfig(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemPickListEntryAsyncRequestConfig(pickListId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

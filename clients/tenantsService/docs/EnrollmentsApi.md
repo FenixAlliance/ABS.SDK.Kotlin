@@ -121,7 +121,7 @@ No authorization required
 
 <a id="getExtendedTenantEnrollments"></a>
 # **getExtendedTenantEnrollments**
-> TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion)
+> TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant enrollments
 
@@ -137,8 +137,9 @@ val apiInstance = EnrollmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedTenantEnrollmentDtoCollectionQueryParameters : ExtendedTenantEnrollmentDtoCollectionQueryParameters =  // ExtendedTenantEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : TenantEnrollmentDtoListEnvelope = apiInstance.getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion)
+    val result : TenantEnrollmentDtoListEnvelope = apiInstance.getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EnrollmentsApi#getExtendedTenantEnrollments")
@@ -152,9 +153,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedTenantEnrollmentDtoCollectionQueryParameters** | [**ExtendedTenantEnrollmentDtoCollectionQueryParameters**](ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -166,12 +168,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedTenantEnrollmentsCount"></a>
 # **getExtendedTenantEnrollmentsCount**
-> Int32Envelope getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
 
 Get the count of tenant enrollments
 
@@ -187,8 +189,9 @@ val apiInstance = EnrollmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedTenantEnrollmentDtoCollectionQueryParameters : ExtendedTenantEnrollmentDtoCollectionQueryParameters =  // ExtendedTenantEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EnrollmentsApi#getExtendedTenantEnrollmentsCount")
@@ -202,9 +205,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedTenantEnrollmentDtoCollectionQueryParameters** | [**ExtendedTenantEnrollmentDtoCollectionQueryParameters**](ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,7 +220,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantEnrollmentById"></a>
@@ -275,7 +279,7 @@ No authorization required
 
 <a id="getTenantEnrollments"></a>
 # **getTenantEnrollments**
-> TenantEnrollmentDtoListEnvelope getTenantEnrollments(tenantId, apiVersion, xApiVersion)
+> TenantEnrollmentDtoListEnvelope getTenantEnrollments(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant enrollments
 
@@ -291,8 +295,9 @@ val apiInstance = EnrollmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantEnrollmentDtoCollectionQueryParameters : TenantEnrollmentDtoCollectionQueryParameters =  // TenantEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : TenantEnrollmentDtoListEnvelope = apiInstance.getTenantEnrollments(tenantId, apiVersion, xApiVersion)
+    val result : TenantEnrollmentDtoListEnvelope = apiInstance.getTenantEnrollments(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EnrollmentsApi#getTenantEnrollments")
@@ -306,9 +311,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantEnrollmentDtoCollectionQueryParameters** | [**TenantEnrollmentDtoCollectionQueryParameters**](TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -320,12 +326,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantEnrollmentsCount"></a>
 # **getTenantEnrollmentsCount**
-> Int32Envelope getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
 
 Get the count of tenant enrollments
 
@@ -341,8 +347,9 @@ val apiInstance = EnrollmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantEnrollmentDtoCollectionQueryParameters : TenantEnrollmentDtoCollectionQueryParameters =  // TenantEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EnrollmentsApi#getTenantEnrollmentsCount")
@@ -356,9 +363,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantEnrollmentDtoCollectionQueryParameters** | [**TenantEnrollmentDtoCollectionQueryParameters**](TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -370,12 +378,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTenantEnrollmentAsync"></a>
 # **patchTenantEnrollmentAsync**
-> EmptyEnvelope patchTenantEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant enrollment
 
@@ -392,9 +400,9 @@ val enrollmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTenantEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTenantEnrollmentAsync(enrollmentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EnrollmentsApi#patchTenantEnrollmentAsync")
@@ -412,7 +420,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

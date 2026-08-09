@@ -117,7 +117,7 @@ No authorization required
 
 <a id="getItemShippingPoliciesAsync"></a>
 # **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get all item shipping policies
 
@@ -133,8 +133,9 @@ val apiInstance = ItemShippingPoliciesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemShippingPolicyDtoCollectionQueryParameters : ItemShippingPolicyDtoCollectionQueryParameters =  // ItemShippingPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemShippingPolicyDtoListEnvelope = apiInstance.getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync")
@@ -148,9 +149,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -162,12 +164,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemShippingPoliciesCountAsync"></a>
 # **getItemShippingPoliciesCountAsync**
-> Int32Envelope getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get item shipping policies count
 
@@ -183,8 +185,9 @@ val apiInstance = ItemShippingPoliciesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemShippingPolicyDtoCollectionQueryParameters : ItemShippingPolicyDtoCollectionQueryParameters =  // ItemShippingPolicyDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#getItemShippingPoliciesCountAsync")
@@ -198,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemShippingPolicyByIdAsync"></a>
@@ -269,7 +273,7 @@ No authorization required
 
 <a id="patchItemShippingPolicyAsync"></a>
 # **patchItemShippingPolicyAsync**
-> EmptyEnvelope patchItemShippingPolicyAsync(policyId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemShippingPolicyAsync(policyId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item shipping policy
 
@@ -286,9 +290,9 @@ val policyId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemShippingPolicyAsync(policyId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemShippingPolicyAsync(policyId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemShippingPoliciesApi#patchItemShippingPolicyAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

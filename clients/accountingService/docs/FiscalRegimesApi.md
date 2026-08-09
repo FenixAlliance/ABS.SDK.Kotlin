@@ -173,7 +173,7 @@ No authorization required
 
 <a id="getFiscalRegimes"></a>
 # **getFiscalRegimes**
-> FiscalRegimeDtoListEnvelope getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> FiscalRegimeDtoListEnvelope getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
 
 Get fiscal regimes for an authority
 
@@ -191,8 +191,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalRegimeDtoCollectionQueryParameters : FiscalRegimeDtoCollectionQueryParameters =  // FiscalRegimeDtoCollectionQueryParameters | 
 try {
-    val result : FiscalRegimeDtoListEnvelope = apiInstance.getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : FiscalRegimeDtoListEnvelope = apiInstance.getFiscalRegimes(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalRegimesApi#getFiscalRegimes")
@@ -208,9 +209,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalRegimeDtoCollectionQueryParameters** | [**FiscalRegimeDtoCollectionQueryParameters**](FiscalRegimeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -222,12 +224,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalRegimesCount"></a>
 # **getFiscalRegimesCount**
-> Int32Envelope getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
 
 Get fiscal regimes count
 
@@ -244,8 +246,9 @@ val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d //
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalRegimeDtoCollectionQueryParameters : FiscalRegimeDtoCollectionQueryParameters =  // FiscalRegimeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalRegimesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalRegimesApi#getFiscalRegimesCount")
@@ -260,9 +263,10 @@ try {
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalRegimeDtoCollectionQueryParameters** | [**FiscalRegimeDtoCollectionQueryParameters**](FiscalRegimeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,12 +278,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchFiscalRegimeAsync"></a>
 # **patchFiscalRegimeAsync**
-> EmptyEnvelope patchFiscalRegimeAsync(regimeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalRegimeAsync(regimeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal regime
 
@@ -296,9 +300,9 @@ val regimeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalRegimeAsync(regimeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalRegimeAsync(regimeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalRegimesApi#patchFiscalRegimeAsync")
@@ -316,7 +320,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

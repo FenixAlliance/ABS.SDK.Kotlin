@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getShippingRegionsAsync"></a>
 # **getShippingRegionsAsync**
-> ShippingRegionDtoListEnvelope getShippingRegionsAsync(tenantId, apiVersion, xApiVersion)
+> ShippingRegionDtoListEnvelope getShippingRegionsAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
 
 Get all shipping regions
 
@@ -185,8 +185,9 @@ val apiInstance = ShippingRegionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shippingRegionDtoCollectionQueryParameters : ShippingRegionDtoCollectionQueryParameters =  // ShippingRegionDtoCollectionQueryParameters | 
 try {
-    val result : ShippingRegionDtoListEnvelope = apiInstance.getShippingRegionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ShippingRegionDtoListEnvelope = apiInstance.getShippingRegionsAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingRegionsApi#getShippingRegionsAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shippingRegionDtoCollectionQueryParameters** | [**ShippingRegionDtoCollectionQueryParameters**](ShippingRegionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShippingRegionsCountAsync"></a>
 # **getShippingRegionsCountAsync**
-> Int32Envelope getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
 
 Get shipping regions count
 
@@ -235,8 +237,9 @@ val apiInstance = ShippingRegionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shippingRegionDtoCollectionQueryParameters : ShippingRegionDtoCollectionQueryParameters =  // ShippingRegionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingRegionsApi#getShippingRegionsCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shippingRegionDtoCollectionQueryParameters** | [**ShippingRegionDtoCollectionQueryParameters**](ShippingRegionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchShippingRegionAsync"></a>
 # **patchShippingRegionAsync**
-> EmptyEnvelope patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping region
 
@@ -286,9 +290,9 @@ val regionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShippingRegionAsync(regionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingRegionsApi#patchShippingRegionAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

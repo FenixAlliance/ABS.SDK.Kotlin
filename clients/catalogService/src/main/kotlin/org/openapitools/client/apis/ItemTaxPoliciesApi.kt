@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.ItemTaxPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemTaxPolicyDtoEnvelope
 import org.openapitools.client.models.ItemTaxPolicyDtoListEnvelope
 
@@ -55,6 +56,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -64,8 +66,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -89,16 +91,17 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemTaxPolicyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -110,10 +113,11 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemTaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemTaxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -128,6 +132,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -147,6 +152,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemTaxPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -156,8 +162,8 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyDtoListEnvelope {
-        val localVarResponse = getItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters? = null) : ItemTaxPolicyDtoListEnvelope {
+        val localVarResponse = getItemTaxPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTaxPolicyDtoListEnvelope
@@ -181,16 +187,17 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemTaxPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
-        val localVariableConfig = getItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemTaxPolicyDtoListEnvelope?> {
+        val localVariableConfig = getItemTaxPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyDtoCollectionQueryParameters = itemTaxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemTaxPolicyDtoListEnvelope>(
+        return request<ItemTaxPolicyDtoCollectionQueryParameters, ItemTaxPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -202,10 +209,11 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemTaxPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyDtoCollectionQueryParameters: ItemTaxPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemTaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemTaxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -220,6 +228,7 @@ class ItemTaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

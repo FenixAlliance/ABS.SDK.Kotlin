@@ -22,11 +22,13 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.UnitCreateDto
+import org.openapitools.client.models.UnitDtoCollectionQueryParameters
 import org.openapitools.client.models.UnitDtoEnvelope
 import org.openapitools.client.models.UnitDtoListEnvelope
 import org.openapitools.client.models.UnitGroupCreateDto
+import org.openapitools.client.models.UnitGroupDtoCollectionQueryParameters
 import org.openapitools.client.models.UnitGroupDtoEnvelope
 import org.openapitools.client.models.UnitGroupDtoListEnvelope
 import org.openapitools.client.models.UnitGroupUpdateDto
@@ -595,6 +597,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return UnitGroupDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -604,8 +607,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUnitGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : UnitGroupDtoListEnvelope {
-        val localVarResponse = getUnitGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters? = null) : UnitGroupDtoListEnvelope {
+        val localVarResponse = getUnitGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitGroupDtoCollectionQueryParameters = unitGroupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as UnitGroupDtoListEnvelope
@@ -628,16 +631,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<UnitGroupDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUnitGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<UnitGroupDtoListEnvelope?> {
-        val localVariableConfig = getUnitGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters?) : ApiResponse<UnitGroupDtoListEnvelope?> {
+        val localVariableConfig = getUnitGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitGroupDtoCollectionQueryParameters = unitGroupDtoCollectionQueryParameters)
 
-        return request<Unit, UnitGroupDtoListEnvelope>(
+        return request<UnitGroupDtoCollectionQueryParameters, UnitGroupDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -648,10 +652,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getUnitGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getUnitGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters?) : RequestConfig<UnitGroupDtoCollectionQueryParameters> {
+        val localVariableBody = unitGroupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -661,6 +666,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -679,6 +685,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -688,8 +695,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUnitGroupsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getUnitGroupsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitGroupsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getUnitGroupsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitGroupDtoCollectionQueryParameters = unitGroupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -712,16 +719,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUnitGroupsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getUnitGroupsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitGroupsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getUnitGroupsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitGroupDtoCollectionQueryParameters = unitGroupDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<UnitGroupDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -732,10 +740,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getUnitGroupsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getUnitGroupsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitGroupDtoCollectionQueryParameters: UnitGroupDtoCollectionQueryParameters?) : RequestConfig<UnitGroupDtoCollectionQueryParameters> {
+        val localVariableBody = unitGroupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -745,6 +754,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -764,6 +774,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return UnitDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -773,8 +784,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUnitsAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : UnitDtoListEnvelope {
-        val localVarResponse = getUnitsAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitsAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters? = null) : UnitDtoListEnvelope {
+        val localVarResponse = getUnitsAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitDtoCollectionQueryParameters = unitDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as UnitDtoListEnvelope
@@ -798,16 +809,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<UnitDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUnitsAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<UnitDtoListEnvelope?> {
-        val localVariableConfig = getUnitsAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitsAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters?) : ApiResponse<UnitDtoListEnvelope?> {
+        val localVariableConfig = getUnitsAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitDtoCollectionQueryParameters = unitDtoCollectionQueryParameters)
 
-        return request<Unit, UnitDtoListEnvelope>(
+        return request<UnitDtoCollectionQueryParameters, UnitDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -819,10 +831,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getUnitsAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getUnitsAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters?) : RequestConfig<UnitDtoCollectionQueryParameters> {
+        val localVariableBody = unitDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -832,6 +845,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -851,6 +865,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -860,8 +875,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUnitsCountAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getUnitsCountAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitsCountAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getUnitsCountAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitDtoCollectionQueryParameters = unitDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -885,16 +900,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getUnitsCountAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getUnitsCountAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getUnitsCountAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getUnitsCountAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, unitDtoCollectionQueryParameters = unitDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<UnitDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -906,10 +922,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getUnitsCountAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getUnitsCountAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, unitDtoCollectionQueryParameters: UnitDtoCollectionQueryParameters?) : RequestConfig<UnitDtoCollectionQueryParameters> {
+        val localVariableBody = unitDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -919,6 +936,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -939,7 +957,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -949,8 +967,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchUnitAsync(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchUnitAsyncWithHttpInfo(unitGroupId = unitGroupId, unitId = unitId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchUnitAsync(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchUnitAsyncWithHttpInfo(unitGroupId = unitGroupId, unitId = unitId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -975,17 +993,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchUnitAsyncWithHttpInfo(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchUnitAsyncRequestConfig(unitGroupId = unitGroupId, unitId = unitId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchUnitAsyncWithHttpInfo(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchUnitAsyncRequestConfig(unitGroupId = unitGroupId, unitId = unitId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -998,11 +1016,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchUnitAsyncRequestConfig(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchUnitAsyncRequestConfig(unitGroupId: kotlin.String, unitId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1032,7 +1050,7 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1042,8 +1060,8 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchUnitGroupAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchUnitGroupAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchUnitGroupAsync(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchUnitGroupAsyncWithHttpInfo(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1067,17 +1085,17 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchUnitGroupAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchUnitGroupAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchUnitGroupAsyncWithHttpInfo(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchUnitGroupAsyncRequestConfig(unitGroupId = unitGroupId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1089,11 +1107,11 @@ class UnitGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchUnitGroupAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchUnitGroupAsyncRequestConfig(unitGroupId: kotlin.String, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

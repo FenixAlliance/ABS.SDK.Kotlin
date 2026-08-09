@@ -954,7 +954,7 @@ No authorization required
 
 <a id="getExtendedInvoices"></a>
 # **getExtendedInvoices**
-> ExtendedInvoiceDtoListEnvelope getExtendedInvoices(tenantId)
+> ExtendedInvoiceDtoListEnvelope getExtendedInvoices(tenantId, extendedInvoiceDtoCollectionQueryParameters)
 
 Get a list of extended invoices.
 
@@ -968,8 +968,9 @@ Retrieves a list of extended invoice details for the specified tenant.
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedInvoiceDtoCollectionQueryParameters : ExtendedInvoiceDtoCollectionQueryParameters =  // ExtendedInvoiceDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedInvoiceDtoListEnvelope = apiInstance.getExtendedInvoices(tenantId)
+    val result : ExtendedInvoiceDtoListEnvelope = apiInstance.getExtendedInvoices(tenantId, extendedInvoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getExtendedInvoices")
@@ -981,9 +982,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -995,12 +997,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedInvoicesCount"></a>
 # **getExtendedInvoicesCount**
-> Int32Envelope getExtendedInvoicesCount(tenantId)
+> Int32Envelope getExtendedInvoicesCount(tenantId, extendedInvoiceDtoCollectionQueryParameters)
 
 Get the count of extended invoices.
 
@@ -1014,8 +1016,9 @@ Retrieves the total count of extended invoices for the specified tenant.
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedInvoiceDtoCollectionQueryParameters : ExtendedInvoiceDtoCollectionQueryParameters =  // ExtendedInvoiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getExtendedInvoicesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getExtendedInvoicesCount(tenantId, extendedInvoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getExtendedInvoicesCount")
@@ -1027,9 +1030,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1041,7 +1045,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoice"></a>
@@ -1144,7 +1148,7 @@ No authorization required
 
 <a id="getInvoiceAdjustments"></a>
 # **getInvoiceAdjustments**
-> InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(invoiceId, tenantId)
+> InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(invoiceId, tenantId, invoiceAdjustmentDtoCollectionQueryParameters)
 
 Get invoice adjustments.
 
@@ -1159,8 +1163,9 @@ Retrieves the adjustments for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceAdjustmentDtoCollectionQueryParameters : InvoiceAdjustmentDtoCollectionQueryParameters =  // InvoiceAdjustmentDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceAdjustmentDtoIReadOnlyListEnvelope = apiInstance.getInvoiceAdjustments(invoiceId, tenantId)
+    val result : InvoiceAdjustmentDtoIReadOnlyListEnvelope = apiInstance.getInvoiceAdjustments(invoiceId, tenantId, invoiceAdjustmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceAdjustments")
@@ -1173,9 +1178,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1187,12 +1193,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceAdjustmentsCount"></a>
 # **getInvoiceAdjustmentsCount**
-> Int32Envelope getInvoiceAdjustmentsCount(invoiceId, tenantId)
+> Int32Envelope getInvoiceAdjustmentsCount(invoiceId, tenantId, invoiceAdjustmentDtoCollectionQueryParameters)
 
 Get the count of invoice adjustments.
 
@@ -1207,8 +1213,9 @@ Retrieves the total count of adjustments for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceAdjustmentDtoCollectionQueryParameters : InvoiceAdjustmentDtoCollectionQueryParameters =  // InvoiceAdjustmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceAdjustmentsCount(invoiceId, tenantId)
+    val result : Int32Envelope = apiInstance.getInvoiceAdjustmentsCount(invoiceId, tenantId, invoiceAdjustmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceAdjustmentsCount")
@@ -1221,9 +1228,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1235,7 +1243,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceLine"></a>
@@ -1290,7 +1298,7 @@ No authorization required
 
 <a id="getInvoiceLineTaxes"></a>
 # **getInvoiceLineTaxes**
-> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(invoiceId, invoiceLineId, tenantId)
+> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(invoiceId, invoiceLineId, tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
 Get taxes for an invoice line.
 
@@ -1306,8 +1314,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineAppliedTaxDtoCollectionQueryParameters : InvoiceLineAppliedTaxDtoCollectionQueryParameters =  // InvoiceLineAppliedTaxDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope = apiInstance.getInvoiceLineTaxes(invoiceId, invoiceLineId, tenantId)
+    val result : InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope = apiInstance.getInvoiceLineTaxes(invoiceId, invoiceLineId, tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceLineTaxes")
@@ -1321,9 +1330,10 @@ try {
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
 | **invoiceLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1335,12 +1345,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceLineTaxesCount"></a>
 # **getInvoiceLineTaxesCount**
-> Int32Envelope getInvoiceLineTaxesCount(invoiceId, invoiceLineId, tenantId)
+> Int32Envelope getInvoiceLineTaxesCount(invoiceId, invoiceLineId, tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
 Get the count of taxes for an invoice line.
 
@@ -1356,8 +1366,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineAppliedTaxDtoCollectionQueryParameters : InvoiceLineAppliedTaxDtoCollectionQueryParameters =  // InvoiceLineAppliedTaxDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceLineTaxesCount(invoiceId, invoiceLineId, tenantId)
+    val result : Int32Envelope = apiInstance.getInvoiceLineTaxesCount(invoiceId, invoiceLineId, tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceLineTaxesCount")
@@ -1371,9 +1382,10 @@ try {
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
 | **invoiceLineId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1385,12 +1397,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceLines"></a>
 # **getInvoiceLines**
-> InvoiceLineDtoListEnvelope getInvoiceLines(invoiceId, tenantId, itemId)
+> InvoiceLineDtoListEnvelope getInvoiceLines(invoiceId, tenantId, itemId, invoiceLineDtoCollectionQueryParameters)
 
 Get invoice lines.
 
@@ -1406,8 +1418,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineDtoCollectionQueryParameters : InvoiceLineDtoCollectionQueryParameters =  // InvoiceLineDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceLineDtoListEnvelope = apiInstance.getInvoiceLines(invoiceId, tenantId, itemId)
+    val result : InvoiceLineDtoListEnvelope = apiInstance.getInvoiceLines(invoiceId, tenantId, itemId, invoiceLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceLines")
@@ -1421,9 +1434,10 @@ try {
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **itemId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
+| **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1435,12 +1449,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceLinesCount"></a>
 # **getInvoiceLinesCount**
-> Int32Envelope getInvoiceLinesCount(invoiceId, tenantId)
+> Int32Envelope getInvoiceLinesCount(invoiceId, tenantId, invoiceLineDtoCollectionQueryParameters)
 
 Get the count of invoice lines.
 
@@ -1455,8 +1469,9 @@ Retrieves the total count of invoice lines for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceLineDtoCollectionQueryParameters : InvoiceLineDtoCollectionQueryParameters =  // InvoiceLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceLinesCount(invoiceId, tenantId)
+    val result : Int32Envelope = apiInstance.getInvoiceLinesCount(invoiceId, tenantId, invoiceLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceLinesCount")
@@ -1469,9 +1484,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1483,12 +1499,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoicePayments"></a>
 # **getInvoicePayments**
-> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(invoiceId, tenantId)
+> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(invoiceId, tenantId, paymentDtoCollectionQueryParameters)
 
 Get payments for an invoice.
 
@@ -1503,8 +1519,9 @@ Retrieves the list of payments related to the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : PaymentDtoIReadOnlyListEnvelope = apiInstance.getInvoicePayments(invoiceId, tenantId)
+    val result : PaymentDtoIReadOnlyListEnvelope = apiInstance.getInvoicePayments(invoiceId, tenantId, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoicePayments")
@@ -1517,9 +1534,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1531,12 +1549,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoicePaymentsCount"></a>
 # **getInvoicePaymentsCount**
-> Int32Envelope getInvoicePaymentsCount(invoiceId, tenantId)
+> Int32Envelope getInvoicePaymentsCount(invoiceId, tenantId, paymentDtoCollectionQueryParameters)
 
 Get the count of payments for an invoice.
 
@@ -1551,8 +1569,9 @@ Retrieves the total count of payments for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoicePaymentsCount(invoiceId, tenantId)
+    val result : Int32Envelope = apiInstance.getInvoicePaymentsCount(invoiceId, tenantId, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoicePaymentsCount")
@@ -1565,9 +1584,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1579,7 +1599,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceReference"></a>
@@ -1634,7 +1654,7 @@ No authorization required
 
 <a id="getInvoiceReferences"></a>
 # **getInvoiceReferences**
-> InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(invoiceId, tenantId)
+> InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(invoiceId, tenantId, invoiceReferenceDtoCollectionQueryParameters)
 
 Get invoice references.
 
@@ -1649,8 +1669,9 @@ Retrieves the references for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceReferenceDtoCollectionQueryParameters : InvoiceReferenceDtoCollectionQueryParameters =  // InvoiceReferenceDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceReferenceDtoIReadOnlyListEnvelope = apiInstance.getInvoiceReferences(invoiceId, tenantId)
+    val result : InvoiceReferenceDtoIReadOnlyListEnvelope = apiInstance.getInvoiceReferences(invoiceId, tenantId, invoiceReferenceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceReferences")
@@ -1663,9 +1684,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1677,12 +1699,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoiceReferencesCount"></a>
 # **getInvoiceReferencesCount**
-> Int32Envelope getInvoiceReferencesCount(invoiceId, tenantId)
+> Int32Envelope getInvoiceReferencesCount(invoiceId, tenantId, invoiceReferenceDtoCollectionQueryParameters)
 
 Get the count of invoice references.
 
@@ -1697,8 +1719,9 @@ Retrieves the total count of references for the specified invoice.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceReferenceDtoCollectionQueryParameters : InvoiceReferenceDtoCollectionQueryParameters =  // InvoiceReferenceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoiceReferencesCount(invoiceId, tenantId)
+    val result : Int32Envelope = apiInstance.getInvoiceReferencesCount(invoiceId, tenantId, invoiceReferenceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoiceReferencesCount")
@@ -1711,9 +1734,10 @@ try {
 
 ### Parameters
 | **invoiceId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1725,12 +1749,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoices"></a>
 # **getInvoices**
-> InvoiceDtoListEnvelope getInvoices(tenantId)
+> InvoiceDtoListEnvelope getInvoices(tenantId, invoiceDtoCollectionQueryParameters)
 
 Get a list of invoices.
 
@@ -1744,8 +1768,9 @@ Retrieves a list of invoices for the specified tenant.
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceDtoListEnvelope = apiInstance.getInvoices(tenantId)
+    val result : InvoiceDtoListEnvelope = apiInstance.getInvoices(tenantId, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoices")
@@ -1757,9 +1782,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1771,12 +1797,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInvoicesCount"></a>
 # **getInvoicesCount**
-> Int32Envelope getInvoicesCount(tenantId)
+> Int32Envelope getInvoicesCount(tenantId, invoiceDtoCollectionQueryParameters)
 
 Get the count of invoices.
 
@@ -1790,8 +1816,9 @@ Retrieves the total count of invoices for the specified tenant.
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getInvoicesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getInvoicesCount(tenantId, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getInvoicesCount")
@@ -1803,9 +1830,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1817,12 +1845,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPurchaseInvoicesSum"></a>
 # **getPurchaseInvoicesSum**
-> MoneyEnvelope getPurchaseInvoicesSum(tenantId)
+> MoneyEnvelope getPurchaseInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
 
 Sum tenant purchase-invoice totals.
 
@@ -1836,8 +1864,9 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D;
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getPurchaseInvoicesSum(tenantId)
+    val result : MoneyEnvelope = apiInstance.getPurchaseInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getPurchaseInvoicesSum")
@@ -1849,9 +1878,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1863,12 +1893,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSalesInvoicesSum"></a>
 # **getSalesInvoicesSum**
-> MoneyEnvelope getSalesInvoicesSum(tenantId)
+> MoneyEnvelope getSalesInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
 
 Sum tenant sales-invoice totals.
 
@@ -1882,8 +1912,9 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D;
 
 val apiInstance = InvoicesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val invoiceDtoCollectionQueryParameters : InvoiceDtoCollectionQueryParameters =  // InvoiceDtoCollectionQueryParameters | 
 try {
-    val result : MoneyEnvelope = apiInstance.getSalesInvoicesSum(tenantId)
+    val result : MoneyEnvelope = apiInstance.getSalesInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#getSalesInvoicesSum")
@@ -1895,9 +1926,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1909,12 +1941,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchInvoice"></a>
 # **patchInvoice**
-> EmptyEnvelope patchInvoice(invoiceId, tenantId, operation)
+> EmptyEnvelope patchInvoice(invoiceId, tenantId, patchOperation)
 
 Patch an invoice.
 
@@ -1929,9 +1961,9 @@ Partially updates the specified invoice for the tenant.
 val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoice(invoiceId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoice(invoiceId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#patchInvoice")
@@ -1947,7 +1979,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1964,7 +1996,7 @@ No authorization required
 
 <a id="patchInvoiceAdjustment"></a>
 # **patchInvoiceAdjustment**
-> EmptyEnvelope patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, operation)
+> EmptyEnvelope patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, patchOperation)
 
 Patch an invoice adjustment.
 
@@ -1980,9 +2012,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceAdjustmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoiceAdjustment(invoiceId, invoiceAdjustmentId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#patchInvoiceAdjustment")
@@ -1999,7 +2031,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2016,7 +2048,7 @@ No authorization required
 
 <a id="patchInvoiceLine"></a>
 # **patchInvoiceLine**
-> EmptyEnvelope patchInvoiceLine(invoiceId, invoiceLineId, tenantId, operation)
+> EmptyEnvelope patchInvoiceLine(invoiceId, invoiceLineId, tenantId, patchOperation)
 
 Patch an invoice line.
 
@@ -2032,9 +2064,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoiceLine(invoiceId, invoiceLineId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoiceLine(invoiceId, invoiceLineId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#patchInvoiceLine")
@@ -2051,7 +2083,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2068,7 +2100,7 @@ No authorization required
 
 <a id="patchInvoiceLineTax"></a>
 # **patchInvoiceLineTax**
-> EmptyEnvelope patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, operation)
+> EmptyEnvelope patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, patchOperation)
 
 Patch a tax for an invoice line.
 
@@ -2085,9 +2117,9 @@ val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val invoiceLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceLineTaxId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoiceLineTax(invoiceId, invoiceLineId, invoiceLineTaxId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#patchInvoiceLineTax")
@@ -2105,7 +2137,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2122,7 +2154,7 @@ No authorization required
 
 <a id="patchInvoiceReference"></a>
 # **patchInvoiceReference**
-> EmptyEnvelope patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, operation)
+> EmptyEnvelope patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, patchOperation)
 
 Patch an invoice reference.
 
@@ -2138,9 +2170,9 @@ val apiInstance = InvoicesApi()
 val invoiceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val invoiceReferenceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoiceReference(invoiceId, invoiceReferenceId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoicesApi#patchInvoiceReference")
@@ -2157,7 +2189,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

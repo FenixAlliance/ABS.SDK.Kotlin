@@ -33,7 +33,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCurrentUserFollowersAsync"></a>
 # **countCurrentUserFollowersAsync**
-> Int32Envelope countCurrentUserFollowersAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count the social profiles that follow the current user
 
@@ -48,8 +48,9 @@ Count the social profiles that follow the current user
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCurrentUserFollowersAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#countCurrentUserFollowersAsync")
@@ -62,9 +63,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -76,12 +78,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="countCurrentUserFollowsAsync"></a>
 # **countCurrentUserFollowsAsync**
-> Int32Envelope countCurrentUserFollowsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count the social profiles that the current user follows
 
@@ -96,8 +98,9 @@ Count the social profiles that the current user follows
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCurrentUserFollowsAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#countCurrentUserFollowsAsync")
@@ -110,9 +113,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -124,12 +128,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="countCurrentUserNotificationsAsync"></a>
 # **countCurrentUserNotificationsAsync**
-> Int32Envelope countCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Count the notifications for the current user
 
@@ -144,8 +148,9 @@ Count the notifications for the current user
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#countCurrentUserNotificationsAsync")
@@ -158,9 +163,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -172,12 +178,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="countCurrentUserTenantsAsync"></a>
 # **countCurrentUserTenantsAsync**
-> Int32Envelope countCurrentUserTenantsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Count the tenants that the current user is enrolled in
 
@@ -192,8 +198,9 @@ Count the tenants that the current user is enrolled in
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDtoCollectionQueryParameters : TenantDtoCollectionQueryParameters =  // TenantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCurrentUserTenantsAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#countCurrentUserTenantsAsync")
@@ -206,9 +213,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -220,12 +228,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserAddressesAsync"></a>
 # **getCurrentUserAddressesAsync**
-> AddressDtoListEnvelope getCurrentUserAddressesAsync(apiVersion, xApiVersion)
+> AddressDtoListEnvelope getCurrentUserAddressesAsync(apiVersion, xApiVersion, addressDtoCollectionQueryParameters)
 
 Get the list of addresses for the current user
 
@@ -240,8 +248,9 @@ Get the list of addresses for the current user
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val addressDtoCollectionQueryParameters : AddressDtoCollectionQueryParameters =  // AddressDtoCollectionQueryParameters | 
 try {
-    val result : AddressDtoListEnvelope = apiInstance.getCurrentUserAddressesAsync(apiVersion, xApiVersion)
+    val result : AddressDtoListEnvelope = apiInstance.getCurrentUserAddressesAsync(apiVersion, xApiVersion, addressDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getCurrentUserAddressesAsync")
@@ -254,9 +263,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **addressDtoCollectionQueryParameters** | [**AddressDtoCollectionQueryParameters**](AddressDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -268,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserAsync"></a>
@@ -513,7 +523,7 @@ No authorization required
 
 <a id="getCurrentUserFollowersAsync"></a>
 # **getCurrentUserFollowersAsync**
-> FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get the social profiles that follow the current user
 
@@ -528,8 +538,9 @@ Get the social profiles that follow the current user
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : FollowRecordDtoListEnvelope = apiInstance.getCurrentUserFollowersAsync(apiVersion, xApiVersion)
+    val result : FollowRecordDtoListEnvelope = apiInstance.getCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getCurrentUserFollowersAsync")
@@ -542,9 +553,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -556,12 +568,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserFollowsAsync"></a>
 # **getCurrentUserFollowsAsync**
-> FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get the social profiles that the current user follows
 
@@ -576,8 +588,9 @@ Get the social profiles that the current user follows
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : FollowRecordDtoListEnvelope = apiInstance.getCurrentUserFollowsAsync(apiVersion, xApiVersion)
+    val result : FollowRecordDtoListEnvelope = apiInstance.getCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getCurrentUserFollowsAsync")
@@ -590,9 +603,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -604,7 +618,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserInvitationAsync"></a>
@@ -657,7 +671,7 @@ No authorization required
 
 <a id="getCurrentUserNotificationsAsync"></a>
 # **getCurrentUserNotificationsAsync**
-> NotificationDtoListEnvelope getCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the list of notifications for the current user
 
@@ -672,8 +686,9 @@ Get the list of notifications for the current user
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : NotificationDtoListEnvelope = apiInstance.getCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+    val result : NotificationDtoListEnvelope = apiInstance.getCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getCurrentUserNotificationsAsync")
@@ -686,9 +701,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -700,7 +716,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserSettingsAsync"></a>
@@ -801,7 +817,7 @@ No authorization required
 
 <a id="getCurrentUserTenantsAsync"></a>
 # **getCurrentUserTenantsAsync**
-> TenantDtoListEnvelope getCurrentUserTenantsAsync(apiVersion, xApiVersion)
+> TenantDtoListEnvelope getCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get the tenants that the current user is enrolled in
 
@@ -816,8 +832,9 @@ Get the tenants that the current user is enrolled in
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDtoCollectionQueryParameters : TenantDtoCollectionQueryParameters =  // TenantDtoCollectionQueryParameters | 
 try {
-    val result : TenantDtoListEnvelope = apiInstance.getCurrentUserTenantsAsync(apiVersion, xApiVersion)
+    val result : TenantDtoListEnvelope = apiInstance.getCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#getCurrentUserTenantsAsync")
@@ -830,9 +847,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -844,7 +862,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, multipart/form-data
 
 <a id="getCurrentUserTenantsExtendedAsync"></a>
@@ -1043,7 +1061,7 @@ No authorization required
 
 <a id="patchCurrentUserAsync"></a>
 # **patchCurrentUserAsync**
-> EmptyEnvelope patchCurrentUserAsync(apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCurrentUserAsync(apiVersion, xApiVersion, patchOperation)
 
 Partially update the current user&#39;s profile
 
@@ -1058,9 +1076,9 @@ Partially update the current user&#39;s profile
 val apiInstance = UsersApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCurrentUserAsync(apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCurrentUserAsync(apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UsersApi#patchCurrentUserAsync")
@@ -1076,7 +1094,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

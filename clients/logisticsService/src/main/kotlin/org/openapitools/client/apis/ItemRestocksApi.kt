@@ -23,14 +23,16 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemRestockCreateDto
+import org.openapitools.client.models.ItemRestockDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemRestockDtoEnvelope
 import org.openapitools.client.models.ItemRestockDtoListEnvelope
 import org.openapitools.client.models.ItemRestockEntryCreateDto
+import org.openapitools.client.models.ItemRestockEntryDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemRestockEntryDtoEnvelope
 import org.openapitools.client.models.ItemRestockEntryDtoListEnvelope
 import org.openapitools.client.models.ItemRestockEntryUpdateDto
 import org.openapitools.client.models.ItemRestockUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -506,6 +508,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ItemRestockEntryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -515,8 +518,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRestockEntriesAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRestockEntryDtoListEnvelope {
-        val localVarResponse = getItemRestockEntriesAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestockEntriesAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters? = null) : ItemRestockEntryDtoListEnvelope {
+        val localVarResponse = getItemRestockEntriesAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockEntryDtoCollectionQueryParameters = itemRestockEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRestockEntryDtoListEnvelope
@@ -540,16 +543,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemRestockEntryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRestockEntriesAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRestockEntryDtoListEnvelope?> {
-        val localVariableConfig = getItemRestockEntriesAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestockEntriesAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters?) : ApiResponse<ItemRestockEntryDtoListEnvelope?> {
+        val localVariableConfig = getItemRestockEntriesAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockEntryDtoCollectionQueryParameters = itemRestockEntryDtoCollectionQueryParameters)
 
-        return request<Unit, ItemRestockEntryDtoListEnvelope>(
+        return request<ItemRestockEntryDtoCollectionQueryParameters, ItemRestockEntryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -561,10 +565,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemRestockEntriesAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemRestockEntriesAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters?) : RequestConfig<ItemRestockEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemRestockEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -574,6 +579,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -593,6 +599,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -602,8 +609,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRestockEntriesCountAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemRestockEntriesCountAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestockEntriesCountAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemRestockEntriesCountAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockEntryDtoCollectionQueryParameters = itemRestockEntryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -627,16 +634,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRestockEntriesCountAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemRestockEntriesCountAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestockEntriesCountAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemRestockEntriesCountAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockEntryDtoCollectionQueryParameters = itemRestockEntryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemRestockEntryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -648,10 +656,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemRestockEntriesCountAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemRestockEntriesCountAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockEntryDtoCollectionQueryParameters: ItemRestockEntryDtoCollectionQueryParameters?) : RequestConfig<ItemRestockEntryDtoCollectionQueryParameters> {
+        val localVariableBody = itemRestockEntryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -661,6 +670,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -769,6 +779,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ItemRestockDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -778,8 +789,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRestocksAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemRestockDtoListEnvelope {
-        val localVarResponse = getItemRestocksAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestocksAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters? = null) : ItemRestockDtoListEnvelope {
+        val localVarResponse = getItemRestocksAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockDtoCollectionQueryParameters = itemRestockDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemRestockDtoListEnvelope
@@ -802,16 +813,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemRestockDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRestocksAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemRestockDtoListEnvelope?> {
-        val localVariableConfig = getItemRestocksAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestocksAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters?) : ApiResponse<ItemRestockDtoListEnvelope?> {
+        val localVariableConfig = getItemRestocksAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockDtoCollectionQueryParameters = itemRestockDtoCollectionQueryParameters)
 
-        return request<Unit, ItemRestockDtoListEnvelope>(
+        return request<ItemRestockDtoCollectionQueryParameters, ItemRestockDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -822,10 +834,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemRestocksAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemRestocksAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters?) : RequestConfig<ItemRestockDtoCollectionQueryParameters> {
+        val localVariableBody = itemRestockDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -835,6 +848,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -853,6 +867,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -862,8 +877,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemRestocksCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getItemRestocksCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestocksCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getItemRestocksCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockDtoCollectionQueryParameters = itemRestockDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -886,16 +901,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemRestocksCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getItemRestocksCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemRestocksCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getItemRestocksCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemRestockDtoCollectionQueryParameters = itemRestockDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemRestockDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -906,10 +922,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemRestocksCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemRestocksCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemRestockDtoCollectionQueryParameters: ItemRestockDtoCollectionQueryParameters?) : RequestConfig<ItemRestockDtoCollectionQueryParameters> {
+        val localVariableBody = itemRestockDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -919,6 +936,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -938,7 +956,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -948,8 +966,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemRestockAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemRestockAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemRestockAsync(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemRestockAsyncWithHttpInfo(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -973,17 +991,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemRestockAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemRestockAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemRestockAsyncWithHttpInfo(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemRestockAsyncRequestConfig(restockId = restockId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -995,11 +1013,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemRestockAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemRestockAsyncRequestConfig(restockId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1030,7 +1048,7 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1040,8 +1058,8 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemRestockEntryAsync(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemRestockEntryAsyncWithHttpInfo(restockId = restockId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemRestockEntryAsync(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemRestockEntryAsyncWithHttpInfo(restockId = restockId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1066,17 +1084,17 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemRestockEntryAsyncWithHttpInfo(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemRestockEntryAsyncRequestConfig(restockId = restockId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemRestockEntryAsyncWithHttpInfo(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemRestockEntryAsyncRequestConfig(restockId = restockId, entryId = entryId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1089,11 +1107,11 @@ class ItemRestocksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemRestockEntryAsyncRequestConfig(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemRestockEntryAsyncRequestConfig(restockId: java.util.UUID, entryId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

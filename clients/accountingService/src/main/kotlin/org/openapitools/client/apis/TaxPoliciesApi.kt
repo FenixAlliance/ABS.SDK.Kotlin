@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AppliedTaxPolicyRecordCreateDto
+import org.openapitools.client.models.AppliedTaxPolicyRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.AppliedTaxPolicyRecordDtoEnvelope
 import org.openapitools.client.models.AppliedTaxPolicyRecordDtoListEnvelope
 import org.openapitools.client.models.AppliedTaxPolicyRecordUpdateDto
@@ -27,11 +28,13 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.ItemTaxPolicyRecordCreateDto
+import org.openapitools.client.models.ItemTaxPolicyRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemTaxPolicyRecordDtoEnvelope
 import org.openapitools.client.models.ItemTaxPolicyRecordDtoListEnvelope
 import org.openapitools.client.models.ItemTaxPolicyRecordUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TaxPolicyCreateDto
+import org.openapitools.client.models.TaxPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.TaxPolicyDtoEnvelope
 import org.openapitools.client.models.TaxPolicyDtoListEnvelope
 import org.openapitools.client.models.TaxPolicyUpdateDto
@@ -694,6 +697,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return AppliedTaxPolicyRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -703,8 +707,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAppliedTaxPolicyRecords(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AppliedTaxPolicyRecordDtoListEnvelope {
-        val localVarResponse = getAppliedTaxPolicyRecordsWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppliedTaxPolicyRecords(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters? = null) : AppliedTaxPolicyRecordDtoListEnvelope {
+        val localVarResponse = getAppliedTaxPolicyRecordsWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters = appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AppliedTaxPolicyRecordDtoListEnvelope
@@ -728,16 +732,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAppliedTaxPolicyRecordsWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope?> {
-        val localVariableConfig = getAppliedTaxPolicyRecordsRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppliedTaxPolicyRecordsWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters?) : ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope?> {
+        val localVariableConfig = getAppliedTaxPolicyRecordsRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters = appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
-        return request<Unit, AppliedTaxPolicyRecordDtoListEnvelope>(
+        return request<AppliedTaxPolicyRecordDtoCollectionQueryParameters, AppliedTaxPolicyRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -749,10 +754,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAppliedTaxPolicyRecordsRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAppliedTaxPolicyRecordsRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters?) : RequestConfig<AppliedTaxPolicyRecordDtoCollectionQueryParameters> {
+        val localVariableBody = appliedTaxPolicyRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -762,6 +768,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -781,6 +788,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -790,8 +798,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAppliedTaxPolicyRecordsCount(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getAppliedTaxPolicyRecordsCountWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppliedTaxPolicyRecordsCount(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getAppliedTaxPolicyRecordsCountWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters = appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -815,16 +823,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAppliedTaxPolicyRecordsCountWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getAppliedTaxPolicyRecordsCountRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAppliedTaxPolicyRecordsCountWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getAppliedTaxPolicyRecordsCountRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters = appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AppliedTaxPolicyRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -836,10 +845,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAppliedTaxPolicyRecordsCountRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAppliedTaxPolicyRecordsCountRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedTaxPolicyRecordDtoCollectionQueryParameters: AppliedTaxPolicyRecordDtoCollectionQueryParameters?) : RequestConfig<AppliedTaxPolicyRecordDtoCollectionQueryParameters> {
+        val localVariableBody = appliedTaxPolicyRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -849,6 +859,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -958,6 +969,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ItemTaxPolicyRecordDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -967,8 +979,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemTaxPolicyRecords(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemTaxPolicyRecordDtoListEnvelope {
-        val localVarResponse = getItemTaxPolicyRecordsWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPolicyRecords(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemTaxPolicyRecordDtoCollectionQueryParameters: ItemTaxPolicyRecordDtoCollectionQueryParameters? = null) : ItemTaxPolicyRecordDtoListEnvelope {
+        val localVarResponse = getItemTaxPolicyRecordsWithHttpInfo(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters = itemTaxPolicyRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemTaxPolicyRecordDtoListEnvelope
@@ -992,16 +1004,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemTaxPolicyRecordDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemTaxPolicyRecordsWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemTaxPolicyRecordDtoListEnvelope?> {
-        val localVariableConfig = getItemTaxPolicyRecordsRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getItemTaxPolicyRecordsWithHttpInfo(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyRecordDtoCollectionQueryParameters: ItemTaxPolicyRecordDtoCollectionQueryParameters?) : ApiResponse<ItemTaxPolicyRecordDtoListEnvelope?> {
+        val localVariableConfig = getItemTaxPolicyRecordsRequestConfig(taxPolicyId = taxPolicyId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters = itemTaxPolicyRecordDtoCollectionQueryParameters)
 
-        return request<Unit, ItemTaxPolicyRecordDtoListEnvelope>(
+        return request<ItemTaxPolicyRecordDtoCollectionQueryParameters, ItemTaxPolicyRecordDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1013,10 +1026,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getItemTaxPolicyRecordsRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getItemTaxPolicyRecordsRequestConfig(taxPolicyId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemTaxPolicyRecordDtoCollectionQueryParameters: ItemTaxPolicyRecordDtoCollectionQueryParameters?) : RequestConfig<ItemTaxPolicyRecordDtoCollectionQueryParameters> {
+        val localVariableBody = itemTaxPolicyRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1026,6 +1040,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1044,6 +1059,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return TaxPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1053,8 +1069,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTaxPolicies(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TaxPolicyDtoListEnvelope {
-        val localVarResponse = getTaxPoliciesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPolicies(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters? = null) : TaxPolicyDtoListEnvelope {
+        val localVarResponse = getTaxPoliciesWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaxPolicyDtoListEnvelope
@@ -1077,16 +1093,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TaxPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTaxPoliciesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TaxPolicyDtoListEnvelope?> {
-        val localVariableConfig = getTaxPoliciesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPoliciesWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : ApiResponse<TaxPolicyDtoListEnvelope?> {
+        val localVariableConfig = getTaxPoliciesRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, TaxPolicyDtoListEnvelope>(
+        return request<TaxPolicyDtoCollectionQueryParameters, TaxPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1097,10 +1114,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTaxPoliciesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTaxPoliciesRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : RequestConfig<TaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = taxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1110,6 +1128,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1129,6 +1148,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return TaxPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1138,8 +1158,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTaxPoliciesByAuthority(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TaxPolicyDtoListEnvelope {
-        val localVarResponse = getTaxPoliciesByAuthorityWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPoliciesByAuthority(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters? = null) : TaxPolicyDtoListEnvelope {
+        val localVarResponse = getTaxPoliciesByAuthorityWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaxPolicyDtoListEnvelope
@@ -1163,16 +1183,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TaxPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTaxPoliciesByAuthorityWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TaxPolicyDtoListEnvelope?> {
-        val localVariableConfig = getTaxPoliciesByAuthorityRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPoliciesByAuthorityWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : ApiResponse<TaxPolicyDtoListEnvelope?> {
+        val localVariableConfig = getTaxPoliciesByAuthorityRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, TaxPolicyDtoListEnvelope>(
+        return request<TaxPolicyDtoCollectionQueryParameters, TaxPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1184,10 +1205,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTaxPoliciesByAuthorityRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTaxPoliciesByAuthorityRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : RequestConfig<TaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = taxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1197,6 +1219,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1215,6 +1238,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1224,8 +1248,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTaxPoliciesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTaxPoliciesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPoliciesCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTaxPoliciesCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1248,16 +1272,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTaxPoliciesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTaxPoliciesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTaxPoliciesCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTaxPoliciesCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, taxPolicyDtoCollectionQueryParameters = taxPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TaxPolicyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1268,10 +1293,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTaxPoliciesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTaxPoliciesCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, taxPolicyDtoCollectionQueryParameters: TaxPolicyDtoCollectionQueryParameters?) : RequestConfig<TaxPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = taxPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1281,6 +1307,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1388,7 +1415,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1398,8 +1425,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchAppliedTaxPolicyRecord(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchAppliedTaxPolicyRecordWithHttpInfo(taxPolicyId = taxPolicyId, appliedTaxPolicyRecordId = appliedTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAppliedTaxPolicyRecord(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchAppliedTaxPolicyRecordWithHttpInfo(taxPolicyId = taxPolicyId, appliedTaxPolicyRecordId = appliedTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1424,17 +1451,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchAppliedTaxPolicyRecordWithHttpInfo(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchAppliedTaxPolicyRecordRequestConfig(taxPolicyId = taxPolicyId, appliedTaxPolicyRecordId = appliedTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchAppliedTaxPolicyRecordWithHttpInfo(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchAppliedTaxPolicyRecordRequestConfig(taxPolicyId = taxPolicyId, appliedTaxPolicyRecordId = appliedTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1447,11 +1474,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchAppliedTaxPolicyRecordRequestConfig(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchAppliedTaxPolicyRecordRequestConfig(taxPolicyId: java.util.UUID, appliedTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1482,7 +1509,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1492,8 +1519,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchItemTaxPolicyRecord(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchItemTaxPolicyRecordWithHttpInfo(taxPolicyId = taxPolicyId, itemTaxPolicyRecordId = itemTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemTaxPolicyRecord(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchItemTaxPolicyRecordWithHttpInfo(taxPolicyId = taxPolicyId, itemTaxPolicyRecordId = itemTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1518,17 +1545,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchItemTaxPolicyRecordWithHttpInfo(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchItemTaxPolicyRecordRequestConfig(taxPolicyId = taxPolicyId, itemTaxPolicyRecordId = itemTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchItemTaxPolicyRecordWithHttpInfo(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchItemTaxPolicyRecordRequestConfig(taxPolicyId = taxPolicyId, itemTaxPolicyRecordId = itemTaxPolicyRecordId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1541,11 +1568,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchItemTaxPolicyRecordRequestConfig(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchItemTaxPolicyRecordRequestConfig(taxPolicyId: java.util.UUID, itemTaxPolicyRecordId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1575,7 +1602,7 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1585,8 +1612,8 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTaxPolicy(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTaxPolicyWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTaxPolicy(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTaxPolicyWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1610,17 +1637,17 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTaxPolicyWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTaxPolicyRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTaxPolicyWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTaxPolicyRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1632,11 +1659,11 @@ class TaxPoliciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTaxPolicyRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTaxPolicyRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

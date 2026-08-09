@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.ItemShippingPolicyDtoCollectionQueryParameters
 import org.openapitools.client.models.ItemShippingPolicyDtoEnvelope
 import org.openapitools.client.models.ItemShippingPolicyDtoListEnvelope
 
@@ -55,6 +56,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -64,8 +66,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -89,16 +91,17 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ItemShippingPolicyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -110,10 +113,11 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemShippingPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemShippingPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -128,6 +132,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -147,6 +152,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemShippingPolicyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -156,8 +162,8 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCatalogItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ItemShippingPolicyDtoListEnvelope {
-        val localVarResponse = getCatalogItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCatalogItemShippingPoliciesAsync(tenantId: java.util.UUID? = null, itemId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters? = null) : ItemShippingPolicyDtoListEnvelope {
+        val localVarResponse = getCatalogItemShippingPoliciesAsyncWithHttpInfo(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ItemShippingPolicyDtoListEnvelope
@@ -181,16 +187,17 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ItemShippingPolicyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCatalogItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
-        val localVariableConfig = getCatalogItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCatalogItemShippingPoliciesAsyncWithHttpInfo(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : ApiResponse<ItemShippingPolicyDtoListEnvelope?> {
+        val localVariableConfig = getCatalogItemShippingPoliciesAsyncRequestConfig(tenantId = tenantId, itemId = itemId, apiVersion = apiVersion, xApiVersion = xApiVersion, itemShippingPolicyDtoCollectionQueryParameters = itemShippingPolicyDtoCollectionQueryParameters)
 
-        return request<Unit, ItemShippingPolicyDtoListEnvelope>(
+        return request<ItemShippingPolicyDtoCollectionQueryParameters, ItemShippingPolicyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -202,10 +209,11 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemShippingPolicyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCatalogItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCatalogItemShippingPoliciesAsyncRequestConfig(tenantId: java.util.UUID?, itemId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, itemShippingPolicyDtoCollectionQueryParameters: ItemShippingPolicyDtoCollectionQueryParameters?) : RequestConfig<ItemShippingPolicyDtoCollectionQueryParameters> {
+        val localVariableBody = itemShippingPolicyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -220,6 +228,7 @@ class ItemShippingPoliciesApi(basePath: kotlin.String = defaultBasePath, client:
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

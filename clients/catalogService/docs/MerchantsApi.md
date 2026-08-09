@@ -61,7 +61,7 @@ No authorization required
 
 <a id="getMerchants"></a>
 # **getMerchants**
-> MerchantDtoListEnvelope getMerchants(apiVersion, xApiVersion)
+> MerchantDtoListEnvelope getMerchants(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
 
 Get all merchants
 
@@ -76,8 +76,9 @@ Retrieves all merchants, optionally filtered by OData query options.
 val apiInstance = MerchantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val merchantDtoCollectionQueryParameters : MerchantDtoCollectionQueryParameters =  // MerchantDtoCollectionQueryParameters | 
 try {
-    val result : MerchantDtoListEnvelope = apiInstance.getMerchants(apiVersion, xApiVersion)
+    val result : MerchantDtoListEnvelope = apiInstance.getMerchants(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MerchantsApi#getMerchants")
@@ -90,9 +91,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -104,12 +106,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMerchantsCount"></a>
 # **getMerchantsCount**
-> Int32Envelope getMerchantsCount(apiVersion, xApiVersion)
+> Int32Envelope getMerchantsCount(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
 
 Count merchants
 
@@ -124,8 +126,9 @@ Counts the number of merchants, optionally filtered by OData query options.
 val apiInstance = MerchantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val merchantDtoCollectionQueryParameters : MerchantDtoCollectionQueryParameters =  // MerchantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getMerchantsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getMerchantsCount(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MerchantsApi#getMerchantsCount")
@@ -138,9 +141,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -152,6 +156,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

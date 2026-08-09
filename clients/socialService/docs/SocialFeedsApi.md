@@ -18,7 +18,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="createFeedPostAsync"></a>
 # **createFeedPostAsync**
-> SocialFeedPostDtoEnvelope createFeedPostAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostCreateDto)
+> StringEnvelope createFeedPostAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostCreateDto)
 
 Create a social feed post
 
@@ -37,7 +37,7 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val socialFeedPostCreateDto : SocialFeedPostCreateDto =  // SocialFeedPostCreateDto | 
 try {
-    val result : SocialFeedPostDtoEnvelope = apiInstance.createFeedPostAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostCreateDto)
+    val result : StringEnvelope = apiInstance.createFeedPostAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostCreateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#createFeedPostAsync")
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**SocialFeedPostDtoEnvelope**](SocialFeedPostDtoEnvelope.md)
+[**StringEnvelope**](StringEnvelope.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ No authorization required
 
 <a id="getFeedNotifications"></a>
 # **getFeedNotifications**
-> SocialFeedDtoListEnvelope getFeedNotifications(socialProfileId, apiVersion, xApiVersion)
+> SocialFeedDtoListEnvelope getFeedNotifications(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
 
 Get social feeds
 
@@ -142,8 +142,9 @@ val apiInstance = SocialFeedsApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialFeedDtoCollectionQueryParameters : SocialFeedDtoCollectionQueryParameters =  // SocialFeedDtoCollectionQueryParameters | 
 try {
-    val result : SocialFeedDtoListEnvelope = apiInstance.getFeedNotifications(socialProfileId, apiVersion, xApiVersion)
+    val result : SocialFeedDtoListEnvelope = apiInstance.getFeedNotifications(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#getFeedNotifications")
@@ -157,9 +158,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFeedPostAsync"></a>
@@ -230,7 +232,7 @@ No authorization required
 
 <a id="getFeedPostsAsync"></a>
 # **getFeedPostsAsync**
-> SocialFeedPostDtoListEnvelope getFeedPostsAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion)
+> SocialFeedPostDtoListEnvelope getFeedPostsAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
 
 Get social feed posts
 
@@ -247,8 +249,9 @@ val socialFeedId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialFeedPostDtoCollectionQueryParameters : SocialFeedPostDtoCollectionQueryParameters =  // SocialFeedPostDtoCollectionQueryParameters | 
 try {
-    val result : SocialFeedPostDtoListEnvelope = apiInstance.getFeedPostsAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion)
+    val result : SocialFeedPostDtoListEnvelope = apiInstance.getFeedPostsAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#getFeedPostsAsync")
@@ -263,9 +266,10 @@ try {
 | **socialFeedId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -277,12 +281,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFeedPostsCountAsync"></a>
 # **getFeedPostsCountAsync**
-> Int32Envelope getFeedPostsCountAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getFeedPostsCountAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
 
 Count social feed posts
 
@@ -299,8 +303,9 @@ val socialFeedId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialFeedPostDtoCollectionQueryParameters : SocialFeedPostDtoCollectionQueryParameters =  // SocialFeedPostDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFeedPostsCountAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFeedPostsCountAsync(socialFeedId, socialProfileId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#getFeedPostsCountAsync")
@@ -315,9 +320,10 @@ try {
 | **socialFeedId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -329,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getNotificationAsync"></a>
@@ -386,7 +392,7 @@ No authorization required
 
 <a id="getNotificationsCountAsync"></a>
 # **getNotificationsCountAsync**
-> Int32Envelope getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
 
 Count social feeds
 
@@ -402,8 +408,9 @@ val apiInstance = SocialFeedsApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialFeedDtoCollectionQueryParameters : SocialFeedDtoCollectionQueryParameters =  // SocialFeedDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#getNotificationsCountAsync")
@@ -417,9 +424,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -431,12 +439,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchFeedPostAsync"></a>
 # **patchFeedPostAsync**
-> EmptyEnvelope patchFeedPostAsync(socialFeedId, feedPostId, socialProfileId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFeedPostAsync(socialFeedId, feedPostId, socialProfileId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social feed post
 
@@ -454,9 +462,9 @@ val feedPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFeedPostAsync(socialFeedId, feedPostId, socialProfileId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFeedPostAsync(socialFeedId, feedPostId, socialProfileId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialFeedsApi#patchFeedPostAsync")
@@ -475,7 +483,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -46,6 +46,15 @@ All URIs are relative to *https://absuite.net*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
+| *ApplicationPrincipalsApi* | [**disableApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#disableapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Disable | Disable an application principal |
+| *ApplicationPrincipalsApi* | [**enableApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#enableapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Enable | Enable an application principal |
+| *ApplicationPrincipalsApi* | [**getApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#getapplicationprincipalasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/{principalId} | Get application principal by ID |
+| *ApplicationPrincipalsApi* | [**getApplicationPrincipalsAsync**](docs/ApplicationPrincipalsApi.md#getapplicationprincipalsasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals | Get all application principals |
+| *ApplicationPrincipalsApi* | [**getApplicationPrincipalsCountAsync**](docs/ApplicationPrincipalsApi.md#getapplicationprincipalscountasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/Count | Get application principals count |
+| *ApplicationPrincipalsApi* | [**grantPermissionAsync**](docs/ApplicationPrincipalsApi.md#grantpermissionasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions | Grant a permission to an application principal |
+| *ApplicationPrincipalsApi* | [**provisionApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#provisionapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/Provision | Provision an application principal |
+| *ApplicationPrincipalsApi* | [**revokePermissionAsync**](docs/ApplicationPrincipalsApi.md#revokepermissionasync) | **DELETE** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions/{permission} | Revoke a permission from an application principal |
+| *ApplicationPrincipalsApi* | [**suspendApplicationPrincipalAsync**](docs/ApplicationPrincipalsApi.md#suspendapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Suspend | Suspend an application principal |
 | *ApplicationsApi* | [**createBusinessApplicationAsync**](docs/ApplicationsApi.md#createbusinessapplicationasync) | **POST** /api/v2/SecurityService/Applications | Create a new business application |
 | *ApplicationsApi* | [**deleteBusinessApplicationAsync**](docs/ApplicationsApi.md#deletebusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Applications/{applicationId} | Delete a business application |
 | *ApplicationsApi* | [**getBusinessApplicationByIdAsync**](docs/ApplicationsApi.md#getbusinessapplicationbyidasync) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID |
@@ -59,7 +68,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -131,14 +139,25 @@ All URIs are relative to *https://absuite.net*
 ## Documentation for Models
 
  - [org.openapitools.client.models.AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDetailDto](docs/ApplicationPrincipalDetailDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDetailDtoEnvelope](docs/ApplicationPrincipalDetailDtoEnvelope.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDto](docs/ApplicationPrincipalDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDtoCollectionQueryParameters](docs/ApplicationPrincipalDtoCollectionQueryParameters.md)
+ - [org.openapitools.client.models.ApplicationPrincipalDtoListEnvelope](docs/ApplicationPrincipalDtoListEnvelope.md)
+ - [org.openapitools.client.models.ApplicationPrincipalPermissionRequestDto](docs/ApplicationPrincipalPermissionRequestDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisionRequestDto](docs/ApplicationPrincipalProvisionRequestDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisioningResultDto](docs/ApplicationPrincipalProvisioningResultDto.md)
+ - [org.openapitools.client.models.ApplicationPrincipalProvisioningResultDtoEnvelope](docs/ApplicationPrincipalProvisioningResultDtoEnvelope.md)
  - [org.openapitools.client.models.BusinessApplicationCreateDto](docs/BusinessApplicationCreateDto.md)
  - [org.openapitools.client.models.BusinessApplicationDto](docs/BusinessApplicationDto.md)
+ - [org.openapitools.client.models.BusinessApplicationDtoCollectionQueryParameters](docs/BusinessApplicationDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.BusinessApplicationDtoEnvelope](docs/BusinessApplicationDtoEnvelope.md)
  - [org.openapitools.client.models.BusinessApplicationDtoListEnvelope](docs/BusinessApplicationDtoListEnvelope.md)
  - [org.openapitools.client.models.BusinessApplicationSimpleDto](docs/BusinessApplicationSimpleDto.md)
  - [org.openapitools.client.models.BusinessApplicationSimpleDtoListEnvelope](docs/BusinessApplicationSimpleDtoListEnvelope.md)
  - [org.openapitools.client.models.BusinessApplicationUpdateDto](docs/BusinessApplicationUpdateDto.md)
  - [org.openapitools.client.models.BusinessSecurityLogDto](docs/BusinessSecurityLogDto.md)
+ - [org.openapitools.client.models.BusinessSecurityLogDtoCollectionQueryParameters](docs/BusinessSecurityLogDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.BusinessSecurityLogDtoListEnvelope](docs/BusinessSecurityLogDtoListEnvelope.md)
  - [org.openapitools.client.models.EmptyEnvelope](docs/EmptyEnvelope.md)
  - [org.openapitools.client.models.ErrorEnvelope](docs/ErrorEnvelope.md)
@@ -148,6 +167,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LogDto](docs/LogDto.md)
+ - [org.openapitools.client.models.LogDtoCollectionQueryParameters](docs/LogDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.LogDtoListEnvelope](docs/LogDtoListEnvelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.OAuthApplicationCreateDto](docs/OAuthApplicationCreateDto.md)
@@ -158,20 +178,23 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.OAuthAuthorizationDto](docs/OAuthAuthorizationDto.md)
  - [org.openapitools.client.models.OAuthAuthorizationDtoEnvelope](docs/OAuthAuthorizationDtoEnvelope.md)
  - [org.openapitools.client.models.OAuthAuthorizationDtoListEnvelope](docs/OAuthAuthorizationDtoListEnvelope.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.RefreshRequest](docs/RefreshRequest.md)
  - [org.openapitools.client.models.RegisterRequest](docs/RegisterRequest.md)
  - [org.openapitools.client.models.ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.SecurityCertificateDto](docs/SecurityCertificateDto.md)
+ - [org.openapitools.client.models.SecurityCertificateDtoCollectionQueryParameters](docs/SecurityCertificateDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SecurityCertificateDtoListEnvelope](docs/SecurityCertificateDtoListEnvelope.md)
  - [org.openapitools.client.models.SecurityPermissionCreateDto](docs/SecurityPermissionCreateDto.md)
  - [org.openapitools.client.models.SecurityPermissionDto](docs/SecurityPermissionDto.md)
+ - [org.openapitools.client.models.SecurityPermissionDtoCollectionQueryParameters](docs/SecurityPermissionDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SecurityPermissionDtoEnvelope](docs/SecurityPermissionDtoEnvelope.md)
  - [org.openapitools.client.models.SecurityPermissionDtoListEnvelope](docs/SecurityPermissionDtoListEnvelope.md)
  - [org.openapitools.client.models.SecurityPermissionUpdateDto](docs/SecurityPermissionUpdateDto.md)
  - [org.openapitools.client.models.SecurityRoleCreateDto](docs/SecurityRoleCreateDto.md)
  - [org.openapitools.client.models.SecurityRoleDto](docs/SecurityRoleDto.md)
+ - [org.openapitools.client.models.SecurityRoleDtoCollectionQueryParameters](docs/SecurityRoleDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.SecurityRoleDtoEnvelope](docs/SecurityRoleDtoEnvelope.md)
  - [org.openapitools.client.models.SecurityRoleDtoListEnvelope](docs/SecurityRoleDtoListEnvelope.md)
  - [org.openapitools.client.models.SecurityRoleUpdateDto](docs/SecurityRoleUpdateDto.md)
@@ -180,6 +203,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.TwoFactorRequest](docs/TwoFactorRequest.md)
  - [org.openapitools.client.models.TwoFactorResponse](docs/TwoFactorResponse.md)
  - [org.openapitools.client.models.WebhookRequestDto](docs/WebhookRequestDto.md)
+ - [org.openapitools.client.models.WebhookRequestDtoCollectionQueryParameters](docs/WebhookRequestDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.WebhookRequestDtoListEnvelope](docs/WebhookRequestDtoListEnvelope.md)
 
 

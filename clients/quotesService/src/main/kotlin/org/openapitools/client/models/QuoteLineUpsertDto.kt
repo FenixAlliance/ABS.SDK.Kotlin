@@ -105,7 +105,6 @@ import com.squareup.moshi.JsonClass
  * @param priceListItemId 
  * @param unitId 
  * @param unitGroupId 
- * @param forexRatesSnapshot 
  * @param totalBaseAmountInUsd 
  * @param totalProfitInUsd 
  * @param totalDetailAmountInUsd 
@@ -388,9 +387,6 @@ data class QuoteLineUpsertDto (
 
     @Json(name = "unitGroupId")
     val unitGroupId: kotlin.String? = null,
-
-    @Json(name = "forexRatesSnapshot")
-    val forexRatesSnapshot: kotlin.String? = null,
 
     @Json(name = "totalBaseAmountInUsd")
     val totalBaseAmountInUsd: kotlin.Double? = null,

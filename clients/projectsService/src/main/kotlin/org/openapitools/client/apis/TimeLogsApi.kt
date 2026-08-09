@@ -21,8 +21,9 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ProjectTimeLogCreateDto
+import org.openapitools.client.models.ProjectTimeLogDtoCollectionQueryParameters
 import org.openapitools.client.models.ProjectTimeLogDtoEnvelope
 import org.openapitools.client.models.ProjectTimeLogDtoListEnvelope
 import org.openapitools.client.models.ProjectTimeLogUpdateDto
@@ -58,6 +59,7 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -67,8 +69,8 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -92,16 +94,17 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProjectTimeLogDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -113,10 +116,11 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : RequestConfig<ProjectTimeLogDtoCollectionQueryParameters> {
+        val localVariableBody = projectTimeLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -127,6 +131,7 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -317,6 +322,7 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ProjectTimeLogDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +332,8 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectPeriodTimeLogsAsync(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
@@ -351,16 +357,17 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = getProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProjectPeriodTimeLogsAsyncWithHttpInfo(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getProjectPeriodTimeLogsAsyncRequestConfig(tenantId = tenantId, projectPeriodId = projectPeriodId, apiVersion = apiVersion, xApiVersion = xApiVersion, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+        return request<ProjectTimeLogDtoCollectionQueryParameters, ProjectTimeLogDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +379,11 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectPeriodId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectPeriodTimeLogsAsyncRequestConfig(tenantId: java.util.UUID, projectPeriodId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : RequestConfig<ProjectTimeLogDtoCollectionQueryParameters> {
+        val localVariableBody = projectTimeLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +394,7 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -755,7 +764,7 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -764,8 +773,8 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchProjectTimeLogAsync(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchProjectTimeLogAsyncWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProjectTimeLogAsync(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchProjectTimeLogAsyncWithHttpInfo(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -789,16 +798,16 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchProjectTimeLogAsyncWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchProjectTimeLogAsyncRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchProjectTimeLogAsyncWithHttpInfo(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchProjectTimeLogAsyncRequestConfig(timeLogId = timeLogId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -810,11 +819,11 @@ class TimeLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchProjectTimeLogAsyncRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchProjectTimeLogAsyncRequestConfig(timeLogId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

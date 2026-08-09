@@ -167,7 +167,7 @@ No authorization required
 
 <a id="getCourseWikisAsync"></a>
 # **getCourseWikisAsync**
-> kotlin.collections.List&lt;CourseWikiDto&gt; getCourseWikisAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseWikiDto&gt; getCourseWikisAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get all course wikis
 
@@ -183,8 +183,9 @@ val apiInstance = CourseWikisApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseWikiDtoCollectionQueryParameters : CourseWikiDtoCollectionQueryParameters =  // CourseWikiDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseWikiDto> = apiInstance.getCourseWikisAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseWikiDto> = apiInstance.getCourseWikisAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseWikisApi#getCourseWikisAsync")
@@ -198,9 +199,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,12 +214,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseWikisCountAsync"></a>
 # **getCourseWikisCountAsync**
-> kotlin.Int getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis count
 
@@ -233,8 +235,9 @@ val apiInstance = CourseWikisApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseWikiDtoCollectionQueryParameters : CourseWikiDtoCollectionQueryParameters =  // CourseWikiDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseWikisApi#getCourseWikisCountAsync")
@@ -248,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -262,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseWikiAsync"></a>
 # **patchCourseWikiAsync**
-> EmptyEnvelope patchCourseWikiAsync(wikiId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseWikiAsync(wikiId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course wiki
 
@@ -284,9 +288,9 @@ val wikiId : kotlin.String = wikiId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCourseWikiAsync(wikiId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCourseWikiAsync(wikiId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseWikisApi#patchCourseWikiAsync")
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

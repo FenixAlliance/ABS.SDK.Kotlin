@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.MerchantDtoCollectionQueryParameters
 import org.openapitools.client.models.MerchantDtoEnvelope
 import org.openapitools.client.models.MerchantDtoListEnvelope
 
@@ -136,6 +137,7 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves all merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return MerchantDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -145,8 +147,8 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMerchants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : MerchantDtoListEnvelope {
-        val localVarResponse = getMerchantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMerchants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters? = null) : MerchantDtoListEnvelope {
+        val localVarResponse = getMerchantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, merchantDtoCollectionQueryParameters = merchantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MerchantDtoListEnvelope
@@ -168,16 +170,17 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves all merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MerchantDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMerchantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<MerchantDtoListEnvelope?> {
-        val localVariableConfig = getMerchantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMerchantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters?) : ApiResponse<MerchantDtoListEnvelope?> {
+        val localVariableConfig = getMerchantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, merchantDtoCollectionQueryParameters = merchantDtoCollectionQueryParameters)
 
-        return request<Unit, MerchantDtoListEnvelope>(
+        return request<MerchantDtoCollectionQueryParameters, MerchantDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -187,10 +190,11 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMerchantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMerchantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters?) : RequestConfig<MerchantDtoCollectionQueryParameters> {
+        val localVariableBody = merchantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -199,6 +203,7 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -216,6 +221,7 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Counts the number of merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -225,8 +231,8 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMerchantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getMerchantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMerchantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getMerchantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, merchantDtoCollectionQueryParameters = merchantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -248,16 +254,17 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Counts the number of merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMerchantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getMerchantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getMerchantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getMerchantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, merchantDtoCollectionQueryParameters = merchantDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<MerchantDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -267,10 +274,11 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getMerchantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getMerchantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, merchantDtoCollectionQueryParameters: MerchantDtoCollectionQueryParameters?) : RequestConfig<MerchantDtoCollectionQueryParameters> {
+        val localVariableBody = merchantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -279,6 +287,7 @@ class MerchantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
 import org.openapitools.client.models.OptionCreateDto
+import org.openapitools.client.models.OptionDtoCollectionQueryParameters
 import org.openapitools.client.models.OptionDtoEnvelope
 import org.openapitools.client.models.OptionDtoListEnvelope
 import org.openapitools.client.models.OptionUpdateDto
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -328,6 +329,7 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return OptionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -337,8 +339,8 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemContactOptions(contactId: java.util.UUID, portalId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : OptionDtoListEnvelope {
-        val localVarResponse = getSystemContactOptionsWithHttpInfo(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemContactOptions(contactId: java.util.UUID, portalId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters? = null) : OptionDtoListEnvelope {
+        val localVarResponse = getSystemContactOptionsWithHttpInfo(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OptionDtoListEnvelope
@@ -362,16 +364,17 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<OptionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemContactOptionsWithHttpInfo(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<OptionDtoListEnvelope?> {
-        val localVariableConfig = getSystemContactOptionsRequestConfig(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemContactOptionsWithHttpInfo(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : ApiResponse<OptionDtoListEnvelope?> {
+        val localVariableConfig = getSystemContactOptionsRequestConfig(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
-        return request<Unit, OptionDtoListEnvelope>(
+        return request<OptionDtoCollectionQueryParameters, OptionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -383,10 +386,11 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemContactOptionsRequestConfig(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemContactOptionsRequestConfig(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : RequestConfig<OptionDtoCollectionQueryParameters> {
+        val localVariableBody = optionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (portalId != null) {
@@ -398,6 +402,7 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -417,6 +422,7 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -426,8 +432,8 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemContactOptionsCount(contactId: java.util.UUID, portalId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSystemContactOptionsCountWithHttpInfo(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemContactOptionsCount(contactId: java.util.UUID, portalId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSystemContactOptionsCountWithHttpInfo(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -451,16 +457,17 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemContactOptionsCountWithHttpInfo(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSystemContactOptionsCountRequestConfig(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemContactOptionsCountWithHttpInfo(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSystemContactOptionsCountRequestConfig(contactId = contactId, portalId = portalId, apiVersion = apiVersion, xApiVersion = xApiVersion, optionDtoCollectionQueryParameters = optionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<OptionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -472,10 +479,11 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemContactOptionsCountRequestConfig(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemContactOptionsCountRequestConfig(contactId: java.util.UUID, portalId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, optionDtoCollectionQueryParameters: OptionDtoCollectionQueryParameters?) : RequestConfig<OptionDtoCollectionQueryParameters> {
+        val localVariableBody = optionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (portalId != null) {
@@ -487,6 +495,7 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -506,7 +515,7 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -516,8 +525,8 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSystemContactOption(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSystemContactOptionWithHttpInfo(contactId = contactId, optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSystemContactOption(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSystemContactOptionWithHttpInfo(contactId = contactId, optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -541,17 +550,17 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSystemContactOptionWithHttpInfo(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSystemContactOptionRequestConfig(contactId = contactId, optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSystemContactOptionWithHttpInfo(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSystemContactOptionRequestConfig(contactId = contactId, optionId = optionId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -563,11 +572,11 @@ class ContactOptionsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param optionId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSystemContactOptionRequestConfig(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSystemContactOptionRequestConfig(contactId: java.util.UUID, optionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {

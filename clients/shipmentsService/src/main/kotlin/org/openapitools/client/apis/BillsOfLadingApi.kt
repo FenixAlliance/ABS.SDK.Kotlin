@@ -20,9 +20,11 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BillOfLadingCreateDto
+import org.openapitools.client.models.BillOfLadingDtoCollectionQueryParameters
 import org.openapitools.client.models.BillOfLadingDtoEnvelope
 import org.openapitools.client.models.BillOfLadingDtoListEnvelope
 import org.openapitools.client.models.BillOfLadingLineCreateDto
+import org.openapitools.client.models.BillOfLadingLineDtoCollectionQueryParameters
 import org.openapitools.client.models.BillOfLadingLineDtoEnvelope
 import org.openapitools.client.models.BillOfLadingLineDtoListEnvelope
 import org.openapitools.client.models.BillOfLadingLineUpdateDto
@@ -30,7 +32,7 @@ import org.openapitools.client.models.BillOfLadingUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -596,6 +598,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return BillOfLadingLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -605,8 +608,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillOfLadingLinesAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BillOfLadingLineDtoListEnvelope {
-        val localVarResponse = getBillOfLadingLinesAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillOfLadingLinesAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters? = null) : BillOfLadingLineDtoListEnvelope {
+        val localVarResponse = getBillOfLadingLinesAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingLineDtoCollectionQueryParameters = billOfLadingLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BillOfLadingLineDtoListEnvelope
@@ -630,16 +633,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BillOfLadingLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillOfLadingLinesAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BillOfLadingLineDtoListEnvelope?> {
-        val localVariableConfig = getBillOfLadingLinesAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillOfLadingLinesAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters?) : ApiResponse<BillOfLadingLineDtoListEnvelope?> {
+        val localVariableConfig = getBillOfLadingLinesAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingLineDtoCollectionQueryParameters = billOfLadingLineDtoCollectionQueryParameters)
 
-        return request<Unit, BillOfLadingLineDtoListEnvelope>(
+        return request<BillOfLadingLineDtoCollectionQueryParameters, BillOfLadingLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -651,10 +655,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillOfLadingLinesAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillOfLadingLinesAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters?) : RequestConfig<BillOfLadingLineDtoCollectionQueryParameters> {
+        val localVariableBody = billOfLadingLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -664,6 +669,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -683,6 +689,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -692,8 +699,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillOfLadingLinesCountAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBillOfLadingLinesCountAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillOfLadingLinesCountAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBillOfLadingLinesCountAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingLineDtoCollectionQueryParameters = billOfLadingLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -717,16 +724,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillOfLadingLinesCountAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBillOfLadingLinesCountAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillOfLadingLinesCountAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBillOfLadingLinesCountAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingLineDtoCollectionQueryParameters = billOfLadingLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BillOfLadingLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -738,10 +746,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillOfLadingLinesCountAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillOfLadingLinesCountAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingLineDtoCollectionQueryParameters: BillOfLadingLineDtoCollectionQueryParameters?) : RequestConfig<BillOfLadingLineDtoCollectionQueryParameters> {
+        val localVariableBody = billOfLadingLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -751,6 +760,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -769,6 +779,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return BillOfLadingDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -778,8 +789,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillsOfLadingAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BillOfLadingDtoListEnvelope {
-        val localVarResponse = getBillsOfLadingAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillsOfLadingAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters? = null) : BillOfLadingDtoListEnvelope {
+        val localVarResponse = getBillsOfLadingAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingDtoCollectionQueryParameters = billOfLadingDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BillOfLadingDtoListEnvelope
@@ -802,16 +813,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BillOfLadingDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillsOfLadingAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BillOfLadingDtoListEnvelope?> {
-        val localVariableConfig = getBillsOfLadingAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillsOfLadingAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters?) : ApiResponse<BillOfLadingDtoListEnvelope?> {
+        val localVariableConfig = getBillsOfLadingAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingDtoCollectionQueryParameters = billOfLadingDtoCollectionQueryParameters)
 
-        return request<Unit, BillOfLadingDtoListEnvelope>(
+        return request<BillOfLadingDtoCollectionQueryParameters, BillOfLadingDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -822,10 +834,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillsOfLadingAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillsOfLadingAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters?) : RequestConfig<BillOfLadingDtoCollectionQueryParameters> {
+        val localVariableBody = billOfLadingDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -835,6 +848,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -853,6 +867,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -862,8 +877,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillsOfLadingCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBillsOfLadingCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillsOfLadingCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBillsOfLadingCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingDtoCollectionQueryParameters = billOfLadingDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -886,16 +901,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillsOfLadingCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBillsOfLadingCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillsOfLadingCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBillsOfLadingCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, billOfLadingDtoCollectionQueryParameters = billOfLadingDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BillOfLadingDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -906,10 +922,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillsOfLadingCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillsOfLadingCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, billOfLadingDtoCollectionQueryParameters: BillOfLadingDtoCollectionQueryParameters?) : RequestConfig<BillOfLadingDtoCollectionQueryParameters> {
+        val localVariableBody = billOfLadingDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -919,6 +936,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -938,7 +956,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -948,8 +966,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBillOfLadingAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBillOfLadingAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillOfLadingAsync(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBillOfLadingAsyncWithHttpInfo(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -973,17 +991,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBillOfLadingAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBillOfLadingAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillOfLadingAsyncWithHttpInfo(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBillOfLadingAsyncRequestConfig(billOfLadingId = billOfLadingId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -995,11 +1013,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBillOfLadingAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBillOfLadingAsyncRequestConfig(billOfLadingId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1030,7 +1048,7 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1040,8 +1058,8 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBillOfLadingLineAsync(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBillOfLadingLineAsyncWithHttpInfo(billOfLadingId = billOfLadingId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillOfLadingLineAsync(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBillOfLadingLineAsyncWithHttpInfo(billOfLadingId = billOfLadingId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1066,17 +1084,17 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBillOfLadingLineAsyncWithHttpInfo(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBillOfLadingLineAsyncRequestConfig(billOfLadingId = billOfLadingId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillOfLadingLineAsyncWithHttpInfo(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBillOfLadingLineAsyncRequestConfig(billOfLadingId = billOfLadingId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1089,11 +1107,11 @@ class BillsOfLadingApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBillOfLadingLineAsyncRequestConfig(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBillOfLadingLineAsyncRequestConfig(billOfLadingId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

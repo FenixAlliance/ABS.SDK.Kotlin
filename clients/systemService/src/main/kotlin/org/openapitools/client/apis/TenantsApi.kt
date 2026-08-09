@@ -22,10 +22,14 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedTenantDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedTenantDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.ModuleGrantDto
+import org.openapitools.client.models.ModuleGrantDtoListEnvelope
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TenantCreateDto
+import org.openapitools.client.models.TenantDtoCollectionQueryParameters
 import org.openapitools.client.models.TenantDtoEnvelope
 import org.openapitools.client.models.TenantDtoListEnvelope
 import org.openapitools.client.models.TenantUpdateDto
@@ -394,6 +398,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ExtendedTenantDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -403,8 +408,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAllExtendedTenants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedTenantDtoListEnvelope {
-        val localVarResponse = getAllExtendedTenantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllExtendedTenants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters? = null) : ExtendedTenantDtoListEnvelope {
+        val localVarResponse = getAllExtendedTenantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantDtoCollectionQueryParameters = extendedTenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedTenantDtoListEnvelope
@@ -426,16 +431,17 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedTenantDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAllExtendedTenantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedTenantDtoListEnvelope?> {
-        val localVariableConfig = getAllExtendedTenantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllExtendedTenantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters?) : ApiResponse<ExtendedTenantDtoListEnvelope?> {
+        val localVariableConfig = getAllExtendedTenantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantDtoCollectionQueryParameters = extendedTenantDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedTenantDtoListEnvelope>(
+        return request<ExtendedTenantDtoCollectionQueryParameters, ExtendedTenantDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -445,10 +451,11 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAllExtendedTenantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAllExtendedTenantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters?) : RequestConfig<ExtendedTenantDtoCollectionQueryParameters> {
+        val localVariableBody = extendedTenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -457,6 +464,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -474,6 +482,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return TenantDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -483,8 +492,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAllTenants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantDtoListEnvelope {
-        val localVarResponse = getAllTenantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllTenants(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters? = null) : TenantDtoListEnvelope {
+        val localVarResponse = getAllTenantsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantDtoListEnvelope
@@ -506,16 +515,17 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAllTenantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantDtoListEnvelope?> {
-        val localVariableConfig = getAllTenantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllTenantsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : ApiResponse<TenantDtoListEnvelope?> {
+        val localVariableConfig = getAllTenantsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
-        return request<Unit, TenantDtoListEnvelope>(
+        return request<TenantDtoCollectionQueryParameters, TenantDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -525,10 +535,11 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAllTenantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAllTenantsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : RequestConfig<TenantDtoCollectionQueryParameters> {
+        val localVariableBody = tenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -537,6 +548,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -554,6 +566,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -563,8 +576,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedTenantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getExtendedTenantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getExtendedTenantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantDtoCollectionQueryParameters = extendedTenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -586,16 +599,17 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedTenantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getExtendedTenantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getExtendedTenantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantDtoCollectionQueryParameters = extendedTenantDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ExtendedTenantDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -605,10 +619,11 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedTenantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedTenantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantDtoCollectionQueryParameters: ExtendedTenantDtoCollectionQueryParameters?) : RequestConfig<ExtendedTenantDtoCollectionQueryParameters> {
+        val localVariableBody = extendedTenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -617,6 +632,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -713,10 +729,94 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * Get the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ModuleGrantDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getTenantModuleGrants(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ModuleGrantDtoListEnvelope {
+        val localVarResponse = getTenantModuleGrantsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ModuleGrantDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<ModuleGrantDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getTenantModuleGrantsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ModuleGrantDtoListEnvelope?> {
+        val localVariableConfig = getTenantModuleGrantsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, ModuleGrantDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getTenantModuleGrants
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getTenantModuleGrantsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Get the total count of tenants available on this suite server instance.
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -726,8 +826,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTenantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTenantsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -749,16 +849,17 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTenantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTenantsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, tenantDtoCollectionQueryParameters = tenantDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TenantDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -768,10 +869,11 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantDtoCollectionQueryParameters: TenantDtoCollectionQueryParameters?) : RequestConfig<TenantDtoCollectionQueryParameters> {
+        val localVariableBody = tenantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -780,6 +882,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -798,7 +901,7 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -808,8 +911,8 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTenant(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTenantWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenant(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTenantWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -832,17 +935,17 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTenantWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTenantRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTenantRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -853,11 +956,11 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTenantRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTenantRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -872,6 +975,93 @@ class TenantsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
         return RequestConfig(
             method = RequestMethod.PATCH,
             path = "/api/v2/SystemService/Tenants/{tenantId}".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Replace the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators. Grants supplement licensing.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun setTenantModuleGrants(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, moduleGrantDto: kotlin.collections.List<ModuleGrantDto>? = null) : EmptyEnvelope {
+        val localVarResponse = setTenantModuleGrantsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, moduleGrantDto = moduleGrantDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Replace the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators. Grants supplement licensing.
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun setTenantModuleGrantsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, moduleGrantDto: kotlin.collections.List<ModuleGrantDto>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = setTenantModuleGrantsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, moduleGrantDto = moduleGrantDto)
+
+        return request<kotlin.collections.List<ModuleGrantDto>, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation setTenantModuleGrants
+     *
+     * @param tenantId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @return RequestConfig
+     */
+    fun setTenantModuleGrantsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, moduleGrantDto: kotlin.collections.List<ModuleGrantDto>?) : RequestConfig<kotlin.collections.List<ModuleGrantDto>> {
+        val localVariableBody = moduleGrantDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants".replace("{"+"tenantId"+"}", encodeURIComponent(tenantId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

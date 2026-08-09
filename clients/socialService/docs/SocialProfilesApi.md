@@ -25,6 +25,7 @@ All URIs are relative to *https://absuite.net*
 | [**getMessagesAsync**](SocialProfilesApi.md#getMessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
 | [**getNotificationByIdAsync**](SocialProfilesApi.md#getNotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | [**getNotificationsAsync**](SocialProfilesApi.md#getNotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
+| [**getOrCreateDirectConversationAsync**](SocialProfilesApi.md#getOrCreateDirectConversationAsync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation |
 | [**getSocialProfileAsync**](SocialProfilesApi.md#getSocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | [**getSocialProfilesAsync**](SocialProfilesApi.md#getSocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
 | [**unfollowAsync**](SocialProfilesApi.md#unfollowAsync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow |
@@ -33,7 +34,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countConversationsAsync"></a>
 # **countConversationsAsync**
-> Int32Envelope countConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
 
 Count Conversations
 
@@ -49,8 +50,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val conversationDtoCollectionQueryParameters : ConversationDtoCollectionQueryParameters =  // ConversationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countConversationsAsync")
@@ -64,9 +66,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -78,12 +81,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countFollowedProfilesAsync"></a>
 # **countFollowedProfilesAsync**
-> Int32Envelope countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Followed Profiles
 
@@ -99,8 +102,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countFollowedProfilesAsync")
@@ -114,9 +118,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -128,12 +133,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countFollowerProfilesAsync"></a>
 # **countFollowerProfilesAsync**
-> Int32Envelope countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Follower Profiles
 
@@ -149,8 +154,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countFollowerProfilesAsync")
@@ -164,9 +170,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -178,12 +185,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countFollowersAsync"></a>
 # **countFollowersAsync**
-> Int32Envelope countFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count Followers
 
@@ -199,8 +206,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countFollowersAsync")
@@ -214,9 +222,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -228,12 +237,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countFollowsAsync"></a>
 # **countFollowsAsync**
-> Int32Envelope countFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count Follows
 
@@ -249,8 +258,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countFollowsAsync")
@@ -264,9 +274,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,12 +289,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countMessagesAsync"></a>
 # **countMessagesAsync**
-> Int32Envelope countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
 
 Count Messages
 
@@ -300,8 +311,9 @@ val conversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val privateMessageDtoCollectionQueryParameters : PrivateMessageDtoCollectionQueryParameters =  // PrivateMessageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countMessagesAsync")
@@ -316,9 +328,10 @@ try {
 | **conversationId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -330,12 +343,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countNotificationsAsync"></a>
 # **countNotificationsAsync**
-> Int32Envelope countNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Count Notifications
 
@@ -351,8 +364,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countNotificationsAsync")
@@ -366,9 +380,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -380,12 +395,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countSocialProfilesAsync"></a>
 # **countSocialProfilesAsync**
-> Int32Envelope countSocialProfilesAsync(apiVersion, xApiVersion)
+> Int32Envelope countSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Social Profiles
 
@@ -400,8 +415,9 @@ Count social profiles.
 val apiInstance = SocialProfilesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countSocialProfilesAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#countSocialProfilesAsync")
@@ -414,9 +430,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -428,7 +445,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createConversationAsync"></a>
@@ -697,7 +714,7 @@ No authorization required
 
 <a id="getConversationsAsync"></a>
 # **getConversationsAsync**
-> ConversationDtoListEnvelope getConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+> ConversationDtoListEnvelope getConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
 
 Get Conversations
 
@@ -713,8 +730,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val conversationDtoCollectionQueryParameters : ConversationDtoCollectionQueryParameters =  // ConversationDtoCollectionQueryParameters | 
 try {
-    val result : ConversationDtoListEnvelope = apiInstance.getConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : ConversationDtoListEnvelope = apiInstance.getConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getConversationsAsync")
@@ -728,9 +746,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -742,12 +761,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFollowedProfilesAsync"></a>
 # **getFollowedProfilesAsync**
-> SocialProfileDtoListEnvelope getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Followed Profiles
 
@@ -763,8 +782,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : SocialProfileDtoListEnvelope = apiInstance.getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : SocialProfileDtoListEnvelope = apiInstance.getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getFollowedProfilesAsync")
@@ -778,9 +798,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -792,12 +813,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFollowerProfilesAsync"></a>
 # **getFollowerProfilesAsync**
-> SocialProfileDtoListEnvelope getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Follower Profiles
 
@@ -813,8 +834,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : SocialProfileDtoListEnvelope = apiInstance.getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : SocialProfileDtoListEnvelope = apiInstance.getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getFollowerProfilesAsync")
@@ -828,9 +850,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -842,12 +865,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFollowersAsync"></a>
 # **getFollowersAsync**
-> FollowRecordDtoListEnvelope getFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get Followers
 
@@ -863,8 +886,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : FollowRecordDtoListEnvelope = apiInstance.getFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : FollowRecordDtoListEnvelope = apiInstance.getFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getFollowersAsync")
@@ -878,9 +902,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -892,12 +917,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFollowsAsync"></a>
 # **getFollowsAsync**
-> FollowRecordDtoListEnvelope getFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get Follows
 
@@ -913,8 +938,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val followRecordDtoCollectionQueryParameters : FollowRecordDtoCollectionQueryParameters =  // FollowRecordDtoCollectionQueryParameters | 
 try {
-    val result : FollowRecordDtoListEnvelope = apiInstance.getFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : FollowRecordDtoListEnvelope = apiInstance.getFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getFollowsAsync")
@@ -928,9 +954,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -942,12 +969,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMessagesAsync"></a>
 # **getMessagesAsync**
-> PrivateMessageDtoListEnvelope getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
+> PrivateMessageDtoListEnvelope getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
 
 Get Messages
 
@@ -964,8 +991,9 @@ val conversationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val privateMessageDtoCollectionQueryParameters : PrivateMessageDtoCollectionQueryParameters =  // PrivateMessageDtoCollectionQueryParameters | 
 try {
-    val result : PrivateMessageDtoListEnvelope = apiInstance.getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion)
+    val result : PrivateMessageDtoListEnvelope = apiInstance.getMessagesAsync(conversationId, socialProfileId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getMessagesAsync")
@@ -980,9 +1008,10 @@ try {
 | **conversationId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -994,7 +1023,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getNotificationByIdAsync"></a>
@@ -1051,7 +1080,7 @@ No authorization required
 
 <a id="getNotificationsAsync"></a>
 # **getNotificationsAsync**
-> NotificationDtoListEnvelope getNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get Notifications
 
@@ -1067,8 +1096,9 @@ val apiInstance = SocialProfilesApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val notificationDtoCollectionQueryParameters : NotificationDtoCollectionQueryParameters =  // NotificationDtoCollectionQueryParameters | 
 try {
-    val result : NotificationDtoListEnvelope = apiInstance.getNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : NotificationDtoListEnvelope = apiInstance.getNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getNotificationsAsync")
@@ -1082,9 +1112,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1096,7 +1127,59 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="getOrCreateDirectConversationAsync"></a>
+# **getOrCreateDirectConversationAsync**
+> ConversationDtoEnvelope getOrCreateDirectConversationAsync(socialProfileId, apiVersion, xApiVersion, body)
+
+Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialProfilesApi()
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val body : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : ConversationDtoEnvelope = apiInstance.getOrCreateDirectConversationAsync(socialProfileId, apiVersion, xApiVersion, body)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialProfilesApi#getOrCreateDirectConversationAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialProfilesApi#getOrCreateDirectConversationAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **body** | **java.util.UUID**|  | [optional] |
+
+### Return type
+
+[**ConversationDtoEnvelope**](ConversationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialProfileAsync"></a>
@@ -1151,7 +1234,7 @@ No authorization required
 
 <a id="getSocialProfilesAsync"></a>
 # **getSocialProfilesAsync**
-> SocialProfileDtoListEnvelope getSocialProfilesAsync(apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Social Profiles
 
@@ -1166,8 +1249,9 @@ Get a list of social profiles.
 val apiInstance = SocialProfilesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialProfileDtoCollectionQueryParameters : SocialProfileDtoCollectionQueryParameters =  // SocialProfileDtoCollectionQueryParameters | 
 try {
-    val result : SocialProfileDtoListEnvelope = apiInstance.getSocialProfilesAsync(apiVersion, xApiVersion)
+    val result : SocialProfileDtoListEnvelope = apiInstance.getSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialProfilesApi#getSocialProfilesAsync")
@@ -1180,9 +1264,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1194,7 +1279,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="unfollowAsync"></a>

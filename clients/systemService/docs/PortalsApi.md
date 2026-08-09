@@ -165,7 +165,7 @@ No authorization required
 
 <a id="getSystemPortals"></a>
 # **getSystemPortals**
-> WebPortalDtoListEnvelope getSystemPortals(apiVersion, xApiVersion)
+> WebPortalDtoListEnvelope getSystemPortals(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Retrieve a list of system portals
 
@@ -180,8 +180,9 @@ Retrieve a list of all web portals in the system
 val apiInstance = PortalsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPortalDtoCollectionQueryParameters : WebPortalDtoCollectionQueryParameters =  // WebPortalDtoCollectionQueryParameters | 
 try {
-    val result : WebPortalDtoListEnvelope = apiInstance.getSystemPortals(apiVersion, xApiVersion)
+    val result : WebPortalDtoListEnvelope = apiInstance.getSystemPortals(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#getSystemPortals")
@@ -194,9 +195,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -208,12 +210,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSystemPortalsCount"></a>
 # **getSystemPortalsCount**
-> Int32Envelope getSystemPortalsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemPortalsCount(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Get the count of system portals
 
@@ -228,8 +230,9 @@ Get the count of all web portals in the system
 val apiInstance = PortalsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPortalDtoCollectionQueryParameters : WebPortalDtoCollectionQueryParameters =  // WebPortalDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSystemPortalsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSystemPortalsCount(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#getSystemPortalsCount")
@@ -242,9 +245,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,12 +260,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSystemPortal"></a>
 # **patchSystemPortal**
-> EmptyEnvelope patchSystemPortal(portalId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSystemPortal(portalId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a system portal
 
@@ -277,9 +281,9 @@ val apiInstance = PortalsApi()
 val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSystemPortal(portalId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSystemPortal(portalId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#patchSystemPortal")
@@ -296,7 +300,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

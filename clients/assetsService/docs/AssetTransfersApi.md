@@ -159,7 +159,7 @@ No authorization required
 
 <a id="getAssetTransfersAsync"></a>
 # **getAssetTransfersAsync**
-> AssetTransferDtoListEnvelope getAssetTransfersAsync(tenantId)
+> AssetTransferDtoListEnvelope getAssetTransfersAsync(tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets a list of asset transfers
 
@@ -173,8 +173,9 @@ Retrieves all asset transfers for the authenticated tenant.
 
 val apiInstance = AssetTransfersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTransferDtoCollectionQueryParameters : AssetTransferDtoCollectionQueryParameters =  // AssetTransferDtoCollectionQueryParameters | 
 try {
-    val result : AssetTransferDtoListEnvelope = apiInstance.getAssetTransfersAsync(tenantId)
+    val result : AssetTransferDtoListEnvelope = apiInstance.getAssetTransfersAsync(tenantId, assetTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTransfersApi#getAssetTransfersAsync")
@@ -186,9 +187,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -200,12 +202,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetTransfersCountAsync"></a>
 # **getAssetTransfersCountAsync**
-> Int32Envelope getAssetTransfersCountAsync(tenantId)
+> Int32Envelope getAssetTransfersCountAsync(tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets the count of asset transfers
 
@@ -219,8 +221,9 @@ Returns the total number of asset transfers for the authenticated tenant.
 
 val apiInstance = AssetTransfersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTransferDtoCollectionQueryParameters : AssetTransferDtoCollectionQueryParameters =  // AssetTransferDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetTransfersCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getAssetTransfersCountAsync(tenantId, assetTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTransfersApi#getAssetTransfersCountAsync")
@@ -232,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -246,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAssetTransferAsync"></a>
 # **patchAssetTransferAsync**
-> EmptyEnvelope patchAssetTransferAsync(transferId, tenantId, operation)
+> EmptyEnvelope patchAssetTransferAsync(transferId, tenantId, patchOperation)
 
 Partially updates an existing asset transfer
 
@@ -266,9 +270,9 @@ Applies a JSON Patch document to an existing asset transfer for the authenticate
 val apiInstance = AssetTransfersApi()
 val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetTransferAsync(transferId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetTransferAsync(transferId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTransfersApi#patchAssetTransferAsync")
@@ -284,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

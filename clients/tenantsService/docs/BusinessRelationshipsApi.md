@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getBusinessRelationshipsAsync"></a>
 # **getBusinessRelationshipsAsync**
-> BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
 
 Get business relationships
 
@@ -186,8 +186,9 @@ val apiInstance = BusinessRelationshipsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessRelationshipDtoCollectionQueryParameters : BusinessRelationshipDtoCollectionQueryParameters =  // BusinessRelationshipDtoCollectionQueryParameters | 
 try {
-    val result : BusinessRelationshipDtoListEnvelope = apiInstance.getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BusinessRelationshipDtoListEnvelope = apiInstance.getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessRelationshipsApi#getBusinessRelationshipsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessRelationshipDtoCollectionQueryParameters** | [**BusinessRelationshipDtoCollectionQueryParameters**](BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessRelationshipsCountAsync"></a>
 # **getBusinessRelationshipsCountAsync**
-> Int32Envelope getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
 
 Get business relationships count
 
@@ -236,8 +238,9 @@ val apiInstance = BusinessRelationshipsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessRelationshipDtoCollectionQueryParameters : BusinessRelationshipDtoCollectionQueryParameters =  // BusinessRelationshipDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessRelationshipsApi#getBusinessRelationshipsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessRelationshipDtoCollectionQueryParameters** | [**BusinessRelationshipDtoCollectionQueryParameters**](BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateBusinessRelationshipAsync"></a>

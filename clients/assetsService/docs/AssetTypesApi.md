@@ -158,7 +158,7 @@ No authorization required
 
 <a id="getAssetTypes"></a>
 # **getAssetTypes**
-> AssetTypeDtoListEnvelope getAssetTypes(tenantId)
+> AssetTypeDtoListEnvelope getAssetTypes(tenantId, assetTypeDtoCollectionQueryParameters)
 
 Gets all asset types for the current tenant
 
@@ -172,8 +172,9 @@ Retrieves all asset types for the authenticated tenant.
 
 val apiInstance = AssetTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTypeDtoCollectionQueryParameters : AssetTypeDtoCollectionQueryParameters =  // AssetTypeDtoCollectionQueryParameters | 
 try {
-    val result : AssetTypeDtoListEnvelope = apiInstance.getAssetTypes(tenantId)
+    val result : AssetTypeDtoListEnvelope = apiInstance.getAssetTypes(tenantId, assetTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTypesApi#getAssetTypes")
@@ -185,9 +186,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,12 +201,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetTypesCount"></a>
 # **getAssetTypesCount**
-> Int32Envelope getAssetTypesCount(tenantId)
+> Int32Envelope getAssetTypesCount(tenantId, assetTypeDtoCollectionQueryParameters)
 
 Gets the count of asset types
 
@@ -218,8 +220,9 @@ Returns the total number of asset types for the authenticated tenant.
 
 val apiInstance = AssetTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTypeDtoCollectionQueryParameters : AssetTypeDtoCollectionQueryParameters =  // AssetTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetTypesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getAssetTypesCount(tenantId, assetTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTypesApi#getAssetTypesCount")
@@ -231,9 +234,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -245,12 +249,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAssetType"></a>
 # **patchAssetType**
-> EmptyEnvelope patchAssetType(typeId, tenantId, operation)
+> EmptyEnvelope patchAssetType(typeId, tenantId, patchOperation)
 
 Partially updates an existing asset type
 
@@ -265,9 +269,9 @@ Applies a JSON Patch document to an existing asset type for the authenticated te
 val apiInstance = AssetTypesApi()
 val typeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetType(typeId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetType(typeId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetTypesApi#patchAssetType")
@@ -283,7 +287,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

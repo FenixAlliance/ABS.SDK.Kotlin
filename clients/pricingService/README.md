@@ -64,7 +64,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -119,10 +118,12 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.CurrencyId](docs/CurrencyId.md)
  - [org.openapitools.client.models.DiscountCreateDto](docs/DiscountCreateDto.md)
  - [org.openapitools.client.models.DiscountDto](docs/DiscountDto.md)
+ - [org.openapitools.client.models.DiscountDtoCollectionQueryParameters](docs/DiscountDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DiscountDtoEnvelope](docs/DiscountDtoEnvelope.md)
  - [org.openapitools.client.models.DiscountDtoListEnvelope](docs/DiscountDtoListEnvelope.md)
  - [org.openapitools.client.models.DiscountListCreateDto](docs/DiscountListCreateDto.md)
  - [org.openapitools.client.models.DiscountListDto](docs/DiscountListDto.md)
+ - [org.openapitools.client.models.DiscountListDtoCollectionQueryParameters](docs/DiscountListDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.DiscountListDtoEnvelope](docs/DiscountListDtoEnvelope.md)
  - [org.openapitools.client.models.DiscountListDtoListEnvelope](docs/DiscountListDtoListEnvelope.md)
  - [org.openapitools.client.models.DiscountListUpdateDto](docs/DiscountListUpdateDto.md)
@@ -138,20 +139,23 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ItemPriceCalculationEnvelope](docs/ItemPriceCalculationEnvelope.md)
  - [org.openapitools.client.models.ItemPriceCreateDto](docs/ItemPriceCreateDto.md)
  - [org.openapitools.client.models.ItemPriceDto](docs/ItemPriceDto.md)
+ - [org.openapitools.client.models.ItemPriceDtoCollectionQueryParameters](docs/ItemPriceDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ItemPriceDtoEnvelope](docs/ItemPriceDtoEnvelope.md)
  - [org.openapitools.client.models.ItemPriceDtoListEnvelope](docs/ItemPriceDtoListEnvelope.md)
  - [org.openapitools.client.models.ItemPriceUpdateDto](docs/ItemPriceUpdateDto.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
  - [org.openapitools.client.models.Money](docs/Money.md)
  - [org.openapitools.client.models.MoneyEnvelope](docs/MoneyEnvelope.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.PriceListCreateDto](docs/PriceListCreateDto.md)
  - [org.openapitools.client.models.PriceListDto](docs/PriceListDto.md)
+ - [org.openapitools.client.models.PriceListDtoCollectionQueryParameters](docs/PriceListDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PriceListDtoEnvelope](docs/PriceListDtoEnvelope.md)
  - [org.openapitools.client.models.PriceListDtoListEnvelope](docs/PriceListDtoListEnvelope.md)
  - [org.openapitools.client.models.PriceListUpdateDto](docs/PriceListUpdateDto.md)
  - [org.openapitools.client.models.PricingRuleCreateDto](docs/PricingRuleCreateDto.md)
  - [org.openapitools.client.models.PricingRuleDto](docs/PricingRuleDto.md)
+ - [org.openapitools.client.models.PricingRuleDtoCollectionQueryParameters](docs/PricingRuleDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.PricingRuleDtoEnvelope](docs/PricingRuleDtoEnvelope.md)
  - [org.openapitools.client.models.PricingRuleDtoListEnvelope](docs/PricingRuleDtoListEnvelope.md)
  - [org.openapitools.client.models.PricingRuleUpdateDto](docs/PricingRuleUpdateDto.md)
@@ -161,6 +165,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.RoundingPolicyCreateDto](docs/RoundingPolicyCreateDto.md)
  - [org.openapitools.client.models.RoundingPolicyDto](docs/RoundingPolicyDto.md)
+ - [org.openapitools.client.models.RoundingPolicyDtoCollectionQueryParameters](docs/RoundingPolicyDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.RoundingPolicyDtoEnvelope](docs/RoundingPolicyDtoEnvelope.md)
  - [org.openapitools.client.models.RoundingPolicyDtoListEnvelope](docs/RoundingPolicyDtoListEnvelope.md)
  - [org.openapitools.client.models.RoundingPolicyUpdateDto](docs/RoundingPolicyUpdateDto.md)

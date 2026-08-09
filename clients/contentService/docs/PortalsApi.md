@@ -80,7 +80,7 @@ No authorization required
 
 <a id="countPortalsAsync"></a>
 # **countPortalsAsync**
-> Int32Envelope countPortalsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Count portals
 
@@ -96,8 +96,9 @@ val apiInstance = PortalsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPortalDtoCollectionQueryParameters : WebPortalDtoCollectionQueryParameters =  // WebPortalDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countPortalsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#countPortalsAsync")
@@ -111,9 +112,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -125,7 +127,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createWebPortalAsync"></a>
@@ -330,7 +332,7 @@ No authorization required
 
 <a id="getPortalsAsync"></a>
 # **getPortalsAsync**
-> WebPortalDtoListEnvelope getPortalsAsync(tenantId, apiVersion, xApiVersion)
+> WebPortalDtoListEnvelope getPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Get portals
 
@@ -346,8 +348,9 @@ val apiInstance = PortalsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPortalDtoCollectionQueryParameters : WebPortalDtoCollectionQueryParameters =  // WebPortalDtoCollectionQueryParameters | 
 try {
-    val result : WebPortalDtoListEnvelope = apiInstance.getPortalsAsync(tenantId, apiVersion, xApiVersion)
+    val result : WebPortalDtoListEnvelope = apiInstance.getPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#getPortalsAsync")
@@ -361,9 +364,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -375,7 +379,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRootWebPortalAsync"></a>
@@ -630,7 +634,7 @@ No authorization required
 
 <a id="initializeCurrentWebPortalAsync"></a>
 # **initializeCurrentWebPortalAsync**
-> WebPortalDtoEnvelope initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
+> ExecutionContextEnvelope initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
 
 Initialize the current portal
 
@@ -646,7 +650,7 @@ val apiInstance = PortalsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : WebPortalDtoEnvelope = apiInstance.initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
+    val result : ExecutionContextEnvelope = apiInstance.initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#initializeCurrentWebPortalAsync")
@@ -665,7 +669,7 @@ try {
 
 ### Return type
 
-[**WebPortalDtoEnvelope**](WebPortalDtoEnvelope.md)
+[**ExecutionContextEnvelope**](ExecutionContextEnvelope.md)
 
 ### Authorization
 
@@ -678,7 +682,7 @@ No authorization required
 
 <a id="patchWebPortalAsync"></a>
 # **patchWebPortalAsync**
-> EmptyEnvelope patchWebPortalAsync(portalId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebPortalAsync(portalId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a web portal
 
@@ -695,9 +699,9 @@ val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWebPortalAsync(portalId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWebPortalAsync(portalId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PortalsApi#patchWebPortalAsync")
@@ -715,7 +719,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

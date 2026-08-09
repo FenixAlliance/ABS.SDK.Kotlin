@@ -63,7 +63,7 @@ No authorization required
 
 <a id="getSigningLogsAsync"></a>
 # **getSigningLogsAsync**
-> SigningLogDtoListEnvelope getSigningLogsAsync(tenantId, apiVersion, xApiVersion)
+> SigningLogDtoListEnvelope getSigningLogsAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
 
 Get all signing logs
 
@@ -79,8 +79,9 @@ val apiInstance = SigningLogsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signingLogDtoCollectionQueryParameters : SigningLogDtoCollectionQueryParameters =  // SigningLogDtoCollectionQueryParameters | 
 try {
-    val result : SigningLogDtoListEnvelope = apiInstance.getSigningLogsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SigningLogDtoListEnvelope = apiInstance.getSigningLogsAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningLogsApi#getSigningLogsAsync")
@@ -94,9 +95,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signingLogDtoCollectionQueryParameters** | [**SigningLogDtoCollectionQueryParameters**](SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -108,12 +110,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSigningLogsCountAsync"></a>
 # **getSigningLogsCountAsync**
-> Int32Envelope getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
 
 Get signing logs count
 
@@ -129,8 +131,9 @@ val apiInstance = SigningLogsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val signingLogDtoCollectionQueryParameters : SigningLogDtoCollectionQueryParameters =  // SigningLogDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningLogsApi#getSigningLogsCountAsync")
@@ -144,9 +147,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **signingLogDtoCollectionQueryParameters** | [**SigningLogDtoCollectionQueryParameters**](SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -158,6 +162,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

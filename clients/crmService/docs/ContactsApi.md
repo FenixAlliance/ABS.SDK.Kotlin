@@ -418,7 +418,7 @@ No authorization required
 
 <a id="getBusinessOwnedIndividualsAsync"></a>
 # **getBusinessOwnedIndividualsAsync**
-> ContactDtoListEnvelope getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type individual
 
@@ -434,8 +434,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getBusinessOwnedIndividualsAsync")
@@ -449,9 +450,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -463,12 +465,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessOwnedIndividualsCountAsync"></a>
 # **getBusinessOwnedIndividualsCountAsync**
-> ContactDtoListEnvelope getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type individual count
 
@@ -484,8 +486,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getBusinessOwnedIndividualsCountAsync")
@@ -499,9 +502,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -513,7 +517,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessOwnedOrganizationAsync"></a>
@@ -570,7 +574,7 @@ No authorization required
 
 <a id="getBusinessOwnedOrganizationsAsync"></a>
 # **getBusinessOwnedOrganizationsAsync**
-> kotlin.collections.List&lt;ContactDto&gt; getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;ContactDto&gt; getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type organization
 
@@ -586,8 +590,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<ContactDto> = apiInstance.getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<ContactDto> = apiInstance.getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getBusinessOwnedOrganizationsAsync")
@@ -601,9 +606,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -615,12 +621,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessOwnedOrganizationsCountAsync"></a>
 # **getBusinessOwnedOrganizationsCountAsync**
-> ContactDtoListEnvelope getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type organization count
 
@@ -636,8 +642,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactDtoListEnvelope = apiInstance.getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getBusinessOwnedOrganizationsCountAsync")
@@ -651,9 +658,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactAsync"></a>
@@ -826,7 +834,7 @@ No authorization required
 
 <a id="getContactEmailsAsync"></a>
 # **getContactEmailsAsync**
-> ContactEmailDtoListEnvelope getContactEmailsAsync(contactId, tenantId, apiVersion, xApiVersion)
+> ContactEmailDtoListEnvelope getContactEmailsAsync(contactId, tenantId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
 
 Get a contact&#39;s email addresses
 
@@ -843,8 +851,9 @@ val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactEmailDtoCollectionQueryParameters : ContactEmailDtoCollectionQueryParameters =  // ContactEmailDtoCollectionQueryParameters | 
 try {
-    val result : ContactEmailDtoListEnvelope = apiInstance.getContactEmailsAsync(contactId, tenantId, apiVersion, xApiVersion)
+    val result : ContactEmailDtoListEnvelope = apiInstance.getContactEmailsAsync(contactId, tenantId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getContactEmailsAsync")
@@ -859,9 +868,10 @@ try {
 | **contactId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -873,12 +883,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactEmailsCountAsync"></a>
 # **getContactEmailsCountAsync**
-> Int32Envelope getContactEmailsCountAsync(contactId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactEmailsCountAsync(contactId, tenantId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
 
 Get contact email addresses count
 
@@ -895,8 +905,9 @@ val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactEmailDtoCollectionQueryParameters : ContactEmailDtoCollectionQueryParameters =  // ContactEmailDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getContactEmailsCountAsync(contactId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getContactEmailsCountAsync(contactId, tenantId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getContactEmailsCountAsync")
@@ -911,9 +922,10 @@ try {
 | **contactId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -925,7 +937,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactSocialProfileAsync"></a>
@@ -1034,7 +1046,7 @@ No authorization required
 
 <a id="getContactsAsync"></a>
 # **getContactsAsync**
-> ContactDtoListEnvelope getContactsAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getContactsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all business owned contacts
 
@@ -1050,8 +1062,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : ContactDtoListEnvelope = apiInstance.getContactsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactDtoListEnvelope = apiInstance.getContactsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getContactsAsync")
@@ -1065,9 +1078,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1079,12 +1093,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactsCountAsync"></a>
 # **getContactsCountAsync**
-> ContactDtoListEnvelope getContactsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getContactsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all business owned contacts count
 
@@ -1100,8 +1114,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactDtoCollectionQueryParameters : ContactDtoCollectionQueryParameters =  // ContactDtoCollectionQueryParameters | 
 try {
-    val result : ContactDtoListEnvelope = apiInstance.getContactsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactDtoListEnvelope = apiInstance.getContactsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getContactsCountAsync")
@@ -1115,9 +1130,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1129,12 +1145,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedBusinessOwnedIndividualsAsync"></a>
 # **getExtendedBusinessOwnedIndividualsAsync**
-> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all contacts of type individual
 
@@ -1150,8 +1166,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedContactDtoCollectionQueryParameters : ExtendedContactDtoCollectionQueryParameters =  // ExtendedContactDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getExtendedBusinessOwnedIndividualsAsync")
@@ -1165,9 +1182,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1179,12 +1197,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedBusinessOwnedOrganizationsAsync"></a>
 # **getExtendedBusinessOwnedOrganizationsAsync**
-> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all contacts of type organization
 
@@ -1200,8 +1218,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedContactDtoCollectionQueryParameters : ExtendedContactDtoCollectionQueryParameters =  // ExtendedContactDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getExtendedBusinessOwnedOrganizationsAsync")
@@ -1215,9 +1234,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1229,7 +1249,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedContactAsync"></a>
@@ -1286,7 +1306,7 @@ No authorization required
 
 <a id="getExtendedContactsAsync"></a>
 # **getExtendedContactsAsync**
-> ExtendedContactDtoListEnvelope getExtendedContactsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedContactsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all business owned contacts
 
@@ -1302,8 +1322,9 @@ val apiInstance = ContactsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedContactDtoCollectionQueryParameters : ExtendedContactDtoCollectionQueryParameters =  // ExtendedContactDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedContactsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ExtendedContactDtoListEnvelope = apiInstance.getExtendedContactsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getExtendedContactsAsync")
@@ -1317,9 +1338,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1331,7 +1353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getIndividualRelatedIndividualsAsync"></a>
@@ -1596,7 +1618,7 @@ No authorization required
 
 <a id="getProfilesForContactCountAsync"></a>
 # **getProfilesForContactCountAsync**
-> Int32Envelope getProfilesForContactCountAsync(contactId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProfilesForContactCountAsync(contactId, tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get contact profiles count
 
@@ -1613,8 +1635,9 @@ val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactProfileDtoCollectionQueryParameters : ContactProfileDtoCollectionQueryParameters =  // ContactProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProfilesForContactCountAsync(contactId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getProfilesForContactCountAsync(contactId, tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#getProfilesForContactCountAsync")
@@ -1629,9 +1652,10 @@ try {
 | **contactId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1643,12 +1667,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchContactAsync"></a>
 # **patchContactAsync**
-> EmptyEnvelope patchContactAsync(contactId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactAsync(contactId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact
 
@@ -1665,9 +1689,9 @@ val contactId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchContactAsync(contactId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchContactAsync(contactId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#patchContactAsync")
@@ -1685,7 +1709,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1702,7 +1726,7 @@ No authorization required
 
 <a id="patchContactEmailAsync"></a>
 # **patchContactEmailAsync**
-> patchContactEmailAsync(contactId, emailId, tenantId, apiVersion, xApiVersion, operation)
+> patchContactEmailAsync(contactId, emailId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact email address
 
@@ -1720,9 +1744,9 @@ val emailId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchContactEmailAsync(contactId, emailId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchContactEmailAsync(contactId, emailId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling ContactsApi#patchContactEmailAsync")
     e.printStackTrace()
@@ -1740,7 +1764,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

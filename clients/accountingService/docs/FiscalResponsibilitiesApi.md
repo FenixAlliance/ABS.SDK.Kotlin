@@ -119,7 +119,7 @@ No authorization required
 
 <a id="getFiscalResponsibilities"></a>
 # **getFiscalResponsibilities**
-> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
 
 Get fiscal responsibilities for an authority
 
@@ -137,8 +137,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalResponsibilityDtoCollectionQueryParameters : FiscalResponsibilityDtoCollectionQueryParameters =  // FiscalResponsibilityDtoCollectionQueryParameters | 
 try {
-    val result : FiscalResponsibilityDtoListEnvelope = apiInstance.getFiscalResponsibilities(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+    val result : FiscalResponsibilityDtoListEnvelope = apiInstance.getFiscalResponsibilities(authorityId, tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalResponsibilitiesApi#getFiscalResponsibilities")
@@ -154,9 +155,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -168,12 +170,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalResponsibilitiesCount"></a>
 # **getFiscalResponsibilitiesCount**
-> Int32Envelope getFiscalResponsibilitiesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalResponsibilitiesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
 
 Get fiscal responsibilities count
 
@@ -190,8 +192,9 @@ val fiscalAuthorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d //
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalResponsibilityDtoCollectionQueryParameters : FiscalResponsibilityDtoCollectionQueryParameters =  // FiscalResponsibilityDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalResponsibilitiesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalResponsibilitiesCount(fiscalAuthorityId, tenantId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalResponsibilitiesApi#getFiscalResponsibilitiesCount")
@@ -206,9 +209,10 @@ try {
 | **fiscalAuthorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -220,7 +224,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalResponsibility"></a>
@@ -279,7 +283,7 @@ No authorization required
 
 <a id="patchFiscalResponsibilityAsync"></a>
 # **patchFiscalResponsibilityAsync**
-> EmptyEnvelope patchFiscalResponsibilityAsync(fiscalResponsibilityId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalResponsibilityAsync(fiscalResponsibilityId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal responsibility
 
@@ -296,9 +300,9 @@ val fiscalResponsibilityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef0
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalResponsibilityAsync(fiscalResponsibilityId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalResponsibilityAsync(fiscalResponsibilityId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalResponsibilitiesApi#patchFiscalResponsibilityAsync")
@@ -316,7 +320,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getTaxClasses"></a>
 # **getTaxClasses**
-> TaxClassDtoListEnvelope getTaxClasses(tenantId, apiVersion, xApiVersion)
+> TaxClassDtoListEnvelope getTaxClasses(tenantId, apiVersion, xApiVersion, taxClassDtoCollectionQueryParameters)
 
 Get all tax classes for a tenant
 
@@ -187,8 +187,9 @@ val apiInstance = TaxClassesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val taxClassDtoCollectionQueryParameters : TaxClassDtoCollectionQueryParameters =  // TaxClassDtoCollectionQueryParameters | 
 try {
-    val result : TaxClassDtoListEnvelope = apiInstance.getTaxClasses(tenantId, apiVersion, xApiVersion)
+    val result : TaxClassDtoListEnvelope = apiInstance.getTaxClasses(tenantId, apiVersion, xApiVersion, taxClassDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxClassesApi#getTaxClasses")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **taxClassDtoCollectionQueryParameters** | [**TaxClassDtoCollectionQueryParameters**](TaxClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTaxClassesCount"></a>
 # **getTaxClassesCount**
-> Int32Envelope getTaxClassesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTaxClassesCount(tenantId, apiVersion, xApiVersion, taxClassDtoCollectionQueryParameters)
 
 Get tax classes count
 
@@ -237,8 +239,9 @@ val apiInstance = TaxClassesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val taxClassDtoCollectionQueryParameters : TaxClassDtoCollectionQueryParameters =  // TaxClassDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTaxClassesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTaxClassesCount(tenantId, apiVersion, xApiVersion, taxClassDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxClassesApi#getTaxClassesCount")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **taxClassDtoCollectionQueryParameters** | [**TaxClassDtoCollectionQueryParameters**](TaxClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTaxClass"></a>
 # **patchTaxClass**
-> EmptyEnvelope patchTaxClass(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTaxClass(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tax class
 
@@ -288,9 +292,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTaxClass(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTaxClass(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TaxClassesApi#patchTaxClass")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

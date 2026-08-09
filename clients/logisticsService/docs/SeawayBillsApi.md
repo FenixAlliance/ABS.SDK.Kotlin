@@ -288,7 +288,7 @@ No authorization required
 
 <a id="getSeawayBillLinesAsync"></a>
 # **getSeawayBillLinesAsync**
-> WaybillLineDtoListEnvelope getSeawayBillLinesAsync(billId, tenantId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getSeawayBillLinesAsync(billId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get seaway bill lines
 
@@ -305,8 +305,9 @@ val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : WaybillLineDtoListEnvelope = apiInstance.getSeawayBillLinesAsync(billId, tenantId, apiVersion, xApiVersion)
+    val result : WaybillLineDtoListEnvelope = apiInstance.getSeawayBillLinesAsync(billId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#getSeawayBillLinesAsync")
@@ -321,9 +322,10 @@ try {
 | **billId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -335,12 +337,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSeawayBillLinesCountAsync"></a>
 # **getSeawayBillLinesCountAsync**
-> Int32Envelope getSeawayBillLinesCountAsync(billId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSeawayBillLinesCountAsync(billId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get seaway bill lines count
 
@@ -357,8 +359,9 @@ val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val waybillLineDtoCollectionQueryParameters : WaybillLineDtoCollectionQueryParameters =  // WaybillLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSeawayBillLinesCountAsync(billId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSeawayBillLinesCountAsync(billId, tenantId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#getSeawayBillLinesCountAsync")
@@ -373,9 +376,10 @@ try {
 | **billId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -387,12 +391,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSeawayBillsAsync"></a>
 # **getSeawayBillsAsync**
-> SeawayBillDtoListEnvelope getSeawayBillsAsync(tenantId, apiVersion, xApiVersion)
+> SeawayBillDtoListEnvelope getSeawayBillsAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
 
 Get all seaway bills
 
@@ -408,8 +412,9 @@ val apiInstance = SeawayBillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val seawayBillDtoCollectionQueryParameters : SeawayBillDtoCollectionQueryParameters =  // SeawayBillDtoCollectionQueryParameters | 
 try {
-    val result : SeawayBillDtoListEnvelope = apiInstance.getSeawayBillsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SeawayBillDtoListEnvelope = apiInstance.getSeawayBillsAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#getSeawayBillsAsync")
@@ -423,9 +428,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **seawayBillDtoCollectionQueryParameters** | [**SeawayBillDtoCollectionQueryParameters**](SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -437,12 +443,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSeawayBillsCountAsync"></a>
 # **getSeawayBillsCountAsync**
-> Int32Envelope getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
 
 Get seaway bills count
 
@@ -458,8 +464,9 @@ val apiInstance = SeawayBillsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val seawayBillDtoCollectionQueryParameters : SeawayBillDtoCollectionQueryParameters =  // SeawayBillDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#getSeawayBillsCountAsync")
@@ -473,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **seawayBillDtoCollectionQueryParameters** | [**SeawayBillDtoCollectionQueryParameters**](SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -487,7 +495,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="issueSeawayBillAsync"></a>
@@ -648,7 +656,7 @@ No authorization required
 
 <a id="patchSeawayBillAsync"></a>
 # **patchSeawayBillAsync**
-> EmptyEnvelope patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a seaway bill
 
@@ -665,9 +673,9 @@ val billId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSeawayBillAsync(billId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#patchSeawayBillAsync")
@@ -685,7 +693,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +710,7 @@ No authorization required
 
 <a id="patchSeawayBillLineAsync"></a>
 # **patchSeawayBillLineAsync**
-> EmptyEnvelope patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a seaway bill line
 
@@ -720,9 +728,9 @@ val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSeawayBillLineAsync(billId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SeawayBillsApi#patchSeawayBillLineAsync")
@@ -741,7 +749,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -501,7 +501,7 @@ No authorization required
 
 <a id="getShareClasses"></a>
 # **getShareClasses**
-> ShareClassDtoListEnvelope getShareClasses(tenantId, apiVersion, xApiVersion)
+> ShareClassDtoListEnvelope getShareClasses(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
 
 Gets the current tenant share classes
 
@@ -517,8 +517,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareClassDtoCollectionQueryParameters : ShareClassDtoCollectionQueryParameters =  // ShareClassDtoCollectionQueryParameters | 
 try {
-    val result : ShareClassDtoListEnvelope = apiInstance.getShareClasses(tenantId, apiVersion, xApiVersion)
+    val result : ShareClassDtoListEnvelope = apiInstance.getShareClasses(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareClasses")
@@ -532,9 +533,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareClassDtoCollectionQueryParameters** | [**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -546,12 +548,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareClassesCount"></a>
 # **getShareClassesCount**
-> Int32Envelope getShareClassesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareClassesCount(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
 
 Gets the current tenant share classes count
 
@@ -567,8 +569,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareClassDtoCollectionQueryParameters : ShareClassDtoCollectionQueryParameters =  // ShareClassDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShareClassesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShareClassesCount(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareClassesCount")
@@ -582,9 +585,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareClassDtoCollectionQueryParameters** | [**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -596,7 +600,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareIssuance"></a>
@@ -653,7 +657,7 @@ No authorization required
 
 <a id="getShareIssuances"></a>
 # **getShareIssuances**
-> ShareIssuanceDtoListEnvelope getShareIssuances(tenantId, apiVersion, xApiVersion)
+> ShareIssuanceDtoListEnvelope getShareIssuances(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Gets the current tenant share issuances
 
@@ -669,8 +673,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareIssuanceDtoCollectionQueryParameters : ShareIssuanceDtoCollectionQueryParameters =  // ShareIssuanceDtoCollectionQueryParameters | 
 try {
-    val result : ShareIssuanceDtoListEnvelope = apiInstance.getShareIssuances(tenantId, apiVersion, xApiVersion)
+    val result : ShareIssuanceDtoListEnvelope = apiInstance.getShareIssuances(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareIssuances")
@@ -684,9 +689,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -698,12 +704,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareIssuancesCount"></a>
 # **getShareIssuancesCount**
-> Int32Envelope getShareIssuancesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareIssuancesCount(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Gets the current tenant share issuances count
 
@@ -719,8 +725,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareIssuanceDtoCollectionQueryParameters : ShareIssuanceDtoCollectionQueryParameters =  // ShareIssuanceDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShareIssuancesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShareIssuancesCount(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareIssuancesCount")
@@ -734,9 +741,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -748,12 +756,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareIssuancesSum"></a>
 # **getShareIssuancesSum**
-> DecimalEnvelope getShareIssuancesSum(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getShareIssuancesSum(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Sum tenant share issuance quantities
 
@@ -769,8 +777,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareIssuanceDtoCollectionQueryParameters : ShareIssuanceDtoCollectionQueryParameters =  // ShareIssuanceDtoCollectionQueryParameters | 
 try {
-    val result : DecimalEnvelope = apiInstance.getShareIssuancesSum(tenantId, apiVersion, xApiVersion)
+    val result : DecimalEnvelope = apiInstance.getShareIssuancesSum(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareIssuancesSum")
@@ -784,9 +793,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -798,7 +808,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareTransfer"></a>
@@ -907,7 +917,7 @@ No authorization required
 
 <a id="getShareTransferReasons"></a>
 # **getShareTransferReasons**
-> ShareTransferReasonDtoListEnvelope getShareTransferReasons(tenantId, apiVersion, xApiVersion)
+> ShareTransferReasonDtoListEnvelope getShareTransferReasons(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
 
 Gets the current tenant share transfer reasons
 
@@ -923,8 +933,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareTransferReasonDtoCollectionQueryParameters : ShareTransferReasonDtoCollectionQueryParameters =  // ShareTransferReasonDtoCollectionQueryParameters | 
 try {
-    val result : ShareTransferReasonDtoListEnvelope = apiInstance.getShareTransferReasons(tenantId, apiVersion, xApiVersion)
+    val result : ShareTransferReasonDtoListEnvelope = apiInstance.getShareTransferReasons(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareTransferReasons")
@@ -938,9 +949,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareTransferReasonDtoCollectionQueryParameters** | [**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -952,12 +964,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareTransferReasonsCount"></a>
 # **getShareTransferReasonsCount**
-> Int32Envelope getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
 
 Gets the current tenant share transfer reasons count
 
@@ -973,8 +985,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareTransferReasonDtoCollectionQueryParameters : ShareTransferReasonDtoCollectionQueryParameters =  // ShareTransferReasonDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareTransferReasonsCount")
@@ -988,9 +1001,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareTransferReasonDtoCollectionQueryParameters** | [**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1002,12 +1016,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareTransfers"></a>
 # **getShareTransfers**
-> ShareTransferDtoListEnvelope getShareTransfers(tenantId, apiVersion, xApiVersion)
+> ShareTransferDtoListEnvelope getShareTransfers(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
 
 Gets the current tenant share transfers
 
@@ -1023,8 +1037,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareTransferDtoCollectionQueryParameters : ShareTransferDtoCollectionQueryParameters =  // ShareTransferDtoCollectionQueryParameters | 
 try {
-    val result : ShareTransferDtoListEnvelope = apiInstance.getShareTransfers(tenantId, apiVersion, xApiVersion)
+    val result : ShareTransferDtoListEnvelope = apiInstance.getShareTransfers(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareTransfers")
@@ -1038,9 +1053,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareTransferDtoCollectionQueryParameters** | [**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1052,12 +1068,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShareTransfersCount"></a>
 # **getShareTransfersCount**
-> Int32Envelope getShareTransfersCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareTransfersCount(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
 
 Gets the current tenant share transfers count
 
@@ -1073,8 +1089,9 @@ val apiInstance = SharesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shareTransferDtoCollectionQueryParameters : ShareTransferDtoCollectionQueryParameters =  // ShareTransferDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShareTransfersCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShareTransfersCount(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#getShareTransfersCount")
@@ -1088,9 +1105,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shareTransferDtoCollectionQueryParameters** | [**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1102,12 +1120,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchShareClass"></a>
 # **patchShareClass**
-> EmptyEnvelope patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share class
 
@@ -1124,9 +1142,9 @@ val shareClassId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShareClass(shareClassId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#patchShareClass")
@@ -1144,7 +1162,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1161,7 +1179,7 @@ No authorization required
 
 <a id="patchShareIssuance"></a>
 # **patchShareIssuance**
-> EmptyEnvelope patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share issuance
 
@@ -1178,9 +1196,9 @@ val issuanceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShareIssuance(issuanceId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#patchShareIssuance")
@@ -1198,7 +1216,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1215,7 +1233,7 @@ No authorization required
 
 <a id="patchShareTransfer"></a>
 # **patchShareTransfer**
-> EmptyEnvelope patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share transfer
 
@@ -1232,9 +1250,9 @@ val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShareTransfer(transferId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#patchShareTransfer")
@@ -1252,7 +1270,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1269,7 +1287,7 @@ No authorization required
 
 <a id="patchShareTransferReason"></a>
 # **patchShareTransferReason**
-> EmptyEnvelope patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share transfer reason
 
@@ -1286,9 +1304,9 @@ val reasonId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShareTransferReason(reasonId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SharesApi#patchShareTransferReason")
@@ -1306,7 +1324,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

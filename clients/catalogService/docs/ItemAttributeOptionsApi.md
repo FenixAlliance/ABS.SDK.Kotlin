@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getItemAttributeOptionsAsync"></a>
 # **getItemAttributeOptionsAsync**
-> ItemAttributeOptionDtoListEnvelope getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion)
+> ItemAttributeOptionDtoListEnvelope getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
 
 Get all item attribute options
 
@@ -186,8 +186,9 @@ val apiInstance = ItemAttributeOptionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemAttributeOptionDtoCollectionQueryParameters : ItemAttributeOptionDtoCollectionQueryParameters =  // ItemAttributeOptionDtoCollectionQueryParameters | 
 try {
-    val result : ItemAttributeOptionDtoListEnvelope = apiInstance.getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemAttributeOptionDtoListEnvelope = apiInstance.getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttributeOptionsApi#getItemAttributeOptionsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemAttributeOptionDtoCollectionQueryParameters** | [**ItemAttributeOptionDtoCollectionQueryParameters**](ItemAttributeOptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemAttributeOptionsCountAsync"></a>
 # **getItemAttributeOptionsCountAsync**
-> Int32Envelope getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
 
 Get item attribute options count
 
@@ -236,8 +238,9 @@ val apiInstance = ItemAttributeOptionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemAttributeOptionDtoCollectionQueryParameters : ItemAttributeOptionDtoCollectionQueryParameters =  // ItemAttributeOptionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttributeOptionsApi#getItemAttributeOptionsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemAttributeOptionDtoCollectionQueryParameters** | [**ItemAttributeOptionDtoCollectionQueryParameters**](ItemAttributeOptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,12 +269,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemAttributeOptionAsync"></a>
 # **patchItemAttributeOptionAsync**
-> EmptyEnvelope patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item attribute option
 
@@ -287,9 +291,9 @@ val itemAttributeOptionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemAttributeOptionAsync(itemAttributeOptionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemAttributeOptionsApi#patchItemAttributeOptionAsync")
@@ -307,7 +311,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

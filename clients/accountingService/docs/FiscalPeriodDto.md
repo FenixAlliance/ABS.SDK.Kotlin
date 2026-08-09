@@ -12,6 +12,14 @@
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **fiscalYearId** | **kotlin.String** |  |  [optional] |
+| **status** | [**inline**](#Status) |  |  [optional] |
+
+
+<a id="Status"></a>
+## Enum: status
+| Name | Value |
+| ---- | ----- |
+| status | Open, Closed, Locked |
 
 
 

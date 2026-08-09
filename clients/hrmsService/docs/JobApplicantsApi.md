@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getJobApplicantsAsync"></a>
 # **getJobApplicantsAsync**
-> JobApplicantProfileDtoListEnvelope getJobApplicantsAsync(tenantId, apiVersion, xApiVersion)
+> JobApplicantProfileDtoListEnvelope getJobApplicantsAsync(tenantId, apiVersion, xApiVersion, jobApplicantProfileDtoCollectionQueryParameters)
 
 Get job applicants
 
@@ -187,8 +187,9 @@ val apiInstance = JobApplicantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val jobApplicantProfileDtoCollectionQueryParameters : JobApplicantProfileDtoCollectionQueryParameters =  // JobApplicantProfileDtoCollectionQueryParameters | 
 try {
-    val result : JobApplicantProfileDtoListEnvelope = apiInstance.getJobApplicantsAsync(tenantId, apiVersion, xApiVersion)
+    val result : JobApplicantProfileDtoListEnvelope = apiInstance.getJobApplicantsAsync(tenantId, apiVersion, xApiVersion, jobApplicantProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobApplicantsApi#getJobApplicantsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **jobApplicantProfileDtoCollectionQueryParameters** | [**JobApplicantProfileDtoCollectionQueryParameters**](JobApplicantProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getJobApplicantsCountAsync"></a>
 # **getJobApplicantsCountAsync**
-> Int32Envelope getJobApplicantsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getJobApplicantsCountAsync(tenantId, apiVersion, xApiVersion, jobApplicantProfileDtoCollectionQueryParameters)
 
 Count job applicants
 
@@ -237,8 +239,9 @@ val apiInstance = JobApplicantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val jobApplicantProfileDtoCollectionQueryParameters : JobApplicantProfileDtoCollectionQueryParameters =  // JobApplicantProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getJobApplicantsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getJobApplicantsCountAsync(tenantId, apiVersion, xApiVersion, jobApplicantProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobApplicantsApi#getJobApplicantsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **jobApplicantProfileDtoCollectionQueryParameters** | [**JobApplicantProfileDtoCollectionQueryParameters**](JobApplicantProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchJobApplicantAsync"></a>
 # **patchJobApplicantAsync**
-> EmptyEnvelope patchJobApplicantAsync(jobApplicantId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJobApplicantAsync(jobApplicantId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a job applicant
 
@@ -288,9 +292,9 @@ val jobApplicantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchJobApplicantAsync(jobApplicantId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchJobApplicantAsync(jobApplicantId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling JobApplicantsApi#patchJobApplicantAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

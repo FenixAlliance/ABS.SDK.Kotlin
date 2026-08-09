@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getShiftsAsync"></a>
 # **getShiftsAsync**
-> ShiftDtoListEnvelope getShiftsAsync(tenantId, apiVersion, xApiVersion)
+> ShiftDtoListEnvelope getShiftsAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
 
 Get shifts
 
@@ -187,8 +187,9 @@ val apiInstance = ShiftsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shiftDtoCollectionQueryParameters : ShiftDtoCollectionQueryParameters =  // ShiftDtoCollectionQueryParameters | 
 try {
-    val result : ShiftDtoListEnvelope = apiInstance.getShiftsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ShiftDtoListEnvelope = apiInstance.getShiftsAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShiftsApi#getShiftsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shiftDtoCollectionQueryParameters** | [**ShiftDtoCollectionQueryParameters**](ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShiftsCountAsync"></a>
 # **getShiftsCountAsync**
-> Int32Envelope getShiftsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShiftsCountAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
 
 Count shifts
 
@@ -237,8 +239,9 @@ val apiInstance = ShiftsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shiftDtoCollectionQueryParameters : ShiftDtoCollectionQueryParameters =  // ShiftDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShiftsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShiftsCountAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShiftsApi#getShiftsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shiftDtoCollectionQueryParameters** | [**ShiftDtoCollectionQueryParameters**](ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchShiftAsync"></a>
 # **patchShiftAsync**
-> EmptyEnvelope patchShiftAsync(shiftId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShiftAsync(shiftId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shift
 
@@ -288,9 +292,9 @@ val shiftId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShiftAsync(shiftId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShiftAsync(shiftId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShiftsApi#patchShiftAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

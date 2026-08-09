@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCurrenciesAsync"></a>
 # **countCurrenciesAsync**
-> Int32Envelope countCurrenciesAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Count currencies
 
@@ -26,8 +26,9 @@ Returns the total number of enabled currencies, with optional OData filtering.
 val apiInstance = CurrenciesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val currencyDtoCollectionQueryParameters : CurrencyDtoCollectionQueryParameters =  // CurrencyDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCurrenciesAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CurrenciesApi#countCurrenciesAsync")
@@ -40,9 +41,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -54,7 +56,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCurrencyByIdAsync"></a>
@@ -109,7 +111,7 @@ No authorization required
 
 <a id="getEnabledCurrenciesAsync"></a>
 # **getEnabledCurrenciesAsync**
-> CurrencyDtoListEnvelope getEnabledCurrenciesAsync(apiVersion, xApiVersion)
+> CurrencyDtoListEnvelope getEnabledCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Get all currencies
 
@@ -124,8 +126,9 @@ Retrieves the list of all enabled currencies with optional OData pagination and 
 val apiInstance = CurrenciesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val currencyDtoCollectionQueryParameters : CurrencyDtoCollectionQueryParameters =  // CurrencyDtoCollectionQueryParameters | 
 try {
-    val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesAsync(apiVersion, xApiVersion)
+    val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CurrenciesApi#getEnabledCurrenciesAsync")
@@ -138,9 +141,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -152,6 +156,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

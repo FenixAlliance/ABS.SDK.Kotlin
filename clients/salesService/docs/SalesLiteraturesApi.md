@@ -16,7 +16,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countSalesLiteraturesAsync"></a>
 # **countSalesLiteraturesAsync**
-> Int32Envelope countSalesLiteraturesAsync(tenantId)
+> Int32Envelope countSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
 
 Get sales literatures count
 
@@ -30,8 +30,9 @@ Returns the total count of sales literatures for the specified tenant with OData
 
 val apiInstance = SalesLiteraturesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val salesLiteratureDtoCollectionQueryParameters : SalesLiteratureDtoCollectionQueryParameters =  // SalesLiteratureDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countSalesLiteraturesAsync(tenantId)
+    val result : Int32Envelope = apiInstance.countSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SalesLiteraturesApi#countSalesLiteraturesAsync")
@@ -43,9 +44,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -57,7 +59,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createSalesLiteratureAsync"></a>
@@ -158,7 +160,7 @@ No authorization required
 
 <a id="getExtendedSalesLiteraturesAsync"></a>
 # **getExtendedSalesLiteraturesAsync**
-> ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(tenantId)
+> ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters)
 
 Get extended sales literatures
 
@@ -172,8 +174,9 @@ Retrieves a list of sales literatures with extended details for the specified te
 
 val apiInstance = SalesLiteraturesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedSalesLiteratureDtoCollectionQueryParameters : ExtendedSalesLiteratureDtoCollectionQueryParameters =  // ExtendedSalesLiteratureDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedSalesLiteratureDtoListEnvelope = apiInstance.getExtendedSalesLiteraturesAsync(tenantId)
+    val result : ExtendedSalesLiteratureDtoListEnvelope = apiInstance.getExtendedSalesLiteraturesAsync(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SalesLiteraturesApi#getExtendedSalesLiteraturesAsync")
@@ -185,9 +188,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedSalesLiteratureDtoCollectionQueryParameters** | [**ExtendedSalesLiteratureDtoCollectionQueryParameters**](ExtendedSalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSalesLiteratureAsync"></a>
@@ -252,7 +256,7 @@ No authorization required
 
 <a id="getSalesLiteraturesAsync"></a>
 # **getSalesLiteraturesAsync**
-> SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(tenantId)
+> SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
 
 Get sales literatures
 
@@ -266,8 +270,9 @@ Retrieves a list of sales literatures for the specified tenant with OData query 
 
 val apiInstance = SalesLiteraturesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val salesLiteratureDtoCollectionQueryParameters : SalesLiteratureDtoCollectionQueryParameters =  // SalesLiteratureDtoCollectionQueryParameters | 
 try {
-    val result : SalesLiteratureDtoListEnvelope = apiInstance.getSalesLiteraturesAsync(tenantId)
+    val result : SalesLiteratureDtoListEnvelope = apiInstance.getSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SalesLiteraturesApi#getSalesLiteraturesAsync")
@@ -279,9 +284,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -293,12 +299,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSalesLiteratureAsync"></a>
 # **patchSalesLiteratureAsync**
-> EmptyEnvelope patchSalesLiteratureAsync(salesLiteratureId, tenantId, operation)
+> EmptyEnvelope patchSalesLiteratureAsync(salesLiteratureId, tenantId, patchOperation)
 
 Patch a sales literature
 
@@ -313,9 +319,9 @@ Partially updates an existing sales literature using a JSON Patch document.
 val apiInstance = SalesLiteraturesApi()
 val salesLiteratureId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSalesLiteratureAsync(salesLiteratureId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchSalesLiteratureAsync(salesLiteratureId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SalesLiteraturesApi#patchSalesLiteratureAsync")
@@ -331,7 +337,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

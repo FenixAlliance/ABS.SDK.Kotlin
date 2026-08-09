@@ -69,7 +69,7 @@ No authorization required
 
 <a id="getMyCertificatesAsync"></a>
 # **getMyCertificatesAsync**
-> CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(apiVersion, xApiVersion)
+> CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
 
 Get current user&#39;s completion certificates
 
@@ -82,8 +82,9 @@ Get current user&#39;s completion certificates
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCompletionCertificateDtoCollectionQueryParameters : CourseCompletionCertificateDtoCollectionQueryParameters =  // CourseCompletionCertificateDtoCollectionQueryParameters | 
 try {
-    val result : CourseCompletionCertificateDtoIReadOnlyListEnvelope = apiInstance.getMyCertificatesAsync(apiVersion, xApiVersion)
+    val result : CourseCompletionCertificateDtoIReadOnlyListEnvelope = apiInstance.getMyCertificatesAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyCertificatesAsync")
@@ -96,9 +97,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -110,12 +112,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyCertificatesCountAsync"></a>
 # **getMyCertificatesCountAsync**
-> kotlin.Int getMyCertificatesCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyCertificatesCountAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
 
 Get current user&#39;s certificates count
 
@@ -128,8 +130,9 @@ Get current user&#39;s certificates count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCompletionCertificateDtoCollectionQueryParameters : CourseCompletionCertificateDtoCollectionQueryParameters =  // CourseCompletionCertificateDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyCertificatesCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyCertificatesCountAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyCertificatesCountAsync")
@@ -142,9 +145,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -156,12 +160,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyEnrollmentsAsync"></a>
 # **getMyEnrollmentsAsync**
-> CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(apiVersion, xApiVersion)
+> CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get current user&#39;s course enrollments
 
@@ -174,8 +178,9 @@ Get current user&#39;s course enrollments
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseEnrollmentDtoCollectionQueryParameters : CourseEnrollmentDtoCollectionQueryParameters =  // CourseEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : CourseEnrollmentDtoIReadOnlyListEnvelope = apiInstance.getMyEnrollmentsAsync(apiVersion, xApiVersion)
+    val result : CourseEnrollmentDtoIReadOnlyListEnvelope = apiInstance.getMyEnrollmentsAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyEnrollmentsAsync")
@@ -188,9 +193,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -202,12 +208,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyEnrollmentsCountAsync"></a>
 # **getMyEnrollmentsCountAsync**
-> kotlin.Int getMyEnrollmentsCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyEnrollmentsCountAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get current user&#39;s enrollment count
 
@@ -220,8 +226,9 @@ Get current user&#39;s enrollment count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseEnrollmentDtoCollectionQueryParameters : CourseEnrollmentDtoCollectionQueryParameters =  // CourseEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyEnrollmentsCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyEnrollmentsCountAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyEnrollmentsCountAsync")
@@ -234,9 +241,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +256,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyHoursCompletedAsync"></a>
@@ -299,7 +307,7 @@ No authorization required
 
 <a id="getMyInstructorCoursesAsync"></a>
 # **getMyInstructorCoursesAsync**
-> CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(apiVersion, xApiVersion)
+> CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor courses
 
@@ -312,8 +320,9 @@ Get current user&#39;s instructor courses
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : CourseDtoIReadOnlyListEnvelope = apiInstance.getMyInstructorCoursesAsync(apiVersion, xApiVersion)
+    val result : CourseDtoIReadOnlyListEnvelope = apiInstance.getMyInstructorCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyInstructorCoursesAsync")
@@ -326,9 +335,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -340,12 +350,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyInstructorCoursesCountAsync"></a>
 # **getMyInstructorCoursesCountAsync**
-> kotlin.Int getMyInstructorCoursesCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyInstructorCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor courses count
 
@@ -358,8 +368,9 @@ Get current user&#39;s instructor courses count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyInstructorCoursesCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyInstructorCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyInstructorCoursesCountAsync")
@@ -372,9 +383,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -386,12 +398,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyInstructorProfilesAsync"></a>
 # **getMyInstructorProfilesAsync**
-> InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(apiVersion, xApiVersion)
+> InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor profiles
 
@@ -404,8 +416,9 @@ Get current user&#39;s instructor profiles
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val instructorProfileDtoCollectionQueryParameters : InstructorProfileDtoCollectionQueryParameters =  // InstructorProfileDtoCollectionQueryParameters | 
 try {
-    val result : InstructorProfileDtoIReadOnlyListEnvelope = apiInstance.getMyInstructorProfilesAsync(apiVersion, xApiVersion)
+    val result : InstructorProfileDtoIReadOnlyListEnvelope = apiInstance.getMyInstructorProfilesAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyInstructorProfilesAsync")
@@ -418,9 +431,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -432,12 +446,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyInstructorProfilesCountAsync"></a>
 # **getMyInstructorProfilesCountAsync**
-> kotlin.Int getMyInstructorProfilesCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyInstructorProfilesCountAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor profiles count
 
@@ -450,8 +464,9 @@ Get current user&#39;s instructor profiles count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val instructorProfileDtoCollectionQueryParameters : InstructorProfileDtoCollectionQueryParameters =  // InstructorProfileDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyInstructorProfilesCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyInstructorProfilesCountAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyInstructorProfilesCountAsync")
@@ -464,9 +479,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -478,7 +494,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyPendingTaskCountAsync"></a>
@@ -529,7 +545,7 @@ No authorization required
 
 <a id="getMyStudentCoursesAsync"></a>
 # **getMyStudentCoursesAsync**
-> CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(apiVersion, xApiVersion)
+> CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s enrolled courses
 
@@ -542,8 +558,9 @@ Get current user&#39;s enrolled courses
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : CourseDtoIReadOnlyListEnvelope = apiInstance.getMyStudentCoursesAsync(apiVersion, xApiVersion)
+    val result : CourseDtoIReadOnlyListEnvelope = apiInstance.getMyStudentCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyStudentCoursesAsync")
@@ -556,9 +573,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -570,12 +588,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyStudentCoursesCountAsync"></a>
 # **getMyStudentCoursesCountAsync**
-> kotlin.Int getMyStudentCoursesCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyStudentCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s enrolled courses count
 
@@ -588,8 +606,9 @@ Get current user&#39;s enrolled courses count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyStudentCoursesCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyStudentCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyStudentCoursesCountAsync")
@@ -602,9 +621,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -616,12 +636,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyStudentProfilesAsync"></a>
 # **getMyStudentProfilesAsync**
-> StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(apiVersion, xApiVersion)
+> StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s student profiles
 
@@ -634,8 +654,9 @@ Get current user&#39;s student profiles
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val studentProfileDtoCollectionQueryParameters : StudentProfileDtoCollectionQueryParameters =  // StudentProfileDtoCollectionQueryParameters | 
 try {
-    val result : StudentProfileDtoIReadOnlyListEnvelope = apiInstance.getMyStudentProfilesAsync(apiVersion, xApiVersion)
+    val result : StudentProfileDtoIReadOnlyListEnvelope = apiInstance.getMyStudentProfilesAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyStudentProfilesAsync")
@@ -648,9 +669,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -662,12 +684,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getMyStudentProfilesCountAsync"></a>
 # **getMyStudentProfilesCountAsync**
-> kotlin.Int getMyStudentProfilesCountAsync(apiVersion, xApiVersion)
+> kotlin.Int getMyStudentProfilesCountAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s student profiles count
 
@@ -680,8 +702,9 @@ Get current user&#39;s student profiles count
 val apiInstance = MeApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val studentProfileDtoCollectionQueryParameters : StudentProfileDtoCollectionQueryParameters =  // StudentProfileDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getMyStudentProfilesCountAsync(apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getMyStudentProfilesCountAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MeApi#getMyStudentProfilesCountAsync")
@@ -694,9 +717,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -708,6 +732,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

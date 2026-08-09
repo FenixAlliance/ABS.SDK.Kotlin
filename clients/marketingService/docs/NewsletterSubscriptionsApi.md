@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getNewsletterSubscriptionsAsync"></a>
 # **getNewsletterSubscriptionsAsync**
-> NewsletterSubscriptionDtoListEnvelope getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion)
+> NewsletterSubscriptionDtoListEnvelope getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
 
 Get newsletter subscriptions
 
@@ -186,8 +186,9 @@ val apiInstance = NewsletterSubscriptionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val newsletterSubscriptionDtoCollectionQueryParameters : NewsletterSubscriptionDtoCollectionQueryParameters =  // NewsletterSubscriptionDtoCollectionQueryParameters | 
 try {
-    val result : NewsletterSubscriptionDtoListEnvelope = apiInstance.getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : NewsletterSubscriptionDtoListEnvelope = apiInstance.getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NewsletterSubscriptionsApi#getNewsletterSubscriptionsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getNewsletterSubscriptionsCountAsync"></a>
 # **getNewsletterSubscriptionsCountAsync**
-> Int32Envelope getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
 
 Get newsletter subscriptions count
 
@@ -236,8 +238,9 @@ val apiInstance = NewsletterSubscriptionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val newsletterSubscriptionDtoCollectionQueryParameters : NewsletterSubscriptionDtoCollectionQueryParameters =  // NewsletterSubscriptionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NewsletterSubscriptionsApi#getNewsletterSubscriptionsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateNewsletterSubscriptionAsync"></a>

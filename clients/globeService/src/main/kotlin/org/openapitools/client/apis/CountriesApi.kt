@@ -19,16 +19,23 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.CityDtoCollectionQueryParameters
 import org.openapitools.client.models.CityDtoListEnvelope
+import org.openapitools.client.models.CountryCallingCodeDtoCollectionQueryParameters
 import org.openapitools.client.models.CountryCallingCodeDtoListEnvelope
+import org.openapitools.client.models.CountryDtoCollectionQueryParameters
 import org.openapitools.client.models.CountryDtoEnvelope
 import org.openapitools.client.models.CountryDtoListEnvelope
+import org.openapitools.client.models.CountryStateDtoCollectionQueryParameters
 import org.openapitools.client.models.CountryStateDtoEnvelope
 import org.openapitools.client.models.CountryStateDtoListEnvelope
+import org.openapitools.client.models.CountryTopLevelDomainDtoCollectionQueryParameters
 import org.openapitools.client.models.CountryTopLevelDomainDtoListEnvelope
+import org.openapitools.client.models.CurrencyDtoCollectionQueryParameters
 import org.openapitools.client.models.CurrencyDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.TimezoneDtoCollectionQueryParameters
 import org.openapitools.client.models.TimezoneDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -61,6 +68,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -70,8 +78,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCallingCodesByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCallingCodesByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCallingCodesByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCallingCodesByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryCallingCodeDtoCollectionQueryParameters = countryCallingCodeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -94,16 +102,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCallingCodesByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCallingCodesByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCallingCodesByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCallingCodesByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryCallingCodeDtoCollectionQueryParameters = countryCallingCodeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CountryCallingCodeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -114,10 +123,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCallingCodesByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCallingCodesByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters?) : RequestConfig<CountryCallingCodeDtoCollectionQueryParameters> {
+        val localVariableBody = countryCallingCodeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -126,6 +136,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -145,6 +156,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -154,8 +166,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCitiesByStateAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCitiesByStateAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCitiesByStateAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCitiesByStateAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, cityDtoCollectionQueryParameters = cityDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -179,16 +191,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCitiesByStateAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCitiesByStateAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCitiesByStateAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCitiesByStateAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, cityDtoCollectionQueryParameters = cityDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CityDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -200,10 +213,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCitiesByStateAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCitiesByStateAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters?) : RequestConfig<CityDtoCollectionQueryParameters> {
+        val localVariableBody = cityDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -212,6 +226,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -229,6 +244,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of countries, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -238,8 +254,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCountries(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCountriesWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCountries(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCountriesWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, countryDtoCollectionQueryParameters = countryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -261,16 +277,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of countries, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCountriesWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCountriesRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCountriesWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCountriesRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, countryDtoCollectionQueryParameters = countryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CountryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -280,10 +297,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCountriesRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCountriesRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters?) : RequestConfig<CountryDtoCollectionQueryParameters> {
+        val localVariableBody = countryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -292,6 +310,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -310,6 +329,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -319,8 +339,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCountryStatesAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCountryStatesAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCountryStatesAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCountryStatesAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -343,16 +363,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCountryStatesAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCountryStatesAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCountryStatesAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCountryStatesAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CountryStateDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -363,10 +384,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCountryStatesAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCountryStatesAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : RequestConfig<CountryStateDtoCollectionQueryParameters> {
+        val localVariableBody = countryStateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -375,6 +397,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -393,6 +416,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -402,8 +426,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countTimezonesByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countTimezonesByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTimezonesByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countTimezonesByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -426,16 +450,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countTimezonesByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countTimezonesByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTimezonesByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countTimezonesByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TimezoneDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -446,10 +471,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countTimezonesByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countTimezonesByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : RequestConfig<TimezoneDtoCollectionQueryParameters> {
+        val localVariableBody = timezoneDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -458,6 +484,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -476,6 +503,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -485,8 +513,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countTopLevelDomainsByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTopLevelDomainsByCountryAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters = countryTopLevelDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -509,16 +537,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countTopLevelDomainsByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countTopLevelDomainsByCountryAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters = countryTopLevelDomainDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CountryTopLevelDomainDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -529,10 +558,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countTopLevelDomainsByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countTopLevelDomainsByCountryAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters?) : RequestConfig<CountryTopLevelDomainDtoCollectionQueryParameters> {
+        val localVariableBody = countryTopLevelDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -541,6 +571,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -558,6 +589,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves a list of all countries with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return CountryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -567,8 +599,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAllCountries(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryDtoListEnvelope {
-        val localVarResponse = getAllCountriesWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllCountries(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters? = null) : CountryDtoListEnvelope {
+        val localVarResponse = getAllCountriesWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, countryDtoCollectionQueryParameters = countryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryDtoListEnvelope
@@ -590,16 +622,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves a list of all countries with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAllCountriesWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryDtoListEnvelope?> {
-        val localVariableConfig = getAllCountriesRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getAllCountriesWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters?) : ApiResponse<CountryDtoListEnvelope?> {
+        val localVariableConfig = getAllCountriesRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, countryDtoCollectionQueryParameters = countryDtoCollectionQueryParameters)
 
-        return request<Unit, CountryDtoListEnvelope>(
+        return request<CountryDtoCollectionQueryParameters, CountryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -609,10 +642,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getAllCountriesRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getAllCountriesRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryDtoCollectionQueryParameters: CountryDtoCollectionQueryParameters?) : RequestConfig<CountryDtoCollectionQueryParameters> {
+        val localVariableBody = countryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -621,6 +655,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -639,6 +674,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return CountryCallingCodeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -648,8 +684,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCallingCodesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryCallingCodeDtoListEnvelope {
-        val localVarResponse = getCallingCodesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCallingCodesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters? = null) : CountryCallingCodeDtoListEnvelope {
+        val localVarResponse = getCallingCodesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryCallingCodeDtoCollectionQueryParameters = countryCallingCodeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryCallingCodeDtoListEnvelope
@@ -672,16 +708,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryCallingCodeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCallingCodesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryCallingCodeDtoListEnvelope?> {
-        val localVariableConfig = getCallingCodesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCallingCodesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters?) : ApiResponse<CountryCallingCodeDtoListEnvelope?> {
+        val localVariableConfig = getCallingCodesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryCallingCodeDtoCollectionQueryParameters = countryCallingCodeDtoCollectionQueryParameters)
 
-        return request<Unit, CountryCallingCodeDtoListEnvelope>(
+        return request<CountryCallingCodeDtoCollectionQueryParameters, CountryCallingCodeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -692,10 +729,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCallingCodesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCallingCodesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryCallingCodeDtoCollectionQueryParameters: CountryCallingCodeDtoCollectionQueryParameters?) : RequestConfig<CountryCallingCodeDtoCollectionQueryParameters> {
+        val localVariableBody = countryCallingCodeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -704,6 +742,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -723,6 +762,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return CityDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -732,8 +772,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCitiesByCountryStateIdAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CityDtoListEnvelope {
-        val localVarResponse = getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCitiesByCountryStateIdAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters? = null) : CityDtoListEnvelope {
+        val localVarResponse = getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, cityDtoCollectionQueryParameters = cityDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CityDtoListEnvelope
@@ -757,16 +797,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CityDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CityDtoListEnvelope?> {
-        val localVariableConfig = getCitiesByCountryStateIdAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters?) : ApiResponse<CityDtoListEnvelope?> {
+        val localVariableConfig = getCitiesByCountryStateIdAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, cityDtoCollectionQueryParameters = cityDtoCollectionQueryParameters)
 
-        return request<Unit, CityDtoListEnvelope>(
+        return request<CityDtoCollectionQueryParameters, CityDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -778,10 +819,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCitiesByCountryStateIdAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCitiesByCountryStateIdAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, cityDtoCollectionQueryParameters: CityDtoCollectionQueryParameters?) : RequestConfig<CityDtoCollectionQueryParameters> {
+        val localVariableBody = cityDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -790,6 +832,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -892,6 +935,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return CountryStateDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -901,8 +945,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCountryStateByIdAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryStateDtoEnvelope {
-        val localVarResponse = getCountryStateByIdAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCountryStateByIdAsync(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters? = null) : CountryStateDtoEnvelope {
+        val localVarResponse = getCountryStateByIdAsyncWithHttpInfo(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryStateDtoEnvelope
@@ -926,16 +970,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryStateDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCountryStateByIdAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryStateDtoEnvelope?> {
-        val localVariableConfig = getCountryStateByIdAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCountryStateByIdAsyncWithHttpInfo(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : ApiResponse<CountryStateDtoEnvelope?> {
+        val localVariableConfig = getCountryStateByIdAsyncRequestConfig(countryStateId = countryStateId, countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
-        return request<Unit, CountryStateDtoEnvelope>(
+        return request<CountryStateDtoCollectionQueryParameters, CountryStateDtoEnvelope>(
             localVariableConfig
         )
     }
@@ -947,10 +992,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCountryStateByIdAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCountryStateByIdAsyncRequestConfig(countryStateId: kotlin.String, countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : RequestConfig<CountryStateDtoCollectionQueryParameters> {
+        val localVariableBody = countryStateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -959,6 +1005,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -977,6 +1024,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return CountryStateDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -986,8 +1034,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getCountryStatesAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryStateDtoListEnvelope {
-        val localVarResponse = getCountryStatesAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCountryStatesAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters? = null) : CountryStateDtoListEnvelope {
+        val localVarResponse = getCountryStatesAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryStateDtoListEnvelope
@@ -1010,16 +1058,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryStateDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getCountryStatesAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryStateDtoListEnvelope?> {
-        val localVariableConfig = getCountryStatesAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getCountryStatesAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : ApiResponse<CountryStateDtoListEnvelope?> {
+        val localVariableConfig = getCountryStatesAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryStateDtoCollectionQueryParameters = countryStateDtoCollectionQueryParameters)
 
-        return request<Unit, CountryStateDtoListEnvelope>(
+        return request<CountryStateDtoCollectionQueryParameters, CountryStateDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1030,10 +1079,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getCountryStatesAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getCountryStatesAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryStateDtoCollectionQueryParameters: CountryStateDtoCollectionQueryParameters?) : RequestConfig<CountryStateDtoCollectionQueryParameters> {
+        val localVariableBody = countryStateDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1042,6 +1092,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1060,6 +1111,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return CurrencyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1069,8 +1121,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEnabledCurrenciesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoListEnvelope {
-        val localVarResponse = getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters? = null) : CurrencyDtoListEnvelope {
+        val localVarResponse = getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CurrencyDtoListEnvelope
@@ -1093,16 +1145,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CurrencyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoListEnvelope?> {
-        val localVariableConfig = getEnabledCurrenciesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : ApiResponse<CurrencyDtoListEnvelope?> {
+        val localVariableConfig = getEnabledCurrenciesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
-        return request<Unit, CurrencyDtoListEnvelope>(
+        return request<CurrencyDtoCollectionQueryParameters, CurrencyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1113,10 +1166,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEnabledCurrenciesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEnabledCurrenciesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : RequestConfig<CurrencyDtoCollectionQueryParameters> {
+        val localVariableBody = currencyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1125,6 +1179,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1143,6 +1198,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return TimezoneDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1152,8 +1208,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTimeZonesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TimezoneDtoListEnvelope {
-        val localVarResponse = getTimeZonesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTimeZonesByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters? = null) : TimezoneDtoListEnvelope {
+        val localVarResponse = getTimeZonesByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TimezoneDtoListEnvelope
@@ -1176,16 +1232,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TimezoneDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTimeZonesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TimezoneDtoListEnvelope?> {
-        val localVariableConfig = getTimeZonesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTimeZonesByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : ApiResponse<TimezoneDtoListEnvelope?> {
+        val localVariableConfig = getTimeZonesByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, timezoneDtoCollectionQueryParameters = timezoneDtoCollectionQueryParameters)
 
-        return request<Unit, TimezoneDtoListEnvelope>(
+        return request<TimezoneDtoCollectionQueryParameters, TimezoneDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1196,10 +1253,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTimeZonesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTimeZonesByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, timezoneDtoCollectionQueryParameters: TimezoneDtoCollectionQueryParameters?) : RequestConfig<TimezoneDtoCollectionQueryParameters> {
+        val localVariableBody = timezoneDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1208,6 +1266,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1226,6 +1285,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return CountryTopLevelDomainDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1235,8 +1295,8 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTopLevelDomainsByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryTopLevelDomainDtoListEnvelope {
-        val localVarResponse = getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTopLevelDomainsByCountryIdAsync(countryId: kotlin.String, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters? = null) : CountryTopLevelDomainDtoListEnvelope {
+        val localVarResponse = getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters = countryTopLevelDomainDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryTopLevelDomainDtoListEnvelope
@@ -1259,16 +1319,17 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryTopLevelDomainDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryTopLevelDomainDtoListEnvelope?> {
-        val localVariableConfig = getTopLevelDomainsByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters?) : ApiResponse<CountryTopLevelDomainDtoListEnvelope?> {
+        val localVariableConfig = getTopLevelDomainsByCountryIdAsyncRequestConfig(countryId = countryId, apiVersion = apiVersion, xApiVersion = xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters = countryTopLevelDomainDtoCollectionQueryParameters)
 
-        return request<Unit, CountryTopLevelDomainDtoListEnvelope>(
+        return request<CountryTopLevelDomainDtoCollectionQueryParameters, CountryTopLevelDomainDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1279,10 +1340,11 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * @param countryId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTopLevelDomainsByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTopLevelDomainsByCountryIdAsyncRequestConfig(countryId: kotlin.String, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryTopLevelDomainDtoCollectionQueryParameters: CountryTopLevelDomainDtoCollectionQueryParameters?) : RequestConfig<CountryTopLevelDomainDtoCollectionQueryParameters> {
+        val localVariableBody = countryTopLevelDomainDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1291,6 +1353,7 @@ class CountriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

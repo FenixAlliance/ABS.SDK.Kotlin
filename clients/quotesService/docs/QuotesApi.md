@@ -422,7 +422,7 @@ No authorization required
 
 <a id="getExtendedQuotes"></a>
 # **getExtendedQuotes**
-> ExtendedQuoteDtoListEnvelope getExtendedQuotes(tenantId)
+> ExtendedQuoteDtoListEnvelope getExtendedQuotes(tenantId, extendedQuoteDtoCollectionQueryParameters)
 
 Get a list of extended quotes.
 
@@ -436,8 +436,9 @@ Retrieves a list of extended quotes for the specified tenant, supporting OData q
 
 val apiInstance = QuotesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedQuoteDtoCollectionQueryParameters : ExtendedQuoteDtoCollectionQueryParameters =  // ExtendedQuoteDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedQuoteDtoListEnvelope = apiInstance.getExtendedQuotes(tenantId)
+    val result : ExtendedQuoteDtoListEnvelope = apiInstance.getExtendedQuotes(tenantId, extendedQuoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#getExtendedQuotes")
@@ -449,9 +450,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedQuoteDtoCollectionQueryParameters** | [**ExtendedQuoteDtoCollectionQueryParameters**](ExtendedQuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -463,7 +465,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getQuote"></a>
@@ -566,7 +568,7 @@ No authorization required
 
 <a id="getQuoteLines"></a>
 # **getQuoteLines**
-> QuoteLineDtoListEnvelope getQuoteLines(quoteId, tenantId, itemId)
+> QuoteLineDtoListEnvelope getQuoteLines(quoteId, tenantId, itemId, quoteLineDtoCollectionQueryParameters)
 
 Get quote lines for a quote.
 
@@ -582,8 +584,9 @@ val apiInstance = QuotesApi()
 val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val quoteLineDtoCollectionQueryParameters : QuoteLineDtoCollectionQueryParameters =  // QuoteLineDtoCollectionQueryParameters | 
 try {
-    val result : QuoteLineDtoListEnvelope = apiInstance.getQuoteLines(quoteId, tenantId, itemId)
+    val result : QuoteLineDtoListEnvelope = apiInstance.getQuoteLines(quoteId, tenantId, itemId, quoteLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#getQuoteLines")
@@ -597,9 +600,10 @@ try {
 ### Parameters
 | **quoteId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **itemId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
+| **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -611,12 +615,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getQuoteLinesCount"></a>
 # **getQuoteLinesCount**
-> Int32Envelope getQuoteLinesCount(quoteId, tenantId)
+> Int32Envelope getQuoteLinesCount(quoteId, tenantId, quoteLineDtoCollectionQueryParameters)
 
 Get the count of quote lines.
 
@@ -631,8 +635,9 @@ Retrieves the total count of quote lines for the specified quote and tenant.
 val apiInstance = QuotesApi()
 val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val quoteLineDtoCollectionQueryParameters : QuoteLineDtoCollectionQueryParameters =  // QuoteLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getQuoteLinesCount(quoteId, tenantId)
+    val result : Int32Envelope = apiInstance.getQuoteLinesCount(quoteId, tenantId, quoteLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#getQuoteLinesCount")
@@ -645,9 +650,10 @@ try {
 
 ### Parameters
 | **quoteId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -659,12 +665,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getQuotes"></a>
 # **getQuotes**
-> QuoteDtoListEnvelope getQuotes(tenantId)
+> QuoteDtoListEnvelope getQuotes(tenantId, quoteDtoCollectionQueryParameters)
 
 Get a list of quotes.
 
@@ -678,8 +684,9 @@ Retrieves a list of quotes for the specified tenant, supporting OData query opti
 
 val apiInstance = QuotesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val quoteDtoCollectionQueryParameters : QuoteDtoCollectionQueryParameters =  // QuoteDtoCollectionQueryParameters | 
 try {
-    val result : QuoteDtoListEnvelope = apiInstance.getQuotes(tenantId)
+    val result : QuoteDtoListEnvelope = apiInstance.getQuotes(tenantId, quoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#getQuotes")
@@ -691,9 +698,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -705,12 +713,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getQuotesCount"></a>
 # **getQuotesCount**
-> Int32Envelope getQuotesCount(tenantId)
+> Int32Envelope getQuotesCount(tenantId, quoteDtoCollectionQueryParameters)
 
 Get the count of quotes.
 
@@ -724,8 +732,9 @@ Retrieves the total count of quotes for the specified tenant, supporting OData q
 
 val apiInstance = QuotesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val quoteDtoCollectionQueryParameters : QuoteDtoCollectionQueryParameters =  // QuoteDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getQuotesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getQuotesCount(tenantId, quoteDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#getQuotesCount")
@@ -737,9 +746,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -751,12 +761,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchQuoteAsync"></a>
 # **patchQuoteAsync**
-> EmptyEnvelope patchQuoteAsync(quoteId, tenantId, operation)
+> EmptyEnvelope patchQuoteAsync(quoteId, tenantId, patchOperation)
 
 Patch an existing quote.
 
@@ -771,9 +781,9 @@ Partially updates an existing quote for the specified tenant and quote ID using 
 val apiInstance = QuotesApi()
 val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchQuoteAsync(quoteId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchQuoteAsync(quoteId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#patchQuoteAsync")
@@ -789,7 +799,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -806,7 +816,7 @@ No authorization required
 
 <a id="patchQuoteLineAsync"></a>
 # **patchQuoteLineAsync**
-> EmptyEnvelope patchQuoteLineAsync(quoteId, quoteLineId, tenantId, operation)
+> EmptyEnvelope patchQuoteLineAsync(quoteId, quoteLineId, tenantId, patchOperation)
 
 Patch a quote line.
 
@@ -822,9 +832,9 @@ val apiInstance = QuotesApi()
 val quoteId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val quoteLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchQuoteLineAsync(quoteId, quoteLineId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchQuoteLineAsync(quoteId, quoteLineId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling QuotesApi#patchQuoteLineAsync")
@@ -841,7 +851,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

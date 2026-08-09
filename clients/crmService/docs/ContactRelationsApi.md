@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getContactRelationsAsync"></a>
 # **getContactRelationsAsync**
-> ContactRelationDtoListEnvelope getContactRelationsAsync(tenantId, apiVersion, xApiVersion)
+> ContactRelationDtoListEnvelope getContactRelationsAsync(tenantId, apiVersion, xApiVersion, contactRelationDtoCollectionQueryParameters)
 
 Get all contact relations
 
@@ -185,8 +185,9 @@ val apiInstance = ContactRelationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactRelationDtoCollectionQueryParameters : ContactRelationDtoCollectionQueryParameters =  // ContactRelationDtoCollectionQueryParameters | 
 try {
-    val result : ContactRelationDtoListEnvelope = apiInstance.getContactRelationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactRelationDtoListEnvelope = apiInstance.getContactRelationsAsync(tenantId, apiVersion, xApiVersion, contactRelationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactRelationsApi#getContactRelationsAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactRelationDtoCollectionQueryParameters** | [**ContactRelationDtoCollectionQueryParameters**](ContactRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactRelationsCountAsync"></a>
 # **getContactRelationsCountAsync**
-> Int32Envelope getContactRelationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactRelationsCountAsync(tenantId, apiVersion, xApiVersion, contactRelationDtoCollectionQueryParameters)
 
 Get contact relations count
 
@@ -235,8 +237,9 @@ val apiInstance = ContactRelationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactRelationDtoCollectionQueryParameters : ContactRelationDtoCollectionQueryParameters =  // ContactRelationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getContactRelationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getContactRelationsCountAsync(tenantId, apiVersion, xApiVersion, contactRelationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactRelationsApi#getContactRelationsCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactRelationDtoCollectionQueryParameters** | [**ContactRelationDtoCollectionQueryParameters**](ContactRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchContactRelationAsync"></a>
 # **patchContactRelationAsync**
-> EmptyEnvelope patchContactRelationAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactRelationAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact relation
 
@@ -286,9 +290,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchContactRelationAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchContactRelationAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactRelationsApi#patchContactRelationAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -26,7 +26,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countActivityTypesAsync"></a>
 # **countActivityTypesAsync**
-> Int32Envelope countActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
 
 Count Activity Types
 
@@ -42,8 +42,9 @@ val apiInstance = ActivityFeedsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityTypeDtoCollectionQueryParameters : ActivityTypeDtoCollectionQueryParameters =  // ActivityTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#countActivityTypesAsync")
@@ -57,9 +58,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createActivityAsync"></a>
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getActivitiesAsync"></a>
 # **getActivitiesAsync**
-> ActivityRecordDtoListEnvelope getActivitiesAsync(activityFeedId, tenantId, apiVersion, xApiVersion)
+> ActivityRecordDtoListEnvelope getActivitiesAsync(activityFeedId, tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Get activities
 
@@ -305,8 +307,9 @@ val activityFeedId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityRecordDtoCollectionQueryParameters : ActivityRecordDtoCollectionQueryParameters =  // ActivityRecordDtoCollectionQueryParameters | 
 try {
-    val result : ActivityRecordDtoListEnvelope = apiInstance.getActivitiesAsync(activityFeedId, tenantId, apiVersion, xApiVersion)
+    val result : ActivityRecordDtoListEnvelope = apiInstance.getActivitiesAsync(activityFeedId, tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivitiesAsync")
@@ -321,9 +324,10 @@ try {
 | **activityFeedId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -335,12 +339,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getActivitiesCountAsync"></a>
 # **getActivitiesCountAsync**
-> Int32Envelope getActivitiesCountAsync(activityFeedId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getActivitiesCountAsync(activityFeedId, tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Count activities
 
@@ -357,8 +361,9 @@ val activityFeedId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityRecordDtoCollectionQueryParameters : ActivityRecordDtoCollectionQueryParameters =  // ActivityRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getActivitiesCountAsync(activityFeedId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getActivitiesCountAsync(activityFeedId, tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivitiesCountAsync")
@@ -373,9 +378,10 @@ try {
 | **activityFeedId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -387,7 +393,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getActivityAsync"></a>
@@ -498,7 +504,7 @@ No authorization required
 
 <a id="getActivityFeedsAsync"></a>
 # **getActivityFeedsAsync**
-> ActivityFeedDtoListEnvelope getActivityFeedsAsync(tenantId, apiVersion, xApiVersion)
+> ActivityFeedDtoListEnvelope getActivityFeedsAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
 
 Get activity feeds
 
@@ -514,8 +520,9 @@ val apiInstance = ActivityFeedsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityFeedDtoCollectionQueryParameters : ActivityFeedDtoCollectionQueryParameters =  // ActivityFeedDtoCollectionQueryParameters | 
 try {
-    val result : ActivityFeedDtoListEnvelope = apiInstance.getActivityFeedsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ActivityFeedDtoListEnvelope = apiInstance.getActivityFeedsAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivityFeedsAsync")
@@ -529,9 +536,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -543,12 +551,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getActivityFeedsCountAsync"></a>
 # **getActivityFeedsCountAsync**
-> Int32Envelope getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
 
 Count activity feeds
 
@@ -564,8 +572,9 @@ val apiInstance = ActivityFeedsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityFeedDtoCollectionQueryParameters : ActivityFeedDtoCollectionQueryParameters =  // ActivityFeedDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivityFeedsCountAsync")
@@ -579,9 +588,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -593,12 +603,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getActivityRecordsCountAsync"></a>
 # **getActivityRecordsCountAsync**
-> Int32Envelope getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Count activity records
 
@@ -614,8 +624,9 @@ val apiInstance = ActivityFeedsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityRecordDtoCollectionQueryParameters : ActivityRecordDtoCollectionQueryParameters =  // ActivityRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivityRecordsCountAsync")
@@ -629,9 +640,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -643,7 +655,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getActivityTypeByIdAsync"></a>
@@ -700,7 +712,7 @@ No authorization required
 
 <a id="getActivityTypesAsync"></a>
 # **getActivityTypesAsync**
-> ActivityTypeDtoListEnvelope getActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+> ActivityTypeDtoListEnvelope getActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
 
 Get Activity Types
 
@@ -716,8 +728,9 @@ val apiInstance = ActivityFeedsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val activityTypeDtoCollectionQueryParameters : ActivityTypeDtoCollectionQueryParameters =  // ActivityTypeDtoCollectionQueryParameters | 
 try {
-    val result : ActivityTypeDtoListEnvelope = apiInstance.getActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : ActivityTypeDtoListEnvelope = apiInstance.getActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#getActivityTypesAsync")
@@ -731,9 +744,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -745,12 +759,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchActivityAsync"></a>
 # **patchActivityAsync**
-> EmptyEnvelope patchActivityAsync(activityFeedId, activityId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchActivityAsync(activityFeedId, activityId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an activity
 
@@ -768,9 +782,9 @@ val activityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchActivityAsync(activityFeedId, activityId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchActivityAsync(activityFeedId, activityId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#patchActivityAsync")
@@ -789,7 +803,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -806,7 +820,7 @@ No authorization required
 
 <a id="patchActivityTypeAsync"></a>
 # **patchActivityTypeAsync**
-> EmptyEnvelope patchActivityTypeAsync(activityTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchActivityTypeAsync(activityTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch Activity Type
 
@@ -823,9 +837,9 @@ val activityTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchActivityTypeAsync(activityTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchActivityTypeAsync(activityTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ActivityFeedsApi#patchActivityTypeAsync")
@@ -843,7 +857,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

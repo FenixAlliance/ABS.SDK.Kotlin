@@ -370,7 +370,7 @@ No authorization required
 
 <a id="getBlogPostsAsync"></a>
 # **getBlogPostsAsync**
-> BlogPostDtoListEnvelope getBlogPostsAsync(tenantId)
+> BlogPostDtoListEnvelope getBlogPostsAsync(tenantId, blogPostDtoCollectionQueryParameters)
 
 Retrieve a list of blog posts
 
@@ -384,8 +384,9 @@ Retrieves all blog posts, optionally filtered by tenant using OData query option
 
 val apiInstance = BlogPostsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val blogPostDtoCollectionQueryParameters : BlogPostDtoCollectionQueryParameters =  // BlogPostDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostDtoListEnvelope = apiInstance.getBlogPostsAsync(tenantId)
+    val result : BlogPostDtoListEnvelope = apiInstance.getBlogPostsAsync(tenantId, blogPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getBlogPostsAsync")
@@ -397,9 +398,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -411,12 +413,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBlogPostsCountAsync"></a>
 # **getBlogPostsCountAsync**
-> Int32Envelope getBlogPostsCountAsync(tenantId)
+> Int32Envelope getBlogPostsCountAsync(tenantId, blogPostDtoCollectionQueryParameters)
 
 Get the count of blog posts
 
@@ -430,8 +432,9 @@ Returns the total count of blog posts, optionally filtered by tenant using OData
 
 val apiInstance = BlogPostsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val blogPostDtoCollectionQueryParameters : BlogPostDtoCollectionQueryParameters =  // BlogPostDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBlogPostsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getBlogPostsCountAsync(tenantId, blogPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getBlogPostsCountAsync")
@@ -443,9 +446,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -457,12 +461,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCategoriesForBlogPostAsync"></a>
 # **getCategoriesForBlogPostAsync**
-> BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(blogPostId)
+> BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(blogPostId, blogPostCategoryDtoCollectionQueryParameters)
 
 Get categories for a blog post
 
@@ -476,8 +480,9 @@ Retrieves all categories related to a specific blog post.
 
 val apiInstance = BlogPostsApi()
 val blogPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val blogPostCategoryDtoCollectionQueryParameters : BlogPostCategoryDtoCollectionQueryParameters =  // BlogPostCategoryDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostCategoryDtoListEnvelope = apiInstance.getCategoriesForBlogPostAsync(blogPostId)
+    val result : BlogPostCategoryDtoListEnvelope = apiInstance.getCategoriesForBlogPostAsync(blogPostId, blogPostCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getCategoriesForBlogPostAsync")
@@ -489,9 +494,10 @@ try {
 ```
 
 ### Parameters
+| **blogPostId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **blogPostId** | **java.util.UUID**|  | |
+| **blogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -503,12 +509,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCommentsForBlogPostAsync"></a>
 # **getCommentsForBlogPostAsync**
-> BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(blogPostId)
+> BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(blogPostId, blogPostCommentDtoCollectionQueryParameters)
 
 Get comments for a blog post
 
@@ -522,8 +528,9 @@ Retrieves all comments for a specific blog post.
 
 val apiInstance = BlogPostsApi()
 val blogPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val blogPostCommentDtoCollectionQueryParameters : BlogPostCommentDtoCollectionQueryParameters =  // BlogPostCommentDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostCommentDtoListEnvelope = apiInstance.getCommentsForBlogPostAsync(blogPostId)
+    val result : BlogPostCommentDtoListEnvelope = apiInstance.getCommentsForBlogPostAsync(blogPostId, blogPostCommentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getCommentsForBlogPostAsync")
@@ -535,9 +542,10 @@ try {
 ```
 
 ### Parameters
+| **blogPostId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **blogPostId** | **java.util.UUID**|  | |
+| **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -549,12 +557,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRepliesForCommentAsync"></a>
 # **getRepliesForCommentAsync**
-> BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(commentId, blogPostId)
+> BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters)
 
 Get replies for a comment
 
@@ -569,8 +577,9 @@ Retrieves all replies for a specific blog post comment.
 val apiInstance = BlogPostsApi()
 val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val blogPostId : kotlin.String = blogPostId_example // kotlin.String | 
+val blogPostCommentDtoCollectionQueryParameters : BlogPostCommentDtoCollectionQueryParameters =  // BlogPostCommentDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostCommentDtoListEnvelope = apiInstance.getRepliesForCommentAsync(commentId, blogPostId)
+    val result : BlogPostCommentDtoListEnvelope = apiInstance.getRepliesForCommentAsync(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getRepliesForCommentAsync")
@@ -583,9 +592,10 @@ try {
 
 ### Parameters
 | **commentId** | **java.util.UUID**|  | |
+| **blogPostId** | **kotlin.String**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **blogPostId** | **kotlin.String**|  | |
+| **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -597,12 +607,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTagsForBlogPostAsync"></a>
 # **getTagsForBlogPostAsync**
-> BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(blogPostId)
+> BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(blogPostId, blogPostTagDtoCollectionQueryParameters)
 
 Get tags for a blog post
 
@@ -616,8 +626,9 @@ Retrieves all tags related to a specific blog post.
 
 val apiInstance = BlogPostsApi()
 val blogPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val blogPostTagDtoCollectionQueryParameters : BlogPostTagDtoCollectionQueryParameters =  // BlogPostTagDtoCollectionQueryParameters | 
 try {
-    val result : BlogPostTagDtoListEnvelope = apiInstance.getTagsForBlogPostAsync(blogPostId)
+    val result : BlogPostTagDtoListEnvelope = apiInstance.getTagsForBlogPostAsync(blogPostId, blogPostTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#getTagsForBlogPostAsync")
@@ -629,9 +640,10 @@ try {
 ```
 
 ### Parameters
+| **blogPostId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **blogPostId** | **java.util.UUID**|  | |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -643,12 +655,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBlogPostAsync"></a>
 # **patchBlogPostAsync**
-> EmptyEnvelope patchBlogPostAsync(blogPostId, tenantId, operation)
+> EmptyEnvelope patchBlogPostAsync(blogPostId, tenantId, patchOperation)
 
 Patch a blog post
 
@@ -663,9 +675,9 @@ Partially updates an existing blog post for the specified tenant.
 val apiInstance = BlogPostsApi()
 val blogPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBlogPostAsync(blogPostId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchBlogPostAsync(blogPostId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BlogPostsApi#patchBlogPostAsync")
@@ -681,7 +693,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

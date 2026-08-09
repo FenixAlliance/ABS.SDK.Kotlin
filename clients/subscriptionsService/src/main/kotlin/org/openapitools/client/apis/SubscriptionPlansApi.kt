@@ -23,7 +23,8 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
+import org.openapitools.client.models.SubscriptionDtoCollectionQueryParameters
 import org.openapitools.client.models.SubscriptionPlanCreateDto
 import org.openapitools.client.models.SubscriptionPlanDtoEnvelope
 import org.openapitools.client.models.SubscriptionPlanDtoIReadOnlyListEnvelope
@@ -321,6 +322,7 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return SubscriptionPlanDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -330,8 +332,8 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscriptionPlansAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SubscriptionPlanDtoIReadOnlyListEnvelope {
-        val localVarResponse = getSubscriptionPlansAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSubscriptionPlansAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters? = null) : SubscriptionPlanDtoIReadOnlyListEnvelope {
+        val localVarResponse = getSubscriptionPlansAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, subscriptionDtoCollectionQueryParameters = subscriptionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SubscriptionPlanDtoIReadOnlyListEnvelope
@@ -354,16 +356,17 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SubscriptionPlanDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionPlansAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SubscriptionPlanDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getSubscriptionPlansAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSubscriptionPlansAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters?) : ApiResponse<SubscriptionPlanDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getSubscriptionPlansAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, subscriptionDtoCollectionQueryParameters = subscriptionDtoCollectionQueryParameters)
 
-        return request<Unit, SubscriptionPlanDtoIReadOnlyListEnvelope>(
+        return request<SubscriptionDtoCollectionQueryParameters, SubscriptionPlanDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -374,10 +377,11 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSubscriptionPlansAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSubscriptionPlansAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters?) : RequestConfig<SubscriptionDtoCollectionQueryParameters> {
+        val localVariableBody = subscriptionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -387,6 +391,7 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -405,6 +410,7 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -414,8 +420,8 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSubscriptionPlansCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSubscriptionPlansCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSubscriptionPlansCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSubscriptionPlansCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, subscriptionDtoCollectionQueryParameters = subscriptionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -438,16 +444,17 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSubscriptionPlansCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSubscriptionPlansCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSubscriptionPlansCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSubscriptionPlansCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, subscriptionDtoCollectionQueryParameters = subscriptionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SubscriptionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -458,10 +465,11 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSubscriptionPlansCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSubscriptionPlansCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, subscriptionDtoCollectionQueryParameters: SubscriptionDtoCollectionQueryParameters?) : RequestConfig<SubscriptionDtoCollectionQueryParameters> {
+        val localVariableBody = subscriptionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -471,6 +479,7 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -490,7 +499,7 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -500,8 +509,8 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSubscriptionPlanAsync(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSubscriptionPlanAsyncWithHttpInfo(planId = planId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSubscriptionPlanAsync(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSubscriptionPlanAsyncWithHttpInfo(planId = planId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -525,17 +534,17 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSubscriptionPlanAsyncWithHttpInfo(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSubscriptionPlanAsyncRequestConfig(planId = planId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSubscriptionPlanAsyncWithHttpInfo(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSubscriptionPlanAsyncRequestConfig(planId = planId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -547,11 +556,11 @@ class SubscriptionPlansApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSubscriptionPlanAsyncRequestConfig(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSubscriptionPlanAsyncRequestConfig(planId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

@@ -233,7 +233,7 @@ No authorization required
 
 <a id="getBudgetAccountEntriesCollectionAsync"></a>
 # **getBudgetAccountEntriesCollectionAsync**
-> BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(budgetId, tenantId, apiVersion, xApiVersion)
+> BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(budgetId, tenantId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters)
 
 Gets all budget account entries
 
@@ -250,8 +250,9 @@ val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val budgetAccountEntryDtoCollectionQueryParameters : BudgetAccountEntryDtoCollectionQueryParameters =  // BudgetAccountEntryDtoCollectionQueryParameters | 
 try {
-    val result : BudgetAccountEntryDtoIReadOnlyListEnvelope = apiInstance.getBudgetAccountEntriesCollectionAsync(budgetId, tenantId, apiVersion, xApiVersion)
+    val result : BudgetAccountEntryDtoIReadOnlyListEnvelope = apiInstance.getBudgetAccountEntriesCollectionAsync(budgetId, tenantId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BudgetsApi#getBudgetAccountEntriesCollectionAsync")
@@ -266,9 +267,10 @@ try {
 | **budgetId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **budgetAccountEntryDtoCollectionQueryParameters** | [**BudgetAccountEntryDtoCollectionQueryParameters**](BudgetAccountEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBudgetAccountEntryAsync"></a>
@@ -391,7 +393,7 @@ No authorization required
 
 <a id="getBudgetsAsync"></a>
 # **getBudgetsAsync**
-> BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(tenantId, apiVersion, xApiVersion)
+> BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
 
 Gets all budgets
 
@@ -407,8 +409,9 @@ val apiInstance = BudgetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val budgetDtoCollectionQueryParameters : BudgetDtoCollectionQueryParameters =  // BudgetDtoCollectionQueryParameters | 
 try {
-    val result : BudgetDtoIReadOnlyListEnvelope = apiInstance.getBudgetsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BudgetDtoIReadOnlyListEnvelope = apiInstance.getBudgetsAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BudgetsApi#getBudgetsAsync")
@@ -422,9 +425,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **budgetDtoCollectionQueryParameters** | [**BudgetDtoCollectionQueryParameters**](BudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -436,12 +440,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBudgetsCountAsync"></a>
 # **getBudgetsCountAsync**
-> Int32Envelope getBudgetsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBudgetsCountAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
 
 Get the count of budgets
 
@@ -457,8 +461,9 @@ val apiInstance = BudgetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val budgetDtoCollectionQueryParameters : BudgetDtoCollectionQueryParameters =  // BudgetDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBudgetsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBudgetsCountAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BudgetsApi#getBudgetsCountAsync")
@@ -472,9 +477,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **budgetDtoCollectionQueryParameters** | [**BudgetDtoCollectionQueryParameters**](BudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -486,12 +492,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBudgetAccountEntryAsync"></a>
 # **patchBudgetAccountEntryAsync**
-> EmptyEnvelope patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a budget account entry
 
@@ -509,9 +515,9 @@ val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBudgetAccountEntryAsync(budgetId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BudgetsApi#patchBudgetAccountEntryAsync")
@@ -530,7 +536,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -547,7 +553,7 @@ No authorization required
 
 <a id="patchBudgetAsync"></a>
 # **patchBudgetAsync**
-> EmptyEnvelope patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a budget
 
@@ -564,9 +570,9 @@ val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBudgetAsync(budgetId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BudgetsApi#patchBudgetAsync")
@@ -584,7 +590,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

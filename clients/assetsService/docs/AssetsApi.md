@@ -688,7 +688,7 @@ No authorization required
 
 <a id="getAssetAssetCategories"></a>
 # **getAssetAssetCategories**
-> AssetCategoryDtoListEnvelope getAssetAssetCategories(tenantId)
+> AssetCategoryDtoListEnvelope getAssetAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets all asset categories
 
@@ -702,8 +702,9 @@ Retrieves all asset categories for the authenticated tenant.
 
 val apiInstance = AssetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetCategoryDtoCollectionQueryParameters : AssetCategoryDtoCollectionQueryParameters =  // AssetCategoryDtoCollectionQueryParameters | 
 try {
-    val result : AssetCategoryDtoListEnvelope = apiInstance.getAssetAssetCategories(tenantId)
+    val result : AssetCategoryDtoListEnvelope = apiInstance.getAssetAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetAssetCategories")
@@ -715,9 +716,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -729,12 +731,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetAssetCategoriesCount"></a>
 # **getAssetAssetCategoriesCount**
-> Int32Envelope getAssetAssetCategoriesCount(tenantId)
+> Int32Envelope getAssetAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets the count of asset categories
 
@@ -748,8 +750,9 @@ Returns the total number of asset categories for the authenticated tenant.
 
 val apiInstance = AssetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetCategoryDtoCollectionQueryParameters : AssetCategoryDtoCollectionQueryParameters =  // AssetCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetAssetCategoriesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getAssetAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetAssetCategoriesCount")
@@ -761,9 +764,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -775,7 +779,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetAssetCategory"></a>
@@ -878,7 +882,7 @@ No authorization required
 
 <a id="getAssetDepreciationRecords"></a>
 # **getAssetDepreciationRecords**
-> AssetDepreciationRecordDtoListEnvelope getAssetDepreciationRecords(assetId, tenantId)
+> AssetDepreciationRecordDtoListEnvelope getAssetDepreciationRecords(assetId, tenantId, assetDepreciationRecordDtoCollectionQueryParameters)
 
 Gets depreciation records for a specific asset
 
@@ -893,8 +897,9 @@ Retrieves all depreciation records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetDepreciationRecordDtoCollectionQueryParameters : AssetDepreciationRecordDtoCollectionQueryParameters =  // AssetDepreciationRecordDtoCollectionQueryParameters | 
 try {
-    val result : AssetDepreciationRecordDtoListEnvelope = apiInstance.getAssetDepreciationRecords(assetId, tenantId)
+    val result : AssetDepreciationRecordDtoListEnvelope = apiInstance.getAssetDepreciationRecords(assetId, tenantId, assetDepreciationRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetDepreciationRecords")
@@ -907,9 +912,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -921,12 +927,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetDepreciationRecordsCount"></a>
 # **getAssetDepreciationRecordsCount**
-> Int32Envelope getAssetDepreciationRecordsCount(assetId, tenantId)
+> Int32Envelope getAssetDepreciationRecordsCount(assetId, tenantId, assetDepreciationRecordDtoCollectionQueryParameters)
 
 Gets count of depreciation records for a specific asset
 
@@ -941,8 +947,9 @@ Returns the total number of depreciation records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetDepreciationRecordDtoCollectionQueryParameters : AssetDepreciationRecordDtoCollectionQueryParameters =  // AssetDepreciationRecordDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetDepreciationRecordsCount(assetId, tenantId)
+    val result : Int32Envelope = apiInstance.getAssetDepreciationRecordsCount(assetId, tenantId, assetDepreciationRecordDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetDepreciationRecordsCount")
@@ -955,9 +962,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -969,7 +977,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetRepair"></a>
@@ -1024,7 +1032,7 @@ No authorization required
 
 <a id="getAssetRepairs"></a>
 # **getAssetRepairs**
-> AssetRepairDtoListEnvelope getAssetRepairs(assetId, tenantId)
+> AssetRepairDtoListEnvelope getAssetRepairs(assetId, tenantId, assetRepairDtoCollectionQueryParameters)
 
 Gets repairs for a specific asset
 
@@ -1039,8 +1047,9 @@ Retrieves all repair records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetRepairDtoCollectionQueryParameters : AssetRepairDtoCollectionQueryParameters =  // AssetRepairDtoCollectionQueryParameters | 
 try {
-    val result : AssetRepairDtoListEnvelope = apiInstance.getAssetRepairs(assetId, tenantId)
+    val result : AssetRepairDtoListEnvelope = apiInstance.getAssetRepairs(assetId, tenantId, assetRepairDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetRepairs")
@@ -1053,9 +1062,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1067,12 +1077,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetRepairsCount"></a>
 # **getAssetRepairsCount**
-> Int32Envelope getAssetRepairsCount(assetId, tenantId)
+> Int32Envelope getAssetRepairsCount(assetId, tenantId, assetRepairDtoCollectionQueryParameters)
 
 Gets count of repairs for a specific asset
 
@@ -1087,8 +1097,9 @@ Returns the total number of repair records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetRepairDtoCollectionQueryParameters : AssetRepairDtoCollectionQueryParameters =  // AssetRepairDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetRepairsCount(assetId, tenantId)
+    val result : Int32Envelope = apiInstance.getAssetRepairsCount(assetId, tenantId, assetRepairDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetRepairsCount")
@@ -1101,9 +1112,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1115,7 +1127,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetTransfer"></a>
@@ -1170,7 +1182,7 @@ No authorization required
 
 <a id="getAssetTransfers"></a>
 # **getAssetTransfers**
-> AssetTransferDtoListEnvelope getAssetTransfers(assetId, tenantId)
+> AssetTransferDtoListEnvelope getAssetTransfers(assetId, tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets transfers for a specific asset
 
@@ -1185,8 +1197,9 @@ Retrieves all transfer records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTransferDtoCollectionQueryParameters : AssetTransferDtoCollectionQueryParameters =  // AssetTransferDtoCollectionQueryParameters | 
 try {
-    val result : AssetTransferDtoListEnvelope = apiInstance.getAssetTransfers(assetId, tenantId)
+    val result : AssetTransferDtoListEnvelope = apiInstance.getAssetTransfers(assetId, tenantId, assetTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetTransfers")
@@ -1199,9 +1212,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1213,12 +1227,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetTransfersCount"></a>
 # **getAssetTransfersCount**
-> Int32Envelope getAssetTransfersCount(assetId, tenantId)
+> Int32Envelope getAssetTransfersCount(assetId, tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets count of transfers for a specific asset
 
@@ -1233,8 +1247,9 @@ Returns the total number of transfer records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetTransferDtoCollectionQueryParameters : AssetTransferDtoCollectionQueryParameters =  // AssetTransferDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetTransfersCount(assetId, tenantId)
+    val result : Int32Envelope = apiInstance.getAssetTransfersCount(assetId, tenantId, assetTransferDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetTransfersCount")
@@ -1247,9 +1262,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1261,7 +1277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetValueAmend"></a>
@@ -1316,7 +1332,7 @@ No authorization required
 
 <a id="getAssetValueAmends"></a>
 # **getAssetValueAmends**
-> AssetValueAmendDtoListEnvelope getAssetValueAmends(assetId, tenantId)
+> AssetValueAmendDtoListEnvelope getAssetValueAmends(assetId, tenantId, assetValueAmendDtoCollectionQueryParameters)
 
 Gets value amendments for a specific asset
 
@@ -1331,8 +1347,9 @@ Retrieves all value amendment records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetValueAmendDtoCollectionQueryParameters : AssetValueAmendDtoCollectionQueryParameters =  // AssetValueAmendDtoCollectionQueryParameters | 
 try {
-    val result : AssetValueAmendDtoListEnvelope = apiInstance.getAssetValueAmends(assetId, tenantId)
+    val result : AssetValueAmendDtoListEnvelope = apiInstance.getAssetValueAmends(assetId, tenantId, assetValueAmendDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetValueAmends")
@@ -1345,9 +1362,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1359,12 +1377,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetValueAmendsCount"></a>
 # **getAssetValueAmendsCount**
-> Int32Envelope getAssetValueAmendsCount(assetId, tenantId)
+> Int32Envelope getAssetValueAmendsCount(assetId, tenantId, assetValueAmendDtoCollectionQueryParameters)
 
 Gets count of value amendments for a specific asset
 
@@ -1379,8 +1397,9 @@ Returns the total number of value amendment records for the specified asset.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetValueAmendDtoCollectionQueryParameters : AssetValueAmendDtoCollectionQueryParameters =  // AssetValueAmendDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetValueAmendsCount(assetId, tenantId)
+    val result : Int32Envelope = apiInstance.getAssetValueAmendsCount(assetId, tenantId, assetValueAmendDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetValueAmendsCount")
@@ -1393,9 +1412,10 @@ try {
 
 ### Parameters
 | **assetId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1407,12 +1427,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssets"></a>
 # **getAssets**
-> AssetDtoListEnvelope getAssets(tenantId)
+> AssetDtoListEnvelope getAssets(tenantId, assetDtoCollectionQueryParameters)
 
 Gets all assets for the current tenant
 
@@ -1426,8 +1446,9 @@ Retrieves all assets for the authenticated tenant with optional filtering.
 
 val apiInstance = AssetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetDtoCollectionQueryParameters : AssetDtoCollectionQueryParameters =  // AssetDtoCollectionQueryParameters | 
 try {
-    val result : AssetDtoListEnvelope = apiInstance.getAssets(tenantId)
+    val result : AssetDtoListEnvelope = apiInstance.getAssets(tenantId, assetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssets")
@@ -1439,9 +1460,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1453,12 +1475,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetsCount"></a>
 # **getAssetsCount**
-> Int32Envelope getAssetsCount(tenantId)
+> Int32Envelope getAssetsCount(tenantId, assetDtoCollectionQueryParameters)
 
 Gets the count of assets
 
@@ -1472,8 +1494,9 @@ Returns the total number of assets for the authenticated tenant.
 
 val apiInstance = AssetsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetDtoCollectionQueryParameters : AssetDtoCollectionQueryParameters =  // AssetDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetsCount(tenantId)
+    val result : Int32Envelope = apiInstance.getAssetsCount(tenantId, assetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#getAssetsCount")
@@ -1485,9 +1508,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1499,12 +1523,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAsset"></a>
 # **patchAsset**
-> EmptyEnvelope patchAsset(assetId, tenantId, operation)
+> EmptyEnvelope patchAsset(assetId, tenantId, patchOperation)
 
 Partially updates an existing asset
 
@@ -1519,9 +1543,9 @@ Applies a JSON Patch document to an existing asset for the authenticated tenant.
 val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAsset(assetId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAsset(assetId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAsset")
@@ -1537,7 +1561,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1554,7 +1578,7 @@ No authorization required
 
 <a id="patchAssetAssetCategory"></a>
 # **patchAssetAssetCategory**
-> EmptyEnvelope patchAssetAssetCategory(categoryId, tenantId, operation)
+> EmptyEnvelope patchAssetAssetCategory(categoryId, tenantId, patchOperation)
 
 Partially updates an existing asset category
 
@@ -1569,9 +1593,9 @@ Applies a JSON Patch document to an existing asset category for the authenticate
 val apiInstance = AssetsApi()
 val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetAssetCategory(categoryId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetAssetCategory(categoryId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAssetAssetCategory")
@@ -1587,7 +1611,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1604,7 +1628,7 @@ No authorization required
 
 <a id="patchAssetDepreciationRecord"></a>
 # **patchAssetDepreciationRecord**
-> EmptyEnvelope patchAssetDepreciationRecord(assetId, recordId, tenantId, operation)
+> EmptyEnvelope patchAssetDepreciationRecord(assetId, recordId, tenantId, patchOperation)
 
 Partially updates a depreciation record for an asset
 
@@ -1620,9 +1644,9 @@ val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val recordId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetDepreciationRecord(assetId, recordId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetDepreciationRecord(assetId, recordId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAssetDepreciationRecord")
@@ -1639,7 +1663,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1656,7 +1680,7 @@ No authorization required
 
 <a id="patchAssetRepair"></a>
 # **patchAssetRepair**
-> EmptyEnvelope patchAssetRepair(assetId, repairId, tenantId, operation)
+> EmptyEnvelope patchAssetRepair(assetId, repairId, tenantId, patchOperation)
 
 Partially updates a repair for an asset
 
@@ -1672,9 +1696,9 @@ val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val repairId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetRepair(assetId, repairId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetRepair(assetId, repairId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAssetRepair")
@@ -1691,7 +1715,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1708,7 +1732,7 @@ No authorization required
 
 <a id="patchAssetTransfer"></a>
 # **patchAssetTransfer**
-> EmptyEnvelope patchAssetTransfer(assetId, transferId, tenantId, operation)
+> EmptyEnvelope patchAssetTransfer(assetId, transferId, tenantId, patchOperation)
 
 Partially updates a transfer for an asset
 
@@ -1724,9 +1748,9 @@ val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val transferId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetTransfer(assetId, transferId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetTransfer(assetId, transferId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAssetTransfer")
@@ -1743,7 +1767,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1760,7 +1784,7 @@ No authorization required
 
 <a id="patchAssetValueAmend"></a>
 # **patchAssetValueAmend**
-> EmptyEnvelope patchAssetValueAmend(assetId, amendId, tenantId, operation)
+> EmptyEnvelope patchAssetValueAmend(assetId, amendId, tenantId, patchOperation)
 
 Partially updates a value amendment for an asset
 
@@ -1776,9 +1800,9 @@ val apiInstance = AssetsApi()
 val assetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val amendId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetValueAmend(assetId, amendId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetValueAmend(assetId, amendId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetsApi#patchAssetValueAmend")
@@ -1795,7 +1819,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

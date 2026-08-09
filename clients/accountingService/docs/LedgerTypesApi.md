@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getLedgerTypesAsync"></a>
 # **getLedgerTypesAsync**
-> LedgerTypeDtoIReadOnlyListEnvelope getLedgerTypesAsync(tenantId, apiVersion, xApiVersion)
+> LedgerTypeDtoIReadOnlyListEnvelope getLedgerTypesAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
 
 Retrieves all ledger types
 
@@ -187,8 +187,9 @@ val apiInstance = LedgerTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val ledgerTypeDtoCollectionQueryParameters : LedgerTypeDtoCollectionQueryParameters =  // LedgerTypeDtoCollectionQueryParameters | 
 try {
-    val result : LedgerTypeDtoIReadOnlyListEnvelope = apiInstance.getLedgerTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : LedgerTypeDtoIReadOnlyListEnvelope = apiInstance.getLedgerTypesAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LedgerTypesApi#getLedgerTypesAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **ledgerTypeDtoCollectionQueryParameters** | [**LedgerTypeDtoCollectionQueryParameters**](LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLedgerTypesCountAsync"></a>
 # **getLedgerTypesCountAsync**
-> Int32Envelope getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
 
 Counts ledger types
 
@@ -237,8 +239,9 @@ val apiInstance = LedgerTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val ledgerTypeDtoCollectionQueryParameters : LedgerTypeDtoCollectionQueryParameters =  // LedgerTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LedgerTypesApi#getLedgerTypesCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **ledgerTypeDtoCollectionQueryParameters** | [**LedgerTypeDtoCollectionQueryParameters**](LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchLedgerTypeAsync"></a>
 # **patchLedgerTypeAsync**
-> EmptyEnvelope patchLedgerTypeAsync(ledgerTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLedgerTypeAsync(ledgerTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a ledger type
 
@@ -288,9 +292,9 @@ val ledgerTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLedgerTypeAsync(ledgerTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchLedgerTypeAsync(ledgerTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LedgerTypesApi#patchLedgerTypeAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

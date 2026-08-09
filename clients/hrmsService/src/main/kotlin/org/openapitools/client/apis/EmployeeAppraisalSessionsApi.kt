@@ -20,13 +20,14 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmployeeAppraisalSessionCreateDto
+import org.openapitools.client.models.EmployeeAppraisalSessionDtoCollectionQueryParameters
 import org.openapitools.client.models.EmployeeAppraisalSessionDtoEnvelope
 import org.openapitools.client.models.EmployeeAppraisalSessionDtoListEnvelope
 import org.openapitools.client.models.EmployeeAppraisalSessionUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -320,6 +321,7 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return EmployeeAppraisalSessionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEmployeeAppraisalSessionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmployeeAppraisalSessionDtoListEnvelope {
-        val localVarResponse = getEmployeeAppraisalSessionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEmployeeAppraisalSessionsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters? = null) : EmployeeAppraisalSessionDtoListEnvelope {
+        val localVarResponse = getEmployeeAppraisalSessionsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters = employeeAppraisalSessionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmployeeAppraisalSessionDtoListEnvelope
@@ -353,16 +355,17 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<EmployeeAppraisalSessionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEmployeeAppraisalSessionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmployeeAppraisalSessionDtoListEnvelope?> {
-        val localVariableConfig = getEmployeeAppraisalSessionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEmployeeAppraisalSessionsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters?) : ApiResponse<EmployeeAppraisalSessionDtoListEnvelope?> {
+        val localVariableConfig = getEmployeeAppraisalSessionsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters = employeeAppraisalSessionDtoCollectionQueryParameters)
 
-        return request<Unit, EmployeeAppraisalSessionDtoListEnvelope>(
+        return request<EmployeeAppraisalSessionDtoCollectionQueryParameters, EmployeeAppraisalSessionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEmployeeAppraisalSessionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEmployeeAppraisalSessionsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters?) : RequestConfig<EmployeeAppraisalSessionDtoCollectionQueryParameters> {
+        val localVariableBody = employeeAppraisalSessionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEmployeeAppraisalSessionsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getEmployeeAppraisalSessionsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEmployeeAppraisalSessionsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getEmployeeAppraisalSessionsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters = employeeAppraisalSessionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -437,16 +443,17 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEmployeeAppraisalSessionsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getEmployeeAppraisalSessionsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEmployeeAppraisalSessionsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getEmployeeAppraisalSessionsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters = employeeAppraisalSessionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<EmployeeAppraisalSessionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param employeeAppraisalSessionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEmployeeAppraisalSessionsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEmployeeAppraisalSessionsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, employeeAppraisalSessionDtoCollectionQueryParameters: EmployeeAppraisalSessionDtoCollectionQueryParameters?) : RequestConfig<EmployeeAppraisalSessionDtoCollectionQueryParameters> {
+        val localVariableBody = employeeAppraisalSessionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchEmployeeAppraisalSessionAsync(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchEmployeeAppraisalSessionAsyncWithHttpInfo(sessionId = sessionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchEmployeeAppraisalSessionAsync(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchEmployeeAppraisalSessionAsyncWithHttpInfo(sessionId = sessionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchEmployeeAppraisalSessionAsyncWithHttpInfo(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchEmployeeAppraisalSessionAsyncRequestConfig(sessionId = sessionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchEmployeeAppraisalSessionAsyncWithHttpInfo(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchEmployeeAppraisalSessionAsyncRequestConfig(sessionId = sessionId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class EmployeeAppraisalSessionsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchEmployeeAppraisalSessionAsyncRequestConfig(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchEmployeeAppraisalSessionAsyncRequestConfig(sessionId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

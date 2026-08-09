@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SocialMediaPostCreateDto
+import org.openapitools.client.models.SocialMediaPostDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialMediaPostDtoEnvelope
 import org.openapitools.client.models.SocialMediaPostDtoListEnvelope
 import org.openapitools.client.models.SocialMediaPostUpdateDto
@@ -320,6 +321,7 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +331,8 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialMediaPostsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSocialMediaPostsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialMediaPostsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialMediaPostsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialMediaPostDtoCollectionQueryParameters = socialMediaPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -353,16 +355,17 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialMediaPostsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSocialMediaPostsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialMediaPostsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialMediaPostsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialMediaPostDtoCollectionQueryParameters = socialMediaPostDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialMediaPostDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -373,10 +376,11 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialMediaPostsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialMediaPostsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters?) : RequestConfig<SocialMediaPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialMediaPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -386,6 +390,7 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -404,6 +409,7 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return SocialMediaPostDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -413,8 +419,8 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialMediaPostsODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialMediaPostDtoListEnvelope {
-        val localVarResponse = getSocialMediaPostsODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialMediaPostsODataAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters? = null) : SocialMediaPostDtoListEnvelope {
+        val localVarResponse = getSocialMediaPostsODataAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialMediaPostDtoCollectionQueryParameters = socialMediaPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialMediaPostDtoListEnvelope
@@ -437,16 +443,17 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialMediaPostDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialMediaPostsODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialMediaPostDtoListEnvelope?> {
-        val localVariableConfig = getSocialMediaPostsODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialMediaPostsODataAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters?) : ApiResponse<SocialMediaPostDtoListEnvelope?> {
+        val localVariableConfig = getSocialMediaPostsODataAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialMediaPostDtoCollectionQueryParameters = socialMediaPostDtoCollectionQueryParameters)
 
-        return request<Unit, SocialMediaPostDtoListEnvelope>(
+        return request<SocialMediaPostDtoCollectionQueryParameters, SocialMediaPostDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -457,10 +464,11 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialMediaPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialMediaPostsODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialMediaPostsODataAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialMediaPostDtoCollectionQueryParameters: SocialMediaPostDtoCollectionQueryParameters?) : RequestConfig<SocialMediaPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialMediaPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -470,6 +478,7 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -489,7 +498,7 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -499,8 +508,8 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSocialMediaPostAsync(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSocialMediaPostAsyncWithHttpInfo(socialmediapostId = socialmediapostId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialMediaPostAsync(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSocialMediaPostAsyncWithHttpInfo(socialmediapostId = socialmediapostId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -524,17 +533,17 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSocialMediaPostAsyncWithHttpInfo(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSocialMediaPostAsyncRequestConfig(socialmediapostId = socialmediapostId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialMediaPostAsyncWithHttpInfo(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSocialMediaPostAsyncRequestConfig(socialmediapostId = socialmediapostId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -546,11 +555,11 @@ class SocialMediaPostsApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSocialMediaPostAsyncRequestConfig(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSocialMediaPostAsyncRequestConfig(socialmediapostId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

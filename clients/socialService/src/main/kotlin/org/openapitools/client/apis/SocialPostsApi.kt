@@ -22,18 +22,26 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
+import org.openapitools.client.models.SocialCommentReactionDtoCollectionQueryParameters
+import org.openapitools.client.models.SocialCommentReactionDtoEnvelope
+import org.openapitools.client.models.SocialCommentReactionDtoListEnvelope
 import org.openapitools.client.models.SocialPostAttachmentCreateDto
+import org.openapitools.client.models.SocialPostAttachmentDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialPostAttachmentDtoEnvelope
 import org.openapitools.client.models.SocialPostAttachmentDtoListEnvelope
 import org.openapitools.client.models.SocialPostAttachmentUpdateDto
 import org.openapitools.client.models.SocialPostCommentCreateDto
+import org.openapitools.client.models.SocialPostCommentDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialPostCommentDtoEnvelope
 import org.openapitools.client.models.SocialPostCommentDtoListEnvelope
 import org.openapitools.client.models.SocialPostCommentUpdateDto
 import org.openapitools.client.models.SocialPostCreateDto
+import org.openapitools.client.models.SocialPostDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialPostDtoEnvelope
 import org.openapitools.client.models.SocialPostDtoListEnvelope
+import org.openapitools.client.models.SocialPostReactionDtoCollectionQueryParameters
+import org.openapitools.client.models.SocialPostReactionDtoEnvelope
 import org.openapitools.client.models.SocialPostUpdateDto
 import org.openapitools.client.models.SocialReactionCreateDto
 import org.openapitools.client.models.SocialReactionDtoEnvelope
@@ -62,6 +70,100 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty(ApiClient.baseUrlKey, "https://absuite.net")
         }
+    }
+
+    /**
+     * Create a social comment reaction
+     * Creates a new reaction on a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun createSocialCommentReactionAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionCreateDto: SocialReactionCreateDto? = null) : SocialCommentReactionDtoEnvelope {
+        val localVarResponse = createSocialCommentReactionAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionCreateDto = socialReactionCreateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialCommentReactionDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Create a social comment reaction
+     * Creates a new reaction on a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @return ApiResponse<SocialCommentReactionDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun createSocialCommentReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionCreateDto: SocialReactionCreateDto?) : ApiResponse<SocialCommentReactionDtoEnvelope?> {
+        val localVariableConfig = createSocialCommentReactionAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionCreateDto = socialReactionCreateDto)
+
+        return request<SocialReactionCreateDto, SocialCommentReactionDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation createSocialCommentReactionAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @return RequestConfig
+     */
+    fun createSocialCommentReactionAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionCreateDto: SocialReactionCreateDto?) : RequestConfig<SocialReactionCreateDto> {
+        val localVariableBody = socialReactionCreateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**
@@ -342,7 +444,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionCreateDto  (optional)
-     * @return SocialReactionDtoEnvelope
+     * @return SocialPostReactionDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -351,11 +453,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createSocialPostReactionAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionCreateDto: SocialReactionCreateDto? = null) : SocialReactionDtoEnvelope {
+    fun createSocialPostReactionAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionCreateDto: SocialReactionCreateDto? = null) : SocialPostReactionDtoEnvelope {
         val localVarResponse = createSocialPostReactionAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionCreateDto = socialReactionCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialReactionDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostReactionDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -377,16 +479,16 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionCreateDto  (optional)
-     * @return ApiResponse<SocialReactionDtoEnvelope?>
+     * @return ApiResponse<SocialPostReactionDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createSocialPostReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionCreateDto: SocialReactionCreateDto?) : ApiResponse<SocialReactionDtoEnvelope?> {
+    fun createSocialPostReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionCreateDto: SocialReactionCreateDto?) : ApiResponse<SocialPostReactionDtoEnvelope?> {
         val localVariableConfig = createSocialPostReactionAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionCreateDto = socialReactionCreateDto)
 
-        return request<SocialReactionCreateDto, SocialReactionDtoEnvelope>(
+        return request<SocialReactionCreateDto, SocialPostReactionDtoEnvelope>(
             localVariableConfig
         )
     }
@@ -418,6 +520,99 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Delete a social comment reaction
+     * Deletes a reaction from a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun deleteSocialCommentReactionAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = deleteSocialCommentReactionAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Delete a social comment reaction
+     * Deletes a reaction from a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<EmptyEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun deleteSocialCommentReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = deleteSocialCommentReactionAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, EmptyEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation deleteSocialCommentReactionAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun deleteSocialCommentReactionAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())).replace("{"+"reactionId"+"}", encodeURIComponent(reactionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -783,6 +978,283 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * Get social comment reaction by ID
+     * Retrieves a specific reaction from a social comment by its ID.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSocialCommentReactionAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialCommentReactionDtoEnvelope {
+        val localVarResponse = getSocialCommentReactionAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialCommentReactionDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get social comment reaction by ID
+     * Retrieves a specific reaction from a social comment by its ID.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse<SocialCommentReactionDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSocialCommentReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialCommentReactionDtoEnvelope?> {
+        val localVariableConfig = getSocialCommentReactionAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+
+        return request<Unit, SocialCommentReactionDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSocialCommentReactionAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return RequestConfig
+     */
+    fun getSocialCommentReactionAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())).replace("{"+"reactionId"+"}", encodeURIComponent(reactionId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Get social comment reactions
+     * Retrieves a list of reactions for a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return SocialCommentReactionDtoListEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSocialCommentReactionsAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters? = null) : SocialCommentReactionDtoListEnvelope {
+        val localVarResponse = getSocialCommentReactionsAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialCommentReactionDtoCollectionQueryParameters = socialCommentReactionDtoCollectionQueryParameters)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialCommentReactionDtoListEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Get social comment reactions
+     * Retrieves a list of reactions for a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse<SocialCommentReactionDtoListEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSocialCommentReactionsAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters?) : ApiResponse<SocialCommentReactionDtoListEnvelope?> {
+        val localVariableConfig = getSocialCommentReactionsAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialCommentReactionDtoCollectionQueryParameters = socialCommentReactionDtoCollectionQueryParameters)
+
+        return request<SocialCommentReactionDtoCollectionQueryParameters, SocialCommentReactionDtoListEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSocialCommentReactionsAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return RequestConfig
+     */
+    fun getSocialCommentReactionsAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters?) : RequestConfig<SocialCommentReactionDtoCollectionQueryParameters> {
+        val localVariableBody = socialCommentReactionDtoCollectionQueryParameters
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Count social comment reactions
+     * Returns the count of reactions for a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return Int32Envelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSocialCommentReactionsCountAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialCommentReactionsCountAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialCommentReactionDtoCollectionQueryParameters = socialCommentReactionDtoCollectionQueryParameters)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Count social comment reactions
+     * Returns the count of reactions for a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse<Int32Envelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSocialCommentReactionsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialCommentReactionsCountAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialCommentReactionDtoCollectionQueryParameters = socialCommentReactionDtoCollectionQueryParameters)
+
+        return request<SocialCommentReactionDtoCollectionQueryParameters, Int32Envelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSocialCommentReactionsCountAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return RequestConfig
+     */
+    fun getSocialCommentReactionsCountAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialCommentReactionDtoCollectionQueryParameters: SocialCommentReactionDtoCollectionQueryParameters?) : RequestConfig<SocialCommentReactionDtoCollectionQueryParameters> {
+        val localVariableBody = socialCommentReactionDtoCollectionQueryParameters
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * Get social post by ID
      * Retrieves a specific social post by its ID.
      * @param socialPostId 
@@ -961,6 +1433,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return SocialPostAttachmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -970,8 +1443,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostAttachmentsAsync(socialPostId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostAttachmentDtoListEnvelope {
-        val localVarResponse = getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostAttachmentsAsync(socialPostId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters? = null) : SocialPostAttachmentDtoListEnvelope {
+        val localVarResponse = getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostAttachmentDtoCollectionQueryParameters = socialPostAttachmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostAttachmentDtoListEnvelope
@@ -994,16 +1467,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialPostAttachmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostAttachmentDtoListEnvelope?> {
-        val localVariableConfig = getSocialPostAttachmentsAsyncRequestConfig(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters?) : ApiResponse<SocialPostAttachmentDtoListEnvelope?> {
+        val localVariableConfig = getSocialPostAttachmentsAsyncRequestConfig(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostAttachmentDtoCollectionQueryParameters = socialPostAttachmentDtoCollectionQueryParameters)
 
-        return request<Unit, SocialPostAttachmentDtoListEnvelope>(
+        return request<SocialPostAttachmentDtoCollectionQueryParameters, SocialPostAttachmentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1014,10 +1488,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostAttachmentsAsyncRequestConfig(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostAttachmentsAsyncRequestConfig(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters?) : RequestConfig<SocialPostAttachmentDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostAttachmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1026,6 +1501,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1044,6 +1520,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1053,8 +1530,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostAttachmentsCountAsync(socialPostId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostAttachmentsCountAsync(socialPostId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostAttachmentDtoCollectionQueryParameters = socialPostAttachmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1077,16 +1554,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSocialPostAttachmentsCountAsyncRequestConfig(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialPostAttachmentsCountAsyncRequestConfig(socialPostId = socialPostId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostAttachmentDtoCollectionQueryParameters = socialPostAttachmentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialPostAttachmentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1097,10 +1575,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialPostId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostAttachmentsCountAsyncRequestConfig(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostAttachmentsCountAsyncRequestConfig(socialPostId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostAttachmentDtoCollectionQueryParameters: SocialPostAttachmentDtoCollectionQueryParameters?) : RequestConfig<SocialPostAttachmentDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostAttachmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1109,6 +1588,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1216,8 +1696,10 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Retrieves a list of comments for a specific social post.
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return SocialPostCommentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1227,8 +1709,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostCommentsAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostCommentDtoListEnvelope {
-        val localVarResponse = getSocialPostCommentsAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostCommentsAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters? = null) : SocialPostCommentDtoListEnvelope {
+        val localVarResponse = getSocialPostCommentsAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, parentCommentId = parentCommentId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostCommentDtoCollectionQueryParameters = socialPostCommentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostCommentDtoListEnvelope
@@ -1250,18 +1732,20 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Retrieves a list of comments for a specific social post.
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialPostCommentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostCommentsAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostCommentDtoListEnvelope?> {
-        val localVariableConfig = getSocialPostCommentsAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostCommentsAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters?) : ApiResponse<SocialPostCommentDtoListEnvelope?> {
+        val localVariableConfig = getSocialPostCommentsAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, parentCommentId = parentCommentId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostCommentDtoCollectionQueryParameters = socialPostCommentDtoCollectionQueryParameters)
 
-        return request<Unit, SocialPostCommentDtoListEnvelope>(
+        return request<SocialPostCommentDtoCollectionQueryParameters, SocialPostCommentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1271,21 +1755,27 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      *
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostCommentsAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostCommentsAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters?) : RequestConfig<SocialPostCommentDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostCommentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
+                if (parentCommentId != null) {
+                    put("parentCommentId", listOf(parentCommentId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1303,8 +1793,10 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Returns the count of comments for a specific social post.
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1314,8 +1806,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostCommentsCountAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSocialPostCommentsCountAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostCommentsCountAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialPostCommentsCountAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, parentCommentId = parentCommentId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostCommentDtoCollectionQueryParameters = socialPostCommentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1337,18 +1829,20 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * Returns the count of comments for a specific social post.
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostCommentsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSocialPostCommentsCountAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostCommentsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialPostCommentsCountAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, parentCommentId = parentCommentId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostCommentDtoCollectionQueryParameters = socialPostCommentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialPostCommentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1358,21 +1852,27 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      *
      * @param socialPostId 
      * @param socialProfileId 
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostCommentsCountAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostCommentsCountAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, parentCommentId: kotlin.String?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostCommentDtoCollectionQueryParameters: SocialPostCommentDtoCollectionQueryParameters?) : RequestConfig<SocialPostCommentDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostCommentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
+                if (parentCommentId != null) {
+                    put("parentCommentId", listOf(parentCommentId.toString()))
+                }
                 if (apiVersion != null) {
                     put("api-version", listOf(apiVersion.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1478,6 +1978,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return SocialReactionDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1487,8 +1988,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostReactionsAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialReactionDtoListEnvelope {
-        val localVarResponse = getSocialPostReactionsAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostReactionsAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters? = null) : SocialReactionDtoListEnvelope {
+        val localVarResponse = getSocialPostReactionsAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostReactionDtoCollectionQueryParameters = socialPostReactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialReactionDtoListEnvelope
@@ -1512,16 +2013,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialReactionDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostReactionsAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialReactionDtoListEnvelope?> {
-        val localVariableConfig = getSocialPostReactionsAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostReactionsAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters?) : ApiResponse<SocialReactionDtoListEnvelope?> {
+        val localVariableConfig = getSocialPostReactionsAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostReactionDtoCollectionQueryParameters = socialPostReactionDtoCollectionQueryParameters)
 
-        return request<Unit, SocialReactionDtoListEnvelope>(
+        return request<SocialPostReactionDtoCollectionQueryParameters, SocialReactionDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1533,10 +2035,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostReactionsAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostReactionsAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters?) : RequestConfig<SocialPostReactionDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostReactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1546,6 +2049,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1565,6 +2069,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1574,8 +2079,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostReactionsCountAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostReactionsCountAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostReactionDtoCollectionQueryParameters = socialPostReactionDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1599,16 +2104,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSocialPostReactionsCountAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialPostReactionsCountAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostReactionDtoCollectionQueryParameters = socialPostReactionDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialPostReactionDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1620,10 +2126,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostReactionsCountAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostReactionsCountAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostReactionDtoCollectionQueryParameters: SocialPostReactionDtoCollectionQueryParameters?) : RequestConfig<SocialPostReactionDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostReactionDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1633,6 +2140,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1651,6 +2159,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return SocialPostDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1660,8 +2169,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialPostDtoListEnvelope {
-        val localVarResponse = getSocialPostsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostsAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters? = null) : SocialPostDtoListEnvelope {
+        val localVarResponse = getSocialPostsAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostDtoCollectionQueryParameters = socialPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostDtoListEnvelope
@@ -1684,16 +2193,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialPostDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialPostDtoListEnvelope?> {
-        val localVariableConfig = getSocialPostsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostsAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters?) : ApiResponse<SocialPostDtoListEnvelope?> {
+        val localVariableConfig = getSocialPostsAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostDtoCollectionQueryParameters = socialPostDtoCollectionQueryParameters)
 
-        return request<Unit, SocialPostDtoListEnvelope>(
+        return request<SocialPostDtoCollectionQueryParameters, SocialPostDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1704,10 +2214,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostsAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters?) : RequestConfig<SocialPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1717,6 +2228,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1735,6 +2247,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1744,8 +2257,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialPostsCountAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSocialPostsCountAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostsCountAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSocialPostsCountAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostDtoCollectionQueryParameters = socialPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1768,16 +2281,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialPostsCountAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSocialPostsCountAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialPostsCountAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSocialPostsCountAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialPostDtoCollectionQueryParameters = socialPostDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialPostDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1788,10 +2302,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialPostsCountAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialPostsCountAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialPostDtoCollectionQueryParameters: SocialPostDtoCollectionQueryParameters?) : RequestConfig<SocialPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1801,6 +2316,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1820,7 +2336,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1830,8 +2346,8 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSocialPostAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSocialPostAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialPostAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSocialPostAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1855,17 +2371,17 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSocialPostAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSocialPostAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialPostAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSocialPostAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1877,11 +2393,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSocialPostAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSocialPostAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -1897,6 +2413,103 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         return RequestConfig(
             method = RequestMethod.PATCH,
             path = "/api/v2/SocialService/SocialPosts/{socialPostId}".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Update a social comment reaction
+     * Updates an existing reaction on a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateSocialCommentReactionAsync(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionUpdateDto: SocialReactionUpdateDto? = null) : SocialCommentReactionDtoEnvelope {
+        val localVarResponse = updateSocialCommentReactionAsyncWithHttpInfo(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionUpdateDto = socialReactionUpdateDto)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialCommentReactionDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Update a social comment reaction
+     * Updates an existing reaction on a specific social comment.
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @return ApiResponse<SocialCommentReactionDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun updateSocialCommentReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionUpdateDto: SocialReactionUpdateDto?) : ApiResponse<SocialCommentReactionDtoEnvelope?> {
+        val localVariableConfig = updateSocialCommentReactionAsyncRequestConfig(socialPostId = socialPostId, commentId = commentId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionUpdateDto = socialReactionUpdateDto)
+
+        return request<SocialReactionUpdateDto, SocialCommentReactionDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation updateSocialCommentReactionAsync
+     *
+     * @param socialPostId 
+     * @param commentId 
+     * @param reactionId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @return RequestConfig
+     */
+    fun updateSocialCommentReactionAsyncRequestConfig(socialPostId: java.util.UUID, commentId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionUpdateDto: SocialReactionUpdateDto?) : RequestConfig<SocialReactionUpdateDto> {
+        val localVariableBody = socialReactionUpdateDto
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"commentId"+"}", encodeURIComponent(commentId.toString())).replace("{"+"reactionId"+"}", encodeURIComponent(reactionId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -2192,7 +2805,7 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionUpdateDto  (optional)
-     * @return EmptyEnvelope
+     * @return SocialPostReactionDtoEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -2201,11 +2814,11 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun updateSocialPostReactionAsync(socialPostId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionUpdateDto: SocialReactionUpdateDto? = null) : EmptyEnvelope {
+    fun updateSocialPostReactionAsync(socialPostId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialReactionUpdateDto: SocialReactionUpdateDto? = null) : SocialPostReactionDtoEnvelope {
         val localVarResponse = updateSocialPostReactionAsyncWithHttpInfo(socialPostId = socialPostId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionUpdateDto = socialReactionUpdateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostReactionDtoEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -2228,16 +2841,16 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionUpdateDto  (optional)
-     * @return ApiResponse<EmptyEnvelope?>
+     * @return ApiResponse<SocialPostReactionDtoEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun updateSocialPostReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionUpdateDto: SocialReactionUpdateDto?) : ApiResponse<EmptyEnvelope?> {
+    fun updateSocialPostReactionAsyncWithHttpInfo(socialPostId: java.util.UUID, reactionId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialReactionUpdateDto: SocialReactionUpdateDto?) : ApiResponse<SocialPostReactionDtoEnvelope?> {
         val localVariableConfig = updateSocialPostReactionAsyncRequestConfig(socialPostId = socialPostId, reactionId = reactionId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialReactionUpdateDto = socialReactionUpdateDto)
 
-        return request<SocialReactionUpdateDto, EmptyEnvelope>(
+        return request<SocialReactionUpdateDto, SocialPostReactionDtoEnvelope>(
             localVariableConfig
         )
     }
@@ -2270,6 +2883,97 @@ class SocialPostsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         return RequestConfig(
             method = RequestMethod.PUT,
             path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId}".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())).replace("{"+"reactionId"+"}", encodeURIComponent(reactionId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * Upload a social post image attachment
+     * Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+     * @param socialPostId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param file  (optional)
+     * @return SocialPostAttachmentDtoEnvelope
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun uploadSocialPostImageAttachmentAsync(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, file: java.io.File? = null) : SocialPostAttachmentDtoEnvelope {
+        val localVarResponse = uploadSocialPostImageAttachmentAsyncWithHttpInfo(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialPostAttachmentDtoEnvelope
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * Upload a social post image attachment
+     * Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+     * @param socialPostId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param file  (optional)
+     * @return ApiResponse<SocialPostAttachmentDtoEnvelope?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun uploadSocialPostImageAttachmentAsyncWithHttpInfo(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : ApiResponse<SocialPostAttachmentDtoEnvelope?> {
+        val localVariableConfig = uploadSocialPostImageAttachmentAsyncRequestConfig(socialPostId = socialPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, file = file)
+
+        return request<Map<String, PartConfig<*>>, SocialPostAttachmentDtoEnvelope>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation uploadSocialPostImageAttachmentAsync
+     *
+     * @param socialPostId 
+     * @param socialProfileId 
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param file  (optional)
+     * @return RequestConfig
+     */
+    fun uploadSocialPostImageAttachmentAsyncRequestConfig(socialPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "file" to PartConfig(body = file, headers = mutableMapOf()),)
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("socialProfileId", listOf(socialProfileId.toString()))
+                if (apiVersion != null) {
+                    put("api-version", listOf(apiVersion.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
+        xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image".replace("{"+"socialPostId"+"}", encodeURIComponent(socialPostId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

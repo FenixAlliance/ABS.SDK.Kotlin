@@ -20,12 +20,13 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.AppliedItemTaxRecordCreateDto
+import org.openapitools.client.models.AppliedItemTaxRecordDtoCollectionQueryParameters
 import org.openapitools.client.models.AppliedItemTaxRecordDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.AppliedItemTaxRecordUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -239,6 +240,7 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return AppliedItemTaxRecordDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -248,8 +250,8 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillableLineTaxes(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : AppliedItemTaxRecordDtoIReadOnlyListEnvelope {
-        val localVarResponse = getBillableLineTaxesWithHttpInfo(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillableLineTaxes(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters? = null) : AppliedItemTaxRecordDtoIReadOnlyListEnvelope {
+        val localVarResponse = getBillableLineTaxesWithHttpInfo(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters = appliedItemTaxRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AppliedItemTaxRecordDtoIReadOnlyListEnvelope
@@ -273,16 +275,17 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<AppliedItemTaxRecordDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillableLineTaxesWithHttpInfo(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<AppliedItemTaxRecordDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getBillableLineTaxesRequestConfig(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillableLineTaxesWithHttpInfo(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters?) : ApiResponse<AppliedItemTaxRecordDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getBillableLineTaxesRequestConfig(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters = appliedItemTaxRecordDtoCollectionQueryParameters)
 
-        return request<Unit, AppliedItemTaxRecordDtoIReadOnlyListEnvelope>(
+        return request<AppliedItemTaxRecordDtoCollectionQueryParameters, AppliedItemTaxRecordDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -294,10 +297,11 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillableLineTaxesRequestConfig(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillableLineTaxesRequestConfig(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters?) : RequestConfig<AppliedItemTaxRecordDtoCollectionQueryParameters> {
+        val localVariableBody = appliedItemTaxRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -307,6 +311,7 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -326,6 +331,7 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -335,8 +341,8 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBillableLineTaxesCount(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBillableLineTaxesCountWithHttpInfo(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillableLineTaxesCount(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBillableLineTaxesCountWithHttpInfo(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters = appliedItemTaxRecordDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -360,16 +366,17 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBillableLineTaxesCountWithHttpInfo(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBillableLineTaxesCountRequestConfig(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBillableLineTaxesCountWithHttpInfo(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBillableLineTaxesCountRequestConfig(billableLineId = billableLineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters = appliedItemTaxRecordDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<AppliedItemTaxRecordDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -381,10 +388,11 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedItemTaxRecordDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBillableLineTaxesCountRequestConfig(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBillableLineTaxesCountRequestConfig(billableLineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, appliedItemTaxRecordDtoCollectionQueryParameters: AppliedItemTaxRecordDtoCollectionQueryParameters?) : RequestConfig<AppliedItemTaxRecordDtoCollectionQueryParameters> {
+        val localVariableBody = appliedItemTaxRecordDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -394,6 +402,7 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -414,7 +423,7 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -424,8 +433,8 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBillableLineTaxAsync(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchBillableLineTaxAsyncWithHttpInfo(billableLineId = billableLineId, taxId = taxId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillableLineTaxAsync(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchBillableLineTaxAsyncWithHttpInfo(billableLineId = billableLineId, taxId = taxId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -450,17 +459,17 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBillableLineTaxAsyncWithHttpInfo(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBillableLineTaxAsyncRequestConfig(billableLineId = billableLineId, taxId = taxId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchBillableLineTaxAsyncWithHttpInfo(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBillableLineTaxAsyncRequestConfig(billableLineId = billableLineId, taxId = taxId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -473,11 +482,11 @@ class BillableLineTaxesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchBillableLineTaxAsyncRequestConfig(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBillableLineTaxAsyncRequestConfig(billableLineId: java.util.UUID, taxId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

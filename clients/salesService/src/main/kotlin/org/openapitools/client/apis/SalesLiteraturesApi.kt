@@ -21,10 +21,12 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedSalesLiteratureDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedSalesLiteratureDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SalesLiteratureCreateDto
+import org.openapitools.client.models.SalesLiteratureDtoCollectionQueryParameters
 import org.openapitools.client.models.SalesLiteratureDtoEnvelope
 import org.openapitools.client.models.SalesLiteratureDtoListEnvelope
 import org.openapitools.client.models.SalesLiteratureUpdateDto
@@ -57,6 +59,7 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get sales literatures count
      * Returns the total count of sales literatures for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -66,8 +69,8 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countSalesLiteraturesAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = countSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId)
+    fun countSalesLiteraturesAsync(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId, salesLiteratureDtoCollectionQueryParameters = salesLiteratureDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -88,16 +91,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get sales literatures count
      * Returns the total count of sales literatures for the specified tenant with OData filter support.
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countSalesLiteraturesAsyncRequestConfig(tenantId = tenantId)
+    fun countSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countSalesLiteraturesAsyncRequestConfig(tenantId = tenantId, salesLiteratureDtoCollectionQueryParameters = salesLiteratureDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SalesLiteratureDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -106,15 +110,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation countSalesLiteraturesAsync
      *
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters?) : RequestConfig<SalesLiteratureDtoCollectionQueryParameters> {
+        val localVariableBody = salesLiteratureDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -286,6 +292,7 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get extended sales literatures
      * Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
      * @param tenantId 
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ExtendedSalesLiteratureDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -295,8 +302,8 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedSalesLiteraturesAsync(tenantId: java.util.UUID) : ExtendedSalesLiteratureDtoListEnvelope {
-        val localVarResponse = getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId)
+    fun getExtendedSalesLiteraturesAsync(tenantId: java.util.UUID, extendedSalesLiteratureDtoCollectionQueryParameters: ExtendedSalesLiteratureDtoCollectionQueryParameters? = null) : ExtendedSalesLiteratureDtoListEnvelope {
+        val localVarResponse = getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId, extendedSalesLiteratureDtoCollectionQueryParameters = extendedSalesLiteratureDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedSalesLiteratureDtoListEnvelope
@@ -317,16 +324,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get extended sales literatures
      * Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
      * @param tenantId 
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedSalesLiteratureDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedSalesLiteratureDtoListEnvelope?> {
-        val localVariableConfig = getExtendedSalesLiteraturesAsyncRequestConfig(tenantId = tenantId)
+    fun getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID, extendedSalesLiteratureDtoCollectionQueryParameters: ExtendedSalesLiteratureDtoCollectionQueryParameters?) : ApiResponse<ExtendedSalesLiteratureDtoListEnvelope?> {
+        val localVariableConfig = getExtendedSalesLiteraturesAsyncRequestConfig(tenantId = tenantId, extendedSalesLiteratureDtoCollectionQueryParameters = extendedSalesLiteratureDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedSalesLiteratureDtoListEnvelope>(
+        return request<ExtendedSalesLiteratureDtoCollectionQueryParameters, ExtendedSalesLiteratureDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -335,15 +343,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation getExtendedSalesLiteraturesAsync
      *
      * @param tenantId 
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID, extendedSalesLiteratureDtoCollectionQueryParameters: ExtendedSalesLiteratureDtoCollectionQueryParameters?) : RequestConfig<ExtendedSalesLiteratureDtoCollectionQueryParameters> {
+        val localVariableBody = extendedSalesLiteratureDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -437,6 +447,7 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get sales literatures
      * Retrieves a list of sales literatures for the specified tenant with OData query support.
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return SalesLiteratureDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -446,8 +457,8 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSalesLiteraturesAsync(tenantId: java.util.UUID) : SalesLiteratureDtoListEnvelope {
-        val localVarResponse = getSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId)
+    fun getSalesLiteraturesAsync(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters? = null) : SalesLiteratureDtoListEnvelope {
+        val localVarResponse = getSalesLiteraturesAsyncWithHttpInfo(tenantId = tenantId, salesLiteratureDtoCollectionQueryParameters = salesLiteratureDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SalesLiteratureDtoListEnvelope
@@ -468,16 +479,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Get sales literatures
      * Retrieves a list of sales literatures for the specified tenant with OData query support.
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SalesLiteratureDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<SalesLiteratureDtoListEnvelope?> {
-        val localVariableConfig = getSalesLiteraturesAsyncRequestConfig(tenantId = tenantId)
+    fun getSalesLiteraturesAsyncWithHttpInfo(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters?) : ApiResponse<SalesLiteratureDtoListEnvelope?> {
+        val localVariableConfig = getSalesLiteraturesAsyncRequestConfig(tenantId = tenantId, salesLiteratureDtoCollectionQueryParameters = salesLiteratureDtoCollectionQueryParameters)
 
-        return request<Unit, SalesLiteratureDtoListEnvelope>(
+        return request<SalesLiteratureDtoCollectionQueryParameters, SalesLiteratureDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -486,15 +498,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation getSalesLiteraturesAsync
      *
      * @param tenantId 
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSalesLiteraturesAsyncRequestConfig(tenantId: java.util.UUID, salesLiteratureDtoCollectionQueryParameters: SalesLiteratureDtoCollectionQueryParameters?) : RequestConfig<SalesLiteratureDtoCollectionQueryParameters> {
+        val localVariableBody = salesLiteratureDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -512,7 +526,7 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Partially updates an existing sales literature using a JSON Patch document.
      * @param salesLiteratureId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -522,8 +536,8 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSalesLiteratureAsync(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSalesLiteratureAsyncWithHttpInfo(salesLiteratureId = salesLiteratureId, tenantId = tenantId, operation = operation)
+    fun patchSalesLiteratureAsync(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSalesLiteratureAsyncWithHttpInfo(salesLiteratureId = salesLiteratureId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -545,17 +559,17 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Partially updates an existing sales literature using a JSON Patch document.
      * @param salesLiteratureId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSalesLiteratureAsyncWithHttpInfo(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSalesLiteratureAsyncRequestConfig(salesLiteratureId = salesLiteratureId, tenantId = tenantId, operation = operation)
+    fun patchSalesLiteratureAsyncWithHttpInfo(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSalesLiteratureAsyncRequestConfig(salesLiteratureId = salesLiteratureId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -565,11 +579,11 @@ class SalesLiteraturesApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *
      * @param salesLiteratureId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSalesLiteratureAsyncRequestConfig(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSalesLiteratureAsyncRequestConfig(salesLiteratureId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

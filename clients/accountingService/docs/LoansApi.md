@@ -393,7 +393,7 @@ No authorization required
 
 <a id="getLoanApplicationsAsync"></a>
 # **getLoanApplicationsAsync**
-> LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
 
 Gets all loan applications
 
@@ -409,8 +409,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanApplicationDtoCollectionQueryParameters : LoanApplicationDtoCollectionQueryParameters =  // LoanApplicationDtoCollectionQueryParameters | 
 try {
-    val result : LoanApplicationDtoIReadOnlyListEnvelope = apiInstance.getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : LoanApplicationDtoIReadOnlyListEnvelope = apiInstance.getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoanApplicationsAsync")
@@ -424,9 +425,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanApplicationDtoCollectionQueryParameters** | [**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -438,12 +440,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLoanApplicationsCountAsync"></a>
 # **getLoanApplicationsCountAsync**
-> Int32Envelope getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
 
 Counts loan applications
 
@@ -459,8 +461,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanApplicationDtoCollectionQueryParameters : LoanApplicationDtoCollectionQueryParameters =  // LoanApplicationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoanApplicationsCountAsync")
@@ -474,9 +477,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanApplicationDtoCollectionQueryParameters** | [**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -488,7 +492,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLoanDetailsAsync"></a>
@@ -597,7 +601,7 @@ No authorization required
 
 <a id="getLoanTypesAsync"></a>
 # **getLoanTypesAsync**
-> LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(tenantId, apiVersion, xApiVersion)
+> LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
 
 Gets all loan types
 
@@ -613,8 +617,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanTypeDtoCollectionQueryParameters : LoanTypeDtoCollectionQueryParameters =  // LoanTypeDtoCollectionQueryParameters | 
 try {
-    val result : LoanTypeDtoIReadOnlyListEnvelope = apiInstance.getLoanTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : LoanTypeDtoIReadOnlyListEnvelope = apiInstance.getLoanTypesAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoanTypesAsync")
@@ -628,9 +633,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanTypeDtoCollectionQueryParameters** | [**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -642,12 +648,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLoanTypesCountAsync"></a>
 # **getLoanTypesCountAsync**
-> Int32Envelope getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
 
 Counts loan types
 
@@ -663,8 +669,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanTypeDtoCollectionQueryParameters : LoanTypeDtoCollectionQueryParameters =  // LoanTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoanTypesCountAsync")
@@ -678,9 +685,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanTypeDtoCollectionQueryParameters** | [**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -692,12 +700,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLoansAsync"></a>
 # **getLoansAsync**
-> LoanDtoIReadOnlyListEnvelope getLoansAsync(tenantId, apiVersion, xApiVersion)
+> LoanDtoIReadOnlyListEnvelope getLoansAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
 
 Gets all loans
 
@@ -713,8 +721,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanDtoCollectionQueryParameters : LoanDtoCollectionQueryParameters =  // LoanDtoCollectionQueryParameters | 
 try {
-    val result : LoanDtoIReadOnlyListEnvelope = apiInstance.getLoansAsync(tenantId, apiVersion, xApiVersion)
+    val result : LoanDtoIReadOnlyListEnvelope = apiInstance.getLoansAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoansAsync")
@@ -728,9 +737,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanDtoCollectionQueryParameters** | [**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -742,12 +752,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLoansCountAsync"></a>
 # **getLoansCountAsync**
-> Int32Envelope getLoansCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoansCountAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
 
 Counts loans
 
@@ -763,8 +773,9 @@ val apiInstance = LoansApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val loanDtoCollectionQueryParameters : LoanDtoCollectionQueryParameters =  // LoanDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLoansCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLoansCountAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#getLoansCountAsync")
@@ -778,9 +789,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **loanDtoCollectionQueryParameters** | [**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -792,12 +804,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchLoanApplicationAsync"></a>
 # **patchLoanApplicationAsync**
-> EmptyEnvelope patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan application
 
@@ -814,9 +826,9 @@ val applicationId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchLoanApplicationAsync(applicationId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#patchLoanApplicationAsync")
@@ -834,7 +846,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -851,7 +863,7 @@ No authorization required
 
 <a id="patchLoanAsync"></a>
 # **patchLoanAsync**
-> EmptyEnvelope patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan
 
@@ -868,9 +880,9 @@ val loanId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchLoanAsync(loanId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#patchLoanAsync")
@@ -888,7 +900,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -905,7 +917,7 @@ No authorization required
 
 <a id="patchLoanTypeAsync"></a>
 # **patchLoanTypeAsync**
-> EmptyEnvelope patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan type
 
@@ -922,9 +934,9 @@ val loanTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchLoanTypeAsync(loanTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LoansApi#patchLoanTypeAsync")
@@ -942,7 +954,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

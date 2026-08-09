@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebPageTagsAsync"></a>
 # **countWebPageTagsAsync**
-> Int32Envelope countWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Count web page tags
 
@@ -31,8 +31,9 @@ val apiInstance = WebPageTagsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageTagDtoCollectionQueryParameters : WebPageTagDtoCollectionQueryParameters =  // WebPageTagDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPageTagsApi#countWebPageTagsAsync")
@@ -46,9 +47,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createWebPageTagAsync"></a>
@@ -221,7 +223,7 @@ No authorization required
 
 <a id="getWebPageTagsAsync"></a>
 # **getWebPageTagsAsync**
-> WebPageTagDtoListEnvelope getWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+> WebPageTagDtoListEnvelope getWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Get web page tags
 
@@ -237,8 +239,9 @@ val apiInstance = WebPageTagsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webPageTagDtoCollectionQueryParameters : WebPageTagDtoCollectionQueryParameters =  // WebPageTagDtoCollectionQueryParameters | 
 try {
-    val result : WebPageTagDtoListEnvelope = apiInstance.getWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+    val result : WebPageTagDtoListEnvelope = apiInstance.getWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPageTagsApi#getWebPageTagsAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchWebPageTagAsync"></a>
 # **patchWebPageTagAsync**
-> EmptyEnvelope patchWebPageTagAsync(webPageTagId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebPageTagAsync(webPageTagId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web page tag
 
@@ -288,9 +292,9 @@ val webPageTagId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWebPageTagAsync(webPageTagId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWebPageTagAsync(webPageTagId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebPageTagsApi#patchWebPageTagAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

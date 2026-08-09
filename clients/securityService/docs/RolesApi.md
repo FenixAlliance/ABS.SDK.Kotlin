@@ -499,7 +499,7 @@ No authorization required
 
 <a id="getRolesAsync"></a>
 # **getRolesAsync**
-> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion)
+> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
 
 Get all roles
 
@@ -515,8 +515,9 @@ val apiInstance = RolesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityRoleDtoCollectionQueryParameters : SecurityRoleDtoCollectionQueryParameters =  // SecurityRoleDtoCollectionQueryParameters | 
 try {
-    val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion)
+    val result : SecurityRoleDtoListEnvelope = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RolesApi#getRolesAsync")
@@ -530,9 +531,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -544,7 +546,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRolesByEnrollmentAsync"></a>
@@ -601,7 +603,7 @@ No authorization required
 
 <a id="getRolesCountAsync"></a>
 # **getRolesCountAsync**
-> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
 
 Get roles count
 
@@ -617,8 +619,9 @@ val apiInstance = RolesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityRoleDtoCollectionQueryParameters : SecurityRoleDtoCollectionQueryParameters =  // SecurityRoleDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RolesApi#getRolesCountAsync")
@@ -632,9 +635,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -646,12 +650,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchRoleAsync"></a>
 # **patchRoleAsync**
-> EmptyEnvelope patchRoleAsync(securityRoleId, tenantId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchRoleAsync(securityRoleId, tenantId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing role
 
@@ -666,11 +670,11 @@ Partially updates an existing security role using a JSON Patch document.
 val apiInstance = RolesApi()
 val securityRoleId : kotlin.String = securityRoleId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchRoleAsync(securityRoleId, tenantId, operation, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.patchRoleAsync(securityRoleId, tenantId, patchOperation, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RolesApi#patchRoleAsync")
@@ -684,7 +688,7 @@ try {
 ### Parameters
 | **securityRoleId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

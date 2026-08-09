@@ -22,17 +22,20 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedOrderDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedOrderDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
 import org.openapitools.client.models.OrderCreateDto
+import org.openapitools.client.models.OrderDtoCollectionQueryParameters
 import org.openapitools.client.models.OrderDtoEnvelope
 import org.openapitools.client.models.OrderDtoListEnvelope
 import org.openapitools.client.models.OrderLineCreateDto
+import org.openapitools.client.models.OrderLineDtoCollectionQueryParameters
 import org.openapitools.client.models.OrderLineDtoEnvelope
 import org.openapitools.client.models.OrderLineDtoListEnvelope
 import org.openapitools.client.models.OrderLineUpdateDto
 import org.openapitools.client.models.OrderUpdateDto
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -535,6 +538,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets a list of extended orders for a tenant.
      * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId 
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ExtendedOrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -544,8 +548,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedOrders(tenantId: java.util.UUID) : ExtendedOrderDtoListEnvelope {
-        val localVarResponse = getExtendedOrdersWithHttpInfo(tenantId = tenantId)
+    fun getExtendedOrders(tenantId: java.util.UUID, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters? = null) : ExtendedOrderDtoListEnvelope {
+        val localVarResponse = getExtendedOrdersWithHttpInfo(tenantId = tenantId, extendedOrderDtoCollectionQueryParameters = extendedOrderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedOrderDtoListEnvelope
@@ -566,16 +570,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets a list of extended orders for a tenant.
      * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId 
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedOrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedOrdersWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
-        val localVariableConfig = getExtendedOrdersRequestConfig(tenantId = tenantId)
+    fun getExtendedOrdersWithHttpInfo(tenantId: java.util.UUID, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters?) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
+        val localVariableConfig = getExtendedOrdersRequestConfig(tenantId = tenantId, extendedOrderDtoCollectionQueryParameters = extendedOrderDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedOrderDtoListEnvelope>(
+        return request<ExtendedOrderDtoCollectionQueryParameters, ExtendedOrderDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -584,15 +589,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getExtendedOrders
      *
      * @param tenantId 
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedOrdersRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedOrdersRequestConfig(tenantId: java.util.UUID, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters?) : RequestConfig<ExtendedOrderDtoCollectionQueryParameters> {
+        val localVariableBody = extendedOrderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -768,6 +775,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return OrderLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -777,8 +785,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrderLines(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : OrderLineDtoListEnvelope {
-        val localVarResponse = getOrderLinesWithHttpInfo(orderId = orderId, tenantId = tenantId, itemId = itemId)
+    fun getOrderLines(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters? = null) : OrderLineDtoListEnvelope {
+        val localVarResponse = getOrderLinesWithHttpInfo(orderId = orderId, tenantId = tenantId, itemId = itemId, orderLineDtoCollectionQueryParameters = orderLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderLineDtoListEnvelope
@@ -801,16 +809,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<OrderLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrderLinesWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<OrderLineDtoListEnvelope?> {
-        val localVariableConfig = getOrderLinesRequestConfig(orderId = orderId, tenantId = tenantId, itemId = itemId)
+    fun getOrderLinesWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters?) : ApiResponse<OrderLineDtoListEnvelope?> {
+        val localVariableConfig = getOrderLinesRequestConfig(orderId = orderId, tenantId = tenantId, itemId = itemId, orderLineDtoCollectionQueryParameters = orderLineDtoCollectionQueryParameters)
 
-        return request<Unit, OrderLineDtoListEnvelope>(
+        return request<OrderLineDtoCollectionQueryParameters, OrderLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -821,10 +830,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOrderLinesRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOrderLinesRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters?) : RequestConfig<OrderLineDtoCollectionQueryParameters> {
+        val localVariableBody = orderLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -833,6 +843,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -850,6 +861,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves the total number of lines for the specified order.
      * @param orderId 
      * @param tenantId 
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -859,8 +871,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrderLinesCount(orderId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getOrderLinesCountWithHttpInfo(orderId = orderId, tenantId = tenantId)
+    fun getOrderLinesCount(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getOrderLinesCountWithHttpInfo(orderId = orderId, tenantId = tenantId, orderLineDtoCollectionQueryParameters = orderLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -882,16 +894,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Retrieves the total number of lines for the specified order.
      * @param orderId 
      * @param tenantId 
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrderLinesCountWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getOrderLinesCountRequestConfig(orderId = orderId, tenantId = tenantId)
+    fun getOrderLinesCountWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOrderLinesCountRequestConfig(orderId = orderId, tenantId = tenantId, orderLineDtoCollectionQueryParameters = orderLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<OrderLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -901,15 +914,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param orderId 
      * @param tenantId 
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOrderLinesCountRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOrderLinesCountRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, orderLineDtoCollectionQueryParameters: OrderLineDtoCollectionQueryParameters?) : RequestConfig<OrderLineDtoCollectionQueryParameters> {
+        val localVariableBody = orderLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -926,6 +941,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets a list of orders for a tenant.
      * Retrieves a list of orders for the specified tenant.
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return OrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -935,8 +951,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrders(tenantId: java.util.UUID) : OrderDtoListEnvelope {
-        val localVarResponse = getOrdersWithHttpInfo(tenantId = tenantId)
+    fun getOrders(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters? = null) : OrderDtoListEnvelope {
+        val localVarResponse = getOrdersWithHttpInfo(tenantId = tenantId, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoListEnvelope
@@ -957,16 +973,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets a list of orders for a tenant.
      * Retrieves a list of orders for the specified tenant.
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<OrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrdersWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<OrderDtoListEnvelope?> {
-        val localVariableConfig = getOrdersRequestConfig(tenantId = tenantId)
+    fun getOrdersWithHttpInfo(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : ApiResponse<OrderDtoListEnvelope?> {
+        val localVariableConfig = getOrdersRequestConfig(tenantId = tenantId, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
-        return request<Unit, OrderDtoListEnvelope>(
+        return request<OrderDtoCollectionQueryParameters, OrderDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -975,15 +992,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getOrders
      *
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOrdersRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOrdersRequestConfig(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : RequestConfig<OrderDtoCollectionQueryParameters> {
+        val localVariableBody = orderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1000,6 +1019,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of orders for a tenant.
      * Retrieves the total number of orders for the specified tenant.
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1009,8 +1029,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrdersCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getOrdersCountWithHttpInfo(tenantId = tenantId)
+    fun getOrdersCount(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getOrdersCountWithHttpInfo(tenantId = tenantId, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1031,16 +1051,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Gets the count of orders for a tenant.
      * Retrieves the total number of orders for the specified tenant.
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOrdersCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getOrdersCountRequestConfig(tenantId = tenantId)
+    fun getOrdersCountWithHttpInfo(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOrdersCountRequestConfig(tenantId = tenantId, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<OrderDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1049,15 +1070,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * To obtain the request config of the operation getOrdersCount
      *
      * @param tenantId 
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOrdersCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOrdersCountRequestConfig(tenantId: java.util.UUID, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : RequestConfig<OrderDtoCollectionQueryParameters> {
+        val localVariableBody = orderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1075,7 +1098,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to partially update an existing order.
      * @param orderId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1085,8 +1108,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchOrder(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchOrderWithHttpInfo(orderId = orderId, tenantId = tenantId, operation = operation)
+    fun patchOrder(orderId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchOrderWithHttpInfo(orderId = orderId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1108,17 +1131,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * Applies a JSON Patch document to partially update an existing order.
      * @param orderId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchOrderRequestConfig(orderId = orderId, tenantId = tenantId, operation = operation)
+    fun patchOrderWithHttpInfo(orderId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchOrderRequestConfig(orderId = orderId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1128,11 +1151,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      *
      * @param orderId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchOrderRequestConfig(orderId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1157,7 +1180,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1167,8 +1190,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, operation = operation)
+    fun patchOrderLine(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchOrderLineWithHttpInfo(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1191,17 +1214,17 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, operation = operation)
+    fun patchOrderLineWithHttpInfo(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchOrderLineRequestConfig(orderId = orderId, orderLineId = orderLineId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1212,11 +1235,11 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory 
      * @param orderId 
      * @param orderLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchOrderLineRequestConfig(orderId: java.util.UUID, orderLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

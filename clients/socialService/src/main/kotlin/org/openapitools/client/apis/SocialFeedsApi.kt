@@ -22,13 +22,16 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
+import org.openapitools.client.models.SocialFeedDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialFeedDtoEnvelope
 import org.openapitools.client.models.SocialFeedDtoListEnvelope
 import org.openapitools.client.models.SocialFeedPostCreateDto
+import org.openapitools.client.models.SocialFeedPostDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialFeedPostDtoEnvelope
 import org.openapitools.client.models.SocialFeedPostDtoListEnvelope
 import org.openapitools.client.models.SocialFeedPostUpdateDto
+import org.openapitools.client.models.StringEnvelope
 
 import com.squareup.moshi.Json
 
@@ -62,7 +65,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialFeedPostCreateDto  (optional)
-     * @return SocialFeedPostDtoEnvelope
+     * @return StringEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -71,11 +74,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createFeedPostAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedPostCreateDto: SocialFeedPostCreateDto? = null) : SocialFeedPostDtoEnvelope {
+    fun createFeedPostAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedPostCreateDto: SocialFeedPostCreateDto? = null) : StringEnvelope {
         val localVarResponse = createFeedPostAsyncWithHttpInfo(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostCreateDto = socialFeedPostCreateDto)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SocialFeedPostDtoEnvelope
+            ResponseType.Success -> (localVarResponse as Success<*>).data as StringEnvelope
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -97,16 +100,16 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialFeedPostCreateDto  (optional)
-     * @return ApiResponse<SocialFeedPostDtoEnvelope?>
+     * @return ApiResponse<StringEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createFeedPostAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostCreateDto: SocialFeedPostCreateDto?) : ApiResponse<SocialFeedPostDtoEnvelope?> {
+    fun createFeedPostAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostCreateDto: SocialFeedPostCreateDto?) : ApiResponse<StringEnvelope?> {
         val localVariableConfig = createFeedPostAsyncRequestConfig(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostCreateDto = socialFeedPostCreateDto)
 
-        return request<SocialFeedPostCreateDto, SocialFeedPostDtoEnvelope>(
+        return request<SocialFeedPostCreateDto, StringEnvelope>(
             localVariableConfig
         )
     }
@@ -241,6 +244,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return SocialFeedDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -250,8 +254,8 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFeedNotifications(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialFeedDtoListEnvelope {
-        val localVarResponse = getFeedNotificationsWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedNotifications(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters? = null) : SocialFeedDtoListEnvelope {
+        val localVarResponse = getFeedNotificationsWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedDtoCollectionQueryParameters = socialFeedDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialFeedDtoListEnvelope
@@ -274,16 +278,17 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialFeedDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFeedNotificationsWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialFeedDtoListEnvelope?> {
-        val localVariableConfig = getFeedNotificationsRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedNotificationsWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters?) : ApiResponse<SocialFeedDtoListEnvelope?> {
+        val localVariableConfig = getFeedNotificationsRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedDtoCollectionQueryParameters = socialFeedDtoCollectionQueryParameters)
 
-        return request<Unit, SocialFeedDtoListEnvelope>(
+        return request<SocialFeedDtoCollectionQueryParameters, SocialFeedDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -294,10 +299,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFeedNotificationsRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFeedNotificationsRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters?) : RequestConfig<SocialFeedDtoCollectionQueryParameters> {
+        val localVariableBody = socialFeedDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -307,6 +313,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -416,6 +423,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return SocialFeedPostDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -425,8 +433,8 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFeedPostsAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialFeedPostDtoListEnvelope {
-        val localVarResponse = getFeedPostsAsyncWithHttpInfo(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedPostsAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters? = null) : SocialFeedPostDtoListEnvelope {
+        val localVarResponse = getFeedPostsAsyncWithHttpInfo(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostDtoCollectionQueryParameters = socialFeedPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialFeedPostDtoListEnvelope
@@ -450,16 +458,17 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialFeedPostDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFeedPostsAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialFeedPostDtoListEnvelope?> {
-        val localVariableConfig = getFeedPostsAsyncRequestConfig(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedPostsAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters?) : ApiResponse<SocialFeedPostDtoListEnvelope?> {
+        val localVariableConfig = getFeedPostsAsyncRequestConfig(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostDtoCollectionQueryParameters = socialFeedPostDtoCollectionQueryParameters)
 
-        return request<Unit, SocialFeedPostDtoListEnvelope>(
+        return request<SocialFeedPostDtoCollectionQueryParameters, SocialFeedPostDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -471,10 +480,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFeedPostsAsyncRequestConfig(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFeedPostsAsyncRequestConfig(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters?) : RequestConfig<SocialFeedPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialFeedPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -484,6 +494,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -503,6 +514,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -512,8 +524,8 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFeedPostsCountAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getFeedPostsCountAsyncWithHttpInfo(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedPostsCountAsync(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getFeedPostsCountAsyncWithHttpInfo(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostDtoCollectionQueryParameters = socialFeedPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -537,16 +549,17 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFeedPostsCountAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getFeedPostsCountAsyncRequestConfig(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFeedPostsCountAsyncWithHttpInfo(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getFeedPostsCountAsyncRequestConfig(socialFeedId = socialFeedId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedPostDtoCollectionQueryParameters = socialFeedPostDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialFeedPostDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -558,10 +571,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFeedPostsCountAsyncRequestConfig(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFeedPostsCountAsyncRequestConfig(socialFeedId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedPostDtoCollectionQueryParameters: SocialFeedPostDtoCollectionQueryParameters?) : RequestConfig<SocialFeedPostDtoCollectionQueryParameters> {
+        val localVariableBody = socialFeedPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -571,6 +585,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -676,6 +691,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -685,8 +701,8 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNotificationsCountAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getNotificationsCountAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNotificationsCountAsync(socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getNotificationsCountAsyncWithHttpInfo(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedDtoCollectionQueryParameters = socialFeedDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -709,16 +725,17 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNotificationsCountAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getNotificationsCountAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getNotificationsCountAsyncWithHttpInfo(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getNotificationsCountAsyncRequestConfig(socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialFeedDtoCollectionQueryParameters = socialFeedDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialFeedDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -729,10 +746,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getNotificationsCountAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getNotificationsCountAsyncRequestConfig(socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialFeedDtoCollectionQueryParameters: SocialFeedDtoCollectionQueryParameters?) : RequestConfig<SocialFeedDtoCollectionQueryParameters> {
+        val localVariableBody = socialFeedDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))
@@ -742,6 +760,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -762,7 +781,7 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -772,8 +791,8 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchFeedPostAsync(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchFeedPostAsyncWithHttpInfo(socialFeedId = socialFeedId, feedPostId = feedPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFeedPostAsync(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchFeedPostAsyncWithHttpInfo(socialFeedId = socialFeedId, feedPostId = feedPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -798,17 +817,17 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchFeedPostAsyncWithHttpInfo(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchFeedPostAsyncRequestConfig(socialFeedId = socialFeedId, feedPostId = feedPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFeedPostAsyncWithHttpInfo(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchFeedPostAsyncRequestConfig(socialFeedId = socialFeedId, feedPostId = feedPostId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -821,11 +840,11 @@ class SocialFeedsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchFeedPostAsyncRequestConfig(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchFeedPostAsyncRequestConfig(socialFeedId: java.util.UUID, feedPostId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("socialProfileId", listOf(socialProfileId.toString()))

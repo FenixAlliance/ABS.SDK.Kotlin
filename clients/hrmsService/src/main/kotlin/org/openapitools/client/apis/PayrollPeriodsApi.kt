@@ -23,6 +23,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.PayrollPeriodCreateDto
+import org.openapitools.client.models.PayrollPeriodDtoCollectionQueryParameters
 import org.openapitools.client.models.PayrollPeriodDtoEnvelope
 import org.openapitools.client.models.PayrollPeriodDtoListEnvelope
 import org.openapitools.client.models.PayrollPeriodUpdateDto
@@ -319,6 +320,7 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return PayrollPeriodDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPayrollPeriodsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PayrollPeriodDtoListEnvelope {
-        val localVarResponse = getPayrollPeriodsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPayrollPeriodsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters? = null) : PayrollPeriodDtoListEnvelope {
+        val localVarResponse = getPayrollPeriodsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, payrollPeriodDtoCollectionQueryParameters = payrollPeriodDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PayrollPeriodDtoListEnvelope
@@ -352,16 +354,17 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PayrollPeriodDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPayrollPeriodsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PayrollPeriodDtoListEnvelope?> {
-        val localVariableConfig = getPayrollPeriodsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPayrollPeriodsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters?) : ApiResponse<PayrollPeriodDtoListEnvelope?> {
+        val localVariableConfig = getPayrollPeriodsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, payrollPeriodDtoCollectionQueryParameters = payrollPeriodDtoCollectionQueryParameters)
 
-        return request<Unit, PayrollPeriodDtoListEnvelope>(
+        return request<PayrollPeriodDtoCollectionQueryParameters, PayrollPeriodDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPayrollPeriodsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPayrollPeriodsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters?) : RequestConfig<PayrollPeriodDtoCollectionQueryParameters> {
+        val localVariableBody = payrollPeriodDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPayrollPeriodsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getPayrollPeriodsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPayrollPeriodsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getPayrollPeriodsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, payrollPeriodDtoCollectionQueryParameters = payrollPeriodDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPayrollPeriodsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getPayrollPeriodsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getPayrollPeriodsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getPayrollPeriodsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, payrollPeriodDtoCollectionQueryParameters = payrollPeriodDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PayrollPeriodDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param payrollPeriodDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPayrollPeriodsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPayrollPeriodsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, payrollPeriodDtoCollectionQueryParameters: PayrollPeriodDtoCollectionQueryParameters?) : RequestConfig<PayrollPeriodDtoCollectionQueryParameters> {
+        val localVariableBody = payrollPeriodDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class PayrollPeriodsApi(basePath: kotlin.String = defaultBasePath, client: Call.
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

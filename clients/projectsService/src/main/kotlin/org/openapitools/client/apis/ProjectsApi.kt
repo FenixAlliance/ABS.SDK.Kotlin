@@ -22,18 +22,22 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.ProjectCreateDto
+import org.openapitools.client.models.ProjectDtoCollectionQueryParameters
 import org.openapitools.client.models.ProjectDtoEnvelope
 import org.openapitools.client.models.ProjectDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodCreateDto
 import org.openapitools.client.models.ProjectPeriodDtoListEnvelope
 import org.openapitools.client.models.ProjectPeriodUpdateDto
 import org.openapitools.client.models.ProjectTaskCreateDto
+import org.openapitools.client.models.ProjectTaskDtoCollectionQueryParameters
 import org.openapitools.client.models.ProjectTaskDtoListEnvelope
 import org.openapitools.client.models.ProjectTaskUpdateDto
+import org.openapitools.client.models.ProjectTimeLogDtoCollectionQueryParameters
 import org.openapitools.client.models.ProjectTimeLogDtoListEnvelope
 import org.openapitools.client.models.ProjectUpdateDto
+import org.openapitools.client.models.TaskCategoryDtoCollectionQueryParameters
 import org.openapitools.client.models.TaskCategoryDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -696,6 +700,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all task categories for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return TaskCategoryDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -705,8 +710,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectTaskCategoriesAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : TaskCategoryDtoListEnvelope {
-        val localVarResponse = getProjectTaskCategoriesAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getProjectTaskCategoriesAsync(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters? = null) : TaskCategoryDtoListEnvelope {
+        val localVarResponse = getProjectTaskCategoriesAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TaskCategoryDtoListEnvelope
@@ -728,16 +733,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all task categories for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TaskCategoryDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectTaskCategoriesAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<TaskCategoryDtoListEnvelope?> {
-        val localVariableConfig = getProjectTaskCategoriesAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getProjectTaskCategoriesAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : ApiResponse<TaskCategoryDtoListEnvelope?> {
+        val localVariableConfig = getProjectTaskCategoriesAsyncRequestConfig(projectId = projectId, tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, TaskCategoryDtoListEnvelope>(
+        return request<TaskCategoryDtoCollectionQueryParameters, TaskCategoryDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -747,15 +753,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectTaskCategoriesAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectTaskCategoriesAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : RequestConfig<TaskCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = taskCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -773,6 +781,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of task categories for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -782,8 +791,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectTaskCategoriesCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getProjectTaskCategoriesCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -805,16 +814,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of task categories for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProjectTaskCategoriesCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectTaskCategoriesCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId, taskCategoryDtoCollectionQueryParameters = taskCategoryDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TaskCategoryDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -824,15 +834,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectTaskCategoriesCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectTaskCategoriesCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, taskCategoryDtoCollectionQueryParameters: TaskCategoryDtoCollectionQueryParameters?) : RequestConfig<TaskCategoryDtoCollectionQueryParameters> {
+        val localVariableBody = taskCategoryDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -850,6 +862,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of time log entries for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -859,8 +872,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectTimeLogsCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getProjectTimeLogsCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getProjectTimeLogsCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProjectTimeLogsCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -882,16 +895,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of time log entries for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectTimeLogsCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProjectTimeLogsCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getProjectTimeLogsCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectTimeLogsCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProjectTimeLogDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -901,15 +915,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectTimeLogsCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectTimeLogsCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : RequestConfig<ProjectTimeLogDtoCollectionQueryParameters> {
+        val localVariableBody = projectTimeLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -926,6 +942,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves all projects
      * Gets all projects for the current tenant with OData support.
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ProjectDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -935,8 +952,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectsByTenantIdAsync(tenantId: java.util.UUID) : ProjectDtoListEnvelope {
-        val localVarResponse = getProjectsByTenantIdAsyncWithHttpInfo(tenantId = tenantId)
+    fun getProjectsByTenantIdAsync(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters? = null) : ProjectDtoListEnvelope {
+        val localVarResponse = getProjectsByTenantIdAsyncWithHttpInfo(tenantId = tenantId, projectDtoCollectionQueryParameters = projectDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectDtoListEnvelope
@@ -957,16 +974,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves all projects
      * Gets all projects for the current tenant with OData support.
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProjectDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectsByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ProjectDtoListEnvelope?> {
-        val localVariableConfig = getProjectsByTenantIdAsyncRequestConfig(tenantId = tenantId)
+    fun getProjectsByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters?) : ApiResponse<ProjectDtoListEnvelope?> {
+        val localVariableConfig = getProjectsByTenantIdAsyncRequestConfig(tenantId = tenantId, projectDtoCollectionQueryParameters = projectDtoCollectionQueryParameters)
 
-        return request<Unit, ProjectDtoListEnvelope>(
+        return request<ProjectDtoCollectionQueryParameters, ProjectDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -975,15 +993,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getProjectsByTenantIdAsync
      *
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectsByTenantIdAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectsByTenantIdAsyncRequestConfig(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters?) : RequestConfig<ProjectDtoCollectionQueryParameters> {
+        val localVariableBody = projectDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1000,6 +1020,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Counts projects
      * Gets the count of projects for the current tenant.
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1009,8 +1030,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProjectsCountByTenantIdAsync(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId = tenantId)
+    fun getProjectsCountByTenantIdAsync(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId = tenantId, projectDtoCollectionQueryParameters = projectDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1031,16 +1052,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Counts projects
      * Gets the count of projects for the current tenant.
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProjectsCountByTenantIdAsyncRequestConfig(tenantId = tenantId)
+    fun getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProjectsCountByTenantIdAsyncRequestConfig(tenantId = tenantId, projectDtoCollectionQueryParameters = projectDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProjectDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1049,15 +1071,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getProjectsCountByTenantIdAsync
      *
      * @param tenantId 
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProjectsCountByTenantIdAsyncRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProjectsCountByTenantIdAsyncRequestConfig(tenantId: java.util.UUID, projectDtoCollectionQueryParameters: ProjectDtoCollectionQueryParameters?) : RequestConfig<ProjectDtoCollectionQueryParameters> {
+        val localVariableBody = projectDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1075,6 +1099,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all tasks for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ProjectTaskDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1084,8 +1109,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTasksForProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectTaskDtoListEnvelope {
-        val localVarResponse = getTasksForProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getTasksForProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters? = null) : ProjectTaskDtoListEnvelope {
+        val localVarResponse = getTasksForProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectTaskDtoCollectionQueryParameters = projectTaskDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTaskDtoListEnvelope
@@ -1107,16 +1132,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all tasks for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProjectTaskDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTasksForProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectTaskDtoListEnvelope?> {
-        val localVariableConfig = getTasksForProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getTasksForProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters?) : ApiResponse<ProjectTaskDtoListEnvelope?> {
+        val localVariableConfig = getTasksForProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectTaskDtoCollectionQueryParameters = projectTaskDtoCollectionQueryParameters)
 
-        return request<Unit, ProjectTaskDtoListEnvelope>(
+        return request<ProjectTaskDtoCollectionQueryParameters, ProjectTaskDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1126,15 +1152,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTasksForProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTasksForProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters?) : RequestConfig<ProjectTaskDtoCollectionQueryParameters> {
+        val localVariableBody = projectTaskDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1152,6 +1180,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of tasks for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1161,8 +1190,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTasksForProjectCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getTasksForProjectCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getTasksForProjectCountAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTasksForProjectCountAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectTaskDtoCollectionQueryParameters = projectTaskDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1184,16 +1213,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets the count of tasks for a specific project.
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTasksForProjectCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTasksForProjectCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getTasksForProjectCountAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTasksForProjectCountAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectTaskDtoCollectionQueryParameters = projectTaskDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ProjectTaskDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1203,15 +1233,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTasksForProjectCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTasksForProjectCountAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectTaskDtoCollectionQueryParameters: ProjectTaskDtoCollectionQueryParameters?) : RequestConfig<ProjectTaskDtoCollectionQueryParameters> {
+        val localVariableBody = projectTaskDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1229,6 +1261,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all time log entries for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ProjectTimeLogDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1238,8 +1271,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTimeLogsForProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID) : ProjectTimeLogDtoListEnvelope {
-        val localVarResponse = getTimeLogsForProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId)
+    fun getTimeLogsForProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters? = null) : ProjectTimeLogDtoListEnvelope {
+        val localVarResponse = getTimeLogsForProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ProjectTimeLogDtoListEnvelope
@@ -1261,16 +1294,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Gets all time log entries for a specific project with OData support.
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ProjectTimeLogDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTimeLogsForProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
-        val localVariableConfig = getTimeLogsForProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId)
+    fun getTimeLogsForProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : ApiResponse<ProjectTimeLogDtoListEnvelope?> {
+        val localVariableConfig = getTimeLogsForProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId, projectTimeLogDtoCollectionQueryParameters = projectTimeLogDtoCollectionQueryParameters)
 
-        return request<Unit, ProjectTimeLogDtoListEnvelope>(
+        return request<ProjectTimeLogDtoCollectionQueryParameters, ProjectTimeLogDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1280,15 +1314,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTimeLogsForProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTimeLogsForProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, projectTimeLogDtoCollectionQueryParameters: ProjectTimeLogDtoCollectionQueryParameters?) : RequestConfig<ProjectTimeLogDtoCollectionQueryParameters> {
+        val localVariableBody = projectTimeLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1306,7 +1342,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified project.
      * @param projectId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1316,8 +1352,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, operation = operation)
+    fun patchProjectAsync(projectId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchProjectAsyncWithHttpInfo(projectId = projectId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1339,17 +1375,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified project.
      * @param projectId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId, operation = operation)
+    fun patchProjectAsyncWithHttpInfo(projectId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchProjectAsyncRequestConfig(projectId = projectId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1359,11 +1395,11 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param projectId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchProjectAsyncRequestConfig(projectId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1388,7 +1424,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectPeriodId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1398,8 +1434,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchProjectPeriodAsync(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchProjectPeriodAsyncWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, operation = operation)
+    fun patchProjectPeriodAsync(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchProjectPeriodAsyncWithHttpInfo(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1422,17 +1458,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectPeriodId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchProjectPeriodAsyncWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchProjectPeriodAsyncRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, operation = operation)
+    fun patchProjectPeriodAsyncWithHttpInfo(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchProjectPeriodAsyncRequestConfig(projectId = projectId, projectPeriodId = projectPeriodId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1443,11 +1479,11 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectPeriodId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchProjectPeriodAsyncRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchProjectPeriodAsyncRequestConfig(projectId: java.util.UUID, projectPeriodId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1472,7 +1508,7 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectTaskId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1482,8 +1518,8 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTaskForProjectAsync(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTaskForProjectAsyncWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, operation = operation)
+    fun patchTaskForProjectAsync(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTaskForProjectAsyncWithHttpInfo(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1506,17 +1542,17 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectTaskId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTaskForProjectAsyncWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTaskForProjectAsyncRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, operation = operation)
+    fun patchTaskForProjectAsyncWithHttpInfo(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTaskForProjectAsyncRequestConfig(projectId = projectId, projectTaskId = projectTaskId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1527,11 +1563,11 @@ class ProjectsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param projectId 
      * @param projectTaskId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTaskForProjectAsyncRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTaskForProjectAsyncRequestConfig(projectId: java.util.UUID, projectTaskId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

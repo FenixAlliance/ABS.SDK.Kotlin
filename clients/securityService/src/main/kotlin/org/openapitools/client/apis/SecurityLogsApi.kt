@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BusinessSecurityLogDtoCollectionQueryParameters
 import org.openapitools.client.models.BusinessSecurityLogDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
@@ -53,6 +54,7 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return BusinessSecurityLogDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSecurityLogsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessSecurityLogDtoListEnvelope {
-        val localVarResponse = getSecurityLogsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityLogsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters? = null) : BusinessSecurityLogDtoListEnvelope {
+        val localVarResponse = getSecurityLogsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessSecurityLogDtoCollectionQueryParameters = businessSecurityLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessSecurityLogDtoListEnvelope
@@ -86,16 +88,17 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BusinessSecurityLogDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSecurityLogsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessSecurityLogDtoListEnvelope?> {
-        val localVariableConfig = getSecurityLogsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityLogsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters?) : ApiResponse<BusinessSecurityLogDtoListEnvelope?> {
+        val localVariableConfig = getSecurityLogsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessSecurityLogDtoCollectionQueryParameters = businessSecurityLogDtoCollectionQueryParameters)
 
-        return request<Unit, BusinessSecurityLogDtoListEnvelope>(
+        return request<BusinessSecurityLogDtoCollectionQueryParameters, BusinessSecurityLogDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -106,10 +109,11 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSecurityLogsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSecurityLogsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters?) : RequestConfig<BusinessSecurityLogDtoCollectionQueryParameters> {
+        val localVariableBody = businessSecurityLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -119,6 +123,7 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -137,6 +142,7 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,8 +152,8 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSecurityLogsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSecurityLogsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityLogsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSecurityLogsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessSecurityLogDtoCollectionQueryParameters = businessSecurityLogDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -170,16 +176,17 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSecurityLogsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSecurityLogsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSecurityLogsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSecurityLogsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessSecurityLogDtoCollectionQueryParameters = businessSecurityLogDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BusinessSecurityLogDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -190,10 +197,11 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessSecurityLogDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSecurityLogsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSecurityLogsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessSecurityLogDtoCollectionQueryParameters: BusinessSecurityLogDtoCollectionQueryParameters?) : RequestConfig<BusinessSecurityLogDtoCollectionQueryParameters> {
+        val localVariableBody = businessSecurityLogDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -203,6 +211,7 @@ class SecurityLogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

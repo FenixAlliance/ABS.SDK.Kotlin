@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getShipmentsAsync"></a>
 # **getShipmentsAsync**
-> ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion)
+> ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
 
 Get all shipments
 
@@ -185,8 +185,9 @@ val apiInstance = ShipmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shipmentDtoCollectionQueryParameters : ShipmentDtoCollectionQueryParameters =  // ShipmentDtoCollectionQueryParameters | 
 try {
-    val result : ShipmentDtoListEnvelope = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ShipmentDtoListEnvelope = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShipmentsApi#getShipmentsAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shipmentDtoCollectionQueryParameters** | [**ShipmentDtoCollectionQueryParameters**](ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShipmentsCountAsync"></a>
 # **getShipmentsCountAsync**
-> Int32Envelope getShipmentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShipmentsCountAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
 
 Get shipments count
 
@@ -235,8 +237,9 @@ val apiInstance = ShipmentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shipmentDtoCollectionQueryParameters : ShipmentDtoCollectionQueryParameters =  // ShipmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShipmentsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShipmentsCountAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShipmentsApi#getShipmentsCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shipmentDtoCollectionQueryParameters** | [**ShipmentDtoCollectionQueryParameters**](ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchShipmentAsync"></a>
 # **patchShipmentAsync**
-> EmptyEnvelope patchShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipment
 
@@ -286,9 +290,9 @@ val shipmentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShipmentAsync(shipmentId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShipmentsApi#patchShipmentAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

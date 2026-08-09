@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.TrustSigningProviderDescriptorDtoCollectionQueryParameters
 import org.openapitools.client.models.TrustSigningProviderDescriptorDtoListEnvelope
 import org.openapitools.client.models.TrustSigningReadinessDtoEnvelope
 import org.openapitools.client.models.TrustSigningRequestDto
@@ -55,6 +56,7 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return TrustSigningProviderDescriptorDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -64,8 +66,8 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProvidersAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TrustSigningProviderDescriptorDtoListEnvelope {
-        val localVarResponse = getProvidersAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProvidersAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters? = null) : TrustSigningProviderDescriptorDtoListEnvelope {
+        val localVarResponse = getProvidersAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters = trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TrustSigningProviderDescriptorDtoListEnvelope
@@ -88,16 +90,17 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProvidersAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope?> {
-        val localVariableConfig = getProvidersAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProvidersAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters?) : ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope?> {
+        val localVariableConfig = getProvidersAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters = trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
-        return request<Unit, TrustSigningProviderDescriptorDtoListEnvelope>(
+        return request<TrustSigningProviderDescriptorDtoCollectionQueryParameters, TrustSigningProviderDescriptorDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -108,10 +111,11 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProvidersAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProvidersAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters?) : RequestConfig<TrustSigningProviderDescriptorDtoCollectionQueryParameters> {
+        val localVariableBody = trustSigningProviderDescriptorDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -121,6 +125,7 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -139,6 +144,7 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -148,8 +154,8 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProvidersCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getProvidersCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProvidersCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getProvidersCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters = trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -172,16 +178,17 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProvidersCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getProvidersCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getProvidersCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getProvidersCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters = trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TrustSigningProviderDescriptorDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -192,10 +199,11 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getProvidersCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getProvidersCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, trustSigningProviderDescriptorDtoCollectionQueryParameters: TrustSigningProviderDescriptorDtoCollectionQueryParameters?) : RequestConfig<TrustSigningProviderDescriptorDtoCollectionQueryParameters> {
+        val localVariableBody = trustSigningProviderDescriptorDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -205,6 +213,7 @@ class SigningEngineApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

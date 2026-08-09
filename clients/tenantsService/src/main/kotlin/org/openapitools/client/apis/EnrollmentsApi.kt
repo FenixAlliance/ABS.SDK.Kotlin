@@ -21,9 +21,11 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedTenantEnrollmentDtoCollectionQueryParameters
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.TenantEnrollmentCreateDto
+import org.openapitools.client.models.TenantEnrollmentDtoCollectionQueryParameters
 import org.openapitools.client.models.TenantEnrollmentDtoEnvelope
 import org.openapitools.client.models.TenantEnrollmentDtoListEnvelope
 import org.openapitools.client.models.TenantEnrollmentUpdateDto
@@ -233,6 +235,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return TenantEnrollmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -242,8 +245,8 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedTenantEnrollments(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrollmentDtoListEnvelope {
-        val localVarResponse = getExtendedTenantEnrollmentsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantEnrollments(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters? = null) : TenantEnrollmentDtoListEnvelope {
+        val localVarResponse = getExtendedTenantEnrollmentsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters = extendedTenantEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrollmentDtoListEnvelope
@@ -266,16 +269,17 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantEnrollmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedTenantEnrollmentsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
-        val localVariableConfig = getExtendedTenantEnrollmentsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantEnrollmentsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
+        val localVariableConfig = getExtendedTenantEnrollmentsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters = extendedTenantEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, TenantEnrollmentDtoListEnvelope>(
+        return request<ExtendedTenantEnrollmentDtoCollectionQueryParameters, TenantEnrollmentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -286,10 +290,11 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedTenantEnrollmentsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedTenantEnrollmentsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters?) : RequestConfig<ExtendedTenantEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = extendedTenantEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -299,6 +304,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -317,6 +323,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -326,8 +333,8 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedTenantEnrollmentsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantEnrollmentsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters = extendedTenantEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -350,16 +357,17 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getExtendedTenantEnrollmentsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getExtendedTenantEnrollmentsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters = extendedTenantEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ExtendedTenantEnrollmentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -370,10 +378,11 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedTenantEnrollmentsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedTenantEnrollmentsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedTenantEnrollmentDtoCollectionQueryParameters: ExtendedTenantEnrollmentDtoCollectionQueryParameters?) : RequestConfig<ExtendedTenantEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = extendedTenantEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -383,6 +392,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -492,6 +502,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return TenantEnrollmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -501,8 +512,8 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantEnrollments(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : TenantEnrollmentDtoListEnvelope {
-        val localVarResponse = getTenantEnrollmentsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantEnrollments(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters? = null) : TenantEnrollmentDtoListEnvelope {
+        val localVarResponse = getTenantEnrollmentsWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantEnrollmentDtoCollectionQueryParameters = tenantEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as TenantEnrollmentDtoListEnvelope
@@ -525,16 +536,17 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<TenantEnrollmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantEnrollmentsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
-        val localVariableConfig = getTenantEnrollmentsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantEnrollmentsWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters?) : ApiResponse<TenantEnrollmentDtoListEnvelope?> {
+        val localVariableConfig = getTenantEnrollmentsRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantEnrollmentDtoCollectionQueryParameters = tenantEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, TenantEnrollmentDtoListEnvelope>(
+        return request<TenantEnrollmentDtoCollectionQueryParameters, TenantEnrollmentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -545,10 +557,11 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantEnrollmentsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantEnrollmentsRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters?) : RequestConfig<TenantEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = tenantEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -558,6 +571,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -576,6 +590,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -585,8 +600,8 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getTenantEnrollmentsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getTenantEnrollmentsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantEnrollmentsCount(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getTenantEnrollmentsCountWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantEnrollmentDtoCollectionQueryParameters = tenantEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -609,16 +624,17 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getTenantEnrollmentsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getTenantEnrollmentsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getTenantEnrollmentsCountWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getTenantEnrollmentsCountRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, tenantEnrollmentDtoCollectionQueryParameters = tenantEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<TenantEnrollmentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -629,10 +645,11 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getTenantEnrollmentsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getTenantEnrollmentsCountRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, tenantEnrollmentDtoCollectionQueryParameters: TenantEnrollmentDtoCollectionQueryParameters?) : RequestConfig<TenantEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = tenantEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -642,6 +659,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -661,7 +679,7 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -671,8 +689,8 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchTenantEnrollmentAsync(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchTenantEnrollmentAsyncWithHttpInfo(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantEnrollmentAsync(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchTenantEnrollmentAsyncWithHttpInfo(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -696,17 +714,17 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchTenantEnrollmentAsyncWithHttpInfo(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchTenantEnrollmentAsyncRequestConfig(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchTenantEnrollmentAsyncWithHttpInfo(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchTenantEnrollmentAsyncRequestConfig(enrollmentId = enrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -718,11 +736,11 @@ class EnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchTenantEnrollmentAsyncRequestConfig(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchTenantEnrollmentAsyncRequestConfig(enrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

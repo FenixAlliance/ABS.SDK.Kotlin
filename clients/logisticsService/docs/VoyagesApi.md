@@ -392,7 +392,7 @@ No authorization required
 
 <a id="getVoyagePortCallsAsync"></a>
 # **getVoyagePortCallsAsync**
-> VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(voyageId, tenantId, apiVersion, xApiVersion)
+> VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(voyageId, tenantId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
 
 Get voyage port calls
 
@@ -409,8 +409,9 @@ val voyageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val voyagePortCallDtoCollectionQueryParameters : VoyagePortCallDtoCollectionQueryParameters =  // VoyagePortCallDtoCollectionQueryParameters | 
 try {
-    val result : VoyagePortCallDtoListEnvelope = apiInstance.getVoyagePortCallsAsync(voyageId, tenantId, apiVersion, xApiVersion)
+    val result : VoyagePortCallDtoListEnvelope = apiInstance.getVoyagePortCallsAsync(voyageId, tenantId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#getVoyagePortCallsAsync")
@@ -425,9 +426,10 @@ try {
 | **voyageId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -439,12 +441,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getVoyagePortCallsCountAsync"></a>
 # **getVoyagePortCallsCountAsync**
-> Int32Envelope getVoyagePortCallsCountAsync(voyageId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getVoyagePortCallsCountAsync(voyageId, tenantId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
 
 Get voyage port calls count
 
@@ -461,8 +463,9 @@ val voyageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val voyagePortCallDtoCollectionQueryParameters : VoyagePortCallDtoCollectionQueryParameters =  // VoyagePortCallDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getVoyagePortCallsCountAsync(voyageId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getVoyagePortCallsCountAsync(voyageId, tenantId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#getVoyagePortCallsCountAsync")
@@ -477,9 +480,10 @@ try {
 | **voyageId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -491,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getVoyagesAsync"></a>
 # **getVoyagesAsync**
-> VoyageDtoListEnvelope getVoyagesAsync(tenantId, apiVersion, xApiVersion)
+> VoyageDtoListEnvelope getVoyagesAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
 
 Get all voyages
 
@@ -512,8 +516,9 @@ val apiInstance = VoyagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val voyageDtoCollectionQueryParameters : VoyageDtoCollectionQueryParameters =  // VoyageDtoCollectionQueryParameters | 
 try {
-    val result : VoyageDtoListEnvelope = apiInstance.getVoyagesAsync(tenantId, apiVersion, xApiVersion)
+    val result : VoyageDtoListEnvelope = apiInstance.getVoyagesAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#getVoyagesAsync")
@@ -527,9 +532,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -541,12 +547,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getVoyagesCountAsync"></a>
 # **getVoyagesCountAsync**
-> Int32Envelope getVoyagesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getVoyagesCountAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
 
 Get voyages count
 
@@ -562,8 +568,9 @@ val apiInstance = VoyagesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val voyageDtoCollectionQueryParameters : VoyageDtoCollectionQueryParameters =  // VoyageDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getVoyagesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getVoyagesCountAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#getVoyagesCountAsync")
@@ -577,9 +584,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -591,12 +599,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchVoyageAsync"></a>
 # **patchVoyageAsync**
-> EmptyEnvelope patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a voyage
 
@@ -613,9 +621,9 @@ val voyageId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchVoyageAsync(voyageId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#patchVoyageAsync")
@@ -633,7 +641,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -650,7 +658,7 @@ No authorization required
 
 <a id="patchVoyagePortCallAsync"></a>
 # **patchVoyagePortCallAsync**
-> EmptyEnvelope patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a voyage port call
 
@@ -668,9 +676,9 @@ val portCallId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchVoyagePortCallAsync(voyageId, portCallId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling VoyagesApi#patchVoyagePortCallAsync")
@@ -689,7 +697,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

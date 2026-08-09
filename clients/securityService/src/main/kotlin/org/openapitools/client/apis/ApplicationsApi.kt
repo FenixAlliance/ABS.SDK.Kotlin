@@ -20,13 +20,14 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BusinessApplicationCreateDto
+import org.openapitools.client.models.BusinessApplicationDtoCollectionQueryParameters
 import org.openapitools.client.models.BusinessApplicationDtoEnvelope
 import org.openapitools.client.models.BusinessApplicationDtoListEnvelope
 import org.openapitools.client.models.BusinessApplicationUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SecurityPermissionDtoListEnvelope
 import org.openapitools.client.models.SecurityRoleDtoListEnvelope
 
@@ -322,6 +323,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return BusinessApplicationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -331,8 +333,8 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessApplicationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BusinessApplicationDtoListEnvelope {
-        val localVarResponse = getBusinessApplicationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessApplicationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters? = null) : BusinessApplicationDtoListEnvelope {
+        val localVarResponse = getBusinessApplicationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessApplicationDtoCollectionQueryParameters = businessApplicationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BusinessApplicationDtoListEnvelope
@@ -355,16 +357,17 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BusinessApplicationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessApplicationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BusinessApplicationDtoListEnvelope?> {
-        val localVariableConfig = getBusinessApplicationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessApplicationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters?) : ApiResponse<BusinessApplicationDtoListEnvelope?> {
+        val localVariableConfig = getBusinessApplicationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessApplicationDtoCollectionQueryParameters = businessApplicationDtoCollectionQueryParameters)
 
-        return request<Unit, BusinessApplicationDtoListEnvelope>(
+        return request<BusinessApplicationDtoCollectionQueryParameters, BusinessApplicationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -375,10 +378,11 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessApplicationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessApplicationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters?) : RequestConfig<BusinessApplicationDtoCollectionQueryParameters> {
+        val localVariableBody = businessApplicationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -388,6 +392,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -406,6 +411,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -415,8 +421,8 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBusinessApplicationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getBusinessApplicationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessApplicationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getBusinessApplicationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessApplicationDtoCollectionQueryParameters = businessApplicationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -439,16 +445,17 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBusinessApplicationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getBusinessApplicationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBusinessApplicationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getBusinessApplicationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, businessApplicationDtoCollectionQueryParameters = businessApplicationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BusinessApplicationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -459,10 +466,11 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBusinessApplicationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBusinessApplicationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, businessApplicationDtoCollectionQueryParameters: BusinessApplicationDtoCollectionQueryParameters?) : RequestConfig<BusinessApplicationDtoCollectionQueryParameters> {
+        val localVariableBody = businessApplicationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -472,6 +480,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -663,7 +672,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Partially updates an existing business application using a JSON Patch document.
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -675,8 +684,8 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchBusinessApplicationAsync(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = patchBusinessApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchBusinessApplicationAsync(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = patchBusinessApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -698,7 +707,7 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Partially updates an existing business application using a JSON Patch document.
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -707,10 +716,10 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchBusinessApplicationAsyncWithHttpInfo(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchBusinessApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchBusinessApplicationAsyncWithHttpInfo(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchBusinessApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -720,13 +729,13 @@ class ApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun patchBusinessApplicationAsyncRequestConfig(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchBusinessApplicationAsyncRequestConfig(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

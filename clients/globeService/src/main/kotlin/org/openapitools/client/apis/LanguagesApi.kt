@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.CountryLanguageDtoCollectionQueryParameters
 import org.openapitools.client.models.CountryLanguageDtoEnvelope
 import org.openapitools.client.models.CountryLanguageDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
@@ -53,6 +54,7 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of supported languages, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countLanguagesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countLanguagesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countLanguagesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countLanguagesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, countryLanguageDtoCollectionQueryParameters = countryLanguageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -85,16 +87,17 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Returns the total number of supported languages, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countLanguagesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countLanguagesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countLanguagesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countLanguagesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, countryLanguageDtoCollectionQueryParameters = countryLanguageDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CountryLanguageDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -104,10 +107,11 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countLanguagesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countLanguagesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters?) : RequestConfig<CountryLanguageDtoCollectionQueryParameters> {
+        val localVariableBody = countryLanguageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -116,6 +120,7 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -216,6 +221,7 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves the list of all supported languages with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return CountryLanguageDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -225,8 +231,8 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLanguagesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CountryLanguageDtoListEnvelope {
-        val localVarResponse = getLanguagesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLanguagesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters? = null) : CountryLanguageDtoListEnvelope {
+        val localVarResponse = getLanguagesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, countryLanguageDtoCollectionQueryParameters = countryLanguageDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CountryLanguageDtoListEnvelope
@@ -248,16 +254,17 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieves the list of all supported languages with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CountryLanguageDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLanguagesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CountryLanguageDtoListEnvelope?> {
-        val localVariableConfig = getLanguagesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLanguagesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters?) : ApiResponse<CountryLanguageDtoListEnvelope?> {
+        val localVariableConfig = getLanguagesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, countryLanguageDtoCollectionQueryParameters = countryLanguageDtoCollectionQueryParameters)
 
-        return request<Unit, CountryLanguageDtoListEnvelope>(
+        return request<CountryLanguageDtoCollectionQueryParameters, CountryLanguageDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -267,10 +274,11 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLanguagesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLanguagesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, countryLanguageDtoCollectionQueryParameters: CountryLanguageDtoCollectionQueryParameters?) : RequestConfig<CountryLanguageDtoCollectionQueryParameters> {
+        val localVariableBody = countryLanguageDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -279,6 +287,7 @@ class LanguagesApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

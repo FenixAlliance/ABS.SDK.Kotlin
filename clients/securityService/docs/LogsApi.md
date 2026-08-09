@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getLogsAsync"></a>
 # **getLogsAsync**
-> LogDtoListEnvelope getLogsAsync(tenantId, apiVersion, xApiVersion)
+> LogDtoListEnvelope getLogsAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
 
 Get tenant logs
 
@@ -26,8 +26,9 @@ val apiInstance = LogsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val logDtoCollectionQueryParameters : LogDtoCollectionQueryParameters =  // LogDtoCollectionQueryParameters | 
 try {
-    val result : LogDtoListEnvelope = apiInstance.getLogsAsync(tenantId, apiVersion, xApiVersion)
+    val result : LogDtoListEnvelope = apiInstance.getLogsAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LogsApi#getLogsAsync")
@@ -41,9 +42,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **logDtoCollectionQueryParameters** | [**LogDtoCollectionQueryParameters**](LogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -55,12 +57,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLogsCountAsync"></a>
 # **getLogsCountAsync**
-> Int32Envelope getLogsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLogsCountAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
 
 Get tenant logs count
 
@@ -76,8 +78,9 @@ val apiInstance = LogsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val logDtoCollectionQueryParameters : LogDtoCollectionQueryParameters =  // LogDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLogsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLogsCountAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LogsApi#getLogsCountAsync")
@@ -91,9 +94,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **logDtoCollectionQueryParameters** | [**LogDtoCollectionQueryParameters**](LogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -105,6 +109,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

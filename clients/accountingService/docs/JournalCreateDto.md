@@ -12,6 +12,8 @@
 | **parentJournalId** | **kotlin.String** |  |  [optional] |
 | **journalTypeId** | **kotlin.String** |  |  [optional] |
 | **ledgerId** | **kotlin.String** |  |  [optional] |
+| **financialBookId** | **kotlin.String** |  |  [optional] |
+| **code** | **kotlin.String** |  |  [optional] |
 
 
 

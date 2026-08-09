@@ -173,7 +173,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypes"></a>
 # **getFiscalIdentificationTypes**
-> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion)
+> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
 
 Get fiscal identification types for an authority
 
@@ -190,8 +190,9 @@ val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalIdentificationTypeDtoCollectionQueryParameters : FiscalIdentificationTypeDtoCollectionQueryParameters =  // FiscalIdentificationTypeDtoCollectionQueryParameters | 
 try {
-    val result : FiscalIdentificationTypeDtoListEnvelope = apiInstance.getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion)
+    val result : FiscalIdentificationTypeDtoListEnvelope = apiInstance.getFiscalIdentificationTypes(authorityId, tenantId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalIdentificationTypesApi#getFiscalIdentificationTypes")
@@ -206,9 +207,10 @@ try {
 | **authorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -220,12 +222,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalIdentificationTypesCount"></a>
 # **getFiscalIdentificationTypesCount**
-> Int32Envelope getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
 
 Get fiscal identification types count
 
@@ -242,8 +244,9 @@ val authorityId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalIdentificationTypeDtoCollectionQueryParameters : FiscalIdentificationTypeDtoCollectionQueryParameters =  // FiscalIdentificationTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalIdentificationTypesCount(authorityId, tenantId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalIdentificationTypesApi#getFiscalIdentificationTypesCount")
@@ -258,9 +261,10 @@ try {
 | **authorityId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -272,12 +276,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchFiscalIdentificationTypeAsync"></a>
 # **patchFiscalIdentificationTypeAsync**
-> EmptyEnvelope patchFiscalIdentificationTypeAsync(identificationTypeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalIdentificationTypeAsync(identificationTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal identification type
 
@@ -294,9 +298,9 @@ val identificationTypeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalIdentificationTypeAsync(identificationTypeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalIdentificationTypeAsync(identificationTypeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalIdentificationTypesApi#patchFiscalIdentificationTypeAsync")
@@ -314,7 +318,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

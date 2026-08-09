@@ -21,9 +21,10 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.CourseEnrollmentCreateDto
 import org.openapitools.client.models.CourseEnrollmentDto
+import org.openapitools.client.models.CourseEnrollmentDtoCollectionQueryParameters
 import org.openapitools.client.models.CourseEnrollmentUpdateDto
 import org.openapitools.client.models.ErrorEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -313,6 +314,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<CourseEnrollmentDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -322,8 +324,8 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEnrollmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<CourseEnrollmentDto> {
-        val localVarResponse = getEnrollmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters? = null) : kotlin.collections.List<CourseEnrollmentDto> {
+        val localVarResponse = getEnrollmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CourseEnrollmentDto>
@@ -346,16 +348,17 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEnrollmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?> {
-        val localVariableConfig = getEnrollmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?> {
+        val localVariableConfig = getEnrollmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<CourseEnrollmentDto>>(
+        return request<CourseEnrollmentDtoCollectionQueryParameters, kotlin.collections.List<CourseEnrollmentDto>>(
             localVariableConfig
         )
     }
@@ -366,10 +369,11 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEnrollmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEnrollmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : RequestConfig<CourseEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = courseEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -379,6 +383,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -397,6 +402,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return kotlin.Int
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -406,8 +412,8 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEnrollmentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.Int {
-        val localVarResponse = getEnrollmentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters? = null) : kotlin.Int {
+        val localVarResponse = getEnrollmentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Int
@@ -430,16 +436,17 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.Int?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEnrollmentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.Int?> {
-        val localVariableConfig = getEnrollmentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnrollmentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : ApiResponse<kotlin.Int?> {
+        val localVariableConfig = getEnrollmentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.Int>(
+        return request<CourseEnrollmentDtoCollectionQueryParameters, kotlin.Int>(
             localVariableConfig
         )
     }
@@ -450,10 +457,11 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEnrollmentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEnrollmentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : RequestConfig<CourseEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = courseEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -463,6 +471,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -482,6 +491,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return kotlin.collections.List<CourseEnrollmentDto>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -491,8 +501,8 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStudentCourseEnrollmentsAsync(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : kotlin.collections.List<CourseEnrollmentDto> {
-        val localVarResponse = getStudentCourseEnrollmentsAsyncWithHttpInfo(studentProfileId = studentProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStudentCourseEnrollmentsAsync(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters? = null) : kotlin.collections.List<CourseEnrollmentDto> {
+        val localVarResponse = getStudentCourseEnrollmentsAsyncWithHttpInfo(studentProfileId = studentProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<CourseEnrollmentDto>
@@ -516,16 +526,17 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getStudentCourseEnrollmentsAsyncWithHttpInfo(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?> {
-        val localVariableConfig = getStudentCourseEnrollmentsAsyncRequestConfig(studentProfileId = studentProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getStudentCourseEnrollmentsAsyncWithHttpInfo(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : ApiResponse<kotlin.collections.List<CourseEnrollmentDto>?> {
+        val localVariableConfig = getStudentCourseEnrollmentsAsyncRequestConfig(studentProfileId = studentProfileId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, courseEnrollmentDtoCollectionQueryParameters = courseEnrollmentDtoCollectionQueryParameters)
 
-        return request<Unit, kotlin.collections.List<CourseEnrollmentDto>>(
+        return request<CourseEnrollmentDtoCollectionQueryParameters, kotlin.collections.List<CourseEnrollmentDto>>(
             localVariableConfig
         )
     }
@@ -537,10 +548,11 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getStudentCourseEnrollmentsAsyncRequestConfig(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getStudentCourseEnrollmentsAsyncRequestConfig(studentProfileId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, courseEnrollmentDtoCollectionQueryParameters: CourseEnrollmentDtoCollectionQueryParameters?) : RequestConfig<CourseEnrollmentDtoCollectionQueryParameters> {
+        val localVariableBody = courseEnrollmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -550,6 +562,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -569,7 +582,7 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -578,8 +591,8 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchCourseEnrollmentAsync(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : Unit {
-        val localVarResponse = patchCourseEnrollmentAsyncWithHttpInfo(courseEnrollmentId = courseEnrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseEnrollmentAsync(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : Unit {
+        val localVarResponse = patchCourseEnrollmentAsyncWithHttpInfo(courseEnrollmentId = courseEnrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -603,16 +616,16 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchCourseEnrollmentAsyncWithHttpInfo(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<Unit?> {
-        val localVariableConfig = patchCourseEnrollmentAsyncRequestConfig(courseEnrollmentId = courseEnrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchCourseEnrollmentAsyncWithHttpInfo(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<Unit?> {
+        val localVariableConfig = patchCourseEnrollmentAsyncRequestConfig(courseEnrollmentId = courseEnrollmentId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, Unit>(
+        return request<kotlin.collections.List<PatchOperation>, Unit>(
             localVariableConfig
         )
     }
@@ -624,11 +637,11 @@ class CourseEnrollmentsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchCourseEnrollmentAsyncRequestConfig(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchCourseEnrollmentAsyncRequestConfig(courseEnrollmentId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

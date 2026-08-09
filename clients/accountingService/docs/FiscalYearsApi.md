@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getFiscalYearsAsync"></a>
 # **getFiscalYearsAsync**
-> FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(tenantId, apiVersion, xApiVersion)
+> FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Get all fiscal years
 
@@ -187,8 +187,9 @@ val apiInstance = FiscalYearsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalYearDtoCollectionQueryParameters : FiscalYearDtoCollectionQueryParameters =  // FiscalYearDtoCollectionQueryParameters | 
 try {
-    val result : FiscalYearDtoIReadOnlyListEnvelope = apiInstance.getFiscalYearsAsync(tenantId, apiVersion, xApiVersion)
+    val result : FiscalYearDtoIReadOnlyListEnvelope = apiInstance.getFiscalYearsAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalYearsApi#getFiscalYearsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getFiscalYearsCountAsync"></a>
 # **getFiscalYearsCountAsync**
-> Int32Envelope getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Count fiscal years
 
@@ -237,8 +239,9 @@ val apiInstance = FiscalYearsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val fiscalYearDtoCollectionQueryParameters : FiscalYearDtoCollectionQueryParameters =  // FiscalYearDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalYearsApi#getFiscalYearsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchFiscalYearAsync"></a>
 # **patchFiscalYearAsync**
-> EmptyEnvelope patchFiscalYearAsync(fiscalYearId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalYearAsync(fiscalYearId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal year
 
@@ -288,9 +292,9 @@ val fiscalYearId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchFiscalYearAsync(fiscalYearId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchFiscalYearAsync(fiscalYearId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FiscalYearsApi#patchFiscalYearAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

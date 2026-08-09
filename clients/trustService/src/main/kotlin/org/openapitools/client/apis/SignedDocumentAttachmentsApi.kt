@@ -22,9 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SignedDocumentAttachmentCreateDto
 import org.openapitools.client.models.SignedDocumentAttachmentDto
+import org.openapitools.client.models.SignedDocumentAttachmentDtoCollectionQueryParameters
 import org.openapitools.client.models.SignedDocumentAttachmentDtoListEnvelope
 import org.openapitools.client.models.SignedDocumentAttachmentUpdateDto
 
@@ -316,6 +317,7 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return SignedDocumentAttachmentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,8 +327,8 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSignedDocumentAttachmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SignedDocumentAttachmentDtoListEnvelope {
-        val localVarResponse = getSignedDocumentAttachmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignedDocumentAttachmentsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters? = null) : SignedDocumentAttachmentDtoListEnvelope {
+        val localVarResponse = getSignedDocumentAttachmentsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters = signedDocumentAttachmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SignedDocumentAttachmentDtoListEnvelope
@@ -349,16 +351,17 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SignedDocumentAttachmentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSignedDocumentAttachmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SignedDocumentAttachmentDtoListEnvelope?> {
-        val localVariableConfig = getSignedDocumentAttachmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignedDocumentAttachmentsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters?) : ApiResponse<SignedDocumentAttachmentDtoListEnvelope?> {
+        val localVariableConfig = getSignedDocumentAttachmentsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters = signedDocumentAttachmentDtoCollectionQueryParameters)
 
-        return request<Unit, SignedDocumentAttachmentDtoListEnvelope>(
+        return request<SignedDocumentAttachmentDtoCollectionQueryParameters, SignedDocumentAttachmentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -369,10 +372,11 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSignedDocumentAttachmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSignedDocumentAttachmentsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters?) : RequestConfig<SignedDocumentAttachmentDtoCollectionQueryParameters> {
+        val localVariableBody = signedDocumentAttachmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -382,6 +386,7 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -400,6 +405,7 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -409,8 +415,8 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSignedDocumentAttachmentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSignedDocumentAttachmentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignedDocumentAttachmentsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSignedDocumentAttachmentsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters = signedDocumentAttachmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -433,16 +439,17 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSignedDocumentAttachmentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSignedDocumentAttachmentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSignedDocumentAttachmentsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSignedDocumentAttachmentsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters = signedDocumentAttachmentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SignedDocumentAttachmentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -453,10 +460,11 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signedDocumentAttachmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSignedDocumentAttachmentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSignedDocumentAttachmentsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signedDocumentAttachmentDtoCollectionQueryParameters: SignedDocumentAttachmentDtoCollectionQueryParameters?) : RequestConfig<SignedDocumentAttachmentDtoCollectionQueryParameters> {
+        val localVariableBody = signedDocumentAttachmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -466,6 +474,7 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -485,7 +494,7 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -495,8 +504,8 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSignedDocumentAttachmentAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSignedDocumentAttachmentAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSignedDocumentAttachmentAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSignedDocumentAttachmentAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -520,17 +529,17 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSignedDocumentAttachmentAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSignedDocumentAttachmentAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSignedDocumentAttachmentAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSignedDocumentAttachmentAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -542,11 +551,11 @@ class SignedDocumentAttachmentsApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSignedDocumentAttachmentAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSignedDocumentAttachmentAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

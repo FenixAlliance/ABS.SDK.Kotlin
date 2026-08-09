@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.LogDtoCollectionQueryParameters
 import org.openapitools.client.models.LogDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -53,6 +54,7 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return LogDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLogsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LogDtoListEnvelope {
-        val localVarResponse = getLogsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLogsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters? = null) : LogDtoListEnvelope {
+        val localVarResponse = getLogsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, logDtoCollectionQueryParameters = logDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LogDtoListEnvelope
@@ -86,16 +88,17 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LogDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLogsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LogDtoListEnvelope?> {
-        val localVariableConfig = getLogsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLogsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters?) : ApiResponse<LogDtoListEnvelope?> {
+        val localVariableConfig = getLogsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, logDtoCollectionQueryParameters = logDtoCollectionQueryParameters)
 
-        return request<Unit, LogDtoListEnvelope>(
+        return request<LogDtoCollectionQueryParameters, LogDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -106,10 +109,11 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLogsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLogsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters?) : RequestConfig<LogDtoCollectionQueryParameters> {
+        val localVariableBody = logDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -119,6 +123,7 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -137,6 +142,7 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,8 +152,8 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLogsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLogsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLogsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLogsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, logDtoCollectionQueryParameters = logDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -170,16 +176,17 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLogsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLogsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLogsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLogsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, logDtoCollectionQueryParameters = logDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LogDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -190,10 +197,11 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLogsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLogsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, logDtoCollectionQueryParameters: LogDtoCollectionQueryParameters?) : RequestConfig<LogDtoCollectionQueryParameters> {
+        val localVariableBody = logDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -203,6 +211,7 @@ class LogsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

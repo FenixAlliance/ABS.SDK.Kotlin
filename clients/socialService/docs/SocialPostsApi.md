@@ -4,14 +4,19 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createSocialCommentReactionAsync**](SocialPostsApi.md#createSocialCommentReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction |
 | [**createSocialPostAsync**](SocialPostsApi.md#createSocialPostAsync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post |
 | [**createSocialPostAttachmentAsync**](SocialPostsApi.md#createSocialPostAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment |
 | [**createSocialPostCommentAsync**](SocialPostsApi.md#createSocialPostCommentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment |
 | [**createSocialPostReactionAsync**](SocialPostsApi.md#createSocialPostReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction |
+| [**deleteSocialCommentReactionAsync**](SocialPostsApi.md#deleteSocialCommentReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction |
 | [**deleteSocialPostAsync**](SocialPostsApi.md#deleteSocialPostAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post |
 | [**deleteSocialPostAttachmentAsync**](SocialPostsApi.md#deleteSocialPostAttachmentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment |
 | [**deleteSocialPostCommentAsync**](SocialPostsApi.md#deleteSocialPostCommentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment |
 | [**deleteSocialPostReactionAsync**](SocialPostsApi.md#deleteSocialPostReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction |
+| [**getSocialCommentReactionAsync**](SocialPostsApi.md#getSocialCommentReactionAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID |
+| [**getSocialCommentReactionsAsync**](SocialPostsApi.md#getSocialCommentReactionsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions |
+| [**getSocialCommentReactionsCountAsync**](SocialPostsApi.md#getSocialCommentReactionsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions |
 | [**getSocialPostAsync**](SocialPostsApi.md#getSocialPostAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID |
 | [**getSocialPostAttachmentAsync**](SocialPostsApi.md#getSocialPostAttachmentAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID |
 | [**getSocialPostAttachmentsAsync**](SocialPostsApi.md#getSocialPostAttachmentsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments |
@@ -25,11 +30,69 @@ All URIs are relative to *https://absuite.net*
 | [**getSocialPostsAsync**](SocialPostsApi.md#getSocialPostsAsync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts |
 | [**getSocialPostsCountAsync**](SocialPostsApi.md#getSocialPostsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts |
 | [**patchSocialPostAsync**](SocialPostsApi.md#patchSocialPostAsync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post |
+| [**updateSocialCommentReactionAsync**](SocialPostsApi.md#updateSocialCommentReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction |
 | [**updateSocialPostAsync**](SocialPostsApi.md#updateSocialPostAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post |
 | [**updateSocialPostAttachmentAsync**](SocialPostsApi.md#updateSocialPostAttachmentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment |
 | [**updateSocialPostCommentAsync**](SocialPostsApi.md#updateSocialPostCommentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment |
 | [**updateSocialPostReactionAsync**](SocialPostsApi.md#updateSocialPostReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction |
+| [**uploadSocialPostImageAttachmentAsync**](SocialPostsApi.md#uploadSocialPostImageAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment |
 
+
+<a id="createSocialCommentReactionAsync"></a>
+# **createSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope createSocialCommentReactionAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+
+Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialReactionCreateDto : SocialReactionCreateDto =  // SocialReactionCreateDto | 
+try {
+    val result : SocialCommentReactionDtoEnvelope = apiInstance.createSocialCommentReactionAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#createSocialCommentReactionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#createSocialCommentReactionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **socialReactionCreateDto** | [**SocialReactionCreateDto**](SocialReactionCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a id="createSocialPostAsync"></a>
 # **createSocialPostAsync**
@@ -193,7 +256,7 @@ No authorization required
 
 <a id="createSocialPostReactionAsync"></a>
 # **createSocialPostReactionAsync**
-> SocialReactionDtoEnvelope createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+> SocialPostReactionDtoEnvelope createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
 
 Create a social post reaction
 
@@ -212,7 +275,7 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val socialReactionCreateDto : SocialReactionCreateDto =  // SocialReactionCreateDto | 
 try {
-    val result : SocialReactionDtoEnvelope = apiInstance.createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+    val result : SocialPostReactionDtoEnvelope = apiInstance.createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#createSocialPostReactionAsync")
@@ -234,7 +297,7 @@ try {
 
 ### Return type
 
-[**SocialReactionDtoEnvelope**](SocialReactionDtoEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -243,6 +306,62 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="deleteSocialCommentReactionAsync"></a>
+# **deleteSocialCommentReactionAsync**
+> EmptyEnvelope deleteSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion)
+
+Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val reactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : EmptyEnvelope = apiInstance.deleteSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#deleteSocialCommentReactionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#deleteSocialCommentReactionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **reactionId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="deleteSocialPostAsync"></a>
@@ -459,6 +578,172 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="getSocialCommentReactionAsync"></a>
+# **getSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope getSocialCommentReactionAsync(socialPostId, commentId, reactionId, apiVersion, xApiVersion)
+
+Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val reactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : SocialCommentReactionDtoEnvelope = apiInstance.getSocialCommentReactionAsync(socialPostId, commentId, reactionId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#getSocialCommentReactionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#getSocialCommentReactionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **reactionId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="getSocialCommentReactionsAsync"></a>
+# **getSocialCommentReactionsAsync**
+> SocialCommentReactionDtoListEnvelope getSocialCommentReactionsAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+
+Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialCommentReactionDtoCollectionQueryParameters : SocialCommentReactionDtoCollectionQueryParameters =  // SocialCommentReactionDtoCollectionQueryParameters | 
+try {
+    val result : SocialCommentReactionDtoListEnvelope = apiInstance.getSocialCommentReactionsAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#getSocialCommentReactionsAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#getSocialCommentReactionsAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoListEnvelope**](SocialCommentReactionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="getSocialCommentReactionsCountAsync"></a>
+# **getSocialCommentReactionsCountAsync**
+> Int32Envelope getSocialCommentReactionsCountAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+
+Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialCommentReactionDtoCollectionQueryParameters : SocialCommentReactionDtoCollectionQueryParameters =  // SocialCommentReactionDtoCollectionQueryParameters | 
+try {
+    val result : Int32Envelope = apiInstance.getSocialCommentReactionsCountAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#getSocialCommentReactionsCountAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#getSocialCommentReactionsCountAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a id="getSocialPostAsync"></a>
 # **getSocialPostAsync**
 > SocialPostDtoEnvelope getSocialPostAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
@@ -565,7 +850,7 @@ No authorization required
 
 <a id="getSocialPostAttachmentsAsync"></a>
 # **getSocialPostAttachmentsAsync**
-> SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion)
+> SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
 
 Get social post attachments
 
@@ -581,8 +866,9 @@ val apiInstance = SocialPostsApi()
 val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostAttachmentDtoCollectionQueryParameters : SocialPostAttachmentDtoCollectionQueryParameters =  // SocialPostAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : SocialPostAttachmentDtoListEnvelope = apiInstance.getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion)
+    val result : SocialPostAttachmentDtoListEnvelope = apiInstance.getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostAttachmentsAsync")
@@ -596,9 +882,10 @@ try {
 ### Parameters
 | **socialPostId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -610,12 +897,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostAttachmentsCountAsync"></a>
 # **getSocialPostAttachmentsCountAsync**
-> Int32Envelope getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
 
 Count social post attachments
 
@@ -631,8 +918,9 @@ val apiInstance = SocialPostsApi()
 val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostAttachmentDtoCollectionQueryParameters : SocialPostAttachmentDtoCollectionQueryParameters =  // SocialPostAttachmentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostAttachmentsCountAsync")
@@ -646,9 +934,10 @@ try {
 ### Parameters
 | **socialPostId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -660,7 +949,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostCommentAsync"></a>
@@ -719,7 +1008,7 @@ No authorization required
 
 <a id="getSocialPostCommentsAsync"></a>
 # **getSocialPostCommentsAsync**
-> SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(socialPostId, socialProfileId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
 
 Get social post comments
 
@@ -734,10 +1023,12 @@ Retrieves a list of comments for a specific social post.
 val apiInstance = SocialPostsApi()
 val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val parentCommentId : kotlin.String = parentCommentId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostCommentDtoCollectionQueryParameters : SocialPostCommentDtoCollectionQueryParameters =  // SocialPostCommentDtoCollectionQueryParameters | 
 try {
-    val result : SocialPostCommentDtoListEnvelope = apiInstance.getSocialPostCommentsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+    val result : SocialPostCommentDtoListEnvelope = apiInstance.getSocialPostCommentsAsync(socialPostId, socialProfileId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostCommentsAsync")
@@ -751,10 +1042,12 @@ try {
 ### Parameters
 | **socialPostId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
+| **parentCommentId** | **kotlin.String**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -766,12 +1059,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostCommentsCountAsync"></a>
 # **getSocialPostCommentsCountAsync**
-> Int32Envelope getSocialPostCommentsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostCommentsCountAsync(socialPostId, socialProfileId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
 
 Count social post comments
 
@@ -786,10 +1079,12 @@ Returns the count of comments for a specific social post.
 val apiInstance = SocialPostsApi()
 val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val parentCommentId : kotlin.String = parentCommentId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostCommentDtoCollectionQueryParameters : SocialPostCommentDtoCollectionQueryParameters =  // SocialPostCommentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSocialPostCommentsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSocialPostCommentsCountAsync(socialPostId, socialProfileId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostCommentsCountAsync")
@@ -803,10 +1098,12 @@ try {
 ### Parameters
 | **socialPostId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
+| **parentCommentId** | **kotlin.String**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -818,7 +1115,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostReactionAsync"></a>
@@ -875,7 +1172,7 @@ No authorization required
 
 <a id="getSocialPostReactionsAsync"></a>
 # **getSocialPostReactionsAsync**
-> SocialReactionDtoListEnvelope getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> SocialReactionDtoListEnvelope getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
 
 Get social post reactions
 
@@ -892,8 +1189,9 @@ val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostReactionDtoCollectionQueryParameters : SocialPostReactionDtoCollectionQueryParameters =  // SocialPostReactionDtoCollectionQueryParameters | 
 try {
-    val result : SocialReactionDtoListEnvelope = apiInstance.getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+    val result : SocialReactionDtoListEnvelope = apiInstance.getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostReactionsAsync")
@@ -908,9 +1206,10 @@ try {
 | **socialPostId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -922,12 +1221,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostReactionsCountAsync"></a>
 # **getSocialPostReactionsCountAsync**
-> Int32Envelope getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
 
 Count social post reactions
 
@@ -944,8 +1243,9 @@ val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostReactionDtoCollectionQueryParameters : SocialPostReactionDtoCollectionQueryParameters =  // SocialPostReactionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostReactionsCountAsync")
@@ -960,9 +1260,10 @@ try {
 | **socialPostId** | **java.util.UUID**|  | |
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -974,12 +1275,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostsAsync"></a>
 # **getSocialPostsAsync**
-> SocialPostDtoListEnvelope getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialPostDtoListEnvelope getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
 
 Get social posts
 
@@ -995,8 +1296,9 @@ val apiInstance = SocialPostsApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostDtoCollectionQueryParameters : SocialPostDtoCollectionQueryParameters =  // SocialPostDtoCollectionQueryParameters | 
 try {
-    val result : SocialPostDtoListEnvelope = apiInstance.getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : SocialPostDtoListEnvelope = apiInstance.getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostsAsync")
@@ -1010,9 +1312,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1024,12 +1327,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSocialPostsCountAsync"></a>
 # **getSocialPostsCountAsync**
-> Int32Envelope getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
 
 Count social posts
 
@@ -1045,8 +1348,9 @@ val apiInstance = SocialPostsApi()
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialPostDtoCollectionQueryParameters : SocialPostDtoCollectionQueryParameters =  // SocialPostDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#getSocialPostsCountAsync")
@@ -1060,9 +1364,10 @@ try {
 ### Parameters
 | **socialProfileId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1074,12 +1379,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSocialPostAsync"></a>
 # **patchSocialPostAsync**
-> EmptyEnvelope patchSocialPostAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialPostAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social post
 
@@ -1096,9 +1401,9 @@ val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSocialPostAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSocialPostAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#patchSocialPostAsync")
@@ -1116,11 +1421,69 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="updateSocialCommentReactionAsync"></a>
+# **updateSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope updateSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
+
+Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val commentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val reactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val socialReactionUpdateDto : SocialReactionUpdateDto =  // SocialReactionUpdateDto | 
+try {
+    val result : SocialCommentReactionDtoEnvelope = apiInstance.updateSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#updateSocialCommentReactionAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#updateSocialCommentReactionAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **commentId** | **java.util.UUID**|  | |
+| **reactionId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **socialReactionUpdateDto** | [**SocialReactionUpdateDto**](SocialReactionUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1299,7 +1662,7 @@ No authorization required
 
 <a id="updateSocialPostReactionAsync"></a>
 # **updateSocialPostReactionAsync**
-> EmptyEnvelope updateSocialPostReactionAsync(socialPostId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
+> SocialPostReactionDtoEnvelope updateSocialPostReactionAsync(socialPostId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
 
 Update a social post reaction
 
@@ -1319,7 +1682,7 @@ val apiVersion : kotlin.String = apiVersion_example // kotlin.String |
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 val socialReactionUpdateDto : SocialReactionUpdateDto =  // SocialReactionUpdateDto | 
 try {
-    val result : EmptyEnvelope = apiInstance.updateSocialPostReactionAsync(socialPostId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
+    val result : SocialPostReactionDtoEnvelope = apiInstance.updateSocialPostReactionAsync(socialPostId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SocialPostsApi#updateSocialPostReactionAsync")
@@ -1342,7 +1705,7 @@ try {
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1351,5 +1714,59 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="uploadSocialPostImageAttachmentAsync"></a>
+# **uploadSocialPostImageAttachmentAsync**
+> SocialPostAttachmentDtoEnvelope uploadSocialPostImageAttachmentAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, file)
+
+Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = SocialPostsApi()
+val socialPostId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val socialProfileId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val file : java.io.File = BINARY_DATA_HERE // java.io.File | 
+try {
+    val result : SocialPostAttachmentDtoEnvelope = apiInstance.uploadSocialPostImageAttachmentAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, file)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling SocialPostsApi#uploadSocialPostImageAttachmentAsync")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling SocialPostsApi#uploadSocialPostImageAttachmentAsync")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **socialPostId** | **java.util.UUID**|  | |
+| **socialProfileId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **file** | **java.io.File**|  | [optional] |
+
+### Return type
+
+[**SocialPostAttachmentDtoEnvelope**](SocialPostAttachmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 

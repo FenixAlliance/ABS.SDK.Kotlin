@@ -50,7 +50,6 @@ All URIs are relative to *https://absuite.net*
 | *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin |  |
-| *FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword |  |
 | *FenixAllianceABSWebApi* | [**healthGet**](docs/FenixAllianceABSWebApi.md#healthget) | **GET** /health |  |
 | *FenixAllianceABSWebApi* | [**helloGet**](docs/FenixAllianceABSWebApi.md#helloget) | **GET** /hello |  |
@@ -133,9 +132,10 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.InfoResponse](docs/InfoResponse.md)
  - [org.openapitools.client.models.Int32Envelope](docs/Int32Envelope.md)
  - [org.openapitools.client.models.LoginRequest](docs/LoginRequest.md)
- - [org.openapitools.client.models.Operation](docs/Operation.md)
+ - [org.openapitools.client.models.PatchOperation](docs/PatchOperation.md)
  - [org.openapitools.client.models.ProjectCreateDto](docs/ProjectCreateDto.md)
  - [org.openapitools.client.models.ProjectDto](docs/ProjectDto.md)
+ - [org.openapitools.client.models.ProjectDtoCollectionQueryParameters](docs/ProjectDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ProjectDtoEnvelope](docs/ProjectDtoEnvelope.md)
  - [org.openapitools.client.models.ProjectDtoListEnvelope](docs/ProjectDtoListEnvelope.md)
  - [org.openapitools.client.models.ProjectHoursApprovalApproverUpdateDto](docs/ProjectHoursApprovalApproverUpdateDto.md)
@@ -147,11 +147,13 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ProjectPeriodUpdateDto](docs/ProjectPeriodUpdateDto.md)
  - [org.openapitools.client.models.ProjectTaskCreateDto](docs/ProjectTaskCreateDto.md)
  - [org.openapitools.client.models.ProjectTaskDto](docs/ProjectTaskDto.md)
+ - [org.openapitools.client.models.ProjectTaskDtoCollectionQueryParameters](docs/ProjectTaskDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ProjectTaskDtoEnvelope](docs/ProjectTaskDtoEnvelope.md)
  - [org.openapitools.client.models.ProjectTaskDtoListEnvelope](docs/ProjectTaskDtoListEnvelope.md)
  - [org.openapitools.client.models.ProjectTaskUpdateDto](docs/ProjectTaskUpdateDto.md)
  - [org.openapitools.client.models.ProjectTimeLogCreateDto](docs/ProjectTimeLogCreateDto.md)
  - [org.openapitools.client.models.ProjectTimeLogDto](docs/ProjectTimeLogDto.md)
+ - [org.openapitools.client.models.ProjectTimeLogDtoCollectionQueryParameters](docs/ProjectTimeLogDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.ProjectTimeLogDtoEnvelope](docs/ProjectTimeLogDtoEnvelope.md)
  - [org.openapitools.client.models.ProjectTimeLogDtoListEnvelope](docs/ProjectTimeLogDtoListEnvelope.md)
  - [org.openapitools.client.models.ProjectTimeLogUpdateDto](docs/ProjectTimeLogUpdateDto.md)
@@ -162,6 +164,7 @@ All URIs are relative to *https://absuite.net*
  - [org.openapitools.client.models.ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [org.openapitools.client.models.TaskCategoryCreateDto](docs/TaskCategoryCreateDto.md)
  - [org.openapitools.client.models.TaskCategoryDto](docs/TaskCategoryDto.md)
+ - [org.openapitools.client.models.TaskCategoryDtoCollectionQueryParameters](docs/TaskCategoryDtoCollectionQueryParameters.md)
  - [org.openapitools.client.models.TaskCategoryDtoListEnvelope](docs/TaskCategoryDtoListEnvelope.md)
  - [org.openapitools.client.models.TaskCategoryUpdateDto](docs/TaskCategoryUpdateDto.md)
  - [org.openapitools.client.models.TaskTypeCreateDto](docs/TaskTypeCreateDto.md)

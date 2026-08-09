@@ -20,6 +20,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.DeliveryNoteCreateDto
+import org.openapitools.client.models.DeliveryNoteDtoCollectionQueryParameters
 import org.openapitools.client.models.DeliveryNoteDtoEnvelope
 import org.openapitools.client.models.DeliveryNoteDtoListEnvelope
 import org.openapitools.client.models.DeliveryNoteUpdateDto
@@ -319,6 +320,7 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return DeliveryNoteDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -328,8 +330,8 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDeliveryNotesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : DeliveryNoteDtoListEnvelope {
-        val localVarResponse = getDeliveryNotesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDeliveryNotesAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters? = null) : DeliveryNoteDtoListEnvelope {
+        val localVarResponse = getDeliveryNotesAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, deliveryNoteDtoCollectionQueryParameters = deliveryNoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DeliveryNoteDtoListEnvelope
@@ -352,16 +354,17 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<DeliveryNoteDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDeliveryNotesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<DeliveryNoteDtoListEnvelope?> {
-        val localVariableConfig = getDeliveryNotesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDeliveryNotesAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters?) : ApiResponse<DeliveryNoteDtoListEnvelope?> {
+        val localVariableConfig = getDeliveryNotesAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, deliveryNoteDtoCollectionQueryParameters = deliveryNoteDtoCollectionQueryParameters)
 
-        return request<Unit, DeliveryNoteDtoListEnvelope>(
+        return request<DeliveryNoteDtoCollectionQueryParameters, DeliveryNoteDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -372,10 +375,11 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDeliveryNotesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDeliveryNotesAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters?) : RequestConfig<DeliveryNoteDtoCollectionQueryParameters> {
+        val localVariableBody = deliveryNoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -385,6 +389,7 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getDeliveryNotesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getDeliveryNotesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDeliveryNotesCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getDeliveryNotesCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, deliveryNoteDtoCollectionQueryParameters = deliveryNoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -436,16 +442,17 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getDeliveryNotesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getDeliveryNotesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getDeliveryNotesCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getDeliveryNotesCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, deliveryNoteDtoCollectionQueryParameters = deliveryNoteDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<DeliveryNoteDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param deliveryNoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getDeliveryNotesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getDeliveryNotesCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, deliveryNoteDtoCollectionQueryParameters: DeliveryNoteDtoCollectionQueryParameters?) : RequestConfig<DeliveryNoteDtoCollectionQueryParameters> {
+        val localVariableBody = deliveryNoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class DeliveryNotesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

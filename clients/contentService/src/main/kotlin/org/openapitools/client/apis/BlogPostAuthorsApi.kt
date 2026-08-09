@@ -19,8 +19,10 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.BlogAuthorDtoCollectionQueryParameters
 import org.openapitools.client.models.BlogAuthorDtoEnvelope
 import org.openapitools.client.models.BlogAuthorDtoListEnvelope
+import org.openapitools.client.models.BlogPostDtoCollectionQueryParameters
 import org.openapitools.client.models.BlogPostDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
@@ -55,6 +57,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -64,8 +67,8 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countBlogPostsByAuthorAsync(authorId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countBlogPostsByAuthorAsyncWithHttpInfo(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countBlogPostsByAuthorAsync(authorId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countBlogPostsByAuthorAsyncWithHttpInfo(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogPostDtoCollectionQueryParameters = blogPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -88,16 +91,17 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countBlogPostsByAuthorAsyncWithHttpInfo(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countBlogPostsByAuthorAsyncRequestConfig(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countBlogPostsByAuthorAsyncWithHttpInfo(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countBlogPostsByAuthorAsyncRequestConfig(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogPostDtoCollectionQueryParameters = blogPostDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BlogPostDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -108,10 +112,11 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countBlogPostsByAuthorAsyncRequestConfig(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countBlogPostsByAuthorAsyncRequestConfig(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters?) : RequestConfig<BlogPostDtoCollectionQueryParameters> {
+        val localVariableBody = blogPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -120,6 +125,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -221,6 +227,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogAuthorDtoCollectionQueryParameters  (optional)
      * @return BlogAuthorDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -230,8 +237,8 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlogAuthorsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlogAuthorDtoListEnvelope {
-        val localVarResponse = getBlogAuthorsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlogAuthorsAsync(tenantId: java.util.UUID? = null, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blogAuthorDtoCollectionQueryParameters: BlogAuthorDtoCollectionQueryParameters? = null) : BlogAuthorDtoListEnvelope {
+        val localVarResponse = getBlogAuthorsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogAuthorDtoCollectionQueryParameters = blogAuthorDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlogAuthorDtoListEnvelope
@@ -254,16 +261,17 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogAuthorDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BlogAuthorDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlogAuthorsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlogAuthorDtoListEnvelope?> {
-        val localVariableConfig = getBlogAuthorsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlogAuthorsAsyncWithHttpInfo(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogAuthorDtoCollectionQueryParameters: BlogAuthorDtoCollectionQueryParameters?) : ApiResponse<BlogAuthorDtoListEnvelope?> {
+        val localVariableConfig = getBlogAuthorsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogAuthorDtoCollectionQueryParameters = blogAuthorDtoCollectionQueryParameters)
 
-        return request<Unit, BlogAuthorDtoListEnvelope>(
+        return request<BlogAuthorDtoCollectionQueryParameters, BlogAuthorDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -274,10 +282,11 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogAuthorDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlogAuthorsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlogAuthorsAsyncRequestConfig(tenantId: java.util.UUID?, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogAuthorDtoCollectionQueryParameters: BlogAuthorDtoCollectionQueryParameters?) : RequestConfig<BlogAuthorDtoCollectionQueryParameters> {
+        val localVariableBody = blogAuthorDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (tenantId != null) {
@@ -289,6 +298,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -307,6 +317,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return BlogPostDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -316,8 +327,8 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBlogPostsByAuthorAsync(authorId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BlogPostDtoListEnvelope {
-        val localVarResponse = getBlogPostsByAuthorAsyncWithHttpInfo(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlogPostsByAuthorAsync(authorId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters? = null) : BlogPostDtoListEnvelope {
+        val localVarResponse = getBlogPostsByAuthorAsyncWithHttpInfo(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogPostDtoCollectionQueryParameters = blogPostDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BlogPostDtoListEnvelope
@@ -340,16 +351,17 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BlogPostDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBlogPostsByAuthorAsyncWithHttpInfo(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BlogPostDtoListEnvelope?> {
-        val localVariableConfig = getBlogPostsByAuthorAsyncRequestConfig(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getBlogPostsByAuthorAsyncWithHttpInfo(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters?) : ApiResponse<BlogPostDtoListEnvelope?> {
+        val localVariableConfig = getBlogPostsByAuthorAsyncRequestConfig(authorId = authorId, apiVersion = apiVersion, xApiVersion = xApiVersion, blogPostDtoCollectionQueryParameters = blogPostDtoCollectionQueryParameters)
 
-        return request<Unit, BlogPostDtoListEnvelope>(
+        return request<BlogPostDtoCollectionQueryParameters, BlogPostDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -360,10 +372,11 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param authorId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getBlogPostsByAuthorAsyncRequestConfig(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getBlogPostsByAuthorAsyncRequestConfig(authorId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, blogPostDtoCollectionQueryParameters: BlogPostDtoCollectionQueryParameters?) : RequestConfig<BlogPostDtoCollectionQueryParameters> {
+        val localVariableBody = blogPostDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -372,6 +385,7 @@ class BlogPostAuthorsApi(basePath: kotlin.String = defaultBasePath, client: Call
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

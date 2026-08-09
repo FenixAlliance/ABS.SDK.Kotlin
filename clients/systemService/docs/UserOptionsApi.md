@@ -175,7 +175,7 @@ No authorization required
 
 <a id="getSystemUserOptions"></a>
 # **getSystemUserOptions**
-> OptionDtoListEnvelope getSystemUserOptions(userId, portalId, apiVersion, xApiVersion)
+> OptionDtoListEnvelope getSystemUserOptions(userId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Retrieve a list of user options (admin)
 
@@ -192,8 +192,9 @@ val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val optionDtoCollectionQueryParameters : OptionDtoCollectionQueryParameters =  // OptionDtoCollectionQueryParameters | 
 try {
-    val result : OptionDtoListEnvelope = apiInstance.getSystemUserOptions(userId, portalId, apiVersion, xApiVersion)
+    val result : OptionDtoListEnvelope = apiInstance.getSystemUserOptions(userId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserOptionsApi#getSystemUserOptions")
@@ -208,9 +209,10 @@ try {
 | **userId** | **java.util.UUID**|  | |
 | **portalId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -222,12 +224,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSystemUserOptionsCount"></a>
 # **getSystemUserOptionsCount**
-> Int32Envelope getSystemUserOptionsCount(userId, portalId, apiVersion, xApiVersion)
+> Int32Envelope getSystemUserOptionsCount(userId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Get the count of user options (admin)
 
@@ -244,8 +246,9 @@ val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val portalId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val optionDtoCollectionQueryParameters : OptionDtoCollectionQueryParameters =  // OptionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSystemUserOptionsCount(userId, portalId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSystemUserOptionsCount(userId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserOptionsApi#getSystemUserOptionsCount")
@@ -260,9 +263,10 @@ try {
 | **userId** | **java.util.UUID**|  | |
 | **portalId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,12 +278,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchSystemUserOption"></a>
 # **patchSystemUserOption**
-> EmptyEnvelope patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a user option (admin)
 
@@ -296,9 +300,9 @@ val userId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val optionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchSystemUserOption(userId, optionId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserOptionsApi#patchSystemUserOption")
@@ -316,7 +320,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

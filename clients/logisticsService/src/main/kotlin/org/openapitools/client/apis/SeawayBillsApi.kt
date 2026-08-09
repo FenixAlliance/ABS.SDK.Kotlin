@@ -22,12 +22,14 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SeawayBillCreateDto
+import org.openapitools.client.models.SeawayBillDtoCollectionQueryParameters
 import org.openapitools.client.models.SeawayBillDtoEnvelope
 import org.openapitools.client.models.SeawayBillDtoListEnvelope
 import org.openapitools.client.models.SeawayBillUpdateDto
 import org.openapitools.client.models.WaybillLineCreateDto
+import org.openapitools.client.models.WaybillLineDtoCollectionQueryParameters
 import org.openapitools.client.models.WaybillLineDtoListEnvelope
 import org.openapitools.client.models.WaybillLineUpdateDto
 
@@ -502,6 +504,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -511,8 +514,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSeawayBillLinesAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WaybillLineDtoListEnvelope {
-        val localVarResponse = getSeawayBillLinesAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillLinesAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : WaybillLineDtoListEnvelope {
+        val localVarResponse = getSeawayBillLinesAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WaybillLineDtoListEnvelope
@@ -536,16 +539,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WaybillLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSeawayBillLinesAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WaybillLineDtoListEnvelope?> {
-        val localVariableConfig = getSeawayBillLinesAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillLinesAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<WaybillLineDtoListEnvelope?> {
+        val localVariableConfig = getSeawayBillLinesAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, WaybillLineDtoListEnvelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, WaybillLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -557,10 +561,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSeawayBillLinesAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSeawayBillLinesAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -570,6 +575,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -589,6 +595,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -598,8 +605,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSeawayBillLinesCountAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSeawayBillLinesCountAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillLinesCountAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSeawayBillLinesCountAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -623,16 +630,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSeawayBillLinesCountAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSeawayBillLinesCountAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillLinesCountAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSeawayBillLinesCountAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, waybillLineDtoCollectionQueryParameters = waybillLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WaybillLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -644,10 +652,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSeawayBillLinesCountAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSeawayBillLinesCountAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, waybillLineDtoCollectionQueryParameters: WaybillLineDtoCollectionQueryParameters?) : RequestConfig<WaybillLineDtoCollectionQueryParameters> {
+        val localVariableBody = waybillLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -657,6 +666,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -675,6 +685,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return SeawayBillDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -684,8 +695,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSeawayBillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SeawayBillDtoListEnvelope {
-        val localVarResponse = getSeawayBillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters? = null) : SeawayBillDtoListEnvelope {
+        val localVarResponse = getSeawayBillsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seawayBillDtoCollectionQueryParameters = seawayBillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SeawayBillDtoListEnvelope
@@ -708,16 +719,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SeawayBillDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSeawayBillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SeawayBillDtoListEnvelope?> {
-        val localVariableConfig = getSeawayBillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters?) : ApiResponse<SeawayBillDtoListEnvelope?> {
+        val localVariableConfig = getSeawayBillsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seawayBillDtoCollectionQueryParameters = seawayBillDtoCollectionQueryParameters)
 
-        return request<Unit, SeawayBillDtoListEnvelope>(
+        return request<SeawayBillDtoCollectionQueryParameters, SeawayBillDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -728,10 +740,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSeawayBillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSeawayBillsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters?) : RequestConfig<SeawayBillDtoCollectionQueryParameters> {
+        val localVariableBody = seawayBillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -741,6 +754,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -759,6 +773,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -768,8 +783,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSeawayBillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSeawayBillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSeawayBillsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seawayBillDtoCollectionQueryParameters = seawayBillDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -792,16 +807,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSeawayBillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSeawayBillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSeawayBillsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSeawayBillsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, seawayBillDtoCollectionQueryParameters = seawayBillDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SeawayBillDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -812,10 +828,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param seawayBillDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSeawayBillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSeawayBillsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, seawayBillDtoCollectionQueryParameters: SeawayBillDtoCollectionQueryParameters?) : RequestConfig<SeawayBillDtoCollectionQueryParameters> {
+        val localVariableBody = seawayBillDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -825,6 +842,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1105,7 +1123,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1115,8 +1133,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSeawayBillAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSeawayBillAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSeawayBillAsync(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSeawayBillAsyncWithHttpInfo(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1140,17 +1158,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSeawayBillAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSeawayBillAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSeawayBillAsyncWithHttpInfo(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSeawayBillAsyncRequestConfig(billId = billId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1162,11 +1180,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSeawayBillAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSeawayBillAsyncRequestConfig(billId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -1197,7 +1215,7 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1207,8 +1225,8 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSeawayBillLineAsync(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSeawayBillLineAsyncWithHttpInfo(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSeawayBillLineAsync(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSeawayBillLineAsyncWithHttpInfo(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -1233,17 +1251,17 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSeawayBillLineAsyncWithHttpInfo(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSeawayBillLineAsyncRequestConfig(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSeawayBillLineAsyncWithHttpInfo(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSeawayBillLineAsyncRequestConfig(billId = billId, lineId = lineId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -1256,11 +1274,11 @@ class SeawayBillsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSeawayBillLineAsyncRequestConfig(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSeawayBillLineAsyncRequestConfig(billId: java.util.UUID, lineId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

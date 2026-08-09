@@ -23,30 +23,37 @@ import org.openapitools.client.models.EmailDispatchRequest
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.Envelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedInvoiceDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedInvoiceDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.InvoiceAdjustmentCreateDto
+import org.openapitools.client.models.InvoiceAdjustmentDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceAdjustmentDtoEnvelope
 import org.openapitools.client.models.InvoiceAdjustmentDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.InvoiceAdjustmentUpdateDto
 import org.openapitools.client.models.InvoiceCreateDto
+import org.openapitools.client.models.InvoiceDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceDtoEnvelope
 import org.openapitools.client.models.InvoiceDtoListEnvelope
 import org.openapitools.client.models.InvoiceLineAppliedTaxCreateDto
+import org.openapitools.client.models.InvoiceLineAppliedTaxDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.InvoiceLineAppliedTaxUpdateDto
 import org.openapitools.client.models.InvoiceLineCreateDto
+import org.openapitools.client.models.InvoiceLineDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceLineDtoEnvelope
 import org.openapitools.client.models.InvoiceLineDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.InvoiceLineDtoListEnvelope
 import org.openapitools.client.models.InvoiceLineUpdateDto
 import org.openapitools.client.models.InvoiceReferenceCreateDto
+import org.openapitools.client.models.InvoiceReferenceDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceReferenceDtoEnvelope
 import org.openapitools.client.models.InvoiceReferenceDtoIReadOnlyListEnvelope
 import org.openapitools.client.models.InvoiceReferenceUpdateDto
 import org.openapitools.client.models.InvoiceUpdateDto
 import org.openapitools.client.models.MoneyEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
+import org.openapitools.client.models.PaymentDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentDtoIReadOnlyListEnvelope
 
 import com.squareup.moshi.Json
@@ -1536,6 +1543,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get a list of extended invoices.
      * Retrieves a list of extended invoice details for the specified tenant.
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ExtendedInvoiceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1545,8 +1553,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedInvoices(tenantId: java.util.UUID) : ExtendedInvoiceDtoListEnvelope {
-        val localVarResponse = getExtendedInvoicesWithHttpInfo(tenantId = tenantId)
+    fun getExtendedInvoices(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters? = null) : ExtendedInvoiceDtoListEnvelope {
+        val localVarResponse = getExtendedInvoicesWithHttpInfo(tenantId = tenantId, extendedInvoiceDtoCollectionQueryParameters = extendedInvoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedInvoiceDtoListEnvelope
@@ -1567,16 +1575,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get a list of extended invoices.
      * Retrieves a list of extended invoice details for the specified tenant.
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedInvoiceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedInvoicesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<ExtendedInvoiceDtoListEnvelope?> {
-        val localVariableConfig = getExtendedInvoicesRequestConfig(tenantId = tenantId)
+    fun getExtendedInvoicesWithHttpInfo(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters?) : ApiResponse<ExtendedInvoiceDtoListEnvelope?> {
+        val localVariableConfig = getExtendedInvoicesRequestConfig(tenantId = tenantId, extendedInvoiceDtoCollectionQueryParameters = extendedInvoiceDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedInvoiceDtoListEnvelope>(
+        return request<ExtendedInvoiceDtoCollectionQueryParameters, ExtendedInvoiceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1585,15 +1594,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getExtendedInvoices
      *
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedInvoicesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedInvoicesRequestConfig(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters?) : RequestConfig<ExtendedInvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = extendedInvoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1610,6 +1621,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of extended invoices.
      * Retrieves the total count of extended invoices for the specified tenant.
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1619,8 +1631,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getExtendedInvoicesCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getExtendedInvoicesCountWithHttpInfo(tenantId = tenantId)
+    fun getExtendedInvoicesCount(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getExtendedInvoicesCountWithHttpInfo(tenantId = tenantId, extendedInvoiceDtoCollectionQueryParameters = extendedInvoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1641,16 +1653,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of extended invoices.
      * Retrieves the total count of extended invoices for the specified tenant.
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getExtendedInvoicesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getExtendedInvoicesCountRequestConfig(tenantId = tenantId)
+    fun getExtendedInvoicesCountWithHttpInfo(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getExtendedInvoicesCountRequestConfig(tenantId = tenantId, extendedInvoiceDtoCollectionQueryParameters = extendedInvoiceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<ExtendedInvoiceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1659,15 +1672,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getExtendedInvoicesCount
      *
      * @param tenantId 
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getExtendedInvoicesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getExtendedInvoicesCountRequestConfig(tenantId: java.util.UUID, extendedInvoiceDtoCollectionQueryParameters: ExtendedInvoiceDtoCollectionQueryParameters?) : RequestConfig<ExtendedInvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = extendedInvoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1842,6 +1857,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the adjustments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return InvoiceAdjustmentDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1851,8 +1867,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceAdjustments(invoiceId: java.util.UUID, tenantId: java.util.UUID) : InvoiceAdjustmentDtoIReadOnlyListEnvelope {
-        val localVarResponse = getInvoiceAdjustmentsWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceAdjustments(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters? = null) : InvoiceAdjustmentDtoIReadOnlyListEnvelope {
+        val localVarResponse = getInvoiceAdjustmentsWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, invoiceAdjustmentDtoCollectionQueryParameters = invoiceAdjustmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceAdjustmentDtoIReadOnlyListEnvelope
@@ -1874,16 +1890,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the adjustments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceAdjustmentsWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getInvoiceAdjustmentsRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceAdjustmentsWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters?) : ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getInvoiceAdjustmentsRequestConfig(invoiceId = invoiceId, tenantId = tenantId, invoiceAdjustmentDtoCollectionQueryParameters = invoiceAdjustmentDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceAdjustmentDtoIReadOnlyListEnvelope>(
+        return request<InvoiceAdjustmentDtoCollectionQueryParameters, InvoiceAdjustmentDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -1893,15 +1910,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceAdjustmentsRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceAdjustmentsRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters?) : RequestConfig<InvoiceAdjustmentDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceAdjustmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1919,6 +1938,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of adjustments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1928,8 +1948,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceAdjustmentsCount(invoiceId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoiceAdjustmentsCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceAdjustmentsCount(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoiceAdjustmentsCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, invoiceAdjustmentDtoCollectionQueryParameters = invoiceAdjustmentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1951,16 +1971,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of adjustments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceAdjustmentsCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoiceAdjustmentsCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceAdjustmentsCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoiceAdjustmentsCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId, invoiceAdjustmentDtoCollectionQueryParameters = invoiceAdjustmentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceAdjustmentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1970,15 +1991,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceAdjustmentsCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceAdjustmentsCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceAdjustmentDtoCollectionQueryParameters: InvoiceAdjustmentDtoCollectionQueryParameters?) : RequestConfig<InvoiceAdjustmentDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceAdjustmentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2077,6 +2100,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2086,8 +2110,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceLineTaxes(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope {
-        val localVarResponse = getInvoiceLineTaxesWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId)
+    fun getInvoiceLineTaxes(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters? = null) : InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope {
+        val localVarResponse = getInvoiceLineTaxesWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters = invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
@@ -2110,16 +2134,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceLineTaxesWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getInvoiceLineTaxesRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId)
+    fun getInvoiceLineTaxesWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters?) : ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getInvoiceLineTaxesRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters = invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope>(
+        return request<InvoiceLineAppliedTaxDtoCollectionQueryParameters, InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -2130,15 +2155,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceLineTaxesRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceLineTaxesRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters?) : RequestConfig<InvoiceLineAppliedTaxDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceLineAppliedTaxDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2157,6 +2184,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2166,8 +2194,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceLineTaxesCount(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoiceLineTaxesCountWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId)
+    fun getInvoiceLineTaxesCount(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoiceLineTaxesCountWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters = invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2190,16 +2218,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceLineTaxesCountWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoiceLineTaxesCountRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId)
+    fun getInvoiceLineTaxesCountWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoiceLineTaxesCountRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, invoiceLineAppliedTaxDtoCollectionQueryParameters = invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceLineAppliedTaxDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2210,15 +2239,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceLineTaxesCountRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceLineTaxesCountRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, invoiceLineAppliedTaxDtoCollectionQueryParameters: InvoiceLineAppliedTaxDtoCollectionQueryParameters?) : RequestConfig<InvoiceLineAppliedTaxDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceLineAppliedTaxDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2237,6 +2268,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return InvoiceLineDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2246,8 +2278,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceLines(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null) : InvoiceLineDtoListEnvelope {
-        val localVarResponse = getInvoiceLinesWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, itemId = itemId)
+    fun getInvoiceLines(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID? = null, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters? = null) : InvoiceLineDtoListEnvelope {
+        val localVarResponse = getInvoiceLinesWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, itemId = itemId, invoiceLineDtoCollectionQueryParameters = invoiceLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceLineDtoListEnvelope
@@ -2270,16 +2302,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceLineDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceLinesWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : ApiResponse<InvoiceLineDtoListEnvelope?> {
-        val localVariableConfig = getInvoiceLinesRequestConfig(invoiceId = invoiceId, tenantId = tenantId, itemId = itemId)
+    fun getInvoiceLinesWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters?) : ApiResponse<InvoiceLineDtoListEnvelope?> {
+        val localVariableConfig = getInvoiceLinesRequestConfig(invoiceId = invoiceId, tenantId = tenantId, itemId = itemId, invoiceLineDtoCollectionQueryParameters = invoiceLineDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceLineDtoListEnvelope>(
+        return request<InvoiceLineDtoCollectionQueryParameters, InvoiceLineDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2290,10 +2323,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param tenantId 
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceLinesRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceLinesRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, itemId: java.util.UUID?, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters?) : RequestConfig<InvoiceLineDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -2302,6 +2336,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2319,6 +2354,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of invoice lines for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2328,8 +2364,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceLinesCount(invoiceId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoiceLinesCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceLinesCount(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoiceLinesCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, invoiceLineDtoCollectionQueryParameters = invoiceLineDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2351,16 +2387,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of invoice lines for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceLinesCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoiceLinesCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceLinesCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoiceLinesCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId, invoiceLineDtoCollectionQueryParameters = invoiceLineDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceLineDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2370,15 +2407,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceLinesCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceLinesCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceLineDtoCollectionQueryParameters: InvoiceLineDtoCollectionQueryParameters?) : RequestConfig<InvoiceLineDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceLineDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2396,6 +2435,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the list of payments related to the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2405,8 +2445,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoicePayments(invoiceId: java.util.UUID, tenantId: java.util.UUID) : PaymentDtoIReadOnlyListEnvelope {
-        val localVarResponse = getInvoicePaymentsWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoicePayments(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : PaymentDtoIReadOnlyListEnvelope {
+        val localVarResponse = getInvoicePaymentsWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoIReadOnlyListEnvelope
@@ -2428,16 +2468,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the list of payments related to the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicePaymentsWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<PaymentDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getInvoicePaymentsRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoicePaymentsWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<PaymentDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getInvoicePaymentsRequestConfig(invoiceId = invoiceId, tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentDtoIReadOnlyListEnvelope>(
+        return request<PaymentDtoCollectionQueryParameters, PaymentDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -2447,15 +2488,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoicePaymentsRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoicePaymentsRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2473,6 +2516,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of payments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2482,8 +2526,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoicePaymentsCount(invoiceId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoicePaymentsCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoicePaymentsCount(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoicePaymentsCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2505,16 +2549,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of payments for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicePaymentsCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoicePaymentsCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoicePaymentsCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoicePaymentsCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2524,15 +2569,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoicePaymentsCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoicePaymentsCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2630,6 +2677,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the references for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return InvoiceReferenceDtoIReadOnlyListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2639,8 +2687,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceReferences(invoiceId: java.util.UUID, tenantId: java.util.UUID) : InvoiceReferenceDtoIReadOnlyListEnvelope {
-        val localVarResponse = getInvoiceReferencesWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceReferences(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters? = null) : InvoiceReferenceDtoIReadOnlyListEnvelope {
+        val localVarResponse = getInvoiceReferencesWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, invoiceReferenceDtoCollectionQueryParameters = invoiceReferenceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceReferenceDtoIReadOnlyListEnvelope
@@ -2662,16 +2710,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the references for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceReferencesWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope?> {
-        val localVariableConfig = getInvoiceReferencesRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceReferencesWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters?) : ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope?> {
+        val localVariableConfig = getInvoiceReferencesRequestConfig(invoiceId = invoiceId, tenantId = tenantId, invoiceReferenceDtoCollectionQueryParameters = invoiceReferenceDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceReferenceDtoIReadOnlyListEnvelope>(
+        return request<InvoiceReferenceDtoCollectionQueryParameters, InvoiceReferenceDtoIReadOnlyListEnvelope>(
             localVariableConfig
         )
     }
@@ -2681,15 +2730,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceReferencesRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceReferencesRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters?) : RequestConfig<InvoiceReferenceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceReferenceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2707,6 +2758,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of references for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2716,8 +2768,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceReferencesCount(invoiceId: java.util.UUID, tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoiceReferencesCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceReferencesCount(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoiceReferencesCountWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, invoiceReferenceDtoCollectionQueryParameters = invoiceReferenceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2739,16 +2791,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Retrieves the total count of references for the specified invoice.
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceReferencesCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoiceReferencesCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId)
+    fun getInvoiceReferencesCountWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoiceReferencesCountRequestConfig(invoiceId = invoiceId, tenantId = tenantId, invoiceReferenceDtoCollectionQueryParameters = invoiceReferenceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceReferenceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2758,15 +2811,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceReferencesCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceReferencesCountRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, invoiceReferenceDtoCollectionQueryParameters: InvoiceReferenceDtoCollectionQueryParameters?) : RequestConfig<InvoiceReferenceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceReferenceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2783,6 +2838,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get a list of invoices.
      * Retrieves a list of invoices for the specified tenant.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2792,8 +2848,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoices(tenantId: java.util.UUID) : InvoiceDtoListEnvelope {
-        val localVarResponse = getInvoicesWithHttpInfo(tenantId = tenantId)
+    fun getInvoices(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : InvoiceDtoListEnvelope {
+        val localVarResponse = getInvoicesWithHttpInfo(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceDtoListEnvelope
@@ -2814,16 +2870,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get a list of invoices.
      * Retrieves a list of invoices for the specified tenant.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicesWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<InvoiceDtoListEnvelope?> {
-        val localVariableConfig = getInvoicesRequestConfig(tenantId = tenantId)
+    fun getInvoicesWithHttpInfo(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<InvoiceDtoListEnvelope?> {
+        val localVariableConfig = getInvoicesRequestConfig(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceDtoListEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, InvoiceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2832,15 +2889,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getInvoices
      *
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoicesRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoicesRequestConfig(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2857,6 +2916,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of invoices.
      * Retrieves the total count of invoices for the specified tenant.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2866,8 +2926,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoicesCount(tenantId: java.util.UUID) : Int32Envelope {
-        val localVarResponse = getInvoicesCountWithHttpInfo(tenantId = tenantId)
+    fun getInvoicesCount(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoicesCountWithHttpInfo(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2888,16 +2948,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Get the count of invoices.
      * Retrieves the total count of invoices for the specified tenant.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoicesCountWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoicesCountRequestConfig(tenantId = tenantId)
+    fun getInvoicesCountWithHttpInfo(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoicesCountRequestConfig(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2906,15 +2967,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getInvoicesCount
      *
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoicesCountRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoicesCountRequestConfig(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2931,6 +2994,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2940,8 +3004,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getPurchaseInvoicesSum(tenantId: java.util.UUID) : MoneyEnvelope {
-        val localVarResponse = getPurchaseInvoicesSumWithHttpInfo(tenantId = tenantId)
+    fun getPurchaseInvoicesSum(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getPurchaseInvoicesSumWithHttpInfo(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -2962,16 +3026,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getPurchaseInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getPurchaseInvoicesSumRequestConfig(tenantId = tenantId)
+    fun getPurchaseInvoicesSumWithHttpInfo(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getPurchaseInvoicesSumRequestConfig(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -2980,15 +3045,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getPurchaseInvoicesSum
      *
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getPurchaseInvoicesSumRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getPurchaseInvoicesSumRequestConfig(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3005,6 +3072,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3014,8 +3082,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSalesInvoicesSum(tenantId: java.util.UUID) : MoneyEnvelope {
-        val localVarResponse = getSalesInvoicesSumWithHttpInfo(tenantId = tenantId)
+    fun getSalesInvoicesSum(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : MoneyEnvelope {
+        val localVarResponse = getSalesInvoicesSumWithHttpInfo(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MoneyEnvelope
@@ -3036,16 +3104,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<MoneyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSalesInvoicesSumWithHttpInfo(tenantId: java.util.UUID) : ApiResponse<MoneyEnvelope?> {
-        val localVariableConfig = getSalesInvoicesSumRequestConfig(tenantId = tenantId)
+    fun getSalesInvoicesSumWithHttpInfo(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<MoneyEnvelope?> {
+        val localVariableConfig = getSalesInvoicesSumRequestConfig(tenantId = tenantId, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, MoneyEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, MoneyEnvelope>(
             localVariableConfig
         )
     }
@@ -3054,15 +3123,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation getSalesInvoicesSum
      *
      * @param tenantId 
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSalesInvoicesSumRequestConfig(tenantId: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSalesInvoicesSumRequestConfig(tenantId: java.util.UUID, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3080,7 +3151,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified invoice for the tenant.
      * @param invoiceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3090,8 +3161,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInvoice(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInvoiceWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, operation = operation)
+    fun patchInvoice(invoiceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceWithHttpInfo(invoiceId = invoiceId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3113,17 +3184,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Partially updates the specified invoice for the tenant.
      * @param invoiceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInvoiceWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInvoiceRequestConfig(invoiceId = invoiceId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceWithHttpInfo(invoiceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceRequestConfig(invoiceId = invoiceId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3133,11 +3204,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @param invoiceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInvoiceRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInvoiceRequestConfig(invoiceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3162,7 +3233,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceAdjustmentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3172,8 +3243,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInvoiceAdjustment(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInvoiceAdjustmentWithHttpInfo(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceAdjustment(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceAdjustmentWithHttpInfo(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3196,17 +3267,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceAdjustmentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInvoiceAdjustmentWithHttpInfo(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInvoiceAdjustmentRequestConfig(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceAdjustmentWithHttpInfo(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceAdjustmentRequestConfig(invoiceId = invoiceId, invoiceAdjustmentId = invoiceAdjustmentId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3217,11 +3288,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceAdjustmentId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInvoiceAdjustmentRequestConfig(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInvoiceAdjustmentRequestConfig(invoiceId: java.util.UUID, invoiceAdjustmentId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3246,7 +3317,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3256,8 +3327,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInvoiceLine(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInvoiceLineWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceLine(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceLineWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3280,17 +3351,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInvoiceLineWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInvoiceLineRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceLineWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceLineRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3301,11 +3372,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceLineId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInvoiceLineRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInvoiceLineRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3331,7 +3402,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceLineId 
      * @param invoiceLineTaxId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3341,8 +3412,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInvoiceLineTax(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInvoiceLineTaxWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceLineTax(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceLineTaxWithHttpInfo(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3366,17 +3437,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceLineId 
      * @param invoiceLineTaxId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInvoiceLineTaxWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInvoiceLineTaxRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceLineTaxWithHttpInfo(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceLineTaxRequestConfig(invoiceId = invoiceId, invoiceLineId = invoiceLineId, invoiceLineTaxId = invoiceLineTaxId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3388,11 +3459,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceLineId 
      * @param invoiceLineTaxId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInvoiceLineTaxRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInvoiceLineTaxRequestConfig(invoiceId: java.util.UUID, invoiceLineId: java.util.UUID, invoiceLineTaxId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -3417,7 +3488,7 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceReferenceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3427,8 +3498,8 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchInvoiceReference(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchInvoiceReferenceWithHttpInfo(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceReference(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchInvoiceReferenceWithHttpInfo(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3451,17 +3522,17 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceReferenceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchInvoiceReferenceWithHttpInfo(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchInvoiceReferenceRequestConfig(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, operation = operation)
+    fun patchInvoiceReferenceWithHttpInfo(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchInvoiceReferenceRequestConfig(invoiceId = invoiceId, invoiceReferenceId = invoiceReferenceId, tenantId = tenantId, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3472,11 +3543,11 @@ class InvoicesApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param invoiceId 
      * @param invoiceReferenceId 
      * @param tenantId 
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchInvoiceReferenceRequestConfig(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchInvoiceReferenceRequestConfig(invoiceId: java.util.UUID, invoiceReferenceId: java.util.UUID, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

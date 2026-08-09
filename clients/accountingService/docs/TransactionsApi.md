@@ -282,7 +282,7 @@ No authorization required
 
 <a id="getTransactionCategories"></a>
 # **getTransactionCategories**
-> TransactionCategoryDtoListEnvelope getTransactionCategories(tenantId, apiVersion, xApiVersion)
+> TransactionCategoryDtoListEnvelope getTransactionCategories(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
 
 Get all transaction categories
 
@@ -298,8 +298,9 @@ val apiInstance = TransactionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val transactionCategoryDtoCollectionQueryParameters : TransactionCategoryDtoCollectionQueryParameters =  // TransactionCategoryDtoCollectionQueryParameters | 
 try {
-    val result : TransactionCategoryDtoListEnvelope = apiInstance.getTransactionCategories(tenantId, apiVersion, xApiVersion)
+    val result : TransactionCategoryDtoListEnvelope = apiInstance.getTransactionCategories(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#getTransactionCategories")
@@ -313,9 +314,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **transactionCategoryDtoCollectionQueryParameters** | [**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -327,12 +329,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTransactionCategoriesCount"></a>
 # **getTransactionCategoriesCount**
-> Int32Envelope getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
 
 Get transaction categories count
 
@@ -348,8 +350,9 @@ val apiInstance = TransactionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val transactionCategoryDtoCollectionQueryParameters : TransactionCategoryDtoCollectionQueryParameters =  // TransactionCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#getTransactionCategoriesCount")
@@ -363,9 +366,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **transactionCategoryDtoCollectionQueryParameters** | [**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -377,7 +381,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTransactionCategory"></a>
@@ -434,7 +438,7 @@ No authorization required
 
 <a id="getTransactions"></a>
 # **getTransactions**
-> TransactionDtoListEnvelope getTransactions(tenantId, apiVersion, xApiVersion)
+> TransactionDtoListEnvelope getTransactions(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
 
 Get all transactions for a tenant
 
@@ -450,8 +454,9 @@ val apiInstance = TransactionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val transactionDtoCollectionQueryParameters : TransactionDtoCollectionQueryParameters =  // TransactionDtoCollectionQueryParameters | 
 try {
-    val result : TransactionDtoListEnvelope = apiInstance.getTransactions(tenantId, apiVersion, xApiVersion)
+    val result : TransactionDtoListEnvelope = apiInstance.getTransactions(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#getTransactions")
@@ -465,9 +470,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **transactionDtoCollectionQueryParameters** | [**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -479,12 +485,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTransactionsCount"></a>
 # **getTransactionsCount**
-> Int32Envelope getTransactionsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTransactionsCount(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
 
 Get transactions count
 
@@ -500,8 +506,9 @@ val apiInstance = TransactionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val transactionDtoCollectionQueryParameters : TransactionDtoCollectionQueryParameters =  // TransactionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTransactionsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTransactionsCount(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#getTransactionsCount")
@@ -515,9 +522,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **transactionDtoCollectionQueryParameters** | [**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -529,12 +537,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTransaction"></a>
 # **patchTransaction**
-> EmptyEnvelope patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a transaction
 
@@ -551,9 +559,9 @@ val transactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTransaction(transactionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#patchTransaction")
@@ -571,7 +579,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -588,7 +596,7 @@ No authorization required
 
 <a id="patchTransactionCategory"></a>
 # **patchTransactionCategory**
-> EmptyEnvelope patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a transaction category
 
@@ -605,9 +613,9 @@ val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTransactionCategory(categoryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TransactionsApi#patchTransactionCategory")
@@ -625,7 +633,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getShippingCouriersAsync"></a>
 # **getShippingCouriersAsync**
-> ShippingCourierDtoListEnvelope getShippingCouriersAsync(tenantId, apiVersion, xApiVersion)
+> ShippingCourierDtoListEnvelope getShippingCouriersAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
 
 Get all shipping couriers
 
@@ -185,8 +185,9 @@ val apiInstance = ShippingCouriersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shippingCourierDtoCollectionQueryParameters : ShippingCourierDtoCollectionQueryParameters =  // ShippingCourierDtoCollectionQueryParameters | 
 try {
-    val result : ShippingCourierDtoListEnvelope = apiInstance.getShippingCouriersAsync(tenantId, apiVersion, xApiVersion)
+    val result : ShippingCourierDtoListEnvelope = apiInstance.getShippingCouriersAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingCouriersApi#getShippingCouriersAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shippingCourierDtoCollectionQueryParameters** | [**ShippingCourierDtoCollectionQueryParameters**](ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getShippingCouriersCountAsync"></a>
 # **getShippingCouriersCountAsync**
-> Int32Envelope getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
 
 Get shipping couriers count
 
@@ -235,8 +237,9 @@ val apiInstance = ShippingCouriersApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val shippingCourierDtoCollectionQueryParameters : ShippingCourierDtoCollectionQueryParameters =  // ShippingCourierDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingCouriersApi#getShippingCouriersCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **shippingCourierDtoCollectionQueryParameters** | [**ShippingCourierDtoCollectionQueryParameters**](ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchShippingCourierAsync"></a>
 # **patchShippingCourierAsync**
-> EmptyEnvelope patchShippingCourierAsync(courierId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingCourierAsync(courierId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping courier
 
@@ -286,9 +290,9 @@ val courierId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchShippingCourierAsync(courierId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchShippingCourierAsync(courierId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ShippingCouriersApi#patchShippingCourierAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

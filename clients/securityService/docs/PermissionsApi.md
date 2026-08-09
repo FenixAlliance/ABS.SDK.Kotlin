@@ -447,7 +447,7 @@ No authorization required
 
 <a id="getPermissionsAsync"></a>
 # **getPermissionsAsync**
-> SecurityPermissionDtoListEnvelope getPermissionsAsync(tenantId, apiVersion, xApiVersion)
+> SecurityPermissionDtoListEnvelope getPermissionsAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
 
 Get all permissions
 
@@ -463,8 +463,9 @@ val apiInstance = PermissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityPermissionDtoCollectionQueryParameters : SecurityPermissionDtoCollectionQueryParameters =  // SecurityPermissionDtoCollectionQueryParameters | 
 try {
-    val result : SecurityPermissionDtoListEnvelope = apiInstance.getPermissionsAsync(tenantId, apiVersion, xApiVersion)
+    val result : SecurityPermissionDtoListEnvelope = apiInstance.getPermissionsAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PermissionsApi#getPermissionsAsync")
@@ -478,9 +479,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -492,7 +494,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPermissionsByEnrollmentAsync"></a>
@@ -549,7 +551,7 @@ No authorization required
 
 <a id="getPermissionsCountAsync"></a>
 # **getPermissionsCountAsync**
-> Int32Envelope getPermissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPermissionsCountAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
 
 Get permissions count
 
@@ -565,8 +567,9 @@ val apiInstance = PermissionsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityPermissionDtoCollectionQueryParameters : SecurityPermissionDtoCollectionQueryParameters =  // SecurityPermissionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getPermissionsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getPermissionsCountAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PermissionsApi#getPermissionsCountAsync")
@@ -580,9 +583,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -594,7 +598,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getRolesByPermissionAsync"></a>
@@ -651,7 +655,7 @@ No authorization required
 
 <a id="patchPermissionAsync"></a>
 # **patchPermissionAsync**
-> EmptyEnvelope patchPermissionAsync(securityPermissionId, tenantId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchPermissionAsync(securityPermissionId, tenantId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing permission
 
@@ -666,11 +670,11 @@ Partially updates an existing security permission using a JSON Patch document.
 val apiInstance = PermissionsApi()
 val securityPermissionId : kotlin.String = securityPermissionId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPermissionAsync(securityPermissionId, tenantId, operation, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.patchPermissionAsync(securityPermissionId, tenantId, patchOperation, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PermissionsApi#patchPermissionAsync")
@@ -684,7 +688,7 @@ try {
 ### Parameters
 | **securityPermissionId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

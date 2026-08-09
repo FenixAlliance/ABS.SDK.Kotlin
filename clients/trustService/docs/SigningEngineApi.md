@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getProvidersAsync"></a>
 # **getProvidersAsync**
-> TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(tenantId, apiVersion, xApiVersion)
+> TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
 List signing providers
 
@@ -27,8 +27,9 @@ val apiInstance = SigningEngineApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trustSigningProviderDescriptorDtoCollectionQueryParameters : TrustSigningProviderDescriptorDtoCollectionQueryParameters =  // TrustSigningProviderDescriptorDtoCollectionQueryParameters | 
 try {
-    val result : TrustSigningProviderDescriptorDtoListEnvelope = apiInstance.getProvidersAsync(tenantId, apiVersion, xApiVersion)
+    val result : TrustSigningProviderDescriptorDtoListEnvelope = apiInstance.getProvidersAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningEngineApi#getProvidersAsync")
@@ -42,9 +43,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -56,12 +58,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProvidersCountAsync"></a>
 # **getProvidersCountAsync**
-> Int32Envelope getProvidersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProvidersCountAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
 Count signing providers
 
@@ -77,8 +79,9 @@ val apiInstance = SigningEngineApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trustSigningProviderDescriptorDtoCollectionQueryParameters : TrustSigningProviderDescriptorDtoCollectionQueryParameters =  // TrustSigningProviderDescriptorDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProvidersCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getProvidersCountAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SigningEngineApi#getProvidersCountAsync")
@@ -92,9 +95,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -106,7 +110,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="previewAsync"></a>

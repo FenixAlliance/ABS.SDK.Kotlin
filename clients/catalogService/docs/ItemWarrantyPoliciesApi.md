@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemWarrantyPoliciesAsync"></a>
 # **countItemWarrantyPoliciesAsync**
-> Int32Envelope countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
 
 Count item warranty policies
 
@@ -30,8 +30,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemWarrantyPolicyDtoCollectionQueryParameters : ItemWarrantyPolicyDtoCollectionQueryParameters =  // ItemWarrantyPolicyDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemWarrantyPoliciesApi#countItemWarrantyPoliciesAsync")
@@ -46,9 +47,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,12 +62,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemWarrantyPoliciesAsync"></a>
 # **getItemWarrantyPoliciesAsync**
-> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
 
 Get item warranty policies
 
@@ -82,8 +84,9 @@ val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemWarrantyPolicyDtoCollectionQueryParameters : ItemWarrantyPolicyDtoCollectionQueryParameters =  // ItemWarrantyPolicyDtoCollectionQueryParameters | 
 try {
-    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+    val result : ItemWarrantyPolicyDtoListEnvelope = apiInstance.getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemWarrantyPoliciesApi#getItemWarrantyPoliciesAsync")
@@ -98,9 +101,10 @@ try {
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **itemId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -112,7 +116,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemWarrantyPolicyByIdAsync"></a>

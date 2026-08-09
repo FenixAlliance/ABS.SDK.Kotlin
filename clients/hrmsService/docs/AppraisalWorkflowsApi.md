@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getAppraisalWorkflowsAsync"></a>
 # **getAppraisalWorkflowsAsync**
-> AppraisalWorkflowDtoListEnvelope getAppraisalWorkflowsAsync(tenantId, apiVersion, xApiVersion)
+> AppraisalWorkflowDtoListEnvelope getAppraisalWorkflowsAsync(tenantId, apiVersion, xApiVersion, appraisalWorkflowDtoCollectionQueryParameters)
 
 Get appraisal workflows
 
@@ -186,8 +186,9 @@ val apiInstance = AppraisalWorkflowsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appraisalWorkflowDtoCollectionQueryParameters : AppraisalWorkflowDtoCollectionQueryParameters =  // AppraisalWorkflowDtoCollectionQueryParameters | 
 try {
-    val result : AppraisalWorkflowDtoListEnvelope = apiInstance.getAppraisalWorkflowsAsync(tenantId, apiVersion, xApiVersion)
+    val result : AppraisalWorkflowDtoListEnvelope = apiInstance.getAppraisalWorkflowsAsync(tenantId, apiVersion, xApiVersion, appraisalWorkflowDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AppraisalWorkflowsApi#getAppraisalWorkflowsAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appraisalWorkflowDtoCollectionQueryParameters** | [**AppraisalWorkflowDtoCollectionQueryParameters**](AppraisalWorkflowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAppraisalWorkflowsCountAsync"></a>
 # **getAppraisalWorkflowsCountAsync**
-> Int32Envelope getAppraisalWorkflowsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAppraisalWorkflowsCountAsync(tenantId, apiVersion, xApiVersion, appraisalWorkflowDtoCollectionQueryParameters)
 
 Count appraisal workflows
 
@@ -236,8 +238,9 @@ val apiInstance = AppraisalWorkflowsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val appraisalWorkflowDtoCollectionQueryParameters : AppraisalWorkflowDtoCollectionQueryParameters =  // AppraisalWorkflowDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAppraisalWorkflowsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAppraisalWorkflowsCountAsync(tenantId, apiVersion, xApiVersion, appraisalWorkflowDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AppraisalWorkflowsApi#getAppraisalWorkflowsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **appraisalWorkflowDtoCollectionQueryParameters** | [**AppraisalWorkflowDtoCollectionQueryParameters**](AppraisalWorkflowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateAppraisalWorkflowAsync"></a>

@@ -167,7 +167,7 @@ No authorization required
 
 <a id="getCourseCohortsAsync"></a>
 # **getCourseCohortsAsync**
-> kotlin.collections.List&lt;CourseCohortDto&gt; getCourseCohortsAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseCohortDto&gt; getCourseCohortsAsync(tenantId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get all course cohorts
 
@@ -183,8 +183,9 @@ val apiInstance = CourseCohortsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCohortDtoCollectionQueryParameters : CourseCohortDtoCollectionQueryParameters =  // CourseCohortDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseCohortDto> = apiInstance.getCourseCohortsAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseCohortDto> = apiInstance.getCourseCohortsAsync(tenantId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseCohortsApi#getCourseCohortsAsync")
@@ -198,9 +199,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,12 +214,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseCohortsCountAsync"></a>
 # **getCourseCohortsCountAsync**
-> kotlin.Int getCourseCohortsCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseCohortsCountAsync(tenantId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get course cohorts count
 
@@ -233,8 +235,9 @@ val apiInstance = CourseCohortsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCohortDtoCollectionQueryParameters : CourseCohortDtoCollectionQueryParameters =  // CourseCohortDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseCohortsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseCohortsCountAsync(tenantId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseCohortsApi#getCourseCohortsCountAsync")
@@ -248,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -262,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseCohortAsync"></a>
 # **patchCourseCohortAsync**
-> EmptyEnvelope patchCourseCohortAsync(cohortId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseCohortAsync(cohortId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course cohort
 
@@ -284,9 +288,9 @@ val cohortId : kotlin.String = cohortId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCourseCohortAsync(cohortId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCourseCohortAsync(cohortId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseCohortsApi#patchCourseCohortAsync")
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -12,8 +12,10 @@ All URIs are relative to *https://absuite.net*
 | [**getAllTenants**](TenantsApi.md#getAllTenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance. |
 | [**getExtendedTenantsCount**](TenantsApi.md#getExtendedTenantsCount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance. |
 | [**getTenant**](TenantsApi.md#getTenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID. |
+| [**getTenantModuleGrants**](TenantsApi.md#getTenantModuleGrants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant. |
 | [**getTenantsCount**](TenantsApi.md#getTenantsCount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance. |
 | [**patchTenant**](TenantsApi.md#patchTenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID. |
+| [**setTenantModuleGrants**](TenantsApi.md#setTenantModuleGrants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant. |
 | [**updateTenant**](TenantsApi.md#updateTenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID. |
 
 
@@ -221,7 +223,7 @@ No authorization required
 
 <a id="getAllExtendedTenants"></a>
 # **getAllExtendedTenants**
-> ExtendedTenantDtoListEnvelope getAllExtendedTenants(apiVersion, xApiVersion)
+> ExtendedTenantDtoListEnvelope getAllExtendedTenants(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
 
 Get all extended tenants available on this suite server instance.
 
@@ -236,8 +238,9 @@ This action is only available for global administrators.
 val apiInstance = TenantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedTenantDtoCollectionQueryParameters : ExtendedTenantDtoCollectionQueryParameters =  // ExtendedTenantDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedTenantDtoListEnvelope = apiInstance.getAllExtendedTenants(apiVersion, xApiVersion)
+    val result : ExtendedTenantDtoListEnvelope = apiInstance.getAllExtendedTenants(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getAllExtendedTenants")
@@ -250,9 +253,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAllTenants"></a>
 # **getAllTenants**
-> TenantDtoListEnvelope getAllTenants(apiVersion, xApiVersion)
+> TenantDtoListEnvelope getAllTenants(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get all tenants available on this suite server instance.
 
@@ -284,8 +288,9 @@ This action is only available for global administrators.
 val apiInstance = TenantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDtoCollectionQueryParameters : TenantDtoCollectionQueryParameters =  // TenantDtoCollectionQueryParameters | 
 try {
-    val result : TenantDtoListEnvelope = apiInstance.getAllTenants(apiVersion, xApiVersion)
+    val result : TenantDtoListEnvelope = apiInstance.getAllTenants(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getAllTenants")
@@ -298,9 +303,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,12 +318,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedTenantsCount"></a>
 # **getExtendedTenantsCount**
-> Int32Envelope getExtendedTenantsCount(apiVersion, xApiVersion)
+> Int32Envelope getExtendedTenantsCount(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
 
 Get the total count of extended tenants available on this suite server instance.
 
@@ -332,8 +338,9 @@ This action is only available for global administrators.
 val apiInstance = TenantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val extendedTenantDtoCollectionQueryParameters : ExtendedTenantDtoCollectionQueryParameters =  // ExtendedTenantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getExtendedTenantsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getExtendedTenantsCount(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getExtendedTenantsCount")
@@ -346,9 +353,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -360,7 +368,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenant"></a>
@@ -413,9 +421,59 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="getTenantModuleGrants"></a>
+# **getTenantModuleGrants**
+> ModuleGrantDtoListEnvelope getTenantModuleGrants(tenantId, apiVersion, xApiVersion)
+
+Get the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TenantsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+try {
+    val result : ModuleGrantDtoListEnvelope = apiInstance.getTenantModuleGrants(tenantId, apiVersion, xApiVersion)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TenantsApi#getTenantModuleGrants")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TenantsApi#getTenantModuleGrants")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+
+### Return type
+
+[**ModuleGrantDtoListEnvelope**](ModuleGrantDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="getTenantsCount"></a>
 # **getTenantsCount**
-> Int32Envelope getTenantsCount(apiVersion, xApiVersion)
+> Int32Envelope getTenantsCount(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get the total count of tenants available on this suite server instance.
 
@@ -430,8 +488,9 @@ This action is only available for global administrators.
 val apiInstance = TenantsApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantDtoCollectionQueryParameters : TenantDtoCollectionQueryParameters =  // TenantDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantsCount(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantsCount(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#getTenantsCount")
@@ -444,9 +503,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -458,12 +518,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTenant"></a>
 # **patchTenant**
-> EmptyEnvelope patchTenant(tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenant(tenantId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a specific tenant by ID.
 
@@ -479,9 +539,9 @@ val apiInstance = TenantsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTenant(tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTenant(tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TenantsApi#patchTenant")
@@ -498,7 +558,59 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="setTenantModuleGrants"></a>
+# **setTenantModuleGrants**
+> EmptyEnvelope setTenantModuleGrants(tenantId, apiVersion, xApiVersion, moduleGrantDto)
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = TenantsApi()
+val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
+val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val moduleGrantDto : kotlin.collections.List<ModuleGrantDto> =  // kotlin.collections.List<ModuleGrantDto> | 
+try {
+    val result : EmptyEnvelope = apiInstance.setTenantModuleGrants(tenantId, apiVersion, xApiVersion, moduleGrantDto)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling TenantsApi#setTenantModuleGrants")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling TenantsApi#setTenantModuleGrants")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tenantId** | **java.util.UUID**|  | |
+| **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **moduleGrantDto** | [**kotlin.collections.List&lt;ModuleGrantDto&gt;**](ModuleGrantDto.md)|  | [optional] |
 
 ### Return type
 

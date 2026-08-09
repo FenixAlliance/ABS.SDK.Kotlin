@@ -444,7 +444,7 @@ No authorization required
 
 <a id="getCostCentreBudgets"></a>
 # **getCostCentreBudgets**
-> CostCentreBudgetDtoListEnvelope getCostCentreBudgets(tenantId, apiVersion, xApiVersion)
+> CostCentreBudgetDtoListEnvelope getCostCentreBudgets(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters)
 
 Get all cost centre budgets for a tenant
 
@@ -460,8 +460,9 @@ val apiInstance = CostCentresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val costCentreBudgetDtoCollectionQueryParameters : CostCentreBudgetDtoCollectionQueryParameters =  // CostCentreBudgetDtoCollectionQueryParameters | 
 try {
-    val result : CostCentreBudgetDtoListEnvelope = apiInstance.getCostCentreBudgets(tenantId, apiVersion, xApiVersion)
+    val result : CostCentreBudgetDtoListEnvelope = apiInstance.getCostCentreBudgets(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#getCostCentreBudgets")
@@ -475,9 +476,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **costCentreBudgetDtoCollectionQueryParameters** | [**CostCentreBudgetDtoCollectionQueryParameters**](CostCentreBudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,7 +491,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCostCentreGroup"></a>
@@ -546,7 +548,7 @@ No authorization required
 
 <a id="getCostCentreGroups"></a>
 # **getCostCentreGroups**
-> CostCentreGroupDtoListEnvelope getCostCentreGroups(tenantId, apiVersion, xApiVersion)
+> CostCentreGroupDtoListEnvelope getCostCentreGroups(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
 
 Get all cost centre groups for a tenant
 
@@ -562,8 +564,9 @@ val apiInstance = CostCentresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val costCentreGroupDtoCollectionQueryParameters : CostCentreGroupDtoCollectionQueryParameters =  // CostCentreGroupDtoCollectionQueryParameters | 
 try {
-    val result : CostCentreGroupDtoListEnvelope = apiInstance.getCostCentreGroups(tenantId, apiVersion, xApiVersion)
+    val result : CostCentreGroupDtoListEnvelope = apiInstance.getCostCentreGroups(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#getCostCentreGroups")
@@ -577,9 +580,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -591,12 +595,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCostCentreGroupsCount"></a>
 # **getCostCentreGroupsCount**
-> Int32Envelope getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
 
 Get the count of cost centre groups for a tenant
 
@@ -612,8 +616,9 @@ val apiInstance = CostCentresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val costCentreGroupDtoCollectionQueryParameters : CostCentreGroupDtoCollectionQueryParameters =  // CostCentreGroupDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#getCostCentreGroupsCount")
@@ -627,9 +632,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -641,12 +647,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCostCentres"></a>
 # **getCostCentres**
-> CostCentreDtoListEnvelope getCostCentres(tenantId, apiVersion, xApiVersion)
+> CostCentreDtoListEnvelope getCostCentres(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
 
 Get all cost centres for a tenant
 
@@ -662,8 +668,9 @@ val apiInstance = CostCentresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val costCentreDtoCollectionQueryParameters : CostCentreDtoCollectionQueryParameters =  // CostCentreDtoCollectionQueryParameters | 
 try {
-    val result : CostCentreDtoListEnvelope = apiInstance.getCostCentres(tenantId, apiVersion, xApiVersion)
+    val result : CostCentreDtoListEnvelope = apiInstance.getCostCentres(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#getCostCentres")
@@ -677,9 +684,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -691,12 +699,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCostCentresCount"></a>
 # **getCostCentresCount**
-> Int32Envelope getCostCentresCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCostCentresCount(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
 
 Get the count of cost centres for a tenant
 
@@ -712,8 +720,9 @@ val apiInstance = CostCentresApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val costCentreDtoCollectionQueryParameters : CostCentreDtoCollectionQueryParameters =  // CostCentreDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getCostCentresCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getCostCentresCount(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#getCostCentresCount")
@@ -727,9 +736,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -741,12 +751,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCostCentre"></a>
 # **patchCostCentre**
-> EmptyEnvelope patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre
 
@@ -763,9 +773,9 @@ val costCentreId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCostCentre(costCentreId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#patchCostCentre")
@@ -783,7 +793,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -800,7 +810,7 @@ No authorization required
 
 <a id="patchCostCentreBudget"></a>
 # **patchCostCentreBudget**
-> EmptyEnvelope patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre budget
 
@@ -817,9 +827,9 @@ val budgetId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCostCentreBudget(budgetId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#patchCostCentreBudget")
@@ -837,7 +847,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -854,7 +864,7 @@ No authorization required
 
 <a id="patchCostCentreGroup"></a>
 # **patchCostCentreGroup**
-> EmptyEnvelope patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre group
 
@@ -871,9 +881,9 @@ val groupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCostCentreGroup(groupId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CostCentresApi#patchCostCentreGroup")
@@ -891,7 +901,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getSecurityCertificatesAsync"></a>
 # **getSecurityCertificatesAsync**
-> SecurityCertificateDtoListEnvelope getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion)
+> SecurityCertificateDtoListEnvelope getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
 
 Get security certificates
 
@@ -26,8 +26,9 @@ val apiInstance = SecurityCertificatesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityCertificateDtoCollectionQueryParameters : SecurityCertificateDtoCollectionQueryParameters =  // SecurityCertificateDtoCollectionQueryParameters | 
 try {
-    val result : SecurityCertificateDtoListEnvelope = apiInstance.getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion)
+    val result : SecurityCertificateDtoListEnvelope = apiInstance.getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SecurityCertificatesApi#getSecurityCertificatesAsync")
@@ -41,9 +42,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityCertificateDtoCollectionQueryParameters** | [**SecurityCertificateDtoCollectionQueryParameters**](SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -55,12 +57,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getSecurityCertificatesCountAsync"></a>
 # **getSecurityCertificatesCountAsync**
-> Int32Envelope getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
 
 Get security certificates count
 
@@ -76,8 +78,9 @@ val apiInstance = SecurityCertificatesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val securityCertificateDtoCollectionQueryParameters : SecurityCertificateDtoCollectionQueryParameters =  // SecurityCertificateDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SecurityCertificatesApi#getSecurityCertificatesCountAsync")
@@ -91,9 +94,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **securityCertificateDtoCollectionQueryParameters** | [**SecurityCertificateDtoCollectionQueryParameters**](SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -105,6 +109,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

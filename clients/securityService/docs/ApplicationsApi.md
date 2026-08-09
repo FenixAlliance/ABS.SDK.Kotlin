@@ -173,7 +173,7 @@ No authorization required
 
 <a id="getBusinessApplicationsAsync"></a>
 # **getBusinessApplicationsAsync**
-> BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
 
 Get all business applications
 
@@ -189,8 +189,9 @@ val apiInstance = ApplicationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessApplicationDtoCollectionQueryParameters : BusinessApplicationDtoCollectionQueryParameters =  // BusinessApplicationDtoCollectionQueryParameters | 
 try {
-    val result : BusinessApplicationDtoListEnvelope = apiInstance.getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BusinessApplicationDtoListEnvelope = apiInstance.getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ApplicationsApi#getBusinessApplicationsAsync")
@@ -204,9 +205,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -218,12 +220,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessApplicationsCountAsync"></a>
 # **getBusinessApplicationsCountAsync**
-> Int32Envelope getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
 
 Get business applications count
 
@@ -239,8 +241,9 @@ val apiInstance = ApplicationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessApplicationDtoCollectionQueryParameters : BusinessApplicationDtoCollectionQueryParameters =  // BusinessApplicationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ApplicationsApi#getBusinessApplicationsCountAsync")
@@ -254,9 +257,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -268,7 +272,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getPermissionsByApplicationAsync"></a>
@@ -377,7 +381,7 @@ No authorization required
 
 <a id="patchBusinessApplicationAsync"></a>
 # **patchBusinessApplicationAsync**
-> EmptyEnvelope patchBusinessApplicationAsync(applicationId, tenantId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchBusinessApplicationAsync(applicationId, tenantId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing business application
 
@@ -392,11 +396,11 @@ Partially updates an existing business application using a JSON Patch document.
 val apiInstance = ApplicationsApi()
 val applicationId : kotlin.String = applicationId_example // kotlin.String | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBusinessApplicationAsync(applicationId, tenantId, operation, apiVersion, xApiVersion)
+    val result : EmptyEnvelope = apiInstance.patchBusinessApplicationAsync(applicationId, tenantId, patchOperation, apiVersion, xApiVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ApplicationsApi#patchBusinessApplicationAsync")
@@ -410,7 +414,7 @@ try {
 ### Parameters
 | **applicationId** | **kotlin.String**|  | |
 | **tenantId** | **java.util.UUID**|  | |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

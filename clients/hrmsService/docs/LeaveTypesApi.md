@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getLeaveTypesAsync"></a>
 # **getLeaveTypesAsync**
-> LeaveTypeDtoListEnvelope getLeaveTypesAsync(tenantId, apiVersion, xApiVersion)
+> LeaveTypeDtoListEnvelope getLeaveTypesAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
 
 Get leave types
 
@@ -186,8 +186,9 @@ val apiInstance = LeaveTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val leaveTypeDtoCollectionQueryParameters : LeaveTypeDtoCollectionQueryParameters =  // LeaveTypeDtoCollectionQueryParameters | 
 try {
-    val result : LeaveTypeDtoListEnvelope = apiInstance.getLeaveTypesAsync(tenantId, apiVersion, xApiVersion)
+    val result : LeaveTypeDtoListEnvelope = apiInstance.getLeaveTypesAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaveTypesApi#getLeaveTypesAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **leaveTypeDtoCollectionQueryParameters** | [**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getLeaveTypesCountAsync"></a>
 # **getLeaveTypesCountAsync**
-> Int32Envelope getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
 
 Count leave types
 
@@ -236,8 +238,9 @@ val apiInstance = LeaveTypesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val leaveTypeDtoCollectionQueryParameters : LeaveTypeDtoCollectionQueryParameters =  // LeaveTypeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaveTypesApi#getLeaveTypesCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **leaveTypeDtoCollectionQueryParameters** | [**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateLeaveTypeAsync"></a>

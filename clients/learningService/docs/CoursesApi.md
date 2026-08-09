@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getCourseArticlesByCourseWikiAsync"></a>
 # **getCourseArticlesByCourseWikiAsync**
-> kotlin.collections.List&lt;CourseArticleDto&gt; getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseArticleDto&gt; getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
 
 Get course articles by course wiki
 
@@ -169,8 +169,9 @@ val courseId : kotlin.String = courseId_example // kotlin.String |
 val wikiId : kotlin.String = wikiId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseArticleDtoCollectionQueryParameters : CourseArticleDtoCollectionQueryParameters =  // CourseArticleDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseArticleDto> = apiInstance.getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseArticleDto> = apiInstance.getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseArticlesByCourseWikiAsync")
@@ -185,9 +186,10 @@ try {
 | **courseId** | **kotlin.String**|  | |
 | **wikiId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,12 +201,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseArticlesByCourseWikiCountAsync"></a>
 # **getCourseArticlesByCourseWikiCountAsync**
-> kotlin.Int getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion)
+> kotlin.Int getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
 
 Get course articles by course wiki count
 
@@ -221,8 +223,9 @@ val courseId : kotlin.String = courseId_example // kotlin.String |
 val wikiId : kotlin.String = wikiId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseArticleDtoCollectionQueryParameters : CourseArticleDtoCollectionQueryParameters =  // CourseArticleDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseArticlesByCourseWikiCountAsync")
@@ -237,9 +240,10 @@ try {
 | **courseId** | **kotlin.String**|  | |
 | **wikiId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,12 +255,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseAssignmentsByCourseAsync"></a>
 # **getCourseAssignmentsByCourseAsync**
-> kotlin.collections.List&lt;CourseAssignmentDto&gt; getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseAssignmentDto&gt; getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
 
 Get course assignments by course
 
@@ -272,8 +276,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseAssignmentDtoCollectionQueryParameters : CourseAssignmentDtoCollectionQueryParameters =  // CourseAssignmentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseAssignmentDto> = apiInstance.getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseAssignmentDto> = apiInstance.getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseAssignmentsByCourseAsync")
@@ -287,9 +292,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -301,12 +307,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseAssignmentsByCourseCountAsync"></a>
 # **getCourseAssignmentsByCourseCountAsync**
-> kotlin.Int getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
 
 Get course assignments by course count
 
@@ -322,8 +328,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseAssignmentDtoCollectionQueryParameters : CourseAssignmentDtoCollectionQueryParameters =  // CourseAssignmentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseAssignmentsByCourseCountAsync")
@@ -337,9 +344,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseByIdAsync"></a>
@@ -408,7 +416,7 @@ No authorization required
 
 <a id="getCourseCategoriesByCourseAsync"></a>
 # **getCourseCategoriesByCourseAsync**
-> kotlin.collections.List&lt;CourseCategoryDto&gt; getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseCategoryDto&gt; getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
 
 Get course categories by course
 
@@ -424,8 +432,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCategoryDtoCollectionQueryParameters : CourseCategoryDtoCollectionQueryParameters =  // CourseCategoryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseCategoryDto> = apiInstance.getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseCategoryDto> = apiInstance.getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseCategoriesByCourseAsync")
@@ -439,9 +448,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,12 +463,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseCategoriesByCourseCountAsync"></a>
 # **getCourseCategoriesByCourseCountAsync**
-> kotlin.Int getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
 
 Get course categories by course count
 
@@ -474,8 +484,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCategoryDtoCollectionQueryParameters : CourseCategoryDtoCollectionQueryParameters =  // CourseCategoryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseCategoriesByCourseCountAsync")
@@ -489,9 +500,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -503,12 +515,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseCohortsByCourseAsync"></a>
 # **getCourseCohortsByCourseAsync**
-> kotlin.collections.List&lt;CourseCohortDto&gt; getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseCohortDto&gt; getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get course cohorts by course
 
@@ -524,8 +536,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCohortDtoCollectionQueryParameters : CourseCohortDtoCollectionQueryParameters =  // CourseCohortDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseCohortDto> = apiInstance.getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseCohortDto> = apiInstance.getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseCohortsByCourseAsync")
@@ -539,9 +552,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -553,12 +567,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseCohortsByCourseCountAsync"></a>
 # **getCourseCohortsByCourseCountAsync**
-> kotlin.Int getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get course cohorts by course count
 
@@ -574,8 +588,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseCohortDtoCollectionQueryParameters : CourseCohortDtoCollectionQueryParameters =  // CourseCohortDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseCohortsByCourseCountAsync")
@@ -589,9 +604,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -603,12 +619,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseEnrollmentsByCourseAsync"></a>
 # **getCourseEnrollmentsByCourseAsync**
-> kotlin.collections.List&lt;CourseEnrollmentDto&gt; getCourseEnrollmentsByCourseAsync(courseId, tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseEnrollmentDto&gt; getCourseEnrollmentsByCourseAsync(courseId, tenantId, apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get enrollments by course
 
@@ -625,8 +641,9 @@ val courseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseEnrollmentDtoCollectionQueryParameters : CourseEnrollmentDtoCollectionQueryParameters =  // CourseEnrollmentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseEnrollmentDto> = apiInstance.getCourseEnrollmentsByCourseAsync(courseId, tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseEnrollmentDto> = apiInstance.getCourseEnrollmentsByCourseAsync(courseId, tenantId, apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseEnrollmentsByCourseAsync")
@@ -641,9 +658,10 @@ try {
 | **courseId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -655,12 +673,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseFilesByCourseAsync"></a>
 # **getCourseFilesByCourseAsync**
-> kotlin.collections.List&lt;CourseFileDto&gt; getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseFileDto&gt; getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get course files by course
 
@@ -676,8 +694,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseFileDtoCollectionQueryParameters : CourseFileDtoCollectionQueryParameters =  // CourseFileDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseFileDto> = apiInstance.getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseFileDto> = apiInstance.getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseFilesByCourseAsync")
@@ -691,9 +710,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -705,12 +725,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseFilesByCourseCountAsync"></a>
 # **getCourseFilesByCourseCountAsync**
-> kotlin.Int getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get course files by course count
 
@@ -726,8 +746,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseFileDtoCollectionQueryParameters : CourseFileDtoCollectionQueryParameters =  // CourseFileDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseFilesByCourseCountAsync")
@@ -741,9 +762,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -755,12 +777,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseForumsByCourseAsync"></a>
 # **getCourseForumsByCourseAsync**
-> kotlin.collections.List&lt;CourseForumDto&gt; getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseForumDto&gt; getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums by course
 
@@ -776,8 +798,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseForumDtoCollectionQueryParameters : CourseForumDtoCollectionQueryParameters =  // CourseForumDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseForumDto> = apiInstance.getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseForumDto> = apiInstance.getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseForumsByCourseAsync")
@@ -791,9 +814,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -805,12 +829,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseForumsByCourseCountAsync"></a>
 # **getCourseForumsByCourseCountAsync**
-> kotlin.Int getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums by course count
 
@@ -826,8 +850,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseForumDtoCollectionQueryParameters : CourseForumDtoCollectionQueryParameters =  // CourseForumDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseForumsByCourseCountAsync")
@@ -841,9 +866,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -855,12 +881,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseHandoutsByCourseAsync"></a>
 # **getCourseHandoutsByCourseAsync**
-> kotlin.collections.List&lt;CourseHandoutDto&gt; getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseHandoutDto&gt; getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
 
 Get course handouts by course
 
@@ -876,8 +902,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseHandoutDtoCollectionQueryParameters : CourseHandoutDtoCollectionQueryParameters =  // CourseHandoutDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseHandoutDto> = apiInstance.getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseHandoutDto> = apiInstance.getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseHandoutsByCourseAsync")
@@ -891,9 +918,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -905,12 +933,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseHandoutsByCourseCountAsync"></a>
 # **getCourseHandoutsByCourseCountAsync**
-> kotlin.Int getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
 
 Get course handouts by course count
 
@@ -926,8 +954,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseHandoutDtoCollectionQueryParameters : CourseHandoutDtoCollectionQueryParameters =  // CourseHandoutDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseHandoutsByCourseCountAsync")
@@ -941,9 +970,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -955,12 +985,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseLibrariesByCourseAsync"></a>
 # **getCourseLibrariesByCourseAsync**
-> kotlin.collections.List&lt;CourseLibraryDto&gt; getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseLibraryDto&gt; getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries by course
 
@@ -976,8 +1006,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseLibraryDtoCollectionQueryParameters : CourseLibraryDtoCollectionQueryParameters =  // CourseLibraryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseLibraryDto> = apiInstance.getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseLibraryDto> = apiInstance.getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseLibrariesByCourseAsync")
@@ -991,9 +1022,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1005,12 +1037,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseLibrariesByCourseCountAsync"></a>
 # **getCourseLibrariesByCourseCountAsync**
-> kotlin.Int getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries by course count
 
@@ -1026,8 +1058,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseLibraryDtoCollectionQueryParameters : CourseLibraryDtoCollectionQueryParameters =  // CourseLibraryDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseLibrariesByCourseCountAsync")
@@ -1041,9 +1074,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1055,12 +1089,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCoursePagesByCourseAsync"></a>
 # **getCoursePagesByCourseAsync**
-> kotlin.collections.List&lt;CoursePageDto&gt; getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CoursePageDto&gt; getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
 
 Get course pages by course
 
@@ -1076,8 +1110,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val coursePageDtoCollectionQueryParameters : CoursePageDtoCollectionQueryParameters =  // CoursePageDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CoursePageDto> = apiInstance.getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CoursePageDto> = apiInstance.getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCoursePagesByCourseAsync")
@@ -1091,9 +1126,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1105,12 +1141,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCoursePagesByCourseCountAsync"></a>
 # **getCoursePagesByCourseCountAsync**
-> kotlin.Int getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
 
 Get course pages by course count
 
@@ -1126,8 +1162,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val coursePageDtoCollectionQueryParameters : CoursePageDtoCollectionQueryParameters =  // CoursePageDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCoursePagesByCourseCountAsync")
@@ -1141,9 +1178,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1155,12 +1193,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseProblemSetsByCourseAsync"></a>
 # **getCourseProblemSetsByCourseAsync**
-> kotlin.collections.List&lt;CourseProblemSetDto&gt; getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseProblemSetDto&gt; getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
 
 Get course problem sets by course
 
@@ -1176,8 +1214,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseProblemSetDtoCollectionQueryParameters : CourseProblemSetDtoCollectionQueryParameters =  // CourseProblemSetDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseProblemSetDto> = apiInstance.getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseProblemSetDto> = apiInstance.getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseProblemSetsByCourseAsync")
@@ -1191,9 +1230,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1205,12 +1245,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseProblemSetsByCourseCountAsync"></a>
 # **getCourseProblemSetsByCourseCountAsync**
-> kotlin.Int getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
 
 Get course problem sets by course count
 
@@ -1226,8 +1266,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseProblemSetDtoCollectionQueryParameters : CourseProblemSetDtoCollectionQueryParameters =  // CourseProblemSetDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseProblemSetsByCourseCountAsync")
@@ -1241,9 +1282,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1255,12 +1297,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseSectionsByCourseAsync"></a>
 # **getCourseSectionsByCourseAsync**
-> kotlin.collections.List&lt;CourseSectionDto&gt; getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseSectionDto&gt; getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
 
 Get course sections by course
 
@@ -1276,8 +1318,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseSectionDtoCollectionQueryParameters : CourseSectionDtoCollectionQueryParameters =  // CourseSectionDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseSectionDto> = apiInstance.getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseSectionDto> = apiInstance.getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseSectionsByCourseAsync")
@@ -1291,9 +1334,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1305,12 +1349,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseSectionsByCourseCountAsync"></a>
 # **getCourseSectionsByCourseCountAsync**
-> kotlin.Int getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
 
 Get course sections by course count
 
@@ -1326,8 +1370,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseSectionDtoCollectionQueryParameters : CourseSectionDtoCollectionQueryParameters =  // CourseSectionDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseSectionsByCourseCountAsync")
@@ -1341,9 +1386,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1355,12 +1401,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUnitComponentsByCourseAsync"></a>
 # **getCourseUnitComponentsByCourseAsync**
-> kotlin.collections.List&lt;CourseUnitComponentDto&gt; getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseUnitComponentDto&gt; getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
 
 Get course unit components by course
 
@@ -1376,8 +1422,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseUnitComponentDtoCollectionQueryParameters : CourseUnitComponentDtoCollectionQueryParameters =  // CourseUnitComponentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseUnitComponentDto> = apiInstance.getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseUnitComponentDto> = apiInstance.getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUnitComponentsByCourseAsync")
@@ -1391,9 +1438,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1405,12 +1453,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUnitComponentsByCourseCountAsync"></a>
 # **getCourseUnitComponentsByCourseCountAsync**
-> kotlin.Int getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
 
 Get course unit components by course count
 
@@ -1426,8 +1474,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseUnitComponentDtoCollectionQueryParameters : CourseUnitComponentDtoCollectionQueryParameters =  // CourseUnitComponentDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUnitComponentsByCourseCountAsync")
@@ -1441,9 +1490,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1455,12 +1505,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUnitsBySectionAsync"></a>
 # **getCourseUnitsBySectionAsync**
-> kotlin.collections.List&lt;CourseUnitDto&gt; getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseUnitDto&gt; getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
 
 Get course units by section
 
@@ -1477,8 +1527,9 @@ val courseId : kotlin.String = courseId_example // kotlin.String |
 val sectionId : kotlin.String = sectionId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseUnitDtoCollectionQueryParameters : CourseUnitDtoCollectionQueryParameters =  // CourseUnitDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseUnitDto> = apiInstance.getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseUnitDto> = apiInstance.getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUnitsBySectionAsync")
@@ -1493,9 +1544,10 @@ try {
 | **courseId** | **kotlin.String**|  | |
 | **sectionId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,12 +1559,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUnitsBySectionCountAsync"></a>
 # **getCourseUnitsBySectionCountAsync**
-> kotlin.Int getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion)
+> kotlin.Int getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
 
 Get course units by section count
 
@@ -1529,8 +1581,9 @@ val courseId : kotlin.String = courseId_example // kotlin.String |
 val sectionId : kotlin.String = sectionId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseUnitDtoCollectionQueryParameters : CourseUnitDtoCollectionQueryParameters =  // CourseUnitDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUnitsBySectionCountAsync")
@@ -1545,9 +1598,10 @@ try {
 | **courseId** | **kotlin.String**|  | |
 | **sectionId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1559,12 +1613,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUpdatesByCourseAsync"></a>
 # **getCourseUpdatesByCourseAsync**
-> kotlin.collections.List&lt;CourseNewsDto&gt; getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseNewsDto&gt; getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates by course
 
@@ -1580,8 +1634,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseNewsDtoCollectionQueryParameters : CourseNewsDtoCollectionQueryParameters =  // CourseNewsDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseNewsDto> = apiInstance.getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseNewsDto> = apiInstance.getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUpdatesByCourseAsync")
@@ -1595,9 +1650,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1609,12 +1665,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUpdatesByCourseCountAsync"></a>
 # **getCourseUpdatesByCourseCountAsync**
-> kotlin.Int getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates by course count
 
@@ -1630,8 +1686,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseNewsDtoCollectionQueryParameters : CourseNewsDtoCollectionQueryParameters =  // CourseNewsDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseUpdatesByCourseCountAsync")
@@ -1645,9 +1702,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1659,12 +1717,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseWikisByCourseAsync"></a>
 # **getCourseWikisByCourseAsync**
-> kotlin.collections.List&lt;CourseWikiDto&gt; getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseWikiDto&gt; getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis by course
 
@@ -1680,8 +1738,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseWikiDtoCollectionQueryParameters : CourseWikiDtoCollectionQueryParameters =  // CourseWikiDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseWikiDto> = apiInstance.getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseWikiDto> = apiInstance.getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseWikisByCourseAsync")
@@ -1695,9 +1754,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1709,12 +1769,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseWikisByCourseCountAsync"></a>
 # **getCourseWikisByCourseCountAsync**
-> kotlin.Int getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> kotlin.Int getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis by course count
 
@@ -1730,8 +1790,9 @@ val apiInstance = CoursesApi()
 val courseId : kotlin.String = courseId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseWikiDtoCollectionQueryParameters : CourseWikiDtoCollectionQueryParameters =  // CourseWikiDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCourseWikisByCourseCountAsync")
@@ -1745,9 +1806,10 @@ try {
 ### Parameters
 | **courseId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1759,12 +1821,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCoursesAsync"></a>
 # **getCoursesAsync**
-> kotlin.collections.List&lt;CourseDto&gt; getCoursesAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseDto&gt; getCoursesAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get courses
 
@@ -1780,8 +1842,9 @@ val apiInstance = CoursesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseDto> = apiInstance.getCoursesAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseDto> = apiInstance.getCoursesAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCoursesAsync")
@@ -1795,9 +1858,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1809,12 +1873,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCoursesCountAsync"></a>
 # **getCoursesCountAsync**
-> kotlin.Int getCoursesCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCoursesCountAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get courses count
 
@@ -1830,8 +1894,9 @@ val apiInstance = CoursesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseDtoCollectionQueryParameters : CourseDtoCollectionQueryParameters =  // CourseDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCoursesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCoursesCountAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#getCoursesCountAsync")
@@ -1845,9 +1910,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1859,7 +1925,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getInstructorProfilesByCourseAsync"></a>
@@ -2064,7 +2130,7 @@ No authorization required
 
 <a id="patchCourseAsync"></a>
 # **patchCourseAsync**
-> EmptyEnvelope patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course
 
@@ -2081,9 +2147,9 @@ val courseId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.uti
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCourseAsync(courseId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoursesApi#patchCourseAsync")
@@ -2101,7 +2167,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -368,7 +368,7 @@ No authorization required
 
 <a id="getDealUnitLinesAsync"></a>
 # **getDealUnitLinesAsync**
-> DealUnitLineDtoListEnvelope getDealUnitLinesAsync(dealUnitId, tenantId, itemId)
+> DealUnitLineDtoListEnvelope getDealUnitLinesAsync(dealUnitId, tenantId, itemId, dealUnitLineDtoCollectionQueryParameters)
 
 Get deal unit lines
 
@@ -384,8 +384,9 @@ val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val itemId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineDtoCollectionQueryParameters : DealUnitLineDtoCollectionQueryParameters =  // DealUnitLineDtoCollectionQueryParameters | 
 try {
-    val result : DealUnitLineDtoListEnvelope = apiInstance.getDealUnitLinesAsync(dealUnitId, tenantId, itemId)
+    val result : DealUnitLineDtoListEnvelope = apiInstance.getDealUnitLinesAsync(dealUnitId, tenantId, itemId, dealUnitLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#getDealUnitLinesAsync")
@@ -399,9 +400,10 @@ try {
 ### Parameters
 | **dealUnitId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
+| **itemId** | **java.util.UUID**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **itemId** | **java.util.UUID**|  | [optional] |
+| **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -413,12 +415,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitLinesCountAsync"></a>
 # **getDealUnitLinesCountAsync**
-> Int32Envelope getDealUnitLinesCountAsync(dealUnitId, tenantId)
+> Int32Envelope getDealUnitLinesCountAsync(dealUnitId, tenantId, dealUnitLineDtoCollectionQueryParameters)
 
 Get deal unit lines count
 
@@ -433,8 +435,9 @@ Returns the total count of lines for a specific deal unit with OData filter supp
 val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitLineDtoCollectionQueryParameters : DealUnitLineDtoCollectionQueryParameters =  // DealUnitLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDealUnitLinesCountAsync(dealUnitId, tenantId)
+    val result : Int32Envelope = apiInstance.getDealUnitLinesCountAsync(dealUnitId, tenantId, dealUnitLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#getDealUnitLinesCountAsync")
@@ -447,9 +450,10 @@ try {
 
 ### Parameters
 | **dealUnitId** | **java.util.UUID**|  | |
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -461,7 +465,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitPriceAsync"></a>
@@ -516,7 +520,7 @@ No authorization required
 
 <a id="getDealUnitsAsync"></a>
 # **getDealUnitsAsync**
-> DealUnitDtoListEnvelope getDealUnitsAsync(tenantId)
+> DealUnitDtoListEnvelope getDealUnitsAsync(tenantId, dealUnitDtoCollectionQueryParameters)
 
 Get deal units
 
@@ -530,8 +534,9 @@ Retrieves a list of deal units for the specified tenant with OData query support
 
 val apiInstance = DealUnitsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitDtoCollectionQueryParameters : DealUnitDtoCollectionQueryParameters =  // DealUnitDtoCollectionQueryParameters | 
 try {
-    val result : DealUnitDtoListEnvelope = apiInstance.getDealUnitsAsync(tenantId)
+    val result : DealUnitDtoListEnvelope = apiInstance.getDealUnitsAsync(tenantId, dealUnitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#getDealUnitsAsync")
@@ -543,9 +548,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -557,12 +563,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getDealUnitsCountAsync"></a>
 # **getDealUnitsCountAsync**
-> Int32Envelope getDealUnitsCountAsync(tenantId)
+> Int32Envelope getDealUnitsCountAsync(tenantId, dealUnitDtoCollectionQueryParameters)
 
 Get deal units count
 
@@ -576,8 +582,9 @@ Returns the total count of deal units for the specified tenant with OData filter
 
 val apiInstance = DealUnitsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val dealUnitDtoCollectionQueryParameters : DealUnitDtoCollectionQueryParameters =  // DealUnitDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getDealUnitsCountAsync(tenantId)
+    val result : Int32Envelope = apiInstance.getDealUnitsCountAsync(tenantId, dealUnitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#getDealUnitsCountAsync")
@@ -589,9 +596,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -603,7 +611,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getExtendedDealUnitAsync"></a>
@@ -656,7 +664,7 @@ No authorization required
 
 <a id="getExtendedDealUnitsAsync"></a>
 # **getExtendedDealUnitsAsync**
-> ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(tenantId)
+> ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(tenantId, extendedDealUnitDtoCollectionQueryParameters)
 
 Get extended deal units
 
@@ -670,8 +678,9 @@ Retrieves a list of deal units with extended details for the specified tenant wi
 
 val apiInstance = DealUnitsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val extendedDealUnitDtoCollectionQueryParameters : ExtendedDealUnitDtoCollectionQueryParameters =  // ExtendedDealUnitDtoCollectionQueryParameters | 
 try {
-    val result : ExtendedDealUnitDtoListEnvelope = apiInstance.getExtendedDealUnitsAsync(tenantId)
+    val result : ExtendedDealUnitDtoListEnvelope = apiInstance.getExtendedDealUnitsAsync(tenantId, extendedDealUnitDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#getExtendedDealUnitsAsync")
@@ -683,9 +692,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **extendedDealUnitDtoCollectionQueryParameters** | [**ExtendedDealUnitDtoCollectionQueryParameters**](ExtendedDealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -697,12 +707,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchDealUnitAsync"></a>
 # **patchDealUnitAsync**
-> EmptyEnvelope patchDealUnitAsync(dealUnitId, tenantId, operation)
+> EmptyEnvelope patchDealUnitAsync(dealUnitId, tenantId, patchOperation)
 
 Patch a deal unit
 
@@ -717,9 +727,9 @@ Partially updates an existing deal unit by its unique identifier using a JSON Pa
 val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDealUnitAsync(dealUnitId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDealUnitAsync(dealUnitId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#patchDealUnitAsync")
@@ -735,7 +745,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -752,7 +762,7 @@ No authorization required
 
 <a id="patchDealUnitLineAsync"></a>
 # **patchDealUnitLineAsync**
-> EmptyEnvelope patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, operation)
+> EmptyEnvelope patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, patchOperation)
 
 Patch a deal unit line
 
@@ -768,9 +778,9 @@ val apiInstance = DealUnitsApi()
 val dealUnitId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val dealUnitLineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchDealUnitLineAsync(dealUnitId, dealUnitLineId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DealUnitsApi#patchDealUnitLineAsync")
@@ -787,7 +797,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

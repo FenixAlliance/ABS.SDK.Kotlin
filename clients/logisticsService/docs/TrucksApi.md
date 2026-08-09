@@ -560,7 +560,7 @@ No authorization required
 
 <a id="getTruckTripsAsync"></a>
 # **getTruckTripsAsync**
-> TruckTripDtoListEnvelope getTruckTripsAsync(truckId, tenantId, apiVersion, xApiVersion)
+> TruckTripDtoListEnvelope getTruckTripsAsync(truckId, tenantId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
 
 Get truck trips
 
@@ -577,8 +577,9 @@ val truckId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val truckTripDtoCollectionQueryParameters : TruckTripDtoCollectionQueryParameters =  // TruckTripDtoCollectionQueryParameters | 
 try {
-    val result : TruckTripDtoListEnvelope = apiInstance.getTruckTripsAsync(truckId, tenantId, apiVersion, xApiVersion)
+    val result : TruckTripDtoListEnvelope = apiInstance.getTruckTripsAsync(truckId, tenantId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#getTruckTripsAsync")
@@ -593,9 +594,10 @@ try {
 | **truckId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -607,12 +609,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTruckTripsCountAsync"></a>
 # **getTruckTripsCountAsync**
-> Int32Envelope getTruckTripsCountAsync(truckId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTruckTripsCountAsync(truckId, tenantId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
 
 Get truck trips count
 
@@ -629,8 +631,9 @@ val truckId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val truckTripDtoCollectionQueryParameters : TruckTripDtoCollectionQueryParameters =  // TruckTripDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTruckTripsCountAsync(truckId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTruckTripsCountAsync(truckId, tenantId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#getTruckTripsCountAsync")
@@ -645,9 +648,10 @@ try {
 | **truckId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -659,12 +663,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTrucksAsync"></a>
 # **getTrucksAsync**
-> TruckDtoListEnvelope getTrucksAsync(tenantId, apiVersion, xApiVersion)
+> TruckDtoListEnvelope getTrucksAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
 
 Get all trucks
 
@@ -680,8 +684,9 @@ val apiInstance = TrucksApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val truckDtoCollectionQueryParameters : TruckDtoCollectionQueryParameters =  // TruckDtoCollectionQueryParameters | 
 try {
-    val result : TruckDtoListEnvelope = apiInstance.getTrucksAsync(tenantId, apiVersion, xApiVersion)
+    val result : TruckDtoListEnvelope = apiInstance.getTrucksAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#getTrucksAsync")
@@ -695,9 +700,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -709,12 +715,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTrucksCountAsync"></a>
 # **getTrucksCountAsync**
-> Int32Envelope getTrucksCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTrucksCountAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
 
 Get trucks count
 
@@ -730,8 +736,9 @@ val apiInstance = TrucksApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val truckDtoCollectionQueryParameters : TruckDtoCollectionQueryParameters =  // TruckDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTrucksCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTrucksCountAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#getTrucksCountAsync")
@@ -745,9 +752,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -759,12 +767,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTruckAsync"></a>
 # **patchTruckAsync**
-> EmptyEnvelope patchTruckAsync(truckId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTruckAsync(truckId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a truck
 
@@ -781,9 +789,9 @@ val truckId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTruckAsync(truckId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTruckAsync(truckId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#patchTruckAsync")
@@ -801,7 +809,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -818,7 +826,7 @@ No authorization required
 
 <a id="patchTruckTripAsync"></a>
 # **patchTruckTripAsync**
-> EmptyEnvelope patchTruckTripAsync(truckId, tripId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTruckTripAsync(truckId, tripId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a truck trip
 
@@ -836,9 +844,9 @@ val tripId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTruckTripAsync(truckId, tripId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTruckTripAsync(truckId, tripId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrucksApi#patchTruckTripAsync")
@@ -857,7 +865,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

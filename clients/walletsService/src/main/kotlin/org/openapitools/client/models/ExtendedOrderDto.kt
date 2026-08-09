@@ -51,6 +51,7 @@ import com.squareup.moshi.JsonClass
  * @param cityId 
  * @param customerNotes 
  * @param taxCalculationMethod 
+ * @param costCalculationMethod 
  * @param forexRate 
  * @param forexRatesSnapshot 
  * @param currencyId 
@@ -101,7 +102,6 @@ import com.squareup.moshi.JsonClass
  * @param qualifiedIdentifier 
  * @param sellerBillingProfileId 
  * @param buyerBillingProfileId 
- * @param costCalculationMethod 
  * @param freightTerms 
  * @param orderStatus 
  * @param requestedDeliveryDate 
@@ -199,6 +199,9 @@ data class ExtendedOrderDto (
 
     @Json(name = "taxCalculationMethod")
     val taxCalculationMethod: ExtendedOrderDto.TaxCalculationMethod? = null,
+
+    @Json(name = "costCalculationMethod")
+    val costCalculationMethod: ExtendedOrderDto.CostCalculationMethod? = null,
 
     @Json(name = "forexRate")
     val forexRate: kotlin.Double? = null,
@@ -349,9 +352,6 @@ data class ExtendedOrderDto (
 
     @Json(name = "buyerBillingProfileId")
     val buyerBillingProfileId: kotlin.String? = null,
-
-    @Json(name = "costCalculationMethod")
-    val costCalculationMethod: ExtendedOrderDto.CostCalculationMethod? = null,
 
     @Json(name = "freightTerms")
     val freightTerms: ExtendedOrderDto.FreightTerms? = null,

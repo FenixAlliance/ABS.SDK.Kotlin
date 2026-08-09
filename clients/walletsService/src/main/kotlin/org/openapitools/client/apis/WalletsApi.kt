@@ -20,32 +20,44 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import org.openapitools.client.models.BankAccountCreateDto
+import org.openapitools.client.models.BankAccountDtoCollectionQueryParameters
 import org.openapitools.client.models.BankAccountDtoEnvelope
 import org.openapitools.client.models.BankAccountDtoListEnvelope
 import org.openapitools.client.models.BankAccountUpdateDto
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.ExtendedOrderDtoCollectionQueryParameters
 import org.openapitools.client.models.ExtendedOrderDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
+import org.openapitools.client.models.InvoiceDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceDtoListEnvelope
 import org.openapitools.client.models.LocationCreateDto
+import org.openapitools.client.models.LocationDtoCollectionQueryParameters
 import org.openapitools.client.models.LocationDtoEnvelope
 import org.openapitools.client.models.LocationDtoListEnvelope
 import org.openapitools.client.models.LocationUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.OrderDtoCollectionQueryParameters
 import org.openapitools.client.models.OrderDtoListEnvelope
+import org.openapitools.client.models.PatchOperation
+import org.openapitools.client.models.PaymentChargebackDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentChargebackDtoListEnvelope
 import org.openapitools.client.models.PaymentCreateDto
+import org.openapitools.client.models.PaymentDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentDtoListEnvelope
+import org.openapitools.client.models.PaymentRefundDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentRefundDtoListEnvelope
 import org.openapitools.client.models.PaymentTokenCreateDto
+import org.openapitools.client.models.PaymentTokenDtoCollectionQueryParameters
 import org.openapitools.client.models.PaymentTokenDtoEnvelope
 import org.openapitools.client.models.PaymentTokenDtoListEnvelope
 import org.openapitools.client.models.PaymentTokenUpdateDto
+import org.openapitools.client.models.QuoteDtoCollectionQueryParameters
 import org.openapitools.client.models.QuoteDtoListEnvelope
 import org.openapitools.client.models.WalletDtoEnvelope
+import org.openapitools.client.models.WalletWithdrawDtoCollectionQueryParameters
 import org.openapitools.client.models.WalletWithdrawDtoListEnvelope
 import org.openapitools.client.models.WalletWithdrawRequestCreateDto
+import org.openapitools.client.models.WalletWithdrawRequestDtoCollectionQueryParameters
 import org.openapitools.client.models.WalletWithdrawRequestDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -771,6 +783,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -780,8 +793,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIncomingPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentDtoListEnvelope {
-        val localVarResponse = getIncomingPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : PaymentDtoListEnvelope {
+        val localVarResponse = getIncomingPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -804,16 +817,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIncomingPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = getIncomingPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getIncomingPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentDtoListEnvelope>(
+        return request<PaymentDtoCollectionQueryParameters, PaymentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -824,10 +838,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getIncomingPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getIncomingPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -836,6 +851,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -854,6 +870,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -863,8 +880,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIncomingPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getIncomingPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getIncomingPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -887,16 +904,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIncomingPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getIncomingPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getIncomingPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -907,10 +925,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getIncomingPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getIncomingPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -919,6 +938,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -937,6 +957,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -946,8 +967,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIncomingWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InvoiceDtoListEnvelope {
-        val localVarResponse = getIncomingWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : InvoiceDtoListEnvelope {
+        val localVarResponse = getIncomingWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceDtoListEnvelope
@@ -970,16 +991,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIncomingWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InvoiceDtoListEnvelope?> {
-        val localVariableConfig = getIncomingWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<InvoiceDtoListEnvelope?> {
+        val localVariableConfig = getIncomingWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceDtoListEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, InvoiceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -990,10 +1012,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getIncomingWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getIncomingWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1002,6 +1025,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1020,6 +1044,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1029,8 +1054,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIncomingWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1053,16 +1078,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getIncomingWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getIncomingWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1073,10 +1099,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getIncomingWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getIncomingWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1085,6 +1112,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1189,6 +1217,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1198,8 +1227,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationsForWalletAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocationDtoListEnvelope {
-        val localVarResponse = getLocationsForWalletAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocationsForWalletAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : LocationDtoListEnvelope {
+        val localVarResponse = getLocationsForWalletAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDtoListEnvelope
@@ -1222,16 +1251,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LocationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationsForWalletAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocationDtoListEnvelope?> {
-        val localVariableConfig = getLocationsForWalletAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocationsForWalletAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<LocationDtoListEnvelope?> {
+        val localVariableConfig = getLocationsForWalletAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, LocationDtoListEnvelope>(
+        return request<LocationDtoCollectionQueryParameters, LocationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1242,10 +1272,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLocationsForWalletAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLocationsForWalletAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1254,6 +1285,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1272,6 +1304,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1281,8 +1314,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocationsForWalletCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getLocationsForWalletCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocationsForWalletCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getLocationsForWalletCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1305,16 +1338,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocationsForWalletCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getLocationsForWalletCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocationsForWalletCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getLocationsForWalletCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, locationDtoCollectionQueryParameters = locationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LocationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1325,10 +1359,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLocationsForWalletCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLocationsForWalletCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, locationDtoCollectionQueryParameters: LocationDtoCollectionQueryParameters?) : RequestConfig<LocationDtoCollectionQueryParameters> {
+        val localVariableBody = locationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1337,6 +1372,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1355,6 +1391,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1364,8 +1401,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOutgoingPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentDtoListEnvelope {
-        val localVarResponse = getOutgoingPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : PaymentDtoListEnvelope {
+        val localVarResponse = getOutgoingPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -1388,16 +1425,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOutgoingPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = getOutgoingPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getOutgoingPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentDtoListEnvelope>(
+        return request<PaymentDtoCollectionQueryParameters, PaymentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1408,10 +1446,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOutgoingPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOutgoingPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1420,6 +1459,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1438,6 +1478,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1447,8 +1488,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOutgoingPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getOutgoingPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getOutgoingPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1471,16 +1512,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOutgoingPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getOutgoingPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOutgoingPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1491,10 +1533,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOutgoingPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOutgoingPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1503,6 +1546,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1521,6 +1565,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1530,8 +1575,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOutgoingWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InvoiceDtoListEnvelope {
-        val localVarResponse = getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : InvoiceDtoListEnvelope {
+        val localVarResponse = getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceDtoListEnvelope
@@ -1554,16 +1599,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InvoiceDtoListEnvelope?> {
-        val localVariableConfig = getOutgoingWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<InvoiceDtoListEnvelope?> {
+        val localVariableConfig = getOutgoingWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceDtoListEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, InvoiceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1574,10 +1620,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOutgoingWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOutgoingWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1586,6 +1633,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1604,6 +1652,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1613,8 +1662,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOutgoingWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1637,16 +1686,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getOutgoingWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getOutgoingWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1657,10 +1707,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getOutgoingWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getOutgoingWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1669,6 +1720,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1773,6 +1825,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return BankAccountDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1782,8 +1835,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletBankAccountsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : BankAccountDtoListEnvelope {
-        val localVarResponse = getWalletBankAccountsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletBankAccountsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters? = null) : BankAccountDtoListEnvelope {
+        val localVarResponse = getWalletBankAccountsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as BankAccountDtoListEnvelope
@@ -1806,16 +1859,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<BankAccountDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletBankAccountsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<BankAccountDtoListEnvelope?> {
-        val localVariableConfig = getWalletBankAccountsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletBankAccountsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : ApiResponse<BankAccountDtoListEnvelope?> {
+        val localVariableConfig = getWalletBankAccountsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
-        return request<Unit, BankAccountDtoListEnvelope>(
+        return request<BankAccountDtoCollectionQueryParameters, BankAccountDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1826,10 +1880,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletBankAccountsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletBankAccountsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : RequestConfig<BankAccountDtoCollectionQueryParameters> {
+        val localVariableBody = bankAccountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1838,6 +1893,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1856,6 +1912,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1865,8 +1922,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletBankAccountsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletBankAccountsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletBankAccountsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletBankAccountsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -1889,16 +1946,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletBankAccountsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletBankAccountsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletBankAccountsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletBankAccountsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, bankAccountDtoCollectionQueryParameters = bankAccountDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<BankAccountDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -1909,10 +1967,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletBankAccountsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletBankAccountsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, bankAccountDtoCollectionQueryParameters: BankAccountDtoCollectionQueryParameters?) : RequestConfig<BankAccountDtoCollectionQueryParameters> {
+        val localVariableBody = bankAccountDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -1921,6 +1980,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1939,6 +1999,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return PaymentChargebackDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1948,8 +2009,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletChargebacksAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentChargebackDtoListEnvelope {
-        val localVarResponse = getWalletChargebacksAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletChargebacksAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters? = null) : PaymentChargebackDtoListEnvelope {
+        val localVarResponse = getWalletChargebacksAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentChargebackDtoCollectionQueryParameters = paymentChargebackDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentChargebackDtoListEnvelope
@@ -1972,16 +2033,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentChargebackDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletChargebacksAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentChargebackDtoListEnvelope?> {
-        val localVariableConfig = getWalletChargebacksAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletChargebacksAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters?) : ApiResponse<PaymentChargebackDtoListEnvelope?> {
+        val localVariableConfig = getWalletChargebacksAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentChargebackDtoCollectionQueryParameters = paymentChargebackDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentChargebackDtoListEnvelope>(
+        return request<PaymentChargebackDtoCollectionQueryParameters, PaymentChargebackDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -1992,10 +2054,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletChargebacksAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletChargebacksAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters?) : RequestConfig<PaymentChargebackDtoCollectionQueryParameters> {
+        val localVariableBody = paymentChargebackDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2004,6 +2067,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2022,6 +2086,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2031,8 +2096,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletChargebacksCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletChargebacksCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletChargebacksCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletChargebacksCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentChargebackDtoCollectionQueryParameters = paymentChargebackDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2055,16 +2120,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletChargebacksCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletChargebacksCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletChargebacksCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletChargebacksCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentChargebackDtoCollectionQueryParameters = paymentChargebackDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentChargebackDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2075,10 +2141,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletChargebacksCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletChargebacksCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentChargebackDtoCollectionQueryParameters: PaymentChargebackDtoCollectionQueryParameters?) : RequestConfig<PaymentChargebackDtoCollectionQueryParameters> {
+        val localVariableBody = paymentChargebackDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2087,6 +2154,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2188,6 +2256,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ExtendedOrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2197,8 +2266,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletExtendedOrdersAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : ExtendedOrderDtoListEnvelope {
-        val localVarResponse = getWalletExtendedOrdersAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletExtendedOrdersAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters? = null) : ExtendedOrderDtoListEnvelope {
+        val localVarResponse = getWalletExtendedOrdersAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedOrderDtoCollectionQueryParameters = extendedOrderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ExtendedOrderDtoListEnvelope
@@ -2221,16 +2290,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<ExtendedOrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletExtendedOrdersAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
-        val localVariableConfig = getWalletExtendedOrdersAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletExtendedOrdersAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters?) : ApiResponse<ExtendedOrderDtoListEnvelope?> {
+        val localVariableConfig = getWalletExtendedOrdersAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, extendedOrderDtoCollectionQueryParameters = extendedOrderDtoCollectionQueryParameters)
 
-        return request<Unit, ExtendedOrderDtoListEnvelope>(
+        return request<ExtendedOrderDtoCollectionQueryParameters, ExtendedOrderDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2241,10 +2311,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletExtendedOrdersAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletExtendedOrdersAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, extendedOrderDtoCollectionQueryParameters: ExtendedOrderDtoCollectionQueryParameters?) : RequestConfig<ExtendedOrderDtoCollectionQueryParameters> {
+        val localVariableBody = extendedOrderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2253,6 +2324,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2271,6 +2343,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2280,8 +2353,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InvoiceDtoListEnvelope {
-        val localVarResponse = getWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletInvoicesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : InvoiceDtoListEnvelope {
+        val localVarResponse = getWalletInvoicesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceDtoListEnvelope
@@ -2304,16 +2377,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InvoiceDtoListEnvelope?> {
-        val localVariableConfig = getWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletInvoicesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<InvoiceDtoListEnvelope?> {
+        val localVariableConfig = getWalletInvoicesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceDtoListEnvelope>(
+        return request<InvoiceDtoCollectionQueryParameters, InvoiceDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2324,10 +2398,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletInvoicesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2336,6 +2411,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2354,6 +2430,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2363,8 +2440,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletInvoicesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletInvoicesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2387,16 +2464,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletInvoicesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletInvoicesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceDtoCollectionQueryParameters = invoiceDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2407,10 +2485,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletInvoicesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceDtoCollectionQueryParameters: InvoiceDtoCollectionQueryParameters?) : RequestConfig<InvoiceDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2419,6 +2498,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2437,6 +2517,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return OrderDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2446,8 +2527,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletOrdersAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : OrderDtoListEnvelope {
-        val localVarResponse = getWalletOrdersAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletOrdersAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters? = null) : OrderDtoListEnvelope {
+        val localVarResponse = getWalletOrdersAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as OrderDtoListEnvelope
@@ -2470,16 +2551,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<OrderDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletOrdersAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<OrderDtoListEnvelope?> {
-        val localVariableConfig = getWalletOrdersAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletOrdersAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : ApiResponse<OrderDtoListEnvelope?> {
+        val localVariableConfig = getWalletOrdersAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
-        return request<Unit, OrderDtoListEnvelope>(
+        return request<OrderDtoCollectionQueryParameters, OrderDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2490,10 +2572,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletOrdersAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletOrdersAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : RequestConfig<OrderDtoCollectionQueryParameters> {
+        val localVariableBody = orderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2502,6 +2585,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2520,6 +2604,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2529,8 +2614,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletOrdersCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletOrdersCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletOrdersCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletOrdersCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2553,16 +2638,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletOrdersCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletOrdersCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletOrdersCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletOrdersCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, orderDtoCollectionQueryParameters = orderDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<OrderDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2573,10 +2659,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletOrdersCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletOrdersCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, orderDtoCollectionQueryParameters: OrderDtoCollectionQueryParameters?) : RequestConfig<OrderDtoCollectionQueryParameters> {
+        val localVariableBody = orderDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2585,6 +2672,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2603,6 +2691,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2612,8 +2701,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentDtoListEnvelope {
-        val localVarResponse = getWalletPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletPaymentsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : PaymentDtoListEnvelope {
+        val localVarResponse = getWalletPaymentsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentDtoListEnvelope
@@ -2636,16 +2725,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentDtoListEnvelope?> {
-        val localVariableConfig = getWalletPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletPaymentsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<PaymentDtoListEnvelope?> {
+        val localVariableConfig = getWalletPaymentsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentDtoListEnvelope>(
+        return request<PaymentDtoCollectionQueryParameters, PaymentDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2656,10 +2746,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletPaymentsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2668,6 +2759,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2686,6 +2778,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2695,8 +2788,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletPaymentsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletPaymentsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2719,16 +2812,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletPaymentsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletPaymentsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentDtoCollectionQueryParameters = paymentDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2739,10 +2833,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletPaymentsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentDtoCollectionQueryParameters: PaymentDtoCollectionQueryParameters?) : RequestConfig<PaymentDtoCollectionQueryParameters> {
+        val localVariableBody = paymentDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2751,6 +2846,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2769,6 +2865,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return QuoteDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2778,8 +2875,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletQuotesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : QuoteDtoListEnvelope {
-        val localVarResponse = getWalletQuotesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletQuotesAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters? = null) : QuoteDtoListEnvelope {
+        val localVarResponse = getWalletQuotesAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as QuoteDtoListEnvelope
@@ -2802,16 +2899,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<QuoteDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletQuotesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<QuoteDtoListEnvelope?> {
-        val localVariableConfig = getWalletQuotesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletQuotesAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : ApiResponse<QuoteDtoListEnvelope?> {
+        val localVariableConfig = getWalletQuotesAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
-        return request<Unit, QuoteDtoListEnvelope>(
+        return request<QuoteDtoCollectionQueryParameters, QuoteDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2822,10 +2920,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletQuotesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletQuotesAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : RequestConfig<QuoteDtoCollectionQueryParameters> {
+        val localVariableBody = quoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2834,6 +2933,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2852,6 +2952,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2861,8 +2962,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletQuotesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletQuotesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletQuotesCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletQuotesCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -2885,16 +2986,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletQuotesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletQuotesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletQuotesCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletQuotesCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, quoteDtoCollectionQueryParameters = quoteDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<QuoteDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -2905,10 +3007,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletQuotesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletQuotesCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, quoteDtoCollectionQueryParameters: QuoteDtoCollectionQueryParameters?) : RequestConfig<QuoteDtoCollectionQueryParameters> {
+        val localVariableBody = quoteDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -2917,6 +3020,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -2935,6 +3039,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return PaymentRefundDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2944,8 +3049,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletRefundsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentRefundDtoListEnvelope {
-        val localVarResponse = getWalletRefundsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletRefundsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters? = null) : PaymentRefundDtoListEnvelope {
+        val localVarResponse = getWalletRefundsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentRefundDtoCollectionQueryParameters = paymentRefundDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentRefundDtoListEnvelope
@@ -2968,16 +3073,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentRefundDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletRefundsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentRefundDtoListEnvelope?> {
-        val localVariableConfig = getWalletRefundsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletRefundsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters?) : ApiResponse<PaymentRefundDtoListEnvelope?> {
+        val localVariableConfig = getWalletRefundsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentRefundDtoCollectionQueryParameters = paymentRefundDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentRefundDtoListEnvelope>(
+        return request<PaymentRefundDtoCollectionQueryParameters, PaymentRefundDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -2988,10 +3094,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletRefundsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletRefundsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters?) : RequestConfig<PaymentRefundDtoCollectionQueryParameters> {
+        val localVariableBody = paymentRefundDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3000,6 +3107,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3018,6 +3126,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3027,8 +3136,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletRefundsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletRefundsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletRefundsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletRefundsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentRefundDtoCollectionQueryParameters = paymentRefundDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -3051,16 +3160,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletRefundsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletRefundsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletRefundsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletRefundsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentRefundDtoCollectionQueryParameters = paymentRefundDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentRefundDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -3071,10 +3181,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletRefundsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletRefundsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentRefundDtoCollectionQueryParameters: PaymentRefundDtoCollectionQueryParameters?) : RequestConfig<PaymentRefundDtoCollectionQueryParameters> {
+        val localVariableBody = paymentRefundDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3083,6 +3194,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3187,6 +3299,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return PaymentTokenDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3196,8 +3309,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletTokensAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : PaymentTokenDtoListEnvelope {
-        val localVarResponse = getWalletTokensAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletTokensAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters? = null) : PaymentTokenDtoListEnvelope {
+        val localVarResponse = getWalletTokensAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentTokenDtoCollectionQueryParameters = paymentTokenDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaymentTokenDtoListEnvelope
@@ -3220,16 +3333,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<PaymentTokenDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletTokensAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<PaymentTokenDtoListEnvelope?> {
-        val localVariableConfig = getWalletTokensAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletTokensAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters?) : ApiResponse<PaymentTokenDtoListEnvelope?> {
+        val localVariableConfig = getWalletTokensAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentTokenDtoCollectionQueryParameters = paymentTokenDtoCollectionQueryParameters)
 
-        return request<Unit, PaymentTokenDtoListEnvelope>(
+        return request<PaymentTokenDtoCollectionQueryParameters, PaymentTokenDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3240,10 +3354,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletTokensAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletTokensAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters?) : RequestConfig<PaymentTokenDtoCollectionQueryParameters> {
+        val localVariableBody = paymentTokenDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3252,6 +3367,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3270,6 +3386,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3279,8 +3396,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletTokensCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletTokensCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletTokensCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletTokensCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentTokenDtoCollectionQueryParameters = paymentTokenDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -3303,16 +3420,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletTokensCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletTokensCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletTokensCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletTokensCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, paymentTokenDtoCollectionQueryParameters = paymentTokenDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<PaymentTokenDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -3323,10 +3441,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletTokensCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletTokensCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, paymentTokenDtoCollectionQueryParameters: PaymentTokenDtoCollectionQueryParameters?) : RequestConfig<PaymentTokenDtoCollectionQueryParameters> {
+        val localVariableBody = paymentTokenDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3335,6 +3454,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3353,6 +3473,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return WalletWithdrawRequestDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3362,8 +3483,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletWithdrawRequestsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WalletWithdrawRequestDtoListEnvelope {
-        val localVarResponse = getWalletWithdrawRequestsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawRequestsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters? = null) : WalletWithdrawRequestDtoListEnvelope {
+        val localVarResponse = getWalletWithdrawRequestsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters = walletWithdrawRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WalletWithdrawRequestDtoListEnvelope
@@ -3386,16 +3507,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WalletWithdrawRequestDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletWithdrawRequestsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WalletWithdrawRequestDtoListEnvelope?> {
-        val localVariableConfig = getWalletWithdrawRequestsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawRequestsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters?) : ApiResponse<WalletWithdrawRequestDtoListEnvelope?> {
+        val localVariableConfig = getWalletWithdrawRequestsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters = walletWithdrawRequestDtoCollectionQueryParameters)
 
-        return request<Unit, WalletWithdrawRequestDtoListEnvelope>(
+        return request<WalletWithdrawRequestDtoCollectionQueryParameters, WalletWithdrawRequestDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3406,10 +3528,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletWithdrawRequestsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletWithdrawRequestsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters?) : RequestConfig<WalletWithdrawRequestDtoCollectionQueryParameters> {
+        val localVariableBody = walletWithdrawRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3418,6 +3541,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3436,6 +3560,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3445,8 +3570,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletWithdrawRequestsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawRequestsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters = walletWithdrawRequestDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -3469,16 +3594,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletWithdrawRequestsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletWithdrawRequestsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters = walletWithdrawRequestDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WalletWithdrawRequestDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -3489,10 +3615,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletWithdrawRequestsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletWithdrawRequestsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawRequestDtoCollectionQueryParameters: WalletWithdrawRequestDtoCollectionQueryParameters?) : RequestConfig<WalletWithdrawRequestDtoCollectionQueryParameters> {
+        val localVariableBody = walletWithdrawRequestDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3501,6 +3628,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3519,6 +3647,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return WalletWithdrawDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3528,8 +3657,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletWithdrawsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : WalletWithdrawDtoListEnvelope {
-        val localVarResponse = getWalletWithdrawsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawsAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters? = null) : WalletWithdrawDtoListEnvelope {
+        val localVarResponse = getWalletWithdrawsAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawDtoCollectionQueryParameters = walletWithdrawDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as WalletWithdrawDtoListEnvelope
@@ -3552,16 +3681,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<WalletWithdrawDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletWithdrawsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<WalletWithdrawDtoListEnvelope?> {
-        val localVariableConfig = getWalletWithdrawsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawsAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters?) : ApiResponse<WalletWithdrawDtoListEnvelope?> {
+        val localVariableConfig = getWalletWithdrawsAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawDtoCollectionQueryParameters = walletWithdrawDtoCollectionQueryParameters)
 
-        return request<Unit, WalletWithdrawDtoListEnvelope>(
+        return request<WalletWithdrawDtoCollectionQueryParameters, WalletWithdrawDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -3572,10 +3702,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletWithdrawsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletWithdrawsAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters?) : RequestConfig<WalletWithdrawDtoCollectionQueryParameters> {
+        val localVariableBody = walletWithdrawDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3584,6 +3715,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3602,6 +3734,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3611,8 +3744,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getWalletWithdrawsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getWalletWithdrawsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawsCountAsync(walletId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getWalletWithdrawsCountAsyncWithHttpInfo(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawDtoCollectionQueryParameters = walletWithdrawDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -3635,16 +3768,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getWalletWithdrawsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getWalletWithdrawsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getWalletWithdrawsCountAsyncWithHttpInfo(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getWalletWithdrawsCountAsyncRequestConfig(walletId = walletId, apiVersion = apiVersion, xApiVersion = xApiVersion, walletWithdrawDtoCollectionQueryParameters = walletWithdrawDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<WalletWithdrawDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -3655,10 +3789,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param walletId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getWalletWithdrawsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getWalletWithdrawsCountAsyncRequestConfig(walletId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, walletWithdrawDtoCollectionQueryParameters: WalletWithdrawDtoCollectionQueryParameters?) : RequestConfig<WalletWithdrawDtoCollectionQueryParameters> {
+        val localVariableBody = walletWithdrawDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3667,6 +3802,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -3686,7 +3822,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param bankAccountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3696,8 +3832,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWalletBankAccountAsync(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWalletBankAccountAsyncWithHttpInfo(walletId = walletId, bankAccountId = bankAccountId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWalletBankAccountAsync(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWalletBankAccountAsyncWithHttpInfo(walletId = walletId, bankAccountId = bankAccountId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3721,17 +3857,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param bankAccountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWalletBankAccountAsyncWithHttpInfo(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWalletBankAccountAsyncRequestConfig(walletId = walletId, bankAccountId = bankAccountId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWalletBankAccountAsyncWithHttpInfo(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWalletBankAccountAsyncRequestConfig(walletId = walletId, bankAccountId = bankAccountId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3743,11 +3879,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param bankAccountId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWalletBankAccountAsyncRequestConfig(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWalletBankAccountAsyncRequestConfig(walletId: java.util.UUID, bankAccountId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -3776,7 +3912,7 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tokenId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3786,8 +3922,8 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchWalletTokenAsync(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchWalletTokenAsyncWithHttpInfo(walletId = walletId, tokenId = tokenId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWalletTokenAsync(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchWalletTokenAsyncWithHttpInfo(walletId = walletId, tokenId = tokenId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -3811,17 +3947,17 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tokenId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchWalletTokenAsyncWithHttpInfo(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchWalletTokenAsyncRequestConfig(walletId = walletId, tokenId = tokenId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchWalletTokenAsyncWithHttpInfo(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchWalletTokenAsyncRequestConfig(walletId = walletId, tokenId = tokenId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -3833,11 +3969,11 @@ class WalletsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
      * @param tokenId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchWalletTokenAsyncRequestConfig(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchWalletTokenAsyncRequestConfig(walletId: java.util.UUID, tokenId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {

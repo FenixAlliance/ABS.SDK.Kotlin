@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getTrainingProgramEventsAsync"></a>
 # **getTrainingProgramEventsAsync**
-> TrainingProgramEventDtoListEnvelope getTrainingProgramEventsAsync(tenantId, apiVersion, xApiVersion)
+> TrainingProgramEventDtoListEnvelope getTrainingProgramEventsAsync(tenantId, apiVersion, xApiVersion, trainingProgramEventDtoCollectionQueryParameters)
 
 Get training program events
 
@@ -187,8 +187,9 @@ val apiInstance = TrainingProgramEventsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trainingProgramEventDtoCollectionQueryParameters : TrainingProgramEventDtoCollectionQueryParameters =  // TrainingProgramEventDtoCollectionQueryParameters | 
 try {
-    val result : TrainingProgramEventDtoListEnvelope = apiInstance.getTrainingProgramEventsAsync(tenantId, apiVersion, xApiVersion)
+    val result : TrainingProgramEventDtoListEnvelope = apiInstance.getTrainingProgramEventsAsync(tenantId, apiVersion, xApiVersion, trainingProgramEventDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrainingProgramEventsApi#getTrainingProgramEventsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trainingProgramEventDtoCollectionQueryParameters** | [**TrainingProgramEventDtoCollectionQueryParameters**](TrainingProgramEventDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTrainingProgramEventsCountAsync"></a>
 # **getTrainingProgramEventsCountAsync**
-> Int32Envelope getTrainingProgramEventsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTrainingProgramEventsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramEventDtoCollectionQueryParameters)
 
 Count training program events
 
@@ -237,8 +239,9 @@ val apiInstance = TrainingProgramEventsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val trainingProgramEventDtoCollectionQueryParameters : TrainingProgramEventDtoCollectionQueryParameters =  // TrainingProgramEventDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTrainingProgramEventsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTrainingProgramEventsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramEventDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrainingProgramEventsApi#getTrainingProgramEventsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **trainingProgramEventDtoCollectionQueryParameters** | [**TrainingProgramEventDtoCollectionQueryParameters**](TrainingProgramEventDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,12 +270,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchTrainingProgramEventAsync"></a>
 # **patchTrainingProgramEventAsync**
-> EmptyEnvelope patchTrainingProgramEventAsync(eventId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTrainingProgramEventAsync(eventId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a training program event
 
@@ -288,9 +292,9 @@ val eventId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchTrainingProgramEventAsync(eventId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchTrainingProgramEventAsync(eventId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TrainingProgramEventsApi#patchTrainingProgramEventAsync")
@@ -308,7 +312,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

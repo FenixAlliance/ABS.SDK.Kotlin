@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countTimezonesAsync"></a>
 # **countTimezonesAsync**
-> Int32Envelope countTimezonesAsync(apiVersion, xApiVersion)
+> Int32Envelope countTimezonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Count timezones
 
@@ -26,8 +26,9 @@ Returns the total number of supported timezones, with optional OData filtering.
 val apiInstance = TimezonesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val timezoneDtoCollectionQueryParameters : TimezoneDtoCollectionQueryParameters =  // TimezoneDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countTimezonesAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countTimezonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TimezonesApi#countTimezonesAsync")
@@ -40,9 +41,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -54,7 +56,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTimeZoneByIdAsync"></a>
@@ -109,7 +111,7 @@ No authorization required
 
 <a id="getTimeZonesAsync"></a>
 # **getTimeZonesAsync**
-> TimezoneDtoListEnvelope getTimeZonesAsync(apiVersion, xApiVersion)
+> TimezoneDtoListEnvelope getTimeZonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Get all timezones
 
@@ -124,8 +126,9 @@ Retrieves the list of all supported timezones with optional OData pagination and
 val apiInstance = TimezonesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val timezoneDtoCollectionQueryParameters : TimezoneDtoCollectionQueryParameters =  // TimezoneDtoCollectionQueryParameters | 
 try {
-    val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesAsync(apiVersion, xApiVersion)
+    val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling TimezonesApi#getTimeZonesAsync")
@@ -138,9 +141,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -152,6 +156,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

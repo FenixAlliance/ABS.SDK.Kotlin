@@ -207,7 +207,7 @@ No authorization required
 
 <a id="getPaymentsAsync"></a>
 # **getPaymentsAsync**
-> PaymentDtoListEnvelope getPaymentsAsync(tenantId)
+> PaymentDtoListEnvelope getPaymentsAsync(tenantId, paymentDtoCollectionQueryParameters)
 
 Retrieves all payments
 
@@ -221,8 +221,9 @@ Gets all payments for the current tenant with OData support.
 
 val apiInstance = PaymentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val paymentDtoCollectionQueryParameters : PaymentDtoCollectionQueryParameters =  // PaymentDtoCollectionQueryParameters | 
 try {
-    val result : PaymentDtoListEnvelope = apiInstance.getPaymentsAsync(tenantId)
+    val result : PaymentDtoListEnvelope = apiInstance.getPaymentsAsync(tenantId, paymentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentsApi#getPaymentsAsync")
@@ -234,9 +235,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,12 +250,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchPaymentAsync"></a>
 # **patchPaymentAsync**
-> EmptyEnvelope patchPaymentAsync(paymentId, tenantId, operation)
+> EmptyEnvelope patchPaymentAsync(paymentId, tenantId, patchOperation)
 
 Patch a payment
 
@@ -268,9 +270,9 @@ Patch a payment
 val apiInstance = PaymentsApi()
 val paymentId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchPaymentAsync(paymentId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchPaymentAsync(paymentId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PaymentsApi#patchPaymentAsync")
@@ -286,7 +288,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

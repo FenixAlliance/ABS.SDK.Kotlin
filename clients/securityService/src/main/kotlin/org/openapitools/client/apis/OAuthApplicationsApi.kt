@@ -28,7 +28,7 @@ import org.openapitools.client.models.OAuthApplicationDtoListEnvelope
 import org.openapitools.client.models.OAuthApplicationUpdateDto
 import org.openapitools.client.models.OAuthAuthorizationDtoEnvelope
 import org.openapitools.client.models.OAuthAuthorizationDtoListEnvelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -756,7 +756,7 @@ class OAuthApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Partially updates an existing OAuth application using a JSON Patch document.
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -768,8 +768,8 @@ class OAuthApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchOAuthApplicationAsync(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
-        val localVarResponse = patchOAuthApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchOAuthApplicationAsync(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : EmptyEnvelope {
+        val localVarResponse = patchOAuthApplicationAsyncWithHttpInfo(applicationId = applicationId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -791,7 +791,7 @@ class OAuthApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Partially updates an existing OAuth application using a JSON Patch document.
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse<EmptyEnvelope?>
@@ -800,10 +800,10 @@ class OAuthApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchOAuthApplicationAsyncWithHttpInfo(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchOAuthApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, operation = operation, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun patchOAuthApplicationAsyncWithHttpInfo(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchOAuthApplicationAsyncRequestConfig(applicationId = applicationId, tenantId = tenantId, patchOperation = patchOperation, apiVersion = apiVersion, xApiVersion = xApiVersion)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -813,13 +813,13 @@ class OAuthApplicationsApi(basePath: kotlin.String = defaultBasePath, client: Ca
      *
      * @param applicationId 
      * @param tenantId 
-     * @param operation 
+     * @param patchOperation 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return RequestConfig
      */
-    fun patchOAuthApplicationAsyncRequestConfig(applicationId: kotlin.String, tenantId: java.util.UUID, operation: kotlin.collections.List<Operation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchOAuthApplicationAsyncRequestConfig(applicationId: kotlin.String, tenantId: java.util.UUID, patchOperation: kotlin.collections.List<PatchOperation>, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

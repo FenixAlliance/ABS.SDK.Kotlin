@@ -114,7 +114,7 @@ No authorization required
 
 <a id="getItemGoogleCategoriesAsync"></a>
 # **getItemGoogleCategoriesAsync**
-> ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(apiVersion, xApiVersion)
+> ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get all Google item categories
 
@@ -129,8 +129,9 @@ Retrieves all Google item categories using OData query options.
 val apiInstance = ItemGoogleCategoriesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemGoogleCategoryDtoCollectionQueryParameters : ItemGoogleCategoryDtoCollectionQueryParameters =  // ItemGoogleCategoryDtoCollectionQueryParameters | 
 try {
-    val result : ItemGoogleCategoryDtoListEnvelope = apiInstance.getItemGoogleCategoriesAsync(apiVersion, xApiVersion)
+    val result : ItemGoogleCategoryDtoListEnvelope = apiInstance.getItemGoogleCategoriesAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemGoogleCategoriesApi#getItemGoogleCategoriesAsync")
@@ -143,9 +144,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -157,12 +159,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemGoogleCategoriesCountAsync"></a>
 # **getItemGoogleCategoriesCountAsync**
-> Int32Envelope getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get Google item categories count
 
@@ -177,8 +179,9 @@ Retrieves the count of Google item categories using OData query options.
 val apiInstance = ItemGoogleCategoriesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemGoogleCategoryDtoCollectionQueryParameters : ItemGoogleCategoryDtoCollectionQueryParameters =  // ItemGoogleCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemGoogleCategoriesApi#getItemGoogleCategoriesCountAsync")
@@ -191,9 +194,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -205,7 +209,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemGoogleCategoriesTreeAsync"></a>

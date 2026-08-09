@@ -31,6 +31,10 @@ import com.squareup.moshi.JsonClass
  * @param socialProfileAvatarUrl 
  * @param commentsCount 
  * @param reactionsCount 
+ * @param socialProfileType 
+ * @param bodyHtml 
+ * @param bodyFormat 
+ * @param backgroundStyle 
  */
 
 
@@ -61,10 +65,43 @@ data class SocialPostDto (
     val commentsCount: kotlin.Int? = null,
 
     @Json(name = "reactionsCount")
-    val reactionsCount: kotlin.Int? = null
+    val reactionsCount: kotlin.Int? = null,
+
+    @Json(name = "socialProfileType")
+    val socialProfileType: SocialPostDto.SocialProfileType? = null,
+
+    @Json(name = "bodyHtml")
+    val bodyHtml: kotlin.String? = null,
+
+    @Json(name = "bodyFormat")
+    val bodyFormat: SocialPostDto.BodyFormat? = null,
+
+    @Json(name = "backgroundStyle")
+    val backgroundStyle: kotlin.String? = null
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: User,Tenant,Contact
+     */
+    @JsonClass(generateAdapter = false)
+    enum class SocialProfileType(val value: kotlin.String) {
+        @Json(name = "User") User("User"),
+        @Json(name = "Tenant") Tenant("Tenant"),
+        @Json(name = "Contact") Contact("Contact");
+    }
+    /**
+     * 
+     *
+     * Values: PlainText,Html
+     */
+    @JsonClass(generateAdapter = false)
+    enum class BodyFormat(val value: kotlin.String) {
+        @Json(name = "PlainText") PlainText("PlainText"),
+        @Json(name = "Html") Html("Html");
+    }
 
 }
 

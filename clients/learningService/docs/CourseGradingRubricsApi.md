@@ -167,7 +167,7 @@ No authorization required
 
 <a id="getCourseGradingRubricsAsync"></a>
 # **getCourseGradingRubricsAsync**
-> kotlin.collections.List&lt;CourseGradingRubricDto&gt; getCourseGradingRubricsAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseGradingRubricDto&gt; getCourseGradingRubricsAsync(tenantId, apiVersion, xApiVersion, courseGradingRubricDtoCollectionQueryParameters)
 
 Get all course grading rubrics
 
@@ -183,8 +183,9 @@ val apiInstance = CourseGradingRubricsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseGradingRubricDtoCollectionQueryParameters : CourseGradingRubricDtoCollectionQueryParameters =  // CourseGradingRubricDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseGradingRubricDto> = apiInstance.getCourseGradingRubricsAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseGradingRubricDto> = apiInstance.getCourseGradingRubricsAsync(tenantId, apiVersion, xApiVersion, courseGradingRubricDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseGradingRubricsApi#getCourseGradingRubricsAsync")
@@ -198,9 +199,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseGradingRubricDtoCollectionQueryParameters** | [**CourseGradingRubricDtoCollectionQueryParameters**](CourseGradingRubricDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,12 +214,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseGradingRubricsCountAsync"></a>
 # **getCourseGradingRubricsCountAsync**
-> kotlin.Int getCourseGradingRubricsCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseGradingRubricsCountAsync(tenantId, apiVersion, xApiVersion, courseGradingRubricDtoCollectionQueryParameters)
 
 Get course grading rubrics count
 
@@ -233,8 +235,9 @@ val apiInstance = CourseGradingRubricsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseGradingRubricDtoCollectionQueryParameters : CourseGradingRubricDtoCollectionQueryParameters =  // CourseGradingRubricDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseGradingRubricsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseGradingRubricsCountAsync(tenantId, apiVersion, xApiVersion, courseGradingRubricDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseGradingRubricsApi#getCourseGradingRubricsCountAsync")
@@ -248,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseGradingRubricDtoCollectionQueryParameters** | [**CourseGradingRubricDtoCollectionQueryParameters**](CourseGradingRubricDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -262,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseGradingRubricAsync"></a>
 # **patchCourseGradingRubricAsync**
-> patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, operation)
+> patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course grading rubric
 
@@ -284,9 +288,9 @@ val rubricId : kotlin.String = rubricId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    apiInstance.patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, operation)
+    apiInstance.patchCourseGradingRubricAsync(rubricId, tenantId, apiVersion, xApiVersion, patchOperation)
 } catch (e: ClientException) {
     println("4xx response calling CourseGradingRubricsApi#patchCourseGradingRubricAsync")
     e.printStackTrace()
@@ -303,7 +307,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

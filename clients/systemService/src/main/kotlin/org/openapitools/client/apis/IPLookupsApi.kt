@@ -21,6 +21,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
+import org.openapitools.client.models.IPLookupDtoCollectionQueryParameters
 import org.openapitools.client.models.IPLookupDtoEnvelope
 import org.openapitools.client.models.IPLookupDtoListEnvelope
 import org.openapitools.client.models.Int32Envelope
@@ -220,6 +221,7 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieve a list of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return IPLookupDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -229,8 +231,8 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemIPLookups(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : IPLookupDtoListEnvelope {
-        val localVarResponse = getSystemIPLookupsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemIPLookups(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters? = null) : IPLookupDtoListEnvelope {
+        val localVarResponse = getSystemIPLookupsWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, ipLookupDtoCollectionQueryParameters = ipLookupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as IPLookupDtoListEnvelope
@@ -252,16 +254,17 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Retrieve a list of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<IPLookupDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemIPLookupsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<IPLookupDtoListEnvelope?> {
-        val localVariableConfig = getSystemIPLookupsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemIPLookupsWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters?) : ApiResponse<IPLookupDtoListEnvelope?> {
+        val localVariableConfig = getSystemIPLookupsRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, ipLookupDtoCollectionQueryParameters = ipLookupDtoCollectionQueryParameters)
 
-        return request<Unit, IPLookupDtoListEnvelope>(
+        return request<IPLookupDtoCollectionQueryParameters, IPLookupDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -271,10 +274,11 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemIPLookupsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemIPLookupsRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters?) : RequestConfig<IPLookupDtoCollectionQueryParameters> {
+        val localVariableBody = ipLookupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -283,6 +287,7 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -300,6 +305,7 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get the count of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -309,8 +315,8 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSystemIPLookupsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSystemIPLookupsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemIPLookupsCount(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSystemIPLookupsCountWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, ipLookupDtoCollectionQueryParameters = ipLookupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -332,16 +338,17 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      * Get the count of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSystemIPLookupsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSystemIPLookupsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSystemIPLookupsCountWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSystemIPLookupsCountRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, ipLookupDtoCollectionQueryParameters = ipLookupDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<IPLookupDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -351,10 +358,11 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSystemIPLookupsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSystemIPLookupsCountRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, ipLookupDtoCollectionQueryParameters: IPLookupDtoCollectionQueryParameters?) : RequestConfig<IPLookupDtoCollectionQueryParameters> {
+        val localVariableBody = ipLookupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -363,6 +371,7 @@ class IPLookupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

@@ -32,6 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param individualId 
  * @param paymentTermId 
  * @param organizationId 
+ * @param receiverTenantId 
  * @param firstName 
  * @param lastName 
  * @param companyName 
@@ -72,7 +73,6 @@ import com.squareup.moshi.JsonClass
  * @param taxCalculationMethod 
  * @param cartId 
  * @param dealUnitId 
- * @param receiverTenantId 
  * @param effectiveTo 
  * @param effectiveFrom 
  * @param quoteStatus 
@@ -108,6 +108,9 @@ data class QuoteCreateDto (
 
     @Json(name = "organizationId")
     val organizationId: kotlin.String? = null,
+
+    @Json(name = "receiverTenantId")
+    val receiverTenantId: kotlin.String? = null,
 
     @Json(name = "firstName")
     val firstName: kotlin.String? = null,
@@ -228,9 +231,6 @@ data class QuoteCreateDto (
 
     @Json(name = "dealUnitId")
     val dealUnitId: kotlin.String? = null,
-
-    @Json(name = "receiverTenantId")
-    val receiverTenantId: kotlin.String? = null,
 
     @Json(name = "effectiveTo")
     val effectiveTo: java.time.OffsetDateTime? = null,

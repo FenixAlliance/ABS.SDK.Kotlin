@@ -22,9 +22,10 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SigningProfileGraphicalRepresentationCreateDto
 import org.openapitools.client.models.SigningProfileGraphicalRepresentationDto
+import org.openapitools.client.models.SigningProfileGraphicalRepresentationDtoCollectionQueryParameters
 import org.openapitools.client.models.SigningProfileGraphicalRepresentationDtoListEnvelope
 import org.openapitools.client.models.SigningProfileGraphicalRepresentationUpdateDto
 
@@ -316,6 +317,7 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return SigningProfileGraphicalRepresentationDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,8 +327,8 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningProfileGraphicalRepresentationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SigningProfileGraphicalRepresentationDtoListEnvelope {
-        val localVarResponse = getSigningProfileGraphicalRepresentationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningProfileGraphicalRepresentationsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters? = null) : SigningProfileGraphicalRepresentationDtoListEnvelope {
+        val localVarResponse = getSigningProfileGraphicalRepresentationsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters = signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SigningProfileGraphicalRepresentationDtoListEnvelope
@@ -349,16 +351,17 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SigningProfileGraphicalRepresentationDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningProfileGraphicalRepresentationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SigningProfileGraphicalRepresentationDtoListEnvelope?> {
-        val localVariableConfig = getSigningProfileGraphicalRepresentationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningProfileGraphicalRepresentationsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters?) : ApiResponse<SigningProfileGraphicalRepresentationDtoListEnvelope?> {
+        val localVariableConfig = getSigningProfileGraphicalRepresentationsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters = signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
-        return request<Unit, SigningProfileGraphicalRepresentationDtoListEnvelope>(
+        return request<SigningProfileGraphicalRepresentationDtoCollectionQueryParameters, SigningProfileGraphicalRepresentationDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -369,10 +372,11 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningProfileGraphicalRepresentationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningProfileGraphicalRepresentationsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters?) : RequestConfig<SigningProfileGraphicalRepresentationDtoCollectionQueryParameters> {
+        val localVariableBody = signingProfileGraphicalRepresentationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -382,6 +386,7 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -400,6 +405,7 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -409,8 +415,8 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningProfileGraphicalRepresentationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSigningProfileGraphicalRepresentationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningProfileGraphicalRepresentationsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSigningProfileGraphicalRepresentationsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters = signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -433,16 +439,17 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningProfileGraphicalRepresentationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSigningProfileGraphicalRepresentationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningProfileGraphicalRepresentationsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSigningProfileGraphicalRepresentationsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters = signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SigningProfileGraphicalRepresentationDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -453,10 +460,11 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileGraphicalRepresentationDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningProfileGraphicalRepresentationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningProfileGraphicalRepresentationsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingProfileGraphicalRepresentationDtoCollectionQueryParameters: SigningProfileGraphicalRepresentationDtoCollectionQueryParameters?) : RequestConfig<SigningProfileGraphicalRepresentationDtoCollectionQueryParameters> {
+        val localVariableBody = signingProfileGraphicalRepresentationDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -466,6 +474,7 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -485,7 +494,7 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -495,8 +504,8 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSigningProfileGraphicalRepresentationAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSigningProfileGraphicalRepresentationAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSigningProfileGraphicalRepresentationAsync(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSigningProfileGraphicalRepresentationAsyncWithHttpInfo(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -520,17 +529,17 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSigningProfileGraphicalRepresentationAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSigningProfileGraphicalRepresentationAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSigningProfileGraphicalRepresentationAsyncWithHttpInfo(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSigningProfileGraphicalRepresentationAsyncRequestConfig(id = id, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -542,11 +551,11 @@ class SigningProfileGraphicalRepresentationsApi(basePath: kotlin.String = defaul
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSigningProfileGraphicalRepresentationAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSigningProfileGraphicalRepresentationAsyncRequestConfig(id: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

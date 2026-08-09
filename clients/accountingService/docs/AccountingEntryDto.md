@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **id** | **kotlin.String** |  |  [optional] |
+| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **tenantId** | **kotlin.String** |  |  [optional] |
 | **enrollmentId** | **kotlin.String** |  |  [optional] |
 | **journalEntryId** | **kotlin.String** |  |  [optional] |
@@ -23,7 +24,6 @@
 | **forexRatesSnapshot** | **kotlin.String** |  |  [optional] |
 | **costCentreId** | **kotlin.String** |  |  [optional] |
 | **projectId** | **kotlin.String** |  |  [optional] |
-| **timestamp** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **debit** | **kotlin.Double** |  |  [optional] [readonly] |
 | **credit** | **kotlin.Double** |  |  [optional] [readonly] |
 | **amount** | [**Money**](Money.md) |  |  [optional] |

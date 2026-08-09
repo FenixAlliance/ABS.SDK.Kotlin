@@ -23,6 +23,7 @@ import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.RecordSigningParticipantOutcomeDto
 import org.openapitools.client.models.SigningParticipantDto
+import org.openapitools.client.models.SigningParticipantDtoCollectionQueryParameters
 import org.openapitools.client.models.SigningParticipantDtoListEnvelope
 
 import com.squareup.moshi.Json
@@ -142,6 +143,7 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return SigningParticipantDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -151,8 +153,8 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningParticipantsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SigningParticipantDtoListEnvelope {
-        val localVarResponse = getSigningParticipantsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningParticipantsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters? = null) : SigningParticipantDtoListEnvelope {
+        val localVarResponse = getSigningParticipantsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingParticipantDtoCollectionQueryParameters = signingParticipantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SigningParticipantDtoListEnvelope
@@ -175,16 +177,17 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SigningParticipantDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningParticipantsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SigningParticipantDtoListEnvelope?> {
-        val localVariableConfig = getSigningParticipantsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningParticipantsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters?) : ApiResponse<SigningParticipantDtoListEnvelope?> {
+        val localVariableConfig = getSigningParticipantsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingParticipantDtoCollectionQueryParameters = signingParticipantDtoCollectionQueryParameters)
 
-        return request<Unit, SigningParticipantDtoListEnvelope>(
+        return request<SigningParticipantDtoCollectionQueryParameters, SigningParticipantDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -195,10 +198,11 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningParticipantsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningParticipantsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters?) : RequestConfig<SigningParticipantDtoCollectionQueryParameters> {
+        val localVariableBody = signingParticipantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -208,6 +212,7 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -226,6 +231,7 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -235,8 +241,8 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSigningParticipantsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getSigningParticipantsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningParticipantsCountAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getSigningParticipantsCountAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingParticipantDtoCollectionQueryParameters = signingParticipantDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -259,16 +265,17 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSigningParticipantsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getSigningParticipantsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSigningParticipantsCountAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getSigningParticipantsCountAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, signingParticipantDtoCollectionQueryParameters = signingParticipantDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SigningParticipantDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -279,10 +286,11 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingParticipantDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSigningParticipantsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSigningParticipantsCountAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, signingParticipantDtoCollectionQueryParameters: SigningParticipantDtoCollectionQueryParameters?) : RequestConfig<SigningParticipantDtoCollectionQueryParameters> {
+        val localVariableBody = signingParticipantDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -292,6 +300,7 @@ class SigningParticipantsApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

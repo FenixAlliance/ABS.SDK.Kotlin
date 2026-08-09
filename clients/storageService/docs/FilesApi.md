@@ -326,7 +326,7 @@ No authorization required
 
 <a id="getFilesAsync"></a>
 # **getFilesAsync**
-> FileUploadDtoEnvelope getFilesAsync(tenantId, apiVersion, xApiVersion)
+> FileUploadDtoEnvelope getFilesAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
 
 
 
@@ -340,8 +340,17 @@ val apiInstance = FilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val top : kotlin.Int = 56 // kotlin.Int | 
+val skip : kotlin.Int = 56 // kotlin.Int | 
+val count : kotlin.Boolean = true // kotlin.Boolean | 
+val filter : kotlin.String = filter_example // kotlin.String | 
+val orderBy : kotlin.String = orderBy_example // kotlin.String | 
+val search : kotlin.String = search_example // kotlin.String | 
+val select : kotlin.String = select_example // kotlin.String | 
+val expand : kotlin.String = expand_example // kotlin.String | 
+val isEmpty : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : FileUploadDtoEnvelope = apiInstance.getFilesAsync(tenantId, apiVersion, xApiVersion)
+    val result : FileUploadDtoEnvelope = apiInstance.getFilesAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FilesApi#getFilesAsync")
@@ -355,9 +364,18 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **top** | **kotlin.Int**|  | [optional] |
+| **skip** | **kotlin.Int**|  | [optional] |
+| **count** | **kotlin.Boolean**|  | [optional] |
+| **filter** | **kotlin.String**|  | [optional] |
+| **orderBy** | **kotlin.String**|  | [optional] |
+| **search** | **kotlin.String**|  | [optional] |
+| **select** | **kotlin.String**|  | [optional] |
+| **expand** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **isEmpty** | **kotlin.Boolean**|  | [optional] |
 
 ### Return type
 
@@ -369,12 +387,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 <a id="getFilesCountAsync"></a>
 # **getFilesCountAsync**
-> kotlin.Long getFilesCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Long getFilesCountAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
 
 
 
@@ -388,8 +406,17 @@ val apiInstance = FilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val top : kotlin.Int = 56 // kotlin.Int | 
+val skip : kotlin.Int = 56 // kotlin.Int | 
+val count : kotlin.Boolean = true // kotlin.Boolean | 
+val filter : kotlin.String = filter_example // kotlin.String | 
+val orderBy : kotlin.String = orderBy_example // kotlin.String | 
+val search : kotlin.String = search_example // kotlin.String | 
+val select : kotlin.String = select_example // kotlin.String | 
+val expand : kotlin.String = expand_example // kotlin.String | 
+val isEmpty : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : kotlin.Long = apiInstance.getFilesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Long = apiInstance.getFilesCountAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FilesApi#getFilesCountAsync")
@@ -403,9 +430,18 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | [optional] |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **top** | **kotlin.Int**|  | [optional] |
+| **skip** | **kotlin.Int**|  | [optional] |
+| **count** | **kotlin.Boolean**|  | [optional] |
+| **filter** | **kotlin.String**|  | [optional] |
+| **orderBy** | **kotlin.String**|  | [optional] |
+| **search** | **kotlin.String**|  | [optional] |
+| **select** | **kotlin.String**|  | [optional] |
+| **expand** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **isEmpty** | **kotlin.Boolean**|  | [optional] |
 
 ### Return type
 
@@ -417,7 +453,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 <a id="updateFileAsync"></a>

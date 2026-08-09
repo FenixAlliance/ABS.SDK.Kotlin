@@ -165,7 +165,7 @@ No authorization required
 
 <a id="getWarrantyRequestsAsync"></a>
 # **getWarrantyRequestsAsync**
-> WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion)
+> WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
 
 Retrieve warranty requests
 
@@ -179,8 +179,9 @@ val apiInstance = WarrantyRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val warrantyRequestDtoCollectionQueryParameters : WarrantyRequestDtoCollectionQueryParameters =  // WarrantyRequestDtoCollectionQueryParameters | 
 try {
-    val result : WarrantyRequestDtoListEnvelope = apiInstance.getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion)
+    val result : WarrantyRequestDtoListEnvelope = apiInstance.getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WarrantyRequestsApi#getWarrantyRequestsAsync")
@@ -194,9 +195,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -208,12 +210,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getWarrantyRequestsCountAsync"></a>
 # **getWarrantyRequestsCountAsync**
-> Int32Envelope getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
 
 Get warranty requests count
 
@@ -227,8 +229,9 @@ val apiInstance = WarrantyRequestsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val warrantyRequestDtoCollectionQueryParameters : WarrantyRequestDtoCollectionQueryParameters =  // WarrantyRequestDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WarrantyRequestsApi#getWarrantyRequestsCountAsync")
@@ -242,9 +245,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,12 +260,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchWarrantyRequestAsync"></a>
 # **patchWarrantyRequestAsync**
-> EmptyEnvelope patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a warranty request
 
@@ -278,9 +282,9 @@ val warrantyRequestId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d //
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchWarrantyRequestAsync(warrantyRequestId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WarrantyRequestsApi#patchWarrantyRequestAsync")
@@ -298,7 +302,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

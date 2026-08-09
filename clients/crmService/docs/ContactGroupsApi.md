@@ -169,7 +169,7 @@ No authorization required
 
 <a id="getContactGroupsAsync"></a>
 # **getContactGroupsAsync**
-> ContactsGroupDtoListEnvelope getContactGroupsAsync(tenantId, apiVersion, xApiVersion)
+> ContactsGroupDtoListEnvelope getContactGroupsAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
 
 Get all contact groups
 
@@ -185,8 +185,9 @@ val apiInstance = ContactGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactsGroupDtoCollectionQueryParameters : ContactsGroupDtoCollectionQueryParameters =  // ContactsGroupDtoCollectionQueryParameters | 
 try {
-    val result : ContactsGroupDtoListEnvelope = apiInstance.getContactGroupsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ContactsGroupDtoListEnvelope = apiInstance.getContactGroupsAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactGroupsApi#getContactGroupsAsync")
@@ -200,9 +201,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactsGroupDtoCollectionQueryParameters** | [**ContactsGroupDtoCollectionQueryParameters**](ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -214,12 +216,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getContactGroupsCountAsync"></a>
 # **getContactGroupsCountAsync**
-> Int32Envelope getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
 
 Get contact groups count
 
@@ -235,8 +237,9 @@ val apiInstance = ContactGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val contactsGroupDtoCollectionQueryParameters : ContactsGroupDtoCollectionQueryParameters =  // ContactsGroupDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactGroupsApi#getContactGroupsCountAsync")
@@ -250,9 +253,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **contactsGroupDtoCollectionQueryParameters** | [**ContactsGroupDtoCollectionQueryParameters**](ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +268,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchContactGroupAsync"></a>
 # **patchContactGroupAsync**
-> EmptyEnvelope patchContactGroupAsync(id, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactGroupAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact group
 
@@ -286,9 +290,9 @@ val id : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchContactGroupAsync(id, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchContactGroupAsync(id, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContactGroupsApi#patchContactGroupAsync")
@@ -306,7 +310,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

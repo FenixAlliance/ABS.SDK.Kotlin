@@ -22,11 +22,12 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.FiscalIdentificationTypeCreateDto
+import org.openapitools.client.models.FiscalIdentificationTypeDtoCollectionQueryParameters
 import org.openapitools.client.models.FiscalIdentificationTypeDtoEnvelope
 import org.openapitools.client.models.FiscalIdentificationTypeDtoListEnvelope
 import org.openapitools.client.models.FiscalIdentificationTypeUpdateDto
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -324,6 +325,7 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return FiscalIdentificationTypeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -333,8 +335,8 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalIdentificationTypes(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : FiscalIdentificationTypeDtoListEnvelope {
-        val localVarResponse = getFiscalIdentificationTypesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalIdentificationTypes(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters? = null) : FiscalIdentificationTypeDtoListEnvelope {
+        val localVarResponse = getFiscalIdentificationTypesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters = fiscalIdentificationTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as FiscalIdentificationTypeDtoListEnvelope
@@ -358,16 +360,17 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<FiscalIdentificationTypeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalIdentificationTypesWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<FiscalIdentificationTypeDtoListEnvelope?> {
-        val localVariableConfig = getFiscalIdentificationTypesRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalIdentificationTypesWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters?) : ApiResponse<FiscalIdentificationTypeDtoListEnvelope?> {
+        val localVariableConfig = getFiscalIdentificationTypesRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters = fiscalIdentificationTypeDtoCollectionQueryParameters)
 
-        return request<Unit, FiscalIdentificationTypeDtoListEnvelope>(
+        return request<FiscalIdentificationTypeDtoCollectionQueryParameters, FiscalIdentificationTypeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -379,10 +382,11 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalIdentificationTypesRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalIdentificationTypesRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters?) : RequestConfig<FiscalIdentificationTypeDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalIdentificationTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -392,6 +396,7 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -411,6 +416,7 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -420,8 +426,8 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFiscalIdentificationTypesCount(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getFiscalIdentificationTypesCountWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalIdentificationTypesCount(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getFiscalIdentificationTypesCountWithHttpInfo(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters = fiscalIdentificationTypeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -445,16 +451,17 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFiscalIdentificationTypesCountWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getFiscalIdentificationTypesCountRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getFiscalIdentificationTypesCountWithHttpInfo(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getFiscalIdentificationTypesCountRequestConfig(authorityId = authorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters = fiscalIdentificationTypeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<FiscalIdentificationTypeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -466,10 +473,11 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalIdentificationTypeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getFiscalIdentificationTypesCountRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getFiscalIdentificationTypesCountRequestConfig(authorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, fiscalIdentificationTypeDtoCollectionQueryParameters: FiscalIdentificationTypeDtoCollectionQueryParameters?) : RequestConfig<FiscalIdentificationTypeDtoCollectionQueryParameters> {
+        val localVariableBody = fiscalIdentificationTypeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -479,6 +487,7 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -498,7 +507,7 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -508,8 +517,8 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchFiscalIdentificationTypeAsync(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchFiscalIdentificationTypeAsyncWithHttpInfo(identificationTypeId = identificationTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalIdentificationTypeAsync(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchFiscalIdentificationTypeAsyncWithHttpInfo(identificationTypeId = identificationTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -533,17 +542,17 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchFiscalIdentificationTypeAsyncWithHttpInfo(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchFiscalIdentificationTypeAsyncRequestConfig(identificationTypeId = identificationTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalIdentificationTypeAsyncWithHttpInfo(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchFiscalIdentificationTypeAsyncRequestConfig(identificationTypeId = identificationTypeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -555,11 +564,11 @@ class FiscalIdentificationTypesApi(basePath: kotlin.String = defaultBasePath, cl
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchFiscalIdentificationTypeAsyncRequestConfig(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchFiscalIdentificationTypeAsyncRequestConfig(identificationTypeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

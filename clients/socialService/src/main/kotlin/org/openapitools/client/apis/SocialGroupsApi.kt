@@ -22,8 +22,9 @@ import okhttp3.HttpUrl
 import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 import org.openapitools.client.models.SocialGroupCreateDto
+import org.openapitools.client.models.SocialGroupDtoCollectionQueryParameters
 import org.openapitools.client.models.SocialGroupDtoEnvelope
 import org.openapitools.client.models.SocialGroupDtoListEnvelope
 import org.openapitools.client.models.SocialGroupUpdateDto
@@ -58,6 +59,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -67,8 +69,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countSocialGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countSocialGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countSocialGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countSocialGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupDtoCollectionQueryParameters = socialGroupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -91,16 +93,17 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countSocialGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countSocialGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countSocialGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countSocialGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupDtoCollectionQueryParameters = socialGroupDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<SocialGroupDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -111,10 +114,11 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countSocialGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countSocialGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters?) : RequestConfig<SocialGroupDtoCollectionQueryParameters> {
+        val localVariableBody = socialGroupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -124,6 +128,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -412,6 +417,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return SocialGroupDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -421,8 +427,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSocialGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : SocialGroupDtoListEnvelope {
-        val localVarResponse = getSocialGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialGroupsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters? = null) : SocialGroupDtoListEnvelope {
+        val localVarResponse = getSocialGroupsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupDtoCollectionQueryParameters = socialGroupDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SocialGroupDtoListEnvelope
@@ -445,16 +451,17 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<SocialGroupDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSocialGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<SocialGroupDtoListEnvelope?> {
-        val localVariableConfig = getSocialGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getSocialGroupsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters?) : ApiResponse<SocialGroupDtoListEnvelope?> {
+        val localVariableConfig = getSocialGroupsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, socialGroupDtoCollectionQueryParameters = socialGroupDtoCollectionQueryParameters)
 
-        return request<Unit, SocialGroupDtoListEnvelope>(
+        return request<SocialGroupDtoCollectionQueryParameters, SocialGroupDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -465,10 +472,11 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getSocialGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getSocialGroupsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, socialGroupDtoCollectionQueryParameters: SocialGroupDtoCollectionQueryParameters?) : RequestConfig<SocialGroupDtoCollectionQueryParameters> {
+        val localVariableBody = socialGroupDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -478,6 +486,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -498,7 +507,7 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -508,8 +517,8 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialGroupAsync(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchSocialGroupAsyncWithHttpInfo(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -534,17 +543,17 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchSocialGroupAsyncWithHttpInfo(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchSocialGroupAsyncRequestConfig(socialGroupId = socialGroupId, tenantId = tenantId, socialProfileId = socialProfileId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -557,11 +566,11 @@ class SocialGroupsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param socialProfileId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchSocialGroupAsyncRequestConfig(socialGroupId: java.util.UUID, tenantId: java.util.UUID, socialProfileId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

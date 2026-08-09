@@ -17,7 +17,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countAllServiceLevelsAsync"></a>
 # **countAllServiceLevelsAsync**
-> Int32Envelope countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels count
 
@@ -33,8 +33,9 @@ val apiInstance = ServiceLevelsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceLevelDtoCollectionQueryParameters : ServiceLevelDtoCollectionQueryParameters =  // ServiceLevelDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceLevelsApi#countAllServiceLevelsAsync")
@@ -48,9 +49,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -62,7 +64,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createServiceLevelAsync"></a>
@@ -175,7 +177,7 @@ No authorization required
 
 <a id="getAllServiceLevelsAsync"></a>
 # **getAllServiceLevelsAsync**
-> ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+> ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels
 
@@ -191,8 +193,9 @@ val apiInstance = ServiceLevelsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceLevelDtoCollectionQueryParameters : ServiceLevelDtoCollectionQueryParameters =  // ServiceLevelDtoCollectionQueryParameters | 
 try {
-    val result : ServiceLevelDtoIReadOnlyListEnvelope = apiInstance.getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ServiceLevelDtoIReadOnlyListEnvelope = apiInstance.getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceLevelsApi#getAllServiceLevelsAsync")
@@ -206,9 +209,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -220,7 +224,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getServiceLevelByIdAsync"></a>
@@ -279,7 +283,7 @@ No authorization required
 
 <a id="getServiceLevelsAsync"></a>
 # **getServiceLevelsAsync**
-> ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(serviceId, tenantId, apiVersion, xApiVersion)
+> ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(serviceId, tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels
 
@@ -296,8 +300,9 @@ val serviceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceLevelDtoCollectionQueryParameters : ServiceLevelDtoCollectionQueryParameters =  // ServiceLevelDtoCollectionQueryParameters | 
 try {
-    val result : ServiceLevelDtoIReadOnlyListEnvelope = apiInstance.getServiceLevelsAsync(serviceId, tenantId, apiVersion, xApiVersion)
+    val result : ServiceLevelDtoIReadOnlyListEnvelope = apiInstance.getServiceLevelsAsync(serviceId, tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceLevelsApi#getServiceLevelsAsync")
@@ -312,9 +317,10 @@ try {
 | **serviceId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -326,12 +332,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getServiceLevelsCountAsync"></a>
 # **getServiceLevelsCountAsync**
-> Int32Envelope getServiceLevelsCountAsync(serviceId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServiceLevelsCountAsync(serviceId, tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get service levels count
 
@@ -348,8 +354,9 @@ val serviceId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val serviceLevelDtoCollectionQueryParameters : ServiceLevelDtoCollectionQueryParameters =  // ServiceLevelDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getServiceLevelsCountAsync(serviceId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getServiceLevelsCountAsync(serviceId, tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceLevelsApi#getServiceLevelsCountAsync")
@@ -364,9 +371,10 @@ try {
 | **serviceId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -378,12 +386,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchServiceLevelAsync"></a>
 # **patchServiceLevelAsync**
-> Envelope patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service level
 
@@ -401,9 +409,9 @@ val serviceLevelId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : Envelope = apiInstance.patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, operation)
+    val result : Envelope = apiInstance.patchServiceLevelAsync(serviceId, serviceLevelId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceLevelsApi#patchServiceLevelAsync")
@@ -422,7 +430,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -286,7 +286,7 @@ No authorization required
 
 <a id="getItemPickListEntriesAsync"></a>
 # **getItemPickListEntriesAsync**
-> ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(pickListId, tenantId, apiVersion, xApiVersion)
+> ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(pickListId, tenantId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
 
 Get pick list entries
 
@@ -303,8 +303,9 @@ val pickListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPickListEntryDtoCollectionQueryParameters : ItemPickListEntryDtoCollectionQueryParameters =  // ItemPickListEntryDtoCollectionQueryParameters | 
 try {
-    val result : ItemPickListEntryDtoListEnvelope = apiInstance.getItemPickListEntriesAsync(pickListId, tenantId, apiVersion, xApiVersion)
+    val result : ItemPickListEntryDtoListEnvelope = apiInstance.getItemPickListEntriesAsync(pickListId, tenantId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#getItemPickListEntriesAsync")
@@ -319,9 +320,10 @@ try {
 | **pickListId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -333,12 +335,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPickListEntriesCountAsync"></a>
 # **getItemPickListEntriesCountAsync**
-> Int32Envelope getItemPickListEntriesCountAsync(pickListId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPickListEntriesCountAsync(pickListId, tenantId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
 
 Get pick list entries count
 
@@ -355,8 +357,9 @@ val pickListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPickListEntryDtoCollectionQueryParameters : ItemPickListEntryDtoCollectionQueryParameters =  // ItemPickListEntryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemPickListEntriesCountAsync(pickListId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemPickListEntriesCountAsync(pickListId, tenantId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#getItemPickListEntriesCountAsync")
@@ -371,9 +374,10 @@ try {
 | **pickListId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -385,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPickListEntryByIdAsync"></a>
@@ -444,7 +448,7 @@ No authorization required
 
 <a id="getItemPickListsAsync"></a>
 # **getItemPickListsAsync**
-> ItemPickListDtoListEnvelope getItemPickListsAsync(tenantId, apiVersion, xApiVersion)
+> ItemPickListDtoListEnvelope getItemPickListsAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
 
 Get all item pick lists
 
@@ -460,8 +464,9 @@ val apiInstance = ItemPickListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPickListDtoCollectionQueryParameters : ItemPickListDtoCollectionQueryParameters =  // ItemPickListDtoCollectionQueryParameters | 
 try {
-    val result : ItemPickListDtoListEnvelope = apiInstance.getItemPickListsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemPickListDtoListEnvelope = apiInstance.getItemPickListsAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#getItemPickListsAsync")
@@ -475,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPickListsCountAsync"></a>
 # **getItemPickListsCountAsync**
-> Int32Envelope getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
 
 Get item pick lists count
 
@@ -510,8 +516,9 @@ val apiInstance = ItemPickListsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPickListDtoCollectionQueryParameters : ItemPickListDtoCollectionQueryParameters =  // ItemPickListDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#getItemPickListsCountAsync")
@@ -525,9 +532,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,12 +547,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemPickListAsync"></a>
 # **patchItemPickListAsync**
-> EmptyEnvelope patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item pick list
 
@@ -561,9 +569,9 @@ val pickListId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.u
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemPickListAsync(pickListId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#patchItemPickListAsync")
@@ -581,7 +589,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -598,7 +606,7 @@ No authorization required
 
 <a id="patchItemPickListEntryAsync"></a>
 # **patchItemPickListEntryAsync**
-> EmptyEnvelope patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a pick list entry
 
@@ -616,9 +624,9 @@ val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemPickListEntryAsync(pickListId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPickListsApi#patchItemPickListEntryAsync")
@@ -637,7 +645,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

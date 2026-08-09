@@ -110,7 +110,7 @@ No authorization required
 
 <a id="getAssetCategories"></a>
 # **getAssetCategories**
-> AssetCategoryDtoListEnvelope getAssetCategories(tenantId)
+> AssetCategoryDtoListEnvelope getAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets all asset categories for the current tenant
 
@@ -124,8 +124,9 @@ Retrieves all asset categories for the authenticated tenant.
 
 val apiInstance = AssetCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetCategoryDtoCollectionQueryParameters : AssetCategoryDtoCollectionQueryParameters =  // AssetCategoryDtoCollectionQueryParameters | 
 try {
-    val result : AssetCategoryDtoListEnvelope = apiInstance.getAssetCategories(tenantId)
+    val result : AssetCategoryDtoListEnvelope = apiInstance.getAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetCategoriesApi#getAssetCategories")
@@ -137,9 +138,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -151,12 +153,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetCategoriesCount"></a>
 # **getAssetCategoriesCount**
-> Int32Envelope getAssetCategoriesCount(tenantId)
+> Int32Envelope getAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets the count of asset categories
 
@@ -170,8 +172,9 @@ Returns the total number of asset categories for the authenticated tenant.
 
 val apiInstance = AssetCategoriesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val assetCategoryDtoCollectionQueryParameters : AssetCategoryDtoCollectionQueryParameters =  // AssetCategoryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAssetCategoriesCount(tenantId)
+    val result : Int32Envelope = apiInstance.getAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetCategoriesApi#getAssetCategoriesCount")
@@ -183,9 +186,10 @@ try {
 ```
 
 ### Parameters
+| **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **java.util.UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -197,7 +201,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAssetCategory"></a>
@@ -250,7 +254,7 @@ No authorization required
 
 <a id="patchAssetCategory"></a>
 # **patchAssetCategory**
-> EmptyEnvelope patchAssetCategory(categoryId, tenantId, operation)
+> EmptyEnvelope patchAssetCategory(categoryId, tenantId, patchOperation)
 
 Partially updates an existing asset category
 
@@ -265,9 +269,9 @@ Applies a JSON Patch document to an existing asset category for the authenticate
 val apiInstance = AssetCategoriesApi()
 val categoryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAssetCategory(categoryId, tenantId, operation)
+    val result : EmptyEnvelope = apiInstance.patchAssetCategory(categoryId, tenantId, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AssetCategoriesApi#patchAssetCategory")
@@ -283,7 +287,7 @@ try {
 | **tenantId** | **java.util.UUID**|  | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

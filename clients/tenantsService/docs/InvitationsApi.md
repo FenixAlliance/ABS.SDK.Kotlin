@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getTenantInvitations"></a>
 # **getTenantInvitations**
-> TenantInvitationDtoListEnvelope getTenantInvitations(tenantId, apiVersion, xApiVersion)
+> TenantInvitationDtoListEnvelope getTenantInvitations(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
 
 Retrieve a list of tenant invitations
 
@@ -235,8 +235,9 @@ val apiInstance = InvitationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantInvitationDtoCollectionQueryParameters : TenantInvitationDtoCollectionQueryParameters =  // TenantInvitationDtoCollectionQueryParameters | 
 try {
-    val result : TenantInvitationDtoListEnvelope = apiInstance.getTenantInvitations(tenantId, apiVersion, xApiVersion)
+    val result : TenantInvitationDtoListEnvelope = apiInstance.getTenantInvitations(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvitationsApi#getTenantInvitations")
@@ -250,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTenantInvitationsCount"></a>
 # **getTenantInvitationsCount**
-> Int32Envelope getTenantInvitationsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantInvitationsCount(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
 
 Get the count of tenant invitations
 
@@ -285,8 +287,9 @@ val apiInstance = InvitationsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val tenantInvitationDtoCollectionQueryParameters : TenantInvitationDtoCollectionQueryParameters =  // TenantInvitationDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getTenantInvitationsCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getTenantInvitationsCount(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvitationsApi#getTenantInvitationsCount")
@@ -300,9 +303,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -314,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="sendTenantInvitation"></a>

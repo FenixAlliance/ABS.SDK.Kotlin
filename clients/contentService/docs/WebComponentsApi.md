@@ -14,7 +14,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebComponentsAsync"></a>
 # **countWebComponentsAsync**
-> Int32Envelope countWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
 
 Count web components
 
@@ -30,8 +30,9 @@ val apiInstance = WebComponentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webComponentDtoCollectionQueryParameters : WebComponentDtoCollectionQueryParameters =  // WebComponentDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebComponentsApi#countWebComponentsAsync")
@@ -45,9 +46,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webComponentDtoCollectionQueryParameters** | [**WebComponentDtoCollectionQueryParameters**](WebComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -59,7 +61,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="createWebComponentAsync"></a>
@@ -220,7 +222,7 @@ No authorization required
 
 <a id="getWebComponentsAsync"></a>
 # **getWebComponentsAsync**
-> WebComponentDtoListEnvelope getWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+> WebComponentDtoListEnvelope getWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
 
 Get web components
 
@@ -236,8 +238,9 @@ val apiInstance = WebComponentsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val webComponentDtoCollectionQueryParameters : WebComponentDtoCollectionQueryParameters =  // WebComponentDtoCollectionQueryParameters | 
 try {
-    val result : WebComponentDtoListEnvelope = apiInstance.getWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+    val result : WebComponentDtoListEnvelope = apiInstance.getWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling WebComponentsApi#getWebComponentsAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **webComponentDtoCollectionQueryParameters** | [**WebComponentDtoCollectionQueryParameters**](WebComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateWebComponentAsync"></a>

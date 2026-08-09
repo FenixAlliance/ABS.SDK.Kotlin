@@ -24,7 +24,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCallingCodesByCountryAsync"></a>
 # **countCallingCodesByCountryAsync**
-> Int32Envelope countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
 
 Count calling codes for a country
 
@@ -40,8 +40,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryCallingCodeDtoCollectionQueryParameters : CountryCallingCodeDtoCollectionQueryParameters =  // CountryCallingCodeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countCallingCodesByCountryAsync")
@@ -55,9 +56,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -69,12 +71,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countCitiesByStateAsync"></a>
 # **countCitiesByStateAsync**
-> Int32Envelope countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> Int32Envelope countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
 
 Count cities for a state
 
@@ -91,8 +93,9 @@ val countryStateId : kotlin.String = countryStateId_example // kotlin.String |
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val cityDtoCollectionQueryParameters : CityDtoCollectionQueryParameters =  // CityDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countCitiesByStateAsync")
@@ -107,9 +110,10 @@ try {
 | **countryStateId** | **kotlin.String**|  | |
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -121,12 +125,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countCountries"></a>
 # **countCountries**
-> Int32Envelope countCountries(apiVersion, xApiVersion)
+> Int32Envelope countCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
 
 Count countries
 
@@ -141,8 +145,9 @@ Returns the total number of countries, with optional OData filtering.
 val apiInstance = CountriesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryDtoCollectionQueryParameters : CountryDtoCollectionQueryParameters =  // CountryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCountries(apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countCountries")
@@ -155,9 +160,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -169,12 +175,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countCountryStatesAsync"></a>
 # **countCountryStatesAsync**
-> Int32Envelope countCountryStatesAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Count states for a country
 
@@ -190,8 +196,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryStateDtoCollectionQueryParameters : CountryStateDtoCollectionQueryParameters =  // CountryStateDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countCountryStatesAsync(countryId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countCountryStatesAsync")
@@ -205,9 +212,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -219,12 +227,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countTimezonesByCountryAsync"></a>
 # **countTimezonesByCountryAsync**
-> Int32Envelope countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Count timezones for a country
 
@@ -240,8 +248,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val timezoneDtoCollectionQueryParameters : TimezoneDtoCollectionQueryParameters =  // TimezoneDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countTimezonesByCountryAsync")
@@ -255,9 +264,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -269,12 +279,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="countTopLevelDomainsByCountryAsync"></a>
 # **countTopLevelDomainsByCountryAsync**
-> Int32Envelope countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
 
 Count top-level domains for a country
 
@@ -290,8 +300,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryTopLevelDomainDtoCollectionQueryParameters : CountryTopLevelDomainDtoCollectionQueryParameters =  // CountryTopLevelDomainDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#countTopLevelDomainsByCountryAsync")
@@ -305,9 +316,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -319,12 +331,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAllCountries"></a>
 # **getAllCountries**
-> CountryDtoListEnvelope getAllCountries(apiVersion, xApiVersion)
+> CountryDtoListEnvelope getAllCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
 
 Get all countries
 
@@ -339,8 +351,9 @@ Retrieves a list of all countries with optional OData pagination and filtering.
 val apiInstance = CountriesApi()
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryDtoCollectionQueryParameters : CountryDtoCollectionQueryParameters =  // CountryDtoCollectionQueryParameters | 
 try {
-    val result : CountryDtoListEnvelope = apiInstance.getAllCountries(apiVersion, xApiVersion)
+    val result : CountryDtoListEnvelope = apiInstance.getAllCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getAllCountries")
@@ -353,9 +366,10 @@ try {
 
 ### Parameters
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -367,12 +381,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCallingCodesByCountryIdAsync"></a>
 # **getCallingCodesByCountryIdAsync**
-> CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
 
 Get calling codes for a country
 
@@ -388,8 +402,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryCallingCodeDtoCollectionQueryParameters : CountryCallingCodeDtoCollectionQueryParameters =  // CountryCallingCodeDtoCollectionQueryParameters | 
 try {
-    val result : CountryCallingCodeDtoListEnvelope = apiInstance.getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+    val result : CountryCallingCodeDtoListEnvelope = apiInstance.getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getCallingCodesByCountryIdAsync")
@@ -403,9 +418,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -417,12 +433,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCitiesByCountryStateIdAsync"></a>
 # **getCitiesByCountryStateIdAsync**
-> CityDtoListEnvelope getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> CityDtoListEnvelope getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
 
 Get cities for a state
 
@@ -439,8 +455,9 @@ val countryStateId : kotlin.String = countryStateId_example // kotlin.String |
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val cityDtoCollectionQueryParameters : CityDtoCollectionQueryParameters =  // CityDtoCollectionQueryParameters | 
 try {
-    val result : CityDtoListEnvelope = apiInstance.getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+    val result : CityDtoListEnvelope = apiInstance.getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getCitiesByCountryStateIdAsync")
@@ -455,9 +472,10 @@ try {
 | **countryStateId** | **kotlin.String**|  | |
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -469,7 +487,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCountryById"></a>
@@ -524,7 +542,7 @@ No authorization required
 
 <a id="getCountryStateByIdAsync"></a>
 # **getCountryStateByIdAsync**
-> CountryStateDtoEnvelope getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> CountryStateDtoEnvelope getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Get state by ID
 
@@ -541,8 +559,9 @@ val countryStateId : kotlin.String = countryStateId_example // kotlin.String |
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryStateDtoCollectionQueryParameters : CountryStateDtoCollectionQueryParameters =  // CountryStateDtoCollectionQueryParameters | 
 try {
-    val result : CountryStateDtoEnvelope = apiInstance.getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+    val result : CountryStateDtoEnvelope = apiInstance.getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getCountryStateByIdAsync")
@@ -557,9 +576,10 @@ try {
 | **countryStateId** | **kotlin.String**|  | |
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -571,12 +591,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCountryStatesAsync"></a>
 # **getCountryStatesAsync**
-> CountryStateDtoListEnvelope getCountryStatesAsync(countryId, apiVersion, xApiVersion)
+> CountryStateDtoListEnvelope getCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Get states for a country
 
@@ -592,8 +612,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryStateDtoCollectionQueryParameters : CountryStateDtoCollectionQueryParameters =  // CountryStateDtoCollectionQueryParameters | 
 try {
-    val result : CountryStateDtoListEnvelope = apiInstance.getCountryStatesAsync(countryId, apiVersion, xApiVersion)
+    val result : CountryStateDtoListEnvelope = apiInstance.getCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getCountryStatesAsync")
@@ -607,9 +628,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -621,12 +643,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getEnabledCurrenciesByCountryIdAsync"></a>
 # **getEnabledCurrenciesByCountryIdAsync**
-> CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Get currencies for a country
 
@@ -642,8 +664,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val currencyDtoCollectionQueryParameters : CurrencyDtoCollectionQueryParameters =  // CurrencyDtoCollectionQueryParameters | 
 try {
-    val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+    val result : CurrencyDtoListEnvelope = apiInstance.getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getEnabledCurrenciesByCountryIdAsync")
@@ -657,9 +680,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -671,12 +695,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTimeZonesByCountryIdAsync"></a>
 # **getTimeZonesByCountryIdAsync**
-> TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Get timezones for a country
 
@@ -692,8 +716,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val timezoneDtoCollectionQueryParameters : TimezoneDtoCollectionQueryParameters =  // TimezoneDtoCollectionQueryParameters | 
 try {
-    val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+    val result : TimezoneDtoListEnvelope = apiInstance.getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getTimeZonesByCountryIdAsync")
@@ -707,9 +732,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -721,12 +747,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getTopLevelDomainsByCountryIdAsync"></a>
 # **getTopLevelDomainsByCountryIdAsync**
-> CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
 
 Get top-level domains for a country
 
@@ -742,8 +768,9 @@ val apiInstance = CountriesApi()
 val countryId : kotlin.String = countryId_example // kotlin.String | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val countryTopLevelDomainDtoCollectionQueryParameters : CountryTopLevelDomainDtoCollectionQueryParameters =  // CountryTopLevelDomainDtoCollectionQueryParameters | 
 try {
-    val result : CountryTopLevelDomainDtoListEnvelope = apiInstance.getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion)
+    val result : CountryTopLevelDomainDtoListEnvelope = apiInstance.getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CountriesApi#getTopLevelDomainsByCountryIdAsync")
@@ -757,9 +784,10 @@ try {
 ### Parameters
 | **countryId** | **kotlin.String**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -771,7 +799,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="searchCountriesByNameAsync"></a>

@@ -13,6 +13,7 @@
 | **individualId** | **kotlin.String** |  |  [optional] |
 | **paymentTermId** | **kotlin.String** |  |  [optional] |
 | **organizationId** | **kotlin.String** |  |  [optional] |
+| **receiverTenantId** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **companyName** | **kotlin.String** |  |  [optional] |
@@ -61,7 +62,6 @@
 | **orderStatus** | [**inline**](#OrderStatus) |  |  [optional] |
 | **quoteStatus** | [**inline**](#QuoteStatus) |  |  [optional] |
 | **freightTerms** | [**inline**](#FreightTerms) |  |  [optional] |
-| **receiverTenantId** | **kotlin.String** |  |  [optional] |
 | **shippingLocationId** | **kotlin.String** |  |  [optional] |
 | **qualifiedIdentifier** | **kotlin.String** |  |  [optional] |
 | **totalTaxesInUsd** | **kotlin.Double** |  |  [optional] |

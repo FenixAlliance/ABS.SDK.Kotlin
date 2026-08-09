@@ -566,7 +566,7 @@ No authorization required
 
 <a id="getBankAccounts"></a>
 # **getBankAccounts**
-> BankAccountDtoListEnvelope getBankAccounts(bankId, tenantId, apiVersion, xApiVersion)
+> BankAccountDtoListEnvelope getBankAccounts(bankId, tenantId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Gets the current tenant bank accounts
 
@@ -583,8 +583,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankAccountDtoCollectionQueryParameters : BankAccountDtoCollectionQueryParameters =  // BankAccountDtoCollectionQueryParameters | 
 try {
-    val result : BankAccountDtoListEnvelope = apiInstance.getBankAccounts(bankId, tenantId, apiVersion, xApiVersion)
+    val result : BankAccountDtoListEnvelope = apiInstance.getBankAccounts(bankId, tenantId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankAccounts")
@@ -599,9 +600,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -613,12 +615,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankAccountsCount"></a>
 # **getBankAccountsCount**
-> Int32Envelope getBankAccountsCount(bankId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBankAccountsCount(bankId, tenantId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Gets the current tenant bank accounts count
 
@@ -635,8 +637,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankAccountDtoCollectionQueryParameters : BankAccountDtoCollectionQueryParameters =  // BankAccountDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBankAccountsCount(bankId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBankAccountsCount(bankId, tenantId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankAccountsCount")
@@ -651,9 +654,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +669,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankGuarantee"></a>
@@ -724,7 +728,7 @@ No authorization required
 
 <a id="getBankGuarantees"></a>
 # **getBankGuarantees**
-> BankGuaranteeDtoListEnvelope getBankGuarantees(bankId, tenantId, apiVersion, xApiVersion)
+> BankGuaranteeDtoListEnvelope getBankGuarantees(bankId, tenantId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
 
 Gets the current tenant bank guarantees
 
@@ -741,8 +745,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankGuaranteeDtoCollectionQueryParameters : BankGuaranteeDtoCollectionQueryParameters =  // BankGuaranteeDtoCollectionQueryParameters | 
 try {
-    val result : BankGuaranteeDtoListEnvelope = apiInstance.getBankGuarantees(bankId, tenantId, apiVersion, xApiVersion)
+    val result : BankGuaranteeDtoListEnvelope = apiInstance.getBankGuarantees(bankId, tenantId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankGuarantees")
@@ -757,9 +762,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -771,12 +777,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankGuaranteesCount"></a>
 # **getBankGuaranteesCount**
-> Int32Envelope getBankGuaranteesCount(bankId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBankGuaranteesCount(bankId, tenantId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
 
 Gets the current tenant bank guarantees count
 
@@ -793,8 +799,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankGuaranteeDtoCollectionQueryParameters : BankGuaranteeDtoCollectionQueryParameters =  // BankGuaranteeDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBankGuaranteesCount(bankId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBankGuaranteesCount(bankId, tenantId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankGuaranteesCount")
@@ -809,9 +816,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -823,7 +831,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankTransaction"></a>
@@ -882,7 +890,7 @@ No authorization required
 
 <a id="getBankTransactions"></a>
 # **getBankTransactions**
-> BankTransactionDtoListEnvelope getBankTransactions(bankId, tenantId, apiVersion, xApiVersion)
+> BankTransactionDtoListEnvelope getBankTransactions(bankId, tenantId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
 
 Gets the current tenant bank transactions
 
@@ -899,8 +907,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankTransactionDtoCollectionQueryParameters : BankTransactionDtoCollectionQueryParameters =  // BankTransactionDtoCollectionQueryParameters | 
 try {
-    val result : BankTransactionDtoListEnvelope = apiInstance.getBankTransactions(bankId, tenantId, apiVersion, xApiVersion)
+    val result : BankTransactionDtoListEnvelope = apiInstance.getBankTransactions(bankId, tenantId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankTransactions")
@@ -915,9 +924,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -929,12 +939,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankTransactionsCount"></a>
 # **getBankTransactionsCount**
-> Int32Envelope getBankTransactionsCount(bankId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBankTransactionsCount(bankId, tenantId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
 
 Gets the current tenant bank transactions count
 
@@ -951,8 +961,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankTransactionDtoCollectionQueryParameters : BankTransactionDtoCollectionQueryParameters =  // BankTransactionDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBankTransactionsCount(bankId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBankTransactionsCount(bankId, tenantId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBankTransactionsCount")
@@ -967,9 +978,10 @@ try {
 | **bankId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -981,12 +993,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBanks"></a>
 # **getBanks**
-> BankDtoListEnvelope getBanks(tenantId, apiVersion, xApiVersion)
+> BankDtoListEnvelope getBanks(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
 
 Gets the current tenant banks
 
@@ -1002,8 +1014,9 @@ val apiInstance = BankingApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankDtoCollectionQueryParameters : BankDtoCollectionQueryParameters =  // BankDtoCollectionQueryParameters | 
 try {
-    val result : BankDtoListEnvelope = apiInstance.getBanks(tenantId, apiVersion, xApiVersion)
+    val result : BankDtoListEnvelope = apiInstance.getBanks(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBanks")
@@ -1017,9 +1030,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1031,12 +1045,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBanksCount"></a>
 # **getBanksCount**
-> Int32Envelope getBanksCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBanksCount(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
 
 Gets the current tenant banks count
 
@@ -1052,8 +1066,9 @@ val apiInstance = BankingApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankDtoCollectionQueryParameters : BankDtoCollectionQueryParameters =  // BankDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBanksCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBanksCount(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#getBanksCount")
@@ -1067,9 +1082,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1081,12 +1097,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchBank"></a>
 # **patchBank**
-> EmptyEnvelope patchBank(bankId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBank(bankId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank
 
@@ -1103,9 +1119,9 @@ val bankId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBank(bankId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBank(bankId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#patchBank")
@@ -1123,7 +1139,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1140,7 +1156,7 @@ No authorization required
 
 <a id="patchBankAccount"></a>
 # **patchBankAccount**
-> EmptyEnvelope patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank account
 
@@ -1158,9 +1174,9 @@ val accountId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBankAccount(bankId, accountId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#patchBankAccount")
@@ -1179,7 +1195,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1196,7 +1212,7 @@ No authorization required
 
 <a id="patchBankGuarantee"></a>
 # **patchBankGuarantee**
-> EmptyEnvelope patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank guarantee
 
@@ -1214,9 +1230,9 @@ val guaranteeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBankGuarantee(bankId, guaranteeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#patchBankGuarantee")
@@ -1235,7 +1251,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1252,7 +1268,7 @@ No authorization required
 
 <a id="patchBankTransaction"></a>
 # **patchBankTransaction**
-> EmptyEnvelope patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank transaction
 
@@ -1270,9 +1286,9 @@ val transactionId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchBankTransaction(bankId, transactionId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankingApi#patchBankTransaction")
@@ -1291,7 +1307,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

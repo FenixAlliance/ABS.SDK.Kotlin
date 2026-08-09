@@ -504,7 +504,7 @@ No authorization required
 
 <a id="getProofOfDeliveryLinesAsync"></a>
 # **getProofOfDeliveryLinesAsync**
-> ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(podId, tenantId, apiVersion, xApiVersion)
+> ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(podId, tenantId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
 
 Get proof of delivery lines
 
@@ -521,8 +521,9 @@ val podId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.U
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val proofOfDeliveryLineDtoCollectionQueryParameters : ProofOfDeliveryLineDtoCollectionQueryParameters =  // ProofOfDeliveryLineDtoCollectionQueryParameters | 
 try {
-    val result : ProofOfDeliveryLineDtoListEnvelope = apiInstance.getProofOfDeliveryLinesAsync(podId, tenantId, apiVersion, xApiVersion)
+    val result : ProofOfDeliveryLineDtoListEnvelope = apiInstance.getProofOfDeliveryLinesAsync(podId, tenantId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#getProofOfDeliveryLinesAsync")
@@ -537,9 +538,10 @@ try {
 | **podId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -551,12 +553,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProofOfDeliveryLinesCountAsync"></a>
 # **getProofOfDeliveryLinesCountAsync**
-> Int32Envelope getProofOfDeliveryLinesCountAsync(podId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProofOfDeliveryLinesCountAsync(podId, tenantId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
 
 Get proof of delivery lines count
 
@@ -573,8 +575,9 @@ val podId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.U
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val proofOfDeliveryLineDtoCollectionQueryParameters : ProofOfDeliveryLineDtoCollectionQueryParameters =  // ProofOfDeliveryLineDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProofOfDeliveryLinesCountAsync(podId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getProofOfDeliveryLinesCountAsync(podId, tenantId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#getProofOfDeliveryLinesCountAsync")
@@ -589,9 +592,10 @@ try {
 | **podId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -603,12 +607,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProofsOfDeliveryAsync"></a>
 # **getProofsOfDeliveryAsync**
-> ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion)
+> ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
 
 Get all proofs of delivery
 
@@ -624,8 +628,9 @@ val apiInstance = ProofsOfDeliveryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val proofOfDeliveryDtoCollectionQueryParameters : ProofOfDeliveryDtoCollectionQueryParameters =  // ProofOfDeliveryDtoCollectionQueryParameters | 
 try {
-    val result : ProofOfDeliveryDtoListEnvelope = apiInstance.getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion)
+    val result : ProofOfDeliveryDtoListEnvelope = apiInstance.getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#getProofsOfDeliveryAsync")
@@ -639,9 +644,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -653,12 +659,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getProofsOfDeliveryCountAsync"></a>
 # **getProofsOfDeliveryCountAsync**
-> Int32Envelope getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
 
 Get proofs of delivery count
 
@@ -674,8 +680,9 @@ val apiInstance = ProofsOfDeliveryApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val proofOfDeliveryDtoCollectionQueryParameters : ProofOfDeliveryDtoCollectionQueryParameters =  // ProofOfDeliveryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#getProofsOfDeliveryCountAsync")
@@ -689,9 +696,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -703,12 +711,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchProofOfDeliveryAsync"></a>
 # **patchProofOfDeliveryAsync**
-> EmptyEnvelope patchProofOfDeliveryAsync(podId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchProofOfDeliveryAsync(podId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a proof of delivery
 
@@ -725,9 +733,9 @@ val podId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.U
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchProofOfDeliveryAsync(podId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchProofOfDeliveryAsync(podId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#patchProofOfDeliveryAsync")
@@ -745,7 +753,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -762,7 +770,7 @@ No authorization required
 
 <a id="patchProofOfDeliveryLineAsync"></a>
 # **patchProofOfDeliveryLineAsync**
-> EmptyEnvelope patchProofOfDeliveryLineAsync(podId, lineId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchProofOfDeliveryLineAsync(podId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a proof of delivery line
 
@@ -780,9 +788,9 @@ val lineId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchProofOfDeliveryLineAsync(podId, lineId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchProofOfDeliveryLineAsync(podId, lineId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProofsOfDeliveryApi#patchProofOfDeliveryLineAsync")
@@ -801,7 +809,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

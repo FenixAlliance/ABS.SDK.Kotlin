@@ -23,10 +23,11 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.InvoiceEnumerationRangeCreateDto
+import org.openapitools.client.models.InvoiceEnumerationRangeDtoCollectionQueryParameters
 import org.openapitools.client.models.InvoiceEnumerationRangeDtoEnvelope
 import org.openapitools.client.models.InvoiceEnumerationRangeDtoListEnvelope
 import org.openapitools.client.models.InvoiceEnumerationRangeUpdateDto
-import org.openapitools.client.models.Operation
+import org.openapitools.client.models.PatchOperation
 
 import com.squareup.moshi.Json
 
@@ -325,6 +326,7 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return InvoiceEnumerationRangeDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -334,8 +336,8 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceEnumerationRanges(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : InvoiceEnumerationRangeDtoListEnvelope {
-        val localVarResponse = getInvoiceEnumerationRangesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInvoiceEnumerationRanges(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters? = null) : InvoiceEnumerationRangeDtoListEnvelope {
+        val localVarResponse = getInvoiceEnumerationRangesWithHttpInfo(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters = invoiceEnumerationRangeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as InvoiceEnumerationRangeDtoListEnvelope
@@ -360,16 +362,17 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<InvoiceEnumerationRangeDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceEnumerationRangesWithHttpInfo(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<InvoiceEnumerationRangeDtoListEnvelope?> {
-        val localVariableConfig = getInvoiceEnumerationRangesRequestConfig(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInvoiceEnumerationRangesWithHttpInfo(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters?) : ApiResponse<InvoiceEnumerationRangeDtoListEnvelope?> {
+        val localVariableConfig = getInvoiceEnumerationRangesRequestConfig(authorityId = authorityId, tenantId = tenantId, fiscalAuthorityId = fiscalAuthorityId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters = invoiceEnumerationRangeDtoCollectionQueryParameters)
 
-        return request<Unit, InvoiceEnumerationRangeDtoListEnvelope>(
+        return request<InvoiceEnumerationRangeDtoCollectionQueryParameters, InvoiceEnumerationRangeDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -382,10 +385,11 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param fiscalAuthorityId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceEnumerationRangesRequestConfig(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceEnumerationRangesRequestConfig(authorityId: kotlin.String, tenantId: java.util.UUID, fiscalAuthorityId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters?) : RequestConfig<InvoiceEnumerationRangeDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceEnumerationRangeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -396,6 +400,7 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -415,6 +420,7 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -424,8 +430,8 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getInvoiceEnumerationRangesCount(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = getInvoiceEnumerationRangesCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInvoiceEnumerationRangesCount(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = getInvoiceEnumerationRangesCountWithHttpInfo(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters = invoiceEnumerationRangeDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -449,16 +455,17 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getInvoiceEnumerationRangesCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = getInvoiceEnumerationRangesCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getInvoiceEnumerationRangesCountWithHttpInfo(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = getInvoiceEnumerationRangesCountRequestConfig(fiscalAuthorityId = fiscalAuthorityId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters = invoiceEnumerationRangeDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<InvoiceEnumerationRangeDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -470,10 +477,11 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getInvoiceEnumerationRangesCountRequestConfig(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getInvoiceEnumerationRangesCountRequestConfig(fiscalAuthorityId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, invoiceEnumerationRangeDtoCollectionQueryParameters: InvoiceEnumerationRangeDtoCollectionQueryParameters?) : RequestConfig<InvoiceEnumerationRangeDtoCollectionQueryParameters> {
+        val localVariableBody = invoiceEnumerationRangeDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -483,6 +491,7 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -502,7 +511,7 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -512,8 +521,8 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun patchFiscalEnumerationRangeAsync(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, operation: kotlin.collections.List<Operation>? = null) : EmptyEnvelope {
-        val localVarResponse = patchFiscalEnumerationRangeAsyncWithHttpInfo(enumerationRangeId = enumerationRangeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalEnumerationRangeAsync(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, patchOperation: kotlin.collections.List<PatchOperation>? = null) : EmptyEnvelope {
+        val localVarResponse = patchFiscalEnumerationRangeAsyncWithHttpInfo(enumerationRangeId = enumerationRangeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as EmptyEnvelope
@@ -537,17 +546,17 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse<EmptyEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun patchFiscalEnumerationRangeAsyncWithHttpInfo(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : ApiResponse<EmptyEnvelope?> {
-        val localVariableConfig = patchFiscalEnumerationRangeAsyncRequestConfig(enumerationRangeId = enumerationRangeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, operation = operation)
+    fun patchFiscalEnumerationRangeAsyncWithHttpInfo(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : ApiResponse<EmptyEnvelope?> {
+        val localVariableConfig = patchFiscalEnumerationRangeAsyncRequestConfig(enumerationRangeId = enumerationRangeId, tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, patchOperation = patchOperation)
 
-        return request<kotlin.collections.List<Operation>, EmptyEnvelope>(
+        return request<kotlin.collections.List<PatchOperation>, EmptyEnvelope>(
             localVariableConfig
         )
     }
@@ -559,11 +568,11 @@ class FiscalEnumerationRangesApi(basePath: kotlin.String = defaultBasePath, clie
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return RequestConfig
      */
-    fun patchFiscalEnumerationRangeAsyncRequestConfig(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, operation: kotlin.collections.List<Operation>?) : RequestConfig<kotlin.collections.List<Operation>> {
-        val localVariableBody = operation
+    fun patchFiscalEnumerationRangeAsyncRequestConfig(enumerationRangeId: java.util.UUID, tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, patchOperation: kotlin.collections.List<PatchOperation>?) : RequestConfig<kotlin.collections.List<PatchOperation>> {
+        val localVariableBody = patchOperation
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))

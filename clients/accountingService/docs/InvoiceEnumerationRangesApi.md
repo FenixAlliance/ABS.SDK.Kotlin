@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRangesAsync"></a>
 # **getInvoiceEnumerationRangesAsync**
-> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRangesAsync(tenantId, apiVersion, xApiVersion)
+> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRangesAsync(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
 
 Get all invoice enumeration ranges
 
@@ -186,8 +186,9 @@ val apiInstance = InvoiceEnumerationRangesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val invoiceEnumerationRangeDtoCollectionQueryParameters : InvoiceEnumerationRangeDtoCollectionQueryParameters =  // InvoiceEnumerationRangeDtoCollectionQueryParameters | 
 try {
-    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRangesAsync(tenantId, apiVersion, xApiVersion)
+    val result : InvoiceEnumerationRangeDtoListEnvelope = apiInstance.getInvoiceEnumerationRangesAsync(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoiceEnumerationRangesApi#getInvoiceEnumerationRangesAsync")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchInvoiceEnumerationRangeAsync"></a>
 # **patchInvoiceEnumerationRangeAsync**
-> EmptyEnvelope patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an invoice enumeration range
 
@@ -237,9 +239,9 @@ val rangeId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchInvoiceEnumerationRangeAsync(rangeId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling InvoiceEnumerationRangesApi#patchInvoiceEnumerationRangeAsync")
@@ -257,7 +259,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

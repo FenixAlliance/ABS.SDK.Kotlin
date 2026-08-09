@@ -167,7 +167,7 @@ No authorization required
 
 <a id="getCourseUpdatesAsync"></a>
 # **getCourseUpdatesAsync**
-> kotlin.collections.List&lt;CourseNewsDto&gt; getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.collections.List&lt;CourseNewsDto&gt; getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get all course updates
 
@@ -183,8 +183,9 @@ val apiInstance = CourseUpdatesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseNewsDtoCollectionQueryParameters : CourseNewsDtoCollectionQueryParameters =  // CourseNewsDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.collections.List<CourseNewsDto> = apiInstance.getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.collections.List<CourseNewsDto> = apiInstance.getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseUpdatesApi#getCourseUpdatesAsync")
@@ -198,9 +199,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,12 +214,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getCourseUpdatesCountAsync"></a>
 # **getCourseUpdatesCountAsync**
-> kotlin.Int getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion)
+> kotlin.Int getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates count
 
@@ -233,8 +235,9 @@ val apiInstance = CourseUpdatesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val courseNewsDtoCollectionQueryParameters : CourseNewsDtoCollectionQueryParameters =  // CourseNewsDtoCollectionQueryParameters | 
 try {
-    val result : kotlin.Int = apiInstance.getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : kotlin.Int = apiInstance.getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseUpdatesApi#getCourseUpdatesCountAsync")
@@ -248,9 +251,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -262,12 +266,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchCourseUpdateAsync"></a>
 # **patchCourseUpdateAsync**
-> EmptyEnvelope patchCourseUpdateAsync(updateId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseUpdateAsync(updateId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course update
 
@@ -284,9 +288,9 @@ val updateId : kotlin.String = updateId_example // kotlin.String |
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchCourseUpdateAsync(updateId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchCourseUpdateAsync(updateId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CourseUpdatesApi#patchCourseUpdateAsync")
@@ -304,7 +308,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

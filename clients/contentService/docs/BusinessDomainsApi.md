@@ -171,7 +171,7 @@ No authorization required
 
 <a id="getBusinessDomainsAsync"></a>
 # **getBusinessDomainsAsync**
-> BusinessDomainDtoListEnvelope getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessDomainDtoListEnvelope getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get business domains
 
@@ -187,8 +187,9 @@ val apiInstance = BusinessDomainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessDomainDtoCollectionQueryParameters : BusinessDomainDtoCollectionQueryParameters =  // BusinessDomainDtoCollectionQueryParameters | 
 try {
-    val result : BusinessDomainDtoListEnvelope = apiInstance.getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion)
+    val result : BusinessDomainDtoListEnvelope = apiInstance.getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessDomainsApi#getBusinessDomainsAsync")
@@ -202,9 +203,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,12 +218,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBusinessDomainsCountAsync"></a>
 # **getBusinessDomainsCountAsync**
-> Int32Envelope getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get business domains count
 
@@ -237,8 +239,9 @@ val apiInstance = BusinessDomainsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val businessDomainDtoCollectionQueryParameters : BusinessDomainDtoCollectionQueryParameters =  // BusinessDomainDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BusinessDomainsApi#getBusinessDomainsCountAsync")
@@ -252,9 +255,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -266,7 +270,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="updateBusinessDomainAsync"></a>

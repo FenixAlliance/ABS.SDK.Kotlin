@@ -13,6 +13,7 @@
 | **individualId** | **kotlin.String** |  |  [optional] |
 | **paymentTermId** | **kotlin.String** |  |  [optional] |
 | **organizationId** | **kotlin.String** |  |  [optional] |
+| **receiverTenantId** | **kotlin.String** |  |  [optional] |
 | **firstName** | **kotlin.String** |  |  [optional] |
 | **lastName** | **kotlin.String** |  |  [optional] |
 | **companyName** | **kotlin.String** |  |  [optional] |
@@ -53,7 +54,6 @@
 | **taxCalculationMethod** | [**inline**](#TaxCalculationMethod) |  |  [optional] |
 | **cartId** | **kotlin.String** |  |  [optional] |
 | **dealUnitId** | **kotlin.String** |  |  [optional] |
-| **receiverTenantId** | **kotlin.String** |  |  [optional] |
 | **effectiveTo** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **effectiveFrom** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional] |
 | **quoteStatus** | [**inline**](#QuoteStatus) |  |  [optional] |

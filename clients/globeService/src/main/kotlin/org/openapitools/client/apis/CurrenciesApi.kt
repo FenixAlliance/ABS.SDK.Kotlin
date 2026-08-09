@@ -19,6 +19,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.CurrencyDtoCollectionQueryParameters
 import org.openapitools.client.models.CurrencyDtoEnvelope
 import org.openapitools.client.models.CurrencyDtoListEnvelope
 import org.openapitools.client.models.ErrorEnvelope
@@ -53,6 +54,7 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Returns the total number of enabled currencies, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -62,8 +64,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -85,16 +87,17 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Returns the total number of enabled currencies, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<CurrencyDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -104,10 +107,11 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : RequestConfig<CurrencyDtoCollectionQueryParameters> {
+        val localVariableBody = currencyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -116,6 +120,7 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -216,6 +221,7 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return CurrencyDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -225,8 +231,8 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getEnabledCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : CurrencyDtoListEnvelope {
-        val localVarResponse = getEnabledCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesAsync(apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters? = null) : CurrencyDtoListEnvelope {
+        val localVarResponse = getEnabledCurrenciesAsyncWithHttpInfo(apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CurrencyDtoListEnvelope
@@ -248,16 +254,17 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<CurrencyDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getEnabledCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<CurrencyDtoListEnvelope?> {
-        val localVariableConfig = getEnabledCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getEnabledCurrenciesAsyncWithHttpInfo(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : ApiResponse<CurrencyDtoListEnvelope?> {
+        val localVariableConfig = getEnabledCurrenciesAsyncRequestConfig(apiVersion = apiVersion, xApiVersion = xApiVersion, currencyDtoCollectionQueryParameters = currencyDtoCollectionQueryParameters)
 
-        return request<Unit, CurrencyDtoListEnvelope>(
+        return request<CurrencyDtoCollectionQueryParameters, CurrencyDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -267,10 +274,11 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      *
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getEnabledCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getEnabledCurrenciesAsyncRequestConfig(apiVersion: kotlin.String?, xApiVersion: kotlin.String?, currencyDtoCollectionQueryParameters: CurrencyDtoCollectionQueryParameters?) : RequestConfig<CurrencyDtoCollectionQueryParameters> {
+        val localVariableBody = currencyDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (apiVersion != null) {
@@ -279,6 +287,7 @@ class CurrenciesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

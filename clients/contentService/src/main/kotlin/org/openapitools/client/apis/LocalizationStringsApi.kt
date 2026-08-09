@@ -23,6 +23,7 @@ import org.openapitools.client.models.EmptyEnvelope
 import org.openapitools.client.models.ErrorEnvelope
 import org.openapitools.client.models.Int32Envelope
 import org.openapitools.client.models.LocalizationStringCreateDto
+import org.openapitools.client.models.LocalizationStringDtoCollectionQueryParameters
 import org.openapitools.client.models.LocalizationStringDtoEnvelope
 import org.openapitools.client.models.LocalizationStringDtoListEnvelope
 import org.openapitools.client.models.LocalizationStringUpdateDto
@@ -57,6 +58,7 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -66,8 +68,8 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun countLocalizationStringsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : Int32Envelope {
-        val localVarResponse = countLocalizationStringsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countLocalizationStringsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters? = null) : Int32Envelope {
+        val localVarResponse = countLocalizationStringsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, localizationStringDtoCollectionQueryParameters = localizationStringDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Int32Envelope
@@ -90,16 +92,17 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<Int32Envelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun countLocalizationStringsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<Int32Envelope?> {
-        val localVariableConfig = countLocalizationStringsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun countLocalizationStringsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters?) : ApiResponse<Int32Envelope?> {
+        val localVariableConfig = countLocalizationStringsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, localizationStringDtoCollectionQueryParameters = localizationStringDtoCollectionQueryParameters)
 
-        return request<Unit, Int32Envelope>(
+        return request<LocalizationStringDtoCollectionQueryParameters, Int32Envelope>(
             localVariableConfig
         )
     }
@@ -110,10 +113,11 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun countLocalizationStringsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun countLocalizationStringsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters?) : RequestConfig<LocalizationStringDtoCollectionQueryParameters> {
+        val localVariableBody = localizationStringDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -123,6 +127,7 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -403,6 +408,7 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return LocalizationStringDtoListEnvelope
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -412,8 +418,8 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getLocalizationStringsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null) : LocalizationStringDtoListEnvelope {
-        val localVarResponse = getLocalizationStringsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocalizationStringsAsync(tenantId: java.util.UUID, apiVersion: kotlin.String? = null, xApiVersion: kotlin.String? = null, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters? = null) : LocalizationStringDtoListEnvelope {
+        val localVarResponse = getLocalizationStringsAsyncWithHttpInfo(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, localizationStringDtoCollectionQueryParameters = localizationStringDtoCollectionQueryParameters)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as LocalizationStringDtoListEnvelope
@@ -436,16 +442,17 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return ApiResponse<LocalizationStringDtoListEnvelope?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getLocalizationStringsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : ApiResponse<LocalizationStringDtoListEnvelope?> {
-        val localVariableConfig = getLocalizationStringsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion)
+    fun getLocalizationStringsAsyncWithHttpInfo(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters?) : ApiResponse<LocalizationStringDtoListEnvelope?> {
+        val localVariableConfig = getLocalizationStringsAsyncRequestConfig(tenantId = tenantId, apiVersion = apiVersion, xApiVersion = xApiVersion, localizationStringDtoCollectionQueryParameters = localizationStringDtoCollectionQueryParameters)
 
-        return request<Unit, LocalizationStringDtoListEnvelope>(
+        return request<LocalizationStringDtoCollectionQueryParameters, LocalizationStringDtoListEnvelope>(
             localVariableConfig
         )
     }
@@ -456,10 +463,11 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
      * @param tenantId 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return RequestConfig
      */
-    fun getLocalizationStringsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun getLocalizationStringsAsyncRequestConfig(tenantId: java.util.UUID, apiVersion: kotlin.String?, xApiVersion: kotlin.String?, localizationStringDtoCollectionQueryParameters: LocalizationStringDtoCollectionQueryParameters?) : RequestConfig<LocalizationStringDtoCollectionQueryParameters> {
+        val localVariableBody = localizationStringDtoCollectionQueryParameters
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("tenantId", listOf(tenantId.toString()))
@@ -469,6 +477,7 @@ class LocalizationStringsApi(basePath: kotlin.String = defaultBasePath, client: 
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         xApiVersion?.apply { localVariableHeaders["x-api-version"] = this.toString() }
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

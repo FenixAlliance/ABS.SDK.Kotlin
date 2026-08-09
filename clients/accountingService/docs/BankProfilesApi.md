@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getBankProfiles"></a>
 # **getBankProfiles**
-> BankProfileDtoListEnvelope getBankProfiles(tenantId, apiVersion, xApiVersion)
+> BankProfileDtoListEnvelope getBankProfiles(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
 
 Get all bank profiles for a tenant
 
@@ -26,8 +26,9 @@ val apiInstance = BankProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankProfileDtoCollectionQueryParameters : BankProfileDtoCollectionQueryParameters =  // BankProfileDtoCollectionQueryParameters | 
 try {
-    val result : BankProfileDtoListEnvelope = apiInstance.getBankProfiles(tenantId, apiVersion, xApiVersion)
+    val result : BankProfileDtoListEnvelope = apiInstance.getBankProfiles(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankProfilesApi#getBankProfiles")
@@ -41,9 +42,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -55,12 +57,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getBankProfilesCount"></a>
 # **getBankProfilesCount**
-> Int32Envelope getBankProfilesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBankProfilesCount(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
 
 Get bank profiles count
 
@@ -76,8 +78,9 @@ val apiInstance = BankProfilesApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val bankProfileDtoCollectionQueryParameters : BankProfileDtoCollectionQueryParameters =  // BankProfileDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getBankProfilesCount(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getBankProfilesCount(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling BankProfilesApi#getBankProfilesCount")
@@ -91,9 +94,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **bankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -105,6 +109,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

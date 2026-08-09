@@ -170,7 +170,7 @@ No authorization required
 
 <a id="getAccountGroups"></a>
 # **getAccountGroups**
-> AccountGroupDtoListEnvelope getAccountGroups(tenantId, apiVersion, xApiVersion)
+> AccountGroupDtoListEnvelope getAccountGroups(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
 
 Gets the current tenant account groups
 
@@ -186,8 +186,9 @@ val apiInstance = AccountGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountGroupDtoCollectionQueryParameters : AccountGroupDtoCollectionQueryParameters =  // AccountGroupDtoCollectionQueryParameters | 
 try {
-    val result : AccountGroupDtoListEnvelope = apiInstance.getAccountGroups(tenantId, apiVersion, xApiVersion)
+    val result : AccountGroupDtoListEnvelope = apiInstance.getAccountGroups(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountGroupsApi#getAccountGroups")
@@ -201,9 +202,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,12 +217,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getAccountGroupsCountAsync"></a>
 # **getAccountGroupsCountAsync**
-> Int32Envelope getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
 
 Gets the current tenant accounts count
 
@@ -236,8 +238,9 @@ val apiInstance = AccountGroupsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val accountGroupDtoCollectionQueryParameters : AccountGroupDtoCollectionQueryParameters =  // AccountGroupDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountGroupsApi#getAccountGroupsCountAsync")
@@ -251,9 +254,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,12 +269,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchAccountGroupAsync"></a>
 # **patchAccountGroupAsync**
-> EmptyEnvelope patchAccountGroupAsync(accountGroupId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountGroupAsync(accountGroupId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an account group
 
@@ -287,9 +291,9 @@ val accountGroupId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // ja
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchAccountGroupAsync(accountGroupId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchAccountGroupAsync(accountGroupId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AccountGroupsApi#patchAccountGroupAsync")
@@ -307,7 +311,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -286,7 +286,7 @@ No authorization required
 
 <a id="getItemPackingSlipEntriesAsync"></a>
 # **getItemPackingSlipEntriesAsync**
-> ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(packingSlipId, tenantId, apiVersion, xApiVersion)
+> ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(packingSlipId, tenantId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
 
 Get packing slip entries
 
@@ -303,8 +303,9 @@ val packingSlipId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPackingSlipEntryDtoCollectionQueryParameters : ItemPackingSlipEntryDtoCollectionQueryParameters =  // ItemPackingSlipEntryDtoCollectionQueryParameters | 
 try {
-    val result : ItemPackingSlipEntryDtoListEnvelope = apiInstance.getItemPackingSlipEntriesAsync(packingSlipId, tenantId, apiVersion, xApiVersion)
+    val result : ItemPackingSlipEntryDtoListEnvelope = apiInstance.getItemPackingSlipEntriesAsync(packingSlipId, tenantId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#getItemPackingSlipEntriesAsync")
@@ -319,9 +320,10 @@ try {
 | **packingSlipId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -333,12 +335,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPackingSlipEntriesCountAsync"></a>
 # **getItemPackingSlipEntriesCountAsync**
-> Int32Envelope getItemPackingSlipEntriesCountAsync(packingSlipId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPackingSlipEntriesCountAsync(packingSlipId, tenantId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
 
 Get packing slip entries count
 
@@ -355,8 +357,9 @@ val packingSlipId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPackingSlipEntryDtoCollectionQueryParameters : ItemPackingSlipEntryDtoCollectionQueryParameters =  // ItemPackingSlipEntryDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemPackingSlipEntriesCountAsync(packingSlipId, tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemPackingSlipEntriesCountAsync(packingSlipId, tenantId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#getItemPackingSlipEntriesCountAsync")
@@ -371,9 +374,10 @@ try {
 | **packingSlipId** | **java.util.UUID**|  | |
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -385,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPackingSlipEntryByIdAsync"></a>
@@ -444,7 +448,7 @@ No authorization required
 
 <a id="getItemPackingSlipsAsync"></a>
 # **getItemPackingSlipsAsync**
-> ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion)
+> ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
 
 Get all item packing slips
 
@@ -460,8 +464,9 @@ val apiInstance = ItemPackingSlipsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPackingSlipDtoCollectionQueryParameters : ItemPackingSlipDtoCollectionQueryParameters =  // ItemPackingSlipDtoCollectionQueryParameters | 
 try {
-    val result : ItemPackingSlipDtoListEnvelope = apiInstance.getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion)
+    val result : ItemPackingSlipDtoListEnvelope = apiInstance.getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#getItemPackingSlipsAsync")
@@ -475,9 +480,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,12 +495,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="getItemPackingSlipsCountAsync"></a>
 # **getItemPackingSlipsCountAsync**
-> Int32Envelope getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
 
 Get item packing slips count
 
@@ -510,8 +516,9 @@ val apiInstance = ItemPackingSlipsApi()
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
+val itemPackingSlipDtoCollectionQueryParameters : ItemPackingSlipDtoCollectionQueryParameters =  // ItemPackingSlipDtoCollectionQueryParameters | 
 try {
-    val result : Int32Envelope = apiInstance.getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion)
+    val result : Int32Envelope = apiInstance.getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#getItemPackingSlipsCountAsync")
@@ -525,9 +532,10 @@ try {
 ### Parameters
 | **tenantId** | **java.util.UUID**|  | |
 | **apiVersion** | **kotlin.String**|  | [optional] |
+| **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **xApiVersion** | **kotlin.String**|  | [optional] |
+| **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,12 +547,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="patchItemPackingSlipAsync"></a>
 # **patchItemPackingSlipAsync**
-> EmptyEnvelope patchItemPackingSlipAsync(packingSlipId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPackingSlipAsync(packingSlipId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item packing slip
 
@@ -561,9 +569,9 @@ val packingSlipId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // jav
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemPackingSlipAsync(packingSlipId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemPackingSlipAsync(packingSlipId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#patchItemPackingSlipAsync")
@@ -581,7 +589,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -598,7 +606,7 @@ No authorization required
 
 <a id="patchItemPackingSlipEntryAsync"></a>
 # **patchItemPackingSlipEntryAsync**
-> EmptyEnvelope patchItemPackingSlipEntryAsync(packingSlipId, entryId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPackingSlipEntryAsync(packingSlipId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a packing slip entry
 
@@ -616,9 +624,9 @@ val entryId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util
 val tenantId : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val apiVersion : kotlin.String = apiVersion_example // kotlin.String | 
 val xApiVersion : kotlin.String = xApiVersion_example // kotlin.String | 
-val operation : kotlin.collections.List<Operation> =  // kotlin.collections.List<Operation> | 
+val patchOperation : kotlin.collections.List<PatchOperation> =  // kotlin.collections.List<PatchOperation> | 
 try {
-    val result : EmptyEnvelope = apiInstance.patchItemPackingSlipEntryAsync(packingSlipId, entryId, tenantId, apiVersion, xApiVersion, operation)
+    val result : EmptyEnvelope = apiInstance.patchItemPackingSlipEntryAsync(packingSlipId, entryId, tenantId, apiVersion, xApiVersion, patchOperation)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ItemPackingSlipsApi#patchItemPackingSlipEntryAsync")
@@ -637,7 +645,7 @@ try {
 | **xApiVersion** | **kotlin.String**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **operation** | [**kotlin.collections.List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**kotlin.collections.List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
